@@ -1,0 +1,82 @@
+// Design Ref: §6 State Management + §2 Layer Architecture — root layout
+// Plan SC: 앱 시작 시 DB 초기화 (번들 jlpt.db 복사 + 마이그레이션)
+//
+// Root: QueryClientProvider + RootErrorBoundary + DB init gate.
+
+import { useEffect, useState } from 'react';
+import { Stack } from 'expo-router';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { queryClient } from '~/lib/queryClient';
+import { RootErrorBoundary } from '~/lib/errorBoundary';
+import { getDatabase } from '~/db/open';
+
+export default function RootLayout(): React.ReactNode {
+  const [dbReady, setDbReady] = useState(false);
+  const [dbError, setDbError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    getDatabase()
+      .then(() => {
+        if (!cancelled) setDbReady(true);
+      })
+      .catch((err: unknown) => {
+        if (!cancelled) setDbError(err instanceof Error ? err : new Error(String(err)));
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (dbError) {
+    // DB 초기화 실패 — 에러 바운더리로 전달
+    throw dbError;
+  }
+
+  if (!dbReady) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator size="large" color="#0366d6" />
+        <Text style={styles.loadingText}>준비 중…</Text>
+      </View>
+    );
+  }
+
+  return (
+    <RootErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="done" options={{ presentation: 'modal' }} />
+          <Stack.Screen
+            name="scan"
+            options={{ headerShown: true, title: '빠른 훑기', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="weakness"
+            options={{ headerShown: true, title: '약점 복습', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="word/[id]"
+            options={{ headerShown: true, title: '단어 상세', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="about"
+            options={{ headerShown: true, title: '앱 정보', headerBackTitle: '뒤로' }}
+          />
+        </Stack>
+      </QueryClientProvider>
+    </RootErrorBoundary>
+  );
+}
+
+const styles = StyleSheet.create({
+  loading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fafafa',
+  },
+  loadingText: { marginTop: 12, fontSize: 14, color: '#888' },
+});

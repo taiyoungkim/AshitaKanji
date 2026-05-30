@@ -1,0 +1,5 @@
+AshitaKanji example sentence attribution
+
+No Tatoeba example sentences are bundled in this draft DB yet.
+When example_jp/example_ko rows are added, include sentence authors here and
+show per-card attribution in the app.

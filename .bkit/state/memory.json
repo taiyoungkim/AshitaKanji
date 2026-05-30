@@ -1,0 +1,104 @@
+{
+  "version": "2.1.0",
+  "currentFeature": "ashitakanji",
+  "phase": "check",
+  "features": {
+    "ashitakanji": {
+      "phase": "completed",
+      "matchRate": 99,
+      "reportPath": "docs/04-report/ashitakanji.report.md",
+      "reportedAt": "2026-05-30T01:18:00Z",
+      "releaseStatus": "code+data Go (Match 99%, 10/10 SC, 6200 verified); No-Go=eas ascAppId+appleTeamId TBD + Pages URL 404 + TEMP icons (코드 외)",
+      "checkedAt": "2026-05-30T01:15:00Z",
+      "checkNote": "전체 13모듈 + Track A 데이터 통합 Check. tsc 0/test 41/lint 0. jlpt.db verified=6200 (검수 후 word-salad 24건 사람-교정→재스캔 0). Match ~99%, Critical/Important gap 0. 잔여 No-Go=코드 외(eas ascAppId+appleTeamId TBD, Pages URL 404) + TEMP 아이콘.",
+      "analysisPath": "docs/03-analysis/ashitakanji.analysis.md",
+      "doProgress": {
+        "module-1-skeleton": "completed",
+        "module-2-card-types": "completed",
+        "module-3-fsrs": "completed",
+        "module-4-session": "completed",
+        "module-7-study-screen": "completed",
+        "module-8-done": "completed",
+        "module-9-stats": "completed",
+        "module-10-tts": "completed",
+        "module-11-settings": "completed",
+        "module-5-scan": "completed",
+        "module-6-weakness": "completed",
+        "module-11b-export": "completed",
+        "module-12-about-worddetail": "completed",
+        "module-1-home": "completed",
+        "modulesTotal": 13,
+        "completedAt": "2026-05-29T17:52:00Z",
+        "mvpFeatureCompletionAt": "2026-05-29T21:32:00Z",
+        "mvpFeatureNote": "기획 MVP 핵심기능 전량 구현 완료. module-5(scan): ScanResultRepo+Sqlite+InMemory(record=DELETE-then-INSERT per word_id+session 멱등, findUnpromotedWeak), CardRepo.findScanCandidates(RANDOM/slice), AppMetaRepo, ScanService(startScan 50/100/200/300 session mode='scan', endScan recommended=unknown먼저+confused cap50, promoteToSrs initNew+markPromoted)+ScanScreen(?size= 자동시작)+app/scan.tsx. module-6(weakness): WeaknessService(getWeaknessQueue 우선순위 leech>최근7d Again>느린reveal8s>scan미편입, gradeCard scan-only→markPromoted)+WeaknessScreen(Card 재사용)+app/weakness.tsx. module-11b(export): exportPayload.ts(PURE buildExportPayload/backupFilename/utf8ByteLength vitest 격리)+ExportService.ts(expo-file-system+expo-sharing, 사용자 명시행위=외부송신0 유지)+SettingsScreen 백업/정보 배선. module-12: AboutScreen(LICENSES CC BY 4.0/Tatoeba CC BY 2.0 FR/MIT, '편집자 큐레이션 핵심선별 6,200' 카피, Linking, 로컬저장 고지)+WordDetailScreen(findById, 예문 attribution+TTS, loading/notfound/error)+app/about.tsx+app/word/[id].tsx. module-1(home): HomeScreen(useFocusEffect loadTodayCounts due+newAvail, 복습시작→/study, 새단어프리셋→/study, 빠른훑기→/scan?size=N, 약점→/weakness). DoneScreen [통계보기]→/(tabs)/stats. _layout Stack scan/weakness/word-[id]/about 헤더 등록. 41/41 vitest pass, tsc clean, expo lint 0/0.",
+        "note": "module-11: SettingsStore(zustand+persist via @react-native-async-storage/async-storage; selectedLevels/dailyNewLimit 5-50/ttsEnabled/ttsSpeed/highIntensityWarned + clamp/normalize/onRehydrate _hydrated) + SettingsScreen(레벨칩/스텝퍼/고강도>30 Alert/TTS토글) + StudyScreen settingsToSessionConfig 구독(하드코딩 N5/12 제거, _hydrated 후 세션시작). module-10: useTTS(expo-speech ja-JP, speed/enabled from settings, 미지원 silent+status) + StudyScreen onSpeak=reading_kana 배선. module-9: DailyStatsRepo+Sqlite+InMemory, ReviewLog/Session findAll, UserCard.countMatureByLevel(stability>=21 MATURE_STABILITY_DAYS, word join), Card.countByLevel, StatsRollupService(rollup idempotent from review_log+session→daily_stats + getStreak/getLevelProgress/getOverall) + StatsScreen(useFocusEffect rollup) + 5 vitest(idempotent/aggregate/streak/mature). module-8: DoneScreen(Reanimated FadeIn/ZoomIn entering)+app/done.tsx(modal route, _layout Stack 등록)+StudyScreen finish→endSession→router.push('/done') (inline 🎉 제거). 23/23 tests pass, tsc clean, lint 0/0. SQLite repos typecheck-only."
+      },
+      "planVersion": "v0.7.4",
+      "planPath": "docs/01-plan/features/ashitakanji.plan.md",
+      "designVersion": "v1.0",
+      "designPath": "docs/02-design/features/ashitakanji.design.md",
+      "selectedArchitecture": "C — Pragmatic Balance (Feature-first + thin service layer)",
+      "designedAt": "2026-05-29T12:45:00Z",
+      "startedAt": "2026-05-29T12:00:00Z",
+      "decisions": {
+        "scope": "JLPT N5-N1 curated 6,200 vocabulary",
+        "platform": "React Native + Expo (iOS/Android)",
+        "backend": "none (local SQLite)",
+        "dataset": "Kaggle Robin Pourtaud jlpt-words-by-level (CC BY 4.0)",
+        "srs": "ts-fsrs npm (FSRS)",
+        "qaMethod": "GPT-4o draft + 100% human review",
+        "storeName": "아시타칸지 (明日漢字)",
+        "persona": "long-term learner (N5→N1 over years)",
+        "ota": "off (expo.updates.enabled=false)",
+        "exportInMvp": true
+      },
+      "releaseGates": [
+        "QA error rate ≤1% per level (N1/N2 ≤2%)",
+        "Placeholder regression scan = 0",
+        "Privacy/Support URL HTTP 200",
+        "User learning data outbound = 0",
+        "OTA off verification"
+      ],
+      "pendingActions": [
+        "P0(data): assets/jlpt.db 생성 (Track A 검수 완료 후 build-db.ts) — 없으면 빈 DB 출시",
+        "P0(assets): assets/icon.png·splash.png·adaptive-icon.png 추가 (EAS 빌드 필수)",
+        "P0(deploy): deploy-pages.sh + GitHub Pages 활성화 → privacy/support URL HTTP 200 (현재 404)",
+        "roadmap remaining: module-5-scan, module-6-weakness, module-11b-export(JSON 내보내기, expo-sharing/file-system), module-12-about, module-13-polish",
+        "Issue OpenAI API key + set $50 cap",
+        "Proceed to /pdca analyze ashitakanji (통합 검증)"
+      ],
+      "reviewFixes_2026-05-29": {
+        "bucketA_defects": [
+          "SessionEngine.start: 빈 큐 → phase 'done' (UI 무한대기 방지) + test 추가",
+          "SessionStore.abandon + StudyScreen 언마운트 시 미완 세션 abandoned 기록",
+          "open.ts getWordCount() + 빈 word 테이블 가시 경고; StudyScreen dataEmpty 분기(데이터 미탑재 vs 오늘 끝 구분)"
+        ],
+        "bucketB_sdk53_align": "expo install --fix → React19/RN0.79.6/expo-router5.1.11/@types/react19/ts5.8.3; clean reinstall(ERESOLVE 해소); vitest.config URL node:url 명시; typecheck 0 / 18 tests pass",
+        "bucketC_lint": "eslint.config.js(eslint-config-expo flat) + eslint/eslint-config-expo devDeps + release-check 스크립트(typecheck&&test&&lint); lint 0 errors 0 warnings",
+        "notFixed_outOfCodeScope": "P0 assets/jlpt.db(Track A 데이터), P0 아이콘 바이너리, P0 URL deploy(인프라), 미구현 모듈(5/6/8/9/10/11/12/13)"
+      },
+      "reviewFixes2_2026-05-29": {
+        "releaseGate": "scripts/release-gate.mjs 추가 — 자산(jlpt.db/icon/splash/adaptive-icon/tatoeba-authors) 존재 + git repo + Privacy/Support/Home URL HTTP200 강제. package.json: ci-check(typecheck&&test&&lint, dev용 green) vs release-check(ci-check&&release-gate, 정직한 No-Go). 현재 release-gate FAIL 8건(자산5+URL3 404), git OK. exit1 전파 확인.",
+        "gitInit": "git init + branch main. 커밋 미실행(사용자 요청 대기). .gitignore에 secrets/·.env 이미 존재 확인.",
+        "docCanonical": "docs/01-plan/PLAN.md(v0.7.3) → SUPERSEDED 배너. 정본=docs/01-plan/features/ashitakanji.plan.md(v0.7.4).",
+        "stillNoGo": "출시 차단 유효: jlpt.db 데이터(Track A), 아이콘 바이너리, GitHub Pages 배포(deploy-pages.sh 실행+Pages 활성화). release-gate가 이제 자동 검출."
+      },
+      "reviewFixes3_2026-05-29": {
+        "urlUnify": "Privacy/Support URL 정본 통일 → https://taiyoungkim.github.io/AshitaKanji/{privacy,support}/ (bundleId com.taiyoungkim.* · site/ · release-gate 와 동일 출처). AboutScreen.tsx 의 ktyoung153.github.io/ashitakanji(엇갈림 원인) 폐기. 심사 링크 단일화.",
+        "easGate": "release-gate.mjs 에 eas.json submit.production.ios 값 검증 추가 — appleId/ascAppId/appleTeamId 가 빈값 또는 TBD 면 FAIL. 실행 결과 ascAppId·appleTeamId TBD 정상 검출(App Store Connect 값 필요). appleId=datin0214@gmail.com 는 설정됨.",
+        "pagesWorkflow": ".github/workflows/deploy-pages.yml 추가 — site/ → GitHub Pages(taiyoungkim.github.io/AshitaKanji/) 배포. push(main, site/** 변경) + workflow_dispatch. Pages Source='GitHub Actions' 1회 설정 + git remote/push 후 URL 404→200 해소.",
+        "placeholderIcons": "scripts/gen-placeholder-icons.mjs(zlib 만으로 PNG 인코딩, 무 의존성) — 브랜드 #0366d6 + 흰 원형 TEMP 아이콘 생성: assets/{icon(1024 불투명),adaptive-icon(1024 투명+파란원),splash(1024),favicon(64)}.png. 사용자 요청(임시, 나중 교체). release-gate 자산 존재 5/5 통과. ⚠ 출시 전 실제 디자인 교체 필수.",
+        "gateStateAfterIcons": "SKIP_URL gate FAIL 3건으로 축소: (1)jlpt.db verified=0/non_verified=6200 — Track A 사람검수 미완(level counts 6200 일치) (2)eas ascAppId+appleTeamId TBD (3)URL(미배포). 자산 존재·level count 통과.",
+        "stillNoGo": "코드 외 실물 산출물 미해결: (1) assets/jlpt.db(Track A 검수 데이터) (2) icon/splash/adaptive-icon.png(디자인) (3) assets/tatoeba-authors.txt(데이터셋 동봉 명단) (4) eas ascAppId+appleTeamId(Apple Developer/ASC) (5) git remote+push+Pages 활성화. 위조 금지 — release-gate 정직 차단 유지. tsc/lint clean, gate FAIL 7건(자산5+eas-ios1+URL)."
+      },
+      "devWorkflow": {
+        "environment": "Mac local + Expo Dev Client (iOS sim + Android emu + physical device)",
+        "aiMode": "bkit PDCA single session (Plan → Design → Do → Analyze → Iterate → Report)",
+        "workOrder": "Track A (data QA 8-10d) + Track B (app skeleton 6.5d) parallel",
+        "gitFlow": "main + feature/* branches, commit at PDCA phase boundaries",
+        "buildPipeline": "Expo Go → Expo Dev Client → EAS Build (TestFlight/Play Internal) → EAS Production",
+        "agentTeams": false
+      }
+    }
+  }
+}

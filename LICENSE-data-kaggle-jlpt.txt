@@ -1,0 +1,63 @@
+================================================================================
+JLPT Word Data Attribution
+================================================================================
+
+This application uses data derived from the following dataset:
+
+  Dataset Name : JLPT Words by Level
+  Author       : Robin Pourtaud
+  Source       : https://www.kaggle.com/datasets/robinpourtaud/jlpt-words-by-level
+  License      : Creative Commons Attribution 4.0 International (CC BY 4.0)
+  License URL  : https://creativecommons.org/licenses/by/4.0/
+
+--------------------------------------------------------------------------------
+Changes Made (CC BY 4.0 §3(a)(1)(B) — indication of modifications)
+--------------------------------------------------------------------------------
+
+The following modifications have been made to the original dataset:
+
+  1. Selected curated vocabulary per JLPT level
+     (editor curation — the source dataset does not include a frequency column):
+       N5:   300 words
+       N4:   600 words
+       N3: 1,100 words
+       N2: 1,700 words
+       N1: 2,500 words
+       Total: 6,200 words
+  2. Added Korean translations (meaning_ko). Generated as drafts via
+     OpenAI GPT-4o and then reviewed and corrected by a human editor.
+     Final translations are the editor's work product, not GPT output.
+  3. Added card-type classification (A/B/C/D/E) for UI rendering
+  4. Added part-of-speech metadata
+  5. Added example sentences (sourced separately from Tatoeba, CC BY 2.0 FR)
+  6. Removed English meanings from the user-facing app (retained for QA only)
+  7. Re-indexed with internal IDs
+
+All five JLPT levels (N1-N5) are sourced from this single Kaggle dataset.
+No additional data sources are used for vocabulary masters.
+
+--------------------------------------------------------------------------------
+CC BY 4.0 Summary (informational, the full license text governs)
+--------------------------------------------------------------------------------
+
+  You are free to:
+    - Share — copy and redistribute the material in any medium or format
+    - Adapt — remix, transform, and build upon the material
+    for any purpose, even commercially.
+
+  Under the following terms:
+    - Attribution — You must give appropriate credit, provide a link to the
+      license, and indicate if changes were made.
+
+--------------------------------------------------------------------------------
+Other Data Sources
+--------------------------------------------------------------------------------
+
+Example sentences:
+  Name    : Tatoeba Project
+  Source  : https://tatoeba.org
+  License : CC BY 2.0 FR (https://creativecommons.org/licenses/by/2.0/fr/)
+
+Korean translations and POS metadata:
+  Authored by the app developer. No third-party license applies.
+================================================================================
