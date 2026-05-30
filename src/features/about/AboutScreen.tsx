@@ -1,6 +1,6 @@
 // Design Ref: §5.1 /about — 라이선스 + Example Sources + 앱 정보.
 // Plan SC(데이터 출처/Play 정책): 데이터셋·예문 라이선스 정직 표기.
-//   - 단어 데이터: 편집자 큐레이션 핵심 선별 6,200 (Kaggle Robin Pourtaud, CC BY 4.0 기반 가공)
+//   - 단어 데이터: 편집자 큐레이션 6,200개. 문법·접사 패턴 제외 후 단어형 후보로 보강
 //   - 예문: Tatoeba (CC BY 2.0 FR) — 문장별 기여자 표기, 전체 명단 앱 동봉
 //   - "빈도 상위"/"JLPT 전체" 표현 금지 → "핵심 선별" 사용.
 
@@ -21,7 +21,7 @@ interface LicenseItem {
 const LICENSES: LicenseItem[] = [
   {
     title: '단어 데이터',
-    body: '편집자 큐레이션으로 핵심 선별한 JLPT N5~N1 6,200 단어. Kaggle "JLPT words by level" (Robin Pourtaud) 데이터를 기반으로 검수·가공했습니다.',
+    body: 'JLPT N5~N1 핵심 선별 6,200 단어. 문법·접사 패턴은 제외하고 원본 CSV의 중복 없는 단어형 후보로 보강했습니다. Kaggle "JLPT words by level" (Robin Pourtaud) 데이터를 기반으로 검수·가공했습니다.',
     license: 'CC BY 4.0',
   },
   {
