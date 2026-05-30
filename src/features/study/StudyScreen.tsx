@@ -6,7 +6,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, initialWindowMetrics } from 'react-native-safe-area-context';
 import { Card } from '~/components/card/Card';
 import { useTTS } from '~/hooks/useTTS';
@@ -118,13 +118,26 @@ export default function StudyScreen(): React.ReactNode {
     );
   }
 
-  // 풀스크린 몰입 — 탭바/헤더 없음. 상단 ✕ 로만 중도 종료(언마운트 시 abandon).
+  // 진행 중 종료는 실수 방지를 위해 확인 다이얼로그. 완료/빈 상태면 바로 닫음.
+  const handleClose = () => {
+    const inProgress = !!current && !!card && !summary && !dataEmpty;
+    if (!inProgress) {
+      router.back();
+      return;
+    }
+    Alert.alert('학습을 종료할까요?', '지금 나가면 이번 세션을 종료합니다.', [
+      { text: '계속 학습', style: 'cancel' },
+      { text: '종료', style: 'destructive', onPress: () => router.back() },
+    ]);
+  };
+
+  // 풀스크린 몰입 — 탭바/헤더 없음. 상단 ✕ 로 중도 종료(확인 후 언마운트 시 abandon).
   return (
     <SafeAreaView style={styles.fill} edges={['bottom']}>
       <View style={[styles.topBar, { paddingTop: TOP_INSET }]}>
         <Pressable
           style={styles.closeBtn}
-          onPress={() => router.back()}
+          onPress={handleClose}
           hitSlop={16}
           accessibilityRole="button"
           accessibilityLabel="학습 종료"
