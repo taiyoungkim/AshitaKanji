@@ -51,7 +51,7 @@ export class SessionEngine {
     const reviewQueue: CardWithProgress[] = [];
     for (const uc of dueCards) {
       const word = wordById.get(uc.word_id);
-      if (word && levelSet.has(word.level)) {
+      if (word && word.deprecated === 0 && levelSet.has(word.level)) {
         reviewQueue.push({ word, userCard: uc });
       }
     }

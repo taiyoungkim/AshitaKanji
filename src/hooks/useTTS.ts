@@ -30,22 +30,12 @@ export function useTTS(): UseTTS {
   enabledRef.current = enabled;
   rateRef.current = rate;
 
-  // 기기에 일본어 음성이 있는지 1회 확인.
+  // 미지원 여부를 사전 판단하지 않는다.
+  // getAvailableVoicesAsync 목록에 ja가 없어도 iOS가 실제 발화는 성공하는 기기가 많아,
+  // 사전 차단하면 버튼이 disabled 되어 "무반응"으로 보인다.
+  // 실제 발화 onError 시에만 unsupported 처리(아래 speak).
   useEffect(() => {
-    let alive = true;
-    void Speech.getAvailableVoicesAsync()
-      .then((voices) => {
-        if (!alive) return;
-        const hasJa = voices.some((v) => v.language?.toLowerCase().startsWith('ja'));
-        // 음성 목록이 비어도(일부 기기 빈 배열) 시스템 기본 ja 폴백이 동작할 수 있어
-        // 빈 목록은 unsupported 로 보지 않음. 명시적으로 ja 없음 + 목록 존재일 때만 표시.
-        if (!hasJa && voices.length > 0) setStatus('unsupported');
-      })
-      .catch(() => {
-        // 조회 실패는 미지원으로 단정하지 않음 — speak 시도 시 OS가 폴백.
-      });
     return () => {
-      alive = false;
       Speech.stop();
     };
   }, []);

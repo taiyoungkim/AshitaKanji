@@ -30,6 +30,20 @@ export const CARD_TYPE_LABEL_KO: Record<CardType, string> = {
   E: '혼합',
 };
 
+/** 품사 한국어 라벨. 빌드 스크립트(build-jlpt-db.mjs inferPartOfSpeech)가 영어로 채운 값을 표시용으로 변환. */
+const POS_LABEL_KO: Record<string, string> = {
+  noun: '명사',
+  verb: '동사',
+  adjective: '형용사',
+  adverb: '부사',
+};
+
+/** part_of_speech(영어) → 한국어 라벨. 미매핑 값은 원문 그대로 반환. */
+export function posLabelKo(pos: string | null | undefined): string | null {
+  if (!pos) return null;
+  return POS_LABEL_KO[pos.toLowerCase()] ?? pos;
+}
+
 /** 카드 타입별 악센트 색 (앞면 배지). */
 export const CARD_TYPE_COLOR: Record<CardType, string> = {
   A: '#0366d6',

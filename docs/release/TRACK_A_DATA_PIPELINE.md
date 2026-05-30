@@ -12,11 +12,19 @@ Track A turns the Kaggle JLPT CSV into the bundled SQLite database used by the a
 - Active deficits are backfilled from the source CSV with non-duplicate vocabulary-style
   rows at the same JLPT level to keep the launch study pool at 6,200 words.
 - The release gate should only pass after every active (`deprecated=0`) study row is verified.
+- Kanji readings/radicals/stroke counts come from EDRDG KANJIDIC2 (CC BY-SA 4.0).
+- Kanji Korean meanings are draft QA data until `data/track-a/kanji_qa_work.csv`
+  rows are manually reviewed and promoted from `auto` to `verified`.
+- NAVER example text is bundled only when `permission_status='cleared'`; app-owner
+  rights review is recorded in `data/track-a/naver_examples_qa_work.csv`.
+- The app opens live NAVER dictionary links only after an explicit user tap.
 
 ## Inputs
 
 - Source CSV: `/Users/tyoung/Downloads/jlpt_vocab.csv`
 - Required columns: `Original`, `Furigana`, `English`, `JLPT Level`
+- KANJIDIC2 XML cache: `.cache/kanjidic2.xml.gz` (downloaded automatically if missing)
+- NAVER examples QA CSV: `data/track-a/naver_examples_qa_work.csv`
 - Target counts: N5 300 / N4 600 / N3 1100 / N2 1700 / N1 2500
 
 ## Commands
@@ -39,9 +47,17 @@ Optional model override:
 OPENAI_MODEL=gpt-4o-mini OPENAI_API_KEY=... npm run track-a:translate
 ```
 
+Collect owner-cleared NAVER Japanese Dictionary examples into the QA CSV:
+
+```bash
+npm run track-a:naver-examples
+```
+
 ## Outputs
 
 - `data/track-a/jlpt_qa_work.csv`: human QA work file
+- `data/track-a/kanji_qa_work.csv`: human QA work file for kanji meanings
+- `data/track-a/naver_examples_qa_work.csv`: owner-cleared NAVER examples with attribution
 - `assets/jlpt.db`: bundled SQLite database
 - `data/track-a/jlpt_db_report.json`: count and QA status report
 - `assets/tatoeba-authors.txt`: attribution placeholder until examples are bundled
@@ -55,3 +71,7 @@ OPENAI_MODEL=gpt-4o-mini OPENAI_API_KEY=... npm run track-a:translate
 5. Re-run `npm run track-a:build`.
 6. Confirm report has `total=6200`, target level counts, `activeQa.verified == total`,
    and `activeQa.nonVerified == 0`.
+7. Review `data/track-a/kanji_qa_work.csv`; promote kanji rows to `verified` only after
+   the Korean meaning is human-checked.
+8. Review `data/track-a/naver_examples_qa_work.csv`; only rows with
+   `permission_status='cleared'` are bundled into `word_example`.

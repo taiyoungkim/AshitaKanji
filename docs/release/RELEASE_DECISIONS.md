@@ -22,7 +22,7 @@ Last updated: 2026-05-29 (synced with PLAN v0.7.3)
 | **OTA policy (MVP)** | **Disabled** (`expo.updates.enabled=false`) — zero outbound traffic |
 | **Hotfix channel (MVP)** | Store rebuild only; expedited Apple review for P0 |
 | **OTA reconsideration** | V1.1 trade-off review |
-| **Tatoeba attribution** | Per-card author shown on word detail; full author list in Settings → About → Example Sources |
+| **Example attribution** | Tatoeba and owner-cleared NAVER examples show per-card/source attribution on reveal/detail screens |
 | **AI content framing** | "Released content is human-reviewed data" (no "disclosure avoidance" wording) |
 | **Placeholder release blocker** | CI gate scans `site/ docs/release/PRIVACY_POLICY.md docs/release/SUPPORT.md app/ store-assets/` (excludes PLAN/RELEASE_DECISIONS to avoid self-reference). Must be 0 hits. |
 | **GitHub Pages deploy method** | `gh-pages` branch, root folder, via `deploy-pages.sh` |
@@ -82,4 +82,3 @@ For user-facing AI features:
 - Future AI questions require subscription entitlement.
 - BYO OpenAI API key is not used.
 - A server proxy is required to protect the API key, enforce rate limits, and control cost.
-

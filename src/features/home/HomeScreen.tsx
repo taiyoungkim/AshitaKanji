@@ -29,7 +29,7 @@ async function loadTodayCounts(levels: JlptLevel[], dailyNewLimit: number): Prom
   const due = await ucRepo.findAllDue(now);
   const dueWords = await cardRepo.findByIds(due.map((c) => c.word_id));
   const levelSet = new Set(levels);
-  const dueCount = dueWords.filter((w) => levelSet.has(w.level)).length;
+  const dueCount = dueWords.filter((w) => w.deprecated === 0 && levelSet.has(w.level)).length;
 
   const existing = await ucRepo.existingWordIds();
   const newCands = await cardRepo.findNewCandidates(levels, dailyNewLimit, existing);

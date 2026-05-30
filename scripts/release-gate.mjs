@@ -41,8 +41,10 @@ for (const rel of REQUIRED_ASSETS) {
 {
   const dbPath = resolve(ROOT, 'assets/jlpt.db');
   const nonVocabWhere = [
+    "surface LIKE '%~%'",
     "surface LIKE '%～%'",
     "surface LIKE '%〜%'",
+    "reading_kana LIKE '%~%'",
     "reading_kana LIKE '%～%'",
     "reading_kana LIKE '%〜%'",
     "surface GLOB '*[*()（）]*'",
@@ -90,6 +92,81 @@ for (const rel of REQUIRED_ASSETS) {
         activeNonVocab === 0,
         `active_non_vocab=${activeNonVocab}`,
       );
+      const placeholderRows = count([
+        "surface LIKE '%~%'",
+        "surface LIKE '%～%'",
+        "surface LIKE '%〜%'",
+        "reading_kana LIKE '%~%'",
+        "reading_kana LIKE '%～%'",
+        "reading_kana LIKE '%〜%'",
+      ].join(' OR '));
+      add(
+        'jlpt.db no placeholder words',
+        placeholderRows === 0,
+        `placeholder_rows=${placeholderRows}`,
+      );
+      const duplicateGroups = Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM (
+        SELECT surface, reading_kana
+        FROM word
+        WHERE deprecated=0
+        GROUP BY surface, reading_kana
+        HAVING COUNT(*) > 1
+      );`], { encoding: 'utf8' }).trim());
+      const duplicateExtraRows = Number(execFileSync('sqlite3', [dbPath, `SELECT COALESCE(SUM(c - 1), 0) FROM (
+        SELECT COUNT(*) AS c
+        FROM word
+        WHERE deprecated=0
+        GROUP BY surface, reading_kana
+        HAVING COUNT(*) > 1
+      );`], { encoding: 'utf8' }).trim());
+      add(
+        'jlpt.db active duplicates',
+        duplicateGroups === 0 && duplicateExtraRows === 0,
+        `duplicate_groups=${duplicateGroups}, duplicate_extra_rows=${duplicateExtraRows}`,
+      );
+      const tableExists = (table) =>
+        Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='${table}';`], {
+          encoding: 'utf8',
+        }).trim());
+      const tableCount = (table, where = '1=1') =>
+        Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM ${table} WHERE ${where};`], {
+          encoding: 'utf8',
+        }).trim());
+      const kanjiTableExists = tableExists('kanji') === 1;
+      const wordKanjiTableExists = tableExists('word_kanji') === 1;
+      add(
+        'jlpt.db kanji tables',
+        kanjiTableExists && wordKanjiTableExists,
+        `kanji=${kanjiTableExists ? 'OK' : '없음'}, word_kanji=${wordKanjiTableExists ? 'OK' : '없음'}`,
+      );
+      if (kanjiTableExists && wordKanjiTableExists) {
+        const kanjiRows = tableCount('kanji');
+        const wordKanjiRows = tableCount('word_kanji');
+        add(
+          'jlpt.db kanji coverage',
+          kanjiRows > 0 && wordKanjiRows > 0,
+          `kanji_rows=${kanjiRows}, word_kanji_rows=${wordKanjiRows}`,
+        );
+      }
+      const wordExampleExists = tableExists('word_example') === 1;
+      add('jlpt.db word_example table', wordExampleExists, wordExampleExists ? 'OK' : '없음');
+      if (wordExampleExists) {
+        const naverExamples = tableCount('word_example', `source='naver-ja-dict'`);
+        add(
+          'jlpt.db naver examples',
+          naverExamples > 0,
+          `naver_examples=${naverExamples}`,
+        );
+        const blockedNaverExamples = tableCount(
+          'word_example',
+          `lower(source) LIKE '%naver%' AND permission_status != 'cleared'`,
+        );
+        add(
+          'jlpt.db naver example permission',
+          blockedNaverExamples === 0,
+          `blocked_or_pending=${blockedNaverExamples}`,
+        );
+      }
     } catch (err) {
       add('jlpt.db content check', false, `sqlite3 실패: ${err instanceof Error ? err.message : String(err)}`);
     }

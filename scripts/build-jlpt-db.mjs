@@ -12,27 +12,40 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gunzipSync } from 'node:zlib';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_SOURCE = '/Users/tyoung/Downloads/jlpt_vocab.csv';
 const DEFAULT_WORK = resolve(ROOT, 'data/track-a/jlpt_qa_work.csv');
 const DEFAULT_DB = resolve(ROOT, 'assets/jlpt.db');
 const DEFAULT_REPORT = resolve(ROOT, 'data/track-a/jlpt_db_report.json');
+const DEFAULT_KANJI_QA = resolve(ROOT, 'data/track-a/kanji_qa_work.csv');
+const DEFAULT_NAVER_EXAMPLES = resolve(ROOT, 'data/track-a/naver_examples_qa_work.csv');
+const DEFAULT_KANJIDIC = resolve(ROOT, '.cache/kanjidic2.xml.gz');
+const KANJIDIC_URL = 'https://www.edrdg.org/kanjidic/kanjidic2.xml.gz';
+const KANJIDIC_LICENSE = 'CC BY-SA 4.0';
 const DATA_VERSION = 1;
 const TARGET_COUNTS = { N5: 300, N4: 600, N3: 1100, N2: 1700, N1: 2500 };
 const LEVEL_ORDER = ['N5', 'N4', 'N3', 'N2', 'N1'];
 const QA_STATUSES = new Set(['verified', 'auto', 'needs_review', 'rejected']);
 const NON_VOCAB_TAG = 'non-vocabulary';
+const DUPLICATE_TAG = 'duplicate-active-replaced';
+const KANJI_RADICALS =
+  '一丨丶丿乙亅二亠人儿入八冂冖冫几凵刀力勹匕匚匸十卜卩厂厶又口囗土士夂夊夕大女子宀寸小尢尸屮山巛工己巾干幺广廴廾弋弓彐彡彳心戈戶手支攴文斗斤方无日曰月木欠止歹殳毋比毛氏气水火爪父爻爿片牙牛犬玄玉瓜瓦甘生用田疋疒癶白皮皿目矛矢石示禸禾穴立竹米糸缶网羊羽老而耒耳聿肉臣自至臼舌舛舟艮色艸虍虫血行衣襾見角言谷豆豕豸貝赤走足身車辛辰辵邑酉釆里金長門阜隶隹雨青非面革韋韭音頁風飛食首香馬骨高髟鬥鬯鬲鬼魚鳥鹵鹿麥麻黃黍黑黹黽鼎鼓鼠鼻齊齒龍龜龠';
 
 const args = parseArgs(process.argv.slice(2));
 const sourcePath = resolve(args.source ?? DEFAULT_SOURCE);
 const qaPath = resolve(args.qa ?? DEFAULT_WORK);
 const dbPath = resolve(args.out ?? DEFAULT_DB);
 const reportPath = resolve(args.report ?? DEFAULT_REPORT);
+const kanjiQaPath = resolve(args.kanjiQa ?? DEFAULT_KANJI_QA);
+const naverExamplesPath = resolve(args.naverExamples ?? DEFAULT_NAVER_EXAMPLES);
+const kanjidicPath = resolve(args.kanjidic ?? DEFAULT_KANJIDIC);
 const model = args.model ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini';
 const batchSize = Number(args.batchSize ?? 40);
 const translate = Boolean(args.translate);
 const rebuildQa = Boolean(args.rebuildQa);
+const skipKanjidic = Boolean(args.skipKanjidic);
 
 if (args.help) {
   printHelp();
@@ -45,22 +58,24 @@ async function main() {
   ensureParent(qaPath);
   ensureParent(dbPath);
   ensureParent(reportPath);
+  ensureParent(kanjiQaPath);
+  if (!skipKanjidic) await ensureKanjidicFile(kanjidicPath);
 
   let rows = existsSync(qaPath) && !rebuildQa ? readCsv(qaPath) : [];
   if (rows.length === 0) {
     rows = selectRows(readCsv(sourcePath));
+    const curation = curateAndBackfillRows(rows);
+    rows = curation.rows;
     writeQaCsv(qaPath, rows);
     console.log(`created QA work CSV: ${rel(qaPath)} (${rows.length} rows)`);
+    printCurationResult(curation);
   } else {
-    rows = normalizeQaRows(rows);
-    const backfill = backfillActiveDeficits(rows);
-    rows = backfill.rows;
+    const curation = curateAndBackfillRows(rows);
+    rows = curation.rows;
     if (writeQaCsvIfChanged(qaPath, rows)) {
       console.log(`updated QA curation metadata: ${rel(qaPath)}`);
     }
-    if (backfill.addedTotal > 0) {
-      console.log(`backfilled active study rows: ${formatCounts(backfill.addedByLevel)}`);
-    }
+    printCurationResult(curation);
     console.log(`loaded QA work CSV: ${rel(qaPath)} (${rows.length} rows)`);
   }
 
@@ -73,7 +88,23 @@ async function main() {
     console.log(`updated Korean drafts: ${rel(qaPath)}`);
   }
 
-  buildDatabase(rows, dbPath);
+  const kanjidic = skipKanjidic ? new Map() : parseKanjidic(kanjidicPath);
+  const kanjiQaRows = buildKanjiQaRows(rows, kanjidic);
+  if (writeKanjiQaCsvIfChanged(kanjiQaPath, kanjiQaRows)) {
+    console.log(`updated kanji QA work CSV: ${rel(kanjiQaPath)} (${kanjiQaRows.length} rows)`);
+  } else {
+    console.log(`loaded kanji QA work CSV: ${rel(kanjiQaPath)} (${kanjiQaRows.length} rows)`);
+  }
+
+  const naverExampleRows = readNaverExampleRows(naverExamplesPath, rows);
+  if (naverExampleRows.length > 0) {
+    rows = attachPrimaryExamples(rows, naverExampleRows);
+    console.log(`loaded NAVER examples: ${rel(naverExamplesPath)} (${naverExampleRows.length} rows)`);
+  } else if (existsSync(naverExamplesPath)) {
+    console.log(`loaded NAVER examples: ${rel(naverExamplesPath)} (0 usable rows)`);
+  }
+
+  buildDatabase(rows, dbPath, kanjiQaRows, naverExampleRows);
   const report = inspectDatabase(dbPath);
   writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   writeAttributionFile(resolve(ROOT, 'assets/tatoeba-authors.txt'));
@@ -84,6 +115,200 @@ async function main() {
   if (report.activeQa.verified !== report.total || report.activeQa.nonVerified !== 0) {
     console.log('\nNOTE: release-gate should still fail until every active study row is human verified.');
   }
+}
+
+function curateAndBackfillRows(rows) {
+  const normalized = normalizeQaRows(rows);
+  const duplicateCuration = deprecateActiveDuplicates(normalized);
+  const backfill = backfillActiveDeficits(duplicateCuration.rows);
+  return {
+    rows: backfill.rows,
+    duplicateCuration,
+    backfill,
+  };
+}
+
+function printCurationResult({ duplicateCuration, backfill }) {
+  if (duplicateCuration.deprecatedTotal > 0) {
+    console.log(`deprecated active duplicate rows: ${formatCounts(duplicateCuration.deprecatedByLevel)}`);
+  }
+  if (backfill.addedTotal > 0) {
+    console.log(`backfilled active study rows: ${formatCounts(backfill.addedByLevel)}`);
+  }
+}
+
+async function ensureKanjidicFile(path) {
+  if (existsSync(path)) return;
+  ensureParent(path);
+  console.log(`downloading KANJIDIC2: ${KANJIDIC_URL}`);
+  const response = await fetch(KANJIDIC_URL);
+  if (!response.ok) {
+    throw new Error(`KANJIDIC2 download failed ${response.status}: ${await response.text()}`);
+  }
+  const body = Buffer.from(await response.arrayBuffer());
+  writeFileSync(path, body);
+}
+
+function parseKanjidic(path) {
+  const raw = readFileSync(path);
+  const xml = path.endsWith('.gz') ? gunzipSync(raw).toString('utf8') : raw.toString('utf8');
+  const out = new Map();
+
+  for (const match of xml.matchAll(/<character>([\s\S]*?)<\/character>/g)) {
+    const body = match[1];
+    const literal = xmlText(firstTag(body, 'literal'));
+    if (!literal) continue;
+
+    const radicalNumber = Number(
+      firstAttrTag(body, 'rad_value', 'rad_type', 'classical') ?? firstTag(body, 'rad_value') ?? 0,
+    ) || null;
+    const meaningsEn = unique(xmlAttrTags(body, 'meaning', 'm_lang', null).map(xmlText));
+    const onyomi = unique(xmlAttrTags(body, 'reading', 'r_type', 'ja_on').map(xmlText));
+    const kunyomi = unique(xmlAttrTags(body, 'reading', 'r_type', 'ja_kun').map(xmlText));
+    const strokeCount = Number(firstTag(body, 'stroke_count') ?? 0) || null;
+    const radName = xmlText(firstTag(body, 'rad_name'));
+
+    out.set(literal, {
+      literal,
+      meaningsEn,
+      onyomi,
+      kunyomi,
+      radical: radicalNumber ? radicalByNumber(radicalNumber) : '',
+      radicalName: radName,
+      radicalNumber,
+      strokeCount,
+    });
+  }
+
+  return out;
+}
+
+function buildKanjiQaRows(wordRows, kanjidic) {
+  const needed = unique(normalizeQaRows(wordRows)
+    .filter((row) => row.deprecated !== '1')
+    .flatMap((row) => extractKanjiLiterals(row.surface, row.furigana)));
+  const existing = existsSync(kanjiQaPath) ? readCsv(kanjiQaPath) : [];
+  const byLiteral = new Map(existing.map((row) => [clean(row.literal), row]));
+  const out = [];
+
+  for (const literal of needed) {
+    const entry = kanjidic.get(literal);
+    if (!entry) continue;
+    const current = byLiteral.get(literal);
+    const meaningsKo = parseArrayish(current?.meanings_ko);
+    const status = QA_STATUSES.has(clean(current?.qa_status)) ? clean(current?.qa_status) : 'auto';
+    const qaNote = clean(current?.qa_note) || 'Auto draft: KANJIDIC2 readings/radical; Korean meaning draft derived from local Korean word gloss when available.';
+    const shouldRegenerateDraft = status === 'auto' && (!current || qaNote.startsWith('Auto draft:'));
+    const draftKo = meaningsKo.length > 0 && !shouldRegenerateDraft
+      ? meaningsKo
+      : deriveKanjiMeaningKo(literal, wordRows);
+
+    out.push({
+      literal,
+      meanings_ko: JSON.stringify(draftKo),
+      meanings_en: JSON.stringify(entry.meaningsEn),
+      onyomi: JSON.stringify(entry.onyomi),
+      kunyomi: JSON.stringify(entry.kunyomi),
+      radical: clean(current?.radical) || entry.radical,
+      radical_name_ko: clean(current?.radical_name_ko),
+      radical_number: clean(current?.radical_number) || String(entry.radicalNumber ?? ''),
+      stroke_count: clean(current?.stroke_count) || String(entry.strokeCount ?? ''),
+      source: clean(current?.source) || 'kanjidic2',
+      source_url: clean(current?.source_url) || KANJIDIC_URL,
+      license: clean(current?.license) || KANJIDIC_LICENSE,
+      qa_status: status,
+      data_version: clean(current?.data_version) || String(DATA_VERSION),
+      qa_note: qaNote,
+    });
+  }
+
+  return out.sort((a, b) => a.literal.localeCompare(b.literal, 'ja'));
+}
+
+function deriveKanjiMeaningKo(literal, wordRows) {
+  const candidates = normalizeQaRows(wordRows)
+    .filter((row) =>
+      row.deprecated !== '1' &&
+      row.surface.includes(literal) &&
+      (row.surface === literal || (extractKanjiLiterals(row.surface).length === 1 && row.surface.length <= 3)) &&
+      clean(row.meaning_ko) &&
+      !clean(row.meaning_ko).startsWith('[DRAFT MISSING]'))
+    .sort((a, b) => {
+      const exact = Number(b.surface === literal) - Number(a.surface === literal);
+      if (exact !== 0) return exact;
+      const singleKanjiWord =
+        Number(extractKanjiLiterals(b.surface).length === 1) -
+        Number(extractKanjiLiterals(a.surface).length === 1);
+      if (singleKanjiWord !== 0) return singleKanjiWord;
+      const qa = Number(b.qa_status === 'verified') - Number(a.qa_status === 'verified');
+      if (qa !== 0) return qa;
+      return a.surface.length - b.surface.length;
+    });
+  for (const row of candidates) {
+    const values = splitMeanings(row.meaning_ko);
+    if (values.length > 0) return values.slice(0, 3);
+  }
+  return [];
+}
+
+function splitMeanings(text) {
+  return clean(text).split(/[,;、，]/).map((part) => part.trim()).filter(Boolean);
+}
+
+function readNaverExampleRows(path, wordRows) {
+  if (!existsSync(path)) return [];
+  const activeIds = new Set(
+    normalizeQaRows(wordRows)
+      .filter((row) => row.deprecated !== '1')
+      .map((row) => row.id),
+  );
+  const seen = new Set();
+  const out = [];
+  for (const raw of readCsv(path)) {
+    const row = normalizeNaverExampleRow(raw);
+    if (!row.word_id || seen.has(row.word_id) || !activeIds.has(row.word_id)) continue;
+    if (!row.jp || row.permission_status !== 'cleared' || row.qa_status === 'rejected') continue;
+    seen.add(row.word_id);
+    out.push(row);
+  }
+  return out.sort((a, b) => a.word_id.localeCompare(b.word_id));
+}
+
+function normalizeNaverExampleRow(row) {
+  return {
+    word_id: clean(row.word_id),
+    jp: clean(row.jp),
+    ko: clean(row.ko),
+    source: clean(row.source) || 'naver-ja-dict',
+    source_url: clean(row.source_url),
+    license: clean(row.license) || 'owner-confirmed-cleared',
+    permission_status: clean(row.permission_status) || 'pending',
+    attribution: clean(row.attribution),
+    captured_at: clean(row.captured_at) || String(Date.now()),
+    qa_status: QA_STATUSES.has(clean(row.qa_status)) ? clean(row.qa_status) : 'auto',
+    sort_order: clean(row.sort_order) || '0',
+  };
+}
+
+function attachPrimaryExamples(wordRows, exampleRows) {
+  const byWordId = new Map();
+  for (const row of exampleRows) {
+    if (!byWordId.has(row.word_id)) byWordId.set(row.word_id, row);
+  }
+  return wordRows.map((row) => {
+    const example = byWordId.get(clean(row.id));
+    if (!example) return row;
+    return {
+      ...row,
+      example_jp: example.jp,
+      example_ko: example.ko,
+      example_jp_id: '',
+      example_jp_author: example.attribution || 'NAVER 일본어사전',
+      example_ko_id: '',
+      example_ko_author: '',
+      example_license: example.license || 'owner-confirmed-cleared',
+    };
+  });
 }
 
 function selectRows(sourceRows) {
@@ -185,6 +410,90 @@ function backfillActiveDeficits(rows) {
   }
 
   return { rows: out, addedTotal, addedByLevel };
+}
+
+function deprecateActiveDuplicates(rows) {
+  const out = rows.map((row, index) => ({ ...row, __index: index }));
+  const replacementCapacity = estimateBackfillCapacity(out);
+  const groups = new Map();
+  for (const row of out) {
+    if (row.deprecated === '1') continue;
+    const key = duplicateWordKey(row);
+    if (!key.trim()) continue;
+    const group = groups.get(key) ?? [];
+    group.push(row);
+    groups.set(key, group);
+  }
+
+  const deprecatedByLevel = zeroLevelCounts();
+  let deprecatedTotal = 0;
+  const levelRank = Object.fromEntries(LEVEL_ORDER.map((level, index) => [level, index]));
+
+  for (const group of groups.values()) {
+    if (group.length <= 1) continue;
+    const ordered = [...group].sort((a, b) => {
+      const levelDelta = (levelRank[a.level] ?? 99) - (levelRank[b.level] ?? 99);
+      if (levelDelta !== 0) return levelDelta;
+      return a.__index - b.__index;
+    });
+    const keep = chooseDuplicateKeepRow(ordered, replacementCapacity);
+    for (const row of ordered.filter((candidate) => candidate !== keep)) {
+      row.deprecated = '1';
+      row.tags = withJsonTag(row.tags, DUPLICATE_TAG);
+      row.qa_note = appendQaNote(
+        row.qa_note,
+        `active 중복 표제어 대체: ${keep.level} ${keep.id} 유지`,
+      );
+      if (row.level in deprecatedByLevel) deprecatedByLevel[row.level] += 1;
+      if (row.level in replacementCapacity) replacementCapacity[row.level] -= 1;
+      deprecatedTotal += 1;
+    }
+  }
+
+  return {
+    rows: out.map(({ __index, ...row }) => row),
+    deprecatedTotal,
+    deprecatedByLevel,
+  };
+}
+
+function chooseDuplicateKeepRow(ordered, replacementCapacity) {
+  for (const keep of ordered) {
+    const removals = ordered.filter((row) => row !== keep);
+    if (removalsCanBeBackfilled(removals, replacementCapacity)) return keep;
+  }
+  return ordered[0];
+}
+
+function removalsCanBeBackfilled(removals, replacementCapacity) {
+  const needed = zeroLevelCounts();
+  for (const row of removals) {
+    if (row.level in needed) needed[row.level] += 1;
+  }
+  return LEVEL_ORDER.every((level) => needed[level] <= (replacementCapacity[level] ?? 0));
+}
+
+function estimateBackfillCapacity(rows) {
+  const capacity = zeroLevelCounts();
+  if (!existsSync(sourcePath)) return capacity;
+
+  const seenWords = new Set(rows.map((row) => duplicateWordKey(row)));
+  for (const source of readCsv(sourcePath)) {
+    const level = clean(source['JLPT Level']);
+    if (!(level in capacity)) continue;
+
+    const surface = clean(source.Original);
+    const reading = clean(source.Furigana);
+    const english = clean(source.English);
+    if (!surface || !reading || !english) continue;
+    if (vocabularyExclusionReason({ surface, reading_kana: reading })) continue;
+
+    const key = duplicateWordKey({ surface, reading_kana: reading });
+    if (seenWords.has(key)) continue;
+    seenWords.add(key);
+    capacity[level] += 1;
+  }
+  return capacity;
 }
 
 function makeQaRow({ id, level, surface, reading, english, tags, qaNote }) {
@@ -323,7 +632,7 @@ async function draftKoreanMeanings(batch, model) {
   return parsed.rows ?? [];
 }
 
-function buildDatabase(rows, outPath) {
+function buildDatabase(rows, outPath, kanjiQaRows, naverExampleRows = []) {
   const tmp = `${outPath}.tmp`;
   if (existsSync(tmp)) rmSync(tmp);
   execSql(tmp, [
@@ -355,6 +664,22 @@ function buildDatabase(rows, outPath) {
     'CREATE INDEX idx_word_level ON word(level);',
     'CREATE INDEX idx_word_qa ON word(qa_status);',
     'CREATE INDEX idx_word_deprecated ON word(deprecated);',
+    `CREATE TABLE kanji (
+      literal TEXT PRIMARY KEY,
+      meanings_ko TEXT NOT NULL,
+      onyomi TEXT,
+      kunyomi TEXT,
+      radical TEXT,
+      radical_name_ko TEXT,
+      radical_number INTEGER,
+      stroke_count INTEGER,
+      source TEXT NOT NULL,
+      source_url TEXT,
+      license TEXT,
+      qa_status TEXT NOT NULL CHECK (qa_status IN ('verified','auto','needs_review','rejected')),
+      data_version INTEGER NOT NULL
+    );`,
+    'CREATE INDEX idx_kanji_qa ON kanji(qa_status);',
     `CREATE TABLE user_card (
       word_id TEXT PRIMARY KEY,
       difficulty REAL NOT NULL,
@@ -373,6 +698,16 @@ function buildDatabase(rows, outPath) {
     'CREATE INDEX idx_user_card_due ON user_card(due);',
     'CREATE INDEX idx_user_card_state ON user_card(state);',
     'CREATE INDEX idx_user_card_leech ON user_card(leech);',
+    `CREATE TABLE word_kanji (
+      word_id TEXT NOT NULL,
+      literal TEXT NOT NULL,
+      position INTEGER NOT NULL,
+      PRIMARY KEY (word_id, literal, position),
+      FOREIGN KEY (word_id) REFERENCES word(id),
+      FOREIGN KEY (literal) REFERENCES kanji(literal)
+    );`,
+    'CREATE INDEX idx_word_kanji_word ON word_kanji(word_id, position);',
+    'CREATE INDEX idx_word_kanji_literal ON word_kanji(literal);',
     `CREATE TABLE review_log (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       word_id TEXT NOT NULL,
@@ -442,15 +777,37 @@ function buildDatabase(rows, outPath) {
       completed_session_count INTEGER NOT NULL DEFAULT 0,
       avg_reveal_ms REAL
     );`,
+    `CREATE TABLE word_example (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      word_id TEXT NOT NULL,
+      jp TEXT NOT NULL,
+      ko TEXT,
+      source TEXT NOT NULL,
+      source_url TEXT,
+      license TEXT,
+      permission_status TEXT NOT NULL CHECK (permission_status IN ('cleared','pending','blocked','self')),
+      attribution TEXT,
+      captured_at INTEGER,
+      qa_status TEXT NOT NULL CHECK (qa_status IN ('verified','auto','needs_review','rejected')),
+      sort_order INTEGER NOT NULL DEFAULT 0,
+      FOREIGN KEY (word_id) REFERENCES word(id)
+    );`,
+    'CREATE INDEX idx_word_example_word ON word_example(word_id, sort_order);',
+    'CREATE INDEX idx_word_example_permission ON word_example(source, permission_status);',
     'CREATE TABLE app_meta (key TEXT PRIMARY KEY, value TEXT);',
     `INSERT INTO app_meta (key, value) VALUES
-      ('schema_version', '1'),
+      ('schema_version', '2'),
       ('data_version', '${DATA_VERSION}'),
       ('source', 'kaggle:robinpourtaud/jlpt-words-by-level'),
+      ('kanji_source', 'kanjidic2'),
+      ('kanji_license', '${KANJIDIC_LICENSE}'),
       ('qa_policy', 'gpt_draft_human_verified_before_release');`,
   ]);
 
   const importCsv = writeWordImportCsv(rows);
+  const kanjiImportCsv = writeKanjiImportCsv(kanjiQaRows);
+  const wordKanjiImportCsv = writeWordKanjiImportCsv(rows, kanjiQaRows);
+  const wordExampleImportCsv = writeWordExampleImportCsv(naverExampleRows);
   const insert = [
     '.mode csv',
     `.import ${sqlQuote(importCsv)} word_import`,
@@ -464,13 +821,44 @@ function buildDatabase(rows, outPath) {
        nullif(example_ko_author, ''), nullif(example_license, ''), nullif(alt_forms, ''),
        nullif(disambig, ''), source, qa_status, CAST(deprecated AS INTEGER), nullif(tags, ''),
        CAST(data_version AS INTEGER)
-     FROM word_import;`,
+     FROM word_import
+     WHERE CAST(deprecated AS INTEGER) = 0;`,
     'DROP TABLE word_import;',
-    'PRAGMA user_version = 1;',
+    `.import ${sqlQuote(kanjiImportCsv)} kanji_import`,
+    `INSERT INTO kanji
+      (literal, meanings_ko, onyomi, kunyomi, radical, radical_name_ko, radical_number,
+       stroke_count, source, source_url, license, qa_status, data_version)
+     SELECT literal, meanings_ko, nullif(onyomi, ''), nullif(kunyomi, ''), nullif(radical, ''),
+       nullif(radical_name_ko, ''), CAST(nullif(radical_number, '') AS INTEGER),
+       CAST(nullif(stroke_count, '') AS INTEGER),
+       source, nullif(source_url, ''), nullif(license, ''), qa_status, CAST(data_version AS INTEGER)
+     FROM kanji_import;`,
+    'DROP TABLE kanji_import;',
+    `.import ${sqlQuote(wordKanjiImportCsv)} word_kanji_import`,
+    `INSERT INTO word_kanji (word_id, literal, position)
+     SELECT word_id, literal, CAST(position AS INTEGER)
+     FROM word_kanji_import;`,
+    'DROP TABLE word_kanji_import;',
+    `.import ${sqlQuote(wordExampleImportCsv)} word_example_import`,
+    `INSERT INTO word_example
+      (word_id, jp, ko, source, source_url, license, permission_status,
+       attribution, captured_at, qa_status, sort_order)
+     SELECT word_id, jp, nullif(ko, ''), source, nullif(source_url, ''),
+       nullif(license, ''), permission_status, nullif(attribution, ''),
+       CAST(nullif(captured_at, '') AS INTEGER), qa_status, CAST(sort_order AS INTEGER)
+     FROM word_example_import
+     WHERE permission_status = 'cleared'
+       AND qa_status != 'rejected'
+       AND word_id IN (SELECT id FROM word);`,
+    'DROP TABLE word_example_import;',
+    'PRAGMA user_version = 2;',
     'VACUUM;',
   ];
   execSql(tmp, insert);
   if (existsSync(importCsv)) rmSync(importCsv);
+  if (existsSync(kanjiImportCsv)) rmSync(kanjiImportCsv);
+  if (existsSync(wordKanjiImportCsv)) rmSync(wordKanjiImportCsv);
+  if (existsSync(wordExampleImportCsv)) rmSync(wordExampleImportCsv);
   if (existsSync(outPath)) rmSync(outPath);
   renameSync(tmp, outPath);
 }
@@ -478,6 +866,8 @@ function buildDatabase(rows, outPath) {
 function inspectDatabase(dbPath) {
   const count = (where = '1=1') =>
     Number(execSql(dbPath, [`SELECT COUNT(*) FROM word WHERE ${where};`], true).trim());
+  const tableCount = (table, where = '1=1') =>
+    Number(execSql(dbPath, [`SELECT COUNT(*) FROM ${table} WHERE ${where};`], true).trim());
   const levelCounts = {};
   for (const level of LEVEL_ORDER) {
     levelCounts[level] = count(`level='${level}' AND deprecated=0`);
@@ -491,6 +881,36 @@ function inspectDatabase(dbPath) {
     activeQa[status] = count(`qa_status='${status}' AND deprecated=0`);
   }
   activeQa.nonVerified = count(`qa_status!='verified' AND deprecated=0`);
+  const duplicateGroups = Number(execSql(
+    dbPath,
+    [
+      `SELECT COUNT(*) FROM (
+        SELECT surface, reading_kana
+        FROM word
+        WHERE deprecated=0
+        GROUP BY surface, reading_kana
+        HAVING COUNT(*) > 1
+      );`,
+    ],
+    true,
+  ).trim());
+  const duplicateExtraRows = Number(execSql(
+    dbPath,
+    [
+      `SELECT COALESCE(SUM(c - 1), 0) FROM (
+        SELECT COUNT(*) AS c
+        FROM word
+        WHERE deprecated=0
+        GROUP BY surface, reading_kana
+        HAVING COUNT(*) > 1
+      );`,
+    ],
+    true,
+  ).trim());
+  const kanjiQa = {};
+  for (const status of QA_STATUSES) {
+    kanjiQa[status] = tableCount('kanji', `qa_status='${status}'`);
+  }
   return {
     path: rel(dbPath),
     bytes: existsSync(dbPath) ? readFileSync(dbPath).byteLength : 0,
@@ -500,6 +920,31 @@ function inspectDatabase(dbPath) {
     levels: levelCounts,
     qa,
     activeQa,
+    activeDuplicateGroups: duplicateGroups,
+    activeDuplicateExtraRows: duplicateExtraRows,
+    kanji: {
+      total: tableCount('kanji'),
+      qa: kanjiQa,
+      wordLinks: tableCount('word_kanji'),
+      kanjiBearingWords: Number(execSql(
+        dbPath,
+        ['SELECT COUNT(DISTINCT word_id) FROM word_kanji;'],
+        true,
+      ).trim()),
+    },
+    examples: {
+      total: tableCount('word_example'),
+      naver: tableCount('word_example', `source='naver-ja-dict'`),
+      naverCleared: tableCount(
+        'word_example',
+        `source='naver-ja-dict' AND permission_status='cleared'`,
+      ),
+      words: Number(execSql(
+        dbPath,
+        ['SELECT COUNT(DISTINCT word_id) FROM word_example;'],
+        true,
+      ).trim()),
+    },
     targets: TARGET_COUNTS,
   };
 }
@@ -539,12 +984,89 @@ function writeWordImportCsv(rows) {
   return p;
 }
 
+function writeKanjiImportCsv(rows) {
+  const p = resolve(ROOT, 'data/track-a/.kanji_import.csv');
+  ensureParent(p);
+  const headers = [
+    'literal',
+    'meanings_ko',
+    'onyomi',
+    'kunyomi',
+    'radical',
+    'radical_name_ko',
+    'radical_number',
+    'stroke_count',
+    'source',
+    'source_url',
+    'license',
+    'qa_status',
+    'data_version',
+  ];
+  const csv = [headers.join(',')];
+  for (const row of rows) {
+    csv.push(headers.map((h) => csvEscape(row[h] ?? '')).join(','));
+  }
+  writeFileSync(p, `${csv.join('\n')}\n`);
+  return p;
+}
+
+function writeWordKanjiImportCsv(wordRows, kanjiRows) {
+  const p = resolve(ROOT, 'data/track-a/.word_kanji_import.csv');
+  ensureParent(p);
+  const available = new Set(kanjiRows.map((row) => row.literal));
+  const headers = ['word_id', 'literal', 'position'];
+  const csv = [headers.join(',')];
+
+  for (const row of normalizeQaRows(wordRows)) {
+    if (row.deprecated === '1') continue;
+    const literals = extractKanjiLiterals(row.surface, row.furigana)
+      .filter((literal) => available.has(literal));
+    literals.forEach((literal, position) => {
+      csv.push([row.id, literal, String(position)].map(csvEscape).join(','));
+    });
+  }
+
+  writeFileSync(p, `${csv.join('\n')}\n`);
+  return p;
+}
+
+function writeWordExampleImportCsv(exampleRows) {
+  const p = resolve(ROOT, 'data/track-a/.word_example_import.csv');
+  ensureParent(p);
+  const headers = [
+    'word_id',
+    'jp',
+    'ko',
+    'source',
+    'source_url',
+    'license',
+    'permission_status',
+    'attribution',
+    'captured_at',
+    'qa_status',
+    'sort_order',
+  ];
+  const csv = [headers.join(',')];
+  for (const row of exampleRows) {
+    csv.push(headers.map((h) => csvEscape(row[h] ?? '')).join(','));
+  }
+  writeFileSync(p, `${csv.join('\n')}\n`);
+  return p;
+}
+
 function writeQaCsv(path, rows) {
   writeFileSync(path, renderQaCsv(rows));
 }
 
 function writeQaCsvIfChanged(path, rows) {
   const next = renderQaCsv(rows);
+  if (existsSync(path) && readFileSync(path, 'utf8') === next) return false;
+  writeFileSync(path, next);
+  return true;
+}
+
+function writeKanjiQaCsvIfChanged(path, rows) {
+  const next = renderKanjiQaCsv(rows);
   if (existsSync(path) && readFileSync(path, 'utf8') === next) return false;
   writeFileSync(path, next);
   return true;
@@ -574,6 +1096,31 @@ function renderQaCsv(rows) {
     'qa_status',
     'deprecated',
     'tags',
+    'data_version',
+    'qa_note',
+  ];
+  const csv = [headers.join(',')];
+  for (const row of rows) {
+    csv.push(headers.map((h) => csvEscape(row[h] ?? '')).join(','));
+  }
+  return `${csv.join('\n')}\n`;
+}
+
+function renderKanjiQaCsv(rows) {
+  const headers = [
+    'literal',
+    'meanings_ko',
+    'meanings_en',
+    'onyomi',
+    'kunyomi',
+    'radical',
+    'radical_name_ko',
+    'radical_number',
+    'stroke_count',
+    'source',
+    'source_url',
+    'license',
+    'qa_status',
     'data_version',
     'qa_note',
   ];
@@ -754,6 +1301,69 @@ function extractOutputText(json) {
   return chunks.join('');
 }
 
+function extractKanjiLiterals(...texts) {
+  const seen = new Set();
+  const out = [];
+  const re = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/gu;
+  for (const text of texts) {
+    for (const match of clean(text).matchAll(re)) {
+      const literal = match[0];
+      if (seen.has(literal)) continue;
+      seen.add(literal);
+      out.push(literal);
+    }
+  }
+  return out;
+}
+
+function firstTag(body, tag) {
+  const match = body?.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`));
+  return match?.[1] ?? '';
+}
+
+function firstAttrTag(body, tag, attrName, attrValue) {
+  return xmlAttrTags(body, tag, attrName, attrValue)[0] ?? '';
+}
+
+function xmlAttrTags(body, tag, attrName, attrValue) {
+  const out = [];
+  const re = new RegExp(`<${tag}([^>]*)>([\\s\\S]*?)<\\/${tag}>`, 'g');
+  for (const match of body.matchAll(re)) {
+    const attrs = match[1] ?? '';
+    const value = attrValue === null ? !attrs.includes(`${attrName}=`) : attrs.includes(`${attrName}="${attrValue}"`);
+    if (value) out.push(match[2] ?? '');
+  }
+  return out;
+}
+
+function xmlText(value) {
+  return clean(value)
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'");
+}
+
+function parseArrayish(value) {
+  const text = clean(value);
+  if (!text) return [];
+  try {
+    const parsed = JSON.parse(text);
+    return Array.isArray(parsed) ? parsed.map(clean).filter(Boolean) : [];
+  } catch {
+    return splitMeanings(text);
+  }
+}
+
+function radicalByNumber(n) {
+  return Array.from(KANJI_RADICALS)[n - 1] ?? '';
+}
+
+function unique(values) {
+  return [...new Set(values.map(clean).filter(Boolean))];
+}
+
 function execSql(dbPath, statements, capture = false) {
   const input = `${statements.join('\n')}\n`;
   const out = execFileSync('sqlite3', [dbPath], {
@@ -770,6 +1380,8 @@ function parseArgs(argv) {
     const a = argv[i];
     if (a === '--translate') out.translate = true;
     else if (a === '--rebuild-qa') out.rebuildQa = true;
+    else if (a === '--skip-kanjidic' || a === '--skipKanjidic') out.skipKanjidic = true;
+    else if (a === '--naver-examples') out.naverExamples = argv[++i];
     else if (a === '--help' || a === '-h') out.help = true;
     else if (a.startsWith('--')) out[a.slice(2)] = argv[++i];
   }
@@ -785,6 +1397,11 @@ Options:
   --qa PATH         QA work CSV path (default: ${rel(DEFAULT_WORK)})
   --out PATH        SQLite output path (default: ${rel(DEFAULT_DB)})
   --report PATH     JSON report path (default: ${rel(DEFAULT_REPORT)})
+  --kanjiQa PATH    Kanji QA CSV path (default: ${rel(DEFAULT_KANJI_QA)})
+  --naverExamples PATH
+                   NAVER examples QA CSV path (default: ${rel(DEFAULT_NAVER_EXAMPLES)})
+  --kanjidic PATH   KANJIDIC2 XML or XML.GZ path (default: ${rel(DEFAULT_KANJIDIC)})
+  --skip-kanjidic   Build empty kanji tables without downloading/parsing KANJIDIC2
   --translate       Draft missing Korean meanings via OpenAI Responses API
   --model MODEL     OpenAI model (default: gpt-4o-mini or OPENAI_MODEL)
   --batchSize N     Translation batch size (default: 40)
@@ -799,6 +1416,9 @@ function printReport(report) {
   console.log(`levels: ${formatCounts(report.levels)}`);
   console.log(`qa(all): ${formatCounts(report.qa)}`);
   console.log(`qa(active): ${formatCounts(report.activeQa)}`);
+  console.log(`kanji: total=${report.kanji.total}, word_links=${report.kanji.wordLinks}, words=${report.kanji.kanjiBearingWords}`);
+  console.log(`kanji qa: ${formatCounts(report.kanji.qa)}`);
+  console.log(`examples: total=${report.examples.total}, naver=${report.examples.naver}, words=${report.examples.words}`);
 }
 
 function formatCounts(counts) {

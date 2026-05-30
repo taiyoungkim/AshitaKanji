@@ -159,12 +159,72 @@ export const SCHEMA_V1: string[] = [
   )`,
 ];
 
+export const SCHEMA_V2_ADDITIONS: string[] = [
+  // ─────────────────────────────────────────────────────────────
+  // kanji — per-character learning detail data
+  // 배열 필드는 JSON 문자열 저장. meanings_ko는 사람 검수 후 verified 출시 대상.
+  // ─────────────────────────────────────────────────────────────
+  `CREATE TABLE IF NOT EXISTS kanji (
+    literal            TEXT PRIMARY KEY,
+    meanings_ko        TEXT NOT NULL,
+    onyomi             TEXT,
+    kunyomi            TEXT,
+    radical            TEXT,
+    radical_name_ko    TEXT,
+    radical_number     INTEGER,
+    stroke_count       INTEGER,
+    source             TEXT NOT NULL,
+    source_url         TEXT,
+    license            TEXT,
+    qa_status          TEXT NOT NULL CHECK (qa_status IN ('verified','auto','needs_review','rejected')),
+    data_version       INTEGER NOT NULL
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_kanji_qa ON kanji(qa_status)`,
+
+  // ─────────────────────────────────────────────────────────────
+  // word_kanji — word → unique kanji literals in render order
+  // ─────────────────────────────────────────────────────────────
+  `CREATE TABLE IF NOT EXISTS word_kanji (
+    word_id   TEXT NOT NULL,
+    literal   TEXT NOT NULL,
+    position  INTEGER NOT NULL,
+    PRIMARY KEY (word_id, literal, position),
+    FOREIGN KEY (word_id) REFERENCES word(id),
+    FOREIGN KEY (literal) REFERENCES kanji(literal)
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_word_kanji_word ON word_kanji(word_id, position)`,
+  `CREATE INDEX IF NOT EXISTS idx_word_kanji_literal ON word_kanji(literal)`,
+
+  // ─────────────────────────────────────────────────────────────
+  // word_example — future multi-example model with source/permission gate
+  // MVP word.example_jp/example_ko columns remain supported.
+  // ─────────────────────────────────────────────────────────────
+  `CREATE TABLE IF NOT EXISTS word_example (
+    id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+    word_id            TEXT NOT NULL,
+    jp                 TEXT NOT NULL,
+    ko                 TEXT,
+    source             TEXT NOT NULL,
+    source_url         TEXT,
+    license            TEXT,
+    permission_status  TEXT NOT NULL CHECK (permission_status IN ('cleared','pending','blocked','self')),
+    attribution        TEXT,
+    captured_at        INTEGER,
+    qa_status          TEXT NOT NULL CHECK (qa_status IN ('verified','auto','needs_review','rejected')),
+    sort_order         INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (word_id) REFERENCES word(id)
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_word_example_word ON word_example(word_id, sort_order)`,
+  `CREATE INDEX IF NOT EXISTS idx_word_example_permission ON word_example(source, permission_status)`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
   if (targetVersion === 1) return SCHEMA_V1;
+  if (targetVersion === 2) return [...SCHEMA_V1, ...SCHEMA_V2_ADDITIONS];
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 1;
+export const CURRENT_SCHEMA_VERSION = 2;

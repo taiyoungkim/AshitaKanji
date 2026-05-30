@@ -67,6 +67,19 @@ describe('start — queue build', () => {
     expect(s.mainQueue).toHaveLength(3);
   });
 
+  it('does not queue deprecated review cards', async () => {
+    cardRepo.seed([{ ...word('old-pattern'), surface: '～区', deprecated: 1 }]);
+    await userCardRepo.upsert({
+      ...fsrs.initNew('old-pattern', NOW - 5 * DAY),
+      state: 'review',
+      due: NOW - DAY,
+    });
+
+    const s = await engine.start(cfg, NOW);
+    expect(s.mainQueue.map((c) => c.word.id)).not.toContain('old-pattern');
+    expect(s.phase).toBe('done');
+  });
+
   it('starts in done phase when no due and no new cards (empty queue)', async () => {
     cardRepo.seed([]); // 데이터 없음
     const s = await engine.start(cfg, NOW);

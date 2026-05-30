@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-30T16:06:08.066Z",
+  "elapsed_sec": 586,
+  "db": "assets/jlpt.db",
+  "out": "data/track-a/naver_examples_qa_work.csv",
+  "total_words_selected": 6200,
+  "existing_rows": 1265,
+  "target_rows": 1265,
+  "processed": 1265,
+  "collected": 1265,
+  "misses": 0,
+  "miss_samples": []
+}

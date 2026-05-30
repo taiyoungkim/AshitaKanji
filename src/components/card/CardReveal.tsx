@@ -8,6 +8,7 @@ import { renderKanjiFace } from '~/lib/cardType';
 interface Props {
   word: Word;
   onSpeak?: () => void;
+  onOpenDetail?: () => void;
 }
 
 function attributionLine(word: Word): string | null {
@@ -17,12 +18,12 @@ function attributionLine(word: Word): string | null {
   const lic = word.example_license;
   if (!author && !lic) return null;
   const parts: string[] = [];
-  if (author) parts.push(`© ${author}`);
-  if (lic) parts.push(lic === 'self' ? '자체 제작' : lic);
+  if (author) parts.push(author.startsWith('NAVER') ? author : `© ${author}`);
+  if (lic) parts.push(lic === 'self' ? '자체 제작' : lic === 'owner-confirmed-cleared' ? '사용 허가 확인' : lic);
   return parts.join(' · ');
 }
 
-export function CardReveal({ word, onSpeak }: Props): React.ReactNode {
+export function CardReveal({ word, onSpeak, onOpenDetail }: Props): React.ReactNode {
   const attribution = attributionLine(word);
   return (
     <View style={styles.container}>
@@ -49,6 +50,16 @@ export function CardReveal({ word, onSpeak }: Props): React.ReactNode {
       <Pressable style={styles.ttsButton} onPress={onSpeak} accessibilityLabel="발음 듣기">
         <Text style={styles.ttsIcon}>🔊</Text>
       </Pressable>
+      {onOpenDetail && (
+        <Pressable
+          style={styles.detailButton}
+          onPress={onOpenDetail}
+          accessibilityRole="button"
+          accessibilityLabel="단어 상세 보기"
+        >
+          <Text style={styles.detailButtonText}>단어 상세</Text>
+        </Pressable>
+      )}
     </View>
   );
 }
@@ -71,4 +82,12 @@ const styles = StyleSheet.create({
   attribution: { fontSize: 11, color: '#aaa', marginTop: 8 },
   ttsButton: { marginTop: 20, padding: 8 },
   ttsIcon: { fontSize: 28 },
+  detailButton: {
+    marginTop: 8,
+    paddingHorizontal: 18,
+    paddingVertical: 9,
+    borderRadius: 20,
+    backgroundColor: '#eef2f6',
+  },
+  detailButtonText: { fontSize: 14, color: '#0366d6', fontWeight: '700' },
 });

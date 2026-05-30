@@ -1,0 +1,10 @@
+KANJIDIC2 data attribution
+
+Source: KANJIDIC2, Electronic Dictionary Research and Development Group (EDRDG)
+URL: https://www.edrdg.org/kanjidic/kanjd2index_legacy.html
+License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+License statement: https://www.edrdg.org/edrdg/licence.html
+
+AshitaKanji uses KANJIDIC2-derived kanji readings, radicals, and stroke counts.
+Korean meaning drafts are tracked separately in data/track-a/kanji_qa_work.csv
+and should be human-reviewed before release.

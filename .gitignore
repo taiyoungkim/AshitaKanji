@@ -62,6 +62,8 @@ coverage/
 data/gpt_responses/
 data/qa_log.csv
 data/track-a/.word_import.csv
+data/track-a/.kanji_import.csv
+data/track-a/.word_kanji_import.csv
 
 # bkit state (PDCA memory는 공유, runtime/snapshots는 로컬)
 .bkit/runtime/

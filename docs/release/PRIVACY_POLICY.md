@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2026-05-29
+Last updated: 2026-05-30
 
 This Privacy Policy applies to **아시타칸지 (明日漢字)**.
 
@@ -35,6 +35,10 @@ The MVP version does not collect, share, sell, or transmit user data.
 
 The MVP version does not use third-party analytics, advertising, or crash-reporting services.
 
+Some dictionary example sentences from NAVER Japanese Dictionary may be bundled inside the app database. Viewing those bundled examples does not contact NAVER or any external server.
+
+If you tap an external dictionary link, the app opens NAVER Japanese Dictionary in your browser with the selected word or kanji as the search query. This request happens only after your explicit tap. NAVER may process the search query, IP address, browser/device information, and related access logs according to its own policies.
+
 Future versions may add optional features such as analytics, cloud backup, or AI question support. If that happens, this Privacy Policy and the App Store / Google Play data declarations will be updated before those features are released.
 
 ## AI Features
@@ -62,4 +66,3 @@ For privacy questions, contact:
 Email: datin0214@gmail.com
 
 GitHub: https://github.com/taiyoungkim/AshitaKanji
-

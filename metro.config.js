@@ -1,11 +1,13 @@
-// Metro config — bundle the prebuilt SQLite DB as an asset.
+// Metro config — bundle the prebuilt SQLite DB and expo-sqlite web WASM assets.
 // Default assetExts excludes `db`, so require('../../assets/jlpt.db') in src/db/open.ts
 // would fail to bundle and the app would launch with an empty word table.
 const { getDefaultConfig } = require('expo/metro-config');
 
 const config = getDefaultConfig(__dirname);
-if (!config.resolver.assetExts.includes('db')) {
-  config.resolver.assetExts.push('db');
+for (const ext of ['db', 'wasm']) {
+  if (!config.resolver.assetExts.includes(ext)) {
+    config.resolver.assetExts.push(ext);
+  }
 }
 
 // SDK 53 defaults package-exports resolution ON, which pulls zustand's

@@ -7,13 +7,22 @@ import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { setAudioModeAsync } from 'expo-audio';
 import { queryClient } from '~/lib/queryClient';
 import { RootErrorBoundary } from '~/lib/errorBoundary';
 import { getDatabase } from '~/db/open';
+import { ToastProvider } from '~/components/Toast';
 
 export default function RootLayout(): React.ReactNode {
   const [dbReady, setDbReady] = useState(false);
   const [dbError, setDbError] = useState<Error | null>(null);
+
+  // TTS가 무음 스위치(벨소리 OFF)에서도 나오도록 오디오 세션을 playback 으로.
+  useEffect(() => {
+    void setAudioModeAsync({ playsInSilentMode: true }).catch((err: unknown) => {
+      console.warn('[audio] setAudioMode failed:', err);
+    });
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -46,6 +55,7 @@ export default function RootLayout(): React.ReactNode {
   return (
     <RootErrorBoundary>
       <QueryClientProvider client={queryClient}>
+        <ToastProvider>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
           <Stack.Screen
@@ -70,6 +80,7 @@ export default function RootLayout(): React.ReactNode {
             options={{ headerShown: true, title: '앱 정보', headerBackTitle: '뒤로' }}
           />
         </Stack>
+        </ToastProvider>
       </QueryClientProvider>
     </RootErrorBoundary>
   );

@@ -108,6 +108,7 @@ export default function StudyScreen(): React.ReactNode {
           revealed={reveal}
           onReveal={showReveal}
           onSpeak={tts.enabled ? () => tts.speak(card.word.reading_kana) : undefined}
+          onOpenDetail={() => router.push(`/word/${card.word.id}`)}
         />
         {reveal ? (
           <GradeButtons onGrade={(g) => void submitGrade(g)} disabled={busy} />
