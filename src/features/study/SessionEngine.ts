@@ -16,6 +16,7 @@ import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import type { ReviewLogRepo } from '~/db/repos/ReviewLogRepo';
 import type { SessionRepo } from '~/db/repos/SessionRepo';
 import type { FsrsScheduler } from '~/srs/FsrsScheduler';
+import { shuffle } from '~/lib/shuffle';
 
 /** Anki 관례: 누적 lapse 8회 → leech. */
 const LEECH_LAPSES = 8;
@@ -35,6 +36,8 @@ export class SessionEngine {
     private readonly reviewLogRepo: ReviewLogRepo,
     private readonly sessionRepo: SessionRepo,
     private readonly fsrs: FsrsScheduler,
+    /** 큐 셔플 (기본: Fisher-Yates 랜덤). 테스트는 결정성 위해 항등 함수 주입. */
+    private readonly shuffleQueue: <T>(items: readonly T[]) => T[] = shuffle,
   ) {}
 
   /** 세션 시작 → 큐 빌드: overdue(due 오름차순) → 신규 N개. */
@@ -83,7 +86,8 @@ export class SessionEngine {
     this.pendingAgain = [];
     this.againCount = 0;
     this.goodEasyCount = 0;
-    const mainQueue = [...reviewQueue, ...newQueue]; // overdue → 신규
+    // 복습+신규를 합쳐 랜덤 셔플 — 순서 예측(발음 암기) 방지.
+    const mainQueue = this.shuffleQueue([...reviewQueue, ...newQueue]);
     this.state = {
       sessionId,
       // 빈 큐(복습·신규 모두 0)면 곧장 done — UI가 무한 대기/빈 화면에 갇히지 않게.

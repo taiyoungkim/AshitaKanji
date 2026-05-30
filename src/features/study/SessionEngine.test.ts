@@ -35,7 +35,10 @@ beforeEach(() => {
   logRepo = new InMemoryReviewLogRepo();
   sessionRepo = new InMemorySessionRepo();
   fsrs = new FsrsScheduler(generatorParameters({ enable_fuzz: false }));
-  engine = new SessionEngine(cardRepo, userCardRepo, logRepo, sessionRepo, fsrs);
+  // 항등 셔플 주입 — 큐 순서 검증을 결정적으로 유지 (런타임은 랜덤 셔플).
+  engine = new SessionEngine(cardRepo, userCardRepo, logRepo, sessionRepo, fsrs, (items) => [
+    ...items,
+  ]);
 });
 
 const cfg = { levels: ['N5'] as JlptLevel[], dailyNewLimit: 3, highIntensityAcknowledged: false };
