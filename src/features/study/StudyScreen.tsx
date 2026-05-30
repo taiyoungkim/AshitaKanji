@@ -6,7 +6,8 @@
 
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, initialWindowMetrics } from 'react-native-safe-area-context';
 import { Card } from '~/components/card/Card';
 import { useTTS } from '~/hooks/useTTS';
 import { useSessionStore } from '~/stores/SessionStore';
@@ -14,6 +15,10 @@ import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStor
 import { GradeButtons } from './components/GradeButtons';
 import { RevealButton } from './components/RevealButton';
 import { SessionProgress } from './components/SessionProgress';
+
+// fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
+// 디바이스 실제 top inset(상태바/노치 높이)을 직접 사용해 ✕를 상단바 아래로 내림.
+const TOP_INSET = initialWindowMetrics?.insets.top ?? 24;
 
 export default function StudyScreen(): React.ReactNode {
   const engine = useSessionStore((s) => s.engine);
@@ -61,8 +66,9 @@ export default function StudyScreen(): React.ReactNode {
   }, [finished, summary, endSession, router]);
 
   // 데이터 미탑재 — 빈 큐를 "오늘 끝"으로 오인하지 않게 명시 안내(P0).
+  let body: React.ReactNode;
   if (dataEmpty) {
-    return (
+    body = (
       <View style={styles.center}>
         <Text style={styles.emoji}>📦</Text>
         <Text style={styles.doneTitle}>학습 데이터 없음</Text>
@@ -71,55 +77,71 @@ export default function StudyScreen(): React.ReactNode {
         </Text>
       </View>
     );
-  }
-
-  if (!current) {
-    return (
+  } else if (!current) {
+    body = (
       <View style={styles.center}>
         <ActivityIndicator size="large" color="#0366d6" />
         <Text style={styles.dim}>세션 준비 중…</Text>
       </View>
     );
-  }
-
-  if (summary) {
-    // 큰 축하 애니메이션은 /done 모달이 담당 — 탭으로 복귀 시엔 간단 완료 표시.
-    return (
+  } else if (summary) {
+    // 큰 축하 애니메이션은 /done 모달이 담당 — 복귀 시엔 간단 완료 표시.
+    body = (
       <View style={styles.center}>
         <Text style={styles.emoji}>✅</Text>
         <Text style={styles.doneTitle}>오늘 학습 완료</Text>
         <Text style={styles.dim}>내일 또 만나요.</Text>
       </View>
     );
-  }
-
-  if (!card) {
-    return (
+  } else if (!card) {
+    body = (
       <View style={styles.center}>
         <Text style={styles.dim}>오늘 학습할 카드가 없어요.</Text>
       </View>
     );
+  } else {
+    body = (
+      <View style={styles.container}>
+        <SessionProgress state={current} />
+        <Card
+          word={card.word}
+          revealed={reveal}
+          onReveal={showReveal}
+          onSpeak={tts.enabled ? () => tts.speak(card.word.reading_kana) : undefined}
+        />
+        {reveal ? (
+          <GradeButtons onGrade={(g) => void submitGrade(g)} disabled={busy} />
+        ) : (
+          <RevealButton onPress={showReveal} />
+        )}
+      </View>
+    );
   }
 
+  // 풀스크린 몰입 — 탭바/헤더 없음. 상단 ✕ 로만 중도 종료(언마운트 시 abandon).
   return (
-    <View style={styles.container}>
-      <SessionProgress state={current} />
-      <Card
-        word={card.word}
-        revealed={reveal}
-        onReveal={showReveal}
-        onSpeak={tts.enabled ? () => tts.speak(card.word.reading_kana) : undefined}
-      />
-      {reveal ? (
-        <GradeButtons onGrade={(g) => void submitGrade(g)} disabled={busy} />
-      ) : (
-        <RevealButton onPress={showReveal} />
-      )}
-    </View>
+    <SafeAreaView style={styles.fill} edges={['bottom']}>
+      <View style={[styles.topBar, { paddingTop: TOP_INSET }]}>
+        <Pressable
+          style={styles.closeBtn}
+          onPress={() => router.back()}
+          hitSlop={16}
+          accessibilityRole="button"
+          accessibilityLabel="학습 종료"
+        >
+          <Text style={styles.closeIcon}>✕</Text>
+        </Pressable>
+      </View>
+      {body}
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  fill: { flex: 1, backgroundColor: '#f5f5f7' },
+  topBar: { paddingHorizontal: 8, paddingBottom: 4 },
+  closeBtn: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
+  closeIcon: { fontSize: 22, color: '#555', fontWeight: '600' },
   container: { flex: 1, backgroundColor: '#f5f5f7' },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24, gap: 8 },
   dim: { fontSize: 14, color: '#888' },

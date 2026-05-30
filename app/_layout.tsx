@@ -48,6 +48,10 @@ export default function RootLayout(): React.ReactNode {
       <QueryClientProvider client={queryClient}>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
+          <Stack.Screen
+            name="study"
+            options={{ headerShown: false, presentation: 'fullScreenModal' }}
+          />
           <Stack.Screen name="done" options={{ presentation: 'modal' }} />
           <Stack.Screen
             name="scan"

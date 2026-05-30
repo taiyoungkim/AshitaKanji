@@ -14,7 +14,7 @@ export default function DoneScreen(): React.ReactNode {
 
   const close = () => {
     if (router.canGoBack()) router.back();
-    else router.replace('/(tabs)/study');
+    else router.replace('/home');
   };
 
   if (!summary) {
