@@ -26,8 +26,16 @@ export function CardReveal({ word, onSpeak }: Props): React.ReactNode {
   const attribution = attributionLine(word);
   return (
     <View style={styles.container}>
-      <Text style={styles.surface}>{renderKanjiFace(word)}</Text>
-      <Text style={styles.reading}>{word.reading_kana}</Text>
+      {/* 표기·읽기 탭 → 발음 재생 (🔊 버튼과 동일 동작) */}
+      <Pressable
+        style={styles.speakable}
+        onPress={onSpeak}
+        accessibilityRole="button"
+        accessibilityLabel="발음 듣기"
+      >
+        <Text style={styles.surface}>{renderKanjiFace(word)}</Text>
+        <Text style={styles.reading}>{word.reading_kana}</Text>
+      </Pressable>
       <Text style={styles.meaning}>{word.meaning_ko}</Text>
 
       {word.example_jp && (
@@ -47,7 +55,8 @@ export function CardReveal({ word, onSpeak }: Props): React.ReactNode {
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
-  surface: { fontSize: 48, fontWeight: '700', color: '#1a1a1a' },
+  speakable: { alignItems: 'center' },
+  surface: { fontSize: 48, fontWeight: '700', color: '#1a1a1a', textAlign: 'center' },
   reading: { fontSize: 22, color: '#2a9d8f', marginTop: 8 },
   meaning: { fontSize: 20, color: '#1a1a1a', marginTop: 12, fontWeight: '600' },
   exampleBox: {
