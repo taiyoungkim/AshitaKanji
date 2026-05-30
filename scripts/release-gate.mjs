@@ -40,6 +40,13 @@ for (const rel of REQUIRED_ASSETS) {
 // 1b) Track A DB 내용 검증 — 파일 존재만으로는 출시 데이터 품질을 보장할 수 없음.
 {
   const dbPath = resolve(ROOT, 'assets/jlpt.db');
+  const nonVocabWhere = [
+    "surface LIKE '%～%'",
+    "surface LIKE '%〜%'",
+    "reading_kana LIKE '%～%'",
+    "reading_kana LIKE '%〜%'",
+    "surface GLOB '*[*()（）]*'",
+  ].join(' OR ');
   if (!existsSync(dbPath)) {
     add('jlpt.db word count', false, 'DB 없음');
     add('jlpt.db verified count', false, 'DB 없음');
@@ -50,22 +57,38 @@ for (const rel of REQUIRED_ASSETS) {
           encoding: 'utf8',
         }).trim());
       const targets = { N5: 300, N4: 600, N3: 1100, N2: 1700, N1: 2500 };
+      const actualLevels = Object.fromEntries(
+        Object.keys(targets).map((level) => [level, count(`level='${level}' AND deprecated=0`)]),
+      );
       const levelBad = Object.entries(targets).filter(([level, target]) =>
-        count(`level='${level}' AND deprecated=0`) !== target,
+        actualLevels[level] !== target,
       );
       add(
-        'jlpt.db level counts',
+        'jlpt.db active level counts',
         levelBad.length === 0,
         levelBad.length === 0
-          ? 'N5=300 N4=600 N3=1100 N2=1700 N1=2500'
-          : `불일치: ${levelBad.map(([level, target]) => `${level}!=${target}`).join(', ')}`,
+          ? Object.entries(actualLevels).map(([level, n]) => `${level}=${n}`).join(' ')
+          : `불일치: ${levelBad.map(([level, target]) => `${level}=${actualLevels[level]}/${target}`).join(', ')}`,
+      );
+      const active = count(`deprecated=0`);
+      const deprecated = count(`deprecated=1`);
+      add(
+        'jlpt.db active word count',
+        active === 6200,
+        `active=${active}, deprecated=${deprecated}`,
       );
       const verified = count(`qa_status='verified' AND deprecated=0`);
       const nonVerified = count(`qa_status!='verified' AND deprecated=0`);
       add(
-        'jlpt.db verified 6200',
-        verified === 6200 && nonVerified === 0,
-        `verified=${verified}, non_verified=${nonVerified}`,
+        'jlpt.db active verified',
+        verified === active && nonVerified === 0,
+        `active_verified=${verified}, active_non_verified=${nonVerified}`,
+      );
+      const activeNonVocab = count(`deprecated=0 AND (${nonVocabWhere})`);
+      add(
+        'jlpt.db vocabulary-only curation',
+        activeNonVocab === 0,
+        `active_non_vocab=${activeNonVocab}`,
       );
     } catch (err) {
       add('jlpt.db content check', false, `sqlite3 실패: ${err instanceof Error ? err.message : String(err)}`);

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Track A vocabulary pipeline:
 //   1) Select curated JLPT rows from Kaggle CSV.
+//   1b) Deprecate grammar/affix patterns and backfill same-level vocabulary rows.
 //   2) Optionally draft Korean meanings via OpenAI Responses API.
 //   3) Emit QA CSV and build assets/jlpt.db with qa_status='auto' by default.
 //
@@ -21,6 +22,7 @@ const DATA_VERSION = 1;
 const TARGET_COUNTS = { N5: 300, N4: 600, N3: 1100, N2: 1700, N1: 2500 };
 const LEVEL_ORDER = ['N5', 'N4', 'N3', 'N2', 'N1'];
 const QA_STATUSES = new Set(['verified', 'auto', 'needs_review', 'rejected']);
+const NON_VOCAB_TAG = 'non-vocabulary';
 
 const args = parseArgs(process.argv.slice(2));
 const sourcePath = resolve(args.source ?? DEFAULT_SOURCE);
@@ -51,6 +53,14 @@ async function main() {
     console.log(`created QA work CSV: ${rel(qaPath)} (${rows.length} rows)`);
   } else {
     rows = normalizeQaRows(rows);
+    const backfill = backfillActiveDeficits(rows);
+    rows = backfill.rows;
+    if (writeQaCsvIfChanged(qaPath, rows)) {
+      console.log(`updated QA curation metadata: ${rel(qaPath)}`);
+    }
+    if (backfill.addedTotal > 0) {
+      console.log(`backfilled active study rows: ${formatCounts(backfill.addedByLevel)}`);
+    }
     console.log(`loaded QA work CSV: ${rel(qaPath)} (${rows.length} rows)`);
   }
 
@@ -71,8 +81,8 @@ async function main() {
   console.log(`built DB: ${rel(dbPath)}`);
   console.log(`wrote report: ${rel(reportPath)}`);
   printReport(report);
-  if (report.qa.verified !== 6200) {
-    console.log('\nNOTE: release-gate should still fail until all 6,200 rows are human verified.');
+  if (report.activeQa.verified !== report.total || report.activeQa.nonVerified !== 0) {
+    console.log('\nNOTE: release-gate should still fail until every active study row is human verified.');
   }
 }
 
@@ -86,35 +96,21 @@ function selectRows(sourceRows) {
     const english = clean(row.English);
     const level = clean(row['JLPT Level']);
     if (!surface || !reading || !english || !(level in TARGET_COUNTS)) continue;
+    if (vocabularyExclusionReason({ surface, reading_kana: reading })) continue;
 
     const key = `${level}\t${surface}\t${reading}`;
     if (seen.has(key)) continue;
     seen.add(key);
     buckets[level].push({
-      id: makeId(level, buckets[level].length + 1, surface, reading),
-      level,
-      surface,
-      reading_kana: reading,
-      furigana: reading,
-      meaning_en: english,
-      meaning_ko: '',
-      part_of_speech: inferPartOfSpeech(english),
-      card_type: inferCardType(surface),
-      example_jp: '',
-      example_ko: '',
-      example_jp_id: '',
-      example_jp_author: '',
-      example_ko_id: '',
-      example_ko_author: '',
-      example_license: '',
-      alt_forms: '',
-      disambig: '',
-      source: 'kaggle:robinpourtaud/jlpt-words-by-level',
-      qa_status: 'needs_review',
-      deprecated: '0',
-      tags: JSON.stringify(['draft-ko-missing']),
-      data_version: String(DATA_VERSION),
-      qa_note: 'Korean meaning draft required',
+      ...makeQaRow({
+        id: makeId(level, buckets[level].length + 1, surface, reading),
+        level,
+        surface,
+        reading,
+        english,
+        tags: ['draft-ko-missing'],
+        qaNote: 'Korean meaning draft required',
+      }),
     });
   }
 
@@ -129,13 +125,120 @@ function selectRows(sourceRows) {
   return selected;
 }
 
+function backfillActiveDeficits(rows) {
+  const activeByLevel = countActiveByLevel(rows);
+  const deficits = {};
+  for (const level of LEVEL_ORDER) {
+    deficits[level] = Math.max(0, TARGET_COUNTS[level] - activeByLevel[level]);
+  }
+
+  const addedTotal = Object.values(deficits).reduce((sum, n) => sum + n, 0);
+  if (addedTotal === 0) {
+    return { rows, addedTotal: 0, addedByLevel: zeroLevelCounts() };
+  }
+  if (!existsSync(sourcePath)) {
+    throw new Error(`source CSV required for backfill: ${sourcePath}`);
+  }
+
+  const out = rows.map((r) => ({ ...r }));
+  const sourceRows = readCsv(sourcePath);
+  const seenWords = new Set(out.map((row) => duplicateWordKey(row)));
+  const nextIndexByLevel = {};
+  for (const level of LEVEL_ORDER) {
+    nextIndexByLevel[level] = out.filter((row) => row.level === level).length + 1;
+  }
+  const addedByLevel = zeroLevelCounts();
+
+  for (const source of sourceRows) {
+    const level = clean(source['JLPT Level']);
+    if (!(level in deficits) || deficits[level] <= 0) continue;
+
+    const surface = clean(source.Original);
+    const reading = clean(source.Furigana);
+    const english = clean(source.English);
+    if (!surface || !reading || !english) continue;
+    if (vocabularyExclusionReason({ surface, reading_kana: reading })) continue;
+
+    const key = duplicateWordKey({ surface, reading_kana: reading });
+    if (seenWords.has(key)) continue;
+    seenWords.add(key);
+
+    out.push(normalizeQaRows([
+      makeQaRow({
+        id: makeId(level, nextIndexByLevel[level], surface, reading),
+        level,
+        surface,
+        reading,
+        english,
+        tags: ['draft-ko-missing', 'backfill-replacement'],
+        qaNote: 'Backfilled to maintain active 6,200 vocabulary target; Korean meaning draft required',
+      }),
+    ])[0]);
+    nextIndexByLevel[level] += 1;
+    deficits[level] -= 1;
+    addedByLevel[level] += 1;
+  }
+
+  const missing = Object.entries(deficits).filter(([, n]) => n > 0);
+  if (missing.length > 0) {
+    throw new Error(`not enough non-duplicate replacement rows: ${formatCounts(Object.fromEntries(missing))}`);
+  }
+
+  return { rows: out, addedTotal, addedByLevel };
+}
+
+function makeQaRow({ id, level, surface, reading, english, tags, qaNote }) {
+  return {
+    id,
+    level,
+    surface,
+    reading_kana: reading,
+    furigana: reading,
+    meaning_en: english,
+    meaning_ko: '',
+    part_of_speech: inferPartOfSpeech(english),
+    card_type: inferCardType(surface),
+    example_jp: '',
+    example_ko: '',
+    example_jp_id: '',
+    example_jp_author: '',
+    example_ko_id: '',
+    example_ko_author: '',
+    example_license: '',
+    alt_forms: '',
+    disambig: '',
+    source: 'kaggle:robinpourtaud/jlpt-words-by-level',
+    qa_status: 'needs_review',
+    deprecated: '0',
+    tags: JSON.stringify(tags),
+    data_version: String(DATA_VERSION),
+    qa_note: qaNote,
+  };
+}
+
+function countActiveByLevel(rows) {
+  const counts = zeroLevelCounts();
+  for (const row of rows) {
+    if (row.deprecated !== '1' && row.level in counts) counts[row.level] += 1;
+  }
+  return counts;
+}
+
+function zeroLevelCounts() {
+  return Object.fromEntries(LEVEL_ORDER.map((level) => [level, 0]));
+}
+
+function duplicateWordKey(row) {
+  return `${clean(row.surface).normalize('NFKC')}\t${clean(row.reading_kana).normalize('NFKC')}`;
+}
+
 async function translateMissing(rows, { model, batchSize }) {
   const out = rows.map((r) => ({ ...r }));
   let translated = 0;
   for (let i = 0; i < out.length; i += batchSize) {
     const batch = out
       .slice(i, i + batchSize)
-      .filter((r) => !clean(r.meaning_ko) || r.qa_status === 'needs_review');
+      .filter((r) => r.deprecated !== '1' && (!clean(r.meaning_ko) || r.qa_status === 'needs_review'));
     if (batch.length === 0) continue;
     const result = await draftKoreanMeanings(batch, model);
     const byId = new Map(result.map((r) => [r.id, r]));
@@ -383,12 +486,20 @@ function inspectDatabase(dbPath) {
   for (const status of QA_STATUSES) {
     qa[status] = count(`qa_status='${status}'`);
   }
+  const activeQa = {};
+  for (const status of QA_STATUSES) {
+    activeQa[status] = count(`qa_status='${status}' AND deprecated=0`);
+  }
+  activeQa.nonVerified = count(`qa_status!='verified' AND deprecated=0`);
   return {
     path: rel(dbPath),
     bytes: existsSync(dbPath) ? readFileSync(dbPath).byteLength : 0,
     total: count('deprecated=0'),
+    deprecated: count('deprecated=1'),
+    vocabularyExcluded: count(`deprecated=1 AND tags LIKE '%${NON_VOCAB_TAG}%'`),
     levels: levelCounts,
     qa,
+    activeQa,
     targets: TARGET_COUNTS,
   };
 }
@@ -429,6 +540,17 @@ function writeWordImportCsv(rows) {
 }
 
 function writeQaCsv(path, rows) {
+  writeFileSync(path, renderQaCsv(rows));
+}
+
+function writeQaCsvIfChanged(path, rows) {
+  const next = renderQaCsv(rows);
+  if (existsSync(path) && readFileSync(path, 'utf8') === next) return false;
+  writeFileSync(path, next);
+  return true;
+}
+
+function renderQaCsv(rows) {
   const headers = [
     'id',
     'level',
@@ -459,13 +581,13 @@ function writeQaCsv(path, rows) {
   for (const row of rows) {
     csv.push(headers.map((h) => csvEscape(row[h] ?? '')).join(','));
   }
-  writeFileSync(path, `${csv.join('\n')}\n`);
+  return `${csv.join('\n')}\n`;
 }
 
 function normalizeQaRows(rows) {
   return rows.map((row) => {
     const status = QA_STATUSES.has(clean(row.qa_status)) ? clean(row.qa_status) : 'needs_review';
-    return {
+    const normalized = {
       ...row,
       id: clean(row.id),
       level: clean(row.level),
@@ -483,7 +605,50 @@ function normalizeQaRows(rows) {
       data_version: clean(row.data_version) || String(DATA_VERSION),
       qa_note: clean(row.qa_note),
     };
+    return applyVocabularyCuration(normalized);
   });
+}
+
+function applyVocabularyCuration(row) {
+  const reason = vocabularyExclusionReason(row);
+  if (!reason) return row;
+  return {
+    ...row,
+    deprecated: '1',
+    tags: withJsonTag(row.tags, NON_VOCAB_TAG),
+    qa_note: appendQaNote(row.qa_note, `단어형 항목 아님: ${reason}`),
+  };
+}
+
+function vocabularyExclusionReason(row) {
+  const surface = clean(row.surface);
+  const reading = clean(row.reading_kana);
+  if (/[~～〜]/.test(surface) || /[~～〜]/.test(reading)) {
+    return '표면형/읽기에 ～ 또는 〜 자리표시자가 있어 문법·접사 패턴으로 분류';
+  }
+  if (/[()（）]/.test(surface)) {
+    return '표면형에 괄호 문맥이 있어 독립 단어 표제어가 아님';
+  }
+  return '';
+}
+
+function withJsonTag(tags, tag) {
+  let values = [];
+  try {
+    const parsed = JSON.parse(clean(tags) || '[]');
+    if (Array.isArray(parsed)) values = parsed.filter((v) => typeof v === 'string');
+  } catch {
+    values = [];
+  }
+  if (!values.includes(tag)) values.push(tag);
+  return JSON.stringify(values);
+}
+
+function appendQaNote(note, addition) {
+  const current = clean(note);
+  if (!current) return addition;
+  if (current.includes(addition)) return current;
+  return `${current}; ${addition}`;
 }
 
 function writeAttributionFile(path) {
@@ -629,9 +794,15 @@ Options:
 
 function printReport(report) {
   console.log('\nTrack A DB report');
-  console.log(`total: ${report.total}`);
-  console.log(`levels: ${Object.entries(report.levels).map(([k, v]) => `${k}=${v}`).join(', ')}`);
-  console.log(`qa: ${Object.entries(report.qa).map(([k, v]) => `${k}=${v}`).join(', ')}`);
+  console.log(`active total: ${report.total}`);
+  console.log(`deprecated: ${report.deprecated} (vocabulary-excluded=${report.vocabularyExcluded})`);
+  console.log(`levels: ${formatCounts(report.levels)}`);
+  console.log(`qa(all): ${formatCounts(report.qa)}`);
+  console.log(`qa(active): ${formatCounts(report.activeQa)}`);
+}
+
+function formatCounts(counts) {
+  return Object.entries(counts).map(([k, v]) => `${k}=${v}`).join(', ');
 }
 
 function ensureParent(path) {

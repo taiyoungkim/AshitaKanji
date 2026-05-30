@@ -1,7 +1,9 @@
 {
   "path": "assets/jlpt.db",
-  "bytes": 1716224,
+  "bytes": 1802240,
   "total": 6200,
+  "deprecated": 274,
+  "vocabularyExcluded": 274,
   "levels": {
     "N5": 300,
     "N4": 600,
@@ -12,8 +14,15 @@
   "qa": {
     "verified": 6200,
     "auto": 0,
-    "needs_review": 0,
+    "needs_review": 274,
     "rejected": 0
+  },
+  "activeQa": {
+    "verified": 5926,
+    "auto": 0,
+    "needs_review": 274,
+    "rejected": 0,
+    "nonVerified": 274
   },
   "targets": {
     "N5": 300,
