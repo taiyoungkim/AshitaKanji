@@ -80,3 +80,7 @@ expo-env.d.ts
 dist-review/
 dist-review-android/
 dist-review-ios/
+
+# Native projects (Expo CNG generated — run `npx expo prebuild`)
+/ios/
+/android/
