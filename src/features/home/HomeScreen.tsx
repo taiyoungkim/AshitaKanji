@@ -6,6 +6,7 @@
 import { useCallback, useState } from 'react';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
@@ -13,7 +14,6 @@ import { useSettingsStore } from '~/stores/SettingsStore';
 import type { JlptLevel } from '~/types/Card';
 
 const NEW_PRESETS = [5, 12, 20, 30, 50] as const;
-const SCAN_PRESETS = [50, 100, 200, 300] as const;
 
 interface TodayCounts {
   due: number;
@@ -64,88 +64,86 @@ export default function HomeScreen(): React.ReactNode {
     }, [hydrated, selectedLevels, dailyNewLimit]),
   );
 
-  const startStudyWithNew = (n: number) => {
-    setDailyNewLimit(n);
-    router.push('/study');
-  };
-
-  const todayTotal = counts ? counts.due + Math.min(counts.newAvail, dailyNewLimit) : 0;
+  const newPlanned = counts ? Math.min(counts.newAvail, dailyNewLimit) : 0;
+  const todayTotal = counts ? counts.due + newPlanned : 0;
   const allClear = !!counts && todayTotal === 0;
+  const canStart = todayTotal > 0;
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.h1}>오늘</Text>
-      <Text style={styles.levelsHint}>{selectedLevels.join(' · ')}</Text>
+    <SafeAreaView style={styles.root} edges={['bottom']}>
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+        <Text style={styles.h1}>오늘</Text>
+        <Text style={styles.levelsHint}>{selectedLevels.join(' · ')}</Text>
 
-      {/* 오늘 할 일 */}
-      <View style={styles.heroCard}>
-        {!counts ? (
-          <ActivityIndicator color="#0366d6" />
-        ) : allClear ? (
-          <>
-            <Text style={styles.heroEmoji}>🎉</Text>
-            <Text style={styles.heroDone}>오늘 할 일 끝!</Text>
-            <Text style={styles.heroSub}>아래에서 더 공부하거나 내일 다시 만나요.</Text>
-          </>
-        ) : (
-          <>
-            <Text style={styles.heroLabel}>오늘 할 일</Text>
-            <View style={styles.heroCounts}>
-              <HeroCount value={counts.due} label="복습" />
-              <Text style={styles.heroPlus}>+</Text>
-              <HeroCount value={Math.min(counts.newAvail, dailyNewLimit)} label="새 단어" />
-            </View>
-            <Pressable
-              style={styles.primaryBtn}
-              onPress={() => router.push('/study')}
-              accessibilityRole="button"
-            >
-              <Text style={styles.primaryText}>오늘 복습 시작</Text>
-            </Pressable>
-          </>
-        )}
-      </View>
-
-      {/* 더 공부하기 */}
-      <Section title="더 공부하기">
-        <Text style={styles.subLabel}>새 단어 외우기</Text>
-        <View style={styles.chipRow}>
-          {NEW_PRESETS.map((n) => (
-            <Pressable
-              key={n}
-              style={[styles.chip, n === dailyNewLimit && styles.chipOn]}
-              onPress={() => startStudyWithNew(n)}
-              accessibilityRole="button"
-            >
-              <Text style={[styles.chipText, n === dailyNewLimit && styles.chipTextOn]}>{n}</Text>
-            </Pressable>
-          ))}
+        {/* 오늘 할 일 — 칩 선택에 따라 숫자가 실시간 반영 */}
+        <View style={styles.heroCard}>
+          {!counts ? (
+            <ActivityIndicator color="#0366d6" />
+          ) : (
+            <>
+              <Text style={styles.heroLabel}>오늘 할 일</Text>
+              <View style={styles.heroCounts}>
+                <HeroCount value={counts.due} label="복습" />
+                <Text style={styles.heroPlus}>+</Text>
+                <HeroCount value={newPlanned} label="새 단어" />
+              </View>
+              {allClear && (
+                <Text style={styles.heroSub}>
+                  복습할 게 없어요. 아래에서 새 단어 수를 골라 시작하세요.
+                </Text>
+              )}
+            </>
+          )}
         </View>
 
-        <Text style={[styles.subLabel, styles.subLabelGap]}>시험 전 빠른 훑기</Text>
-        <View style={styles.chipRow}>
-          {SCAN_PRESETS.map((n) => (
-            <Pressable
-              key={n}
-              style={styles.chip}
-              onPress={() => router.push(`/scan?size=${n}`)}
-              accessibilityRole="button"
-            >
-              <Text style={styles.chipText}>{n}</Text>
-            </Pressable>
-          ))}
-        </View>
+        {/* 더 공부하기 */}
+        <Section title="더 공부하기">
+          <Text style={styles.subLabel}>새 단어 외우기</Text>
+          <View style={styles.chipRow}>
+            {NEW_PRESETS.map((n) => (
+              <Pressable
+                key={n}
+                style={[styles.chip, n === dailyNewLimit && styles.chipOn]}
+                onPress={() => setDailyNewLimit(n)}
+                accessibilityRole="button"
+              >
+                <Text style={[styles.chipText, n === dailyNewLimit && styles.chipTextOn]}>{n}</Text>
+              </Pressable>
+            ))}
+          </View>
 
+          <Pressable
+            style={[styles.weakBtn, styles.subLabelGap]}
+            onPress={() => router.push('/scan')}
+            accessibilityRole="button"
+          >
+            <Text style={styles.weakText}>시험 전 빠른 훑기</Text>
+            <Text style={styles.weakChevron}>›</Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.weakBtn}
+            onPress={() => router.push('/weakness')}
+            accessibilityRole="button"
+          >
+            <Text style={styles.weakText}>약점만 다시 보기</Text>
+            <Text style={styles.weakChevron}>›</Text>
+          </Pressable>
+        </Section>
+      </ScrollView>
+
+      {/* 하단 고정 CTA — 칩으로 고른 양만큼 학습 시작 */}
+      <View style={styles.footer}>
         <Pressable
-          style={styles.weakBtn}
-          onPress={() => router.push('/weakness')}
+          style={[styles.startCta, !canStart && styles.startCtaDisabled]}
+          onPress={() => router.push('/study')}
+          disabled={!canStart}
           accessibilityRole="button"
         >
-          <Text style={styles.weakText}>약점만 다시 보기</Text>
-          <Text style={styles.weakChevron}>›</Text>
+          <Text style={styles.startCtaText}>오늘 복습 시작</Text>
         </Pressable>
-      </Section>
-    </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -174,6 +172,7 @@ function Section({
 }
 
 const styles = StyleSheet.create({
+  root: { flex: 1, backgroundColor: '#f5f5f7' },
   container: { flex: 1, backgroundColor: '#f5f5f7' },
   content: { padding: 20, gap: 16 },
   h1: { fontSize: 30, fontWeight: '800', color: '#1a1a1a' },
@@ -187,8 +186,6 @@ const styles = StyleSheet.create({
     minHeight: 150,
     justifyContent: 'center',
   },
-  heroEmoji: { fontSize: 44 },
-  heroDone: { fontSize: 22, fontWeight: '800', color: '#1a1a1a' },
   heroSub: { fontSize: 13, color: '#888', textAlign: 'center' },
   heroLabel: { fontSize: 14, color: '#888', fontWeight: '600' },
   heroCounts: { flexDirection: 'row', alignItems: 'center', gap: 16 },
@@ -196,14 +193,6 @@ const styles = StyleSheet.create({
   heroCountBox: { alignItems: 'center', minWidth: 72 },
   heroValue: { fontSize: 40, fontWeight: '800', color: '#0366d6' },
   heroCountLabel: { fontSize: 13, color: '#888' },
-  primaryBtn: {
-    backgroundColor: '#0366d6',
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 40,
-    marginTop: 4,
-  },
-  primaryText: { color: 'white', fontSize: 16, fontWeight: '700' },
   section: { backgroundColor: 'white', borderRadius: 16, padding: 16 },
   sectionTitle: { fontSize: 16, fontWeight: '700', color: '#1a1a1a' },
   sectionBody: { marginTop: 12, gap: 8 },
@@ -235,4 +224,14 @@ const styles = StyleSheet.create({
   },
   weakText: { fontSize: 15, fontWeight: '700', color: '#0366d6' },
   weakChevron: { fontSize: 22, color: '#0366d6' },
+  footer: {
+    padding: 16,
+    paddingBottom: 12,
+    backgroundColor: '#f5f5f7',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#e0e0e5',
+  },
+  startCta: { backgroundColor: '#0366d6', borderRadius: 12, paddingVertical: 16, alignItems: 'center' },
+  startCtaDisabled: { backgroundColor: '#c2c2c8' },
+  startCtaText: { color: 'white', fontSize: 16, fontWeight: '700' },
 });
