@@ -107,7 +107,16 @@ export default function StudyScreen(): React.ReactNode {
           word={card.word}
           revealed={reveal}
           onReveal={showReveal}
-          onSpeak={tts.enabled ? () => tts.speak(card.word.reading_kana) : undefined}
+          onSpeak={
+            tts.enabled
+              ? () => tts.speakAudio('word', card.word.id, card.word.reading_kana)
+              : undefined
+          }
+          onSpeakExample={
+            tts.enabled && card.word.example_jp
+              ? () => tts.speakAudio('example', card.word.id, card.word.example_jp)
+              : undefined
+          }
           onOpenDetail={() => router.push(`/word/${card.word.id}`)}
         />
         {reveal ? (

@@ -79,21 +79,26 @@ export default function StatsScreen(): React.ReactNode {
 
       <Text style={styles.sectionTitle}>레벨별 진행도</Text>
       {levels.map((lv) => {
-        const pct = lv.total > 0 ? Math.round((lv.mature / lv.total) * 100) : 0;
+        const studiedPct = lv.total > 0 ? Math.round((lv.studied / lv.total) * 100) : 0;
+        const maturePct = lv.total > 0 ? Math.round((lv.mature / lv.total) * 100) : 0;
         return (
           <View key={lv.level} style={styles.levelRow}>
             <Text style={styles.levelTag}>{lv.level}</Text>
             <View style={styles.barTrack}>
-              <View style={[styles.barFill, { width: `${pct}%` }]} />
+              {/* 학습(연한) 위에 외움(진한) 겹쳐 표시 */}
+              <View style={[styles.barFillStudied, { width: `${studiedPct}%` }]} />
+              <View style={[styles.barFill, { width: `${maturePct}%` }]} />
             </View>
             <Text style={styles.levelNum}>
-              {lv.mature}/{lv.total}
+              외움 {lv.mature} · 학습 {lv.studied} / {lv.total}
             </Text>
           </View>
         );
       })}
 
-      <Text style={styles.footer}>외운 단어 = 21일 이상 기억에 남은 카드.</Text>
+      <Text style={styles.footer}>
+        학습 = 한 번이라도 본 단어 · 외움 = 21일 이상 기억에 남은 카드.
+      </Text>
     </ScrollView>
   );
 }
@@ -143,7 +148,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6e6ea',
     overflow: 'hidden',
   },
-  barFill: { height: '100%', borderRadius: 5, backgroundColor: '#2a9d8f' },
-  levelNum: { width: 64, fontSize: 13, color: '#666', textAlign: 'right' },
+  barFillStudied: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    borderRadius: 5,
+    backgroundColor: '#bfe3dc',
+  },
+  barFill: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    borderRadius: 5,
+    backgroundColor: '#2a9d8f',
+  },
+  levelNum: { width: 122, fontSize: 11, color: '#666', textAlign: 'right' },
   footer: { fontSize: 12, color: '#aaa', textAlign: 'center', marginTop: 8 },
 });

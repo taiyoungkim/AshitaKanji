@@ -180,7 +180,7 @@ export default function WordDetailScreen(): React.ReactNode {
         <Text style={styles.reading}>{w.reading_kana}</Text>
         <Pressable
           style={[styles.ttsBtn, tts.status === 'unsupported' && styles.ttsBtnOff]}
-          onPress={() => tts.speak(w.reading_kana)}
+          onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
           disabled={!tts.enabled || tts.status === 'unsupported'}
           accessibilityLabel="발음 듣기"
           accessibilityRole="button"
@@ -241,14 +241,14 @@ export default function WordDetailScreen(): React.ReactNode {
                   <View style={styles.exampleRow}>
                     <Text
                       style={styles.exampleJp}
-                      onPress={() => tts.speak(example.jp)}
+                      onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
                       onLongPress={() => copyAndToast(example.jp)}
                       accessibilityHint="누르면 읽어주고, 길게 누르면 복사돼요"
                     >
                       {example.jp}
                     </Text>
                     <Pressable
-                      onPress={() => tts.speak(example.jp)}
+                      onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
                       disabled={!tts.enabled || tts.status === 'unsupported'}
                       style={!tts.enabled || tts.status === 'unsupported' ? styles.exampleTtsOff : null}
                       accessibilityLabel="예문 발음 듣기"

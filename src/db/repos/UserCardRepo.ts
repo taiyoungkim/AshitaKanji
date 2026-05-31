@@ -14,6 +14,8 @@ export interface UserCardRepo {
   countByState(state: CardState): Promise<number>;
   /** 레벨별 '성숙' 카드 수 (stability >= MATURE_STABILITY_DAYS = 장기기억 도달). word 조인. */
   countMatureByLevel(level: JlptLevel): Promise<number>;
+  /** 레벨별 '학습한' 단어 수 (user_card 존재 = 한 번이라도 학습). word 조인. */
+  countStudiedByLevel(level: JlptLevel): Promise<number>;
   /** leech=1 카드 (약점 큐 소스). */
   findLeeches(): Promise<UserCard[]>;
   /** 전체 user_card (Export dump). */

@@ -86,3 +86,7 @@ dist-review-ios/
 # Native projects (Expo CNG generated — run `npx expo prebuild`)
 /ios/
 /android/
+
+# Pre-generated TTS audio (101MB) — regenerate via scripts/gen-tts-audio.py + gen-audio-map.mjs
+assets/audio/
+src/lib/audio/audioMap.gen.ts

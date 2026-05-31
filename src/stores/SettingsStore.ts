@@ -14,9 +14,9 @@ export const DAILY_NEW_MIN = 5;
 export const DAILY_NEW_MAX = 50;
 export const HIGH_INTENSITY_THRESHOLD = 30; // 초과 시 고강도 경고.
 
-// TTS 속도 (expo-speech rate). 0.5~1.0, 기본 0.9 (학습용 약간 느리게).
+// TTS 속도. 0.5~1.5, 기본 0.9 (학습용 약간 느리게). 사전생성 오디오는 피치보정 재생.
 export const TTS_SPEED_MIN = 0.5;
-export const TTS_SPEED_MAX = 1.0;
+export const TTS_SPEED_MAX = 1.5;
 export const TTS_SPEED_DEFAULT = 0.9;
 
 export const clampDailyNew = (n: number): number =>

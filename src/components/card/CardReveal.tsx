@@ -8,6 +8,7 @@ import { renderKanjiFace } from '~/lib/cardType';
 interface Props {
   word: Word;
   onSpeak?: () => void;
+  onSpeakExample?: () => void;
   onOpenDetail?: () => void;
 }
 
@@ -23,7 +24,7 @@ function attributionLine(word: Word): string | null {
   return parts.join(' · ');
 }
 
-export function CardReveal({ word, onSpeak, onOpenDetail }: Props): React.ReactNode {
+export function CardReveal({ word, onSpeak, onSpeakExample, onOpenDetail }: Props): React.ReactNode {
   const attribution = attributionLine(word);
   return (
     <View style={styles.container}>
@@ -41,7 +42,14 @@ export function CardReveal({ word, onSpeak, onOpenDetail }: Props): React.ReactN
 
       {word.example_jp && (
         <View style={styles.exampleBox}>
-          <Text style={styles.exampleJp}>例: {word.example_jp}</Text>
+          <Text
+            style={styles.exampleJp}
+            onPress={onSpeakExample}
+            accessibilityRole="button"
+            accessibilityLabel="예문 발음 듣기"
+          >
+            {word.example_jp}
+          </Text>
           {word.example_ko && <Text style={styles.exampleKo}>{word.example_ko}</Text>}
           {attribution && <Text style={styles.attribution}>{attribution}</Text>}
         </View>

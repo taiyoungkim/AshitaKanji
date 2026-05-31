@@ -49,6 +49,12 @@ export class InMemoryUserCardRepo implements UserCardRepo {
     ).length;
   }
 
+  async countStudiedByLevel(level: JlptLevel): Promise<number> {
+    return [...this.map.values()].filter(
+      (c) => this.wordLevels.get(c.word_id) === level,
+    ).length;
+  }
+
   async findLeeches(): Promise<UserCard[]> {
     return [...this.map.values()].filter((c) => c.leech === 1);
   }

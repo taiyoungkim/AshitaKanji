@@ -12,6 +12,7 @@ interface Props {
   revealed: boolean;
   onReveal: () => void;
   onSpeak?: () => void;
+  onSpeakExample?: () => void;
   onOpenDetail?: () => void;
 }
 
@@ -20,12 +21,13 @@ export function Card({
   revealed,
   onReveal,
   onSpeak,
+  onSpeakExample,
   onOpenDetail,
 }: Props): React.ReactNode {
   return (
     <View style={styles.card}>
       {revealed ? (
-        <CardReveal word={word} onSpeak={onSpeak} onOpenDetail={onOpenDetail} />
+        <CardReveal word={word} onSpeak={onSpeak} onSpeakExample={onSpeakExample} onOpenDetail={onOpenDetail} />
       ) : (
         <CardFace word={word} onReveal={onReveal} />
       )}

@@ -51,6 +51,7 @@ function blank(date: string): DailyStats & { _revealSum: number; _revealN: numbe
 export interface LevelProgress {
   level: JlptLevel;
   total: number; // 출제 가능 단어 수
+  studied: number; // 한 번이라도 학습(user_card 존재)
   mature: number; // 장기기억 도달(stability>=21d)
 }
 
@@ -142,11 +143,12 @@ export class StatsRollupService {
   async getLevelProgress(): Promise<LevelProgress[]> {
     const out: LevelProgress[] = [];
     for (const level of JLPT_LEVELS) {
-      const [total, mature] = await Promise.all([
+      const [total, studied, mature] = await Promise.all([
         this.cardRepo.countByLevel(level),
+        this.userCardRepo.countStudiedByLevel(level),
         this.userCardRepo.countMatureByLevel(level),
       ]);
-      out.push({ level, total, mature });
+      out.push({ level, total, studied, mature });
     }
     return out;
   }

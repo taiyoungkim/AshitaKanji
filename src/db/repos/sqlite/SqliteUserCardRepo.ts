@@ -124,6 +124,16 @@ export class SqliteUserCardRepo implements UserCardRepo {
     return row?.n ?? 0;
   }
 
+  async countStudiedByLevel(level: JlptLevel): Promise<number> {
+    const row = await this.db.getFirstAsync<{ n: number }>(
+      `SELECT COUNT(*) AS n
+       FROM user_card uc JOIN word w ON w.id = uc.word_id
+       WHERE w.level = ?`,
+      [level],
+    );
+    return row?.n ?? 0;
+  }
+
   async findLeeches(): Promise<UserCard[]> {
     const rows = await this.db.getAllAsync<UserCardRow>(
       `SELECT * FROM user_card WHERE leech = 1 ORDER BY due ASC`,

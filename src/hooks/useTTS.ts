@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as Speech from 'expo-speech';
 import { useSettingsStore } from '~/stores/SettingsStore';
+import { playWordAudio, stopWordAudio, type AudioKind } from '~/lib/audio/wordAudio';
 
 const JA_LANG = 'ja-JP';
 
@@ -15,6 +16,8 @@ export type TtsStatus = 'idle' | 'speaking' | 'unsupported';
 
 export interface UseTTS {
   speak: (text: string | null | undefined) => void;
+  /** 사전 생성 오디오(고품질) 우선 재생, 없으면 expo-speech 폴백. */
+  speakAudio: (kind: AudioKind, id: string, fallbackText: string | null | undefined) => void;
   stop: () => void;
   status: TtsStatus;
   enabled: boolean;
@@ -53,10 +56,23 @@ export function useTTS(): UseTTS {
     });
   }, []);
 
+  const speakAudio = useCallback(
+    (kind: AudioKind, id: string, fallbackText: string | null | undefined) => {
+      if (!enabledRef.current) return;
+      Speech.stop();
+      stopWordAudio();
+      void playWordAudio(kind, id, rateRef.current).then((ok) => {
+        if (!ok) speak(fallbackText); // 사전 생성 오디오 없으면 expo-speech 폴백.
+      });
+    },
+    [speak],
+  );
+
   const stop = useCallback(() => {
     Speech.stop();
+    stopWordAudio();
     setStatus((s) => (s === 'speaking' ? 'idle' : s));
   }, []);
 
-  return { speak, stop, status, enabled };
+  return { speak, speakAudio, stop, status, enabled };
 }
