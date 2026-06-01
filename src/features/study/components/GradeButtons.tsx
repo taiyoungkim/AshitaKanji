@@ -1,7 +1,9 @@
 // Design Ref: §5.2 — 4단계 등급 버튼 (Again/Hard/Good/Easy).
 // Plan SC: FSRS 4-grade. reveal 후에만 노출.
+// 리디자인: 색상 코딩 대신 무채색 농도 램프(Again 연함 → Easy 진함)로 위계 표현.
 
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, type TextStyle, type ViewStyle } from 'react-native';
+import { colors, fontWeight, radius, spacing } from '~/design/tokens';
 import { Grade, GRADE_LABELS_KO } from '~/types/Grade';
 
 interface Props {
@@ -10,11 +12,19 @@ interface Props {
 }
 
 const ORDER: Grade[] = [Grade.Again, Grade.Hard, Grade.Good, Grade.Easy];
-const COLOR: Record<Grade, string> = {
-  [Grade.Again]: '#d73a49',
-  [Grade.Hard]: '#e36209',
-  [Grade.Good]: '#2188ff',
-  [Grade.Easy]: '#28a745',
+
+const FILL: Record<Grade, ViewStyle> = {
+  [Grade.Again]: { backgroundColor: 'transparent', borderColor: colors.borderStrong },
+  [Grade.Hard]: { backgroundColor: colors.surfaceMuted, borderColor: colors.surfaceMuted },
+  [Grade.Good]: { backgroundColor: colors.borderStrong, borderColor: colors.borderStrong },
+  [Grade.Easy]: { backgroundColor: colors.black, borderColor: colors.black },
+};
+
+const LABEL: Record<Grade, TextStyle> = {
+  [Grade.Again]: { color: colors.textSecondary },
+  [Grade.Hard]: { color: colors.text },
+  [Grade.Good]: { color: colors.text },
+  [Grade.Easy]: { color: colors.white },
 };
 
 export function GradeButtons({ onGrade, disabled }: Props): React.ReactNode {
@@ -25,7 +35,7 @@ export function GradeButtons({ onGrade, disabled }: Props): React.ReactNode {
           key={g}
           style={({ pressed }) => [
             styles.btn,
-            { backgroundColor: COLOR[g] },
+            FILL[g],
             pressed && styles.pressed,
             disabled && styles.disabled,
           ]}
@@ -34,7 +44,7 @@ export function GradeButtons({ onGrade, disabled }: Props): React.ReactNode {
           accessibilityRole="button"
           accessibilityLabel={GRADE_LABELS_KO[g]}
         >
-          <Text style={styles.label}>{GRADE_LABELS_KO[g]}</Text>
+          <Text style={[styles.label, LABEL[g]]}>{GRADE_LABELS_KO[g]}</Text>
         </Pressable>
       ))}
     </View>
@@ -42,9 +52,15 @@ export function GradeButtons({ onGrade, disabled }: Props): React.ReactNode {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingBottom: 16 },
-  btn: { flex: 1, borderRadius: 12, paddingVertical: 16, alignItems: 'center' },
-  pressed: { opacity: 0.85 },
+  row: { flexDirection: 'row', gap: spacing.sm, paddingHorizontal: spacing.lg, paddingBottom: spacing.lg },
+  btn: {
+    flex: 1,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  pressed: { opacity: 0.86 },
   disabled: { opacity: 0.4 },
-  label: { color: 'white', fontSize: 15, fontWeight: '700' },
+  label: { fontSize: 15, lineHeight: 20, fontWeight: fontWeight.medium },
 });

@@ -1,5 +1,5 @@
 // Design Ref: §5.2 Card UX + §6.1 SessionStore — 학습 화면 (한자 → reveal → 4-grade).
-// Plan SC: "오늘 완료" = Main + Again 미니라운드 모두 비움 → Done.
+// Plan SC: "오늘 완료" = 오늘 큐를 모두 비움 → Done.
 //
 // MVP: 탭만 (swipe 제스처는 V1.1 — Design §12 Open Question).
 // TTS(onSpeak)는 module-10, DoneScreen 애니메이션은 module-8 에서 확장.
@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'expo-router';
 import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, initialWindowMetrics } from 'react-native-safe-area-context';
+import { colors, fontWeight, spacing, typography } from '~/design/tokens';
 import { Card } from '~/components/card/Card';
 import { useTTS } from '~/hooks/useTTS';
 import { useSessionStore } from '~/stores/SessionStore';
@@ -55,7 +56,7 @@ export default function StudyScreen(): React.ReactNode {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Main + Again 라운드 소진 → 세션 종료 + 요약 산정 → Done 화면(/done)으로 이동.
+  // 오늘 큐 소진 → 세션 종료 + 요약 산정 → Done 화면(/done)으로 이동.
   // 단, 데이터 미탑재(dataEmpty)면 "끝!"이 아니라 빌드 안내를 보여야 하므로 종료 보류.
   const finished = !!current && !card && current.phase === 'done' && !dataEmpty;
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function StudyScreen(): React.ReactNode {
   if (dataEmpty) {
     body = (
       <View style={styles.center}>
-        <Text style={styles.emoji}>📦</Text>
+        <Text style={styles.kicker}>NO DATA</Text>
         <Text style={styles.doneTitle}>학습 데이터 없음</Text>
         <Text style={styles.dim}>
           단어 DB가 아직 탑재되지 않았어요. (assets/jlpt.db 빌드 필요)
@@ -80,7 +81,7 @@ export default function StudyScreen(): React.ReactNode {
   } else if (!current) {
     body = (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#0366d6" />
+        <ActivityIndicator color={colors.text} />
         <Text style={styles.dim}>세션 준비 중…</Text>
       </View>
     );
@@ -88,7 +89,7 @@ export default function StudyScreen(): React.ReactNode {
     // 큰 축하 애니메이션은 /done 모달이 담당 — 복귀 시엔 간단 완료 표시.
     body = (
       <View style={styles.center}>
-        <Text style={styles.emoji}>✅</Text>
+        <Text style={styles.kicker}>COMPLETED</Text>
         <Text style={styles.doneTitle}>오늘 학습 완료</Text>
         <Text style={styles.dim}>내일 또 만나요.</Text>
       </View>
@@ -161,13 +162,13 @@ export default function StudyScreen(): React.ReactNode {
 }
 
 const styles = StyleSheet.create({
-  fill: { flex: 1, backgroundColor: '#f5f5f7' },
-  topBar: { paddingHorizontal: 8, paddingBottom: 4 },
+  fill: { flex: 1, backgroundColor: colors.bg },
+  topBar: { paddingHorizontal: spacing.sm, paddingBottom: spacing.xs },
   closeBtn: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center' },
-  closeIcon: { fontSize: 22, color: '#555', fontWeight: '600' },
-  container: { flex: 1, backgroundColor: '#f5f5f7' },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24, gap: 8 },
-  dim: { fontSize: 14, color: '#888' },
-  emoji: { fontSize: 56 },
-  doneTitle: { fontSize: 28, fontWeight: '800', marginBottom: 8 },
+  closeIcon: { fontSize: 22, color: colors.textSecondary, fontWeight: fontWeight.medium },
+  container: { flex: 1, backgroundColor: colors.bg },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg, gap: spacing.sm },
+  dim: { ...typography.small, color: colors.textSecondary, textAlign: 'center' },
+  kicker: { ...typography.tiny, color: colors.textSecondary, marginBottom: spacing.sm },
+  doneTitle: { ...typography.h2, color: colors.text, marginBottom: spacing.sm },
 });

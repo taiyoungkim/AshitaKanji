@@ -1,5 +1,5 @@
 // Design Ref: §4.2 SessionEngine, §3 Data Model — session table
-// Plan SC: "오늘 완료" 정의 = Main round + Again 미니 라운드 모두 비움
+// Plan SC: "오늘 완료" 정의 = 오늘 큐를 모두 비움
 
 import type { CardWithProgress, JlptLevel } from './Card';
 
@@ -35,7 +35,7 @@ export interface SessionState {
   sessionId: number;
   phase: SessionPhase;
   mainQueue: CardWithProgress[];     // overdue + yesterday + new (Main round)
-  againQueue: CardWithProgress[];    // 채워짐 only after Main round
+  againQueue: CardWithProgress[];    // 레거시/실험용: 현재 기본 플로우에서는 즉시 재출제하지 않음
   currentIndex: number;
   doneNew: number;
   doneReview: number;

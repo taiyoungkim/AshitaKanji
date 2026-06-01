@@ -5,6 +5,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { colors, fontWeight, spacing, typography } from '~/design/tokens';
 import { Card } from '~/components/card/Card';
 import { useTTS } from '~/hooks/useTTS';
 import { useSettingsStore } from '~/stores/SettingsStore';
@@ -73,7 +74,7 @@ export default function WeaknessScreen(): React.ReactNode {
   if (!settingsHydrated || queue === null) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#0366d6" />
+        <ActivityIndicator color={colors.text} />
         <Text style={styles.dim}>약점 단어 모으는 중…</Text>
       </View>
     );
@@ -82,7 +83,7 @@ export default function WeaknessScreen(): React.ReactNode {
   if (queue.length === 0) {
     return (
       <View style={styles.center}>
-        <Text style={styles.emoji}>💪</Text>
+        <Text style={styles.kicker}>ALL CLEAR</Text>
         <Text style={styles.title}>약점 단어 없음</Text>
         <Text style={styles.dim}>
           최근 막힌 단어, 헷갈린 단어가 없어요.{'\n'}꾸준히 잘하고 있다는 뜻!
@@ -95,7 +96,7 @@ export default function WeaknessScreen(): React.ReactNode {
   if (!card) {
     return (
       <View style={styles.center}>
-        <Text style={styles.emoji}>✅</Text>
+        <Text style={styles.kicker}>COMPLETED</Text>
         <Text style={styles.title}>약점 복습 완료</Text>
         <Text style={styles.dim}>{reviewedCount}개 다시 봤어요.</Text>
       </View>
@@ -123,10 +124,16 @@ export default function WeaknessScreen(): React.ReactNode {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f7' },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24, gap: 8 },
-  dim: { fontSize: 14, color: '#888', textAlign: 'center', lineHeight: 20 },
-  emoji: { fontSize: 56 },
-  title: { fontSize: 26, fontWeight: '800', marginBottom: 4 },
-  progress: { textAlign: 'center', marginTop: 16, fontSize: 14, color: '#888', fontWeight: '600' },
+  container: { flex: 1, backgroundColor: colors.bg },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg, gap: spacing.sm },
+  dim: { ...typography.small, color: colors.textSecondary, textAlign: 'center', lineHeight: 20 },
+  kicker: { ...typography.tiny, color: colors.textSecondary, marginBottom: spacing.sm },
+  title: { ...typography.h2, color: colors.text, marginBottom: spacing.xs },
+  progress: {
+    textAlign: 'center',
+    marginTop: spacing.md,
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: fontWeight.medium,
+  },
 });

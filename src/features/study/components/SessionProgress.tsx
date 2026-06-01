@@ -1,6 +1,7 @@
 // Design Ref: §5.2 — 세션 진행 표시 (남은 카드 + Main/Again 단계).
 
 import { StyleSheet, Text, View } from 'react-native';
+import { colors, fontFamily, fontWeight, spacing, typography } from '~/design/tokens';
 import type { SessionState } from '~/types/Session';
 
 interface Props {
@@ -30,10 +31,19 @@ export function SessionProgress({ state }: Props): React.ReactNode {
 }
 
 const styles = StyleSheet.create({
-  wrap: { paddingHorizontal: 16, paddingTop: 12, gap: 6 },
+  wrap: { paddingHorizontal: spacing.lg, paddingTop: spacing.md, gap: 6 },
   row: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  phase: { fontSize: 13, color: '#666', fontWeight: '600' },
-  count: { fontSize: 13, color: '#666', fontVariant: ['tabular-nums'] },
-  track: { height: 6, borderRadius: 3, backgroundColor: '#e6e6e6', overflow: 'hidden' },
-  fill: { height: 6, borderRadius: 3, backgroundColor: '#0366d6' },
+  phase: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: fontWeight.medium,
+  },
+  count: {
+    ...typography.small,
+    fontFamily: fontFamily.mono,
+    color: colors.textSecondary,
+    fontVariant: ['tabular-nums'],
+  },
+  track: { height: 6, backgroundColor: colors.surfaceMuted, overflow: 'hidden' },
+  fill: { height: 6, backgroundColor: colors.text },
 });

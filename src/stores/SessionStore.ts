@@ -2,7 +2,7 @@
 // Plan SC: reveal 강제 (한자 면 → 탭 → 읽기/뜻). reveal_ms = 카드 노출~첫 reveal 탭.
 //
 // SessionEngine(오케스트레이션)을 감싼 얇은 reactive 레이어.
-// 큐/FSRS/persistence 는 Engine 소관, Store 는 UI 상태(reveal, 현재 카드)만 관리.
+// 큐/FSRS/persistence 는 Engine 소관, Store 는 UI 상태(reveal, 현재 카드)와 완료 전환만 관리.
 
 import { create } from 'zustand';
 import type { CardWithProgress } from '~/types/Card';
@@ -78,9 +78,9 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
     const now = Date.now();
     await engine.submitGrade(grade, reveal ? lastRevealMs : null, now);
 
-    // 라운드 소진 → Main 끝이면 Again 미니라운드 진입.
-    if (engine.isRoundComplete() && engine.snapshot().phase === 'main') {
-      await engine.startAgainRound();
+    // 오늘 큐 소진 → 완료. Again 카드는 갑자기 재출제하지 않고 FSRS due 일정으로 넘긴다.
+    if (engine.isRoundComplete()) {
+      engine.completeCurrentRound();
     }
 
     set({

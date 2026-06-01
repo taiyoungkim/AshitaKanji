@@ -2,6 +2,7 @@
 // reveal 전에는 이 버튼만, reveal 후에는 GradeButtons 노출.
 
 import { Pressable, StyleSheet, Text } from 'react-native';
+import { buttons, colors, fontWeight, spacing } from '~/design/tokens';
 
 interface Props {
   onPress: () => void;
@@ -22,12 +23,18 @@ export function RevealButton({ onPress }: Props): React.ReactNode {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: '#0366d6',
-    borderRadius: 12,
+    backgroundColor: buttons.primary.backgroundColor,
+    borderRadius: buttons.primary.borderRadius,
     paddingVertical: 16,
     alignItems: 'center',
-    margin: 16,
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.lg,
   },
-  pressed: { opacity: 0.85 },
-  label: { color: 'white', fontSize: 16, fontWeight: '700' },
+  pressed: { opacity: 0.86 },
+  label: {
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: fontWeight.medium,
+    color: colors.white,
+  },
 });

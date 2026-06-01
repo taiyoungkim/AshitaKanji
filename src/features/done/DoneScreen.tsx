@@ -1,124 +1,322 @@
-// Design Ref: §12 Done 화면 — 세션 완료 도파민 피드백 (Reanimated 진입 애니메이션).
-// Plan SC: "오늘 완료" = Main + Again 미니라운드 소진. 요약 + streak 표시.
-//
-// 요약은 SessionStore.summary 에서 읽음. 직접 진입(요약 없음)이면 폴백 후 닫기.
+// Design Ref: ONIGIRI SHOP redesign — Study Complete + Receipt View.
+// Session summary stays in SessionStore while this full-screen modal is open.
 
+import { useEffect, useMemo, useState } from 'react';
+import {
+  Pressable,
+  Share,
+  StyleSheet,
+  Text,
+  View,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import Animated, { FadeIn, FadeInDown, ZoomIn } from 'react-native-reanimated';
+import {
+  buttons,
+  colors,
+  fontWeight,
+  spacing,
+  typography,
+} from '~/design/tokens';
+import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
+import {
+  IngredientSegments,
+  Receipt,
+  type ReceiptRow,
+} from '~/features/onigiri/components';
+import type {
+  OnigiriIngredientReward,
+  OnigiriProgressEntry,
+  OnigiriProgressSnapshot,
+} from '~/features/onigiri/progress';
 import { useSessionStore } from '~/stores/SessionStore';
+
+function formatReceiptDate(ms: number): string {
+  const date = new Date(ms);
+  const yyyy = String(date.getFullYear());
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yyyy}.${mm}.${dd}`;
+}
+
+function buildReceiptText(dateLabel: string, rows: readonly ReceiptRow[]): string {
+  const visibleRows = rows.filter((row) => row.value !== null && row.value !== undefined && row.value !== '');
+  return [
+    'ONIGIRI SHOP',
+    dateLabel,
+    '',
+    ...visibleRows.map((row) => `${row.label}: ${row.value}`),
+    '',
+    'THANK YOU.',
+  ].join('\n');
+}
+
+function findRewardForSession(
+  progress: OnigiriProgressSnapshot | null,
+  sessionId: number | null,
+): OnigiriIngredientReward | null {
+  const reward = progress?.lastReward ?? null;
+  if (!reward) return null;
+  if (sessionId === null) return reward;
+  return reward.sessionId === sessionId ? reward : null;
+}
+
+function findDisplayEntry(
+  progress: OnigiriProgressSnapshot | null,
+  reward: OnigiriIngredientReward | null,
+): OnigiriProgressEntry | null {
+  if (!progress) return null;
+  if (!reward) return progress.current;
+  return progress.entries.find((entry) => entry.item.id === reward.item.id) ?? progress.current;
+}
 
 export default function DoneScreen(): React.ReactNode {
   const router = useRouter();
   const summary = useSessionStore((s) => s.summary);
+  const resetSession = useSessionStore((s) => s.reset);
+  const [progress, setProgress] = useState<OnigiriProgressSnapshot | null>(null);
+  const [showReceipt, setShowReceipt] = useState(false);
 
-  const close = () => {
-    if (router.canGoBack()) router.back();
+  useEffect(() => {
+    let alive = true;
+    void buildOnigiriProgressService()
+      .then((svc) => svc.getSnapshot())
+      .then((snapshot) => {
+        if (alive) setProgress(snapshot);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [summary?.sessionId]);
+
+  const reward = findRewardForSession(progress, summary?.sessionId ?? null);
+  const displayEntry = findDisplayEntry(progress, reward);
+  const dateMs = reward?.earnedAt ?? Date.now();
+  const dateLabel = formatReceiptDate(dateMs);
+  const newCount = summary?.newCount ?? 0;
+  const reviewCount = summary?.reviewCount ?? 0;
+  const ingredientName = reward?.ingredient ?? null;
+  const onigiriName = reward?.item.name ?? displayEntry?.item.name ?? 'ONIGIRI';
+  const ingredientCount = reward
+    ? reward.ingredientIndex + 1
+    : displayEntry?.ingredientCount ?? 0;
+
+  const receiptRows = useMemo<ReceiptRow[]>(
+    () => [
+      { label: 'NEW WORDS', value: newCount },
+      { label: 'REVIEWS', value: reviewCount },
+      { label: 'INGREDIENT', value: ingredientName ?? 'NONE' },
+      { label: 'CRAFTED', value: reward?.crafted ? onigiriName : null },
+      { label: 'STREAK', value: summary && summary.streakDays > 0 ? summary.streakDays : null },
+    ],
+    [ingredientName, newCount, onigiriName, reviewCount, reward?.crafted, summary],
+  );
+
+  const goShop = () => {
+    resetSession();
+    // /done·/study는 fullScreenModal — replace('/home')하면 홈이 모달로 떠 팝업처럼 보임.
+    // 모달 스택을 닫아 (tabs) 루트(홈)로 랜딩.
+    if (router.canDismiss()) router.dismissAll();
     else router.replace('/home');
   };
 
-  if (!summary) {
+  const shareReceipt = () => {
+    void Share.share({ message: buildReceiptText(dateLabel, receiptRows) }).catch((err: unknown) => {
+      console.warn('[receipt] share failed:', err);
+    });
+  };
+
+  if (showReceipt) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.emoji}>👍</Text>
-        <Text style={styles.title}>수고했어요</Text>
-        <Pressable style={styles.closeBtn} onPress={close}>
-          <Text style={styles.closeText}>닫기</Text>
-        </Pressable>
-      </View>
+      <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
+        <View style={styles.receiptBody}>
+          <Receipt dateLabel={dateLabel} rows={receiptRows} />
+        </View>
+        <View style={styles.receiptActions}>
+          <ActionButton
+            label="Back"
+            variant="secondary"
+            onPress={() => setShowReceipt(false)}
+            style={styles.receiptActionButton}
+          />
+          <ActionButton
+            label="Share"
+            variant="secondary"
+            onPress={shareReceipt}
+            style={styles.receiptActionButton}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
 
-  const minutes = Math.max(1, Math.round(summary.durationSec / 60));
-
   return (
-    <View style={styles.container}>
-      <Animated.Text entering={ZoomIn.springify().damping(8)} style={styles.emoji}>
-        🎉
-      </Animated.Text>
-      <Animated.Text entering={FadeInDown.delay(120)} style={styles.title}>
-        오늘 끝!
-      </Animated.Text>
+    <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
+      <View style={styles.completeBody}>
+        <Text style={styles.kicker}>COMPLETED</Text>
 
-      {summary.streakDays > 1 && (
-        <Animated.Text entering={FadeInDown.delay(200)} style={styles.streak}>
-          🔥 {summary.streakDays}일 연속
-        </Animated.Text>
-      )}
+        <View style={styles.rows}>
+          <SummaryRow label="NEW WORDS" value={newCount} />
+          <SummaryRow label="REVIEWS" value={reviewCount} />
+          <SummaryRow label="INGREDIENT" value={ingredientName ?? 'NONE'} />
+        </View>
 
-      <Animated.View entering={FadeIn.delay(300)} style={styles.statRow}>
-        <Stat value={summary.newCount} label="새 단어" />
-        <Stat value={summary.reviewCount} label="복습" />
-        <Stat value={summary.goodEasyCount} label="잘 맞춤" />
-      </Animated.View>
+        <View style={styles.onigiri}>
+          {reward?.crafted && <Text style={styles.craftedTag}>CRAFTED</Text>}
+          <Text style={styles.onigiriName}>{onigiriName}</Text>
+          <IngredientSegments count={ingredientCount} compact />
+        </View>
+      </View>
 
-      <Animated.Text entering={FadeIn.delay(400)} style={styles.duration}>
-        {minutes}분 집중
-      </Animated.Text>
+      <View style={styles.actions}>
+        <ActionButton label="View Receipt" variant="primary" onPress={() => setShowReceipt(true)} />
+        <ActionButton label="Back to Shop" variant="secondary" onPress={goShop} />
+      </View>
+    </SafeAreaView>
+  );
+}
 
-      <Animated.View entering={FadeInDown.delay(500)} style={styles.closeWrap}>
-        <Pressable
-          style={styles.statsBtn}
-          onPress={() => router.replace('/(tabs)/stats')}
-          accessibilityRole="button"
-        >
-          <Text style={styles.statsText}>통계 보기</Text>
-        </Pressable>
-        <Pressable style={styles.closeBtn} onPress={close}>
-          <Text style={styles.closeText}>닫기</Text>
-        </Pressable>
-      </Animated.View>
+function SummaryRow({ label, value }: { label: string; value: string | number }): React.ReactNode {
+  return (
+    <View style={styles.summaryRow}>
+      <Text style={styles.summaryLabel}>{label}</Text>
+      <Text style={styles.summaryValue}>{value}</Text>
     </View>
   );
 }
 
-function Stat({ value, label }: { value: number; label: string }): React.ReactNode {
+function ActionButton({
+  label,
+  variant,
+  onPress,
+  style,
+}: {
+  label: string;
+  variant: 'primary' | 'secondary';
+  onPress: () => void;
+  style?: StyleProp<ViewStyle>;
+}): React.ReactNode {
+  const primary = variant === 'primary';
   return (
-    <View style={styles.stat}>
-      <Text style={styles.statValue}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-    </View>
+    <Pressable
+      style={({ pressed }) => [
+        styles.actionButton,
+        primary ? styles.primaryButton : styles.secondaryButton,
+        style,
+        pressed && styles.pressed,
+      ]}
+      onPress={onPress}
+      accessibilityRole="button"
+    >
+      <Text style={[styles.actionText, primary ? styles.primaryText : styles.secondaryText]}>
+        {label}
+      </Text>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
+    flex: 1,
+    backgroundColor: colors.bg,
+  },
+  completeBody: {
+    flex: 1,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.xxl,
+  },
+  kicker: {
+    ...typography.tiny,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginTop: 8,
+    marginBottom: spacing.xxl,
+  },
+  rows: {
+    gap: 0,
+  },
+  summaryRow: {
+    minHeight: 54,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  summaryLabel: {
+    ...typography.tiny,
+    color: colors.textSecondary,
+  },
+  summaryValue: {
+    ...typography.h2,
+    fontWeight: fontWeight.medium,
+    color: colors.text,
+    textAlign: 'right',
+  },
+  onigiri: {
+    alignItems: 'center',
+    marginTop: spacing.huge,
+    gap: spacing.md,
+  },
+  craftedTag: {
+    ...typography.tiny,
+    color: colors.textSecondary,
+  },
+  onigiriName: {
+    ...typography.h2,
+    color: colors.text,
+    textAlign: 'center',
+  },
+  actions: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.lg,
+    gap: spacing.sm,
+  },
+  actionButton: {
+    minHeight: 56,
+    borderRadius: buttons.primary.borderRadius,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: buttons.primary.paddingHorizontal,
+  },
+  primaryButton: {
+    backgroundColor: buttons.primary.backgroundColor,
+    borderColor: buttons.primary.borderColor,
+  },
+  secondaryButton: {
+    backgroundColor: buttons.secondary.backgroundColor,
+    borderColor: buttons.secondary.borderColor,
+  },
+  pressed: {
+    opacity: 0.72,
+  },
+  actionText: {
+    ...typography.body,
+    fontWeight: fontWeight.medium,
+    textAlign: 'center',
+  },
+  primaryText: {
+    color: buttons.primary.color,
+  },
+  secondaryText: {
+    color: buttons.secondary.color,
+  },
+  receiptBody: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f5f5f7',
-    padding: 24,
-    gap: 14,
+    paddingHorizontal: spacing.lg,
   },
-  emoji: { fontSize: 72 },
-  title: { fontSize: 32, fontWeight: '800', color: '#1a1a1a' },
-  streak: { fontSize: 18, fontWeight: '700', color: '#e76f51' },
-  statRow: { flexDirection: 'row', gap: 16, marginTop: 8 },
-  stat: {
-    backgroundColor: 'white',
-    borderRadius: 14,
-    paddingVertical: 16,
-    paddingHorizontal: 22,
-    alignItems: 'center',
-    gap: 4,
-    minWidth: 84,
+  receiptActions: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.lg,
   },
-  statValue: { fontSize: 26, fontWeight: '800', color: '#0366d6' },
-  statLabel: { fontSize: 13, color: '#888' },
-  duration: { fontSize: 15, color: '#666', marginTop: 4 },
-  closeWrap: { marginTop: 20, alignItems: 'center', gap: 10 },
-  statsBtn: {
-    backgroundColor: '#eef2f6',
-    borderRadius: 12,
-    paddingVertical: 13,
-    paddingHorizontal: 48,
+  receiptActionButton: {
+    flex: 1,
   },
-  statsText: { color: '#0366d6', fontSize: 15, fontWeight: '700' },
-  closeBtn: {
-    backgroundColor: '#0366d6',
-    borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 48,
-  },
-  closeText: { color: 'white', fontSize: 16, fontWeight: '700' },
 });

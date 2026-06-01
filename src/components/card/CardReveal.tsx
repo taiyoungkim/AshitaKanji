@@ -2,6 +2,7 @@
 // presentational: 데이터 표시만. TTS 실행은 onSpeak 콜백 (module-10 useTTS 주입).
 
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
 import type { Word } from '~/types/Card';
 import { renderKanjiFace } from '~/lib/cardType';
 
@@ -73,29 +74,43 @@ export function CardReveal({ word, onSpeak, onSpeakExample, onOpenDetail }: Prop
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
+  container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg },
   speakable: { alignItems: 'center' },
-  surface: { fontSize: 48, fontWeight: '700', color: '#1a1a1a', textAlign: 'center' },
-  reading: { fontSize: 22, color: '#2a9d8f', marginTop: 8 },
-  meaning: { fontSize: 20, color: '#1a1a1a', marginTop: 12, fontWeight: '600' },
+  surface: {
+    fontSize: 48,
+    lineHeight: 54,
+    fontWeight: fontWeight.medium,
+    color: colors.text,
+    textAlign: 'center',
+    letterSpacing: -1,
+  },
+  reading: { fontSize: 22, lineHeight: 28, color: colors.textSecondary, marginTop: spacing.sm },
+  meaning: {
+    fontSize: 20,
+    lineHeight: 26,
+    color: colors.text,
+    marginTop: spacing.md,
+    fontWeight: fontWeight.medium,
+  },
   exampleBox: {
-    marginTop: 20,
-    paddingTop: 16,
+    marginTop: spacing.lg,
+    paddingTop: spacing.md,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#ddd',
+    borderTopColor: colors.border,
     alignItems: 'center',
   },
-  exampleJp: { fontSize: 16, color: '#333', textAlign: 'center' },
-  exampleKo: { fontSize: 14, color: '#666', marginTop: 4, textAlign: 'center' },
-  attribution: { fontSize: 11, color: '#aaa', marginTop: 8 },
-  ttsButton: { marginTop: 20, padding: 8 },
+  exampleJp: { ...typography.body, color: colors.text, textAlign: 'center' },
+  exampleKo: { ...typography.small, color: colors.textSecondary, marginTop: spacing.xs, textAlign: 'center' },
+  attribution: { ...typography.tiny, color: colors.textTertiary, marginTop: spacing.sm, textTransform: 'none', letterSpacing: 0 },
+  ttsButton: { marginTop: spacing.lg, padding: spacing.sm },
   ttsIcon: { fontSize: 28 },
   detailButton: {
-    marginTop: 8,
-    paddingHorizontal: 18,
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.lg,
     paddingVertical: 9,
-    borderRadius: 20,
-    backgroundColor: '#eef2f6',
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
   },
-  detailButtonText: { fontSize: 14, color: '#0366d6', fontWeight: '700' },
+  detailButtonText: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium },
 });

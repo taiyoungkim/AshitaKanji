@@ -1,5 +1,5 @@
-// Design Ref: §4.2 SessionEngine — 세션 큐 + Main/Again 미니라운드 + Done
-// Plan SC: "오늘 완료" = Main + Again 미니라운드 모두 비움. Again 2회 → 내일로.
+// Design Ref: §4.2 SessionEngine — 세션 큐 + Main + Done
+// Plan SC: "오늘 완료" = 오늘 큐를 모두 비움. Again 카드는 FSRS 일정으로 이월.
 //
 // 순수 오케스트레이션: Repo 인터페이스 + FsrsScheduler 에만 의존 (DB/UI 무관).
 
@@ -169,6 +169,16 @@ export class SessionEngine {
     this.pendingAgain = [];
     s.currentIndex = 0;
     s.phase = s.againQueue.length > 0 ? 'again' : 'done';
+  }
+
+  /** 현재 라운드 소진 → 세션 완료. Again 카드는 즉시 재출제하지 않고 다음 due 일정으로 둔다. */
+  completeCurrentRound(): void {
+    const s = this.state;
+    if (!s) throw new Error('session not started');
+    if (!this.isRoundComplete()) throw new Error('current round is not complete');
+    s.phase = 'done';
+    s.againQueue = [];
+    this.pendingAgain = [];
   }
 
   /** 현재 라운드 카드 모두 소진 여부. */

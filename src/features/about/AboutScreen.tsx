@@ -6,6 +6,7 @@
 
 import Constants from 'expo-constants';
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
 
 // 출시 표준 URL — bundleId(com.taiyoungkim.*)·site/·release-gate 와 동일 출처로 통일.
 // (이전 ktyoung153.github.io/ashitakanji 는 심사 링크 엇갈림 유발 → 폐기)
@@ -113,28 +114,39 @@ function LinkRow({ label, onPress }: { label: string; onPress: () => void }): Re
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f7' },
-  content: { padding: 20, gap: 16, alignItems: 'center' },
-  appName: { fontSize: 30, fontWeight: '800', color: '#1a1a1a', marginTop: 8 },
-  appKanji: { fontSize: 18, color: '#0366d6', fontWeight: '700' },
-  version: { fontSize: 13, color: '#999' },
-  tagline: { fontSize: 14, color: '#555', textAlign: 'center', lineHeight: 22, marginVertical: 8 },
-  section: { backgroundColor: 'white', borderRadius: 14, padding: 16, gap: 6, alignSelf: 'stretch' },
-  sectionTitle: { fontSize: 16, fontWeight: '700', color: '#1a1a1a' },
-  sectionBody: { marginTop: 8, gap: 12 },
-  licenseItem: { gap: 4 },
-  licenseHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  licenseTitle: { fontSize: 15, fontWeight: '600', color: '#333' },
-  licenseBadge: {
-    fontSize: 11,
-    color: '#0366d6',
-    backgroundColor: '#eef2f6',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 6,
-    overflow: 'hidden',
+  container: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: spacing.lg, gap: spacing.md, alignItems: 'center' },
+  appName: { ...typography.h2, color: colors.text, marginTop: spacing.sm },
+  appKanji: { fontSize: 18, lineHeight: 24, color: colors.textSecondary, fontWeight: fontWeight.medium },
+  version: { ...typography.small, color: colors.textTertiary },
+  tagline: { ...typography.small, color: colors.textSecondary, textAlign: 'center', lineHeight: 22, marginVertical: spacing.sm },
+  section: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.card,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+    gap: 6,
+    alignSelf: 'stretch',
   },
-  licenseBody: { fontSize: 13, color: '#666', lineHeight: 19 },
-  link: { fontSize: 15, color: '#0366d6', fontWeight: '600' },
-  privacyNote: { fontSize: 12, color: '#aaa', textAlign: 'center', lineHeight: 18, marginTop: 4 },
+  sectionTitle: { ...typography.body, fontWeight: fontWeight.medium, color: colors.text },
+  sectionBody: { marginTop: spacing.sm, gap: spacing.md },
+  licenseItem: { gap: spacing.xs },
+  licenseHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  licenseTitle: { ...typography.small, fontWeight: fontWeight.medium, color: colors.text },
+  licenseBadge: {
+    ...typography.tiny,
+    color: colors.textSecondary,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 2,
+    borderRadius: radius.pill,
+    overflow: 'hidden',
+    textTransform: 'none',
+    letterSpacing: 0,
+  },
+  licenseBody: { ...typography.small, color: colors.textSecondary, lineHeight: 19 },
+  link: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium },
+  privacyNote: { ...typography.tiny, color: colors.textTertiary, textAlign: 'center', lineHeight: 18, marginTop: spacing.xs, textTransform: 'none', letterSpacing: 0 },
 });

@@ -1,5 +1,5 @@
 // Design Ref: §4.2 / §8 Test Plan — SessionEngine 단위 테스트
-// 검증: 큐 우선순위(overdue→신규), Again 미니라운드, 2회 실패→내일(재큐 X), 카운터.
+// 검증: 큐 우선순위(overdue→신규), 완료 전환, Again 처리, 카운터.
 
 import { beforeEach, describe, expect, it } from 'vitest';
 import { generatorParameters } from 'ts-fsrs';
@@ -136,6 +136,21 @@ describe('Again mini-round + 2회 실패 → 내일로', () => {
     await engine.submitGrade(Grade.Good, 500, NOW);
     await engine.startAgainRound();
     expect(engine.snapshot().phase).toBe('done');
+  });
+});
+
+describe('completeCurrentRound — no surprise review loop', () => {
+  it('marks the session done after the planned queue is exhausted, even with Again cards', async () => {
+    cardRepo.seed([word('a')]);
+    await engine.start({ ...cfg, dailyNewLimit: 1 }, NOW);
+    await engine.submitGrade(Grade.Again, 500, NOW);
+
+    expect(engine.isRoundComplete()).toBe(true);
+    engine.completeCurrentRound();
+
+    const snap = engine.snapshot();
+    expect(snap.phase).toBe('done');
+    expect(engine.current()).toBeNull();
   });
 });
 

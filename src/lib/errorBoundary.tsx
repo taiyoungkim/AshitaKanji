@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { colors, fontFamily, fontWeight, radius, spacing, typography } from '~/design/tokens';
 
 interface State {
   hasError: boolean;
@@ -39,7 +40,7 @@ export class RootErrorBoundary extends React.Component<Props, State> {
     if (this.state.hasError) {
       return (
         <View style={styles.container}>
-          <Text style={styles.emoji}>😵</Text>
+          <Text style={styles.kicker}>ERROR</Text>
           <Text style={styles.title}>문제가 생겼어요</Text>
           <Text style={styles.message}>
             앱에 예상치 못한 오류가 발생했습니다. 다시 시도해주세요.
@@ -68,32 +69,35 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 24,
-    backgroundColor: '#fafafa',
+    padding: spacing.lg,
+    backgroundColor: colors.bg,
   },
-  emoji: { fontSize: 64, marginBottom: 16 },
-  title: { fontSize: 22, fontWeight: '700', marginBottom: 12 },
+  kicker: { ...typography.tiny, color: colors.textSecondary, marginBottom: spacing.md },
+  title: { ...typography.h2, color: colors.text, marginBottom: spacing.md },
   message: {
-    fontSize: 16,
+    ...typography.body,
     textAlign: 'center',
-    color: '#444',
-    marginBottom: 12,
+    color: colors.textSecondary,
+    marginBottom: spacing.md,
   },
   diagId: {
-    fontSize: 12,
-    color: '#888',
-    marginBottom: 24,
-    fontFamily: 'Courier',
+    ...typography.tiny,
+    color: colors.textTertiary,
+    marginBottom: spacing.lg,
+    fontFamily: fontFamily.mono,
+    textTransform: 'none',
+    letterSpacing: 0,
   },
   button: {
-    backgroundColor: '#0366d6',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
+    backgroundColor: colors.black,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    borderRadius: radius.pill,
   },
   buttonText: {
-    color: 'white',
+    color: colors.white,
     fontSize: 16,
-    fontWeight: '600',
+    lineHeight: 22,
+    fontWeight: fontWeight.medium,
   },
 });

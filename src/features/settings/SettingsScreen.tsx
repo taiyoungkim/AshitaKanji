@@ -1,4 +1,4 @@
-// Design Ref: §6.2 설정 화면 — 레벨/일일 신규 한도/TTS.
+// Design Ref: ONIGIRI SHOP redesign — 설정 화면. 무채색·플랫·타이포 중심.
 // Plan SC: 일일 신규 5-50, 30 초과 시 "고강도" 경고 1회. TTS 켜기·속도.
 //
 // 슬라이더는 네이티브 의존성 회피 위해 스텝 버튼(−/+)으로 대체 (MVP).
@@ -15,6 +15,8 @@ import {
   Text,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors, fontWeight, spacing, typography } from '~/design/tokens';
 import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
 import {
   DAILY_NEW_MAX,
@@ -84,95 +86,107 @@ export default function SettingsScreen(): React.ReactNode {
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.h1}>설정</Text>
+    <SafeAreaView style={styles.root} edges={['top']}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.h1}>SETTINGS</Text>
 
-      {/* 레벨 선택 */}
-      <Section title="학습 레벨" hint="최소 1개. 선택한 레벨에서 카드를 출제합니다.">
-        <View style={styles.levelRow}>
-          {JLPT_LEVELS.map((lv: JlptLevel) => {
-            const on = selectedLevels.includes(lv);
-            return (
-              <Pressable
-                key={lv}
-                style={[styles.levelChip, on && styles.levelChipOn]}
-                onPress={() => toggleLevel(lv)}
-                accessibilityRole="button"
-                accessibilityState={{ selected: on }}
-              >
-                <Text style={[styles.levelText, on && styles.levelTextOn]}>{lv}</Text>
-              </Pressable>
-            );
-          })}
-        </View>
-      </Section>
+        {/* 레벨 선택 */}
+        <Section title="학습 레벨" hint="최소 1개. 선택한 레벨에서 카드를 출제합니다.">
+          <View style={styles.levelRow}>
+            {JLPT_LEVELS.map((lv: JlptLevel) => {
+              const on = selectedLevels.includes(lv);
+              return (
+                <Pressable
+                  key={lv}
+                  style={[styles.levelChip, on && styles.levelChipOn]}
+                  onPress={() => toggleLevel(lv)}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: on }}
+                >
+                  <Text style={[styles.levelText, on && styles.levelTextOn]}>{lv}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        </Section>
 
-      {/* 일일 신규 한도 */}
-      <Section title="하루 새 단어" hint={`${DAILY_NEW_MIN}~${DAILY_NEW_MAX}개`}>
-        <Stepper
-          value={`${dailyNewLimit}개`}
-          onMinus={() => changeDailyNew(-DAILY_STEP)}
-          onPlus={() => changeDailyNew(DAILY_STEP)}
-          minusDisabled={dailyNewLimit <= DAILY_NEW_MIN}
-          plusDisabled={dailyNewLimit >= DAILY_NEW_MAX}
-        />
-        {isHighIntensity(dailyNewLimit) && (
-          <Text style={styles.warn}>⚠ 고강도 — 복습 누적이 빠르게 늘어요.</Text>
-        )}
-      </Section>
+        {/* 일일 신규 한도 */}
+        <Section title="하루 새 단어" hint={`${DAILY_NEW_MIN}~${DAILY_NEW_MAX}개`}>
+          <Stepper
+            value={`${dailyNewLimit}개`}
+            onMinus={() => changeDailyNew(-DAILY_STEP)}
+            onPlus={() => changeDailyNew(DAILY_STEP)}
+            minusDisabled={dailyNewLimit <= DAILY_NEW_MIN}
+            plusDisabled={dailyNewLimit >= DAILY_NEW_MAX}
+          />
+          {isHighIntensity(dailyNewLimit) && (
+            <Text style={styles.warn}>고강도 — 복습 누적이 빠르게 늘어요.</Text>
+          )}
+        </Section>
 
-      {/* TTS */}
-      <Section title="발음 듣기 (TTS)" hint="일본어 음성으로 읽어줍니다.">
-        <View style={styles.switchRow}>
-          <Text style={styles.switchLabel}>켜기</Text>
-          <Switch value={ttsEnabled} onValueChange={setTtsEnabled} />
-        </View>
-        {ttsEnabled && (
-          <View style={styles.speedRow}>
-            <Text style={styles.switchLabel}>속도</Text>
-            <Stepper
-              value={`${ttsSpeed.toFixed(1)}x`}
-              onMinus={() => setTtsSpeed(ttsSpeed - SPEED_STEP)}
-              onPlus={() => setTtsSpeed(ttsSpeed + SPEED_STEP)}
-              minusDisabled={ttsSpeed <= TTS_SPEED_MIN + 1e-9}
-              plusDisabled={ttsSpeed >= TTS_SPEED_MAX - 1e-9}
+        {/* TTS */}
+        <Section title="발음 듣기 (TTS)" hint="일본어 음성으로 읽어줍니다.">
+          <View style={styles.switchRow}>
+            <Text style={styles.switchLabel}>켜기</Text>
+            <Switch
+              value={ttsEnabled}
+              onValueChange={setTtsEnabled}
+              trackColor={{ false: colors.border, true: colors.text }}
+              thumbColor={colors.white}
+              ios_backgroundColor={colors.border}
             />
           </View>
-        )}
-      </Section>
-
-      {/* 데이터 백업 */}
-      <Section title="데이터 백업" hint="학습 기록을 JSON 파일로 내보내요.">
-        <Pressable
-          style={[styles.actionBtn, exporting && styles.actionBtnOff]}
-          onPress={() => void onExport()}
-          disabled={exporting}
-          accessibilityRole="button"
-        >
-          {exporting ? (
-            <ActivityIndicator color="#0366d6" />
-          ) : (
-            <Text style={styles.actionText}>백업 내보내기 (JSON)</Text>
+          {ttsEnabled && (
+            <View style={styles.speedRow}>
+              <Text style={styles.switchLabel}>속도</Text>
+              <Stepper
+                value={`${ttsSpeed.toFixed(1)}x`}
+                onMinus={() => setTtsSpeed(ttsSpeed - SPEED_STEP)}
+                onPlus={() => setTtsSpeed(ttsSpeed + SPEED_STEP)}
+                minusDisabled={ttsSpeed <= TTS_SPEED_MIN + 1e-9}
+                plusDisabled={ttsSpeed >= TTS_SPEED_MAX - 1e-9}
+              />
+            </View>
           )}
-        </Pressable>
-      </Section>
+        </Section>
 
-      {/* 정보 */}
-      <Section title="정보">
-        <Pressable
-          style={styles.linkRow}
-          onPress={() => router.push('/about')}
-          accessibilityRole="button"
-        >
-          <Text style={styles.linkText}>앱 정보 · 라이선스 · 출처</Text>
-          <Text style={styles.linkChevron}>›</Text>
-        </Pressable>
-      </Section>
+        {/* 데이터 백업 */}
+        <Section title="데이터 백업" hint="학습 기록을 JSON 파일로 내보내요.">
+          <Pressable
+            style={[styles.actionBtn, exporting && styles.actionBtnOff]}
+            onPress={() => void onExport()}
+            disabled={exporting}
+            accessibilityRole="button"
+          >
+            {exporting ? (
+              <ActivityIndicator color={colors.text} />
+            ) : (
+              <Text style={styles.actionText}>백업 내보내기 (JSON)</Text>
+            )}
+          </Pressable>
+        </Section>
 
-      <Text style={styles.footer}>
-        모든 학습 데이터는 이 기기에만 저장돼요. 외부로 전송하지 않습니다.
-      </Text>
-    </ScrollView>
+        {/* 정보 */}
+        <Section title="정보">
+          <Pressable
+            style={styles.linkRow}
+            onPress={() => router.push('/about')}
+            accessibilityRole="button"
+          >
+            <Text style={styles.linkText}>앱 정보 · 라이선스 · 출처</Text>
+            <Text style={styles.linkChevron}>›</Text>
+          </Pressable>
+        </Section>
+
+        <Text style={styles.footer}>
+          모든 학습 데이터는 이 기기에만 저장돼요. 외부로 전송하지 않습니다.
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -231,61 +245,148 @@ function Stepper({
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f7' },
-  content: { padding: 20, gap: 20 },
-  h1: { fontSize: 28, fontWeight: '800', marginBottom: 4 },
+  root: {
+    flex: 1,
+    backgroundColor: colors.bg,
+  },
+  container: {
+    flex: 1,
+  },
+  content: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.xl,
+  },
+  h1: {
+    ...typography.h2,
+    color: colors.text,
+    marginBottom: spacing.sm,
+  },
   section: {
-    backgroundColor: 'white',
-    borderRadius: 14,
-    padding: 16,
+    paddingVertical: spacing.lg,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
     gap: 6,
   },
-  sectionTitle: { fontSize: 17, fontWeight: '700', color: '#1a1a1a' },
-  sectionHint: { fontSize: 13, color: '#888' },
-  sectionBody: { marginTop: 10 },
-  levelRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
-  levelChip: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#d0d0d5',
-    backgroundColor: '#fafafa',
+  sectionTitle: {
+    ...typography.body,
+    fontWeight: fontWeight.medium,
+    color: colors.text,
   },
-  levelChipOn: { backgroundColor: '#0366d6', borderColor: '#0366d6' },
-  levelText: { fontSize: 15, fontWeight: '600', color: '#555' },
-  levelTextOn: { color: 'white' },
-  warn: { marginTop: 8, fontSize: 13, color: '#c0392b', fontWeight: '600' },
-  switchRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  sectionHint: {
+    ...typography.small,
+    color: colors.textSecondary,
+  },
+  sectionBody: {
+    marginTop: spacing.md,
+  },
+  levelRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    flexWrap: 'wrap',
+  },
+  levelChip: {
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    backgroundColor: 'transparent',
+  },
+  levelChipOn: {
+    backgroundColor: colors.black,
+    borderColor: colors.black,
+  },
+  levelText: {
+    ...typography.small,
+    fontWeight: fontWeight.medium,
+    color: colors.textSecondary,
+  },
+  levelTextOn: {
+    color: colors.white,
+  },
+  warn: {
+    marginTop: spacing.sm,
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: fontWeight.medium,
+  },
+  switchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   speedRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 14,
+    marginTop: spacing.md,
   },
-  switchLabel: { fontSize: 15, color: '#333' },
-  stepper: { flexDirection: 'row', alignItems: 'center', gap: 16 },
+  switchLabel: {
+    ...typography.body,
+    color: colors.text,
+  },
+  stepper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
   stepBtn: {
     width: 40,
     height: 40,
-    borderRadius: 20,
-    backgroundColor: '#eef2f6',
+    borderRadius: 999,
+    backgroundColor: colors.surfaceMuted,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  stepBtnOff: { opacity: 0.35 },
-  stepSign: { fontSize: 22, fontWeight: '700', color: '#0366d6' },
-  stepValue: { fontSize: 17, fontWeight: '700', minWidth: 56, textAlign: 'center' },
+  stepBtnOff: {
+    opacity: 0.35,
+  },
+  stepSign: {
+    fontSize: 22,
+    lineHeight: 26,
+    fontWeight: fontWeight.medium,
+    color: colors.text,
+  },
+  stepValue: {
+    ...typography.body,
+    fontWeight: fontWeight.medium,
+    minWidth: 56,
+    textAlign: 'center',
+    color: colors.text,
+  },
   actionBtn: {
-    backgroundColor: '#eef2f6',
-    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    borderRadius: 999,
     paddingVertical: 14,
     alignItems: 'center',
   },
-  actionBtnOff: { opacity: 0.5 },
-  actionText: { color: '#0366d6', fontSize: 15, fontWeight: '700' },
-  linkRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  linkText: { fontSize: 15, color: '#333' },
-  linkChevron: { fontSize: 22, color: '#bbb' },
-  footer: { fontSize: 12, color: '#aaa', textAlign: 'center', marginTop: 4 },
+  actionBtnOff: {
+    opacity: 0.5,
+  },
+  actionText: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: fontWeight.medium,
+  },
+  linkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  linkText: {
+    ...typography.body,
+    color: colors.text,
+  },
+  linkChevron: {
+    fontSize: 22,
+    color: colors.textTertiary,
+  },
+  footer: {
+    ...typography.small,
+    color: colors.textTertiary,
+    textAlign: 'center',
+    marginTop: spacing.lg,
+  },
 });

@@ -3,6 +3,7 @@
 // 5종 타입 분기는 cardType util이 처리 → Card는 타입 무관 동일 레이아웃.
 
 import { StyleSheet, View } from 'react-native';
+import { colors, radius, spacing } from '~/design/tokens';
 import type { Word } from '~/types/Card';
 import { CardFace } from './CardFace';
 import { CardReveal } from './CardReveal';
@@ -38,13 +39,10 @@ export function Card({
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    backgroundColor: 'white',
-    borderRadius: 16,
-    margin: 16,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 3,
+    backgroundColor: colors.surface,
+    borderRadius: radius.card,
+    margin: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
 });

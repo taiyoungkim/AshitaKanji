@@ -12,6 +12,7 @@ import { queryClient } from '~/lib/queryClient';
 import { RootErrorBoundary } from '~/lib/errorBoundary';
 import { getDatabase } from '~/db/open';
 import { ToastProvider } from '~/components/Toast';
+import { colors, typography } from '~/design/tokens';
 
 export default function RootLayout(): React.ReactNode {
   const [dbReady, setDbReady] = useState(false);
@@ -46,7 +47,7 @@ export default function RootLayout(): React.ReactNode {
   if (!dbReady) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size="large" color="#0366d6" />
+        <ActivityIndicator size="large" color={colors.text} />
         <Text style={styles.loadingText}>준비 중…</Text>
       </View>
     );
@@ -56,13 +57,26 @@ export default function RootLayout(): React.ReactNode {
     <RootErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <ToastProvider>
-        <Stack screenOptions={{ headerShown: false }}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerTitleStyle: { color: colors.text, fontWeight: typography.h2.fontWeight },
+            headerShadowVisible: false,
+            contentStyle: { backgroundColor: colors.bg },
+          }}
+        >
           <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="intro" options={{ headerShown: false }} />
           <Stack.Screen
             name="study"
             options={{ headerShown: false, presentation: 'fullScreenModal' }}
           />
-          <Stack.Screen name="done" options={{ presentation: 'modal' }} />
+          <Stack.Screen
+            name="done"
+            options={{ headerShown: false, presentation: 'fullScreenModal' }}
+          />
           <Stack.Screen
             name="scan"
             options={{ headerShown: true, title: '빠른 훑기', headerBackTitle: '뒤로' }}
@@ -74,6 +88,10 @@ export default function RootLayout(): React.ReactNode {
           <Stack.Screen
             name="word/[id]"
             options={{ headerShown: true, title: '단어 상세', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="onigiri/[id]"
+            options={{ headerShown: true, title: 'ONIGIRI', headerBackTitle: '뒤로' }}
           />
           <Stack.Screen
             name="about"
@@ -91,7 +109,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.bg,
   },
-  loadingText: { marginTop: 12, fontSize: 14, color: '#888' },
+  loadingText: { marginTop: 12, ...typography.small, color: colors.textSecondary },
 });
