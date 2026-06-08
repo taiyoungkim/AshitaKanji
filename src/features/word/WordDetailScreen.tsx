@@ -169,13 +169,18 @@ export default function WordDetailScreen(): React.ReactNode {
         </View>
         <Text
           style={styles.surface}
+          onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
           onLongPress={() => copyAndToast(renderKanjiFace(w))}
-          accessibilityHint="길게 누르면 복사돼요"
+          accessibilityRole="button"
+          accessibilityLabel="발음 듣기"
+          accessibilityHint="탭하면 발음, 길게 누르면 복사돼요"
         >
           {renderKanjiFace(w)}
         </Text>
-        {w.furigana && <Text style={styles.furigana}>{w.furigana}</Text>}
-        <Text style={styles.reading}>{w.reading_kana}</Text>
+        {/* 읽기는 표기와 다를 때만 (가나 단어는 표기==읽기라 중복 숨김) */}
+        {renderKanjiFace(w) !== w.reading_kana && (
+          <Text style={styles.reading}>{w.reading_kana}</Text>
+        )}
         <Pressable
           style={[styles.ttsBtn, tts.status === 'unsupported' && styles.ttsBtnOff]}
           onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
