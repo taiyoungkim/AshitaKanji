@@ -18,8 +18,7 @@
     },
     "assetBundlePatterns": [
       "**/*",
-      "assets/jlpt.db",
-      "assets/tatoeba-authors.txt"
+      "assets/jlpt.db"
     ],
     "ios": {
       "supportsTablet": false,
@@ -53,6 +52,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "70834a60-4381-4d49-829f-ba62435c0343"
+      }
     }
   }
 }

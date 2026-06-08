@@ -30,12 +30,12 @@ export interface Word {
   card_type: CardType;
   example_jp?: string | null;
   example_ko?: string | null;
-  // Tatoeba attribution (CC BY 2.0 FR)
+  // 예문 출처 메타 (현재 예문은 모두 외부 사전 출처, 표시는 하지 않음)
   example_jp_id?: number | null;
   example_jp_author?: string | null;
   example_ko_id?: number | null;
   example_ko_author?: string | null;
-  example_license?: string | null;     // 'CC-BY-2.0-FR' | 'self'
+  example_license?: string | null;     // 'owner-confirmed-cleared' | 'self'
   alt_forms?: string[] | null;
   disambig?: string | null;            // 동형이의어 구분
   source?: string | null;              // 'kaggle:robinpourtaud'

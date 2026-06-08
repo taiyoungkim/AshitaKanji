@@ -2,7 +2,7 @@
 // Plan Ref: §9 (전체 8 tables: word, user_card, review_log, scan_result, session, events, daily_stats, app_meta)
 // Plan SC:
 //   - is_beta 컬럼 폐기 (v0.6)
-//   - example_jp_id/author + ko_id/author + license 5컬럼 추가 (v0.7 Tatoeba)
+//   - example_jp_id/author + ko_id/author + license 5컬럼 추가 (v0.7 예문 메타)
 //   - daily_stats = lazy rollup (자정 cron 없음)
 
 export const SCHEMA_V1: string[] = [

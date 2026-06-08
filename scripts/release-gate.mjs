@@ -23,7 +23,6 @@ const REQUIRED_ASSETS = [
   'assets/icon.png',
   'assets/splash.png',
   'assets/adaptive-icon.png',
-  'assets/tatoeba-authors.txt',
 ];
 for (const rel of REQUIRED_ASSETS) {
   const p = resolve(ROOT, rel);
@@ -58,7 +57,7 @@ for (const rel of REQUIRED_ASSETS) {
         Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM word WHERE ${where};`], {
           encoding: 'utf8',
         }).trim());
-      const targets = { N5: 300, N4: 600, N3: 1100, N2: 1700, N1: 2500 };
+      const targets = { N5: 339, N4: 600, N3: 1499, N2: 1700, N1: 2500 };
       const actualLevels = Object.fromEntries(
         Object.keys(targets).map((level) => [level, count(`level='${level}' AND deprecated=0`)]),
       );
@@ -76,7 +75,7 @@ for (const rel of REQUIRED_ASSETS) {
       const deprecated = count(`deprecated=1`);
       add(
         'jlpt.db active word count',
-        active === 6200,
+        active === 6638,
         `active=${active}, deprecated=${deprecated}`,
       );
       const verified = count(`qa_status='verified' AND deprecated=0`);

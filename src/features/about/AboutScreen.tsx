@@ -1,7 +1,7 @@
 // Design Ref: §5.1 /about — 라이선스 + Example Sources + 앱 정보.
 // Plan SC(데이터 출처/Play 정책): 데이터셋·예문 라이선스 정직 표기.
 //   - 단어 데이터: 편집자 큐레이션 6,200개. 문법·접사 패턴 제외 후 단어형 후보로 보강
-//   - 예문: Tatoeba 또는 권리 확인된 NAVER 일본어사전 예문 — 문장별 출처 표기
+//   - 예문: 권리 확인된 NAVER 일본어사전 예문 (출처 라벨 비표시)
 //   - "빈도 상위"/"JLPT 전체" 표현 금지 → "핵심 선별" 사용.
 
 import Constants from 'expo-constants';
@@ -24,16 +24,6 @@ const LICENSES: LicenseItem[] = [
     title: '단어 데이터',
     body: 'JLPT N5~N1 핵심 선별 6,200 단어. 문법·접사 패턴은 제외하고 원본 CSV의 중복 없는 단어형 후보로 보강했습니다. Kaggle "JLPT words by level" (Robin Pourtaud) 데이터를 기반으로 검수·가공했습니다.',
     license: 'CC BY 4.0',
-  },
-  {
-    title: '예문 (Tatoeba)',
-    body: '일부 예문은 Tatoeba 프로젝트의 문장을 사용합니다. 문장별 기여자는 단어 상세 화면에 표기하며, 전체 기여자 명단은 앱에 함께 포함되어 있습니다.',
-    license: 'CC BY 2.0 FR',
-  },
-  {
-    title: '예문 (NAVER 일본어사전)',
-    body: '권리 확인이 완료된 네이버 일본어사전 예문을 학습 문맥 예문으로 사용합니다. 예문 출처와 권리 확인 상태는 단어 상세 화면에 함께 표기합니다.',
-    license: '사용 허가 확인',
   },
   {
     title: '한자 데이터',

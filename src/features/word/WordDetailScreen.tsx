@@ -1,5 +1,5 @@
 // Design Ref: §5.6 단어 상세 — surface/reading/뜻/예문/attribution/타입/별표기 + TTS.
-// Plan SC: Tatoeba 예문 문장별 출처 표기 (CC BY 2.0 FR). 학습데이터 외부 송신 없음(on-device).
+// 예문은 권리 확인된 외부 사전 출처 (출처 라벨 비표시). 학습데이터 외부 송신 없음(on-device).
 //
 // 데이터: getDatabase() → SqliteCardRepo.findById(id). 읽기 전용 (FSRS 상태 변경 없음).
 
@@ -41,7 +41,7 @@ type LoadState =
       kanjiError?: string;
     };
 
-// CardReveal.attributionLine 과 동일 규칙 (CC BY 2.0 FR 표기).
+// CardReveal.attributionLine 과 동일 규칙 (자체 제작 예문만 표기).
 function attribution(word: Word): string | null {
   const author = word.example_jp_author;
   const lic = word.example_license;
@@ -71,9 +71,8 @@ function legacyExample(word: Word): WordExample[] {
 }
 
 function exampleAttribution(example: WordExample): string | null {
-  const license = example.license === 'owner-confirmed-cleared' ? '사용 허가 확인' : example.license;
-  const parts = [example.attribution, license].filter(Boolean);
-  return parts.length > 0 ? parts.join(' · ') : null;
+  // 외부 사전(NAVER 등) 예문은 출처·라벨 비표시. 자체 제작 예문만 표기.
+  return example.license === 'self' ? '자체 제작' : null;
 }
 
 export default function WordDetailScreen(): React.ReactNode {

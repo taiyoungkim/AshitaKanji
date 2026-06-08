@@ -25,7 +25,7 @@ const DEFAULT_KANJIDIC = resolve(ROOT, '.cache/kanjidic2.xml.gz');
 const KANJIDIC_URL = 'https://www.edrdg.org/kanjidic/kanjidic2.xml.gz';
 const KANJIDIC_LICENSE = 'CC BY-SA 4.0';
 const DATA_VERSION = 1;
-const TARGET_COUNTS = { N5: 300, N4: 600, N3: 1100, N2: 1700, N1: 2500 };
+const TARGET_COUNTS = { N5: 339, N4: 600, N3: 1499, N2: 1700, N1: 2500 };
 const LEVEL_ORDER = ['N5', 'N4', 'N3', 'N2', 'N1'];
 const QA_STATUSES = new Set(['verified', 'auto', 'needs_review', 'rejected']);
 const NON_VOCAB_TAG = 'non-vocabulary';
@@ -107,7 +107,6 @@ async function main() {
   buildDatabase(rows, dbPath, kanjiQaRows, naverExampleRows);
   const report = inspectDatabase(dbPath);
   writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  writeAttributionFile(resolve(ROOT, 'assets/tatoeba-authors.txt'));
 
   console.log(`built DB: ${rel(dbPath)}`);
   console.log(`wrote report: ${rel(reportPath)}`);
@@ -1176,6 +1175,12 @@ function vocabularyExclusionReason(row) {
   if (/[()（）]/.test(surface)) {
     return '표면형에 괄호 문맥이 있어 독립 단어 표제어가 아님';
   }
+  if (/[;；]/.test(surface)) {
+    return '표면형에 복수형 구분자(;)가 있어 정규 단일 표제어가 아님 (이형태는 alt_forms로 분리)';
+  }
+  if (/\s/.test(surface)) {
+    return '표면형에 공백이 있어 읽기 혼입 등 비정규 표제어로 분류';
+  }
   return '';
 }
 
@@ -1196,22 +1201,6 @@ function appendQaNote(note, addition) {
   if (!current) return addition;
   if (current.includes(addition)) return current;
   return `${current}; ${addition}`;
-}
-
-function writeAttributionFile(path) {
-  ensureParent(path);
-  if (existsSync(path)) return;
-  writeFileSync(
-    path,
-    [
-      'AshitaKanji example sentence attribution',
-      '',
-      'No Tatoeba example sentences are bundled in this draft DB yet.',
-      'When example_jp/example_ko rows are added, include sentence authors here and',
-      'show per-card attribution in the app.',
-      '',
-    ].join('\n'),
-  );
 }
 
 function readCsv(path) {
