@@ -27,6 +27,8 @@ export interface WordRow {
   deprecated: number;
   tags: string | null;
   data_version: number;
+  frequency: number | null;
+  reading_chapter: number | null;
 }
 
 function parseJsonArray(s: string | null): string[] | null {
@@ -63,5 +65,7 @@ export function rowToWord(r: WordRow): Word {
     deprecated: r.deprecated === 1 ? 1 : 0,
     tags: parseJsonArray(r.tags),
     data_version: r.data_version,
+    frequency: r.frequency,
+    reading_chapter: r.reading_chapter,
   };
 }

@@ -2,7 +2,7 @@
 // Existing due/new count logic stays read-only; onigiri progress is derived from completed sessions.
 
 import { useCallback, useState } from 'react';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect, useRouter, type Href } from 'expo-router';
 import {
   ActivityIndicator,
   Image,
@@ -165,6 +165,13 @@ export default function HomeScreen(): React.ReactNode {
 
       <View style={styles.footer}>
         <Pressable
+          style={styles.readingLink}
+          onPress={() => router.push('/reading' as Href)}
+          accessibilityRole="button"
+        >
+          <Text style={styles.readingLinkText}>회독 모드 · 빈도순 50단어 반복</Text>
+        </Pressable>
+        <Pressable
           style={({ pressed }) => [
             styles.startButton,
             allClear && styles.secondaryButton,
@@ -249,6 +256,16 @@ const styles = StyleSheet.create({
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
     backgroundColor: colors.bg,
+  },
+  readingLink: {
+    alignItems: 'center',
+    paddingVertical: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  readingLinkText: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: fontWeight.medium,
   },
   head: {
     marginTop: spacing.xs,

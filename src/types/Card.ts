@@ -43,6 +43,8 @@ export interface Word {
   deprecated: 0 | 1;
   tags?: string[] | null;
   data_version: number;
+  frequency?: number | null;       // wordfreq Zipf (general JA corpus)
+  reading_chapter?: number | null; // 회독 동결 챕터 (레벨 내 1-based, 50개/챕터)
 }
 
 /** user_card table row (FSRS state) */

@@ -11,12 +11,17 @@
 import * as SQLite from 'expo-sqlite';
 import { migrateToV1 } from './migrations/v1';
 import { migrateToV2 } from './migrations/v2';
+import { migrateToV3 } from './migrations/v3';
+import { migrateToV4 } from './migrations/v4';
 import { CURRENT_SCHEMA_VERSION } from './schema';
 
 const DB_NAME = 'ashitakanji.db';
 const SEED_DB_NAME = 'ashitakanji.seed.db';
-const WORD_CURATION_VERSION = '3';
-const KANJI_CURATION_VERSION = '2';
+// '4' — N3 빈출 399 보강 + N5 정리 + JMdict POS + frequency/reading_chapter(회독).
+// 기존 설치 재하이드레이션 트리거(안 올리면 신규 어휘/빈도/챕터 전파 안 됨).
+const WORD_CURATION_VERSION = '4';
+// '3' — N3 보강으로 신규 한자 + word_kanji 링크 추가 → 기존 설치 재하이드레이션.
+const KANJI_CURATION_VERSION = '3';
 const EXAMPLE_CURATION_VERSION = '1';
 const BUNDLED_DB_REQUIRE = (() => {
   try {
@@ -123,6 +128,8 @@ interface WordSeedRow {
   deprecated: number;
   tags: string | null;
   data_version: number;
+  frequency: number | null;
+  reading_chapter: number | null;
 }
 
 interface WordKanjiSeedRow {
@@ -337,8 +344,9 @@ async function upsertSeedWord(db: SQLite.SQLiteDatabase, row: WordSeedRow): Prom
     `INSERT INTO word
       (id, level, surface, reading_kana, furigana, meaning_ko, part_of_speech, card_type,
        example_jp, example_ko, example_jp_id, example_jp_author, example_ko_id, example_ko_author,
-       example_license, alt_forms, disambig, source, qa_status, deprecated, tags, data_version)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       example_license, alt_forms, disambig, source, qa_status, deprecated, tags, data_version,
+       frequency, reading_chapter)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
      ON CONFLICT(id) DO UPDATE SET
        level = excluded.level,
        surface = excluded.surface,
@@ -360,7 +368,9 @@ async function upsertSeedWord(db: SQLite.SQLiteDatabase, row: WordSeedRow): Prom
        qa_status = excluded.qa_status,
        deprecated = excluded.deprecated,
        tags = excluded.tags,
-       data_version = excluded.data_version`,
+       data_version = excluded.data_version,
+       frequency = excluded.frequency,
+       reading_chapter = excluded.reading_chapter`,
     [
       row.id,
       row.level,
@@ -384,6 +394,8 @@ async function upsertSeedWord(db: SQLite.SQLiteDatabase, row: WordSeedRow): Prom
       row.deprecated,
       row.tags,
       row.data_version,
+      row.frequency,
+      row.reading_chapter,
     ],
   );
 }
@@ -429,7 +441,12 @@ async function runMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
   if (current < 2) {
     await migrateToV2(db);
   }
-  // Future: if (current < 3) await migrateToV3(db); ...
+  if (current < 3) {
+    await migrateToV3(db);
+  }
+  if (current < 4) {
+    await migrateToV4(db);
+  }
 
   const after = await getSchemaVersion(db);
   if (after !== CURRENT_SCHEMA_VERSION) {

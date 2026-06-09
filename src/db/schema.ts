@@ -218,13 +218,49 @@ export const SCHEMA_V2_ADDITIONS: string[] = [
   `CREATE INDEX IF NOT EXISTS idx_word_example_permission ON word_example(source, permission_status)`,
 ];
 
+// v3 — 회독(read-through):
+//   - word.frequency / word.reading_chapter (frozen chapter, 50 words/level-chapter)
+//   - reading_progress: per-word known state (resume). 챕터/현재/잠금은 word.reading_chapter로 파생.
+export const SCHEMA_V3_ADDITIONS: string[] = [
+  `ALTER TABLE word ADD COLUMN frequency REAL`,
+  `ALTER TABLE word ADD COLUMN reading_chapter INTEGER`,
+  `CREATE INDEX IF NOT EXISTS idx_word_reading_chapter ON word(level, reading_chapter)`,
+  `CREATE TABLE IF NOT EXISTS reading_progress (
+    word_id     TEXT    PRIMARY KEY,
+    known       INTEGER NOT NULL DEFAULT 0 CHECK (known IN (0,1)),
+    updated_at  INTEGER NOT NULL,
+    FOREIGN KEY (word_id) REFERENCES word(id)
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_reading_progress_known ON reading_progress(known)`,
+];
+
+// v4 — 누적 회독: 챕터 N = reading_chapter<=N 단어 전체 재테스트.
+//   같은 단어가 회차마다 다시 나오므로 known을 (word_id, chapter) 단위로 저장.
+//   v3의 (word_id) 단일키 테이블을 교체 (비어있어 안전).
+export const SCHEMA_V4_ADDITIONS: string[] = [
+  `DROP TABLE IF EXISTS reading_progress`,
+  `CREATE TABLE reading_progress (
+    word_id     TEXT    NOT NULL,
+    chapter     INTEGER NOT NULL,
+    known       INTEGER NOT NULL DEFAULT 0 CHECK (known IN (0,1)),
+    updated_at  INTEGER NOT NULL,
+    PRIMARY KEY (word_id, chapter),
+    FOREIGN KEY (word_id) REFERENCES word(id)
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_reading_progress_chapter ON reading_progress(chapter, known)`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
   if (targetVersion === 1) return SCHEMA_V1;
   if (targetVersion === 2) return [...SCHEMA_V1, ...SCHEMA_V2_ADDITIONS];
+  if (targetVersion === 3) return [...SCHEMA_V1, ...SCHEMA_V2_ADDITIONS, ...SCHEMA_V3_ADDITIONS];
+  if (targetVersion === 4) {
+    return [...SCHEMA_V1, ...SCHEMA_V2_ADDITIONS, ...SCHEMA_V3_ADDITIONS, ...SCHEMA_V4_ADDITIONS];
+  }
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 2;
+export const CURRENT_SCHEMA_VERSION = 4;

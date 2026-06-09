@@ -82,6 +82,14 @@ export default function RootLayout(): React.ReactNode {
             options={{ headerShown: true, title: '빠른 훑기', headerBackTitle: '뒤로' }}
           />
           <Stack.Screen
+            name="reading"
+            options={{ headerShown: true, title: '회독', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="reading-study"
+            options={{ headerShown: false, presentation: 'fullScreenModal' }}
+          />
+          <Stack.Screen
             name="weakness"
             options={{ headerShown: true, title: '약점 복습', headerBackTitle: '뒤로' }}
           />
