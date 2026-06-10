@@ -4,9 +4,9 @@
 // Root: QueryClientProvider + RootErrorBoundary + DB init gate.
 
 import { useEffect, useState } from 'react';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import { setAudioModeAsync } from 'expo-audio';
 import { queryClient } from '~/lib/queryClient';
 import { RootErrorBoundary } from '~/lib/errorBoundary';
@@ -102,6 +102,29 @@ export default function RootLayout(): React.ReactNode {
             options={{ headerShown: true, title: 'ONIGIRI', headerBackTitle: '뒤로' }}
           />
           <Stack.Screen
+            name="trace/[literal]"
+            options={{
+              headerShown: true,
+              title: '따라쓰기',
+              // 시트로 뜨면 세로 드로잉이 닫기 제스처를 발동 → 풀스크린 + 제스처 끔.
+              presentation: 'fullScreenModal',
+              gestureEnabled: false,
+              // 풀스크린 모달 — 기본 뒤로 대신 좌측 X 아이콘으로 닫기.
+              headerBackVisible: false,
+              headerLeft: () => (
+                <Pressable
+                  onPress={() => router.back()}
+                  hitSlop={12}
+                  accessibilityRole="button"
+                  accessibilityLabel="닫기"
+                  style={styles.headerCloseBtn}
+                >
+                  <Text style={styles.headerClose}>✕</Text>
+                </Pressable>
+              ),
+            }}
+          />
+          <Stack.Screen
             name="about"
             options={{ headerShown: true, title: '앱 정보', headerBackTitle: '뒤로' }}
           />
@@ -120,4 +143,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bg,
   },
   loadingText: { marginTop: 12, ...typography.small, color: colors.textSecondary },
+  headerCloseBtn: { paddingHorizontal: 8, paddingVertical: 4, alignItems: 'center', justifyContent: 'center' },
+  headerClose: { fontSize: 20, lineHeight: 24, color: colors.text, textAlign: 'center', minWidth: 24 },
 });

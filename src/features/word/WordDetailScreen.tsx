@@ -4,7 +4,7 @@
 // 데이터: getDatabase() → SqliteCardRepo.findById(id). 읽기 전용 (FSRS 상태 변경 없음).
 
 import { useEffect, useState } from 'react';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import {
   ActivityIndicator,
   Linking,
@@ -25,6 +25,7 @@ import type { KanjiForWord } from '~/types/Kanji';
 import type { WordExample } from '~/types/WordExample';
 import { CARD_TYPE_LABEL_KO, posLabelKo, renderKanjiFace } from '~/lib/cardType';
 import { buildNaverJaDictSearchUrl } from '~/lib/kanji';
+import { useIsTablet } from '~/lib/device';
 import { useTTS } from '~/hooks/useTTS';
 import { useToast } from '~/components/Toast';
 import { copyText } from '~/lib/clipboard';
@@ -364,8 +365,16 @@ function KanjiDetailSheet({
   onClose: () => void;
   onOpenDictionary: (query: string) => void;
 }): React.ReactNode {
+  const isTablet = useIsTablet();
   if (!item) return null;
   const data = item.kanji;
+
+  const openTrace = () => {
+    const literal = item.literal;
+    const gloss = data?.meanings_ko.slice(0, 3).join(' · ') ?? '';
+    onClose();
+    router.push({ pathname: '/trace/[literal]', params: { literal, gloss } });
+  };
 
   return (
     <Modal visible transparent animationType="slide" onRequestClose={onClose}>
@@ -389,6 +398,16 @@ function KanjiDetailSheet({
           ) : null}
           {data?.stroke_count ? <DetailLine label="획수" value={`${data.stroke_count}획`} /> : null}
           {data?.source ? <DetailLine label="출처" value={data.source} /> : null}
+          {isTablet ? (
+            <Pressable
+              style={styles.sheetTraceBtn}
+              onPress={openTrace}
+              accessibilityRole="button"
+              accessibilityLabel={`${item.literal} 따라쓰기`}
+            >
+              <Text style={styles.sheetTraceText}>✎ 따라쓰기</Text>
+            </Pressable>
+          ) : null}
           <View style={styles.sheetActions}>
             <Pressable
               style={styles.sheetDictBtn}
@@ -528,6 +547,15 @@ const styles = StyleSheet.create({
   detailLine: { gap: 3 },
   detailLabel: { ...typography.tiny, color: colors.textSecondary, textTransform: 'none', letterSpacing: 0 },
   detailValue: { ...typography.body, color: colors.text, lineHeight: 23 },
+  sheetTraceBtn: {
+    marginTop: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    borderRadius: radius.pill,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  sheetTraceText: { ...typography.body, color: colors.text, fontWeight: fontWeight.medium },
   sheetActions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.xs },
   sheetDictBtn: {
     flex: 1,

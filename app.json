@@ -21,7 +21,7 @@
       "assets/jlpt.db"
     ],
     "ios": {
-      "supportsTablet": false,
+      "supportsTablet": true,
       "bundleIdentifier": "com.taiyoungkim.ashitakanji",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
