@@ -146,6 +146,15 @@ for (const rel of REQUIRED_ASSETS) {
           kanjiRows > 0 && wordKanjiRows > 0,
           `kanji_rows=${kanjiRows}, word_kanji_rows=${wordKanjiRows}`,
         );
+        const missingKanjiMeaningsKo = tableCount(
+          'kanji',
+          `meanings_ko IS NULL OR trim(meanings_ko)='' OR meanings_ko='[]'`,
+        );
+        add(
+          'jlpt.db kanji Korean meanings',
+          missingKanjiMeaningsKo === 0,
+          `missing_meanings_ko=${missingKanjiMeaningsKo}`,
+        );
       }
       const wordExampleExists = tableExists('word_example') === 1;
       add('jlpt.db word_example table', wordExampleExists, wordExampleExists ? 'OK' : '없음');
