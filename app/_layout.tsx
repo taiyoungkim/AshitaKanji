@@ -69,6 +69,7 @@ export default function RootLayout(): React.ReactNode {
         >
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="intro" options={{ headerShown: false }} />
+          <Stack.Screen name="tutorial" options={{ headerShown: false }} />
           <Stack.Screen
             name="study"
             options={{ headerShown: false, presentation: 'fullScreenModal' }}
