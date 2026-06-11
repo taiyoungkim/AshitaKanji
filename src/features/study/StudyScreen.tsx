@@ -11,6 +11,7 @@ import { SafeAreaView, initialWindowMetrics } from 'react-native-safe-area-conte
 import { colors, fontWeight, spacing, typography } from '~/design/tokens';
 import { Card } from '~/components/card/Card';
 import { useTTS } from '~/hooks/useTTS';
+import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
 import { useSessionStore } from '~/stores/SessionStore';
 import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStore';
 import { GradeButtons } from './components/GradeButtons';
@@ -45,6 +46,8 @@ export default function StudyScreen(): React.ReactNode {
     if (settingsHydrated && !engine) {
       const config = settingsToSessionConfig(useSettingsStore.getState());
       void startSession(config);
+      // 전면광고 미리 로드 — 완료 시점(/done 전환)에 표시. 로드엔 수 초 필요.
+      preloadInterstitial();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settingsHydrated]);
@@ -62,7 +65,10 @@ export default function StudyScreen(): React.ReactNode {
   useEffect(() => {
     if (finished && !summary && !navigatedToDone.current) {
       navigatedToDone.current = true;
-      void endSession('completed').then(() => router.push('/done'));
+      // 세션 기록 저장 먼저(광고 실패와 무관하게 보존) → 캡 통과 시 전면광고 → /done.
+      void endSession('completed').then(() =>
+        showInterstitialIfEligible(() => router.push('/done')),
+      );
     }
   }, [finished, summary, endSession, router]);
 

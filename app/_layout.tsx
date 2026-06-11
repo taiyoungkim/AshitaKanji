@@ -10,6 +10,7 @@ import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-nati
 import { setAudioModeAsync } from 'expo-audio';
 import { queryClient } from '~/lib/queryClient';
 import { RootErrorBoundary } from '~/lib/errorBoundary';
+import { initAds } from '~/lib/ads/interstitialManager';
 import { getDatabase } from '~/db/open';
 import { ToastProvider } from '~/components/Toast';
 import { colors, typography } from '~/design/tokens';
@@ -23,6 +24,11 @@ export default function RootLayout(): React.ReactNode {
     void setAudioModeAsync({ playsInSilentMode: true }).catch((err: unknown) => {
       console.warn('[audio] setAudioMode failed:', err);
     });
+  }, []);
+
+  // 광고 SDK 초기화 (iOS ATT 동의 → AdMob init). 실패해도 앱 동작 무영향.
+  useEffect(() => {
+    void initAds();
   }, []);
 
   useEffect(() => {
