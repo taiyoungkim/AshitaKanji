@@ -47,8 +47,8 @@ export default function AboutScreen(): React.ReactNode {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.appName}>아시타칸지</Text>
-      <Text style={styles.appKanji}>明日漢字</Text>
+      <Text style={styles.appName}>오니칸</Text>
+      <Text style={styles.appKanji}>오니기리 칸지</Text>
       <Text style={styles.version}>버전 {version}</Text>
 
       <Text style={styles.tagline}>

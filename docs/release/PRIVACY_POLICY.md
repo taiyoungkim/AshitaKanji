@@ -2,11 +2,11 @@
 
 Last updated: 2026-05-30
 
-This Privacy Policy applies to **아시타칸지 (明日漢字)**.
+This Privacy Policy applies to **오니칸 (오니기리 칸지)**.
 
 ## Summary
 
-아시타칸지 is designed as a local-first vocabulary learning app.
+오니칸 is designed as a local-first vocabulary learning app.
 
 For the MVP release:
 - We do not collect personal data.
