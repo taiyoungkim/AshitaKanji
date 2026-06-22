@@ -123,6 +123,24 @@ for (const rel of REQUIRED_ASSETS) {
         duplicateGroups === 0 && duplicateExtraRows === 0,
         `duplicate_groups=${duplicateGroups}, duplicate_extra_rows=${duplicateExtraRows}`,
       );
+
+      // Schema integrity — seed must ship at the app's current schema (so launch
+      // migrations don't re-run ALTERs against existing columns) and word ids must
+      // be the stable content-hash scheme (w_<hash>), not the legacy level-seq scheme.
+      const EXPECTED_SCHEMA_VERSION = '5'; // keep in sync with CURRENT_SCHEMA_VERSION (src/db/schema.ts)
+      const scalar = (sql) => execFileSync('sqlite3', [dbPath, sql], { encoding: 'utf8' }).trim();
+      const seedSchemaVersion = scalar(`SELECT value FROM app_meta WHERE key='schema_version';`);
+      add(
+        'jlpt.db schema_version',
+        seedSchemaVersion === EXPECTED_SCHEMA_VERSION,
+        `seed=${seedSchemaVersion || '없음'}, expected=${EXPECTED_SCHEMA_VERSION}`,
+      );
+      const v5cols = Number(
+        scalar(`SELECT COUNT(*) FROM pragma_table_info('word') WHERE name IN ('deprecated_reason','superseded_by');`),
+      );
+      add('jlpt.db v5 columns', v5cols === 2, `deprecated_reason+superseded_by=${v5cols}/2`);
+      const legacyIds = count(`substr(id,1,2)!='w_'`);
+      add('jlpt.db stable hash ids', legacyIds === 0, `non_hash_ids=${legacyIds}`);
       const tableExists = (table) =>
         Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='${table}';`], {
           encoding: 'utf8',

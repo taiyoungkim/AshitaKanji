@@ -250,6 +250,14 @@ export const SCHEMA_V4_ADDITIONS: string[] = [
   `CREATE INDEX IF NOT EXISTS idx_reading_progress_chapter ON reading_progress(chapter, known)`,
 ];
 
+// v5 — deprecation taxonomy. word.id is now a stable content hash (surface+reading),
+// so deprecation is the only way words leave active study. Record WHY (reason) and,
+// for merges, WHERE the progress should move (superseded_by → survivor word.id).
+export const SCHEMA_V5_ADDITIONS: string[] = [
+  `ALTER TABLE word ADD COLUMN deprecated_reason TEXT`,
+  `ALTER TABLE word ADD COLUMN superseded_by TEXT`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
@@ -259,8 +267,17 @@ export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion === 4) {
     return [...SCHEMA_V1, ...SCHEMA_V2_ADDITIONS, ...SCHEMA_V3_ADDITIONS, ...SCHEMA_V4_ADDITIONS];
   }
+  if (targetVersion === 5) {
+    return [
+      ...SCHEMA_V1,
+      ...SCHEMA_V2_ADDITIONS,
+      ...SCHEMA_V3_ADDITIONS,
+      ...SCHEMA_V4_ADDITIONS,
+      ...SCHEMA_V5_ADDITIONS,
+    ];
+  }
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 4;
+export const CURRENT_SCHEMA_VERSION = 5;

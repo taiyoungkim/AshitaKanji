@@ -13,13 +13,17 @@ import { migrateToV1 } from './migrations/v1';
 import { migrateToV2 } from './migrations/v2';
 import { migrateToV3 } from './migrations/v3';
 import { migrateToV4 } from './migrations/v4';
+import { migrateToV5 } from './migrations/v5';
+import { remapLegacyWordIds } from './remapLegacyWordIds';
 import { CURRENT_SCHEMA_VERSION } from './schema';
 
 const DB_NAME = 'ashitakanji.db';
 const SEED_DB_NAME = 'ashitakanji.seed.db';
+// '5' — word.id를 안정 해시(surface+reading)로 교체. 기존 설치는 옛 순번 id를 가지므로
+//   재하이드레이션으로 새 id 데이터를 받아야 함(미bump 시 신규 id seed를 무시).
 // '4' — N3 빈출 399 보강 + N5 정리 + JMdict POS + frequency/reading_chapter(회독).
 // 기존 설치 재하이드레이션 트리거(안 올리면 신규 어휘/빈도/챕터 전파 안 됨).
-const WORD_CURATION_VERSION = '4';
+const WORD_CURATION_VERSION = '5';
 // '3' — N3 보강으로 신규 한자 + word_kanji 링크 추가 → 기존 설치 재하이드레이션.
 const KANJI_CURATION_VERSION = '3';
 const EXAMPLE_CURATION_VERSION = '1';
@@ -185,11 +189,36 @@ async function hydrateSeedDataIfNeeded(db: SQLite.SQLiteDatabase): Promise<void>
       const localWordIds = new Set(localWordRows.map((row) => row.id));
       const seedWordIds = new Set(wordRows.map((row) => row.id));
       const validWordIds = needsWordHydration ? seedWordIds : localWordIds;
+
+      // Sanity guard: refuse to hydrate from a seed whose active vocabulary is
+      // suspiciously smaller than what's installed. Without this, a partial/corrupt
+      // seed shipped via OTA would mass-deprecate real words through the "missing
+      // from seed" branch below — silently wiping a user's study list.
+      if (needsWordHydration && wordRows.length > 0) {
+        const block = await assessSeedWordShrink(db, seedDb, wordRows);
+        if (block) {
+          console.warn(`[db] seed hydration BLOCKED by sanity guard: ${block}`);
+          // TODO(telemetry): report blocked hydration — otherwise staleness is silent.
+          return;
+        }
+      }
+
       await db.execAsync('BEGIN IMMEDIATE');
       try {
         if (needsWordHydration && wordRows.length > 0) {
           for (const row of wordRows) {
             await upsertSeedWord(db, row);
+          }
+          // One-time: existing installs carry legacy word ids in user_card/review_log/
+          // scan_result/reading_progress. Repoint them to the stable hash ids (now
+          // upserted above) BEFORE deprecating legacy words — otherwise the deprecate
+          // step below orphans every existing card onto a deprecated old-id word.
+          const remap = await remapLegacyWordIds(db);
+          if (remap.remappedWords > 0) {
+            console.log(
+              `[db] remapped ${remap.remappedWords} legacy word ids ` +
+                `(cards moved=${remap.cardsMoved}, merged=${remap.cardsMerged}, unmatched=${remap.unmatched})`,
+            );
           }
           for (const id of localWordIds) {
             if (!seedWordIds.has(id)) {
@@ -287,6 +316,48 @@ async function hydrateSeedDataIfNeeded(db: SQLite.SQLiteDatabase): Promise<void>
   } catch (err) {
     console.warn('[db] kanji seed hydration skipped:', err);
   }
+}
+
+/** Minimum fraction of installed active words a seed must retain, per level and
+ * globally, before its hydration is trusted. A real dedupe rarely drops >10%; a
+ * partial/corrupt seed drops far more. Intentional large cleanups bypass via the
+ * seed's `allow_word_shrink` app_meta flag. */
+const WORD_SHRINK_FLOOR = 0.9;
+
+/**
+ * Returns a human-readable block reason if the seed's active vocabulary shrank
+ * suspiciously vs the installed DB, otherwise null. Exempts first install (no
+ * installed words) and seeds explicitly flagged as intentional shrinks.
+ */
+async function assessSeedWordShrink(
+  db: SQLite.SQLiteDatabase,
+  seedDb: SQLite.SQLiteDatabase,
+  seedWordRows: WordSeedRow[],
+): Promise<string | null> {
+  if ((await getAppMeta(seedDb, 'allow_word_shrink')) === '1') return null;
+
+  const localRows = await db.getAllAsync<{ level: string; n: number }>(
+    `SELECT level, COUNT(*) AS n FROM word WHERE deprecated = 0 GROUP BY level`,
+  );
+  const localByLevel = new Map(localRows.map((r) => [r.level, r.n]));
+  const localTotal = localRows.reduce((sum, r) => sum + r.n, 0);
+  if (localTotal === 0) return null; // first install — nothing to protect
+
+  const seedByLevel = new Map<string, number>();
+  for (const row of seedWordRows) {
+    seedByLevel.set(row.level, (seedByLevel.get(row.level) ?? 0) + 1);
+  }
+
+  if (seedWordRows.length < localTotal * WORD_SHRINK_FLOOR) {
+    return `global active ${seedWordRows.length} < floor ${Math.ceil(localTotal * WORD_SHRINK_FLOOR)} (installed ${localTotal})`;
+  }
+  for (const [level, localN] of localByLevel) {
+    const seedN = seedByLevel.get(level) ?? 0;
+    if (seedN < localN * WORD_SHRINK_FLOOR) {
+      return `level ${level} active ${seedN} < floor ${Math.ceil(localN * WORD_SHRINK_FLOOR)} (installed ${localN})`;
+    }
+  }
+  return null;
 }
 
 async function shouldHydrateWordData(db: SQLite.SQLiteDatabase): Promise<boolean> {
@@ -446,6 +517,9 @@ async function runMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
   }
   if (current < 4) {
     await migrateToV4(db);
+  }
+  if (current < 5) {
+    await migrateToV5(db);
   }
 
   const after = await getSchemaVersion(db);

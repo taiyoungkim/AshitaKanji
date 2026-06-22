@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "아시타칸지",
+    "name": "오니칸",
     "slug": "ashitakanji",
     "version": "0.1.0",
     "orientation": "portrait",
@@ -11,10 +11,16 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F7F7F5"
     },
     "updates": {
-      "enabled": false
+      "enabled": true,
+      "url": "https://u.expo.dev/70834a60-4381-4d49-829f-ba62435c0343",
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD"
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
     },
     "assetBundlePatterns": [
       "**/*",
@@ -24,6 +30,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.taiyoungkim.ashitakanji",
       "infoPlist": {
+        "CFBundleDisplayName": "오니칸",
         "ITSAppUsesNonExemptEncryption": false
       }
     },

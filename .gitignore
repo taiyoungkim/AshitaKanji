@@ -89,6 +89,7 @@ dist-review-ios/
 
 # Pre-generated TTS audio (101MB) — regenerate via scripts/gen-tts-audio.py + gen-audio-map.mjs
 assets/audio/
+assets/audio.bak/
 src/lib/audio/audioMap.gen.ts
 
 # Track A vocab work backups (timestamped snapshots)
