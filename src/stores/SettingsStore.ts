@@ -35,6 +35,8 @@ interface SettingsState {
   ttsSpeed: number; // 0.5-1.0.
   /** 고강도(>30) 경고를 이미 확인했는지 — SessionConfig.highIntensityAcknowledged 로 전달. */
   highIntensityWarned: boolean;
+  /** 첫 실행 튜토리얼(오니기리 가게 안내) 완료 여부 — 완료/스킵 시 true, 이후 미노출. */
+  tutorialCompleted: boolean;
   /** persist 복원 완료 여부 — UI가 stale 기본값으로 세션 시작하는 것 방지. */
   _hydrated: boolean;
 
@@ -44,6 +46,7 @@ interface SettingsState {
   setTtsEnabled: (on: boolean) => void;
   setTtsSpeed: (n: number) => void;
   acknowledgeHighIntensity: () => void;
+  completeTutorial: () => void;
 }
 
 const DEFAULTS = {
@@ -52,6 +55,7 @@ const DEFAULTS = {
   ttsEnabled: true,
   ttsSpeed: TTS_SPEED_DEFAULT,
   highIntensityWarned: false,
+  tutorialCompleted: false,
 };
 
 // 레벨 배열을 JLPT 표준 순서(N5→N1)로 정렬·중복 제거.
@@ -101,6 +105,10 @@ export const useSettingsStore = create<SettingsState>()(
       acknowledgeHighIntensity() {
         set({ highIntensityWarned: true });
       },
+
+      completeTutorial() {
+        set({ tutorialCompleted: true });
+      },
     }),
     {
       name: 'ashitakanji.settings',
@@ -112,6 +120,7 @@ export const useSettingsStore = create<SettingsState>()(
         ttsEnabled: s.ttsEnabled,
         ttsSpeed: s.ttsSpeed,
         highIntensityWarned: s.highIntensityWarned,
+        tutorialCompleted: s.tutorialCompleted,
       }),
       onRehydrateStorage: () => (state) => {
         // 복원 직후 정규화 + hydrated 표시.

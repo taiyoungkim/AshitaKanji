@@ -60,7 +60,7 @@ export class ExportService {
     if (!(await Sharing.isAvailableAsync())) return;
     await Sharing.shareAsync(path, {
       mimeType: 'application/json',
-      dialogTitle: '아시타칸지 백업 내보내기',
+      dialogTitle: '오니칸 백업 내보내기',
       UTI: 'public.json',
     });
   }

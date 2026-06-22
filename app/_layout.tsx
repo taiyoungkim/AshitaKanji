@@ -4,12 +4,13 @@
 // Root: QueryClientProvider + RootErrorBoundary + DB init gate.
 
 import { useEffect, useState } from 'react';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import { setAudioModeAsync } from 'expo-audio';
 import { queryClient } from '~/lib/queryClient';
 import { RootErrorBoundary } from '~/lib/errorBoundary';
+import { initAds } from '~/lib/ads/interstitialManager';
 import { getDatabase } from '~/db/open';
 import { ToastProvider } from '~/components/Toast';
 import { colors, typography } from '~/design/tokens';
@@ -23,6 +24,11 @@ export default function RootLayout(): React.ReactNode {
     void setAudioModeAsync({ playsInSilentMode: true }).catch((err: unknown) => {
       console.warn('[audio] setAudioMode failed:', err);
     });
+  }, []);
+
+  // 광고 SDK 초기화 (iOS ATT 동의 → AdMob init). 실패해도 앱 동작 무영향.
+  useEffect(() => {
+    void initAds();
   }, []);
 
   useEffect(() => {
@@ -69,6 +75,7 @@ export default function RootLayout(): React.ReactNode {
         >
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="intro" options={{ headerShown: false }} />
+          <Stack.Screen name="tutorial" options={{ headerShown: false }} />
           <Stack.Screen
             name="study"
             options={{ headerShown: false, presentation: 'fullScreenModal' }}
@@ -82,6 +89,14 @@ export default function RootLayout(): React.ReactNode {
             options={{ headerShown: true, title: '빠른 훑기', headerBackTitle: '뒤로' }}
           />
           <Stack.Screen
+            name="reading"
+            options={{ headerShown: true, title: '회독', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="reading-study"
+            options={{ headerShown: false, presentation: 'fullScreenModal' }}
+          />
+          <Stack.Screen
             name="weakness"
             options={{ headerShown: true, title: '약점 복습', headerBackTitle: '뒤로' }}
           />
@@ -92,6 +107,29 @@ export default function RootLayout(): React.ReactNode {
           <Stack.Screen
             name="onigiri/[id]"
             options={{ headerShown: true, title: 'ONIGIRI', headerBackTitle: '뒤로' }}
+          />
+          <Stack.Screen
+            name="trace/[literal]"
+            options={{
+              headerShown: true,
+              title: '따라쓰기',
+              // 시트로 뜨면 세로 드로잉이 닫기 제스처를 발동 → 풀스크린 + 제스처 끔.
+              presentation: 'fullScreenModal',
+              gestureEnabled: false,
+              // 풀스크린 모달 — 기본 뒤로 대신 좌측 X 아이콘으로 닫기.
+              headerBackVisible: false,
+              headerLeft: () => (
+                <Pressable
+                  onPress={() => router.back()}
+                  hitSlop={12}
+                  accessibilityRole="button"
+                  accessibilityLabel="닫기"
+                  style={styles.headerCloseBtn}
+                >
+                  <Text style={styles.headerClose}>✕</Text>
+                </Pressable>
+              ),
+            }}
           />
           <Stack.Screen
             name="about"
@@ -112,4 +150,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bg,
   },
   loadingText: { marginTop: 12, ...typography.small, color: colors.textSecondary },
+  headerCloseBtn: { paddingHorizontal: 8, paddingVertical: 4, alignItems: 'center', justifyContent: 'center' },
+  headerClose: { fontSize: 20, lineHeight: 24, color: colors.text, textAlign: 'center', minWidth: 24 },
 });

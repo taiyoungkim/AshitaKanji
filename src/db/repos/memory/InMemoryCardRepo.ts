@@ -51,4 +51,17 @@ export class InMemoryCardRepo implements CardRepo {
     // 결정적 테스트를 위해 셔플 없이 앞에서 자름 (Sqlite는 RANDOM()).
     return pool.slice(0, limit);
   }
+
+  async findThroughChapter(level: JlptLevel, chapter: number): Promise<Word[]> {
+    return this.words
+      .filter(
+        (w) =>
+          w.level === level &&
+          w.reading_chapter != null &&
+          w.reading_chapter <= chapter &&
+          w.deprecated === 0 &&
+          w.qa_status === 'verified',
+      )
+      .sort((a, b) => (b.frequency ?? 0) - (a.frequency ?? 0) || a.id.localeCompare(b.id));
+  }
 }

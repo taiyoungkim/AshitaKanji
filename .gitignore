@@ -89,4 +89,16 @@ dist-review-ios/
 
 # Pre-generated TTS audio (101MB) — regenerate via scripts/gen-tts-audio.py + gen-audio-map.mjs
 assets/audio/
+assets/audio.bak/
 src/lib/audio/audioMap.gen.ts
+
+# Track A vocab work backups (timestamped snapshots)
+data/track-a/*.bak-*
+data/track-a/*.csv.bak
+
+# Build/review artifacts
+/artifacts/
+
+# bkit tool state (runtime/snapshots already ignored above)
+.bkit/audit/
+.bkit/state/

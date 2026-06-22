@@ -14,15 +14,9 @@ interface Props {
 }
 
 function attributionLine(word: Word): string | null {
-  // Plan SC: Tatoeba 예문은 문장별 출처 표기 (CC BY 2.0 FR)
+  // 외부 사전(NAVER 등) 예문은 출처·라벨 비표시. 자체 제작 예문만 표기.
   if (!word.example_jp) return null;
-  const author = word.example_jp_author;
-  const lic = word.example_license;
-  if (!author && !lic) return null;
-  const parts: string[] = [];
-  if (author) parts.push(author.startsWith('NAVER') ? author : `© ${author}`);
-  if (lic) parts.push(lic === 'self' ? '자체 제작' : lic === 'owner-confirmed-cleared' ? '사용 허가 확인' : lic);
-  return parts.join(' · ');
+  return word.example_license === 'self' ? '자체 제작' : null;
 }
 
 export function CardReveal({ word, onSpeak, onSpeakExample, onOpenDetail }: Props): React.ReactNode {

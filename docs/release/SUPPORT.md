@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-29
 
-Support for **아시타칸지 (明日漢字)** is provided by the individual developer.
+Support for **오니칸 (오니기리 칸지)** is provided by the individual developer.
 
 ## Contact
 
@@ -55,4 +55,3 @@ The MVP version has no ads.
 ### Is this an official JLPT app?
 
 No. This app is an independent study tool and is not affiliated with or endorsed by the JLPT organizers.
-

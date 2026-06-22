@@ -47,7 +47,7 @@ export async function playWordAudio(
     if (rate !== 1) {
       // 피치 보정으로 속도만 변경(음 높낮이 유지).
       _player.shouldCorrectPitch = true;
-      _player.setPlaybackRate(rate, 'high');
+      _player.setPlaybackRate(rate);
     }
     _player.play();
     return true;

@@ -3,7 +3,7 @@
 
 import { describe, expect, it } from 'vitest';
 import type { CardType, Word } from '~/types/Card';
-import { renderKanjiFace, shouldHideReading, CARD_TYPE_LABEL_KO, CARD_TYPE_COLOR } from './cardType';
+import { renderKanjiFace, shouldHideReading, posLabelKo, CARD_TYPE_LABEL_KO, CARD_TYPE_COLOR } from './cardType';
 
 function w(card_type: CardType, surface: string): Word {
   return {
@@ -28,6 +28,33 @@ describe('shouldHideReading', () => {
   it('shows reading for C/D (kana only)', () => {
     expect(shouldHideReading(w('C', 'ありがとう'))).toBe(false);
     expect(shouldHideReading(w('D', 'テレビ'))).toBe(false);
+  });
+});
+
+describe('posLabelKo', () => {
+  it('maps JMdict-derived POS to Korean labels', () => {
+    expect(posLabelKo('noun')).toBe('명사');
+    expect(posLabelKo('verb')).toBe('동사');
+    expect(posLabelKo('adjective')).toBe('형용사');
+    expect(posLabelKo('adverb')).toBe('부사');
+    expect(posLabelKo('pronoun')).toBe('대명사');
+    expect(posLabelKo('numeral')).toBe('수사');
+    expect(posLabelKo('counter')).toBe('조수사');
+    expect(posLabelKo('conjunction')).toBe('접속사');
+    expect(posLabelKo('particle')).toBe('조사');
+    expect(posLabelKo('interjection')).toBe('감탄사');
+    expect(posLabelKo('prefix')).toBe('접두사');
+    expect(posLabelKo('suffix')).toBe('접미사');
+    expect(posLabelKo('expression')).toBe('표현');
+  });
+  it('is case-insensitive', () => {
+    expect(posLabelKo('NOUN')).toBe('명사');
+  });
+  it('returns null for empty, raw for unknown', () => {
+    expect(posLabelKo(null)).toBeNull();
+    expect(posLabelKo(undefined)).toBeNull();
+    expect(posLabelKo('')).toBeNull();
+    expect(posLabelKo('mystery')).toBe('mystery');
   });
 });
 

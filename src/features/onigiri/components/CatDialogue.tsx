@@ -10,7 +10,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { buttons, colors, spacing, typography } from '~/design/tokens';
-import { catImages } from '../catAssets';
+import { catAspectRatio, catImages } from '../catAssets';
 import type { CatPose } from '../types';
 
 interface Props {
@@ -40,7 +40,7 @@ export function CatDialogue({
       <Image
         source={catImages[pose]}
         resizeMode="contain"
-        style={[styles.cat, { height: catHeight }, imageStyle]}
+        style={[styles.cat, { height: catHeight, aspectRatio: catAspectRatio(pose) }, imageStyle]}
       />
       <View style={styles.copy}>
         <Text style={styles.line}>{line}</Text>
@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   cat: {
-    // height는 인라인(화면 28%), aspectRatio(원본 482:745)가 width 산출. alignSelf 중앙.
-    aspectRatio: 482 / 745,
+    // height는 인라인(화면 28%), aspectRatio는 포즈별 원본 비율(catAssets)로 width 산출.
     alignSelf: 'center',
   },
   copy: {

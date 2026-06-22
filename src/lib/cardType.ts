@@ -36,6 +36,15 @@ const POS_LABEL_KO: Record<string, string> = {
   verb: '동사',
   adjective: '형용사',
   adverb: '부사',
+  pronoun: '대명사',
+  numeral: '수사',
+  counter: '조수사',
+  conjunction: '접속사',
+  particle: '조사',
+  interjection: '감탄사',
+  prefix: '접두사',
+  suffix: '접미사',
+  expression: '표현',
 };
 
 /** part_of_speech(영어) → 한국어 라벨. 미매핑 값은 원문 그대로 반환. */

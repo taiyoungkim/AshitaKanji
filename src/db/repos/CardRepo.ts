@@ -16,4 +16,6 @@ export interface CardRepo {
   countByLevel(level: JlptLevel): Promise<number>;
   /** 빠른 훑기용 랜덤 추출 (verified + 미deprecated, user_card 보유 여부 무관). */
   findScanCandidates(levels: JlptLevel[], limit: number): Promise<Word[]>;
+  /** 누적 회독: 레벨에서 reading_chapter<=chapter 인 단어 전체 (verified+미deprecated), 빈도 높→낮. */
+  findThroughChapter(level: JlptLevel, chapter: number): Promise<Word[]>;
 }
