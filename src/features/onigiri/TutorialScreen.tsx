@@ -1,6 +1,6 @@
 // Design Ref: ONIGIRI SHOP redesign — Onboarding Tutorial (prototype: onboarding-tutorial.html).
-// 첫 실행 1회: Setup → Study(데모 5카드) → Ingredient → Complete → Receipt → /home.
-// 데모 카드는 SRS/DB 미기록 — 학습 루프 체험만. 완료/Skip 시 tutorialCompleted 영속.
+// 첫 실행 1회: Setup → Study(데모 5카드) → Ingredient → Crafting rule → Receipt → /home.
+// 데모 카드는 SRS/DB 미기록 — 실제 정책을 미리 보여주는 연습 흐름. 완료/Skip 시 tutorialCompleted 영속.
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { buttons, colors, fontFamily, motion, spacing, typography } from '~/design/tokens';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { catImages } from './catAssets';
+import { INGREDIENTS_PER_ONIGIRI, TEMP_ONIGIRI_CATALOG } from './catalog';
 import type { CatPose } from './types';
 import { IngredientSegments, LabelValueRow, OnigiriSketch, Receipt } from './components';
 import { formatOnigiriDate } from './components/OnigiriIndexItem';
@@ -22,8 +23,12 @@ const DEMO_WORDS = [
   { kanji: '食塩', kana: 'しょくえん', mean: '식염' },
 ] as const;
 
-type Step = 'setup' | 'study' | 'ingredient' | 'complete' | 'receipt';
-const STEP_ORDER: readonly Step[] = ['setup', 'study', 'ingredient', 'complete', 'receipt'];
+const TUTORIAL_ONIGIRI = TEMP_ONIGIRI_CATALOG[0]!;
+const TUTORIAL_INGREDIENT = TUTORIAL_ONIGIRI.ingredients[0];
+const TUTORIAL_INGREDIENT_COUNT = 1;
+
+type Step = 'setup' | 'study' | 'ingredient' | 'crafting' | 'receipt';
+const STEP_ORDER: readonly Step[] = ['setup', 'study', 'ingredient', 'crafting', 'receipt'];
 
 // 모든 포즈를 동일 박스(폭 46% × 높이 24%) 안에 contain — 세로형(calm/show/present)은
 // 높이가 맞춰져 균일, 가로형(make)은 폭에 걸려 프로토타입 비율(180×153)로 떨어짐.
@@ -59,7 +64,6 @@ export default function TutorialScreen(): React.ReactNode {
 
   const [step, setStep] = useState<Step>('setup');
   const [cardIndex, setCardIndex] = useState(0);
-  const [receiptSaved, setReceiptSaved] = useState(false);
 
   // 프로토타입 .view 진입 트랜지션 (opacity + translateY 8px).
   const anim = useRef(new Animated.Value(0)).current;
@@ -110,7 +114,7 @@ export default function TutorialScreen(): React.ReactNode {
           <View style={styles.centerBlock}>
             <Text style={styles.h1}>먼저 5개만.</Text>
             <Text style={styles.bodyMuted}>
-              짧게 공부하고, 오니기리 하나를{'\n'}만들어보면 돼.
+              짧게 공부하고, 재료를 얻는 흐름을{'\n'}먼저 연습해보자.
             </Text>
           </View>
           <View style={styles.spacer} />
@@ -148,29 +152,50 @@ export default function TutorialScreen(): React.ReactNode {
           <TutorialCat pose="make" screenWidth={width} screenHeight={height} />
           <Text style={styles.catLineMuted}>5개를 봤어.</Text>
           <View style={styles.statsBlock}>
-            <LabelValueRow label="NEW WORDS" value={5} borderBottom />
-            <LabelValueRow label="INGREDIENT" value="SEAWEED" valueSize="small" />
+            <LabelValueRow label="NEW WORDS" value={DEMO_WORDS.length} borderBottom />
+            <LabelValueRow
+              label="INGREDIENT"
+              value={TUTORIAL_INGREDIENT}
+              valueSize="small"
+            />
           </View>
           <View style={styles.centerBlock}>
-            <Text style={styles.h2}>TUNA MAYO</Text>
-            <IngredientSegments count={4} total={4} style={styles.segments} />
+            <Text style={styles.h2}>{TUTORIAL_ONIGIRI.name}</Text>
+            <IngredientSegments
+              count={TUTORIAL_INGREDIENT_COUNT}
+              total={INGREDIENTS_PER_ONIGIRI}
+              style={styles.segments}
+            />
+            <Text style={styles.policyNote}>
+              실제 학습 1회를 마치면 재료 1개를 얻어.
+            </Text>
           </View>
           <View style={styles.spacer} />
-          <PrimaryButton label="Continue" onPress={() => setStep('complete')} />
+          <PrimaryButton label="Continue" onPress={() => setStep('crafting')} />
         </>
       );
       break;
 
-    case 'complete':
+    case 'crafting':
       body = (
         <>
+          <Text style={[styles.labelTop, styles.centerText]}>HOW IT WORKS</Text>
           <View style={styles.spacer} />
           <TutorialCat pose="present" screenWidth={width} screenHeight={height} />
           <OnigiriSketch size={120} style={styles.onigiri} />
           <View style={styles.centerBlock}>
-            <Text style={styles.h1}>TUNA MAYO</Text>
-            <Text style={styles.completedDate}>COMPLETED   {todayLabel}</Text>
-            <Text style={styles.catLine}>참치마요가 됐네.</Text>
+            <Text style={styles.h1}>{TUTORIAL_ONIGIRI.name}</Text>
+            <IngredientSegments
+              count={INGREDIENTS_PER_ONIGIRI}
+              total={INGREDIENTS_PER_ONIGIRI}
+              style={styles.segments}
+            />
+            <Text style={styles.completedDate}>
+              {INGREDIENTS_PER_ONIGIRI} STUDY SESSIONS
+            </Text>
+            <Text style={styles.catLine}>
+              재료 {INGREDIENTS_PER_ONIGIRI}개가 모이면 완성돼.
+            </Text>
             <Text style={styles.who}>— 사장</Text>
           </View>
           <View style={styles.spacer} />
@@ -184,31 +209,23 @@ export default function TutorialScreen(): React.ReactNode {
         <>
           <View style={styles.spacer} />
           <Receipt
+            title="SAMPLE RECEIPT"
             dateLabel={todayLabel}
             rows={[
-              { label: 'NEW WORDS', value: 5 },
-              { label: 'INGREDIENT', value: 'SEAWEED' },
-              { label: 'CRAFTED', value: 'TUNA MAYO' },
+              { label: 'NEW WORDS', value: DEMO_WORDS.length },
+              { label: 'INGREDIENT', value: TUTORIAL_INGREDIENT },
+              {
+                label: 'PROGRESS',
+                value: `${TUTORIAL_INGREDIENT_COUNT} / ${INGREDIENTS_PER_ONIGIRI}`,
+              },
             ]}
+            thanks="PREVIEW"
           />
-          <Text style={styles.receiptCaption}>공부한 기록은 이렇게 남아.</Text>
+          <Text style={styles.receiptCaption}>
+            연습 결과는 저장되지 않아.{'\n'}실제 학습을 마치면 보상과 기록을 확인할 수 있어.
+          </Text>
           <View style={styles.spacer} />
-          <View style={styles.btnColumn}>
-            <Pressable
-              style={({ pressed }) => [
-                styles.btnSecondary,
-                pressed && !receiptSaved && styles.btnSecondaryPressed,
-              ]}
-              disabled={receiptSaved}
-              onPress={() => setReceiptSaved(true)}
-              accessibilityRole="button"
-            >
-              <Text style={[styles.btnSecondaryText, receiptSaved && styles.btnTextFaint]}>
-                {receiptSaved ? 'Saved' : 'Save Receipt'}
-              </Text>
-            </Pressable>
-            <PrimaryButton label="Continue" onPress={finish} />
-          </View>
+          <PrimaryButton label="Continue" onPress={finish} />
         </>
       );
       break;
@@ -343,6 +360,12 @@ const styles = StyleSheet.create({
   },
   statsBlock: { marginTop: spacing.lg },
   segments: { justifyContent: 'center', marginTop: spacing.md },
+  policyNote: {
+    ...typography.small,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginTop: spacing.md,
+  },
 
   onigiri: { alignSelf: 'center', marginTop: spacing.sm },
   completedDate: {
@@ -361,7 +384,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: spacing.md + 2,
   },
-  btnColumn: { gap: spacing.sm },
   btnPrimary: {
     borderRadius: buttons.primary.borderRadius,
     paddingVertical: buttons.primary.paddingVertical,
@@ -370,16 +392,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btnPrimaryText: { fontSize: 15, lineHeight: 20, fontWeight: '500', color: colors.white },
-  btnSecondary: {
-    borderRadius: buttons.secondary.borderRadius,
-    paddingVertical: buttons.secondary.paddingVertical,
-    paddingHorizontal: buttons.secondary.paddingHorizontal,
-    borderWidth: 1,
-    borderColor: buttons.secondary.borderColor,
-    alignItems: 'center',
-  },
-  btnSecondaryPressed: { backgroundColor: colors.surfaceMuted },
-  btnSecondaryText: { fontSize: 15, lineHeight: 20, fontWeight: '500', color: colors.text },
-  btnTextFaint: { color: colors.textTertiary },
   btnPressed: { opacity: 0.85 },
 });

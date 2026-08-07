@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onigiri Reward Flow — Wireframe v1</title>
+  <style>
+    :root {
+      --bg: #ececea;
+      --phone: #f7f7f5;
+      --surface: #ffffff;
+      --surface-muted: #f1f1ef;
+      --text: #111111;
+      --secondary: #777777;
+      --tertiary: #aaaaaa;
+      --border: #e0e0dd;
+      --strong: #c8c8c4;
+      --black: #111111;
+      --white: #ffffff;
+      --phone-w: 360px;
+      --phone-h: 780px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Segoe UI", sans-serif;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .board {
+      width: min(100%, 960px);
+      margin: 0 auto;
+      padding: 48px 28px 72px;
+    }
+
+    .board-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: 1.6px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      max-width: 520px;
+      margin: 12px 0 0;
+      color: var(--secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .state-toggle {
+      display: flex;
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid var(--strong);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.45);
+      white-space: nowrap;
+    }
+
+    .state-toggle button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: transparent;
+      color: var(--secondary);
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .state-toggle button.active {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(2, var(--phone-w));
+      justify-content: center;
+      gap: 44px 54px;
+    }
+
+    .step {
+      min-width: 0;
+    }
+
+    .step-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 0 4px 12px;
+    }
+
+    .step-label strong {
+      font-size: 13px;
+      letter-spacing: -0.1px;
+    }
+
+    .step-label span {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .phone {
+      position: relative;
+      width: var(--phone-w);
+      height: var(--phone-h);
+      overflow: hidden;
+      border: 1px solid #d4d4d0;
+      border-radius: 38px;
+      background: var(--phone);
+      box-shadow: 0 22px 48px rgba(17, 17, 17, 0.08);
+    }
+
+    .statusbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 42px;
+      padding: 0 22px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .island {
+      width: 82px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .screen {
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - 42px);
+      padding: 22px 22px 20px;
+    }
+
+    .kicker {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .display {
+      margin: 6px 0 0;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+
+    .h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .body {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .muted {
+      color: var(--secondary);
+    }
+
+    .tertiary {
+      color: var(--tertiary);
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    .summary {
+      margin-top: 24px;
+    }
+
+    .summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 42px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-row span:first-child {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: 1.2px;
+    }
+
+    .summary-row strong {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .reward-stage {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid var(--strong);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .cat {
+      width: 88px;
+      height: 106px;
+      object-fit: contain;
+      filter: grayscale(1);
+    }
+
+    .reward-copy .kicker {
+      margin-bottom: 6px;
+    }
+
+    .reward-name {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .reward-note {
+      margin: 8px 0 0;
+      color: var(--secondary);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .progress-block {
+      margin-top: 22px;
+    }
+
+    .progress-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .progress-head strong {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .progress-head span {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+    }
+
+    .segments {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .segment {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid var(--black);
+      border-radius: 3px;
+      background: transparent;
+    }
+
+    .segment.filled {
+      background: var(--black);
+    }
+
+    .remaining {
+      margin: 10px 0 0;
+      color: var(--secondary);
+      font-size: 12px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border: 1px solid var(--strong);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .button.primary {
+      border-color: var(--black);
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .tabbar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 18px -22px -20px;
+      padding: 14px 10px 18px;
+      border-top: 1px solid var(--border);
+      background: var(--phone);
+    }
+
+    .tab {
+      color: var(--tertiary);
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .tab.active {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .index-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .count-stack {
+      text-align: right;
+    }
+
+    .count-stack strong {
+      display: block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+    }
+
+    .count-stack span {
+      color: var(--secondary);
+      font-size: 10px;
+    }
+
+    .current-card {
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid var(--strong);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .current-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .current-no {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+    }
+
+    .current-card .h2 {
+      margin-top: 5px;
+    }
+
+    .onigiri-mini {
+      position: relative;
+      width: 92px;
+      height: 84px;
+      margin: 12px auto 6px;
+    }
+
+    .onigiri-mini::before {
+      position: absolute;
+      inset: 4px 7px 7px;
+      border: 2px solid var(--black);
+      border-radius: 52% 52% 18% 18%;
+      content: "";
+      transform: perspective(80px) rotateX(-8deg);
+    }
+
+    .onigiri-mini::after {
+      position: absolute;
+      bottom: 7px;
+      left: 27px;
+      width: 38px;
+      height: 27px;
+      background: var(--black);
+      content: "";
+    }
+
+    .ingredient-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 12px;
+      margin-top: 16px;
+    }
+
+    .ingredient {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--tertiary);
+      font-size: 12px;
+    }
+
+    .ingredient::before {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border: 1px solid var(--strong);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .ingredient.acquired {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .ingredient.acquired::before {
+      border-color: var(--black);
+      background: var(--black);
+    }
+
+    .collection-title {
+      margin: 22px 0 6px;
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: 1.3px;
+    }
+
+    .index-row {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      min-height: 45px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .index-row .no,
+    .index-row .detail {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+    }
+
+    .index-row.locked {
+      color: var(--tertiary);
+    }
+
+    .detail-nav {
+      display: flex;
+      align-items: center;
+      min-height: 30px;
+      color: var(--secondary);
+      font-size: 12px;
+    }
+
+    .onigiri-large {
+      position: relative;
+      width: 148px;
+      height: 134px;
+      margin: 30px auto 20px;
+    }
+
+    .onigiri-large::before {
+      position: absolute;
+      inset: 4px 10px 10px;
+      border: 3px solid var(--black);
+      border-radius: 54% 54% 18% 18%;
+      content: "";
+    }
+
+    .onigiri-large::after {
+      position: absolute;
+      bottom: 10px;
+      left: 43px;
+      width: 62px;
+      height: 42px;
+      background: var(--black);
+      content: "";
+    }
+
+    .detail-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-status span:first-child {
+      color: var(--secondary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: 1.2px;
+    }
+
+    .detail-status strong {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+    }
+
+    .detail-ingredients {
+      margin-top: 22px;
+    }
+
+    .detail-ingredients .ingredient-list {
+      grid-template-columns: 1fr;
+      gap: 11px;
+      margin-top: 12px;
+    }
+
+    .next-box {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--surface-muted);
+    }
+
+    .next-box strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .home-stats {
+      display: grid;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .home-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .home-stat strong {
+      min-width: 64px;
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .home-stat span {
+      color: var(--secondary);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .home-order {
+      margin-top: 38px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+    }
+
+    .home-order-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .chevron {
+      color: var(--secondary);
+      font-size: 20px;
+    }
+
+    .recent {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--secondary);
+      font-size: 12px;
+    }
+
+    .recent strong {
+      margin-left: 6px;
+      color: var(--text);
+    }
+
+    .cat-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .cat-line .cat {
+      width: 66px;
+      height: 90px;
+    }
+
+    .cat-line p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .cat-line small {
+      display: block;
+      margin-top: 4px;
+      color: var(--secondary);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .note {
+      padding: 18px;
+      border: 1px solid var(--strong);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--secondary);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    [data-crafted-only] {
+      display: none;
+    }
+
+    body.crafted [data-earned-only] {
+      display: none;
+    }
+
+    body.crafted [data-crafted-only] {
+      display: block;
+    }
+
+    @media (max-width: 820px) {
+      .board-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .flow {
+        grid-template-columns: var(--phone-w);
+      }
+
+      .notes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <header class="board-head">
+      <div>
+        <p class="eyebrow">ONIGIRI REWARD FLOW · WIREFRAME V1</p>
+        <h1>재료가 모이는 순간을 보이게</h1>
+        <p class="subtitle">
+          앱 구현 전 구조 검증용 와이어프레임. 현재 무채색 디자인과
+          “완료 세션 1회 = 재료 1개” 정책을 그대로 사용한다.
+        </p>
+      </div>
+      <div class="state-toggle" aria-label="보상 상태 전환">
+        <button class="active" type="button" data-mode="earned">재료 1/4</button>
+        <button type="button" data-mode="crafted">완성 4/4</button>
+      </div>
+    </header>
+
+    <section class="flow" aria-label="보상 UI 화면 흐름">
+      <article class="step">
+        <div class="step-label">
+          <strong>01. 학습 완료</strong>
+          <span>REWARD FIRST</span>
+        </div>
+        <div class="phone" data-component="StudyCompleteWireframe">
+          <div class="statusbar"><span>9:41</span><span class="island"></span><span>●●●</span></div>
+          <div class="screen">
+            <div class="kicker">COMPLETED</div>
+            <div class="summary">
+              <div class="summary-row"><span>NEW WORDS</span><strong>12</strong></div>
+              <div class="summary-row"><span>REVIEWS</span><strong>3</strong></div>
+            </div>
+
+            <section class="reward-stage">
+              <img
+                class="cat"
+                data-earned-only
+                src="../../assets/onigiri/cat-make.png"
+                alt=""
+              />
+              <img
+                class="cat"
+                data-crafted-only
+                src="../../assets/onigiri/cat-present.png"
+                alt=""
+              />
+              <div class="reward-copy">
+                <div class="kicker" data-earned-only>NEW INGREDIENT</div>
+                <div class="kicker" data-crafted-only>CRAFTED</div>
+                <p class="reward-name" data-earned-only>RICE</p>
+                <p class="reward-name" data-crafted-only>TUNA MAYO</p>
+                <p class="reward-note" data-earned-only>첫 재료를 얻었어.</p>
+                <p class="reward-note" data-crafted-only>오니기리가 완성됐어.</p>
+              </div>
+            </section>
+
+            <section class="progress-block">
+              <div class="progress-head">
+                <strong>TUNA MAYO</strong>
+                <span class="progress-count">1 / 4</span>
+              </div>
+              <div class="segments" aria-label="재료 진행도">
+                <span class="segment filled"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+              </div>
+              <p class="remaining">완성까지 3번 남음</p>
+            </section>
+
+            <div class="actions">
+              <div class="button primary">메뉴에서 보기</div>
+              <div class="button">영수증 보기</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-label">
+          <strong>02. 메뉴</strong>
+          <span>PROGRESS ALWAYS VISIBLE</span>
+        </div>
+        <div class="phone" data-component="CollectionWireframe">
+          <div class="statusbar"><span>9:41</span><span class="island"></span><span>●●●</span></div>
+          <div class="screen">
+            <header class="index-head">
+              <div>
+                <div class="kicker">ONIGIRI INDEX</div>
+                <h2 class="display">MENU</h2>
+              </div>
+              <div class="count-stack">
+                <strong class="complete-count">00 / 24</strong>
+                <span>완성</span>
+              </div>
+            </header>
+
+            <section class="current-card">
+              <div class="current-top">
+                <span class="kicker">NOW MAKING</span>
+                <span class="current-no">001</span>
+              </div>
+              <h3 class="h2">TUNA MAYO</h3>
+              <div class="onigiri-mini" aria-hidden="true"></div>
+              <div class="progress-head">
+                <span>INGREDIENTS</span>
+                <span class="progress-count">1 / 4</span>
+              </div>
+              <div class="segments">
+                <span class="segment filled"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+              </div>
+              <div class="ingredient-list">
+                <span class="ingredient acquired">RICE</span>
+                <span class="ingredient">SEAWEED</span>
+                <span class="ingredient">TUNA</span>
+                <span class="ingredient">MAYO</span>
+              </div>
+            </section>
+
+            <div class="collection-title">COLLECTION</div>
+            <div class="index-row">
+              <span class="no">001</span><strong>TUNA MAYO</strong><span class="detail progress-count">1 / 4</span>
+            </div>
+            <div class="index-row locked">
+              <span class="no">002</span><strong>LOCKED</strong><span class="detail">—</span>
+            </div>
+            <div class="index-row locked">
+              <span class="no">003</span><strong>LOCKED</strong><span class="detail">—</span>
+            </div>
+
+            <nav class="tabbar">
+              <span class="tab">오늘</span>
+              <span class="tab active">메뉴</span>
+              <span class="tab">기록</span>
+              <span class="tab">설정</span>
+            </nav>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-label">
+          <strong>03. 오니기리 상세</strong>
+          <span>WHAT I HAVE / WHAT IS NEXT</span>
+        </div>
+        <div class="phone" data-component="OnigiriDetailWireframe">
+          <div class="statusbar"><span>9:41</span><span class="island"></span><span>●●●</span></div>
+          <div class="screen">
+            <div class="detail-nav">‹ 메뉴</div>
+            <div class="kicker">001</div>
+            <h2 class="display">TUNA MAYO</h2>
+            <div class="onigiri-large" aria-hidden="true"></div>
+
+            <div class="detail-status">
+              <span class="status-label">IN PROGRESS</span>
+              <strong class="progress-count">1 / 4</strong>
+            </div>
+
+            <section class="detail-ingredients">
+              <span class="kicker">INGREDIENTS</span>
+              <div class="ingredient-list">
+                <span class="ingredient acquired">RICE <small class="muted">획득</small></span>
+                <span class="ingredient">SEAWEED</span>
+                <span class="ingredient">TUNA</span>
+                <span class="ingredient">MAYO</span>
+              </div>
+            </section>
+
+            <div class="next-box">
+              <span class="kicker">NEXT REWARD</span>
+              <strong class="next-reward">SEAWEED</strong>
+              <div class="body muted">다음 학습을 마치면 받을 수 있어.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-label">
+          <strong>04. 홈 복귀</strong>
+          <span>KEEP THE GOAL IN SIGHT</span>
+        </div>
+        <div class="phone" data-component="HomeWireframe">
+          <div class="statusbar"><span>9:41</span><span class="island"></span><span>●●●</span></div>
+          <div class="screen">
+            <div class="kicker">TODAY · N5</div>
+            <h2 class="display">TODAY</h2>
+
+            <section class="home-stats">
+              <div class="home-stat"><strong>0</strong><span>New words</span></div>
+              <div class="home-stat"><strong>0</strong><span>Reviews</span></div>
+            </section>
+
+            <section class="home-order">
+              <div class="home-order-head">
+                <div>
+                  <span class="kicker">CURRENT ORDER</span>
+                  <h3 class="h2">TUNA MAYO</h3>
+                </div>
+                <span class="chevron">›</span>
+              </div>
+              <div class="segments">
+                <span class="segment filled"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+                <span class="segment"></span>
+              </div>
+              <div class="recent">
+                최근 획득 <strong class="recent-reward">RICE</strong>
+              </div>
+            </section>
+
+            <div class="cat-line">
+              <img class="cat" src="../../assets/onigiri/cat-calm.png" alt="" />
+              <div>
+                <p class="cat-message">첫 재료가 들어왔네.</p>
+                <small>— 사장</small>
+              </div>
+            </div>
+
+            <div class="actions">
+              <div class="button">오늘 학습 완료</div>
+            </div>
+
+            <nav class="tabbar">
+              <span class="tab active">오늘</span>
+              <span class="tab">메뉴</span>
+              <span class="tab">기록</span>
+              <span class="tab">설정</span>
+            </nav>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="notes" aria-label="와이어프레임 결정 사항">
+      <article class="note">
+        <strong>보상 우선순위</strong>
+        <p>완료 통계보다 획득 재료를 시각적 중심에 둔다. 과한 축하 효과보다 짧고 분명한 변화에 집중한다.</p>
+      </article>
+      <article class="note">
+        <strong>빈 화면 제거</strong>
+        <p>재료가 0개여도 첫 오니기리를 0/4로 보여준다. 메뉴는 언제나 다음 목표를 설명해야 한다.</p>
+      </article>
+      <article class="note">
+        <strong>구현 범위 통제</strong>
+        <p>기존 세션 기반 진행도와 에셋을 재사용한다. 별도 재료 테이블이나 읽지 않은 보상 배지는 이번 범위에서 제외한다.</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const buttons = [...document.querySelectorAll("[data-mode]")];
+
+    function setMode(mode) {
+      const crafted = mode === "crafted";
+      document.body.classList.toggle("crafted", crafted);
+      buttons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.mode === mode);
+      });
+
+      document.querySelectorAll(".progress-count").forEach((node) => {
+        node.textContent = crafted ? "4 / 4" : "1 / 4";
+      });
+      document.querySelectorAll(".segments").forEach((segments) => {
+        [...segments.querySelectorAll(".segment")].forEach((segment, index) => {
+          segment.classList.toggle("filled", crafted || index === 0);
+        });
+      });
+      document.querySelectorAll(".ingredient").forEach((node, index) => {
+        node.classList.toggle("acquired", crafted || index % 4 === 0);
+      });
+
+      document.querySelector(".remaining").textContent =
+        crafted ? "오늘 완성한 오니기리" : "완성까지 3번 남음";
+      document.querySelector(".complete-count").textContent =
+        crafted ? "01 / 24" : "00 / 24";
+      document.querySelector(".status-label").textContent =
+        crafted ? "COMPLETED" : "IN PROGRESS";
+      document.querySelector(".next-reward").textContent =
+        crafted ? "다음 오니기리 시작" : "SEAWEED";
+      document.querySelector(".recent-reward").textContent =
+        crafted ? "MAYO · TUNA MAYO 완성" : "RICE";
+      document.querySelector(".cat-message").textContent =
+        crafted ? "참치마요가 완성됐네." : "첫 재료가 들어왔네.";
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setMode(button.dataset.mode));
+    });
+  </script>
+</body>
+</html>

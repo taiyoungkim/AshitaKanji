@@ -11,6 +11,7 @@ import {
   StyleSheet,
   Text,
   View,
+  type ImageSourcePropType,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getDatabase } from '~/db/open';
@@ -25,13 +26,20 @@ import {
 } from '~/design/tokens';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { catImages } from '~/features/onigiri/catAssets';
-import { IngredientSegments } from '~/features/onigiri/components';
 import {
   computeOnigiriProgress,
   type OnigiriProgressSnapshot,
 } from '~/features/onigiri/progress';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import type { JlptLevel } from '~/types/Card';
+import { buildCurrentOrderPresentation } from './currentOrderPresentation';
+
+const ingredientImages: Partial<Record<string, ImageSourcePropType>> = {
+  RICE: require('../../../assets/onigiri/rice-grain.png'),
+  SEAWEED: require('../../../assets/onigiri/seaweed.png'),
+  TUNA: require('../../../assets/onigiri/tuna.png'),
+  MAYO: require('../../../assets/onigiri/mayo.png'),
+};
 
 interface TodayCounts {
   due: number;
@@ -112,12 +120,19 @@ export default function HomeScreen(): React.ReactNode {
   const currentOnigiri = progress.current;
   const firstOnigiriEmpty =
     progress.totalIngredientsEarned === 0 && currentOnigiri.ingredientCount === 0;
-  const onigiriName = firstOnigiriEmpty ? '첫 오니기리' : currentOnigiri.item.name;
-  const catLine = allClear
-    ? '오늘 몫은 끝났어.'
-    : firstOnigiriEmpty
-      ? '왔네. 처음 보는 얼굴이네.'
-      : '왔네.';
+  const allCollected = progress.completedCount === progress.totalCount;
+  const currentOrderMeta = buildCurrentOrderPresentation(
+    currentOnigiri,
+    allCollected,
+  );
+  const ingredientImage = ingredientImages[currentOrderMeta.value];
+  const catLine = allCollected
+    ? '전부 모았네.'
+    : allClear
+      ? '오늘 몫은 끝났어.'
+      : firstOnigiriEmpty
+        ? '왔네. 처음 보는 얼굴이네.'
+        : '왔네.';
   const startLabel = allClear ? '복습 더 하기' : 'Start Study';
 
   return (
@@ -141,16 +156,29 @@ export default function HomeScreen(): React.ReactNode {
               <ShopStat value={reviewCount} label="Reviews" zero={reviewCount === 0} />
             </View>
 
-            <View style={styles.onigiriBlock}>
-              <Text style={[styles.onigiriName, firstOnigiriEmpty && styles.tertiary]}>
-                {onigiriName}
-              </Text>
-              <IngredientSegments
-                count={currentOnigiri.ingredientCount}
-                label={`${currentOnigiri.ingredientCount} / 4 INGREDIENTS`}
-                style={styles.segments}
-              />
-            </View>
+            <Pressable
+              style={({ pressed }) => [
+                styles.ingredientCard,
+                pressed && styles.ingredientCardPressed,
+              ]}
+              onPress={() =>
+                router.push({
+                  pathname: '/onigiri/[id]',
+                  params: { id: currentOnigiri.item.id },
+                })
+              }
+              accessibilityRole="button"
+              accessibilityLabel={`${currentOrderMeta.label} ${currentOrderMeta.value}, ${currentOnigiri.item.name} 상세 보기`}
+            >
+              {ingredientImage && (
+                <Image
+                  source={ingredientImage}
+                  resizeMode="contain"
+                  style={styles.ingredientIcon}
+                />
+              )}
+              <Text style={styles.ingredientName}>{currentOrderMeta.value}</Text>
+            </Pressable>
 
             <View style={styles.catline}>
               <Image source={catImages.calm} resizeMode="contain" style={styles.catImage} />
@@ -225,8 +253,7 @@ function LoadingState(): React.ReactNode {
         <Skeleton width={54} height={12} />
       </View>
       <View style={styles.skeletonBlock}>
-        <Skeleton width={170} height={26} />
-        <Skeleton width={140} height={12} />
+        <Skeleton width={112} height={44} />
       </View>
     </View>
   );
@@ -303,21 +330,34 @@ const styles = StyleSheet.create({
     ...typography.tiny,
     color: colors.textSecondary,
   },
-  onigiriBlock: {
-    marginTop: 44,
+  ingredientCard: {
+    alignSelf: 'flex-start',
+    marginTop: spacing.xl,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    borderRadius: 14,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
-  onigiriName: {
-    ...typography.h2,
+  ingredientCardPressed: {
+    opacity: 0.72,
+  },
+  ingredientIcon: {
+    width: 30,
+    height: 30,
+  },
+  ingredientName: {
+    ...typography.body,
     color: colors.text,
-  },
-  tertiary: {
-    color: colors.textTertiary,
-  },
-  segments: {
-    marginTop: 12,
+    fontWeight: fontWeight.medium,
+    letterSpacing: 0.6,
   },
   catline: {
-    marginTop: 40,
+    marginTop: spacing.xl,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,

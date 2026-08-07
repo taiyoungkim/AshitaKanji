@@ -1,9 +1,13 @@
 // Design Ref: ONIGIRI SHOP redesign — Study Complete + Receipt View.
 // Session summary stays in SessionStore while this full-screen modal is open.
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
+  Animated,
+  Image,
   Pressable,
+  ScrollView,
   Share,
   StyleSheet,
   Text,
@@ -16,11 +20,15 @@ import { useRouter } from 'expo-router';
 import {
   buttons,
   colors,
+  fontFamily,
   fontWeight,
+  motion,
   spacing,
   typography,
 } from '~/design/tokens';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
+import { catImages } from '~/features/onigiri/catAssets';
+import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import {
   IngredientSegments,
   Receipt,
@@ -32,6 +40,7 @@ import type {
   OnigiriProgressSnapshot,
 } from '~/features/onigiri/progress';
 import { useSessionStore } from '~/stores/SessionStore';
+import { buildDoneRewardPresentation } from './rewardPresentation';
 
 function formatReceiptDate(ms: number): string {
   const date = new Date(ms);
@@ -77,14 +86,20 @@ export default function DoneScreen(): React.ReactNode {
   const summary = useSessionStore((s) => s.summary);
   const resetSession = useSessionStore((s) => s.reset);
   const [progress, setProgress] = useState<OnigiriProgressSnapshot | null>(null);
+  const [progressFailed, setProgressFailed] = useState(false);
   const [showReceipt, setShowReceipt] = useState(false);
+  const rewardAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     let alive = true;
+    setProgressFailed(false);
     void buildOnigiriProgressService()
       .then((svc) => svc.getSnapshot())
       .then((snapshot) => {
         if (alive) setProgress(snapshot);
+      })
+      .catch(() => {
+        if (alive) setProgressFailed(true);
       });
     return () => {
       alive = false;
@@ -102,6 +117,26 @@ export default function DoneScreen(): React.ReactNode {
   const ingredientCount = reward
     ? reward.ingredientIndex + 1
     : displayEntry?.ingredientCount ?? 0;
+  const remainingIngredients = Math.max(0, INGREDIENTS_PER_ONIGIRI - ingredientCount);
+  const allCollected =
+    !!progress && progress.completedCount === progress.totalCount;
+  const rewardPresentation = buildDoneRewardPresentation({
+    ingredientName,
+    onigiriName,
+    crafted: reward?.crafted ?? false,
+    allCollected,
+    failed: progressFailed,
+  });
+
+  useEffect(() => {
+    if (!progress && !progressFailed) return;
+    rewardAnim.setValue(0);
+    Animated.timing(rewardAnim, {
+      toValue: 1,
+      duration: motion.durationMs,
+      useNativeDriver: true,
+    }).start();
+  }, [progress, progressFailed, rewardAnim]);
 
   const receiptRows = useMemo<ReceiptRow[]>(
     () => [
@@ -114,12 +149,14 @@ export default function DoneScreen(): React.ReactNode {
     [ingredientName, newCount, onigiriName, reviewCount, reward?.crafted, summary],
   );
 
-  const goShop = () => {
+  const goMenu = () => {
     resetSession();
-    // /done·/study는 fullScreenModal — replace('/home')하면 홈이 모달로 떠 팝업처럼 보임.
-    // 모달 스택을 닫아 (tabs) 루트(홈)로 랜딩.
+    // /done·/study fullScreenModal 스택을 먼저 전부 닫아야 함. dismissTo('/collection')는
+    // 히스토리에 collection이 없으면(홈→학습→완료 흐름) push로 폴백 → 탭바 없는
+    // collection이 모달처럼 뜸(과거 replace('/home') 사고와 동일 부류). dismissAll로
+    // (tabs) 루트에 랜딩한 뒤 collection 탭으로 전환.
     if (router.canDismiss()) router.dismissAll();
-    else router.replace('/home');
+    router.replace('/collection');
   };
 
   const shareReceipt = () => {
@@ -154,25 +191,75 @@ export default function DoneScreen(): React.ReactNode {
 
   return (
     <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
-      <View style={styles.completeBody}>
+      <ScrollView
+        style={styles.completeScroll}
+        contentContainerStyle={styles.completeBody}
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={styles.kicker}>COMPLETED</Text>
 
         <View style={styles.rows}>
           <SummaryRow label="NEW WORDS" value={newCount} />
           <SummaryRow label="REVIEWS" value={reviewCount} />
-          <SummaryRow label="INGREDIENT" value={ingredientName ?? 'NONE'} />
         </View>
 
-        <View style={styles.onigiri}>
-          {reward?.crafted && <Text style={styles.craftedTag}>CRAFTED</Text>}
-          <Text style={styles.onigiriName}>{onigiriName}</Text>
-          <IngredientSegments count={ingredientCount} compact />
+        <View style={styles.rewardStage}>
+          {!progress && !progressFailed ? (
+            <ActivityIndicator color={colors.text} />
+          ) : (
+            <Animated.View
+              style={[
+                styles.rewardContent,
+                {
+                  opacity: rewardAnim,
+                  transform: [
+                    {
+                      translateY: rewardAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [8, 0],
+                      }),
+                    },
+                  ],
+                },
+              ]}
+            >
+              <Image
+                source={catImages[rewardPresentation.catPose]}
+                resizeMode="contain"
+                style={styles.rewardCat}
+              />
+              <View style={styles.rewardCopy}>
+                <Text style={styles.rewardKicker}>{rewardPresentation.kicker}</Text>
+                <Text style={styles.rewardName}>{rewardPresentation.title}</Text>
+                <Text style={styles.rewardNote}>{rewardPresentation.note}</Text>
+              </View>
+            </Animated.View>
+          )}
         </View>
-      </View>
+
+        {progress && !progressFailed && (
+          <View style={styles.onigiriProgress}>
+            <View style={styles.progressHead}>
+              <Text style={styles.onigiriName}>{onigiriName}</Text>
+              <Text style={styles.progressCount}>
+                {ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
+              </Text>
+            </View>
+            <IngredientSegments count={ingredientCount} compact label={false} />
+            <Text style={styles.remaining}>
+              {reward?.crafted
+                ? '오늘 완성한 오니기리'
+                : remainingIngredients > 0
+                  ? `완성까지 ${remainingIngredients}번 남음`
+                  : '모든 재료를 모았어.'}
+            </Text>
+          </View>
+        )}
+      </ScrollView>
 
       <View style={styles.actions}>
-        <ActionButton label="View Receipt" variant="primary" onPress={() => setShowReceipt(true)} />
-        <ActionButton label="Back to Shop" variant="secondary" onPress={goShop} />
+        <ActionButton label="메뉴에서 보기" variant="primary" onPress={goMenu} />
+        <ActionButton label="영수증 보기" variant="secondary" onPress={() => setShowReceipt(true)} />
       </View>
     </SafeAreaView>
   );
@@ -209,6 +296,7 @@ function ActionButton({
       ]}
       onPress={onPress}
       accessibilityRole="button"
+      accessibilityLabel={label}
     >
       <Text style={[styles.actionText, primary ? styles.primaryText : styles.secondaryText]}>
         {label}
@@ -222,17 +310,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.bg,
   },
-  completeBody: {
+  completeScroll: {
     flex: 1,
+  },
+  completeBody: {
+    flexGrow: 1,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.xxl,
+    paddingBottom: spacing.lg,
   },
   kicker: {
     ...typography.tiny,
     color: colors.textSecondary,
     textAlign: 'center',
     marginTop: 8,
-    marginBottom: spacing.xxl,
+    marginBottom: spacing.lg,
   },
   rows: {
     gap: 0,
@@ -255,19 +347,65 @@ const styles = StyleSheet.create({
     color: colors.text,
     textAlign: 'right',
   },
-  onigiri: {
+  rewardStage: {
+    minHeight: 142,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    borderRadius: 20,
+    backgroundColor: colors.surface,
+    justifyContent: 'center',
+    marginTop: spacing.lg,
+    padding: spacing.md,
+  },
+  rewardContent: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginTop: spacing.huge,
     gap: spacing.md,
   },
-  craftedTag: {
+  rewardCat: {
+    width: 92,
+    height: 104,
+  },
+  rewardCopy: {
+    flex: 1,
+  },
+  rewardKicker: {
     ...typography.tiny,
     color: colors.textSecondary,
   },
-  onigiriName: {
+  rewardName: {
     ...typography.h2,
     color: colors.text,
-    textAlign: 'center',
+    marginTop: spacing.xs,
+  },
+  rewardNote: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: spacing.sm,
+  },
+  onigiriProgress: {
+    marginTop: spacing.xl,
+    gap: spacing.md,
+  },
+  progressHead: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  onigiriName: {
+    ...typography.h2,
+    flex: 1,
+    color: colors.text,
+  },
+  progressCount: {
+    ...typography.small,
+    fontFamily: fontFamily.mono,
+    color: colors.textSecondary,
+  },
+  remaining: {
+    ...typography.small,
+    color: colors.textSecondary,
   },
   actions: {
     paddingHorizontal: spacing.lg,

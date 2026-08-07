@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1900" viewBox="0 0 1600 1900">
+  <defs>
+    <style>
+      .bg { fill: #ececea; }
+      .phone { fill: #f7f7f5; stroke: #c8c8c4; stroke-width: 2; }
+      .surface { fill: #ffffff; stroke: #c8c8c4; stroke-width: 2; }
+      .muted-surface { fill: #f1f1ef; }
+      .black { fill: #111111; }
+      .white { fill: #ffffff; }
+      .line { stroke: #d8d8d4; stroke-width: 2; }
+      .strong-line { stroke: #111111; stroke-width: 2; fill: none; }
+      .title { fill: #111111; font: 600 40px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .board-title { fill: #111111; font: 600 52px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .phone-title { fill: #111111; font: 600 32px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .h2 { fill: #111111; font: 600 23px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .body { fill: #111111; font: 400 16px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .small { fill: #777777; font: 400 13px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .tiny { fill: #777777; font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1.5px; }
+      .mono { fill: #777777; font: 500 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .step-title { fill: #111111; font: 600 18px -apple-system, BlinkMacSystemFont, sans-serif; }
+      .step-meta { fill: #777777; font: 500 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1.2px; }
+      .center { text-anchor: middle; }
+      .right { text-anchor: end; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1900"/>
+
+  <text class="tiny" x="100" y="76">ONIGIRI REWARD FLOW · WIREFRAME V1</text>
+  <text class="board-title" x="100" y="135">재료가 모이는 순간을 보이게</text>
+  <text class="small" x="100" y="173">현재 무채색 UI와 “완료 세션 1회 = 재료 1개” 정책을 유지한 구조 시안</text>
+  <rect x="1288" y="88" width="212" height="48" rx="24" fill="#111111"/>
+  <text class="small center white" x="1394" y="118">PRIMARY · 재료 1/4</text>
+
+  <!-- 01 Study Complete -->
+  <text class="step-title" x="100" y="236">01. 학습 완료</text>
+  <text class="step-meta right" x="690" y="236">REWARD FIRST</text>
+  <g transform="translate(100 260)">
+    <rect class="phone" width="590" height="700" rx="44"/>
+    <text class="body" x="34" y="37">9:41</text>
+    <rect class="black" x="244" y="15" width="102" height="26" rx="13"/>
+    <text class="tiny" x="34" y="86">COMPLETED</text>
+
+    <text class="tiny" x="34" y="137">NEW WORDS</text>
+    <text class="h2 right" x="556" y="137">12</text>
+    <line class="line" x1="34" y1="154" x2="556" y2="154"/>
+    <text class="tiny" x="34" y="192">REVIEWS</text>
+    <text class="h2 right" x="556" y="192">3</text>
+    <line class="line" x1="34" y1="209" x2="556" y2="209"/>
+
+    <rect class="surface" x="34" y="239" width="522" height="142" rx="22"/>
+    <rect class="muted-surface" x="56" y="260" width="100" height="100" rx="18"/>
+    <path d="M78 294 L92 275 L108 294 M108 294 L124 275 L139 296" class="strong-line"/>
+    <circle cx="99" cy="310" r="3" class="black"/>
+    <circle cx="125" cy="310" r="3" class="black"/>
+    <path d="M102 327 Q112 336 123 327" class="strong-line"/>
+    <text class="tiny" x="184" y="278">NEW INGREDIENT</text>
+    <text class="title" x="184" y="324">RICE</text>
+    <text class="small" x="184" y="351">첫 재료를 얻었어.</text>
+
+    <text class="h2" x="34" y="430">TUNA MAYO</text>
+    <text class="mono right" x="556" y="430">1 / 4</text>
+    <rect x="34" y="454" width="15" height="15" rx="3" class="black"/>
+    <rect x="62" y="454" width="15" height="15" rx="3" class="strong-line"/>
+    <rect x="90" y="454" width="15" height="15" rx="3" class="strong-line"/>
+    <rect x="118" y="454" width="15" height="15" rx="3" class="strong-line"/>
+    <text class="small" x="34" y="500">완성까지 3번 남음</text>
+
+    <rect class="black" x="34" y="564" width="522" height="54" rx="27"/>
+    <text class="body center white" x="295" y="598">메뉴에서 보기</text>
+    <rect class="strong-line" x="34" y="630" width="522" height="48" rx="24"/>
+    <text class="body center" x="295" y="660">영수증 보기</text>
+  </g>
+
+  <!-- 02 Menu -->
+  <text class="step-title" x="850" y="236">02. 메뉴</text>
+  <text class="step-meta right" x="1500" y="236">PROGRESS ALWAYS VISIBLE</text>
+  <g transform="translate(850 260)">
+    <rect class="phone" width="650" height="700" rx="44"/>
+    <text class="body" x="34" y="37">9:41</text>
+    <rect class="black" x="274" y="15" width="102" height="26" rx="13"/>
+    <text class="tiny" x="34" y="85">ONIGIRI INDEX</text>
+    <text class="phone-title" x="34" y="126">MENU</text>
+    <text class="mono right" x="616" y="102">00 / 24</text>
+    <text class="small right" x="616" y="126">완성</text>
+
+    <rect class="surface" x="34" y="158" width="582" height="306" rx="22"/>
+    <text class="tiny" x="56" y="190">NOW MAKING</text>
+    <text class="mono right" x="594" y="190">001</text>
+    <text class="h2" x="56" y="226">TUNA MAYO</text>
+
+    <path d="M282 260 L326 340 L238 340 Z" class="strong-line"/>
+    <rect class="black" x="268" y="314" width="28" height="24" rx="3"/>
+
+    <text class="tiny" x="56" y="385">INGREDIENTS</text>
+    <text class="mono right" x="594" y="385">1 / 4</text>
+    <rect x="56" y="404" width="14" height="14" rx="3" class="black"/>
+    <rect x="82" y="404" width="14" height="14" rx="3" class="strong-line"/>
+    <rect x="108" y="404" width="14" height="14" rx="3" class="strong-line"/>
+    <rect x="134" y="404" width="14" height="14" rx="3" class="strong-line"/>
+    <circle cx="305" cy="411" r="5" class="black"/>
+    <text class="body" x="319" y="417">RICE</text>
+    <circle cx="405" cy="411" r="5" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="419" y="417">SEAWEED</text>
+    <circle cx="305" cy="440" r="5" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="319" y="446">TUNA</text>
+    <circle cx="405" cy="440" r="5" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="419" y="446">MAYO</text>
+
+    <text class="tiny" x="34" y="500">COLLECTION</text>
+    <text class="mono" x="34" y="542">001</text>
+    <text class="body" x="92" y="542">TUNA MAYO</text>
+    <text class="mono right" x="616" y="542">1 / 4</text>
+    <line class="line" x1="34" y1="560" x2="616" y2="560"/>
+    <text class="mono" x="34" y="594">002</text>
+    <text class="small" x="92" y="594">LOCKED</text>
+    <line class="line" x1="34" y1="612" x2="616" y2="612"/>
+
+    <line class="line" x1="0" y1="638" x2="650" y2="638"/>
+    <text class="small center" x="82" y="672">오늘</text>
+    <text class="body center" x="244" y="672">메뉴</text>
+    <line x1="225" y1="683" x2="263" y2="683" stroke="#111111" stroke-width="2"/>
+    <text class="small center" x="406" y="672">기록</text>
+    <text class="small center" x="568" y="672">설정</text>
+  </g>
+
+  <!-- 03 Detail -->
+  <text class="step-title" x="100" y="1046">03. 오니기리 상세</text>
+  <text class="step-meta right" x="690" y="1046">WHAT I HAVE / WHAT IS NEXT</text>
+  <g transform="translate(100 1070)">
+    <rect class="phone" width="590" height="700" rx="44"/>
+    <text class="body" x="34" y="37">9:41</text>
+    <rect class="black" x="244" y="15" width="102" height="26" rx="13"/>
+    <text class="small" x="34" y="82">‹ 메뉴</text>
+    <text class="tiny" x="34" y="126">001</text>
+    <text class="phone-title" x="34" y="168">TUNA MAYO</text>
+
+    <path d="M295 205 L368 350 L222 350 Z" class="strong-line"/>
+    <rect class="black" x="270" y="305" width="50" height="42" rx="4"/>
+
+    <line class="line" x1="34" y1="390" x2="556" y2="390"/>
+    <text class="tiny" x="34" y="423">IN PROGRESS</text>
+    <text class="mono right" x="556" y="423">1 / 4</text>
+    <line class="line" x1="34" y1="445" x2="556" y2="445"/>
+
+    <text class="tiny" x="34" y="487">INGREDIENTS</text>
+    <circle cx="41" cy="521" r="6" class="black"/>
+    <text class="body" x="58" y="527">RICE</text>
+    <text class="small" x="126" y="527">획득</text>
+    <circle cx="41" cy="557" r="6" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="58" y="563">SEAWEED</text>
+    <circle cx="41" cy="593" r="6" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="58" y="599">TUNA</text>
+    <circle cx="41" cy="629" r="6" fill="none" stroke="#c8c8c4" stroke-width="2"/>
+    <text class="small" x="58" y="635">MAYO</text>
+
+    <rect class="muted-surface" x="310" y="499" width="246" height="136" rx="18"/>
+    <text class="tiny" x="332" y="531">NEXT REWARD</text>
+    <text class="h2" x="332" y="568">SEAWEED</text>
+    <text class="small" x="332" y="598">다음 학습을 마치면</text>
+    <text class="small" x="332" y="619">받을 수 있어.</text>
+  </g>
+
+  <!-- 04 Home -->
+  <text class="step-title" x="850" y="1046">04. 홈 복귀</text>
+  <text class="step-meta right" x="1500" y="1046">KEEP THE GOAL IN SIGHT</text>
+  <g transform="translate(850 1070)">
+    <rect class="phone" width="650" height="700" rx="44"/>
+    <text class="body" x="34" y="37">9:41</text>
+    <rect class="black" x="274" y="15" width="102" height="26" rx="13"/>
+    <text class="tiny" x="34" y="85">TODAY · N5</text>
+    <text class="phone-title" x="34" y="126">TODAY</text>
+
+    <text class="title" x="34" y="203">0</text>
+    <text class="tiny" x="105" y="203">NEW WORDS</text>
+    <text class="title" x="34" y="264">0</text>
+    <text class="tiny" x="105" y="264">REVIEWS</text>
+
+    <rect class="surface" x="34" y="302" width="582" height="205" rx="22"/>
+    <text class="tiny" x="56" y="336">CURRENT ORDER</text>
+    <text class="h2" x="56" y="374">TUNA MAYO</text>
+    <text class="h2 right" x="594" y="374">›</text>
+    <rect x="56" y="402" width="14" height="14" rx="3" class="black"/>
+    <rect x="82" y="402" width="14" height="14" rx="3" class="strong-line"/>
+    <rect x="108" y="402" width="14" height="14" rx="3" class="strong-line"/>
+    <rect x="134" y="402" width="14" height="14" rx="3" class="strong-line"/>
+    <line class="line" x1="56" y1="445" x2="594" y2="445"/>
+    <text class="small" x="56" y="478">최근 획득</text>
+    <text class="body" x="137" y="478">RICE</text>
+
+    <rect class="muted-surface" x="34" y="535" width="86" height="74" rx="18"/>
+    <path d="M48 565 L58 551 L70 565 M70 565 L82 551 L92 565" class="strong-line"/>
+    <circle cx="62" cy="577" r="2.5" class="black"/>
+    <circle cx="80" cy="577" r="2.5" class="black"/>
+    <text class="body" x="142" y="566">첫 재료가 들어왔네.</text>
+    <text class="small" x="142" y="593">— 사장</text>
+
+    <line class="line" x1="0" y1="638" x2="650" y2="638"/>
+    <text class="body center" x="82" y="672">오늘</text>
+    <line x1="63" y1="683" x2="101" y2="683" stroke="#111111" stroke-width="2"/>
+    <text class="small center" x="244" y="672">메뉴</text>
+    <text class="small center" x="406" y="672">기록</text>
+    <text class="small center" x="568" y="672">설정</text>
+  </g>
+
+  <text class="tiny" x="100" y="1840">DECISIONS</text>
+  <text class="small" x="100" y="1872">보상 우선 · 빈 메뉴 제거 · 다음 목표 노출 · 기존 세션 데이터와 에셋 재사용 · 앱 구현은 아직 하지 않음</text>
+</svg>
