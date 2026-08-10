@@ -14,9 +14,14 @@ export const Grade = {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type Grade = (typeof Grade)[keyof typeof Grade];
 
+/**
+ * 학습 UI 는 2단계(아직이에요=Again / 외웠어요=Good)만 노출한다 — Hard/Easy 는
+ * 과거 기록과 FSRS 매핑을 위해 타입에 남겨 두되 새로 기록되지 않는다.
+ * 라벨은 통계·디버그 표시용.
+ */
 export const GRADE_LABELS_KO: Record<Grade, string> = {
-  [Grade.Again]: '모름',
+  [Grade.Again]: '아직이에요',
   [Grade.Hard]: '어려움',
-  [Grade.Good]: '앎',
+  [Grade.Good]: '외웠어요',
   [Grade.Easy]: '쉬움',
 };

@@ -3,10 +3,14 @@
 
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import type { Word } from '~/types/Card';
-import { Card } from '~/components/card/Card';
+import { StudyCard } from '~/features/study/components/StudyCard';
 
-function sample(partial: Pick<Word, 'id' | 'surface' | 'reading_kana' | 'meaning_ko' | 'card_type'>): Word {
+function sample(
+  partial: Pick<Word, 'id' | 'surface' | 'reading_kana' | 'meaning_ko' | 'card_type'>,
+): Word {
   return {
     level: 'N5',
     furigana: null,
@@ -38,6 +42,7 @@ const SAMPLES: Word[] = [
 ];
 
 export default function CardsStorybook(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
   const toggle = (id: string) => setRevealed((p) => ({ ...p, [id]: !p[id] }));
 
@@ -46,7 +51,7 @@ export default function CardsStorybook(): React.ReactNode {
       <Text style={styles.heading}>Card Storybook (A~E)</Text>
       {SAMPLES.map((w) => (
         <View key={w.id} style={styles.slot}>
-          <Card
+          <StudyCard
             word={w}
             revealed={!!revealed[w.id]}
             onReveal={() => toggle(w.id)}
@@ -61,11 +66,17 @@ export default function CardsStorybook(): React.ReactNode {
   );
 }
 
-const styles = StyleSheet.create({
-  scroll: { flex: 1, backgroundColor: '#fafafa' },
-  content: { padding: 8 },
-  heading: { fontSize: 18, fontWeight: '700', padding: 12 },
-  slot: { height: 360, marginBottom: 12 },
-  resetBtn: { alignSelf: 'center', paddingVertical: 6, paddingHorizontal: 16 },
-  resetText: { color: '#0366d6', fontSize: 13 },
-});
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    scroll: { flex: 1, backgroundColor: c.softer },
+    content: { paddingVertical: spacing.sm },
+    heading: {
+      ...typography.cardTitle,
+      color: c.ink,
+      paddingHorizontal: layout.gutter,
+      paddingVertical: layout.gapTight,
+    },
+    slot: { height: 420, marginBottom: layout.gapTight },
+    resetBtn: { alignSelf: 'center', paddingVertical: spacing.sm, paddingHorizontal: spacing.lg },
+    resetText: { ...typography.caption, color: c.link },
+  });

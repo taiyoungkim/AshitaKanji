@@ -1,18 +1,39 @@
-// Design Ref: ONIGIRI SHOP redesign — Onboarding Tutorial (prototype: onboarding-tutorial.html).
-// 첫 실행 1회: Setup → Study(데모 5카드) → Ingredient → Crafting rule → Receipt → /home.
-// 데모 카드는 SRS/DB 미기록 — 실제 정책을 미리 보여주는 연습 흐름. 완료/Skip 시 tutorialCompleted 영속.
+// Design Ref: Onikan — 온보딩 튜토리얼.
+// 첫 실행 1회: 준비 → 학습(데모 5카드) → 재료 → 완성 규칙 → 영수증 → /home.
+// 데모 카드는 SRS/DB 미기록 — 실제 정책을 미리 보여주는 연습 흐름.
+//
+// 평가는 실제 학습과 같은 2단계다. 여기서만 3단계를 쓰면 첫 학습에서 다시 배워야 한다.
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
-import { Animated, Image, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import {
+  Animated,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { buttons, colors, fontFamily, motion, spacing, typography } from '~/design/tokens';
+import {
+  layout,
+  motion,
+  radius,
+  spacing,
+  typography,
+  type ThemeColors,
+} from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
+import { Button } from '~/components/ui/Button';
+import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { Receipt } from '~/features/onigiri/components';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { catImages } from './catAssets';
 import { INGREDIENTS_PER_ONIGIRI, TEMP_ONIGIRI_CATALOG } from './catalog';
+import { ingredientImage, ingredientName } from './ingredientAssets';
+import { recipeImage } from './recipeAssets';
 import type { CatPose } from './types';
-import { IngredientSegments, LabelValueRow, OnigiriSketch, Receipt } from './components';
-import { formatOnigiriDate } from './components/OnigiriIndexItem';
 
 // 데모 단어 — 튜토리얼 전용 고정 5개 (DB 의존 없음, 미기록).
 const DEMO_WORDS = [
@@ -31,7 +52,7 @@ type Step = 'setup' | 'study' | 'ingredient' | 'crafting' | 'receipt';
 const STEP_ORDER: readonly Step[] = ['setup', 'study', 'ingredient', 'crafting', 'receipt'];
 
 // 모든 포즈를 동일 박스(폭 46% × 높이 24%) 안에 contain — 세로형(calm/show/present)은
-// 높이가 맞춰져 균일, 가로형(make)은 폭에 걸려 프로토타입 비율(180×153)로 떨어짐.
+// 높이가 맞춰져 균일, 가로형(make)은 폭에 걸려 원래 비율로 떨어짐.
 const CAT_BOX_WIDTH_RATIO = 0.46;
 const CAT_BOX_HEIGHT_RATIO = 0.24;
 
@@ -57,15 +78,22 @@ function TutorialCat({
   );
 }
 
+function formatToday(ms: number): string {
+  const d = new Date(ms);
+  const p = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}.${p(d.getMonth() + 1)}.${p(d.getDate())}`;
+}
+
 export default function TutorialScreen(): React.ReactNode {
   const router = useRouter();
+  const styles = useThemedStyles(makeStyles);
   const completeTutorial = useSettingsStore((s) => s.completeTutorial);
   const { width, height } = useWindowDimensions();
 
   const [step, setStep] = useState<Step>('setup');
   const [cardIndex, setCardIndex] = useState(0);
+  const [revealed, setRevealed] = useState(false);
 
-  // 프로토타입 .view 진입 트랜지션 (opacity + translateY 8px).
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     anim.setValue(0);
@@ -84,6 +112,7 @@ export default function TutorialScreen(): React.ReactNode {
   const goBack = useCallback(() => {
     if (step === 'study' && cardIndex > 0) {
       setCardIndex((i) => i - 1);
+      setRevealed(false);
       return;
     }
     const idx = STEP_ORDER.indexOf(step);
@@ -93,32 +122,35 @@ export default function TutorialScreen(): React.ReactNode {
       return;
     }
     if (prev === 'study') setCardIndex(DEMO_WORDS.length - 1);
+    setRevealed(false);
     setStep(prev);
   }, [step, cardIndex, router]);
 
   const nextCard = useCallback(() => {
+    setRevealed(false);
     if (cardIndex < DEMO_WORDS.length - 1) setCardIndex((i) => i + 1);
     else setStep('ingredient');
   }, [cardIndex]);
 
-  const todayLabel = formatOnigiriDate(Date.now());
+  const todayLabel = formatToday(Date.now());
+  const ingredientLabel = ingredientName(TUTORIAL_INGREDIENT);
 
   let body: React.ReactNode;
   switch (step) {
     case 'setup':
       body = (
         <>
-          <Text style={styles.labelTop}>TUTORIAL</Text>
+          <Overline>튜토리얼</Overline>
           <View style={styles.spacer} />
           <TutorialCat pose="show" screenWidth={width} screenHeight={height} />
           <View style={styles.centerBlock}>
-            <Text style={styles.h1}>먼저 5개만.</Text>
-            <Text style={styles.bodyMuted}>
-              짧게 공부하고, 재료를 얻는 흐름을{'\n'}먼저 연습해보자.
+            <Text style={styles.title}>먼저 5개만.</Text>
+            <Text style={styles.lead}>
+              짧게 공부하고, 재료를 얻는 흐름을{'\n'}먼저 연습해 봐요.
             </Text>
           </View>
           <View style={styles.spacer} />
-          <PrimaryButton label="Start" onPress={() => setStep('study')} />
+          <Button label="시작" onPress={() => setStep('study')} />
         </>
       );
       break;
@@ -127,18 +159,37 @@ export default function TutorialScreen(): React.ReactNode {
       const w = DEMO_WORDS[cardIndex] ?? DEMO_WORDS[0];
       body = (
         <>
-          <Text style={styles.progress}>{cardIndex + 1} / {DEMO_WORDS.length}</Text>
-          <View style={styles.card}>
-            <Text style={styles.kanji}>{w.kanji}</Text>
-            <Text style={styles.kana}>{w.kana}</Text>
-            <Text style={styles.mean}>{w.mean}</Text>
-            {cardIndex === 0 && <Text style={styles.hint}>기억나는 정도를 골라.</Text>}
+          <View style={styles.demoTrack}>
+            {DEMO_WORDS.map((_, i) => (
+              <View
+                key={i}
+                style={[styles.demoCell, i < cardIndex && styles.demoCellFilled]}
+              />
+            ))}
           </View>
-          <View style={styles.answers}>
-            <AnswerButton label="모름" onPress={nextCard} />
-            <AnswerButton label="헷갈림" onPress={nextCard} />
-            <AnswerButton label="암기" primary onPress={nextCard} />
-          </View>
+          <Pressable
+            style={styles.demoCard}
+            onPress={() => setRevealed(true)}
+            accessibilityRole="button"
+            accessibilityLabel="탭해서 뜻 확인"
+          >
+            <Text style={styles.demoWord}>{w.kanji}</Text>
+            {revealed && (
+              <>
+                <Text style={styles.demoReading}>{w.kana}</Text>
+                <Text style={styles.demoMeaning}>{w.mean}</Text>
+              </>
+            )}
+            {!revealed && <Text style={styles.demoHint}>탭해서 뜻 확인</Text>}
+          </Pressable>
+          {revealed ? (
+            <View style={styles.demoActions}>
+              <Button label="아직이에요" variant="outline" tall style={styles.demoBtn} onPress={nextCard} />
+              <Button label="외웠어요" variant="ink" tall style={styles.demoBtn} onPress={nextCard} />
+            </View>
+          ) : (
+            <Button label="뜻 보기" onPress={() => setRevealed(true)} />
+          )}
         </>
       );
       break;
@@ -147,31 +198,34 @@ export default function TutorialScreen(): React.ReactNode {
     case 'ingredient':
       body = (
         <>
-          <Text style={[styles.labelTop, styles.centerText]}>COMPLETED</Text>
+          <Overline>다 했어요</Overline>
           <View style={styles.spacer} />
           <TutorialCat pose="make" screenWidth={width} screenHeight={height} />
-          <Text style={styles.catLineMuted}>5개를 봤어.</Text>
-          <View style={styles.statsBlock}>
-            <LabelValueRow label="NEW WORDS" value={DEMO_WORDS.length} borderBottom />
-            <LabelValueRow
-              label="INGREDIENT"
-              value={TUTORIAL_INGREDIENT}
-              valueSize="small"
+          <Card elevated style={styles.rewardCard}>
+            <Tile
+              size={72}
+              cornerRadius={radius.tile}
+              image={ingredientImage(TUTORIAL_INGREDIENT)}
+              imageSize={56}
             />
-          </View>
-          <View style={styles.centerBlock}>
-            <Text style={styles.h2}>{TUTORIAL_ONIGIRI.name}</Text>
-            <IngredientSegments
-              count={TUTORIAL_INGREDIENT_COUNT}
+            <View style={styles.rewardCopy}>
+              <Overline>새 재료</Overline>
+              <Text style={styles.rewardName}>{ingredientLabel}</Text>
+              <Text style={styles.lead}>학습 1회를 마치면 재료 1개를 받아요.</Text>
+            </View>
+          </Card>
+          <View style={styles.progressBlock}>
+            <Text style={styles.recipeName}>{TUTORIAL_ONIGIRI.name}</Text>
+            <ProgressCells
               total={INGREDIENTS_PER_ONIGIRI}
-              style={styles.segments}
+              filled={TUTORIAL_INGREDIENT_COUNT}
+              height={8}
+              gap={8}
+              fill="ink"
             />
-            <Text style={styles.policyNote}>
-              실제 학습 1회를 마치면 재료 1개를 얻어.
-            </Text>
           </View>
           <View style={styles.spacer} />
-          <PrimaryButton label="Continue" onPress={() => setStep('crafting')} />
+          <Button label="계속" onPress={() => setStep('crafting')} />
         </>
       );
       break;
@@ -179,27 +233,32 @@ export default function TutorialScreen(): React.ReactNode {
     case 'crafting':
       body = (
         <>
-          <Text style={[styles.labelTop, styles.centerText]}>HOW IT WORKS</Text>
+          <Overline>완성 규칙</Overline>
           <View style={styles.spacer} />
-          <TutorialCat pose="present" screenWidth={width} screenHeight={height} />
-          <OnigiriSketch size={120} style={styles.onigiri} />
+          <Tile
+            size={140}
+            cornerRadius={radius.card}
+            image={recipeImage(TUTORIAL_ONIGIRI.imageKey)}
+            imageSize={112}
+            style={styles.craftTile}
+          />
           <View style={styles.centerBlock}>
-            <Text style={styles.h1}>{TUTORIAL_ONIGIRI.name}</Text>
-            <IngredientSegments
-              count={INGREDIENTS_PER_ONIGIRI}
-              total={INGREDIENTS_PER_ONIGIRI}
-              style={styles.segments}
-            />
-            <Text style={styles.completedDate}>
-              {INGREDIENTS_PER_ONIGIRI} STUDY SESSIONS
+            <Text style={styles.title}>{TUTORIAL_ONIGIRI.name}</Text>
+            <View style={styles.craftProgress}>
+              <ProgressCells
+                total={INGREDIENTS_PER_ONIGIRI}
+                filled={INGREDIENTS_PER_ONIGIRI}
+                height={8}
+                gap={8}
+                fill="ink"
+              />
+            </View>
+            <Text style={styles.lead}>
+              재료 {INGREDIENTS_PER_ONIGIRI}개가 모이면 완성돼요.{'\n'}완성한 메뉴는 도감에 쌓여요.
             </Text>
-            <Text style={styles.catLine}>
-              재료 {INGREDIENTS_PER_ONIGIRI}개가 모이면 완성돼.
-            </Text>
-            <Text style={styles.who}>— 사장</Text>
           </View>
           <View style={styles.spacer} />
-          <PrimaryButton label="Continue" onPress={() => setStep('receipt')} />
+          <Button label="계속" onPress={() => setStep('receipt')} />
         </>
       );
       break;
@@ -209,23 +268,23 @@ export default function TutorialScreen(): React.ReactNode {
         <>
           <View style={styles.spacer} />
           <Receipt
-            title="SAMPLE RECEIPT"
             dateLabel={todayLabel}
             rows={[
-              { label: 'NEW WORDS', value: DEMO_WORDS.length },
-              { label: 'INGREDIENT', value: TUTORIAL_INGREDIENT },
-              {
-                label: 'PROGRESS',
-                value: `${TUTORIAL_INGREDIENT_COUNT} / ${INGREDIENTS_PER_ONIGIRI}`,
-              },
+              { label: '새로 배운 단어', value: DEMO_WORDS.length },
+              { label: '아직이라고 표시한 단어', value: 0 },
+              { label: '받은 재료', value: ingredientLabel, reward: true },
             ]}
-            thanks="PREVIEW"
+            recipeName={TUTORIAL_ONIGIRI.name}
+            ingredientCount={TUTORIAL_INGREDIENT_COUNT}
+            ingredientTotal={INGREDIENTS_PER_ONIGIRI}
+            footerNote="학습을 마치면 매번 영수증이 나와요."
+            streakLabel="연습"
           />
           <Text style={styles.receiptCaption}>
-            연습 결과는 저장되지 않아.{'\n'}실제 학습을 마치면 보상과 기록을 확인할 수 있어.
+            연습 결과는 저장되지 않아요.{'\n'}실제 학습을 마치면 보상과 기록이 남아요.
           </Text>
           <View style={styles.spacer} />
-          <PrimaryButton label="Continue" onPress={finish} />
+          <Button label="시작하기" onPress={finish} />
         </>
       );
       break;
@@ -235,11 +294,11 @@ export default function TutorialScreen(): React.ReactNode {
     <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
       <View style={styles.topBar}>
         <Pressable onPress={goBack} hitSlop={12} accessibilityRole="button" accessibilityLabel="뒤로">
-          <Text style={styles.navBack}>‹ Back</Text>
+          <Text style={styles.navText}>‹ 뒤로</Text>
         </Pressable>
         {step === 'setup' && (
           <Pressable onPress={finish} hitSlop={12} accessibilityRole="button" accessibilityLabel="건너뛰기">
-            <Text style={styles.navSkip}>Skip</Text>
+            <Text style={styles.navText}>건너뛰기</Text>
           </Pressable>
         )}
       </View>
@@ -260,137 +319,66 @@ export default function TutorialScreen(): React.ReactNode {
   );
 }
 
-function PrimaryButton({ label, onPress }: { label: string; onPress: () => void }): React.ReactNode {
-  return (
-    <Pressable
-      style={({ pressed }) => [styles.btnPrimary, pressed && styles.btnPressed]}
-      onPress={onPress}
-      accessibilityRole="button"
-    >
-      <Text style={styles.btnPrimaryText}>{label}</Text>
-    </Pressable>
-  );
-}
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    root: { flex: 1, backgroundColor: c.softer },
+    topBar: {
+      height: layout.touchTarget,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: layout.gutter,
+    },
+    navText: { ...typography.body, color: c.body },
+    content: {
+      flex: 1,
+      paddingHorizontal: layout.gutter,
+      paddingBottom: spacing.xxl,
+    },
+    spacer: { flex: 1, minHeight: spacing.lg },
+    centerBlock: { alignItems: 'center', marginTop: spacing.lg, gap: layout.gapTight },
+    title: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
+    lead: { ...typography.body, color: c.body, textAlign: 'center' },
 
-function AnswerButton({
-  label,
-  primary = false,
-  onPress,
-}: {
-  label: string;
-  primary?: boolean;
-  onPress: () => void;
-}): React.ReactNode {
-  return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.answerBtn,
-        primary ? styles.answerPrimary : styles.answerSecondary,
-        pressed && styles.btnPressed,
-      ]}
-      onPress={onPress}
-      accessibilityRole="button"
-    >
-      <Text style={[styles.answerText, primary && styles.answerTextPrimary]}>{label}</Text>
-    </Pressable>
-  );
-}
+    demoTrack: { flexDirection: 'row', gap: spacing.xs, marginTop: spacing.sm },
+    demoCell: { flex: 1, height: 4, borderRadius: radius.pill, backgroundColor: c.pressed },
+    demoCellFilled: { backgroundColor: c.ink },
+    demoCard: {
+      flex: 1,
+      marginTop: spacing.lg,
+      marginBottom: layout.gutter,
+      backgroundColor: c.canvas,
+      borderRadius: radius.card,
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 10,
+      padding: 24,
+    },
+    demoWord: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
+    demoReading: { ...typography.reading, color: c.body },
+    demoMeaning: { ...typography.meaning, color: c.ink, marginTop: spacing.sm },
+    demoHint: { ...typography.body, color: c.body, marginTop: spacing.lg },
+    demoActions: { flexDirection: 'row', gap: 10 },
+    demoBtn: { flex: 1 },
 
-const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.bg },
-  topBar: {
-    height: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg,
-  },
-  navBack: { ...typography.small, fontSize: 14, color: colors.textSecondary },
-  navSkip: { ...typography.small, color: colors.textSecondary, letterSpacing: 0.3 },
-  content: {
-    flex: 1,
-    paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.lg,
-  },
-  spacer: { flex: 1 },
-  centerBlock: { alignItems: 'center', marginTop: spacing.lg },
-  centerText: { textAlign: 'center' },
+    rewardCard: {
+      marginTop: layout.gutter,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: layout.gapTight,
+    },
+    rewardCopy: { flex: 1, gap: 6 },
+    rewardName: { ...typography.meaning, color: c.ink },
+    progressBlock: { marginTop: layout.gapGroup, gap: layout.gapTight },
+    recipeName: { ...typography.listTitle, color: c.ink },
 
-  labelTop: { ...typography.tiny, color: colors.textSecondary, marginTop: spacing.sm },
-  h1: { ...typography.h1, color: colors.text, textAlign: 'center' },
-  h2: { ...typography.h2, color: colors.text, textAlign: 'center' },
-  bodyMuted: {
-    ...typography.body,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.md,
-  },
+    craftTile: { alignSelf: 'center' },
+    craftProgress: { alignSelf: 'stretch', paddingHorizontal: spacing.huge },
 
-  progress: {
-    fontFamily: fontFamily.mono,
-    fontSize: 13,
-    lineHeight: 18,
-    color: colors.textSecondary,
-    letterSpacing: 1,
-    marginTop: spacing.sm,
-  },
-  card: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 10 },
-  kanji: { fontSize: 96, lineHeight: 104, color: colors.text, letterSpacing: 2 },
-  kana: { fontSize: 20, lineHeight: 26, color: colors.textSecondary },
-  mean: { fontSize: 17, lineHeight: 24, color: colors.text, marginTop: 2 },
-  hint: { ...typography.small, color: colors.textTertiary, marginTop: spacing.md },
-  answers: { flexDirection: 'row', gap: spacing.sm },
-  answerBtn: {
-    flex: 1,
-    borderRadius: buttons.primary.borderRadius,
-    paddingVertical: 15,
-    alignItems: 'center',
-    borderWidth: 1,
-  },
-  answerPrimary: { backgroundColor: colors.black, borderColor: 'transparent' },
-  answerSecondary: { backgroundColor: 'transparent', borderColor: colors.borderStrong },
-  answerText: { fontSize: 14, lineHeight: 19, fontWeight: '500', color: colors.text },
-  answerTextPrimary: { color: colors.white },
-
-  catLineMuted: {
-    ...typography.body,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.md,
-  },
-  statsBlock: { marginTop: spacing.lg },
-  segments: { justifyContent: 'center', marginTop: spacing.md },
-  policyNote: {
-    ...typography.small,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.md,
-  },
-
-  onigiri: { alignSelf: 'center', marginTop: spacing.sm },
-  completedDate: {
-    fontFamily: fontFamily.mono,
-    fontSize: 13,
-    lineHeight: 18,
-    color: colors.textSecondary,
-    marginTop: 10,
-  },
-  catLine: { ...typography.body, color: colors.text, lineHeight: 28, marginTop: spacing.lg },
-  who: { ...typography.small, color: colors.textSecondary, marginTop: 4 },
-
-  receiptCaption: {
-    ...typography.small,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.md + 2,
-  },
-  btnPrimary: {
-    borderRadius: buttons.primary.borderRadius,
-    paddingVertical: buttons.primary.paddingVertical,
-    paddingHorizontal: buttons.primary.paddingHorizontal,
-    backgroundColor: buttons.primary.backgroundColor,
-    alignItems: 'center',
-  },
-  btnPrimaryText: { fontSize: 15, lineHeight: 20, fontWeight: '500', color: colors.white },
-  btnPressed: { opacity: 0.85 },
-});
+    receiptCaption: {
+      ...typography.body,
+      color: c.body,
+      textAlign: 'center',
+      marginTop: spacing.lg,
+    },
+  });

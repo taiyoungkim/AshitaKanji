@@ -1,4 +1,4 @@
-// Design Ref: ONIGIRI SHOP redesign — 05 Cat Owner Dialogue (앱 인트로).
+// Design Ref: Onikan — 앱 인트로 (사장 인사).
 // 매 실행마다 항상 첫 화면으로 노출. 재방문 유저는 스플래시처럼 클릭 없이
 // 잠시 후 자동으로 홈 이동 (탭하면 즉시 스킵). 첫 실행(튜토리얼 미완료)만 Continue 버튼.
 
@@ -6,7 +6,8 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors } from '~/design/tokens';
+import type { ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { CatDialogue } from '~/features/onigiri/components';
 
@@ -15,6 +16,7 @@ const AUTO_ADVANCE_MS = 1800;
 
 export default function IntroScreen(): React.ReactNode {
   const router = useRouter();
+  const styles = useThemedStyles(makeStyles);
   const hydrated = useSettingsStore((s) => s._hydrated);
   const tutorialCompleted = useSettingsStore((s) => s.tutorialCompleted);
   const navigated = useRef(false);
@@ -41,9 +43,9 @@ export default function IntroScreen(): React.ReactNode {
     <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
       {showTutorial ? (
         <CatDialogue
-          line={'왔네.\n여긴 오니기리 가게야. 단어를 외우면 재료가 쌓여.'}
+          line={'왔네.\n여긴 오니기리 가게야.\n단어를 외우면 재료가 쌓여.'}
           pose="calm"
-          buttonLabel="Continue"
+          buttonLabel="시작하기"
           onContinue={() => router.push('/tutorial')}
         />
       ) : (
@@ -60,12 +62,8 @@ export default function IntroScreen(): React.ReactNode {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  fill: {
-    flex: 1,
-  },
-});
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    root: { flex: 1, backgroundColor: c.softer },
+    fill: { flex: 1 },
+  });

@@ -18,7 +18,8 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { buttons, colors, fontFamily, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useColors, useThemedStyles } from '~/design/theme';
 import type { Word } from '~/types/Card';
 import type { ScanGrade, ScanSummary } from '~/types/ScanResult';
 import { useSettingsStore } from '~/stores/SettingsStore';
@@ -33,14 +34,27 @@ type BatchSize = 50 | 100 | 200 | 300;
 const BATCH_OPTIONS: BatchSize[] = [50, 100, 200, 300];
 type Phase = 'config' | 'loading' | 'scanning' | 'summary';
 
-const GRADES: { grade: ScanGrade; label: string; fill: ViewStyle; text: TextStyle }[] = [
-  { grade: 'known', label: '안다', fill: { backgroundColor: colors.black, borderColor: colors.black }, text: { color: colors.white } },
-  { grade: 'confused', label: '헷갈림', fill: { backgroundColor: colors.borderStrong, borderColor: colors.borderStrong }, text: { color: colors.text } },
-  { grade: 'unknown', label: '모름', fill: { backgroundColor: colors.surfaceMuted, borderColor: colors.surfaceMuted }, text: { color: colors.text } },
-  { grade: 'later', label: '나중에', fill: { backgroundColor: 'transparent', borderColor: colors.borderStrong }, text: { color: colors.textSecondary } },
+// 등급 버튼은 색 코딩 대신 잉크 농도 램프로 위계를 만든다 — 오렌지는 주요 액션 전용.
+const GRADE_LABELS: { grade: ScanGrade; label: string }[] = [
+  { grade: 'known', label: '안다' },
+  { grade: 'confused', label: '헷갈림' },
+  { grade: 'unknown', label: '모름' },
+  { grade: 'later', label: '나중에' },
 ];
 
+function gradeStyles(c: ThemeColors): Record<ScanGrade, { fill: ViewStyle; text: TextStyle }> {
+  return {
+    known: { fill: { backgroundColor: c.ink, borderColor: c.ink }, text: { color: c.softer } },
+    confused: { fill: { backgroundColor: c.pressed, borderColor: c.pressed }, text: { color: c.ink } },
+    unknown: { fill: { backgroundColor: c.soft, borderColor: c.soft }, text: { color: c.ink } },
+    later: { fill: { backgroundColor: 'transparent', borderColor: c.pressed }, text: { color: c.body } },
+  };
+}
+
 export default function ScanScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const c = useColors();
+  const grades = gradeStyles(c);
   const params = useLocalSearchParams<{ size?: string }>();
   const router = useRouter();
   const selectedLevels = useSettingsStore((s) => s.selectedLevels);
@@ -159,7 +173,7 @@ export default function ScanScreen(): React.ReactNode {
     return (
       <SafeAreaView style={styles.root} edges={['bottom']}>
         <View style={styles.center}>
-          <ActivityIndicator color={colors.text} />
+          <ActivityIndicator color={c.ink} />
           <Text style={styles.dim}>단어 불러오는 중…</Text>
         </View>
       </SafeAreaView>
@@ -239,7 +253,7 @@ export default function ScanScreen(): React.ReactNode {
     return (
       <SafeAreaView style={styles.root} edges={['bottom']}>
         <View style={styles.center}>
-          <ActivityIndicator color={colors.text} />
+          <ActivityIndicator color={c.ink} />
         </View>
       </SafeAreaView>
     );
@@ -256,95 +270,100 @@ export default function ScanScreen(): React.ReactNode {
           <Text style={styles.scanMeaning}>{card.meaning_ko}</Text>
         </View>
         <View style={styles.gradeRow}>
-          {GRADES.map((g) => (
-            <Pressable
-              key={g.grade}
-              style={[styles.gradeBtn, g.fill]}
-              onPress={() => void classify(g.grade)}
-              accessibilityRole="button"
-              accessibilityLabel={g.label}
-            >
-              <Text style={[styles.gradeText, g.text]}>{g.label}</Text>
-            </Pressable>
-          ))}
+          {GRADE_LABELS.map((g) => {
+            const tone = grades[g.grade];
+            return (
+              <Pressable
+                key={g.grade}
+                style={[styles.gradeBtn, tone.fill]}
+                onPress={() => void classify(g.grade)}
+                accessibilityRole="button"
+                accessibilityLabel={g.label}
+              >
+                <Text style={[styles.gradeText, tone.text]}>{g.label}</Text>
+              </Pressable>
+            );
+          })}
         </View>
       </View>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.bg },
-  container: { flex: 1, backgroundColor: colors.bg },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg, gap: spacing.md },
-  summaryContent: { padding: spacing.lg, gap: spacing.md },
-  h1: { ...typography.h2, color: colors.text, textAlign: 'center' },
-  kicker: { ...typography.tiny, color: colors.textSecondary },
-  dim: { ...typography.small, color: colors.textSecondary, textAlign: 'center', lineHeight: 20 },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  root: { flex: 1, backgroundColor: c.softer },
+  container: { flex: 1, backgroundColor: c.softer },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl, gap: spacing.lg },
+  summaryContent: { padding: spacing.xl, gap: spacing.lg },
+  h1: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
+  kicker: { ...typography.overline, color: c.body },
+  dim: { ...typography.caption, color: c.body, textAlign: 'center', lineHeight: 20 },
   label: {
     ...typography.body,
-    fontWeight: fontWeight.medium,
-    color: colors.text,
-    marginTop: spacing.md,
+    fontFamily: font.medium,
+    color: c.ink,
+    marginTop: spacing.lg,
   },
-  batchRow: { flexDirection: 'row', gap: spacing.md, flexWrap: 'wrap', justifyContent: 'center' },
+  batchRow: { flexDirection: 'row', gap: spacing.lg, flexWrap: 'wrap', justifyContent: 'center' },
   batchChip: {
     width: 72,
     height: 72,
     borderRadius: radius.card,
-    backgroundColor: colors.black,
+    backgroundColor: c.ink,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  batchText: { fontSize: 22, lineHeight: 26, fontWeight: fontWeight.medium, color: colors.white },
+  batchText: { fontSize: 22, lineHeight: 26, fontFamily: font.medium, color: c.canvas },
   progress: {
     textAlign: 'center',
-    marginTop: spacing.md,
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
+    marginTop: spacing.lg,
+    ...typography.caption,
+    fontFamily: font.regular,
+    color: c.body,
   },
   scanCard: {
     flex: 1,
-    margin: spacing.lg,
-    backgroundColor: colors.surface,
+    margin: spacing.xl,
+    backgroundColor: c.canvas,
     borderRadius: radius.card,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: c.pressed,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing.md,
+    gap: spacing.lg,
   },
-  scanSurface: { fontSize: 52, lineHeight: 58, fontWeight: fontWeight.medium, color: colors.text, letterSpacing: -1 },
-  scanReading: { fontSize: 22, lineHeight: 28, color: colors.textSecondary },
-  scanMeaning: { ...typography.body, color: colors.textSecondary, paddingHorizontal: spacing.lg, textAlign: 'center' },
-  gradeRow: { flexDirection: 'row', gap: spacing.sm, padding: spacing.lg },
+  scanSurface: { fontSize: 52, lineHeight: 58, fontFamily: font.medium, color: c.ink, letterSpacing: -1 },
+  scanReading: { fontSize: 22, lineHeight: 28, color: c.body },
+  scanMeaning: { ...typography.body, color: c.body, paddingHorizontal: spacing.xl, textAlign: 'center' },
+  gradeRow: { flexDirection: 'row', gap: spacing.sm, padding: spacing.xl },
   gradeBtn: { flex: 1, paddingVertical: 16, borderRadius: radius.pill, borderWidth: 1, alignItems: 'center' },
-  gradeText: { ...typography.small, fontWeight: fontWeight.medium },
+  gradeText: { ...typography.caption, fontFamily: font.medium },
   candRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    padding: spacing.md,
+    gap: spacing.lg,
+    padding: spacing.lg,
     borderRadius: radius.skeleton,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
+    borderColor: c.pressed,
+    backgroundColor: c.canvas,
   },
-  candRowOn: { borderColor: colors.text },
-  candCheck: { fontSize: 22, color: colors.text },
+  candRowOn: { borderColor: c.ink },
+  candCheck: { fontSize: 22, color: c.ink },
   candText: { flex: 1 },
-  candSurface: { ...typography.body, fontWeight: fontWeight.medium, color: colors.text },
-  candMeaning: { ...typography.small, color: colors.textSecondary },
+  candSurface: { ...typography.body, fontFamily: font.medium, color: c.ink },
+  candMeaning: { ...typography.caption, color: c.body },
   primaryBtn: {
-    backgroundColor: buttons.primary.backgroundColor,
-    borderRadius: buttons.primary.borderRadius,
-    paddingVertical: 16,
+    backgroundColor: c.primary,
+    borderRadius: radius.pill,
+    minHeight: 56,
     alignItems: 'center',
+    justifyContent: 'center',
     marginTop: spacing.sm,
   },
-  primaryText: { fontSize: 16, lineHeight: 22, fontWeight: fontWeight.medium, color: colors.white },
+  primaryText: { ...typography.cta, color: c.onPrimary },
   btnOff: { opacity: 0.4 },
   ghostBtn: { paddingVertical: 14, alignItems: 'center' },
-  ghostText: { ...typography.body, color: colors.textSecondary },
+  ghostText: { ...typography.body, color: c.body },
 });

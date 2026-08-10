@@ -5,7 +5,8 @@
 import { useState } from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import { useIsTablet } from '~/lib/device';
 import { KanjiTraceCanvas } from './KanjiTraceCanvas';
 import { PracticePad } from './PracticePad';
@@ -17,6 +18,7 @@ function clamp(n: number, lo: number, hi: number): number {
 }
 
 export default function KanjiTraceScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const { literal, gloss, mode: modeParam } = useLocalSearchParams<{
     literal: string;
     gloss?: string;
@@ -43,8 +45,8 @@ export default function KanjiTraceScreen(): React.ReactNode {
   }
 
   const char = literal ?? '';
-  const traceSize = clamp(Math.min(width, height) - spacing.lg * 4, 280, 600);
-  const gridWidth = Math.min(width - spacing.lg * 2, 820);
+  const traceSize = clamp(Math.min(width, height) - spacing.xl * 4, 280, 600);
+  const gridWidth = Math.min(width - spacing.xl * 2, 820);
   const hint =
     mode === 'trace'
       ? '펜이나 손가락으로 흐린 글자를 따라 써 보세요'
@@ -82,6 +84,7 @@ function SegmentButton({
   active: boolean;
   onPress: () => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <Pressable
       style={[styles.segBtn, active && styles.segBtnActive]}
@@ -95,31 +98,32 @@ function SegmentButton({
   );
 }
 
-const styles = StyleSheet.create({
-  content: { padding: spacing.lg, gap: spacing.lg, alignItems: 'center' },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  content: { padding: spacing.xl, gap: spacing.xl, alignItems: 'center' },
   head: { alignItems: 'center', gap: spacing.xs },
-  literal: { fontSize: 40, lineHeight: 46, fontWeight: fontWeight.medium, color: colors.text },
-  gloss: { ...typography.body, color: colors.textSecondary, textAlign: 'center' },
-  hint: { ...typography.small, color: colors.textTertiary, textAlign: 'center' },
+  literal: { fontSize: 40, lineHeight: 46, fontFamily: font.medium, color: c.ink },
+  gloss: { ...typography.body, color: c.body, textAlign: 'center' },
+  hint: { ...typography.caption, color: c.mute, textAlign: 'center' },
 
   segment: {
     flexDirection: 'row',
-    backgroundColor: colors.surfaceMuted,
+    backgroundColor: c.soft,
     borderRadius: radius.pill,
     padding: 4,
     gap: 4,
   },
   segBtn: {
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
     borderRadius: radius.pill,
   },
-  segBtnActive: { backgroundColor: colors.surface },
-  segText: { ...typography.body, color: colors.textSecondary, fontWeight: fontWeight.medium },
-  segTextActive: { color: colors.text, fontWeight: fontWeight.semibold },
+  segBtnActive: { backgroundColor: c.canvas },
+  segText: { ...typography.body, color: c.body, fontFamily: font.medium },
+  segTextActive: { color: c.ink, fontFamily: font.semibold },
 
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl, gap: spacing.sm, backgroundColor: colors.bg },
-  tabletIcon: { fontSize: 48, color: colors.textTertiary },
-  tabletTitle: { ...typography.h2, color: colors.text },
-  tabletBody: { ...typography.body, color: colors.textSecondary, textAlign: 'center', maxWidth: 320 },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xxl, gap: spacing.sm, backgroundColor: c.softer },
+  tabletIcon: { fontSize: 48, color: c.mute },
+  tabletTitle: { ...typography.resultTitle, color: c.ink },
+  tabletBody: { ...typography.body, color: c.body, textAlign: 'center', maxWidth: 320 },
 });

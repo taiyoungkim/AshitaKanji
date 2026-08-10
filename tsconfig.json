@@ -20,6 +20,9 @@
     "node_modules",
     "site",
     "data",
-    "scripts"
+    "scripts",
+    "dist-review",
+    "dist-review-android",
+    "dist-review-ios"
   ]
 }

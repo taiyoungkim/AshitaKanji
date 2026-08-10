@@ -16,7 +16,8 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, fontWeight, spacing, typography } from '~/design/tokens';
+import { font, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useColors, useThemedStyles } from '~/design/theme';
 import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
 import {
   DAILY_NEW_MAX,
@@ -33,6 +34,8 @@ const DAILY_STEP = 1;
 const SPEED_STEP = 0.1;
 
 export default function SettingsScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const c = useColors();
   const selectedLevels = useSettingsStore((s) => s.selectedLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const ttsEnabled = useSettingsStore((s) => s.ttsEnabled);
@@ -135,9 +138,9 @@ export default function SettingsScreen(): React.ReactNode {
             <Switch
               value={ttsEnabled}
               onValueChange={setTtsEnabled}
-              trackColor={{ false: colors.border, true: colors.text }}
-              thumbColor={colors.white}
-              ios_backgroundColor={colors.border}
+              trackColor={{ false: c.pressed, true: c.ink }}
+              thumbColor={c.canvas}
+              ios_backgroundColor={c.pressed}
             />
           </View>
           {ttsEnabled && (
@@ -163,7 +166,7 @@ export default function SettingsScreen(): React.ReactNode {
             accessibilityRole="button"
           >
             {exporting ? (
-              <ActivityIndicator color={colors.text} />
+              <ActivityIndicator color={c.ink} />
             ) : (
               <Text style={styles.actionText}>백업 내보내기 (JSON)</Text>
             )}
@@ -199,6 +202,7 @@ function Section({
   hint?: string;
   children: React.ReactNode;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>{title}</Text>
@@ -221,6 +225,7 @@ function Stepper({
   minusDisabled?: boolean;
   plusDisabled?: boolean;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.stepper}>
       <Pressable
@@ -244,41 +249,42 @@ function Stepper({
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.bg,
+    backgroundColor: c.softer,
   },
   container: {
     flex: 1,
   },
   content: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xl,
+    paddingHorizontal: spacing.xl,
+    paddingTop: spacing.xl,
+    paddingBottom: spacing.xxl,
   },
   h1: {
-    ...typography.h2,
-    color: colors.text,
+    ...typography.resultTitle,
+    color: c.ink,
     marginBottom: spacing.sm,
   },
   section: {
-    paddingVertical: spacing.lg,
+    paddingVertical: spacing.xl,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: c.pressed,
     gap: 6,
   },
   sectionTitle: {
     ...typography.body,
-    fontWeight: fontWeight.medium,
-    color: colors.text,
+    fontFamily: font.medium,
+    color: c.ink,
   },
   sectionHint: {
-    ...typography.small,
-    color: colors.textSecondary,
+    ...typography.caption,
+    color: c.body,
   },
   sectionBody: {
-    marginTop: spacing.md,
+    marginTop: spacing.lg,
   },
   levelRow: {
     flexDirection: 'row',
@@ -287,29 +293,29 @@ const styles = StyleSheet.create({
   },
   levelChip: {
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.lg,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     backgroundColor: 'transparent',
   },
   levelChipOn: {
-    backgroundColor: colors.black,
-    borderColor: colors.black,
+    backgroundColor: c.ink,
+    borderColor: c.ink,
   },
   levelText: {
-    ...typography.small,
-    fontWeight: fontWeight.medium,
-    color: colors.textSecondary,
+    ...typography.caption,
+    fontFamily: font.medium,
+    color: c.body,
   },
   levelTextOn: {
-    color: colors.white,
+    color: c.canvas,
   },
   warn: {
     marginTop: spacing.sm,
-    ...typography.small,
-    color: colors.textSecondary,
-    fontWeight: fontWeight.medium,
+    ...typography.caption,
+    color: c.body,
+    fontFamily: font.medium,
   },
   switchRow: {
     flexDirection: 'row',
@@ -320,22 +326,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: spacing.md,
+    marginTop: spacing.lg,
   },
   switchLabel: {
     ...typography.body,
-    color: colors.text,
+    color: c.ink,
   },
   stepper: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
+    gap: spacing.lg,
   },
   stepBtn: {
     width: 40,
     height: 40,
     borderRadius: 999,
-    backgroundColor: colors.surfaceMuted,
+    backgroundColor: c.soft,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -345,19 +351,19 @@ const styles = StyleSheet.create({
   stepSign: {
     fontSize: 22,
     lineHeight: 26,
-    fontWeight: fontWeight.medium,
-    color: colors.text,
+    fontFamily: font.medium,
+    color: c.ink,
   },
   stepValue: {
     ...typography.body,
-    fontWeight: fontWeight.medium,
+    fontFamily: font.medium,
     minWidth: 56,
     textAlign: 'center',
-    color: colors.text,
+    color: c.ink,
   },
   actionBtn: {
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: 999,
     paddingVertical: 14,
     alignItems: 'center',
@@ -367,8 +373,8 @@ const styles = StyleSheet.create({
   },
   actionText: {
     ...typography.body,
-    color: colors.text,
-    fontWeight: fontWeight.medium,
+    color: c.ink,
+    fontFamily: font.medium,
   },
   linkRow: {
     flexDirection: 'row',
@@ -377,16 +383,16 @@ const styles = StyleSheet.create({
   },
   linkText: {
     ...typography.body,
-    color: colors.text,
+    color: c.ink,
   },
   linkChevron: {
     fontSize: 22,
-    color: colors.textTertiary,
+    color: c.mute,
   },
   footer: {
-    ...typography.small,
-    color: colors.textTertiary,
+    ...typography.caption,
+    color: c.mute,
     textAlign: 'center',
-    marginTop: spacing.lg,
+    marginTop: spacing.xl,
   },
 });

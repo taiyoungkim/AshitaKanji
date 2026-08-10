@@ -1,4 +1,4 @@
-// Design Ref: §5.6 단어 상세 — surface/reading/뜻/예문/attribution/타입/별표기 + TTS.
+// Design Ref: §5.6 단어 상세 — surface/reading/뜻/예문/타입/별표기 + TTS.
 // 예문은 권리 확인된 외부 사전 출처 (출처 라벨 비표시). 학습데이터 외부 송신 없음(on-device).
 //
 // 데이터: getDatabase() → SqliteCardRepo.findById(id). 읽기 전용 (FSRS 상태 변경 없음).
@@ -15,7 +15,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useColors, useThemedStyles } from '~/design/theme';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteKanjiRepo } from '~/db/repos/sqlite/SqliteKanjiRepo';
@@ -42,17 +43,6 @@ type LoadState =
       kanjiError?: string;
     };
 
-// CardReveal.attributionLine 과 동일 규칙 (자체 제작 예문만 표기).
-function attribution(word: Word): string | null {
-  const author = word.example_jp_author;
-  const lic = word.example_license;
-  if (!author && !lic) return null;
-  const parts: string[] = [];
-  if (author) parts.push(`© ${author}`);
-  if (lic) parts.push(lic === 'self' ? '자체 제작' : lic);
-  return parts.join(' · ');
-}
-
 function legacyExample(word: Word): WordExample[] {
   if (!word.example_jp) return [];
   return [{
@@ -64,19 +54,16 @@ function legacyExample(word: Word): WordExample[] {
     source_url: null,
     license: word.example_license ?? null,
     permission_status: word.example_license === 'self' ? 'self' : 'cleared',
-    attribution: attribution(word),
+    attribution: null,
     captured_at: null,
     qa_status: 'verified',
     sort_order: 0,
   }];
 }
 
-function exampleAttribution(example: WordExample): string | null {
-  // 외부 사전(NAVER 등) 예문은 출처·라벨 비표시. 자체 제작 예문만 표기.
-  return example.license === 'self' ? '자체 제작' : null;
-}
-
 export default function WordDetailScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const c = useColors();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [state, setState] = useState<LoadState>({ phase: 'loading' });
   const [selectedKanji, setSelectedKanji] = useState<KanjiForWord | null>(null);
@@ -133,7 +120,7 @@ export default function WordDetailScreen(): React.ReactNode {
   if (state.phase === 'loading') {
     return (
       <View style={styles.center}>
-        <ActivityIndicator color={colors.text} />
+        <ActivityIndicator color={c.ink} />
       </View>
     );
   }
@@ -238,42 +225,38 @@ export default function WordDetailScreen(): React.ReactNode {
       {examples.length > 0 && (
         <Section title="예문">
           <View style={styles.exampleStack}>
-            {examples.map((example) => {
-              const attr = exampleAttribution(example);
-              return (
-                <View key={`${example.id}-${example.sort_order}`} style={styles.exampleCard}>
-                  <View style={styles.exampleRow}>
-                    <Text
-                      style={styles.exampleJp}
-                      onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
-                      onLongPress={() => copyAndToast(example.jp)}
-                      accessibilityHint="누르면 읽어주고, 길게 누르면 복사돼요"
-                    >
-                      {example.jp}
-                    </Text>
-                    <Pressable
-                      onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
-                      disabled={!tts.enabled || tts.status === 'unsupported'}
-                      style={!tts.enabled || tts.status === 'unsupported' ? styles.exampleTtsOff : null}
-                      accessibilityLabel="예문 발음 듣기"
-                      accessibilityRole="button"
-                    >
-                      <Text style={styles.exampleTts}>🔊</Text>
-                    </Pressable>
-                  </View>
-                  {example.ko && (
-                    <Text
-                      style={styles.exampleKo}
-                      onLongPress={() => copyAndToast(example.ko)}
-                      accessibilityHint="길게 누르면 복사돼요"
-                    >
-                      {example.ko}
-                    </Text>
-                  )}
-                  {attr && <Text style={styles.attribution}>{attr}</Text>}
+            {examples.map((example) => (
+              <View key={`${example.id}-${example.sort_order}`} style={styles.exampleCard}>
+                <View style={styles.exampleRow}>
+                  <Text
+                    style={styles.exampleJp}
+                    onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
+                    onLongPress={() => copyAndToast(example.jp)}
+                    accessibilityHint="누르면 읽어주고, 길게 누르면 복사돼요"
+                  >
+                    {example.jp}
+                  </Text>
+                  <Pressable
+                    onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
+                    disabled={!tts.enabled || tts.status === 'unsupported'}
+                    style={!tts.enabled || tts.status === 'unsupported' ? styles.exampleTtsOff : null}
+                    accessibilityLabel="예문 발음 듣기"
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.exampleTts}>🔊</Text>
+                  </Pressable>
                 </View>
-              );
-            })}
+                {example.ko && (
+                  <Text
+                    style={styles.exampleKo}
+                    onLongPress={() => copyAndToast(example.ko)}
+                    accessibilityHint="길게 누르면 복사돼요"
+                  >
+                    {example.ko}
+                  </Text>
+                )}
+              </View>
+            ))}
           </View>
         </Section>
       )}
@@ -316,6 +299,7 @@ function Section({
   title: string;
   children: React.ReactNode;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>{title}</Text>
@@ -331,6 +315,7 @@ function KanjiCard({
   item: KanjiForWord;
   onPress: () => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const data = item.kanji;
   const meanings = data?.meanings_ko.slice(0, 3).join(' · ');
   const readings = [
@@ -365,6 +350,7 @@ function KanjiDetailSheet({
   onClose: () => void;
   onOpenDictionary: (query: string) => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const isTablet = useIsTablet();
   if (!item) return null;
   const data = item.kanji;
@@ -428,6 +414,7 @@ function KanjiDetailSheet({
 }
 
 function DetailLine({ label, value }: { label: string; value: string }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.detailLine}>
       <Text style={styles.detailLabel}>{label}</Text>
@@ -436,142 +423,142 @@ function DetailLine({ label, value }: { label: string; value: string }): React.R
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg },
-  content: { padding: spacing.lg, gap: spacing.md },
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg, gap: spacing.sm },
-  emptyText: { ...typography.body, color: colors.textSecondary, fontWeight: fontWeight.medium },
-  errorDetail: { ...typography.tiny, color: colors.textTertiary, textAlign: 'center', textTransform: 'none', letterSpacing: 0 },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  container: { flex: 1, backgroundColor: c.softer },
+  content: { padding: spacing.xl, gap: spacing.lg },
+  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl, gap: spacing.sm },
+  emptyText: { ...typography.body, color: c.body, fontFamily: font.medium },
+  errorDetail: { ...typography.overline, color: c.mute, textAlign: 'center', textTransform: 'none', letterSpacing: 0 },
   head: {
-    backgroundColor: colors.surface,
+    backgroundColor: c.canvas,
     borderRadius: radius.card,
     borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.lg,
+    borderColor: c.pressed,
+    padding: spacing.xl,
     alignItems: 'center',
     gap: 6,
   },
   levelBadge: {
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: radius.pill,
     paddingHorizontal: 10,
     paddingVertical: 3,
     marginBottom: spacing.xs,
   },
-  levelText: { ...typography.tiny, color: colors.textSecondary, textTransform: 'none', letterSpacing: 0 },
-  surface: { fontSize: 48, lineHeight: 54, fontWeight: fontWeight.medium, color: colors.text, letterSpacing: -1 },
-  furigana: { ...typography.small, color: colors.textTertiary },
-  reading: { fontSize: 22, lineHeight: 28, color: colors.textSecondary, fontWeight: fontWeight.medium },
+  levelText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
+  surface: { fontSize: 48, lineHeight: 54, fontFamily: font.medium, color: c.ink, letterSpacing: -1 },
+  furigana: { ...typography.caption, color: c.mute },
+  reading: { fontSize: 22, lineHeight: 28, color: c.body, fontFamily: font.medium },
   ttsBtn: {
-    marginTop: spacing.md,
+    marginTop: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: radius.pill,
     paddingHorizontal: 18,
     paddingVertical: spacing.sm,
   },
   ttsBtnOff: { opacity: 0.4 },
-  ttsIcon: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium },
-  ttsHint: { ...typography.tiny, color: colors.textTertiary, marginTop: 2, textTransform: 'none', letterSpacing: 0 },
+  ttsIcon: { ...typography.caption, color: c.ink, fontFamily: font.medium },
+  ttsHint: { ...typography.overline, color: c.mute, marginTop: 2, textTransform: 'none', letterSpacing: 0 },
   dictBtn: {
     marginTop: spacing.sm,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: radius.pill,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.lg,
     paddingVertical: 7,
   },
-  dictBtnText: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium },
+  dictBtnText: { ...typography.caption, color: c.ink, fontFamily: font.medium },
   section: {
-    backgroundColor: colors.surface,
+    backgroundColor: c.canvas,
     borderRadius: radius.card,
     borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.md,
+    borderColor: c.pressed,
+    padding: spacing.lg,
   },
-  sectionTitle: { ...typography.tiny, color: colors.textSecondary },
+  sectionTitle: { ...typography.overline, color: c.body },
   sectionBody: { marginTop: spacing.sm, gap: 6 },
-  meaning: { fontSize: 20, lineHeight: 26, color: colors.text, fontWeight: fontWeight.medium },
-  pos: { ...typography.small, color: colors.textSecondary },
-  exampleStack: { gap: spacing.md },
+  meaning: { fontSize: 20, lineHeight: 26, color: c.ink, fontFamily: font.medium },
+  pos: { ...typography.caption, color: c.body },
+  exampleStack: { gap: spacing.lg },
   exampleCard: {
     gap: 6,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    borderBottomColor: c.pressed,
     paddingBottom: spacing.sm,
   },
-  exampleRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.md },
-  exampleJp: { flex: 1, fontSize: 18, lineHeight: 28, color: colors.text },
+  exampleRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.lg },
+  exampleJp: { flex: 1, fontSize: 18, lineHeight: 28, color: c.ink },
   exampleTts: { fontSize: 20 },
   exampleTtsOff: { opacity: 0.35 },
-  exampleKo: { ...typography.small, color: colors.textSecondary, lineHeight: 20 },
-  attribution: { ...typography.tiny, color: colors.textTertiary, marginTop: 6, textTransform: 'none', letterSpacing: 0 },
+  exampleKo: { ...typography.caption, color: c.body, lineHeight: 20 },
   kanjiGrid: { gap: spacing.sm },
   kanjiCard: {
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: c.pressed,
     borderRadius: radius.skeleton,
-    padding: spacing.md,
+    padding: spacing.lg,
     gap: spacing.xs,
   },
-  kanjiLiteral: { fontSize: 34, lineHeight: 40, color: colors.text, fontWeight: fontWeight.medium },
-  kanjiMeaning: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium, lineHeight: 21 },
-  kanjiReading: { ...typography.small, color: colors.textSecondary, lineHeight: 19 },
-  kanjiMeta: { ...typography.tiny, color: colors.textTertiary, textTransform: 'none', letterSpacing: 0 },
-  kanjiError: { ...typography.small, color: colors.textSecondary },
-  infoLine: { ...typography.small, color: colors.text, lineHeight: 20 },
-  infoLabel: { color: colors.textSecondary, fontWeight: fontWeight.medium },
+  kanjiLiteral: { fontSize: 34, lineHeight: 40, color: c.ink, fontFamily: font.medium },
+  kanjiMeaning: { ...typography.caption, color: c.ink, fontFamily: font.medium, lineHeight: 21 },
+  kanjiReading: { ...typography.caption, color: c.body, lineHeight: 19 },
+  kanjiMeta: { ...typography.overline, color: c.mute, textTransform: 'none', letterSpacing: 0 },
+  kanjiError: { ...typography.caption, color: c.body },
+  infoLine: { ...typography.caption, color: c.ink, lineHeight: 20 },
+  infoLabel: { color: c.body, fontFamily: font.medium },
   metaRow: { alignItems: 'center', marginTop: spacing.xs },
-  metaText: { ...typography.tiny, color: colors.textTertiary, textTransform: 'none', letterSpacing: 0 },
+  metaText: { ...typography.overline, color: c.mute, textTransform: 'none', letterSpacing: 0 },
   sheetRoot: { flex: 1, justifyContent: 'flex-end' },
   sheetBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.28)' },
   sheet: {
-    backgroundColor: colors.surface,
+    backgroundColor: c.canvas,
     borderTopLeftRadius: radius.card,
     borderTopRightRadius: radius.card,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.xl,
     paddingTop: spacing.sm,
-    paddingBottom: spacing.xl,
-    gap: spacing.md,
+    paddingBottom: spacing.xxl,
+    gap: spacing.lg,
   },
   sheetHandle: {
     alignSelf: 'center',
     width: 44,
     height: 4,
     borderRadius: 2,
-    backgroundColor: colors.borderStrong,
+    backgroundColor: c.pressed,
     marginBottom: 2,
   },
-  sheetLiteral: { fontSize: 64, lineHeight: 72, color: colors.text, fontWeight: fontWeight.medium, textAlign: 'center' },
+  sheetLiteral: { fontSize: 64, lineHeight: 72, color: c.ink, fontFamily: font.medium, textAlign: 'center' },
   detailLine: { gap: 3 },
-  detailLabel: { ...typography.tiny, color: colors.textSecondary, textTransform: 'none', letterSpacing: 0 },
-  detailValue: { ...typography.body, color: colors.text, lineHeight: 23 },
+  detailLabel: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
+  detailValue: { ...typography.body, color: c.ink, lineHeight: 23 },
   sheetTraceBtn: {
     marginTop: spacing.sm,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: radius.pill,
     paddingVertical: 12,
     alignItems: 'center',
   },
-  sheetTraceText: { ...typography.body, color: colors.text, fontWeight: fontWeight.medium },
+  sheetTraceText: { ...typography.body, color: c.ink, fontFamily: font.medium },
   sheetActions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.xs },
   sheetDictBtn: {
     flex: 1,
-    backgroundColor: colors.black,
+    backgroundColor: c.ink,
     borderRadius: radius.pill,
     paddingVertical: 11,
     alignItems: 'center',
   },
-  sheetDictText: { ...typography.small, color: colors.white, fontWeight: fontWeight.medium },
+  sheetDictText: { ...typography.caption, color: c.canvas, fontFamily: font.medium },
   sheetCloseBtn: {
     paddingHorizontal: 18,
     paddingVertical: 11,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     alignItems: 'center',
   },
-  sheetCloseText: { ...typography.small, color: colors.text, fontWeight: fontWeight.medium },
+  sheetCloseText: { ...typography.caption, color: c.ink, fontFamily: font.medium },
 });

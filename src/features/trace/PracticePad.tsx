@@ -4,7 +4,8 @@
 
 import { useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, fontWeight, spacing, typography } from '~/design/tokens';
+import { font, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import { TraceCell, TraceToolbar } from './TraceCell';
 import type { Pt } from './strokePath';
 
@@ -23,6 +24,7 @@ export function PracticePad({
   onDrawStart?: () => void;
   onDrawEnd?: () => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const guideSize = Math.min(Math.floor(width * 0.42), 220);
   const padHeight = Math.max(360, Math.min(Math.floor(height * 0.95), 900));
   const pen = Math.max(3, guideSize * 0.03);
@@ -90,8 +92,9 @@ export function PracticePad({
   );
 }
 
-const styles = StyleSheet.create({
-  wrap: { alignItems: 'center', gap: spacing.lg },
-  guideRow: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.md },
-  guideLabel: { ...typography.small, color: colors.textTertiary, fontWeight: fontWeight.medium },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  wrap: { alignItems: 'center', gap: spacing.xl },
+  guideRow: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.lg },
+  guideLabel: { ...typography.caption, color: c.mute, fontFamily: font.medium },
 });

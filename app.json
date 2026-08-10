@@ -11,7 +11,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#F7F7F5"
+      "backgroundColor": "#F2F2F4"
     },
     "updates": {
       "enabled": true,
@@ -36,6 +36,7 @@
     },
     "android": {
       "package": "com.taiyoungkim.ashitakanji",
+      "versionCode": 17,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -56,6 +57,14 @@
       ],
       "expo-asset",
       "expo-audio",
+      [
+        "expo-media-library",
+        {
+          "savePhotosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
+          "photosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
+          "isAccessMediaLocationEnabled": false
+        }
+      ],
       [
         "expo-tracking-transparency",
         {

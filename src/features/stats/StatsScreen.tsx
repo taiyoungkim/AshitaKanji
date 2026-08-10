@@ -5,7 +5,8 @@ import { useCallback, useState } from 'react';
 import { useFocusEffect } from 'expo-router';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, fontFamily, fontWeight, spacing, typography } from '~/design/tokens';
+import { font, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useColors, useThemedStyles } from '~/design/theme';
 import { buildStatsService } from './buildStatsService';
 import type { LevelProgress, OverallStats } from './StatsRollupService';
 
@@ -16,6 +17,8 @@ interface StatsView {
 }
 
 export default function StatsScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const c = useColors();
   const [data, setData] = useState<StatsView | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -49,7 +52,7 @@ export default function StatsScreen(): React.ReactNode {
     return (
       <SafeAreaView style={styles.root} edges={['top']}>
         <View style={styles.center}>
-          <ActivityIndicator color={colors.text} />
+          <ActivityIndicator color={c.ink} />
           <Text style={styles.dim}>통계 계산 중…</Text>
         </View>
       </SafeAreaView>
@@ -112,6 +115,7 @@ export default function StatsScreen(): React.ReactNode {
 }
 
 function Kpi({ label, value }: { label: string; value: string }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.kpi}>
       <Text style={styles.kpiValue}>{value}</Text>
@@ -120,19 +124,20 @@ function Kpi({ label, value }: { label: string; value: string }): React.ReactNod
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.bg,
+    backgroundColor: c.softer,
   },
   container: {
     flex: 1,
   },
   content: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xl,
-    gap: spacing.lg,
+    paddingHorizontal: spacing.xl,
+    paddingTop: spacing.xl,
+    paddingBottom: spacing.xxl,
+    gap: spacing.xl,
   },
   center: {
     flex: 1,
@@ -141,12 +146,12 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   dim: {
-    ...typography.small,
-    color: colors.textSecondary,
+    ...typography.caption,
+    color: c.body,
   },
   h1: {
-    ...typography.h2,
-    color: colors.text,
+    ...typography.resultTitle,
+    color: c.ink,
   },
   streakBlock: {
     flexDirection: 'row',
@@ -155,23 +160,23 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   streakNum: {
-    fontSize: typography.display.fontSize,
-    lineHeight: typography.display.fontSize,
-    fontWeight: fontWeight.medium,
+    fontSize: typography.hero.fontSize,
+    lineHeight: typography.hero.fontSize,
+    fontFamily: font.medium,
     letterSpacing: -2,
-    color: colors.text,
+    color: c.ink,
   },
   zero: {
-    color: colors.textTertiary,
+    color: c.mute,
   },
   streakLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
+    ...typography.overline,
+    color: c.body,
   },
   kpiGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    rowGap: spacing.lg,
+    rowGap: spacing.xl,
     marginTop: spacing.sm,
   },
   kpi: {
@@ -179,18 +184,18 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   kpiValue: {
-    ...typography.h2,
-    fontFamily: fontFamily.mono,
-    color: colors.text,
+    ...typography.resultTitle,
+    fontFamily: font.regular,
+    color: c.ink,
   },
   kpiLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
+    ...typography.overline,
+    color: c.body,
   },
   sectionTitle: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-    marginTop: spacing.md,
+    ...typography.overline,
+    color: c.body,
+    marginTop: spacing.lg,
   },
   levelRow: {
     flexDirection: 'row',
@@ -199,16 +204,15 @@ const styles = StyleSheet.create({
   },
   levelTag: {
     width: 32,
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    fontWeight: fontWeight.medium,
-    color: colors.text,
+    ...typography.caption,
+    fontFamily: font.medium,
+    color: c.ink,
   },
   barTrack: {
     flex: 1,
     height: 10,
     borderRadius: 0,
-    backgroundColor: colors.surfaceMuted,
+    backgroundColor: c.soft,
     overflow: 'hidden',
   },
   barFillStudied: {
@@ -216,27 +220,27 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: colors.borderStrong,
+    backgroundColor: c.pressed,
   },
   barFill: {
     position: 'absolute',
     left: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: colors.text,
+    backgroundColor: c.ink,
   },
   levelNum: {
     width: 92,
-    ...typography.tiny,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
+    ...typography.overline,
+    fontFamily: font.regular,
+    color: c.body,
     textAlign: 'right',
     letterSpacing: 0,
     textTransform: 'none',
   },
   footer: {
-    ...typography.small,
-    color: colors.textTertiary,
+    ...typography.caption,
+    color: c.mute,
     textAlign: 'center',
     marginTop: spacing.sm,
   },

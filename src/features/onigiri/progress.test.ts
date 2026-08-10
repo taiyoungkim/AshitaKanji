@@ -60,7 +60,7 @@ describe('computeOnigiriProgress', () => {
 
     expect(snapshot.current.item.id).toBe('onigiri-001');
     expect(snapshot.current.ingredientCount).toBe(3);
-    expect(snapshot.current.acquiredIngredients).toEqual(['RICE', 'SEAWEED', 'TUNA']);
+    expect(snapshot.current.acquiredIngredients).toEqual(['RICE', 'NORI', 'TUNA']);
     expect(snapshot.current.nextIngredient).toBe('MAYO');
     expect(snapshot.lastReward?.ingredient).toBe('TUNA');
     expect(snapshot.lastReward?.crafted).toBe(false);
@@ -101,7 +101,7 @@ describe('computeOnigiriProgress', () => {
 
     expect(snapshot.totalIngredientsEarned).toBe(2);
     expect(snapshot.lastReward?.sessionId).toBe(1);
-    expect(snapshot.lastReward?.ingredient).toBe('SEAWEED');
+    expect(snapshot.lastReward?.ingredient).toBe('NORI');
   });
 
   it('caps progress at the temporary catalog size', () => {

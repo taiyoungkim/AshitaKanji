@@ -5,9 +5,11 @@
 import { useEffect, useState } from 'react';
 import { Platform, ScrollView, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing, typography } from '~/design/tokens';
+import { spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 
 export default function AdTestScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const [log, setLog] = useState<string[]>([`platform: ${Platform.OS}`]);
   const append = (line: string) => {
     console.log(`[ad-test] ${line}`);
@@ -60,9 +62,10 @@ export default function AdTestScreen(): React.ReactNode {
   );
 }
 
-const styles = StyleSheet.create({
-  fill: { flex: 1, backgroundColor: colors.bg },
-  container: { padding: spacing.lg, gap: spacing.xs },
-  title: { ...typography.h2, color: colors.text, marginBottom: spacing.sm },
-  line: { ...typography.small, color: colors.textSecondary },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  fill: { flex: 1, backgroundColor: c.softer },
+  container: { padding: spacing.xl, gap: spacing.xs },
+  title: { ...typography.resultTitle, color: c.ink, marginBottom: spacing.sm },
+  line: { ...typography.caption, color: c.body },
 });

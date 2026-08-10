@@ -1,36 +1,40 @@
-// Design Ref: ONIGIRI SHOP redesign — 04 Onigiri Detail.
-// id로 카탈로그 항목 조회 + 진행도 스냅샷에서 상태 파생. 읽기 전용.
+// Design Ref: Onikan handoff 화면 5 — 레시피 상세 (`8a`).
+//
+// 막다른 화면을 만들지 않는다. 하단의 "오늘 학습 시작"이 다음 재료를 받는 유일한 방법으로
+// 곧장 이어진다 — 이 화면의 유일한 오렌지.
+//
+// 잠긴 재료는 그림을 감춘다: 썸네일을 hairline 링 + "?" 로 통일하고 일러스트를 노출하지
+// 않는다. 무엇을 받게 되는지 그림으로 미리 보여주지 않고, 이름만 남겨 순서만 알려준다.
 
 import { useCallback, useState } from 'react';
-import { useFocusEffect, useLocalSearchParams } from 'expo-router';
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, fontFamily, spacing, typography } from '~/design/tokens';
+import { font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
+import { IconChevron } from '~/design/icons';
+import { Button } from '~/components/ui/Button';
+import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
-import { getOnigiriById } from '~/features/onigiri/catalog';
-import {
-  LabelValueRow,
-  OnigiriSketch,
-  formatOnigiriDate,
-} from '~/features/onigiri/components';
+import { getOnigiriById, INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
+import { ingredientImage, ingredientName } from '~/features/onigiri/ingredientAssets';
+import { recipeImage } from '~/features/onigiri/recipeAssets';
 import {
   computeOnigiriProgress,
   type OnigiriProgressEntry,
 } from '~/features/onigiri/progress';
+import { remainingCaption } from '~/features/home/homePresentation';
 import { buildIngredientPresentation } from './ingredientPresentation';
 
-function pad3(n: number): string {
-  return String(n).padStart(3, '0');
+function pad2(n: number): string {
+  return String(n).padStart(2, '0');
 }
 
 export default function OnigiriDetailScreen(): React.ReactNode {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
   const [entry, setEntry] = useState<OnigiriProgressEntry | null>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -38,9 +42,7 @@ export default function OnigiriDetailScreen(): React.ReactNode {
     useCallback(() => {
       let alive = true;
       setLoaded(false);
-      const resolve = (
-        snap: ReturnType<typeof computeOnigiriProgress>,
-      ): void => {
+      const resolve = (snap: ReturnType<typeof computeOnigiriProgress>): void => {
         if (!alive) return;
         setEntry(snap.entries.find((e) => e.item.id === id) ?? null);
         setLoaded(true);
@@ -55,249 +57,237 @@ export default function OnigiriDetailScreen(): React.ReactNode {
     }, [id]),
   );
 
-  if (!loaded) {
-    return (
-      <SafeAreaView style={styles.root} edges={['bottom']}>
-        <View style={styles.center}>
-          <ActivityIndicator color={colors.text} />
-        </View>
-      </SafeAreaView>
-    );
-  }
-
   const item = entry?.item ?? getOnigiriById(id ?? '');
-  if (!item) {
-    return (
-      <SafeAreaView style={styles.root} edges={['bottom']}>
-        <View style={styles.center}>
-          <Text style={styles.note}>찾을 수 없는 오니기리야.</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
   const status = entry?.status ?? 'locked';
-  const locked = status === 'locked';
-  const completed = status === 'completed';
-  const ingredientCount = entry?.ingredientCount ?? 0;
-  const ingredients = buildIngredientPresentation(
-    item.ingredients,
-    ingredientCount,
-    completed,
-  );
+  const acquired = entry?.ingredientCount ?? 0;
+  const remaining = Math.max(0, INGREDIENTS_PER_ONIGIRI - acquired);
+  const nextIngredient = entry?.nextIngredient ?? null;
+
+  const overline =
+    status === 'completed' ? '완성' : status === 'locked' ? '잠김' : '만드는 중';
 
   return (
-    <SafeAreaView style={styles.root} edges={['bottom']}>
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.body}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.head}>
-          <Text style={[styles.no, locked && styles.tertiary]}>{pad3(item.order)}</Text>
-          <Text style={[styles.name, locked && styles.lockedName]}>
-            {locked ? 'LOCKED' : item.name}
-          </Text>
+    <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
+      {/* 뒤로는 44pt 셰브론만 — '＜ 뒤로' 알약은 iOS 관례와 어긋나고 폭을 낭비한다. */}
+      <View style={styles.nav}>
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.navBack}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel="뒤로"
+        >
+          <IconChevron size={24} color={colors.ink} direction="left" />
+        </Pressable>
+        <Text style={styles.navTitle}>ONIGIRI</Text>
+        <View style={styles.navSpacer} />
+      </View>
+
+      {!loaded ? (
+        <View style={styles.center}>
+          <ActivityIndicator color={colors.body} />
         </View>
-
-        <View style={styles.sketch}>
-          <OnigiriSketch
-            status={status}
-            ingredientCount={ingredientCount}
-            size={150}
-          />
+      ) : !item ? (
+        <View style={styles.center}>
+          <Text style={styles.note}>찾을 수 없는 메뉴예요.</Text>
         </View>
+      ) : (
+        <>
+          <ScrollView
+            style={styles.scroll}
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <Text style={styles.index}>{pad2(item.order)}</Text>
+            <View style={styles.titleRow}>
+              <Text style={styles.title}>{status === 'locked' ? '???' : item.name}</Text>
+              <Text style={styles.count}>
+                {acquired} / {INGREDIENTS_PER_ONIGIRI}
+              </Text>
+            </View>
 
-        {completed ? (
-          <LabelValueRow
-            label="COMPLETED"
-            value={entry?.completedAt ? formatOnigiriDate(entry.completedAt) : '— —'}
-            valueSize="small"
-            valueStyle={styles.mono}
-          />
-        ) : locked ? (
-          <LabelValueRow label="COMPLETED" value="— —" valueSize="small" mutedValue valueStyle={styles.mono} />
-        ) : (
-          <LabelValueRow
-            label="IN PROGRESS"
-            value={`${ingredientCount} / 4`}
-            valueSize="small"
-            valueStyle={styles.mono}
-          />
-        )}
+            <Card elevated style={styles.summaryCard}>
+              <Tile
+                size={88}
+                cornerRadius={radius.tile}
+                locked={status === 'locked'}
+                image={recipeImage(item.imageKey)}
+                imageSize={72}
+              />
+              <View style={styles.summaryBody}>
+                <Overline>{overline}</Overline>
+                <ProgressCells
+                  total={INGREDIENTS_PER_ONIGIRI}
+                  filled={acquired}
+                  height={6}
+                  gap={6}
+                />
+                <Text style={styles.summaryCaption}>
+                  {status === 'completed' ? '다 만들었어요' : remainingCaption(remaining)}
+                </Text>
+              </View>
+            </Card>
 
-        {!locked && (
-          <View style={styles.ingredients}>
-            <Text style={styles.ingredientsLabel}>Ingredients</Text>
-            <View style={styles.ingredientList}>
-              {ingredients.map((ingredient) => {
-                const acquired = ingredient.state === 'acquired';
-                const next = ingredient.state === 'next';
+            <View style={styles.listHead}>
+              <Overline>재료 {INGREDIENTS_PER_ONIGIRI}</Overline>
+            </View>
+
+            <View>
+              {buildIngredientPresentation(
+                item.ingredients,
+                acquired,
+                status === 'completed',
+              ).map(({ name: key, state }, index) => {
+                const got = state === 'acquired';
+                const isNext = state === 'next';
                 return (
-                  <View key={ingredient.name} style={styles.ingredientRow}>
-                    <View
-                      style={[
-                        styles.ingredientDot,
-                        acquired && styles.ingredientDotAcquired,
-                        next && styles.ingredientDotNext,
-                      ]}
-                    />
+                  <View key={`${key}-${index}`} style={styles.ingredientRow}>
+                    {got ? (
+                      <Tile
+                        size={44}
+                        cornerRadius={radius.tileSm}
+                        image={ingredientImage(key)}
+                        imageSize={38}
+                      />
+                    ) : (
+                      <Tile size={44} cornerRadius={radius.tileSm} locked />
+                    )}
                     <Text
                       style={[
-                        styles.ingredient,
-                        ingredient.state === 'pending' && styles.ingredientPending,
+                        styles.ingredientName,
+                        got ? styles.ingredientGot : isNext ? styles.ingredientNext : styles.ingredientPending,
                       ]}
+                      numberOfLines={1}
                     >
-                      {ingredient.name}
+                      {ingredientName(key)}
                     </Text>
-                    {acquired && <Text style={styles.ingredientState}>획득</Text>}
-                    {next && <Text style={styles.ingredientState}>다음</Text>}
+                    {got ? (
+                      <Text style={styles.gotLabel}>받았어요</Text>
+                    ) : isNext ? (
+                      <View style={styles.nextPill}>
+                        <Text style={styles.nextPillLabel}>다음</Text>
+                      </View>
+                    ) : null}
                   </View>
                 );
               })}
             </View>
-          </View>
-        )}
 
-        {completed && <Text style={styles.description}>{item.description}</Text>}
-        {!completed && !locked && entry?.nextIngredient && (
-          <View style={styles.nextReward}>
-            <Text style={styles.nextRewardLabel}>NEXT REWARD</Text>
-            <Text style={styles.nextRewardName}>{entry.nextIngredient}</Text>
-            <Text style={styles.nextRewardNote}>
-              다음 학습을 마치면 받을 수 있어.
-            </Text>
+            <View style={styles.spacer} />
+
+            {/* NEXT REWARD 를 카드에서 해제했다 — 회색 박스로 두면 카드 안 카드가 된다. */}
+            {nextIngredient && status !== 'completed' && (
+              <View style={styles.nextRewardRow}>
+                <Tile size={52} cornerRadius={16} locked />
+                <View style={styles.nextRewardCopy}>
+                  <Overline>다음 보상</Overline>
+                  <Text style={styles.nextRewardLine}>
+                    {ingredientName(nextIngredient)} · 오늘 학습을 마치면
+                  </Text>
+                </View>
+              </View>
+            )}
+          </ScrollView>
+
+          <View style={styles.cta}>
+            <Button label="오늘 학습 시작" onPress={() => router.push('/study')} />
           </View>
-        )}
-        {locked && <Text style={styles.lockNote}>아직 잠겨 있어.</Text>}
-      </ScrollView>
+        </>
+      )}
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  scroll: {
-    flex: 1,
-  },
-  body: {
-    flexGrow: 1,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xl,
-    backgroundColor: colors.bg,
-  },
-  center: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  head: {
-    marginTop: spacing.xs,
-  },
-  no: {
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
-  },
-  name: {
-    ...typography.h1,
-    color: colors.text,
-    marginTop: 6,
-  },
-  lockedName: {
-    color: colors.textTertiary,
-    letterSpacing: 1,
-  },
-  tertiary: {
-    color: colors.textTertiary,
-  },
-  sketch: {
-    alignItems: 'center',
-    marginVertical: spacing.xl,
-  },
-  mono: {
-    fontFamily: fontFamily.mono,
-  },
-  ingredients: {
-    marginTop: spacing.md,
-  },
-  ingredientsLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-  },
-  ingredientList: {
-    marginTop: spacing.md,
-    gap: spacing.sm,
-  },
-  ingredientRow: {
-    minHeight: 28,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  ingredientDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: colors.borderStrong,
-  },
-  ingredientDotAcquired: {
-    borderColor: colors.text,
-    backgroundColor: colors.text,
-  },
-  ingredientDotNext: {
-    borderColor: colors.textSecondary,
-  },
-  ingredient: {
-    ...typography.body,
-    color: colors.text,
-  },
-  ingredientPending: {
-    color: colors.textTertiary,
-  },
-  ingredientState: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginLeft: spacing.xs,
-  },
-  description: {
-    ...typography.body,
-    color: colors.textSecondary,
-    marginTop: spacing.lg,
-  },
-  nextReward: {
-    borderRadius: 16,
-    backgroundColor: colors.surfaceMuted,
-    padding: spacing.md,
-    marginTop: spacing.xl,
-  },
-  nextRewardLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-  },
-  nextRewardName: {
-    ...typography.h2,
-    color: colors.text,
-    marginTop: spacing.xs,
-  },
-  nextRewardNote: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: spacing.sm,
-  },
-  lockNote: {
-    ...typography.small,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.xl,
-  },
-  note: {
-    ...typography.small,
-    color: colors.textSecondary,
-  },
-});
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    root: { flex: 1, backgroundColor: c.softer },
+    nav: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingTop: spacing.sm,
+      paddingHorizontal: layout.gapTight,
+    },
+    navBack: {
+      width: layout.touchTarget,
+      height: layout.touchTarget,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    // 오른쪽 44 스페이서로 워드마크를 광학 중앙에 둔다.
+    navTitle: {
+      flex: 1,
+      textAlign: 'center',
+      fontFamily: font.semibold,
+      fontSize: 15,
+      lineHeight: 20,
+      letterSpacing: 1.4,
+      color: c.body,
+    },
+    navSpacer: { width: layout.touchTarget },
+
+    center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+    note: { ...typography.body, color: c.body },
+
+    scroll: { flex: 1 },
+    scrollContent: {
+      flexGrow: 1,
+      paddingHorizontal: layout.gutter,
+      paddingTop: layout.gapTight,
+      paddingBottom: spacing.lg,
+    },
+    index: {
+      ...typography.caption,
+      color: c.body,
+      letterSpacing: 1.4,
+    },
+    titleRow: {
+      flexDirection: 'row',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      gap: spacing.md,
+      marginTop: spacing.xs,
+    },
+    title: { ...typography.resultTitle, color: c.ink, flexShrink: 1 },
+    count: { ...typography.bodyStrong, color: c.body, fontVariant: ['tabular-nums'] },
+
+    summaryCard: {
+      marginTop: layout.gutter,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 18,
+      paddingVertical: 22,
+      paddingHorizontal: layout.gutter,
+    },
+    summaryBody: { flex: 1, gap: 10 },
+    summaryCaption: { ...typography.body, color: c.body },
+
+    listHead: { marginTop: layout.gapGroup, marginBottom: spacing.xs },
+    ingredientRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
+      minHeight: 68,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: c.pressed,
+    },
+    ingredientName: { ...typography.cta, flex: 1 },
+    ingredientGot: { color: c.ink },
+    ingredientNext: { color: c.body },
+    ingredientPending: { color: c.mute },
+    gotLabel: { ...typography.captionStrong, color: c.body },
+    nextPill: {
+      backgroundColor: c.soft,
+      borderRadius: radius.pill,
+      paddingVertical: 6,
+      paddingHorizontal: spacing.md,
+    },
+    nextPillLabel: { ...typography.captionStrong, color: c.ink },
+
+    spacer: { flex: 1, minHeight: spacing.xxl },
+
+    nextRewardRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingBottom: layout.gutter },
+    nextRewardCopy: { flex: 1, gap: spacing.xs },
+    nextRewardLine: { ...typography.cta, color: c.ink },
+
+    cta: { paddingHorizontal: layout.gutter, paddingBottom: layout.gapGroup },
+  });

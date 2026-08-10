@@ -1,10 +1,15 @@
-// Design Ref: ONIGIRI SHOP redesign — 03 Onigiri Collection (Index).
-// 컬렉션 진행도는 완료 세션에서 파생(progress.entries). 읽기 전용.
+// Design Ref: Onikan handoff 화면 4 — 메뉴 / 도감 (`5a`).
+//
+// 상태를 색이 아니라 형태로 구분한다: 완성 = 실물 타일, 만드는 중 = 진행도 + 2px 잉크 테두리,
+// 잠김 = "?" + hairline 링. 다크에서도 동일하게 읽힌다.
+//
+// 리스트를 카드로 감싸지 않는다 — 흰 카드는 "만드는 중" 하나뿐이라 시선이 거기서 시작한다.
 
 import { useCallback, useState } from 'react';
 import { useFocusEffect, useRouter } from 'expo-router';
 import {
   ActivityIndicator,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -12,26 +17,40 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, fontFamily, spacing, typography } from '~/design/tokens';
+import {
+  border,
+  font,
+  layout,
+  radius,
+  spacing,
+  typography,
+  type ThemeColors,
+} from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
+import { IconGrid, IconList } from '~/design/icons';
+import { Button } from '~/components/ui/Button';
+import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
-import {
-  IngredientSegments,
-  OnigiriIndexItem,
-  OnigiriSketch,
-} from '~/features/onigiri/components';
+import { recipeImage } from '~/features/onigiri/recipeAssets';
 import {
   computeOnigiriProgress,
   type OnigiriProgressEntry,
   type OnigiriProgressSnapshot,
 } from '~/features/onigiri/progress';
+import { useSettingsStore } from '~/stores/SettingsStore';
 
+// 전체가 24종이므로 세 자리는 불필요한 자릿수다.
 function pad2(n: number): string {
   return String(n).padStart(2, '0');
 }
 
 export default function CollectionScreen(): React.ReactNode {
   const router = useRouter();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
+  const view = useSettingsStore((s) => s.collectionView);
+  const setView = useSettingsStore((s) => s.setCollectionView);
   const [snapshot, setSnapshot] = useState<OnigiriProgressSnapshot | null>(null);
 
   useFocusEffect(
@@ -59,276 +78,232 @@ export default function CollectionScreen(): React.ReactNode {
 
   const completed = snapshot?.completedCount ?? 0;
   const total = snapshot?.totalCount ?? 24;
+  const current = snapshot?.current ?? null;
   const allCollected = !!snapshot && completed === total;
+  const isGrid = view === 'grid';
 
   return (
     <SafeAreaView style={styles.root} edges={['top']}>
-      <View style={styles.body}>
-        <View style={styles.head}>
-          <Text style={styles.title}>ONIGIRI INDEX</Text>
-          <View style={styles.countBlock}>
-            <Text style={styles.count}>
-              {pad2(completed)} / {total}
-            </Text>
-            <Text style={styles.countLabel}>완성</Text>
-          </View>
-        </View>
-
-        {!snapshot ? (
-          <View style={styles.center}>
-            <ActivityIndicator color={colors.text} />
-          </View>
-        ) : (
-          <ScrollView
-            style={styles.list}
-            contentContainerStyle={styles.listContent}
-            showsVerticalScrollIndicator={false}
-          >
-            <CurrentOnigiriCard
-              entry={snapshot.current}
-              allCollected={allCollected}
-              onPress={openDetail}
-            />
-
-            <Text style={[styles.sectionLabel, styles.collectionLabel]}>COLLECTION</Text>
-            {snapshot.entries.map((entry, idx) => (
-              <View key={entry.item.id}>
-                <OnigiriIndexItem entry={entry} onPress={openDetail} />
-                {idx < snapshot.entries.length - 1 && <View style={styles.divider} />}
-              </View>
-            ))}
-            {allCollected && <Text style={styles.note}>전부 모았네.</Text>}
-          </ScrollView>
-        )}
+      <View style={styles.head}>
+        <Text style={styles.title}>메뉴</Text>
+        <Text style={styles.headCount}>
+          {completed} / {total}
+        </Text>
       </View>
+
+      {!snapshot ? (
+        <View style={styles.center}>
+          <ActivityIndicator color={colors.body} />
+        </View>
+      ) : (
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          {current && !allCollected && (
+            <Card elevated style={styles.currentCard}>
+              <Tile
+                size={56}
+                cornerRadius={16}
+                image={recipeImage(current.item.imageKey)}
+                imageSize={46}
+              />
+              <View style={styles.currentBody}>
+                <Overline>만드는 중</Overline>
+                <Text style={styles.currentName} numberOfLines={1}>
+                  {current.item.name}
+                </Text>
+                <ProgressCells
+                  total={INGREDIENTS_PER_ONIGIRI}
+                  filled={current.ingredientCount}
+                  height={5}
+                  gap={6}
+                />
+              </View>
+              {/* 도감에도 주요 행동이 하나 있다 — 화면의 유일한 오렌지. */}
+              <Button
+                label="이어서"
+                onPress={() => router.push('/study')}
+                style={styles.continueBtn}
+              />
+            </Card>
+          )}
+
+          <View style={styles.sectionHead}>
+            <Overline>전체 {total}</Overline>
+            {/* 전환될 뷰의 아이콘 하나만 보여준다 — 현재 상태를 두 칸으로 그릴 필요가 없다. */}
+            <Pressable
+              onPress={() => setView(isGrid ? 'list' : 'grid')}
+              style={styles.viewToggle}
+              accessibilityRole="button"
+              accessibilityLabel={isGrid ? '목록으로 보기' : '그리드로 보기'}
+            >
+              {isGrid ? (
+                <IconList size={24} color={colors.body} />
+              ) : (
+                <IconGrid size={24} color={colors.body} />
+              )}
+            </Pressable>
+          </View>
+
+          {isGrid ? (
+            <View style={styles.grid}>
+              {snapshot.entries.map((entry) => (
+                <GridCell key={entry.item.id} entry={entry} onPress={openDetail} />
+              ))}
+            </View>
+          ) : (
+            <View>
+              {snapshot.entries.map((entry) => (
+                <ListRow key={entry.item.id} entry={entry} onPress={openDetail} />
+              ))}
+            </View>
+          )}
+
+          {allCollected && <Text style={styles.note}>전부 모았네.</Text>}
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 }
 
-function CurrentOnigiriCard({
+function ListRow({
   entry,
-  allCollected,
   onPress,
 }: {
   entry: OnigiriProgressEntry;
-  allCollected: boolean;
   onPress: (entry: OnigiriProgressEntry) => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const locked = entry.status === 'locked';
+  const status =
+    entry.status === 'completed'
+      ? '완성'
+      : locked
+        ? '잠김'
+        : `${entry.ingredientCount} / ${INGREDIENTS_PER_ONIGIRI}`;
+
   return (
     <Pressable
       onPress={() => onPress(entry)}
+      disabled={locked}
+      style={({ pressed }) => [styles.row, pressed && !locked && styles.rowPressed]}
       accessibilityRole="button"
-      accessibilityLabel={`${entry.item.name} 상세 보기, 재료 ${entry.ingredientCount}개`}
+      accessibilityLabel={locked ? '잠긴 메뉴' : `${entry.item.name} 상세 보기`}
     >
-      {({ pressed }) => (
-        <View style={[styles.currentCard, pressed && styles.currentCardPressed]}>
-          <View style={styles.currentHead}>
-            <Text style={styles.sectionLabel}>
-              {allCollected ? 'ALL COLLECTED' : 'NOW MAKING'}
-            </Text>
-            <Text style={styles.currentOrder}>
-              {String(entry.item.order).padStart(3, '0')}
-            </Text>
-          </View>
-
-          <Text style={styles.currentName}>{entry.item.name}</Text>
-          <OnigiriSketch
-            status={entry.status}
-            ingredientCount={entry.ingredientCount}
-            size={104}
-            style={styles.currentSketch}
-          />
-
-          <View style={styles.progressHead}>
-            <Text style={styles.progressLabel}>INGREDIENTS</Text>
-            <Text style={styles.progressCount}>
-              {entry.ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
-            </Text>
-          </View>
-          <IngredientSegments
-            count={entry.ingredientCount}
-            label={false}
-            compact
-            style={styles.segments}
-          />
-
-          <View style={styles.ingredientGrid}>
-            {entry.item.ingredients.map((ingredient, index) => {
-              const acquired = index < entry.ingredientCount;
-              return (
-                <View key={ingredient} style={styles.ingredientRow}>
-                  <View
-                    style={[
-                      styles.ingredientDot,
-                      acquired && styles.ingredientDotAcquired,
-                    ]}
-                  />
-                  <Text
-                    style={[
-                      styles.ingredientName,
-                      !acquired && styles.ingredientNamePending,
-                    ]}
-                  >
-                    {ingredient}
-                  </Text>
-                </View>
-              );
-            })}
-          </View>
-
-          {entry.ingredientCount === 0 && !allCollected && (
-            <Text style={styles.emptyHint}>학습을 마치면 첫 재료가 들어와.</Text>
-          )}
-        </View>
-      )}
+      <Text style={[styles.rowIndex, locked && styles.mutedText]}>{pad2(entry.item.order)}</Text>
+      <Text style={[styles.rowName, locked && styles.mutedText]} numberOfLines={1}>
+        {locked ? '???' : entry.item.name}
+      </Text>
+      <Text style={[styles.rowStatus, locked && styles.mutedText]}>{status}</Text>
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  body: {
-    flex: 1,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    backgroundColor: colors.bg,
-  },
-  head: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  title: {
-    ...typography.h2,
-    color: colors.text,
-  },
-  countBlock: {
-    alignItems: 'flex-end',
-  },
-  count: {
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
-  },
-  countLabel: {
-    ...typography.tiny,
-    color: colors.textTertiary,
-    marginTop: 2,
-  },
-  list: {
-    flex: 1,
-    marginTop: spacing.lg,
-  },
-  listContent: {
-    paddingBottom: spacing.xl,
-  },
-  currentCard: {
-    borderWidth: 1,
-    borderColor: colors.borderStrong,
-    borderRadius: 20,
-    padding: spacing.md,
-    backgroundColor: colors.surface,
-  },
-  currentCardPressed: {
-    opacity: 0.72,
-  },
-  currentHead: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  currentOrder: {
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
-  },
-  currentName: {
-    ...typography.h2,
-    color: colors.text,
-    marginTop: spacing.xs,
-  },
-  currentSketch: {
-    alignSelf: 'center',
-    marginVertical: spacing.sm,
-  },
-  progressHead: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  progressLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-  },
-  progressCount: {
-    ...typography.small,
-    fontFamily: fontFamily.mono,
-    color: colors.textSecondary,
-  },
-  segments: {
-    marginTop: spacing.sm,
-  },
-  ingredientGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    rowGap: spacing.sm,
-    marginTop: spacing.md,
-  },
-  ingredientRow: {
-    width: '50%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  ingredientDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: colors.borderStrong,
-  },
-  ingredientDotAcquired: {
-    borderColor: colors.text,
-    backgroundColor: colors.text,
-  },
-  ingredientName: {
-    ...typography.small,
-    color: colors.text,
-  },
-  ingredientNamePending: {
-    color: colors.textTertiary,
-  },
-  emptyHint: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: spacing.md,
-  },
-  sectionLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-  },
-  collectionLabel: {
-    marginTop: spacing.xl,
-    marginBottom: spacing.xs,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: colors.border,
-  },
-  center: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-  },
-  note: {
-    ...typography.small,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: spacing.xl,
-  },
-});
+function GridCell({
+  entry,
+  onPress,
+}: {
+  entry: OnigiriProgressEntry;
+  onPress: (entry: OnigiriProgressEntry) => void;
+}): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const locked = entry.status === 'locked';
+  const inProgress = entry.status === 'inProgress';
+  const art = recipeImage(entry.item.imageKey);
+
+  return (
+    <Pressable
+      onPress={() => onPress(entry)}
+      disabled={locked}
+      style={styles.cell}
+      accessibilityRole="button"
+      accessibilityLabel={locked ? '잠긴 메뉴' : `${entry.item.name} 상세 보기`}
+    >
+      {locked ? (
+        <View style={[styles.cellTile, styles.cellTileLocked]}>
+          <Text style={styles.cellLockMark}>?</Text>
+        </View>
+      ) : (
+        <View style={[styles.cellTile, styles.cellTileFilled, inProgress && styles.cellTileMaking]}>
+          {art && <Image source={art} style={styles.cellArt} resizeMode="contain" />}
+        </View>
+      )}
+      <Text style={[styles.cellLabel, locked && styles.mutedText]} numberOfLines={1}>
+        {locked ? pad2(entry.item.order) : entry.item.name}
+      </Text>
+    </Pressable>
+  );
+}
+
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    root: { flex: 1, backgroundColor: c.softer },
+    head: {
+      flexDirection: 'row',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
+      gap: spacing.md,
+      paddingHorizontal: layout.gutter,
+      paddingTop: spacing.xxl,
+    },
+    title: { ...typography.screenTitle, color: c.ink },
+    headCount: { ...typography.bodyStrong, color: c.body, fontVariant: ['tabular-nums'] },
+    center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+    scroll: { flex: 1, marginTop: layout.gutter },
+    scrollContent: { paddingHorizontal: layout.gutter, paddingBottom: spacing.huge },
+
+    currentCard: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 18 },
+    currentBody: { flex: 1, gap: spacing.sm },
+    currentName: { ...typography.cta, color: c.ink },
+    continueBtn: { minHeight: layout.touchTarget, paddingHorizontal: 18 },
+
+    sectionHead: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginTop: 24,
+    },
+    viewToggle: {
+      width: layout.touchTarget,
+      height: layout.touchTarget,
+      alignItems: 'center',
+      justifyContent: 'center',
+      // 아이콘 광학 중심을 "전체 24"와 같은 좌우 마진에 맞춘다.
+      marginRight: -11,
+    },
+
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
+      minHeight: 64,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: c.pressed,
+    },
+    rowPressed: { opacity: 0.7 },
+    rowIndex: { ...typography.caption, color: c.body, width: 28 },
+    rowName: { ...typography.listTitle, color: c.ink, flex: 1 },
+    rowStatus: { ...typography.captionStrong, color: c.body },
+    mutedText: { color: c.mute },
+
+    grid: { flexDirection: 'row', flexWrap: 'wrap', gap: layout.gapTight, marginTop: spacing.sm },
+    // 3열: 좌우 여백을 뺀 폭을 셋으로 나눈다.
+    cell: { width: '31.5%', gap: spacing.sm },
+    cellTile: {
+      aspectRatio: 1,
+      borderRadius: radius.tile,
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+    },
+    cellTileFilled: { backgroundColor: c.plate },
+    cellTileMaking: { borderWidth: 2, borderColor: c.ink },
+    cellTileLocked: { borderWidth: border.chip, borderColor: c.pressed },
+    cellLockMark: { fontFamily: font.bold, fontSize: 22, lineHeight: 28, color: c.mute },
+    cellArt: { width: 70, height: 70 },
+    cellLabel: { fontFamily: font.semibold, fontSize: 14, lineHeight: 18, color: c.ink },
+
+    note: { ...typography.body, color: c.body, textAlign: 'center', marginTop: spacing.xxl },
+  });

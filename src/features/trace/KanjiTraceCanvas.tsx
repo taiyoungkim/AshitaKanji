@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { spacing } from '~/design/tokens';
+import { spacing, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import { TraceCell, TraceToolbar } from './TraceCell';
 import type { Pt } from './strokePath';
 
@@ -17,6 +18,7 @@ export function KanjiTraceCanvas({
   onDrawStart?: () => void;
   onDrawEnd?: () => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const [strokes, setStrokes] = useState<Pt[][]>([]);
   const isEmpty = strokes.length === 0;
 
@@ -42,6 +44,7 @@ export function KanjiTraceCanvas({
   );
 }
 
-const styles = StyleSheet.create({
-  wrap: { alignItems: 'center', gap: spacing.lg },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  wrap: { alignItems: 'center', gap: spacing.xl },
 });

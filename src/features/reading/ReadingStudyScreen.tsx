@@ -11,7 +11,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useColors, useThemedStyles } from '~/design/theme';
 import { renderKanjiFace } from '~/lib/cardType';
 import { useTTS } from '~/hooks/useTTS';
 import type { JlptLevel } from '~/types/Card';
@@ -19,6 +20,8 @@ import { ReadingEngine, type ReadingState } from './ReadingEngine';
 import { buildReadingEngine, resetReadingChapter } from './buildReadingEngine';
 
 export default function ReadingStudyScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const c = useColors();
   const router = useRouter();
   const params = useLocalSearchParams<{ level: string; chapter: string }>();
   const level = params.level as JlptLevel;
@@ -66,7 +69,7 @@ export default function ReadingStudyScreen(): React.ReactNode {
   if (!state) {
     return (
       <SafeAreaView style={[styles.container, styles.center]}>
-        <ActivityIndicator color={colors.accent} />
+        <ActivityIndicator color={c.ink} />
       </SafeAreaView>
     );
   }
@@ -203,50 +206,51 @@ export default function ReadingStudyScreen(): React.ReactNode {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg },
-  center: { alignItems: 'center', justifyContent: 'center', gap: spacing.md, padding: spacing.lg },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  container: { flex: 1, backgroundColor: c.softer },
+  center: { alignItems: 'center', justifyContent: 'center', gap: spacing.lg, padding: spacing.xl },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.md,
+    gap: spacing.lg,
+    paddingHorizontal: spacing.xl,
+    paddingTop: spacing.lg,
   },
-  close: { ...typography.h2, color: colors.textSecondary },
-  bar: { flex: 1, height: 6, borderRadius: 3, backgroundColor: colors.surfaceMuted, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: colors.accent },
-  counter: { ...typography.small, color: colors.textSecondary, minWidth: 44, textAlign: 'right' },
-  cardArea: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: spacing.lg, padding: spacing.lg },
-  surface: { fontSize: 64, lineHeight: 76, color: colors.text, fontWeight: fontWeight.medium, textAlign: 'center' },
-  reading: { ...typography.h2, color: colors.textSecondary, textAlign: 'center' },
-  meaning: { ...typography.h2, color: colors.text, textAlign: 'center' },
+  close: { ...typography.resultTitle, color: c.body },
+  bar: { flex: 1, height: 6, borderRadius: 3, backgroundColor: c.soft, overflow: 'hidden' },
+  barFill: { height: '100%', backgroundColor: c.ink },
+  counter: { ...typography.caption, color: c.body, minWidth: 44, textAlign: 'right' },
+  cardArea: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: spacing.xl, padding: spacing.xl },
+  surface: { fontSize: 64, lineHeight: 76, color: c.ink, fontFamily: font.medium, textAlign: 'center' },
+  reading: { ...typography.resultTitle, color: c.body, textAlign: 'center' },
+  meaning: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
   revealBtn: {
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.xl,
+    paddingHorizontal: spacing.xxl,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
   },
-  revealText: { ...typography.body, color: colors.textSecondary },
+  revealText: { ...typography.body, color: c.body },
   detailLink: { paddingVertical: spacing.sm },
-  detailLinkText: { ...typography.small, color: colors.textTertiary, fontWeight: fontWeight.medium },
-  actions: { flexDirection: 'row', gap: spacing.md, padding: spacing.lg },
-  markBtn: { flex: 1, paddingVertical: spacing.lg, borderRadius: radius.pill, alignItems: 'center' },
-  unknownBtn: { borderWidth: 1, borderColor: colors.borderStrong, backgroundColor: colors.surface },
-  unknownText: { ...typography.body, color: colors.text, fontWeight: fontWeight.semibold },
-  knownBtn: { backgroundColor: colors.accent },
-  knownText: { ...typography.body, color: colors.white, fontWeight: fontWeight.semibold },
-  doneMark: { fontSize: 56, color: colors.accent },
-  doneTitle: { ...typography.h1, color: colors.text },
-  doneSub: { ...typography.body, color: colors.textSecondary, marginBottom: spacing.lg },
+  detailLinkText: { ...typography.caption, color: c.mute, fontFamily: font.medium },
+  actions: { flexDirection: 'row', gap: spacing.lg, padding: spacing.xl },
+  markBtn: { flex: 1, paddingVertical: spacing.xl, borderRadius: radius.pill, alignItems: 'center' },
+  unknownBtn: { borderWidth: 1, borderColor: c.pressed, backgroundColor: c.canvas },
+  unknownText: { ...typography.body, color: c.ink, fontFamily: font.semibold },
+  knownBtn: { backgroundColor: c.ink },
+  knownText: { ...typography.body, color: c.canvas, fontFamily: font.semibold },
+  doneMark: { fontSize: 56, color: c.ink },
+  doneTitle: { ...typography.screenTitle, color: c.ink },
+  doneSub: { ...typography.body, color: c.body, marginBottom: spacing.xl },
   primaryBtn: {
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.xxl,
     borderRadius: radius.pill,
-    backgroundColor: colors.accent,
+    backgroundColor: c.ink,
   },
-  primaryBtnText: { ...typography.body, color: colors.white, fontWeight: fontWeight.semibold },
-  secondaryBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.lg },
-  secondaryBtnText: { ...typography.small, color: colors.textSecondary, fontWeight: fontWeight.medium },
+  primaryBtnText: { ...typography.body, color: c.canvas, fontFamily: font.semibold },
+  secondaryBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.xl },
+  secondaryBtnText: { ...typography.caption, color: c.body, fontFamily: font.medium },
 });

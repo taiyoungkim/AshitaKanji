@@ -5,7 +5,8 @@
 import { useMemo, useRef, useState } from 'react';
 import { PanResponder, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Line, Path, Rect } from 'react-native-svg';
-import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import { strokeToPath, type Pt } from './strokePath';
 
 const INK = '#1B1B1B';
@@ -36,6 +37,7 @@ export function TraceCell({
   onDrawStart?: () => void;
   onDrawEnd?: () => void;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const [current, setCurrent] = useState<Pt[]>([]);
   const currentRef = useRef<Pt[]>([]);
   // PanResponder 는 한 번만 생성(제스처 도중 재생성 방지). 콜백은 ref 로 최신화.
@@ -137,6 +139,7 @@ export function TraceToolbar({
   onClear: () => void;
   disabled: boolean;
 }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.toolbar}>
       <Pressable
@@ -161,28 +164,29 @@ export function TraceToolbar({
   );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
   board: {
-    backgroundColor: colors.surface,
+    backgroundColor: c.canvas,
     borderRadius: radius.card,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: c.pressed,
     overflow: 'hidden',
   },
   glyph: {
     ...StyleSheet.absoluteFillObject,
     textAlign: 'center',
     color: GLYPH,
-    fontWeight: fontWeight.medium,
+    fontFamily: font.medium,
   },
-  toolbar: { flexDirection: 'row', gap: spacing.md },
+  toolbar: { flexDirection: 'row', gap: spacing.lg },
   toolBtn: {
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
     borderRadius: radius.pill,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
   },
   toolBtnOff: { opacity: 0.35 },
-  toolText: { ...typography.body, color: colors.text, fontWeight: fontWeight.medium },
+  toolText: { ...typography.body, color: c.ink, fontFamily: font.medium },
 });

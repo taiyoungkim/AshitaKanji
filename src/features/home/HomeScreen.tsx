@@ -1,54 +1,60 @@
-// Design Ref: ONIGIRI SHOP redesign — Shop Home.
-// Existing due/new count logic stays read-only; onigiri progress is derived from completed sessions.
+// Design Ref: Onikan handoff 화면 1 — 홈 (`10a`).
+//
+// 회독은 두 번째 버튼이 아니라 상단 세그먼트의 '모드'다. 그래야 하단 오렌지 CTA 가
+// 계속 하나로 유지된다. 선택한 모드가 히어로 카드 내용과 CTA 문구에 함께 반영된다.
 
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useFocusEffect, useRouter, type Href } from 'expo-router';
-import {
-  ActivityIndicator,
-  Image,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  type ImageSourcePropType,
-} from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
 import {
-  buttons,
-  colors,
-  fontWeight,
+  border,
+  font,
+  layout,
+  radius,
   spacing,
+  thumbShadow,
   typography,
+  type ThemeColors,
 } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
+import { IconChevron } from '~/design/icons';
+import { Button } from '~/components/ui/Button';
+import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
-import { catImages } from '~/features/onigiri/catAssets';
+import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
+import { mascotImage, recipeImage } from '~/features/onigiri/recipeAssets';
 import {
   computeOnigiriProgress,
   type OnigiriProgressSnapshot,
 } from '~/features/onigiri/progress';
+import { loadLevelChapterStats } from '~/features/reading/buildReadingEngine';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import type { JlptLevel } from '~/types/Card';
-import { buildCurrentOrderPresentation } from './currentOrderPresentation';
+import { chapterStatus, isChapterComplete, type ChapterStat } from '~/types/Reading';
+import { estimateStudyMinutes, formatKoreanDate, ingredientCaption } from './homePresentation';
 
-const ingredientImages: Partial<Record<string, ImageSourcePropType>> = {
-  RICE: require('../../../assets/onigiri/rice-grain.png'),
-  SEAWEED: require('../../../assets/onigiri/seaweed.png'),
-  TUNA: require('../../../assets/onigiri/tuna.png'),
-  MAYO: require('../../../assets/onigiri/mayo.png'),
-};
+type HomeMode = 'today' | 'reading';
 
 interface TodayCounts {
   due: number;
   newAvail: number;
 }
 
+interface ReadingTarget {
+  level: JlptLevel;
+  chapter: number;
+  total: number;
+  known: number;
+}
+
 interface HomeData {
   counts: TodayCounts;
   progress: OnigiriProgressSnapshot;
+  reading: ReadingTarget | null;
 }
 
 async function loadTodayCounts(levels: JlptLevel[], dailyNewLimit: number): Promise<TodayCounts> {
@@ -68,33 +74,45 @@ async function loadTodayCounts(levels: JlptLevel[], dailyNewLimit: number): Prom
   return { due: dueCount, newAvail: newCands.length };
 }
 
-async function loadHomeData(
-  levels: JlptLevel[],
-  dailyNewLimit: number,
-): Promise<HomeData> {
-  const [countsResult, progressResult] = await Promise.allSettled([
+/** 회독은 순차 해금이라 '아직 안 끝난 첫 챕터'가 곧 다음에 할 묶음이다. */
+function pickCurrentChapter(level: JlptLevel, stats: ChapterStat[]): ReadingTarget | null {
+  const sorted = [...stats].sort((a, b) => a.chapter - b.chapter);
+  const target =
+    sorted.find((s) => !isChapterComplete(s) && chapterStatus(sorted, s.chapter) === 'inProgress') ??
+    sorted.find((s) => !isChapterComplete(s)) ??
+    sorted[sorted.length - 1];
+  if (!target) return null;
+  return { level, chapter: target.chapter, total: target.total, known: target.known };
+}
+
+async function loadHomeData(levels: JlptLevel[], dailyNewLimit: number): Promise<HomeData> {
+  const readingLevel = levels[0] ?? 'N5';
+  const [countsResult, progressResult, readingResult] = await Promise.allSettled([
     loadTodayCounts(levels, dailyNewLimit),
     buildOnigiriProgressService().then((svc) => svc.getSnapshot()),
+    loadLevelChapterStats(readingLevel),
   ]);
 
   return {
-    counts:
-      countsResult.status === 'fulfilled'
-        ? countsResult.value
-        : { due: 0, newAvail: 0 },
+    counts: countsResult.status === 'fulfilled' ? countsResult.value : { due: 0, newAvail: 0 },
     progress:
-      progressResult.status === 'fulfilled'
-        ? progressResult.value
-        : computeOnigiriProgress([]),
+      progressResult.status === 'fulfilled' ? progressResult.value : computeOnigiriProgress([]),
+    reading:
+      readingResult.status === 'fulfilled'
+        ? pickCurrentChapter(readingLevel, readingResult.value)
+        : null,
   };
 }
 
 export default function HomeScreen(): React.ReactNode {
   const router = useRouter();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
   const selectedLevels = useSettingsStore((s) => s.selectedLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const hydrated = useSettingsStore((s) => s._hydrated);
   const [data, setData] = useState<HomeData | null>(null);
+  const [mode, setMode] = useState<HomeMode>('today');
 
   useFocusEffect(
     useCallback(() => {
@@ -110,30 +128,66 @@ export default function HomeScreen(): React.ReactNode {
     }, [hydrated, selectedLevels, dailyNewLimit]),
   );
 
+  const today = useMemo(() => formatKoreanDate(new Date()), []);
+
   const newPlanned = data ? Math.min(data.counts.newAvail, dailyNewLimit) : 0;
   const reviewCount = data?.counts.due ?? 0;
   const todayTotal = newPlanned + reviewCount;
-  const allClear = !!data && todayTotal === 0;
-  const canStart = todayTotal > 0;
+  const allClear = data != null && todayTotal === 0;
 
   const progress = data?.progress ?? computeOnigiriProgress([]);
-  const currentOnigiri = progress.current;
-  const firstOnigiriEmpty =
-    progress.totalIngredientsEarned === 0 && currentOnigiri.ingredientCount === 0;
+  const current = progress.current;
   const allCollected = progress.completedCount === progress.totalCount;
-  const currentOrderMeta = buildCurrentOrderPresentation(
-    currentOnigiri,
-    allCollected,
-  );
-  const ingredientImage = ingredientImages[currentOrderMeta.value];
-  const catLine = allCollected
-    ? '전부 모았네.'
-    : allClear
-      ? '오늘 몫은 끝났어.'
-      : firstOnigiriEmpty
-        ? '왔네. 처음 보는 얼굴이네.'
-        : '왔네.';
-  const startLabel = allClear ? '복습 더 하기' : 'Start Study';
+  const firstOnigiriEmpty = progress.totalIngredientsEarned === 0 && current.ingredientCount === 0;
+
+  const reading = data?.reading ?? null;
+  const readingRemaining = reading ? Math.max(reading.total - reading.known, 0) : 0;
+
+  const isReading = mode === 'reading';
+
+  // 카드 하나에 히어로 숫자는 하나다. 오늘 몫에 새 단어가 있으면 그게 히어로가 되고,
+  // 복습만 남았으면 복습 수가 히어로를 맡는다. 나머지는 아래 메타 한 줄로 내려간다.
+  const heroIsReview = !isReading && newPlanned === 0 && reviewCount > 0;
+  const heroValue = isReading ? (reading?.total ?? 0) : heroIsReview ? reviewCount : newPlanned;
+  const heroUnit = isReading ? '빈도순 단어' : heroIsReview ? '복습' : '새 단어';
+
+  // 값이 0인 항목은 문장에서 뺀다 — "복습 0개"를 쓰지 않는다.
+  const heroMeta = isReading
+    ? [
+        reading?.level,
+        reading ? `${(reading.chapter - 1) * 50 + 1}–${reading.chapter * 50}번` : null,
+        reading ? `약 ${estimateStudyMinutes(readingRemaining, 0)}분` : null,
+      ]
+    : [
+        selectedLevels.join('·'),
+        !heroIsReview && reviewCount > 0 ? `복습 ${reviewCount}개` : null,
+        todayTotal > 0 ? `약 ${estimateStudyMinutes(newPlanned, reviewCount)}분` : null,
+        allClear ? '오늘 몫 완료' : null,
+      ];
+  const metaLine = heroMeta.filter(Boolean).join(' · ');
+
+  const mascotLine = allCollected
+    ? '전부 모았네. 대단해.'
+    : isReading
+      ? '가볍게 훑고 가.'
+      : allClear
+        ? '오늘 몫은 끝났어.'
+        : firstOnigiriEmpty
+          ? '왔네. 처음 보는 얼굴이네.'
+          : '왔네. 오늘 것만 하고 가.';
+
+  const ctaLabel = isReading ? '회독 시작' : allClear ? '복습 더 하기' : '오늘 학습 시작';
+
+  const onStart = () => {
+    if (!data) return;
+    if (isReading) {
+      if (reading) router.push(`/reading-study?level=${reading.level}&chapter=${reading.chapter}` as Href);
+      else router.push('/reading' as Href);
+      return;
+    }
+    if (todayTotal > 0) router.push('/study');
+    else router.push('/weakness');
+  };
 
   return (
     <SafeAreaView style={styles.root} edges={['top']}>
@@ -142,287 +196,206 @@ export default function HomeScreen(): React.ReactNode {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.head}>
-          <Text style={styles.display}>TODAY</Text>
-          <Text style={styles.level}>{selectedLevels.join(' · ')}</Text>
+        <Overline>{today}</Overline>
+
+        <View style={styles.segment}>
+          {(['today', 'reading'] as const).map((m) => {
+            const on = mode === m;
+            return (
+              <Pressable
+                key={m}
+                onPress={() => setMode(m)}
+                style={[styles.segmentItem, on && styles.segmentItemOn, on && thumbShadow()]}
+                accessibilityRole="button"
+                accessibilityState={{ selected: on }}
+              >
+                <Text style={[styles.segmentLabel, on && styles.segmentLabelOn]}>
+                  {m === 'today' ? '오늘 학습' : '회독'}
+                </Text>
+              </Pressable>
+            );
+          })}
         </View>
 
         {!data ? (
-          <LoadingState />
+          <View style={styles.loading}>
+            <ActivityIndicator color={colors.body} />
+          </View>
         ) : (
-          <>
-            <View style={styles.stats}>
-              <ShopStat value={newPlanned} label={'New\nwords'} zero={newPlanned === 0} />
-              <ShopStat value={reviewCount} label="Reviews" zero={reviewCount === 0} />
-            </View>
-
-            <Pressable
-              style={({ pressed }) => [
-                styles.ingredientCard,
-                pressed && styles.ingredientCardPressed,
-              ]}
-              onPress={() =>
-                router.push({
-                  pathname: '/onigiri/[id]',
-                  params: { id: currentOnigiri.item.id },
-                })
-              }
-              accessibilityRole="button"
-              accessibilityLabel={`${currentOrderMeta.label} ${currentOrderMeta.value}, ${currentOnigiri.item.name} 상세 보기`}
-            >
-              {ingredientImage && (
-                <Image
-                  source={ingredientImage}
-                  resizeMode="contain"
-                  style={styles.ingredientIcon}
-                />
-              )}
-              <Text style={styles.ingredientName}>{currentOrderMeta.value}</Text>
-            </Pressable>
-
-            <View style={styles.catline}>
-              <Image source={catImages.calm} resizeMode="contain" style={styles.catImage} />
-              <View style={styles.catCopy}>
-                <Text style={styles.catText}>{catLine}</Text>
-                <Text style={styles.catWho}>— 사장</Text>
+          <View style={styles.cardGroup}>
+            <Card elevated style={styles.heroCard}>
+              <Overline>{isReading ? '회독' : '오늘의 학습'}</Overline>
+              <View style={styles.heroRow}>
+                <Text style={styles.heroValue}>{heroValue}</Text>
+                <Text style={styles.heroUnit}>{heroUnit}</Text>
               </View>
-            </View>
-          </>
+              {metaLine.length > 0 && <Text style={styles.heroMeta}>{metaLine}</Text>}
+            </Card>
+
+            {isReading ? (
+              <View style={styles.readingBlock}>
+                <Text style={styles.readingNote}>
+                  기록에 남지 않고 가볍게 훑는 모드예요. 재료는 오늘 학습에서만 받아요.
+                </Text>
+                <View style={styles.chipRow}>
+                  <Pressable
+                    style={styles.chip}
+                    onPress={() => router.push('/reading' as Href)}
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.chipLabel}>범위 고르기</Text>
+                  </Pressable>
+                  <Pressable
+                    style={styles.chip}
+                    onPress={() => router.push('/weakness' as Href)}
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.chipLabel}>틀린 단어만</Text>
+                  </Pressable>
+                </View>
+              </View>
+            ) : (
+              // 히어로와 같은 흰 카드지만 그림자를 뺐다 — 층은 그림자 유무로만 나눈다.
+              <Pressable
+                style={({ pressed }) => [styles.progressCard, pressed && styles.progressPressed]}
+                onPress={() =>
+                  router.push({ pathname: '/onigiri/[id]', params: { id: current.item.id } })
+                }
+                accessibilityRole="button"
+                accessibilityLabel={`${current.item.name} 상세 보기, 재료 ${current.ingredientCount}개 모음`}
+              >
+                <Tile size={48} image={recipeImage(current.item.imageKey)} imageSize={40} />
+                <View style={styles.progressBody}>
+                  <View style={styles.progressHead}>
+                    <Text style={styles.progressName} numberOfLines={1}>
+                      {current.item.name}
+                    </Text>
+                    <Text style={styles.progressCount}>
+                      {current.ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
+                    </Text>
+                  </View>
+                  <ProgressCells
+                    total={INGREDIENTS_PER_ONIGIRI}
+                    filled={current.ingredientCount}
+                    height={5}
+                    gap={6}
+                  />
+                  <Text style={styles.progressCaption}>
+                    {ingredientCaption(current.ingredientCount)}
+                  </Text>
+                </View>
+                <IconChevron size={20} color={colors.body} />
+              </Pressable>
+            )}
+          </View>
         )}
+
+        <View style={styles.spacer} />
+
+        <View style={styles.mascotRow}>
+          <Tile size={44} image={mascotImage} imageSize={38} />
+          <Text style={styles.mascotLine}>{mascotLine}</Text>
+        </View>
       </ScrollView>
 
       <View style={styles.footer}>
-        <Pressable
-          style={styles.readingLink}
-          onPress={() => router.push('/reading' as Href)}
-          accessibilityRole="button"
-        >
-          <Text style={styles.readingLinkText}>회독 모드 · 빈도순 50단어 반복</Text>
-        </Pressable>
-        <Pressable
-          style={({ pressed }) => [
-            styles.startButton,
-            allClear && styles.secondaryButton,
-            !data && styles.disabledButton,
-            pressed && data && styles.pressed,
-          ]}
-          onPress={() => {
-            if (!data) return;
-            if (canStart) router.push('/study');
-            else router.push('/weakness');
-          }}
-          disabled={!data}
-          accessibilityRole="button"
-        >
-          <Text style={[styles.startText, allClear && styles.secondaryText]}>
-            {startLabel}
-          </Text>
-        </Pressable>
+        <Button label={ctaLabel} onPress={onStart} disabled={!data} />
       </View>
     </SafeAreaView>
   );
 }
 
-function ShopStat({
-  value,
-  label,
-  zero,
-}: {
-  value: number;
-  label: string;
-  zero: boolean;
-}): React.ReactNode {
-  return (
-    <View style={styles.stat}>
-      <Text style={[styles.statNum, zero && styles.zero]}>{value}</Text>
-      <Text style={styles.statLabel}>{label}</Text>
-    </View>
-  );
-}
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    root: { flex: 1, backgroundColor: c.softer },
+    scroll: { flex: 1 },
+    scrollContent: {
+      flexGrow: 1,
+      paddingHorizontal: layout.gutter,
+      paddingTop: spacing.xxl,
+    },
 
-function LoadingState(): React.ReactNode {
-  return (
-    <View style={styles.loading}>
-      <ActivityIndicator color={colors.text} />
-      <View style={styles.skeletonStats}>
-        <Skeleton width={78} height={52} />
-        <Skeleton width={60} height={12} />
-      </View>
-      <View style={styles.skeletonStats}>
-        <Skeleton width={78} height={52} />
-        <Skeleton width={54} height={12} />
-      </View>
-      <View style={styles.skeletonBlock}>
-        <Skeleton width={112} height={44} />
-      </View>
-    </View>
-  );
-}
+    segment: {
+      flexDirection: 'row',
+      gap: spacing.xs,
+      marginTop: spacing.lg,
+      padding: spacing.xs,
+      borderRadius: radius.pill,
+      backgroundColor: c.soft,
+    },
+    segmentItem: {
+      flex: 1,
+      minHeight: layout.touchTarget,
+      borderRadius: radius.pill,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    segmentItemOn: { backgroundColor: c.canvas },
+    segmentLabel: { fontFamily: font.semibold, fontSize: 16, lineHeight: 20, color: c.body },
+    segmentLabelOn: { color: c.ink },
 
-function Skeleton({ width, height }: { width: number; height: number }): React.ReactNode {
-  return <View style={[styles.skeleton, { width, height }]} />;
-}
+    loading: { marginTop: spacing.huge, alignItems: 'center' },
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  scroll: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.lg,
-  },
-  footer: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.md,
-    backgroundColor: colors.bg,
-  },
-  readingLink: {
-    alignItems: 'center',
-    paddingVertical: spacing.sm,
-    marginBottom: spacing.xs,
-  },
-  readingLinkText: {
-    ...typography.small,
-    color: colors.textSecondary,
-    fontWeight: fontWeight.medium,
-  },
-  head: {
-    marginTop: spacing.xs,
-  },
-  display: {
-    ...typography.display,
-    color: colors.text,
-  },
-  level: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-    marginTop: 6,
-  },
-  stats: {
-    marginTop: spacing.xxl,
-    gap: spacing.lg,
-  },
-  stat: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    gap: 14,
-  },
-  statNum: {
-    minWidth: 84,
-    fontSize: typography.display.fontSize,
-    lineHeight: typography.display.fontSize,
-    fontWeight: fontWeight.medium,
-    letterSpacing: -2,
-    color: colors.text,
-  },
-  zero: {
-    color: colors.textTertiary,
-  },
-  statLabel: {
-    ...typography.tiny,
-    color: colors.textSecondary,
-  },
-  ingredientCard: {
-    alignSelf: 'flex-start',
-    marginTop: spacing.xl,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    borderWidth: 1,
-    borderColor: colors.borderStrong,
-    borderRadius: 14,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  ingredientCardPressed: {
-    opacity: 0.72,
-  },
-  ingredientIcon: {
-    width: 30,
-    height: 30,
-  },
-  ingredientName: {
-    ...typography.body,
-    color: colors.text,
-    fontWeight: fontWeight.medium,
-    letterSpacing: 0.6,
-  },
-  catline: {
-    marginTop: spacing.xl,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-  },
-  catImage: {
-    width: 74,
-    height: 114,
-  },
-  catCopy: {
-    flex: 1,
-  },
-  catText: {
-    ...typography.body,
-    color: colors.text,
-  },
-  catWho: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-  startButton: {
-    width: '100%',
-    borderRadius: buttons.primary.borderRadius,
-    paddingVertical: buttons.primary.paddingVertical,
-    paddingHorizontal: buttons.primary.paddingHorizontal,
-    alignItems: 'center',
-    backgroundColor: buttons.primary.backgroundColor,
-    borderWidth: 1,
-    borderColor: buttons.primary.borderColor,
-  },
-  secondaryButton: {
-    backgroundColor: buttons.secondary.backgroundColor,
-    borderColor: buttons.secondary.borderColor,
-  },
-  disabledButton: {
-    backgroundColor: colors.surfaceMuted,
-    borderColor: colors.surfaceMuted,
-  },
-  pressed: {
-    opacity: 0.86,
-  },
-  startText: {
-    fontSize: 15,
-    lineHeight: 20,
-    fontWeight: fontWeight.medium,
-    color: buttons.primary.color,
-  },
-  secondaryText: {
-    color: buttons.secondary.color,
-  },
-  loading: {
-    marginTop: spacing.xxl,
-    gap: spacing.lg,
-  },
-  skeletonStats: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 14,
-  },
-  skeletonBlock: {
-    marginTop: spacing.lg,
-    gap: spacing.md,
-  },
-  skeleton: {
-    borderRadius: 8,
-    backgroundColor: colors.surfaceMuted,
-  },
-});
+    // 두 카드는 12px 로 붙여 한 덩어리로 읽히게 한다.
+    cardGroup: { marginTop: spacing.xl, gap: layout.gapTight },
+    heroCard: { paddingVertical: 24, paddingHorizontal: layout.gutter },
+    heroRow: {
+      flexDirection: 'row',
+      alignItems: 'baseline',
+      gap: layout.gapTight,
+      marginTop: layout.gapTight,
+    },
+    heroValue: { ...typography.hero, color: c.ink },
+    heroUnit: { ...typography.body, color: c.body },
+    heroMeta: { ...typography.body, color: c.body, marginTop: 10, fontVariant: ['tabular-nums'] },
+
+    progressCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
+      backgroundColor: c.canvas,
+      borderRadius: radius.card,
+      paddingVertical: spacing.lg,
+      paddingLeft: 18,
+      paddingRight: spacing.lg,
+    },
+    progressPressed: { opacity: 0.85 },
+    progressBody: { flex: 1, gap: 10 },
+    progressHead: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: spacing.sm,
+    },
+    progressName: { ...typography.cardTitle, color: c.ink, flexShrink: 1 },
+    progressCount: { ...typography.caption, color: c.body },
+    progressCaption: { ...typography.body, color: c.body },
+
+    readingBlock: { gap: spacing.lg, paddingHorizontal: spacing.xs },
+    readingNote: { ...typography.body, color: c.body },
+    chipRow: { flexDirection: 'row', gap: spacing.sm },
+    chip: {
+      borderRadius: radius.pill,
+      borderWidth: border.chip,
+      borderColor: c.pressed,
+      paddingVertical: 9,
+      paddingHorizontal: 14,
+    },
+    chipLabel: { fontFamily: font.semibold, fontSize: 14, lineHeight: 18, color: c.ink },
+
+    spacer: { flex: 1, minHeight: spacing.xxl },
+
+    mascotRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: layout.gapTight,
+      paddingBottom: 18,
+    },
+    mascotLine: { ...typography.body, color: c.body, flex: 1 },
+
+    footer: {
+      paddingHorizontal: layout.gutter,
+      paddingBottom: layout.gutter,
+      backgroundColor: c.softer,
+    },
+  });

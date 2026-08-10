@@ -5,60 +5,58 @@ describe('buildDoneRewardPresentation', () => {
   it('shows an earned ingredient as the primary reward', () => {
     expect(
       buildDoneRewardPresentation({
-        ingredientName: 'RICE',
-        onigiriName: 'TUNA MAYO',
+        ingredientName: '밥',
+        onigiriName: '참치마요',
         crafted: false,
         allCollected: false,
         failed: false,
       }),
     ).toEqual({
-      kicker: 'NEW INGREDIENT',
-      title: 'RICE',
-      note: '새 재료를 얻었어.',
-      catPose: 'make',
+      overline: '새 재료',
+      title: '밥',
+      note: '사장이 재료를 하나 건넸어요',
     });
   });
 
   it('prioritizes the crafted onigiri on the fourth ingredient', () => {
     expect(
       buildDoneRewardPresentation({
-        ingredientName: 'MAYO',
-        onigiriName: 'TUNA MAYO',
+        ingredientName: '마요네즈',
+        onigiriName: '참치마요',
         crafted: true,
         allCollected: false,
         failed: false,
       }),
     ).toEqual({
-      kicker: 'CRAFTED',
-      title: 'TUNA MAYO',
-      note: '오니기리가 완성됐어.',
-      catPose: 'present',
+      overline: '완성',
+      title: '참치마요',
+      note: '사장이 오니기리를 하나 완성했어요.',
     });
   });
 
   it('shows the completed catalog state when no further reward is available', () => {
     const result = buildDoneRewardPresentation({
       ingredientName: null,
-      onigiriName: 'SHOP SPECIAL',
+      onigiriName: '사장 특선',
       crafted: false,
       allCollected: true,
       failed: false,
     });
 
-    expect(result.kicker).toBe('ALL COLLECTED');
-    expect(result.catPose).toBe('present');
+    expect(result.overline).toBe('수집 완료');
+    expect(result.title).toBe('전부 모았어요');
   });
 
   it('shows a recoverable message when progress loading fails', () => {
     const result = buildDoneRewardPresentation({
       ingredientName: null,
-      onigiriName: 'ONIGIRI',
+      onigiriName: '오니기리',
       crafted: false,
       allCollected: false,
       failed: true,
     });
 
-    expect(result.kicker).toBe('REWARD ERROR');
-    expect(result.title).toBe('보상 확인 실패');
+    expect(result.overline).toBe('확인 실패');
+    expect(result.title).toBe('보상을 못 읽었어요');
   });
 });

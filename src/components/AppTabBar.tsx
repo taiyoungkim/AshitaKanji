@@ -1,22 +1,36 @@
-// Design Ref: ONIGIRI SHOP redesign — Tab Bar (텍스트 전용, active 밑줄).
-// expo Tabs 기본 탭바는 탭별 밑줄을 지원하지 않아 커스텀 렌더로 대체.
-// 무채색: active = text + 1.5px 밑줄, inactive = textTertiary.
+// Design Ref: Onikan handoff — 하단 탭바 (공통).
+// 면·배지·밑줄 없이 틴트만으로 활성 상태를 표시한다. 활성 색이 body 가 아니라
+// tab-active 인 이유는 12px 라벨이 AA(4.5:1)를 넘어야 하기 때문 (핸드오프 참조).
 
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { colors, fontWeight, layout, spacing } from '~/design/tokens';
+import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
+import { IconHistory, IconMenu, IconSettings, IconToday } from '~/design/icons';
+
+type TabIcon = (props: { color: string; knobFill: string }) => React.ReactNode;
+
+const ICONS: Record<string, TabIcon> = {
+  home: ({ color }) => <IconToday color={color} />,
+  collection: ({ color }) => <IconMenu color={color} />,
+  stats: ({ color }) => <IconHistory color={color} />,
+  settings: ({ color, knobFill }) => <IconSettings color={color} knobFill={knobFill} />,
+};
 
 export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps): React.ReactNode {
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
 
   return (
-    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, spacing.md) }]}>
+    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 26) }]}>
       {state.routes.map((route, index) => {
         const options = descriptors[route.key]?.options;
-        const label =
-          typeof options?.title === 'string' ? options.title : route.name;
+        const label = typeof options?.title === 'string' ? options.title : route.name;
         const focused = state.index === index;
+        const tint = focused ? colors.tabActive : colors.body;
+        const renderIcon = ICONS[route.name];
 
         const onPress = () => {
           const event = navigation.emit({
@@ -43,9 +57,10 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
             accessibilityState={focused ? { selected: true } : {}}
             accessibilityLabel={label}
           >
-            <View style={[styles.labelWrap, focused && styles.labelWrapActive]}>
-              <Text style={[styles.label, focused && styles.labelActive]}>{label}</Text>
-            </View>
+            {renderIcon?.({ color: tint, knobFill: colors.softer })}
+            <Text style={[styles.label, { color: tint }, focused && styles.labelActive]}>
+              {label}
+            </Text>
           </Pressable>
         );
       })}
@@ -53,40 +68,23 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
   );
 }
 
-const styles = StyleSheet.create({
-  bar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'flex-start',
-    backgroundColor: colors.bg,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    paddingTop: spacing.md,
-    minHeight: layout.tabBarHeight,
-  },
-  tab: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 6,
-    paddingHorizontal: spacing.xs,
-  },
-  labelWrap: {
-    paddingBottom: spacing.xs,
-    borderBottomWidth: 1.5,
-    borderBottomColor: 'transparent',
-  },
-  labelWrapActive: {
-    borderBottomColor: colors.text,
-  },
-  label: {
-    fontSize: 12,
-    lineHeight: 16,
-    letterSpacing: 0.3,
-    color: colors.textTertiary,
-    fontWeight: fontWeight.regular,
-  },
-  labelActive: {
-    color: colors.text,
-    fontWeight: fontWeight.semibold,
-  },
-});
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    bar: {
+      flexDirection: 'row',
+      backgroundColor: c.softer,
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopColor: c.pressed,
+      paddingTop: spacing.sm,
+      paddingHorizontal: spacing.sm,
+    },
+    tab: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 5,
+      minHeight: layout.tabBarItemHeight,
+    },
+    label: { ...typography.tab },
+    labelActive: { fontFamily: font.semibold },
+  });

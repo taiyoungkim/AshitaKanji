@@ -1,10 +1,10 @@
-import type { CatPose } from '~/features/onigiri/types';
+// 결과 화면 보상 카드 문구.
+// 오버라인·제목·한 줄 설명. 영문 라벨은 한국어로 (핸드오프 화면 3).
 
 export interface DoneRewardPresentation {
-  kicker: string;
+  overline: string;
   title: string;
   note: string;
-  catPose: CatPose;
 }
 
 export function buildDoneRewardPresentation({
@@ -22,35 +22,33 @@ export function buildDoneRewardPresentation({
 }): DoneRewardPresentation {
   if (failed) {
     return {
-      kicker: 'REWARD ERROR',
-      title: '보상 확인 실패',
-      note: '메뉴에서 진행도를 다시 확인해줘.',
-      catPose: 'make',
+      overline: '확인 실패',
+      title: '보상을 못 읽었어요',
+      note: '메뉴에서 진행도를 다시 확인해 주세요.',
     };
   }
 
   if (crafted) {
     return {
-      kicker: 'CRAFTED',
+      overline: '완성',
       title: onigiriName,
-      note: '오니기리가 완성됐어.',
-      catPose: 'present',
+      note: '사장이 오니기리를 하나 완성했어요.',
     };
   }
 
   if (allCollected) {
     return {
-      kicker: 'ALL COLLECTED',
-      title: 'ALL ONIGIRI',
-      note: '모든 오니기리를 완성했어.',
-      catPose: 'present',
+      overline: '수집 완료',
+      title: '전부 모았어요',
+      note: '메뉴 24종을 모두 완성했어요.',
     };
   }
 
   return {
-    kicker: 'NEW INGREDIENT',
-    title: ingredientName ?? 'NONE',
-    note: ingredientName ? '새 재료를 얻었어.' : '이번 세션에는 새 재료가 없어.',
-    catPose: 'make',
+    overline: '새 재료',
+    title: ingredientName ?? '없음',
+    note: ingredientName
+      ? '사장이 재료를 하나 건넸어요'
+      : '이번 세션에는 새 재료가 없어요',
   };
 }

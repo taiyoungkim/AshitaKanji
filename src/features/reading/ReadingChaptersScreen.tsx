@@ -11,7 +11,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { colors, fontWeight, radius, spacing, typography } from '~/design/tokens';
+import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useThemedStyles } from '~/design/theme';
 import type { JlptLevel } from '~/types/Card';
 import { chapterStatus, type ChapterStat, type ChapterStatus } from '~/types/Reading';
 import { loadLevelChapterStats } from './buildReadingEngine';
@@ -25,6 +26,7 @@ const STATUS_LABEL: Record<ChapterStatus, string> = {
 };
 
 export default function ReadingChaptersScreen(): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const router = useRouter();
   const [level, setLevel] = useState<JlptLevel>('N5');
   const [stats, setStats] = useState<ChapterStat[] | null>(null);
@@ -119,42 +121,43 @@ export default function ReadingChaptersScreen(): React.ReactNode {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.bg, padding: spacing.lg },
-  title: { ...typography.h1, color: colors.text, marginTop: spacing.sm },
-  subtitle: { ...typography.small, color: colors.textSecondary, marginBottom: spacing.lg },
-  levelRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.lg },
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+  container: { flex: 1, backgroundColor: c.softer, padding: spacing.xl },
+  title: { ...typography.screenTitle, color: c.ink, marginTop: spacing.sm },
+  subtitle: { ...typography.caption, color: c.body, marginBottom: spacing.xl },
+  levelRow: { flexDirection: 'row', gap: spacing.sm, marginBottom: spacing.xl },
   levelChip: {
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.lg,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.borderStrong,
+    borderColor: c.pressed,
   },
-  levelChipOn: { backgroundColor: colors.accent, borderColor: colors.accent },
-  levelChipText: { ...typography.body, color: colors.text, fontWeight: fontWeight.medium },
-  levelChipTextOn: { color: colors.white },
-  list: { gap: spacing.sm, paddingBottom: spacing.xxl },
-  muted: { ...typography.body, color: colors.textSecondary, textAlign: 'center', marginTop: spacing.xl },
-  mutedText: { color: colors.textTertiary },
+  levelChipOn: { backgroundColor: c.ink, borderColor: c.ink },
+  levelChipText: { ...typography.body, color: c.ink, fontFamily: font.medium },
+  levelChipTextOn: { color: c.canvas },
+  list: { gap: spacing.sm, paddingBottom: spacing.huge },
+  muted: { ...typography.body, color: c.body, textAlign: 'center', marginTop: spacing.xxl },
+  mutedText: { color: c.mute },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: colors.surface,
+    backgroundColor: c.canvas,
     borderRadius: radius.skeleton,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: c.pressed,
   },
-  rowLocked: { backgroundColor: colors.surfaceMuted },
+  rowLocked: { backgroundColor: c.soft },
   rowLeft: { gap: 2 },
-  chapterNo: { ...typography.body, color: colors.text, fontWeight: fontWeight.semibold },
-  chapterMeta: { ...typography.small, color: colors.textSecondary },
+  chapterNo: { ...typography.body, color: c.ink, fontFamily: font.semibold },
+  chapterMeta: { ...typography.caption, color: c.body },
   rowRight: { alignItems: 'flex-end', gap: spacing.xs, width: 120 },
-  bar: { width: '100%', height: 6, borderRadius: 3, backgroundColor: colors.surfaceMuted, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: colors.accent },
-  status: { ...typography.small, color: colors.textSecondary },
-  statusDone: { color: colors.accent, fontWeight: fontWeight.semibold },
+  bar: { width: '100%', height: 6, borderRadius: 3, backgroundColor: c.soft, overflow: 'hidden' },
+  barFill: { height: '100%', backgroundColor: c.ink },
+  status: { ...typography.caption, color: c.body },
+  statusDone: { color: c.ink, fontFamily: font.semibold },
 });
