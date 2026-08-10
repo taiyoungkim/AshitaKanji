@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-10T16:18:58.421Z",
+  "active_words": 6638,
+  "final_examples": 6638,
+  "coverage_percent": 100,
+  "naver_cleared_examples": 6502,
+  "self_authored_examples": 136,
+  "self_authored_by_level": {
+    "N5": 25,
+    "N4": 9,
+    "N3": 28,
+    "N2": 23,
+    "N1": 51
+  },
+  "exact_surface_containment_passed": 128,
+  "inflected_or_variant_surface_examples": 8,
+  "reference_audit": {
+    "scope": "legacy self-authored reference set; phrase-review rows carry per-row source_url/qa_note",
+    "target_count": 53,
+    "exact_hit_count": 39,
+    "any_variant_hit_count": 51,
+    "request_errors": 0
+  },
+  "qa_status_counts": {
+    "auto": 6638
+  },
+  "permission_status_counts": {
+    "cleared": 6502,
+    "self": 136
+  },
+  "outputs": {
+    "self_authored_csv": "data/pdf-vocab/self_authored_examples_qa_work.csv",
+    "final_examples_csv": "data/pdf-vocab/examples_final_qa_work.csv"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "generated_at": "2026-08-10T06:54:15.970474+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_headword_review_wordlist_final.csv",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 54,
+  "jobs": 54,
+  "preexisting": 0,
+  "planned": 54,
+  "created": 54,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_4c61acba86c4d604",
+      "kind": "example",
+      "text": "水曜日に図書館へ行きます。",
+      "file": "assets/audio/examples/w_4c61acba86c4d604.mp3"
+    },
+    {
+      "id": "w_aee488186f66c2a2",
+      "kind": "example",
+      "text": "この紙は白です。",
+      "file": "assets/audio/examples/w_aee488186f66c2a2.mp3"
+    },
+    {
+      "id": "w_26913edea9440b3b",
+      "kind": "example",
+      "text": "子供にでも出来る",
+      "file": "assets/audio/examples/w_26913edea9440b3b.mp3"
+    },
+    {
+      "id": "w_65b969c52dc19ac2",
+      "kind": "example",
+      "text": "水を少し飲みました。",
+      "file": "assets/audio/examples/w_65b969c52dc19ac2.mp3"
+    },
+    {
+      "id": "w_053f7db9e9a81e55",
+      "kind": "example",
+      "text": "友達をたぶらかして金を出させる.",
+      "file": "assets/audio/examples/w_053f7db9e9a81e55.mp3"
+    },
+    {
+      "id": "w_039c519fd62d3882",
+      "kind": "example",
+      "text": "毎朝、新聞を読みます。",
+      "file": "assets/audio/examples/w_039c519fd62d3882.mp3"
+    },
+    {
+      "id": "w_728f59d1c6f9c5f4",
+      "kind": "example",
+      "text": "ズボンを履く",
+      "file": "assets/audio/examples/w_728f59d1c6f9c5f4.mp3"
+    },
+    {
+      "id": "w_716e7b794dbcaf51",
+      "kind": "example",
+      "text": "木曜日にびょういんへいきます。",
+      "file": "assets/audio/examples/w_716e7b794dbcaf51.mp3"
+    },
+    {
+      "id": "w_9494eebc5e3647b8",
+      "kind": "example",
+      "text": "船は波間を漂った.",
+      "file": "assets/audio/examples/w_9494eebc5e3647b8.mp3"
+    },
+    {
+      "id": "w_58ebca3b2291ffb6",
+      "kind": "example",
+      "text": "リキッドタイプの石鹸",
+      "file": "assets/audio/examples/w_58ebca3b2291ffb6.mp3"
+    },
+    {
+      "id": "w_0bfe4152b243c799",
+      "kind": "example",
+      "text": "栗の実を揺り落とす",
+      "file": "assets/audio/examples/w_0bfe4152b243c799.mp3"
+    },
+    {
+      "id": "w_ec8e542da036aeea",
+      "kind": "example",
+      "text": "イ：田舎で家を一軒建てたいと思っていますが、どこが良いでしょうか？",
+      "file": "assets/audio/examples/w_ec8e542da036aeea.mp3"
+    },
+    {
+      "id": "w_1138a558fc818ae2",
+      "kind": "example",
+      "text": "隣席の人に話し掛ける.",
+      "file": "assets/audio/examples/w_1138a558fc818ae2.mp3"
+    },
+    {
+      "id": "w_f619074e36479304",
+      "kind": "example",
+      "text": "親しく手に取ってご覧になる",
+      "file": "assets/audio/examples/w_f619074e36479304.mp3"
+    },
+    {
+      "id": "w_2042955fbd7ed6b5",
+      "kind": "example",
+      "text": "話し中に電話が切れた",
+      "file": "assets/audio/examples/w_2042955fbd7ed6b5.mp3"
+    },
+    {
+      "id": "w_2a78a365c1e9575b",
+      "kind": "example",
+      "text": "振り込め詐欺の被害に遭いそうなお年寄りらに電話し、注意を呼び掛ける",
+      "file": "assets/audio/examples/w_2a78a365c1e9575b.mp3"
+    },
+    {
+      "id": "w_0014ac027b7eefb9",
+      "kind": "example",
+      "text": "人は見かけによらない",
+      "file": "assets/audio/examples/w_0014ac027b7eefb9.mp3"
+    },
+    {
+      "id": "w_157443e88683e1c9",
+      "kind": "example",
+      "text": "SPMに関わる対策が急がれる",
+      "file": "assets/audio/examples/w_157443e88683e1c9.mp3"
+    },
+    {
+      "id": "w_dcf81ee7c767ed7f",
+      "kind": "example",
+      "text": "売り上げの勘定を合わせる",
+      "file": "assets/audio/examples/w_dcf81ee7c767ed7f.mp3"
+    },
+    {
+      "id": "w_8ff22e997b700b80",
+      "kind": "example",
+      "text": "家賃をはらって受け取りをもらう",
+      "file": "assets/audio/examples/w_8ff22e997b700b80.mp3"
+    },
+    {
+      "id": "w_1e9f921233a4335f",
+      "kind": "example",
+      "text": "長い間ご無沙汰して、すみません。",
+      "file": "assets/audio/examples/w_1e9f921233a4335f.mp3"
+    },
+    {
+      "id": "w_e4c9461baa503259",
+      "kind": "example",
+      "text": "目覚ましを六時にセットして寝た。",
+      "file": "assets/audio/examples/w_e4c9461baa503259.mp3"
+    },
+    {
+      "id": "w_dc9e68a1700899e0",
+      "kind": "example",
+      "text": "ロ：先程入れましたが、温度をもっとあげますね。",
+      "file": "assets/audio/examples/w_dc9e68a1700899e0.mp3"
+    },
+    {
+      "id": "w_2c3933bd8ef5180a",
+      "kind": "example",
+      "text": "終焉の地を見出す",
+      "file": "assets/audio/examples/w_2c3933bd8ef5180a.mp3"
+    },
+    {
+      "id": "w_22b57ca13e715d81",
+      "kind": "example",
+      "text": "母は私にどこへ行っても、行儀よく振る舞うよう言った。",
+      "file": "assets/audio/examples/w_22b57ca13e715d81.mp3"
+    },
+    {
+      "id": "w_393a2f780ea3a234",
+      "kind": "example",
+      "text": "先々月、日本へ出張しました。",
+      "file": "assets/audio/examples/w_393a2f780ea3a234.mp3"
+    },
+    {
+      "id": "w_007680925f9898a2",
+      "kind": "example",
+      "text": "火口から煙が上がっている。",
+      "file": "assets/audio/examples/w_007680925f9898a2.mp3"
+    },
+    {
+      "id": "w_efac32fc7e566446",
+      "kind": "example",
+      "text": "先々週からこの本を読んでいます。",
+      "file": "assets/audio/examples/w_efac32fc7e566446.mp3"
+    },
+    {
+      "id": "w_8065e96840fda82b",
+      "kind": "example",
+      "text": "手回しをして犯人を捕らえる",
+      "file": "assets/audio/examples/w_8065e96840fda82b.mp3"
+    },
+    {
+      "id": "w_c12c4efe43384aa2",
+      "kind": "example",
+      "text": "茶色い靴を買いました。",
+      "file": "assets/audio/examples/w_c12c4efe43384aa2.mp3"
+    },
+    {
+      "id": "w_43c420f6bdcd573b",
+      "kind": "example",
+      "text": "笑いたいのを必死に堪えた。",
+      "file": "assets/audio/examples/w_43c420f6bdcd573b.mp3"
+    },
+    {
+      "id": "w_f1fcc99d67415f95",
+      "kind": "example",
+      "text": "他人の成功を羨んでも仕方がない。",
+      "file": "assets/audio/examples/w_f1fcc99d67415f95.mp3"
+    },
+    {
+      "id": "w_a66198a344df39a0",
+      "kind": "example",
+      "text": "引き算の答えをノートに書いた。",
+      "file": "assets/audio/examples/w_a66198a344df39a0.mp3"
+    },
+    {
+      "id": "w_3f7be39781ba3513",
+      "kind": "example",
+      "text": "この道は駅に通じている。",
+      "file": "assets/audio/examples/w_3f7be39781ba3513.mp3"
+    },
+    {
+      "id": "w_295d47ac323c9139",
+      "kind": "example",
+      "text": "ロ：全て日本語に変えたんですね。ご苦労さまでした。",
+      "file": "assets/audio/examples/w_295d47ac323c9139.mp3"
+    },
+    {
+      "id": "w_6be80965290001db",
+      "kind": "example",
+      "text": "大ざっぱな見積り",
+      "file": "assets/audio/examples/w_6be80965290001db.mp3"
+    },
+    {
+      "id": "w_b98563c83919ac09",
+      "kind": "example",
+      "text": "最後の一分で試合を逆転した。",
+      "file": "assets/audio/examples/w_b98563c83919ac09.mp3"
+    },
+    {
+      "id": "w_b87f291dcfcaefd7",
+      "kind": "example",
+      "text": "この器具は簡単な仕掛けだ",
+      "file": "assets/audio/examples/w_b87f291dcfcaefd7.mp3"
+    },
+    {
+      "id": "w_aa4d76b169602e1e",
+      "kind": "example",
+      "text": "彼はその事件への関与を否定した。",
+      "file": "assets/audio/examples/w_aa4d76b169602e1e.mp3"
+    },
+    {
+      "id": "w_10284144fa6f8fa9",
+      "kind": "example",
+      "text": "受付で身分証明書を提示してください。",
+      "file": "assets/audio/examples/w_10284144fa6f8fa9.mp3"
+    },
+    {
+      "id": "w_21dd11caaa9c3389",
+      "kind": "example",
+      "text": "注意事項をよく読んでください。",
+      "file": "assets/audio/examples/w_21dd11caaa9c3389.mp3"
+    },
+    {
+      "id": "w_74f7e87454f7a2e7",
+      "kind": "example",
+      "text": "今回だけは勘弁してください。",
+      "file": "assets/audio/examples/w_74f7e87454f7a2e7.mp3"
+    },
+    {
+      "id": "w_261a31967386799c",
+      "kind": "example",
+      "text": "被災者を救済する制度が必要だ。",
+      "file": "assets/audio/examples/w_261a31967386799c.mp3"
+    },
+    {
+      "id": "w_8b805c96245bb577",
+      "kind": "example",
+      "text": "官権を乱用する",
+      "file": "assets/audio/examples/w_8b805c96245bb577.mp3"
+    },
+    {
+      "id": "w_1a549e7eef1574a3",
+      "kind": "example",
+      "text": "市場の動向を注意深く見守る。",
+      "file": "assets/audio/examples/w_1a549e7eef1574a3.mp3"
+    },
+    {
+      "id": "w_2a768ef5dc0abdb7",
+      "kind": "example",
+      "text": "核 たんぱく質は細胞内の核酸とタンパク質の複合体である",
+      "file": "assets/audio/examples/w_2a768ef5dc0abdb7.mp3"
+    },
+    {
+      "id": "w_53f5a11a43999634",
+      "kind": "example",
+      "text": "ロ：傷みやすい食べ物の取り扱いに格別の注意が必要です。",
+      "file": "assets/audio/examples/w_53f5a11a43999634.mp3"
+    },
+    {
+      "id": "w_4a507c2b9903c25a",
+      "kind": "example",
+      "text": "警察の取り締まりが緩くなると、さまざまな犯罪が再び頭をもたげ始めた。",
+      "file": "assets/audio/examples/w_4a507c2b9903c25a.mp3"
+    },
+    {
+      "id": "w_2a2702f1f74ccfdc",
+      "kind": "example",
+      "text": "経験のない私では、かえって足手まといになる。",
+      "file": "assets/audio/examples/w_2a2702f1f74ccfdc.mp3"
+    },
+    {
+      "id": "w_9ab1e43c1a5da994",
+      "kind": "example",
+      "text": "受け身の形にする",
+      "file": "assets/audio/examples/w_9ab1e43c1a5da994.mp3"
+    },
+    {
+      "id": "w_e231cd88a2b8f92c",
+      "kind": "example",
+      "text": "生ぬるい処置がもどかしい",
+      "file": "assets/audio/examples/w_e231cd88a2b8f92c.mp3"
+    },
+    {
+      "id": "w_99d5ab94af6fd5e5",
+      "kind": "example",
+      "text": "カツラの木は他の木よりも早く落ち葉が落ちる。",
+      "file": "assets/audio/examples/w_99d5ab94af6fd5e5.mp3"
+    },
+    {
+      "id": "w_abc611c14f035fc6",
+      "kind": "example",
+      "text": "解決の手掛かりを求める",
+      "file": "assets/audio/examples/w_abc611c14f035fc6.mp3"
+    },
+    {
+      "id": "w_67e9a28d0777853f",
+      "kind": "example",
+      "text": "ロ：はい。戸締まりをちゃんとします。",
+      "file": "assets/audio/examples/w_67e9a28d0777853f.mp3"
+    }
+  ],
+  "elapsed_seconds": 5.548,
+  "dry_run": false
+}

@@ -1,0 +1,512 @@
+{
+  "generated_at": "2026-08-08T16:48:40.293Z",
+  "inputs": {
+    "words": "data/pdf-vocab/jlpt_final_wordlist.json",
+    "examples": "data/pdf-vocab/naver_examples_final_qa_work.csv"
+  },
+  "summary": {
+    "final_words": 6638,
+    "examples": 6585,
+    "missing": 53,
+    "coverage_percent": 99.2,
+    "inherited_examples": 1032,
+    "newly_collected_examples": 5553,
+    "structural_validation": "PASS",
+    "content_review_rows": 1560
+  },
+  "level_coverage": {
+    "N5": {
+      "total": 339,
+      "covered": 331,
+      "missing": 8
+    },
+    "N4": {
+      "total": 600,
+      "covered": 598,
+      "missing": 2
+    },
+    "N3": {
+      "total": 1499,
+      "covered": 1489,
+      "missing": 10
+    },
+    "N2": {
+      "total": 1700,
+      "covered": 1688,
+      "missing": 12
+    },
+    "N1": {
+      "total": 2500,
+      "covered": 2479,
+      "missing": 21
+    }
+  },
+  "match_type_counts": {
+    "surface": 5490,
+    "stem": 40,
+    "reading": 13,
+    "jmdict-form": 10
+  },
+  "meaning_hit_counts": {
+    "0": 728,
+    "1": 4467,
+    "2": 343,
+    "3": 15
+  },
+  "source_counts": {
+    "민중서림 엣센스 한일사전": 2612,
+    "민중서림 엣센스 일한사전": 2450,
+    "국립국어원 한국어-일본어 학습사전": 616,
+    "민중서림 엣센스 외래어사전": 373,
+    "교학사 일한사전": 235,
+    "글로벌회화": 122,
+    "플리토": 64,
+    "연세대학교 한국어학당 국가별 대표음식": 51,
+    "명언/속담": 49,
+    "사전연구사": 12,
+    "웹수집": 1
+  },
+  "duplicate_counts": {
+    "repeated_naver_example_ids": 357,
+    "rows_with_repeated_naver_example_ids": 753,
+    "repeated_japanese_texts": 359,
+    "rows_with_repeated_japanese_texts": 757
+  },
+  "checks": {
+    "final_word_count": true,
+    "unique_example_word_ids": true,
+    "all_example_ids_in_final": true,
+    "all_required_text_present": true,
+    "all_source_urls_present": true,
+    "all_permission_cleared": true,
+    "all_qa_auto": true,
+    "no_hangul_in_japanese": true,
+    "coverage_reconciles": true
+  },
+  "missing_words": [
+    {
+      "word_id": "w_5284226e672d96c5",
+      "level": "N5",
+      "surface": "にさつ",
+      "reading_kana": "にさつ",
+      "meaning_ko": "두 권(잡지)",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b24621b76259caa8",
+      "level": "N5",
+      "surface": "さんさつ",
+      "reading_kana": "さんさつ",
+      "meaning_ko": "세 권(책)",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_716e7b794dbcaf51",
+      "level": "N5",
+      "surface": "木よう日",
+      "reading_kana": "もくようび",
+      "meaning_ko": "목요일",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_72e1cb4ba34fc820",
+      "level": "N5",
+      "surface": "べんきょうがしたい",
+      "reading_kana": "べんきょうがしたい",
+      "meaning_ko": "공부를 하고 싶다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_661368cc7fe5e352",
+      "level": "N5",
+      "surface": "ひまでした",
+      "reading_kana": "ひまでした",
+      "meaning_ko": "한가했습니다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_de109ade477aaf3c",
+      "level": "N5",
+      "surface": "にぎやかです",
+      "reading_kana": "にぎやかです",
+      "meaning_ko": "떠들썩합니다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_1dc2a01d84d091eb",
+      "level": "N5",
+      "surface": "しんぶんをよむ",
+      "reading_kana": "しんぶんをよむ",
+      "meaning_ko": "신문을 읽다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a1a38e164f0a3264",
+      "level": "N5",
+      "surface": "はちじゅうえん",
+      "reading_kana": "はちじゅうえん",
+      "meaning_ko": "80엔",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_c1395761ef105cb2",
+      "level": "N4",
+      "surface": "やせましたね",
+      "reading_kana": "やせましたね",
+      "meaning_ko": "살이 빠졌네요",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_7d52aa26e8ea1bff",
+      "level": "N4",
+      "surface": "あやまりました",
+      "reading_kana": "あやまりました",
+      "meaning_ko": "사과했습니다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_d6f29ee958d55c51",
+      "level": "N3",
+      "surface": "前と同じで",
+      "reading_kana": "まえとおなじで",
+      "meaning_ko": "예전과 같이",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a71c1720e2b5e259",
+      "level": "N3",
+      "surface": "後の別の日にやる",
+      "reading_kana": "あとのべつのひにやる",
+      "meaning_ko": "나중에 다른 날에 하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_de989302383b6361",
+      "level": "N3",
+      "surface": "本当ではないと思う",
+      "reading_kana": "ほんとうではないとおもう",
+      "meaning_ko": "사실이 아니라고 생각하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_18c8394a587d12b2",
+      "level": "N3",
+      "surface": "残念だと思う",
+      "reading_kana": "ざんねんだとおもう",
+      "meaning_ko": "유감스럽다고생각하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_4b8b74ca3e33a730",
+      "level": "N3",
+      "surface": "娘の息子",
+      "reading_kana": "むすめのむすこ",
+      "meaning_ko": "딸의 아들",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_5d1903868c9f2e19",
+      "level": "N3",
+      "surface": "多すぎて残る",
+      "reading_kana": "おおすぎてのこる",
+      "meaning_ko": "너무 많아서 남다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_053241823c023c93",
+      "level": "N3",
+      "surface": "急いだようすで",
+      "reading_kana": "いそいだようすで",
+      "meaning_ko": "서두르는 모습으로",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_123b00c50a0e4b79",
+      "level": "N3",
+      "surface": "横断禁止です",
+      "reading_kana": "おうだんきんしです",
+      "meaning_ko": "횡단금지입니다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_9a24bef9d9066779",
+      "level": "N3",
+      "surface": "だれにも話さない",
+      "reading_kana": "だれにもはなさない",
+      "meaning_ko": "누구에게도 이야기하지 않는다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_34cbcd4491dcafdb",
+      "level": "N3",
+      "surface": "ないしょにする",
+      "reading_kana": "ないしょにする",
+      "meaning_ko": "비밀로 하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_4948be9f9aed94b0",
+      "level": "N2",
+      "surface": "何々",
+      "reading_kana": "なになに",
+      "meaning_ko": "그런, 이러한 그런, 이러한, 무엇",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_061c9a2227408a77",
+      "level": "N2",
+      "surface": "かたかな",
+      "reading_kana": "かたかな",
+      "meaning_ko": "가타카나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7e60069f3d1c6fe5",
+      "level": "N2",
+      "surface": "塵紙",
+      "reading_kana": "ちりがみ",
+      "meaning_ko": "휴지, 화장지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_901d2f293b5d66be",
+      "level": "N2",
+      "surface": "組合せ",
+      "reading_kana": "くみあわせ",
+      "meaning_ko": "조합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6aeb9c1f5df61e28",
+      "level": "N2",
+      "surface": "ウェイトレス",
+      "reading_kana": "ウェイトレス",
+      "meaning_ko": "웨이트리스",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d2505f7e95557e03",
+      "level": "N2",
+      "surface": "打合せ",
+      "reading_kana": "うちあわせ",
+      "meaning_ko": "사전 협의, 미팅",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a66198a344df39a0",
+      "level": "N2",
+      "surface": "引算",
+      "reading_kana": "ひきざん",
+      "meaning_ko": "뺄셈",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2a580f196c7e6bfc",
+      "level": "N2",
+      "surface": "和英",
+      "reading_kana": "わえい",
+      "meaning_ko": "일영, 일본어-영어",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7dbaaf931093de54",
+      "level": "N2",
+      "surface": "銘々",
+      "reading_kana": "めいめい",
+      "meaning_ko": "각자, 각각",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4867b4450104d27c",
+      "level": "N2",
+      "surface": "形容動詞",
+      "reading_kana": "けいようどうし",
+      "meaning_ko": "형용동사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e4c9461baa503259",
+      "level": "N2",
+      "surface": "目覚し",
+      "reading_kana": "めざまし",
+      "meaning_ko": "자명종, 알람",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c04ce01d6f5db784",
+      "level": "N2",
+      "surface": "ダイヤグラム",
+      "reading_kana": "ダイヤグラム",
+      "meaning_ko": "도표, 다이어그램",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8421448456160faa",
+      "level": "N1",
+      "surface": "今までになく新しい",
+      "reading_kana": "いままでになくあたらしい",
+      "meaning_ko": "지금까지 없이 새로운",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b81a9762ee45b4ca",
+      "level": "N1",
+      "surface": "不安なところ",
+      "reading_kana": "ふあんなところ",
+      "meaning_ko": "불안한 점",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_09817d6743813802",
+      "level": "N1",
+      "surface": "他と比べて特によい",
+      "reading_kana": "ほかとくらべてとくによい",
+      "meaning_ko": "다른 것과 비교하여 특히 좋다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_680e978c049c2d7a",
+      "level": "N1",
+      "surface": "大体同じだ",
+      "reading_kana": "だいたいおなじだ",
+      "meaning_ko": "대체로 같다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b74b3f90a0e2ef4d",
+      "level": "N1",
+      "surface": "怒ったような顔をする",
+      "reading_kana": "おこったようなかおをする",
+      "meaning_ko": "화가 난 듯한 얼굴을 하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_71ae1cd1bef418a4",
+      "level": "N1",
+      "surface": "ロスする",
+      "reading_kana": "ロスする",
+      "meaning_ko": "헛되이 쓰다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_9d5a34da95f2f027",
+      "level": "N1",
+      "surface": "詳しく丁寧に",
+      "reading_kana": "くわしくていねいに",
+      "meaning_ko": "자세하고 꼼꼼하게",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_73cded3df40c0ac2",
+      "level": "N1",
+      "surface": "一度に大勢来る",
+      "reading_kana": "いちどにおおぜいくる",
+      "meaning_ko": "한꺼번에 많이 몰려들다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_96879858cc1acc3a",
+      "level": "N1",
+      "surface": "便利で役に立つ",
+      "reading_kana": "べんりでやくにたつ",
+      "meaning_ko": "편리해서 쓸모가 있다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_6fe42c797390a279",
+      "level": "N1",
+      "surface": "意外につまらない",
+      "reading_kana": "いがいにつまらない",
+      "meaning_ko": "의외로 시시하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_56a1039c8162e796",
+      "level": "N1",
+      "surface": "細かく丁寧に",
+      "reading_kana": "こまかくていねいに",
+      "meaning_ko": "섬세하고 정성껏",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_5dfbd4797c0ee663",
+      "level": "N1",
+      "surface": "熱心に取り組む",
+      "reading_kana": "ねっしんにとりくむ",
+      "meaning_ko": "열심히 몰두하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_83e779f20086d7c7",
+      "level": "N1",
+      "surface": "簡素だ",
+      "reading_kana": "かんそだ",
+      "meaning_ko": "간소하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_3884d5cbe10b1a2d",
+      "level": "N1",
+      "surface": "曇っていて暗い",
+      "reading_kana": "くもっていてくらい",
+      "meaning_ko": "흐리고 어둡다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_2a2702f1f74ccfdc",
+      "level": "N1",
+      "surface": "手足まとい",
+      "reading_kana": "てあしまとい",
+      "meaning_ko": "방해, 훼방, 걸림돌",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_4cc19e15e367d9bf",
+      "level": "N1",
+      "surface": "つかの間の",
+      "reading_kana": "つかのまの",
+      "meaning_ko": "짧은, 잠깐 동안의",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_912da0fe9257c8dc",
+      "level": "N1",
+      "surface": "どんよりした天気だ",
+      "reading_kana": "どんよりしたてんきだ",
+      "meaning_ko": "우중충한 날씨다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_70d376775b49e19c",
+      "level": "N1",
+      "surface": "裏づけ",
+      "reading_kana": "うらづけ",
+      "meaning_ko": "뒷받침, 증거",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_9c28ebc71a102542",
+      "level": "N1",
+      "surface": "非常に素晴らしいとほめる",
+      "reading_kana": "ひじょうにすばらしいとほめる",
+      "meaning_ko": "매우 훌륭하다고 칭찬하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_628691a446bfd8e5",
+      "level": "N1",
+      "surface": "じゃまする",
+      "reading_kana": "じゃまする",
+      "meaning_ko": "방해하다, 훼방 놓다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_548067bd0dc1e719",
+      "level": "N1",
+      "surface": "返事をしぶっている",
+      "reading_kana": "へんじをしぶっている",
+      "meaning_ko": "대답하기를 꺼리다, 주저하다",
+      "category": "PDF 신규"
+    }
+  ]
+}

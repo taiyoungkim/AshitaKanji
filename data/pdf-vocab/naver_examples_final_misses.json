@@ -1,0 +1,274 @@
+{
+  "generated_at": "2026-08-08T16:45:14.039Z",
+  "elapsed_sec": 29,
+  "processed": 54,
+  "target_rows": 54,
+  "misses": 53,
+  "items": [
+    {
+      "word_id": "w_5284226e672d96c5",
+      "surface": "にさつ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_b24621b76259caa8",
+      "surface": "さんさつ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_716e7b794dbcaf51",
+      "surface": "木よう日",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_72e1cb4ba34fc820",
+      "surface": "べんきょうがしたい",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_661368cc7fe5e352",
+      "surface": "ひまでした",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_de109ade477aaf3c",
+      "surface": "にぎやかです",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_1dc2a01d84d091eb",
+      "surface": "しんぶんをよむ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_a1a38e164f0a3264",
+      "surface": "はちじゅうえん",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_c1395761ef105cb2",
+      "surface": "やせましたね",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_7d52aa26e8ea1bff",
+      "surface": "あやまりました",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_d6f29ee958d55c51",
+      "surface": "前と同じで",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_a71c1720e2b5e259",
+      "surface": "後の別の日にやる",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_de989302383b6361",
+      "surface": "本当ではないと思う",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_18c8394a587d12b2",
+      "surface": "残念だと思う",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_4b8b74ca3e33a730",
+      "surface": "娘の息子",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_5d1903868c9f2e19",
+      "surface": "多すぎて残る",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_053241823c023c93",
+      "surface": "急いだようすで",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_123b00c50a0e4b79",
+      "surface": "横断禁止です",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_9a24bef9d9066779",
+      "surface": "だれにも話さない",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_34cbcd4491dcafdb",
+      "surface": "ないしょにする",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_4948be9f9aed94b0",
+      "surface": "何々",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_061c9a2227408a77",
+      "surface": "かたかな",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_7e60069f3d1c6fe5",
+      "surface": "塵紙",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_901d2f293b5d66be",
+      "surface": "組合せ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_6aeb9c1f5df61e28",
+      "surface": "ウェイトレス",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_d2505f7e95557e03",
+      "surface": "打合せ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_a66198a344df39a0",
+      "surface": "引算",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_2a580f196c7e6bfc",
+      "surface": "和英",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_7dbaaf931093de54",
+      "surface": "銘々",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_4867b4450104d27c",
+      "surface": "形容動詞",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_e4c9461baa503259",
+      "surface": "目覚し",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_c04ce01d6f5db784",
+      "surface": "ダイヤグラム",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_8421448456160faa",
+      "surface": "今までになく新しい",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_b81a9762ee45b4ca",
+      "surface": "不安なところ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_09817d6743813802",
+      "surface": "他と比べて特によい",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_680e978c049c2d7a",
+      "surface": "大体同じだ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_b74b3f90a0e2ef4d",
+      "surface": "怒ったような顔をする",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_71ae1cd1bef418a4",
+      "surface": "ロスする",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_9d5a34da95f2f027",
+      "surface": "詳しく丁寧に",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_73cded3df40c0ac2",
+      "surface": "一度に大勢来る",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_96879858cc1acc3a",
+      "surface": "便利で役に立つ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_6fe42c797390a279",
+      "surface": "意外につまらない",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_56a1039c8162e796",
+      "surface": "細かく丁寧に",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_5dfbd4797c0ee663",
+      "surface": "熱心に取り組む",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_83e779f20086d7c7",
+      "surface": "簡素だ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_3884d5cbe10b1a2d",
+      "surface": "曇っていて暗い",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_2a2702f1f74ccfdc",
+      "surface": "手足まとい",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_4cc19e15e367d9bf",
+      "surface": "つかの間の",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_912da0fe9257c8dc",
+      "surface": "どんよりした天気だ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_70d376775b49e19c",
+      "surface": "裏づけ",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_9c28ebc71a102542",
+      "surface": "非常に素晴らしいとほめる",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_628691a446bfd8e5",
+      "surface": "じゃまする",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_548067bd0dc1e719",
+      "surface": "返事をしぶっている",
+      "reason": "no usable translated example"
+    }
+  ]
+}

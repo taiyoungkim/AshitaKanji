@@ -1,0 +1,1543 @@
+{
+  "generated_at": "2026-08-10T16:18:37.422624+00:00",
+  "policy": {
+    "goal": "PDF 핵심 어휘를 모두 학습 콘텐츠로 보존하면서 단어 카드의 표제어는 사전 기본형으로 정리한다.",
+    "collocations": "조합 가능한 구문형 표제어는 별도 카드에서 제거하고 관련 단어 카드의 예문으로 이관한다.",
+    "explanatory_phrases": "동의어 설명문은 별도 카드에서 제거하고 대응하는 실제 표제어에 PDF 출처를 연결한다.",
+    "inflections": "정중형·활용형은 사전 기본형으로 정규화하고 이미 기본형 카드가 있으면 병합한다.",
+    "fixed_expressions": "사전적으로 독립된 관용·인사 표현은 유지한다.",
+    "count_invariant": "레벨별 339/600/1499/1700/2500개와 전체 6638개를 유지한다."
+  },
+  "summary": {
+    "input_count": 6638,
+    "normalizations_in_place": 6,
+    "inflection_merges": 18,
+    "phrase_removals": 63,
+    "collocation_example_promotions": 14,
+    "backfills": 81,
+    "backfill_counts": {
+      "N5": 9,
+      "N4": 7,
+      "N3": 26,
+      "N2": 1,
+      "N1": 38
+    },
+    "final_count": 6638,
+    "level_counts": {
+      "N5": 339,
+      "N4": 600,
+      "N3": 1499,
+      "N2": 1700,
+      "N1": 2500
+    },
+    "unique_pairs": 6638,
+    "example_count": 6638
+  },
+  "normalized": [
+    {
+      "id": "w_49d4a04f0684a107",
+      "old_surface": "下手です",
+      "old_reading": "へたです",
+      "surface": "下手",
+      "reading_kana": "へた"
+    },
+    {
+      "id": "w_de109ade477aaf3c",
+      "old_surface": "賑やかです",
+      "old_reading": "にぎやかです",
+      "surface": "賑やか",
+      "reading_kana": "にぎやか"
+    },
+    {
+      "id": "w_2469bcc59515558e",
+      "old_surface": "気に入っている",
+      "old_reading": "きにいっている",
+      "surface": "気に入る",
+      "reading_kana": "きにいる"
+    },
+    {
+      "id": "w_123b00c50a0e4b79",
+      "old_surface": "横断禁止です",
+      "old_reading": "おうだんきんしです",
+      "surface": "横断禁止",
+      "reading_kana": "おうだんきんし"
+    },
+    {
+      "id": "w_95c7513478ff8738",
+      "old_surface": "混雑している",
+      "old_reading": "こんざつしている",
+      "surface": "混雑",
+      "reading_kana": "こんざつ"
+    },
+    {
+      "id": "w_c1de77401a2512e8",
+      "old_surface": "ぼんやりしている",
+      "old_reading": "ぼんやりしている",
+      "surface": "ぼんやり",
+      "reading_kana": "ぼんやり"
+    }
+  ],
+  "merged_inflections": [
+    {
+      "removed_id": "w_d8b942a0bbdb88b3",
+      "retained_id": "w_c8d120064fb5fe5a",
+      "source_surface": "違います",
+      "target_surface": "違う",
+      "target_reading": "ちがう",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_9ac4eb19ccb26979",
+      "retained_id": "w_5fea848de2213d5f",
+      "source_surface": "嫌いです",
+      "target_surface": "嫌い",
+      "target_reading": "きらい",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_89e001a5ce85e728",
+      "retained_id": "w_3b99165f45748b41",
+      "source_surface": "綺麗です",
+      "target_surface": "綺麗",
+      "target_reading": "きれい",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_661368cc7fe5e352",
+      "retained_id": "w_aef420c79bbeb170",
+      "source_surface": "暇でした",
+      "target_surface": "暇",
+      "target_reading": "ひま",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_5d44d44a212aa9b3",
+      "retained_id": "w_9a2b0c8c1398bdf8",
+      "source_surface": "嘘です",
+      "target_surface": "嘘",
+      "target_reading": "うそ",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_c5ae09d783203646",
+      "retained_id": "w_71734773320f58ba",
+      "source_surface": "しっかりしている",
+      "target_surface": "しっかり",
+      "target_reading": "しっかり",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_9f4e85bedd654fca",
+      "retained_id": "w_e3ac48305532880a",
+      "source_surface": "危険です",
+      "target_surface": "危険",
+      "target_reading": "きけん",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_c1395761ef105cb2",
+      "retained_id": "w_d11e6635168b8772",
+      "source_surface": "痩せましたね",
+      "target_surface": "痩せる",
+      "target_reading": "やせる",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_7d52aa26e8ea1bff",
+      "retained_id": "w_40d9c28d25a9a53e",
+      "source_surface": "謝りました",
+      "target_surface": "謝る",
+      "target_reading": "あやまる",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_f068c9d471b0c6a2",
+      "retained_id": "w_5ebc893f4c292db6",
+      "source_surface": "カーブしている",
+      "target_surface": "カーブ",
+      "target_reading": "カーブ",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_4f9a8aa04663a690",
+      "retained_id": "w_991b3f178bb17c4b",
+      "source_surface": "曲がっている",
+      "target_surface": "曲がる",
+      "target_reading": "まがる",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_87a16f1df8f53f13",
+      "retained_id": "w_64d7f2701ad55caf",
+      "source_surface": "明るすぎる",
+      "target_surface": "明るい",
+      "target_reading": "あかるい",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_ae211a48bc00a86c",
+      "retained_id": "w_33e620d8eaf9dd33",
+      "source_surface": "はっきりしている",
+      "target_surface": "はっきり",
+      "target_reading": "はっきり",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_6d994165543beb2c",
+      "retained_id": "w_ca953bed102a78e0",
+      "source_surface": "刺激される",
+      "target_surface": "刺激",
+      "target_reading": "しげき",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_eb209b259c1fdbb7",
+      "retained_id": "w_ad278162220ff848",
+      "source_surface": "漠然としている",
+      "target_surface": "漠然と",
+      "target_reading": "ばくぜんと",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_e848588a759daed3",
+      "retained_id": "w_fb689de73bf56585",
+      "source_surface": "触発される",
+      "target_surface": "触発",
+      "target_reading": "しょくはつ",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_c2f2731ceb3bad23",
+      "retained_id": "w_acc5104c96bffa73",
+      "source_surface": "歴然としている",
+      "target_surface": "歴然と",
+      "target_reading": "れきぜんと",
+      "kind": "inflection-merge"
+    },
+    {
+      "removed_id": "w_70b4e5c2f2319ca3",
+      "retained_id": "w_f8828c1e725c917d",
+      "source_surface": "諦めずに",
+      "target_surface": "諦める",
+      "target_reading": "あきらめる",
+      "kind": "inflection-merge"
+    }
+  ],
+  "removed_phrases": [
+    {
+      "removed_id": "w_72e1cb4ba34fc820",
+      "surface": "勉強がしたい",
+      "level": "N5",
+      "target_id": "w_80121247ba5c6668",
+      "target_surface": "勉強",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_1dc2a01d84d091eb",
+      "surface": "新聞を読む",
+      "level": "N5",
+      "target_id": "w_039c519fd62d3882",
+      "target_surface": "新聞",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_b98ec43cc7ba192f",
+      "surface": "お風呂に入る",
+      "level": "N5",
+      "target_id": "w_c650245fe94b2d55",
+      "target_surface": "お風呂",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_1183a3688186cdef",
+      "surface": "シャワーを浴びる",
+      "level": "N5",
+      "target_id": "w_b69623c9f42326bc",
+      "target_surface": "浴びる",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_03bf1e956aafced1",
+      "surface": "風邪をひく",
+      "level": "N5",
+      "target_id": "w_e08e5b558857d76c",
+      "target_surface": "風邪",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_4f72173f593c933a",
+      "surface": "変な味がする",
+      "level": "N4",
+      "target_id": "w_be4b2b8277c1d5eb",
+      "target_surface": "味",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_f512b11ec146e858",
+      "surface": "役に立つ",
+      "level": "N4",
+      "target_id": "w_f06af9fbb03b953c",
+      "target_surface": "役",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_97e848d99b0eff6d",
+      "surface": "傘をさす",
+      "level": "N4",
+      "target_id": "w_d317994d8c83fe94",
+      "target_surface": "傘",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_d39a0c8f7105a58a",
+      "surface": "身につける",
+      "level": "N3",
+      "target_id": "w_370695fd7f9ee2ba",
+      "target_surface": "身",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_34cbcd4491dcafdb",
+      "surface": "内緒にする",
+      "level": "N3",
+      "target_id": "w_82a8a19743899089",
+      "target_surface": "内緒",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_39ec9ad92d0e9f08",
+      "surface": "気を付ける",
+      "level": "N2",
+      "target_id": "w_8619e53d00fa496b",
+      "target_surface": "注意",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_4030e30a977d39b6",
+      "surface": "選挙に出る",
+      "level": "N1",
+      "target_id": "w_52ca205b3d7f3971",
+      "target_surface": "出る",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_7fe2ff30db30111e",
+      "surface": "刺激を受ける",
+      "level": "N1",
+      "target_id": "w_ca953bed102a78e0",
+      "target_surface": "刺激",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_e02f522a68466292",
+      "surface": "愚痴を言う",
+      "level": "N1",
+      "target_id": "w_179d9fa903e31f9e",
+      "target_surface": "愚痴",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_acc6798aceed53a4",
+      "surface": "下を向く",
+      "level": "N1",
+      "target_id": "w_97fd38bc63ce46e6",
+      "target_surface": "方向",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_fdd5e4d1e73ffe51",
+      "surface": "口数が少ない",
+      "level": "N1",
+      "target_id": "w_1046b061849458f3",
+      "target_surface": "少ない",
+      "kind": "collocation"
+    },
+    {
+      "removed_id": "w_d6f29ee958d55c51",
+      "surface": "前と同じで",
+      "level": "N3",
+      "target_id": "w_03eba004293715ee",
+      "target_surface": "相変わらず",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_c0cb5514af816dfa",
+      "surface": "次の年",
+      "level": "N3",
+      "target_id": "w_2d98b61954342b91",
+      "target_surface": "翌年",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_cb5ee882ca9fd66f",
+      "surface": "同じところ",
+      "level": "N3",
+      "target_id": "w_00d4464d8556265c",
+      "target_surface": "共通点",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_9c155df0e132e241",
+      "surface": "何も言わずに",
+      "level": "N3",
+      "target_id": "w_ca75d89cd5674c1a",
+      "target_surface": "黙る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_537d9608ea3a2d2a",
+      "surface": "少し前に",
+      "level": "N3",
+      "target_id": "w_f47ff1eed7e97a5c",
+      "target_surface": "さっき",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_33571f15e356f407",
+      "surface": "仕事に行く",
+      "level": "N3",
+      "target_id": "w_b17b2545216b564f",
+      "target_surface": "通勤する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_cf1351dc563ad35e",
+      "surface": "悪いところ",
+      "level": "N3",
+      "target_id": "w_4cc98de159aa2795",
+      "target_surface": "欠点",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_a71c1720e2b5e259",
+      "surface": "後の別の日にやる",
+      "level": "N3",
+      "target_id": "w_6577940e5e5f2813",
+      "target_surface": "延期する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_de989302383b6361",
+      "surface": "本当ではないと思う",
+      "level": "N3",
+      "target_id": "w_5701ed73ffb1244a",
+      "target_surface": "疑う",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_18c8394a587d12b2",
+      "surface": "残念だと思う",
+      "level": "N3",
+      "target_id": "w_7324984adc736a5d",
+      "target_surface": "がっかりする",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_4b8b74ca3e33a730",
+      "surface": "娘の息子",
+      "level": "N3",
+      "target_id": "w_67b726b2a8728054",
+      "target_surface": "孫",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_8fed8addd039ba92",
+      "surface": "客がたくさんいる",
+      "level": "N3",
+      "target_id": "w_95c7513478ff8738",
+      "target_surface": "混雑",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_b8f388821769759e",
+      "surface": "上手にできる",
+      "level": "N3",
+      "target_id": "w_587d525e8f77f2d2",
+      "target_surface": "得意",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_68887c67e5a02b65",
+      "surface": "たくさん残る",
+      "level": "N3",
+      "target_id": "w_f9e0f3dbb59a25b1",
+      "target_surface": "溜まる",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_5d1903868c9f2e19",
+      "surface": "多すぎて残る",
+      "level": "N3",
+      "target_id": "w_fa49af9b638a1de5",
+      "target_surface": "余る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_1fe0b681b7d7919a",
+      "surface": "もう一度やる",
+      "level": "N3",
+      "target_id": "w_36e68594c223ca15",
+      "target_surface": "やり直す",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_053241823c023c93",
+      "surface": "急いだようすで",
+      "level": "N3",
+      "target_id": "w_70953a9f6c527285",
+      "target_surface": "慌てる",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_3c21f136b484b934",
+      "surface": "すぐ怒る",
+      "level": "N3",
+      "target_id": "w_cf691fc505c3c55d",
+      "target_surface": "短気だ",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_a596d25683bf9187",
+      "surface": "全部売れる",
+      "level": "N3",
+      "target_id": "w_3f46b28da139c16c",
+      "target_surface": "売り切れる",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_9a24bef9d9066779",
+      "surface": "だれにも話さない",
+      "level": "N3",
+      "target_id": "w_82a8a19743899089",
+      "target_surface": "内緒",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_1a3b841e60efdd0f",
+      "surface": "大声で怒る",
+      "level": "N3",
+      "target_id": "w_72943e17cc2418be",
+      "target_surface": "怒鳴る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_8421448456160faa",
+      "surface": "今までになく新しい",
+      "level": "N1",
+      "target_id": "w_aa68a8b2526c2b57",
+      "target_surface": "画期的な",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_cf9f79fa33cf142c",
+      "surface": "差がない",
+      "level": "N1",
+      "target_id": "w_d470c6e8ff9c7565",
+      "target_surface": "拮抗する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_c2f4b32873de1349",
+      "surface": "悪く言われる",
+      "level": "N1",
+      "target_id": "w_86dda28881eccc25",
+      "target_surface": "批判",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_b81a9762ee45b4ca",
+      "surface": "不安なところ",
+      "level": "N1",
+      "target_id": "w_6803e7402a3d2c0a",
+      "target_surface": "難点",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_4d18ab477dac1679",
+      "surface": "小さな声で言う",
+      "level": "N1",
+      "target_id": "w_823390f8452e7d8b",
+      "target_surface": "呟く",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_fe9f302ea20dafd8",
+      "surface": "早く正確に",
+      "level": "N1",
+      "target_id": "w_64273f22846e27af",
+      "target_surface": "てきぱきと",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_df2d7f9d4153a9cb",
+      "surface": "遅くなる",
+      "level": "N1",
+      "target_id": "w_b77b8bce2e1f685d",
+      "target_surface": "ずれ込む",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_09817d6743813802",
+      "surface": "他と比べて特によい",
+      "level": "N1",
+      "target_id": "w_c45dbcc25b8ccd67",
+      "target_surface": "抜群",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_680e978c049c2d7a",
+      "surface": "大体同じだ",
+      "level": "N1",
+      "target_id": "w_be6c610da5c1ab8d",
+      "target_surface": "互角",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_b74b3f90a0e2ef4d",
+      "surface": "怒ったような顔をする",
+      "level": "N1",
+      "target_id": "w_d07cea24a5a27e75",
+      "target_surface": "むっとする",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_e15fdd2f41746dcc",
+      "surface": "とても驚く",
+      "level": "N1",
+      "target_id": "w_cce1b7628e267db8",
+      "target_surface": "仰天する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_9d5a34da95f2f027",
+      "surface": "詳しく丁寧に",
+      "level": "N1",
+      "target_id": "w_4a9ade7c35cb2e1c",
+      "target_surface": "克明に",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_73cded3df40c0ac2",
+      "surface": "一度に大勢来る",
+      "level": "N1",
+      "target_id": "w_defd9d02b12711f7",
+      "target_surface": "殺到する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_d9dd1a570534b6da",
+      "surface": "できるだけ早く",
+      "level": "N1",
+      "target_id": "w_4f3c623502b2e1fc",
+      "target_surface": "速やかに",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_0b7a8c727e189fa0",
+      "surface": "必死に頑張る",
+      "level": "N1",
+      "target_id": "w_62b886c401fcec37",
+      "target_surface": "奮闘する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_6a40525856bc91ff",
+      "surface": "順調に進む",
+      "level": "N1",
+      "target_id": "w_366b4df014f1ce9e",
+      "target_surface": "捗る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_96879858cc1acc3a",
+      "surface": "便利で役に立つ",
+      "level": "N1",
+      "target_id": "w_cbb8e3b9a558d072",
+      "target_surface": "重宝する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_6fe42c797390a279",
+      "surface": "意外につまらない",
+      "level": "N1",
+      "target_id": "w_44435dfc11169488",
+      "target_surface": "あっけない",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_feed3f6c9287d993",
+      "surface": "薄く切る",
+      "level": "N1",
+      "target_id": "w_34c7b578bcbd18fd",
+      "target_surface": "スライスする",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_b78ced3f73891298",
+      "surface": "うれしい知らせ",
+      "level": "N1",
+      "target_id": "w_893770c5ac9cbc04",
+      "target_surface": "朗報",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_56a1039c8162e796",
+      "surface": "細かく丁寧に",
+      "level": "N1",
+      "target_id": "w_32612a89b52bb564",
+      "target_surface": "入念に",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_5dfbd4797c0ee663",
+      "surface": "熱心に取り組む",
+      "level": "N1",
+      "target_id": "w_f5b156d34a2300a2",
+      "target_surface": "打ち込む",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_3884d5cbe10b1a2d",
+      "surface": "曇っていて暗い",
+      "level": "N1",
+      "target_id": "w_36d22dc998793dad",
+      "target_surface": "曇る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_912da0fe9257c8dc",
+      "surface": "どんよりした天気だ",
+      "level": "N1",
+      "target_id": "w_36d22dc998793dad",
+      "target_surface": "曇る",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_9c28ebc71a102542",
+      "surface": "非常に素晴らしいとほめる",
+      "level": "N1",
+      "target_id": "w_5bfd7d5f0bb9e5f0",
+      "target_surface": "絶賛する",
+      "kind": "explanatory"
+    },
+    {
+      "removed_id": "w_548067bd0dc1e719",
+      "surface": "返事をしぶっている",
+      "level": "N1",
+      "target_id": "w_9e33dceb0d820298",
+      "target_surface": "躊躇う",
+      "kind": "explanatory"
+    }
+  ],
+  "promoted_collocation_examples": [
+    {
+      "from_id": "w_72e1cb4ba34fc820",
+      "to_id": "w_80121247ba5c6668",
+      "phrase": "勉強がしたい"
+    },
+    {
+      "from_id": "w_1dc2a01d84d091eb",
+      "to_id": "w_039c519fd62d3882",
+      "phrase": "新聞を読む"
+    },
+    {
+      "from_id": "w_b98ec43cc7ba192f",
+      "to_id": "w_c650245fe94b2d55",
+      "phrase": "お風呂に入る"
+    },
+    {
+      "from_id": "w_1183a3688186cdef",
+      "to_id": "w_b69623c9f42326bc",
+      "phrase": "シャワーを浴びる"
+    },
+    {
+      "from_id": "w_03bf1e956aafced1",
+      "to_id": "w_e08e5b558857d76c",
+      "phrase": "風邪をひく"
+    },
+    {
+      "from_id": "w_4f72173f593c933a",
+      "to_id": "w_be4b2b8277c1d5eb",
+      "phrase": "変な味がする"
+    },
+    {
+      "from_id": "w_f512b11ec146e858",
+      "to_id": "w_f06af9fbb03b953c",
+      "phrase": "役に立つ"
+    },
+    {
+      "from_id": "w_97e848d99b0eff6d",
+      "to_id": "w_d317994d8c83fe94",
+      "phrase": "傘をさす"
+    },
+    {
+      "from_id": "w_d39a0c8f7105a58a",
+      "to_id": "w_370695fd7f9ee2ba",
+      "phrase": "身につける"
+    },
+    {
+      "from_id": "w_34cbcd4491dcafdb",
+      "to_id": "w_82a8a19743899089",
+      "phrase": "内緒にする"
+    },
+    {
+      "from_id": "w_4030e30a977d39b6",
+      "to_id": "w_52ca205b3d7f3971",
+      "phrase": "選挙に出る"
+    },
+    {
+      "from_id": "w_7fe2ff30db30111e",
+      "to_id": "w_ca953bed102a78e0",
+      "phrase": "刺激を受ける"
+    },
+    {
+      "from_id": "w_e02f522a68466292",
+      "to_id": "w_179d9fa903e31f9e",
+      "phrase": "愚痴を言う"
+    },
+    {
+      "from_id": "w_fdd5e4d1e73ffe51",
+      "to_id": "w_1046b061849458f3",
+      "phrase": "口数が少ない"
+    }
+  ],
+  "backfills": [
+    {
+      "id": "w_750cfe21b3229db6",
+      "level": "N5",
+      "surface": "これ",
+      "reading_kana": "これ",
+      "meaning_ko": "이것",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_98e68681f275b2c8",
+      "level": "N5",
+      "surface": "ここ",
+      "reading_kana": "ここ",
+      "meaning_ko": "여기",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_544139731cfe7ca3",
+      "level": "N5",
+      "surface": "あなた",
+      "reading_kana": "あなた",
+      "meaning_ko": "당신, 너",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_f89e0ddb634dd390",
+      "level": "N5",
+      "surface": "しかし",
+      "reading_kana": "しかし",
+      "meaning_ko": "그러나",
+      "part_of_speech": "conjunction"
+    },
+    {
+      "id": "w_0385d7c8467b50dd",
+      "level": "N5",
+      "surface": "いつ",
+      "reading_kana": "いつ",
+      "meaning_ko": "언제",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_224056d82bff1d52",
+      "level": "N5",
+      "surface": "カメラ",
+      "reading_kana": "カメラ",
+      "meaning_ko": "카메라",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_77c93537e7c5e4fd",
+      "level": "N5",
+      "surface": "いくつ",
+      "reading_kana": "いくつ",
+      "meaning_ko": "몇 개, 몇 살",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_efc870af9d3fa211",
+      "level": "N5",
+      "surface": "シャワー",
+      "reading_kana": "シャワー",
+      "meaning_ko": "샤워",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_7b2c455e4c556f13",
+      "level": "N5",
+      "surface": "あれ",
+      "reading_kana": "あれ",
+      "meaning_ko": "그것(저쪽, 거기)",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_d6a5cf39dd557c41",
+      "level": "N4",
+      "surface": "それほど",
+      "reading_kana": "それほど",
+      "meaning_ko": "그 정도, 그렇게까지",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_09596ca95ad863e9",
+      "level": "N4",
+      "surface": "よろしい",
+      "reading_kana": "よろしい",
+      "meaning_ko": "좋다; 괜찮다(정중 표현)",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_926081e6aef5ddde",
+      "level": "N4",
+      "surface": "くださる",
+      "reading_kana": "くださる",
+      "meaning_ko": "주시다",
+      "part_of_speech": "verb"
+    },
+    {
+      "id": "w_231788f2e4be23bc",
+      "level": "N4",
+      "surface": "おっしゃる",
+      "reading_kana": "おっしゃる",
+      "meaning_ko": "말씀하시다",
+      "part_of_speech": "verb"
+    },
+    {
+      "id": "w_6f016ba1c9fb2b8d",
+      "level": "N4",
+      "surface": "もうすぐ",
+      "reading_kana": "もうすぐ",
+      "meaning_ko": "곧, 머지않아",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_bc62d500b1c7560e",
+      "level": "N4",
+      "surface": "いじめる",
+      "reading_kana": "いじめる",
+      "meaning_ko": "괴롭히다",
+      "part_of_speech": "verb"
+    },
+    {
+      "id": "w_98c5ecbe9b1af8f0",
+      "level": "N4",
+      "surface": "ひげ",
+      "reading_kana": "ひげ",
+      "meaning_ko": "수염",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_f007df3b1f8867ce",
+      "level": "N3",
+      "surface": "かなり",
+      "reading_kana": "かなり",
+      "meaning_ko": "상당히, 꽤",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_155335c07d28c16f",
+      "level": "N3",
+      "surface": "いつでも",
+      "reading_kana": "いつでも",
+      "meaning_ko": "언제든지(에서), 항상",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_7af4c6f5925e6489",
+      "level": "N3",
+      "surface": "いつまでも",
+      "reading_kana": "いつまでも",
+      "meaning_ko": "언제까지나, 영원히",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_0fdee89d4ad3a5cd",
+      "level": "N3",
+      "surface": "しかも",
+      "reading_kana": "しかも",
+      "meaning_ko": "게다가, 더욱이",
+      "part_of_speech": "conjunction"
+    },
+    {
+      "id": "w_ee8feeec8a1af066",
+      "level": "N3",
+      "surface": "これら",
+      "reading_kana": "これら",
+      "meaning_ko": "이것들",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_ff1cb7abea5c169d",
+      "level": "N3",
+      "surface": "いずれ",
+      "reading_kana": "いずれ",
+      "meaning_ko": "어느 것; 머지않아",
+      "part_of_speech": "pronoun"
+    },
+    {
+      "id": "w_45ab19ce71cbb933",
+      "level": "N3",
+      "surface": "あるいは",
+      "reading_kana": "あるいは",
+      "meaning_ko": "또는, 아마",
+      "part_of_speech": "conjunction"
+    },
+    {
+      "id": "w_44f5a21a231cf355",
+      "level": "N3",
+      "surface": "いつか",
+      "reading_kana": "いつか",
+      "meaning_ko": "언젠가; 어느 날",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_ca920ef451a01aa8",
+      "level": "N3",
+      "surface": "さて",
+      "reading_kana": "さて",
+      "meaning_ko": "그런데, 자",
+      "part_of_speech": "conjunction"
+    },
+    {
+      "id": "w_0786b0efd583cdb2",
+      "level": "N3",
+      "surface": "まるで",
+      "reading_kana": "まるで",
+      "meaning_ko": "마치, 꼭",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_0513d7c7e92231c6",
+      "level": "N3",
+      "surface": "いわゆる",
+      "reading_kana": "いわゆる",
+      "meaning_ko": "이른바, 소위",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_68b2b28244f5b063",
+      "level": "N3",
+      "surface": "やや",
+      "reading_kana": "やや",
+      "meaning_ko": "약간, 다소",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_cd94ea8ce1292469",
+      "level": "N3",
+      "surface": "およそ",
+      "reading_kana": "およそ",
+      "meaning_ko": "대략, 대체로",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_e54a70b56626a03a",
+      "level": "N3",
+      "surface": "もしも",
+      "reading_kana": "もしも",
+      "meaning_ko": "만약",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_99b30f0a1c898b11",
+      "level": "N3",
+      "surface": "もったいない",
+      "reading_kana": "もったいない",
+      "meaning_ko": "아깝다, 과분하다",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_bb0e4760b8f1abb5",
+      "level": "N3",
+      "surface": "やがて",
+      "reading_kana": "やがて",
+      "meaning_ko": "이윽고, 머지않아",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_6dd31bd87ca4777f",
+      "level": "N3",
+      "surface": "休暇",
+      "reading_kana": "きゅうか",
+      "meaning_ko": "휴가",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_fda3d35a526eb704",
+      "level": "N3",
+      "surface": "座席",
+      "reading_kana": "ざせき",
+      "meaning_ko": "좌석",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_3d01f1458f83af8d",
+      "level": "N3",
+      "surface": "羨ましい",
+      "reading_kana": "うらやましい",
+      "meaning_ko": "부럽다",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_b5c8f8f43bf4f711",
+      "level": "N3",
+      "surface": "乗客",
+      "reading_kana": "じょうきゃく",
+      "meaning_ko": "승객",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_656c401cc69460e4",
+      "level": "N3",
+      "surface": "売れる",
+      "reading_kana": "うれる",
+      "meaning_ko": "팔리다",
+      "part_of_speech": "verb"
+    },
+    {
+      "id": "w_07e4ad7c90c9f270",
+      "level": "N3",
+      "surface": "光景",
+      "reading_kana": "こうけい",
+      "meaning_ko": "광경, 정경",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_5ad84e6efba38e04",
+      "level": "N3",
+      "surface": "穏やか",
+      "reading_kana": "おだやか",
+      "meaning_ko": "온화함, 평온함",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_4c1661c06daf7f7a",
+      "level": "N3",
+      "surface": "恐らく",
+      "reading_kana": "おそらく",
+      "meaning_ko": "아마",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_27a721e78687b340",
+      "level": "N3",
+      "surface": "順調",
+      "reading_kana": "じゅんちょう",
+      "meaning_ko": "순조로움",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_32843a7515d283bd",
+      "level": "N3",
+      "surface": "公平",
+      "reading_kana": "こうへい",
+      "meaning_ko": "공평함, 공정함",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_946ea69fd5cfd9ec",
+      "level": "N2",
+      "surface": "いよいよ",
+      "reading_kana": "いよいよ",
+      "meaning_ko": "마침내, 드디어",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_abbb0d75fda64d06",
+      "level": "N1",
+      "surface": "もしくは",
+      "reading_kana": "もしくは",
+      "meaning_ko": "또는, 그렇지 않으면",
+      "part_of_speech": "conjunction"
+    },
+    {
+      "id": "w_6a8b9fc35622cafd",
+      "level": "N1",
+      "surface": "かつて",
+      "reading_kana": "かつて",
+      "meaning_ko": "한 번, 전",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_0749cb9bf874ff70",
+      "level": "N1",
+      "surface": "わざわざ",
+      "reading_kana": "わざわざ",
+      "meaning_ko": "일부러, 번거롭게도",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_e95c54bc071c4506",
+      "level": "N1",
+      "surface": "風俗",
+      "reading_kana": "ふうぞく",
+      "meaning_ko": "풍속",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_45c375e94f7656fe",
+      "level": "N1",
+      "surface": "勢力",
+      "reading_kana": "せいりょく",
+      "meaning_ko": "세력",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_dd2e5667291d8b49",
+      "level": "N1",
+      "surface": "もしかして",
+      "reading_kana": "もしかして",
+      "meaning_ko": "아마, 어쩌면",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_adf721446e795271",
+      "level": "N1",
+      "surface": "いかに",
+      "reading_kana": "いかに",
+      "meaning_ko": "어떻게, 얼마나",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_79707d3c49949938",
+      "level": "N1",
+      "surface": "まして",
+      "reading_kana": "まして",
+      "meaning_ko": "하물며, 더구나",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_2119dd3cac2a55fa",
+      "level": "N1",
+      "surface": "救い",
+      "reading_kana": "すくい",
+      "meaning_ko": "구원; 도움",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_cf3403f54f35fc2a",
+      "level": "N1",
+      "surface": "身近",
+      "reading_kana": "みぢか",
+      "meaning_ko": "가까움; 친근함",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_7afeef330fc15b64",
+      "level": "N1",
+      "surface": "中断",
+      "reading_kana": "ちゅうだん",
+      "meaning_ko": "중단",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_b44f480ca7aab826",
+      "level": "N1",
+      "surface": "意向",
+      "reading_kana": "いこう",
+      "meaning_ko": "의향, 의도",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_cf8ca12b18f7c25c",
+      "level": "N1",
+      "surface": "分裂",
+      "reading_kana": "ぶんれつ",
+      "meaning_ko": "분열",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_e8daa12da79cf049",
+      "level": "N1",
+      "surface": "手当",
+      "reading_kana": "てあて",
+      "meaning_ko": "수당; 처치, 치료",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_939aa72a47ad3ceb",
+      "level": "N1",
+      "surface": "ふさわしい",
+      "reading_kana": "ふさわしい",
+      "meaning_ko": "어울리다, 적합하다",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_3a00e4e99b5969c2",
+      "level": "N1",
+      "surface": "区画",
+      "reading_kana": "くかく",
+      "meaning_ko": "구획",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_77a9e1ec6c651702",
+      "level": "N1",
+      "surface": "不調",
+      "reading_kana": "ふちょう",
+      "meaning_ko": "부진, 컨디션 난조",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_b904e336b1dfe11f",
+      "level": "N1",
+      "surface": "武力",
+      "reading_kana": "ぶりょく",
+      "meaning_ko": "무력",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_caa241d87648dec7",
+      "level": "N1",
+      "surface": "規範",
+      "reading_kana": "きはん",
+      "meaning_ko": "규범",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_d6fcc4d9c768c61a",
+      "level": "N1",
+      "surface": "ありのまま",
+      "reading_kana": "ありのまま",
+      "meaning_ko": "있는 그대로",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_5b7fd1bea9bcb1f8",
+      "level": "N1",
+      "surface": "歩み",
+      "reading_kana": "あゆみ",
+      "meaning_ko": "걸음; 발자취",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_4b6c5f6b362085b4",
+      "level": "N1",
+      "surface": "胴",
+      "reading_kana": "どう",
+      "meaning_ko": "몸통, 동체",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_a3537166f0f4ae34",
+      "level": "N1",
+      "surface": "なおさら",
+      "reading_kana": "なおさら",
+      "meaning_ko": "더욱더, 한층",
+      "part_of_speech": "adverb"
+    },
+    {
+      "id": "w_f60f7b55eba0baba",
+      "level": "N1",
+      "surface": "見逃す",
+      "reading_kana": "みのがす",
+      "meaning_ko": "놓치다, 못 보고 지나치다",
+      "part_of_speech": "verb"
+    },
+    {
+      "id": "w_33a0503a775f913b",
+      "level": "N1",
+      "surface": "主題",
+      "reading_kana": "しゅだい",
+      "meaning_ko": "주제",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_2266502a4f3421c5",
+      "level": "N1",
+      "surface": "境遇",
+      "reading_kana": "きょうぐう",
+      "meaning_ko": "처지, 환경",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_ad972bb9cdd76f87",
+      "level": "N1",
+      "surface": "見積もり",
+      "reading_kana": "みつもり",
+      "meaning_ko": "견적",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_65606b73cdf4a0cf",
+      "level": "N1",
+      "surface": "貨幣",
+      "reading_kana": "かへい",
+      "meaning_ko": "화폐",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_490c8ee9a9d36b98",
+      "level": "N1",
+      "surface": "修士",
+      "reading_kana": "しゅうし",
+      "meaning_ko": "석사",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_1d699c2a8756a1c8",
+      "level": "N1",
+      "surface": "強硬",
+      "reading_kana": "きょうこう",
+      "meaning_ko": "강경함",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_5fb23e40323c5963",
+      "level": "N1",
+      "surface": "生死",
+      "reading_kana": "せいし",
+      "meaning_ko": "생사",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_eba9581d78f14e32",
+      "level": "N1",
+      "surface": "堤防",
+      "reading_kana": "ていぼう",
+      "meaning_ko": "제방, 둑",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_21dc3cb4f88ffbf3",
+      "level": "N1",
+      "surface": "舗装",
+      "reading_kana": "ほそう",
+      "meaning_ko": "포장(도로)",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_63c68701b9f2b26c",
+      "level": "N1",
+      "surface": "露骨",
+      "reading_kana": "ろこつ",
+      "meaning_ko": "노골적임",
+      "part_of_speech": "adjective"
+    },
+    {
+      "id": "w_99e906af14f1bfca",
+      "level": "N1",
+      "surface": "着目",
+      "reading_kana": "ちゃくもく",
+      "meaning_ko": "착안, 주목",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_5e43e0cb458f8a0d",
+      "level": "N1",
+      "surface": "船舶",
+      "reading_kana": "せんぱく",
+      "meaning_ko": "배",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_43f82e716a8f1a33",
+      "level": "N1",
+      "surface": "製法",
+      "reading_kana": "せいほう",
+      "meaning_ko": "제법, 만드는 법",
+      "part_of_speech": "noun"
+    },
+    {
+      "id": "w_bdc8ea0e85d8bb6b",
+      "level": "N1",
+      "surface": "潜入",
+      "reading_kana": "せんにゅう",
+      "meaning_ko": "잠입",
+      "part_of_speech": "noun"
+    }
+  ],
+  "source_phrase_mapping": {
+    "w_d8b942a0bbdb88b3": "w_c8d120064fb5fe5a",
+    "w_9ac4eb19ccb26979": "w_5fea848de2213d5f",
+    "w_89e001a5ce85e728": "w_3b99165f45748b41",
+    "w_661368cc7fe5e352": "w_aef420c79bbeb170",
+    "w_49d4a04f0684a107": "w_49d4a04f0684a107",
+    "w_de109ade477aaf3c": "w_de109ade477aaf3c",
+    "w_5d44d44a212aa9b3": "w_9a2b0c8c1398bdf8",
+    "w_c5ae09d783203646": "w_71734773320f58ba",
+    "w_9f4e85bedd654fca": "w_e3ac48305532880a",
+    "w_c1395761ef105cb2": "w_d11e6635168b8772",
+    "w_7d52aa26e8ea1bff": "w_40d9c28d25a9a53e",
+    "w_2469bcc59515558e": "w_2469bcc59515558e",
+    "w_123b00c50a0e4b79": "w_123b00c50a0e4b79",
+    "w_95c7513478ff8738": "w_95c7513478ff8738",
+    "w_f068c9d471b0c6a2": "w_5ebc893f4c292db6",
+    "w_4f9a8aa04663a690": "w_991b3f178bb17c4b",
+    "w_87a16f1df8f53f13": "w_64d7f2701ad55caf",
+    "w_ae211a48bc00a86c": "w_33e620d8eaf9dd33",
+    "w_6d994165543beb2c": "w_ca953bed102a78e0",
+    "w_c1de77401a2512e8": "w_c1de77401a2512e8",
+    "w_eb209b259c1fdbb7": "w_ad278162220ff848",
+    "w_e848588a759daed3": "w_fb689de73bf56585",
+    "w_c2f2731ceb3bad23": "w_acc5104c96bffa73",
+    "w_70b4e5c2f2319ca3": "w_f8828c1e725c917d",
+    "w_72e1cb4ba34fc820": "w_80121247ba5c6668",
+    "w_1dc2a01d84d091eb": "w_039c519fd62d3882",
+    "w_b98ec43cc7ba192f": "w_c650245fe94b2d55",
+    "w_1183a3688186cdef": "w_b69623c9f42326bc",
+    "w_03bf1e956aafced1": "w_e08e5b558857d76c",
+    "w_4f72173f593c933a": "w_be4b2b8277c1d5eb",
+    "w_f512b11ec146e858": "w_f06af9fbb03b953c",
+    "w_97e848d99b0eff6d": "w_d317994d8c83fe94",
+    "w_d39a0c8f7105a58a": "w_370695fd7f9ee2ba",
+    "w_34cbcd4491dcafdb": "w_82a8a19743899089",
+    "w_39ec9ad92d0e9f08": "w_8619e53d00fa496b",
+    "w_4030e30a977d39b6": "w_52ca205b3d7f3971",
+    "w_7fe2ff30db30111e": "w_ca953bed102a78e0",
+    "w_e02f522a68466292": "w_179d9fa903e31f9e",
+    "w_acc6798aceed53a4": "w_97fd38bc63ce46e6",
+    "w_fdd5e4d1e73ffe51": "w_1046b061849458f3",
+    "w_d6f29ee958d55c51": "w_03eba004293715ee",
+    "w_c0cb5514af816dfa": "w_2d98b61954342b91",
+    "w_cb5ee882ca9fd66f": "w_00d4464d8556265c",
+    "w_9c155df0e132e241": "w_ca75d89cd5674c1a",
+    "w_537d9608ea3a2d2a": "w_f47ff1eed7e97a5c",
+    "w_33571f15e356f407": "w_b17b2545216b564f",
+    "w_cf1351dc563ad35e": "w_4cc98de159aa2795",
+    "w_a71c1720e2b5e259": "w_6577940e5e5f2813",
+    "w_de989302383b6361": "w_5701ed73ffb1244a",
+    "w_18c8394a587d12b2": "w_7324984adc736a5d",
+    "w_4b8b74ca3e33a730": "w_67b726b2a8728054",
+    "w_8fed8addd039ba92": "w_95c7513478ff8738",
+    "w_b8f388821769759e": "w_587d525e8f77f2d2",
+    "w_68887c67e5a02b65": "w_f9e0f3dbb59a25b1",
+    "w_5d1903868c9f2e19": "w_fa49af9b638a1de5",
+    "w_1fe0b681b7d7919a": "w_36e68594c223ca15",
+    "w_053241823c023c93": "w_70953a9f6c527285",
+    "w_3c21f136b484b934": "w_cf691fc505c3c55d",
+    "w_a596d25683bf9187": "w_3f46b28da139c16c",
+    "w_9a24bef9d9066779": "w_82a8a19743899089",
+    "w_1a3b841e60efdd0f": "w_72943e17cc2418be",
+    "w_8421448456160faa": "w_aa68a8b2526c2b57",
+    "w_cf9f79fa33cf142c": "w_d470c6e8ff9c7565",
+    "w_c2f4b32873de1349": "w_86dda28881eccc25",
+    "w_b81a9762ee45b4ca": "w_6803e7402a3d2c0a",
+    "w_4d18ab477dac1679": "w_823390f8452e7d8b",
+    "w_fe9f302ea20dafd8": "w_64273f22846e27af",
+    "w_df2d7f9d4153a9cb": "w_b77b8bce2e1f685d",
+    "w_09817d6743813802": "w_c45dbcc25b8ccd67",
+    "w_680e978c049c2d7a": "w_be6c610da5c1ab8d",
+    "w_b74b3f90a0e2ef4d": "w_d07cea24a5a27e75",
+    "w_e15fdd2f41746dcc": "w_cce1b7628e267db8",
+    "w_9d5a34da95f2f027": "w_4a9ade7c35cb2e1c",
+    "w_73cded3df40c0ac2": "w_defd9d02b12711f7",
+    "w_d9dd1a570534b6da": "w_4f3c623502b2e1fc",
+    "w_0b7a8c727e189fa0": "w_62b886c401fcec37",
+    "w_6a40525856bc91ff": "w_366b4df014f1ce9e",
+    "w_96879858cc1acc3a": "w_cbb8e3b9a558d072",
+    "w_6fe42c797390a279": "w_44435dfc11169488",
+    "w_feed3f6c9287d993": "w_34c7b578bcbd18fd",
+    "w_b78ced3f73891298": "w_893770c5ac9cbc04",
+    "w_56a1039c8162e796": "w_32612a89b52bb564",
+    "w_5dfbd4797c0ee663": "w_f5b156d34a2300a2",
+    "w_3884d5cbe10b1a2d": "w_36d22dc998793dad",
+    "w_912da0fe9257c8dc": "w_36d22dc998793dad",
+    "w_9c28ebc71a102542": "w_5bfd7d5f0bb9e5f0",
+    "w_548067bd0dc1e719": "w_9e33dceb0d820298"
+  }
+}

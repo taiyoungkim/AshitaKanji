@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-10T16:18:51.905577+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 1,
+  "jobs": 2,
+  "preexisting": 0,
+  "planned": 2,
+  "created": 2,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_bdc8ea0e85d8bb6b",
+      "kind": "word",
+      "text": "せんにゅう",
+      "file": "assets/audio/words/w_bdc8ea0e85d8bb6b.mp3"
+    },
+    {
+      "id": "w_bdc8ea0e85d8bb6b",
+      "kind": "example",
+      "text": "記者が建物に潜入した。",
+      "file": "assets/audio/examples/w_bdc8ea0e85d8bb6b.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.554,
+  "dry_run": false
+}

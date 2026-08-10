@@ -1,6 +1,8 @@
 # Track A Data Pipeline
 
-Track A turns the Kaggle JLPT CSV into the bundled SQLite database used by the app.
+Track A turns the reviewed PDF frequency list plus curated supplements into the
+bundled SQLite database used by the app. The older Kaggle work CSV remains an
+upstream/legacy QA source; it is no longer the release word list.
 
 ## Policy
 
@@ -9,23 +11,24 @@ Track A turns the Kaggle JLPT CSV into the bundled SQLite database used by the a
 - Release rows must be manually reviewed and changed to `qa_status='verified'`.
 - Rows with `～/〜` placeholders or parenthesized surface context are marked `deprecated=1`
   so the app exposes standalone vocabulary items, not grammar or affix patterns.
-- Active deficits are backfilled from the source CSV with non-duplicate vocabulary-style
-  rows at the same JLPT level to keep the launch study pool at 6,200 words.
+- The release list keeps exactly 6,638 active words: N5 339 / N4 600 / N3 1,499 /
+  N2 1,700 / N1 2,500.
+- All 2,699 reviewed PDF frequency-core entries must be included.
 - The release gate should only pass after every active (`deprecated=0`) study row is verified.
 - Kanji readings/radicals/stroke counts come from EDRDG KANJIDIC2 (CC BY-SA 4.0).
 - Kanji Korean meanings are draft QA data until `data/track-a/kanji_qa_work.csv`
   rows are manually reviewed and promoted from `auto` to `verified`.
-- NAVER example text is bundled only when `permission_status='cleared'`; app-owner
-  rights review is recorded in `data/track-a/naver_examples_qa_work.csv`.
+- NAVER example text is bundled only when `permission_status='cleared'`; the release
+  input is `data/pdf-vocab/naver_examples_final_qa_work.csv`.
 - The app opens live NAVER dictionary links only after an explicit user tap.
 
 ## Inputs
 
-- Source CSV: `/Users/tyoung/Downloads/jlpt_vocab.csv`
-- Required columns: `Original`, `Furigana`, `English`, `JLPT Level`
+- Final vocabulary: `data/pdf-vocab/jlpt_final_wordlist.csv`
+- Replacement manifest: `data/pdf-vocab/jlpt_final_replacement_manifest.json`
 - KANJIDIC2 XML cache: `.cache/kanjidic2.xml.gz` (downloaded automatically if missing)
-- NAVER examples QA CSV: `data/track-a/naver_examples_qa_work.csv`
-- Target counts: N5 300 / N4 600 / N3 1100 / N2 1700 / N1 2500
+- NAVER examples QA CSV: `data/pdf-vocab/naver_examples_final_qa_work.csv`
+- Target counts: N5 339 / N4 600 / N3 1499 / N2 1700 / N1 2500
 
 ## Commands
 
@@ -35,7 +38,8 @@ Create or refresh the QA work CSV and draft DB without calling OpenAI:
 npm run track-a:build
 ```
 
-Draft missing Korean meanings with the OpenAI Responses API:
+The legacy Kaggle QA pipeline can still draft missing Korean meanings, but it is
+not the release build input:
 
 ```bash
 OPENAI_API_KEY=... npm run track-a:translate
@@ -55,23 +59,49 @@ npm run track-a:naver-examples
 
 ## Outputs
 
-- `data/track-a/jlpt_qa_work.csv`: human QA work file
+- `data/pdf-vocab/jlpt_final_wordlist.csv`: verified release vocabulary
 - `data/track-a/kanji_qa_work.csv`: human QA work file for kanji meanings
-- `data/track-a/naver_examples_qa_work.csv`: owner-cleared NAVER examples with attribution
+- `data/pdf-vocab/examples_final_qa_work.csv`: owner-cleared + self-authored release examples
+- `data/pdf-vocab/self_authored_examples_qa_work.csv`: 53 self-authored completion examples
 - `assets/jlpt.db`: bundled SQLite database
 - `data/track-a/jlpt_db_report.json`: count and QA status report
 - `assets/tatoeba-authors.txt`: attribution placeholder until examples are bundled
 
 ## QA Flow
 
-1. Run `npm run track-a:translate`.
-2. Review `data/track-a/jlpt_qa_work.csv`.
-3. Correct `meaning_ko`, `part_of_speech`, `disambig`, examples, and attribution columns.
-4. Change approved rows to `qa_status=verified`.
-5. Re-run `npm run track-a:build`.
-6. Confirm report has `total=6200`, target level counts, `activeQa.verified == total`,
+1. Review `data/pdf-vocab/jlpt_final_wordlist.csv` and the replacement manifest.
+2. Review `data/pdf-vocab/examples_final_qa_work.csv` and the NAVER/self-authored review queues.
+3. Keep approved word rows at `qa_status=verified`; examples may remain `auto` until
+   their content review is complete.
+4. Run `npm run track-a:build`.
+5. Confirm the report has `total=6638`, the exact target level counts,
+   `examples.total=6638`, `examples.words=6638`, `examples.self=53`, `activeQa.verified == total`,
    and `activeQa.nonVerified == 0`.
-7. Review `data/track-a/kanji_qa_work.csv`; promote kanji rows to `verified` only after
+6. Review `data/track-a/kanji_qa_work.csv`; promote kanji rows to `verified` only after
    the Korean meaning is human-checked.
-8. Review `data/track-a/naver_examples_qa_work.csv`; only rows with
-   `permission_status='cleared'` are bundled into `word_example`.
+7. Review `data/pdf-vocab/examples_final_qa_work.csv`; only owner-cleared rows or
+   self-authored rows (`permission_status IN ('cleared','self')`) are bundled.
+
+## TTS generation and validation
+
+The bundled word and example audio uses `ja-JP-NanamiNeural` at rate `+0%`.
+Create an isolated environment and install the pinned generator dependency:
+
+```sh
+python3 -m venv .cache/tts-venv
+.cache/tts-venv/bin/python -m pip install -r scripts/requirements-tts.txt
+```
+
+Generate only missing example files, convert active TTS assets to Android Ogg/Opus,
+rebuild the platform-specific Metro maps, then audit every active example with
+`ffprobe`:
+
+```sh
+.cache/tts-venv/bin/python scripts/gen-tts-audio.py --kind examples --voice ja-JP-NanamiNeural --rate '+0%' --concurrency 6 --retries 4 --report data/pdf-vocab/example_tts_generation_report.json
+npm run audio:prepare
+npm run tts:audit:examples
+```
+
+The validator requires 6,638 active Ogg/Opus files and Android mappings, checks the
+Opus stream and positive duration of every file, and verifies generated text against
+the current database sentence. MP3 sources remain bundled only for iOS/web.

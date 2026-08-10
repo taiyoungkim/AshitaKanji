@@ -1,6 +1,6 @@
 {
   "path": "assets/jlpt.db",
-  "bytes": 3981312,
+  "bytes": 7254016,
   "total": 6638,
   "deprecated": 0,
   "vocabularyExcluded": 0,
@@ -27,22 +27,23 @@
   "activeDuplicateGroups": 0,
   "activeDuplicateExtraRows": 0,
   "kanji": {
-    "total": 1881,
+    "total": 1877,
     "qa": {
       "verified": 0,
-      "auto": 1881,
+      "auto": 1877,
       "needs_review": 0,
       "rejected": 0
     },
     "missingMeaningsKo": 0,
-    "wordLinks": 9920,
-    "kanjiBearingWords": 5786
+    "wordLinks": 10331,
+    "kanjiBearingWords": 5997
   },
   "examples": {
-    "total": 1235,
-    "naver": 1235,
-    "naverCleared": 1235,
-    "words": 1235
+    "total": 6638,
+    "naver": 6502,
+    "naverCleared": 6502,
+    "self": 136,
+    "words": 6638
   },
   "targets": {
     "N5": 339,

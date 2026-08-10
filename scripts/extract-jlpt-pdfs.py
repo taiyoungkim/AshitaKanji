@@ -278,6 +278,17 @@ def normalize_entry(entry: dict[str, Any]) -> dict[str, Any]:
     entry["meaning_ko_raw"] = clean(entry.get("meaning_ko_raw"))
     entry["surface"] = clean(entry["surface_raw"])
     reading, alt_readings = normalize_reading(entry["reading_raw"])
+    # In the 일단합격 books, kana-only headwords can also have ruby printed
+    # above each glyph.  Geometry reconstruction then interleaves both layers
+    # (for example ページ + ぺ/じ -> ペぺージじ).  With no kanji to resolve,
+    # the printed headword itself is the canonical reading.
+    if (
+        entry.get("source_kind") == "pass"
+        and classify_entry(entry["surface"]) == "word"
+        and not any(is_kanji(char) for char in entry["surface"])
+    ):
+        reading = entry["surface"]
+        alt_readings = ""
     entry["reading_kana"] = reading
     entry["alt_readings"] = alt_readings
     entry["meaning_ko"] = clean(entry["meaning_ko_raw"])

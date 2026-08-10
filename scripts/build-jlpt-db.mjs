@@ -29,7 +29,13 @@ const DEFAULT_NAVER_EXAMPLES = resolve(ROOT, 'data/track-a/naver_examples_qa_wor
 const DEFAULT_KANJIDIC = resolve(ROOT, '.cache/kanjidic2.xml.gz');
 const KANJIDIC_URL = 'https://www.edrdg.org/kanjidic/kanjidic2.xml.gz';
 const KANJIDIC_LICENSE = 'CC BY-SA 4.0';
-const DATA_VERSION = 1;
+const DATA_VERSION = 2;
+// Keep these values in sync with src/db/open.ts. They are stamped into the seed
+// so first installs do not redundantly rehydrate, while older installs detect the
+// new curated vocabulary/examples/kanji links and refresh from the bundled DB.
+const WORD_CURATION_VERSION = '8';
+const KANJI_CURATION_VERSION = '5';
+const EXAMPLE_CURATION_VERSION = '5';
 const AUTO_KANJI_QA_NOTE =
   'Auto draft: KANJIDIC2 readings/radical; Korean meaning draft derived from local Korean word gloss or curated KANJIDIC English fallback.';
 // Must match CURRENT_SCHEMA_VERSION in src/db/schema.ts. The generated seed DB
@@ -132,7 +138,7 @@ const kanjiQaPath = resolve(args.kanjiQa ?? DEFAULT_KANJI_QA);
 const kanjiMeaningKoBackfillPath = resolve(
   args.kanjiMeaningKoBackfill ?? DEFAULT_KANJI_MEANING_KO_BACKFILL,
 );
-const naverExamplesPath = resolve(args.naverExamples ?? DEFAULT_NAVER_EXAMPLES);
+const naverExamplesPath = resolve(args.examples ?? args.naverExamples ?? DEFAULT_NAVER_EXAMPLES);
 const kanjidicPath = resolve(args.kanjidic ?? DEFAULT_KANJIDIC);
 const kanjiMeaningKoBackfill = readKanjiMeaningKoBackfill(kanjiMeaningKoBackfillPath);
 const model = args.model ?? process.env.OPENAI_MODEL ?? 'gpt-4o-mini';
@@ -140,6 +146,7 @@ const batchSize = Number(args.batchSize ?? 40);
 const translate = Boolean(args.translate);
 const rebuildQa = Boolean(args.rebuildQa);
 const skipKanjidic = Boolean(args.skipKanjidic);
+const trustedFinal = Boolean(args.trustedFinal);
 
 if (args.help) {
   printHelp();
@@ -156,7 +163,13 @@ async function main() {
   if (!skipKanjidic) await ensureKanjidicFile(kanjidicPath);
 
   let rows = existsSync(qaPath) && !rebuildQa ? readCsv(qaPath) : [];
-  if (rows.length === 0) {
+  if (trustedFinal) {
+    if (rows.length === 0) {
+      throw new Error(`Trusted final word list is empty or missing: ${rel(qaPath)}`);
+    }
+    assertTrustedFinalRows(rows);
+    console.log(`loaded trusted final word list: ${rel(qaPath)} (${rows.length} rows)`);
+  } else if (rows.length === 0) {
     rows = selectRows(readCsv(sourcePath));
     const curation = curateAndBackfillRows(rows);
     rows = curation.rows;
@@ -193,9 +206,9 @@ async function main() {
   const naverExampleRows = readNaverExampleRows(naverExamplesPath, rows);
   if (naverExampleRows.length > 0) {
     rows = attachPrimaryExamples(rows, naverExampleRows);
-    console.log(`loaded NAVER examples: ${rel(naverExamplesPath)} (${naverExampleRows.length} rows)`);
+    console.log(`loaded curated examples: ${rel(naverExamplesPath)} (${naverExampleRows.length} rows)`);
   } else if (existsSync(naverExamplesPath)) {
-    console.log(`loaded NAVER examples: ${rel(naverExamplesPath)} (0 usable rows)`);
+    console.log(`loaded curated examples: ${rel(naverExamplesPath)} (0 usable rows)`);
   }
 
   buildDatabase(rows, dbPath, kanjiQaRows, naverExampleRows);
@@ -313,9 +326,13 @@ function buildKanjiQaRows(wordRows, kanjidic) {
       ? AUTO_KANJI_QA_NOTE
       : currentQaNote;
     const shouldRegenerateDraft = status === 'auto' && (!current || currentQaNote.startsWith('Auto draft:'));
-    const draftKo = meaningsKo.length > 0 && !shouldRegenerateDraft
+    const regeneratedKo = shouldRegenerateDraft ? deriveKanjiMeaningKo(literal, wordRows) : [];
+    // Never replace a usable existing Korean gloss with an empty regenerated
+    // draft. The final vocabulary may provide less derivation context than the
+    // previous seed even though the existing KANJIDIC curation remains valid.
+    const draftKo = meaningsKo.length > 0 && (!shouldRegenerateDraft || regeneratedKo.length === 0)
       ? meaningsKo
-      : deriveKanjiMeaningKo(literal, wordRows);
+      : regeneratedKo;
 
     out.push({
       literal,
@@ -383,7 +400,7 @@ function readNaverExampleRows(path, wordRows) {
   for (const raw of readCsv(path)) {
     const row = normalizeNaverExampleRow(raw);
     if (!row.word_id || seen.has(row.word_id) || !activeIds.has(row.word_id)) continue;
-    if (!row.jp || row.permission_status !== 'cleared' || row.qa_status === 'rejected') continue;
+    if (!row.jp || !['cleared', 'self'].includes(row.permission_status) || row.qa_status === 'rejected') continue;
     seen.add(row.word_id);
     out.push(row);
   }
@@ -929,10 +946,13 @@ function buildDatabase(rows, outPath, kanjiQaRows, naverExampleRows = []) {
     `INSERT INTO app_meta (key, value) VALUES
       ('schema_version', '${SCHEMA_VERSION}'),
       ('data_version', '${DATA_VERSION}'),
-      ('source', 'kaggle:robinpourtaud/jlpt-words-by-level'),
+      ('source', '${trustedFinal ? 'pdf:jlpt-frequency-core+curated-supplements' : 'kaggle:robinpourtaud/jlpt-words-by-level'}'),
       ('kanji_source', 'kanjidic2'),
       ('kanji_license', '${KANJIDIC_LICENSE}'),
-      ('qa_policy', 'gpt_draft_human_verified_before_release');`,
+      ('qa_policy', 'gpt_draft_human_verified_before_release'),
+      ('word_curation_version', '${WORD_CURATION_VERSION}'),
+      ('kanji_curation_version', '${KANJI_CURATION_VERSION}'),
+      ('example_curation_version', '${EXAMPLE_CURATION_VERSION}');`,
   ]);
 
   assertUniqueWordIds(rows);
@@ -947,14 +967,15 @@ function buildDatabase(rows, outPath, kanjiQaRows, naverExampleRows = []) {
       (id, level, surface, reading_kana, furigana, meaning_ko, part_of_speech, card_type,
        example_jp, example_ko, example_jp_id, example_jp_author, example_ko_id, example_ko_author,
        example_license, alt_forms, disambig, source, qa_status, deprecated, tags, data_version,
-       frequency, reading_chapter)
+       frequency, reading_chapter, deprecated_reason, superseded_by)
      SELECT id, level, surface, reading_kana, nullif(furigana, ''), meaning_ko,
        nullif(part_of_speech, ''), card_type, nullif(example_jp, ''), nullif(example_ko, ''),
        nullif(example_jp_id, ''), nullif(example_jp_author, ''), nullif(example_ko_id, ''),
        nullif(example_ko_author, ''), nullif(example_license, ''), nullif(alt_forms, ''),
        nullif(disambig, ''), source, qa_status, CAST(deprecated AS INTEGER), nullif(tags, ''),
        CAST(data_version AS INTEGER),
-       CAST(nullif(frequency, '') AS REAL), CAST(nullif(reading_chapter, '') AS INTEGER)
+       CAST(nullif(frequency, '') AS REAL), CAST(nullif(reading_chapter, '') AS INTEGER),
+       nullif(deprecated_reason, ''), nullif(superseded_by, '')
      FROM word_import
      WHERE CAST(deprecated AS INTEGER) = 0;`,
     'DROP TABLE word_import;',
@@ -981,7 +1002,7 @@ function buildDatabase(rows, outPath, kanjiQaRows, naverExampleRows = []) {
        nullif(license, ''), permission_status, nullif(attribution, ''),
        CAST(nullif(captured_at, '') AS INTEGER), qa_status, CAST(sort_order AS INTEGER)
      FROM word_example_import
-     WHERE permission_status = 'cleared'
+     WHERE permission_status IN ('cleared', 'self')
        AND qa_status != 'rejected'
        AND word_id IN (SELECT id FROM word);`,
     'DROP TABLE word_example_import;',
@@ -1077,6 +1098,7 @@ function inspectDatabase(dbPath) {
         'word_example',
         `source='naver-ja-dict' AND permission_status='cleared'`,
       ),
+      self: tableCount('word_example', `source='self' AND permission_status='self'`),
       words: Number(execSql(
         dbPath,
         ['SELECT COUNT(DISTINCT word_id) FROM word_example;'],
@@ -1115,11 +1137,15 @@ function writeWordImportCsv(rows) {
     'data_version',
     'frequency',
     'reading_chapter',
+    'deprecated_reason',
+    'superseded_by',
   ];
   const csv = [headers.join(',')];
   for (const row of normalizeQaRows(rows)) {
     const rc = READING_CHAPTERS[row.id] ?? {};
-    const ext = { ...row, frequency: rc.frequency ?? '', reading_chapter: rc.reading_chapter ?? '' };
+    const ext = trustedFinal
+      ? row
+      : { ...row, frequency: rc.frequency ?? '', reading_chapter: rc.reading_chapter ?? '' };
     csv.push(headers.map((h) => csvEscape(ext[h] ?? '')).join(','));
   }
   writeFileSync(p, `${csv.join('\n')}\n`);
@@ -1294,8 +1320,36 @@ function normalizeQaRows(rows) {
       data_version: clean(row.data_version) || String(DATA_VERSION),
       qa_note: clean(row.qa_note),
     };
-    return applyVocabularyCuration(normalized);
+    return trustedFinal ? normalized : applyVocabularyCuration(normalized);
   });
+}
+
+function assertTrustedFinalRows(rows) {
+  if (rows.length !== Object.values(TARGET_COUNTS).reduce((sum, count) => sum + count, 0)) {
+    throw new Error(`Trusted final row count mismatch: ${rows.length}`);
+  }
+  const counts = zeroLevelCounts();
+  const pairs = new Set();
+  for (const row of rows) {
+    const level = clean(row.level);
+    if (!(level in counts)) throw new Error(`Trusted final row has invalid level: ${level}`);
+    counts[level] += 1;
+    if (clean(row.qa_status) !== 'verified' || clean(row.deprecated) === '1') {
+      throw new Error(`Trusted final row is not active+verified: ${clean(row.id)}`);
+    }
+    if (!clean(row.id) || !clean(row.surface) || !clean(row.reading_kana) || !clean(row.meaning_ko)) {
+      throw new Error(`Trusted final row has a required field missing: ${clean(row.id) || '<no id>'}`);
+    }
+    const pair = duplicateWordKey(row);
+    if (pairs.has(pair)) throw new Error(`Trusted final duplicate surface+reading: ${pair}`);
+    pairs.add(pair);
+  }
+  for (const [level, target] of Object.entries(TARGET_COUNTS)) {
+    if (counts[level] !== target) {
+      throw new Error(`Trusted final ${level} count mismatch: ${counts[level]} != ${target}`);
+    }
+  }
+  assertUniqueWordIds(rows);
 }
 
 function applyVocabularyCuration(row) {
@@ -1564,6 +1618,7 @@ function parseArgs(argv) {
     if (a === '--translate') out.translate = true;
     else if (a === '--rebuild-qa') out.rebuildQa = true;
     else if (a === '--skip-kanjidic' || a === '--skipKanjidic') out.skipKanjidic = true;
+    else if (a === '--trusted-final' || a === '--trustedFinal') out.trustedFinal = true;
     else if (a === '--naver-examples') out.naverExamples = argv[++i];
     else if (a === '--help' || a === '-h') out.help = true;
     else if (a.startsWith('--')) out[a.slice(2)] = argv[++i];
@@ -1583,10 +1638,12 @@ Options:
   --kanjiQa PATH    Kanji QA CSV path (default: ${rel(DEFAULT_KANJI_QA)})
   --kanjiMeaningKoBackfill PATH
                    Kanji Korean meaning backfill JSON path (default: ${rel(DEFAULT_KANJI_MEANING_KO_BACKFILL)})
+  --examples PATH   Curated examples QA CSV path (default: ${rel(DEFAULT_NAVER_EXAMPLES)})
   --naverExamples PATH
-                   NAVER examples QA CSV path (default: ${rel(DEFAULT_NAVER_EXAMPLES)})
+                   Legacy alias for --examples
   --kanjidic PATH   KANJIDIC2 XML or XML.GZ path (default: ${rel(DEFAULT_KANJIDIC)})
   --skip-kanjidic   Build empty kanji tables without downloading/parsing KANJIDIC2
+  --trusted-final   Bypass legacy vocabulary curation and enforce exact final-list invariants
   --translate       Draft missing Korean meanings via OpenAI Responses API
   --model MODEL     OpenAI model (default: gpt-4o-mini or OPENAI_MODEL)
   --batchSize N     Translation batch size (default: 40)
@@ -1603,7 +1660,7 @@ function printReport(report) {
   console.log(`qa(active): ${formatCounts(report.activeQa)}`);
   console.log(`kanji: total=${report.kanji.total}, missing_meanings_ko=${report.kanji.missingMeaningsKo}, word_links=${report.kanji.wordLinks}, words=${report.kanji.kanjiBearingWords}`);
   console.log(`kanji qa: ${formatCounts(report.kanji.qa)}`);
-  console.log(`examples: total=${report.examples.total}, naver=${report.examples.naver}, words=${report.examples.words}`);
+  console.log(`examples: total=${report.examples.total}, naver=${report.examples.naver}, self=${report.examples.self}, words=${report.examples.words}`);
 }
 
 function formatCounts(counts) {

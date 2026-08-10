@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-10T16:20:41.015399+00:00",
+  "status": "PASS",
+  "checks": {
+    "all_printed_rows_verified": true,
+    "all_printed_vocabulary_rows_aggregated": true,
+    "all_core_entries_resolve_to_final": true,
+    "final_word_count": true,
+    "final_unique_ids": true
+  },
+  "counts": {
+    "printed_source_rows": 3863,
+    "printed_vocabulary_occurrences": 3636,
+    "printed_non_vocabulary_rows": 227,
+    "source_entry_types": {
+      "expression": 49,
+      "pattern": 10,
+      "sentence": 168,
+      "word": 3636
+    },
+    "excluded_entry_types": {
+      "expression": 49,
+      "pattern": 10,
+      "sentence": 168
+    },
+    "aggregated_pdf_core_entries": 2699,
+    "core_entries_mapped_through_alias": 228,
+    "phrase_review_source_mappings": 87,
+    "phrase_review_removed_or_merged": 81,
+    "unique_final_words_covering_pdf_core": 2520,
+    "missing_core_entries": 0,
+    "final_words": 6638
+  },
+  "missing": []
+}

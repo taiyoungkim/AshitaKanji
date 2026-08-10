@@ -1,0 +1,357 @@
+{
+  "generated_at": "2026-08-10T04:20:08.493948+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 6638,
+  "jobs": 13276,
+  "preexisting": 13220,
+  "planned": 56,
+  "created": 56,
+  "skipped": 13220,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_53bb3cf73ffdb8b6",
+      "kind": "word",
+      "text": "ゆ",
+      "file": "assets/audio/words/w_53bb3cf73ffdb8b6.mp3"
+    },
+    {
+      "id": "w_6a95b86178733f43",
+      "kind": "word",
+      "text": "むすめ",
+      "file": "assets/audio/words/w_6a95b86178733f43.mp3"
+    },
+    {
+      "id": "w_6d129de0dacae5bb",
+      "kind": "word",
+      "text": "かいぎ",
+      "file": "assets/audio/words/w_6d129de0dacae5bb.mp3"
+    },
+    {
+      "id": "w_185bd766c346483b",
+      "kind": "example",
+      "text": "宵っぱりの朝寝坊",
+      "file": "assets/audio/examples/w_185bd766c346483b.mp3"
+    },
+    {
+      "id": "w_0338be5f3d19fc08",
+      "kind": "example",
+      "text": "末っ子を溺愛する.",
+      "file": "assets/audio/examples/w_0338be5f3d19fc08.mp3"
+    },
+    {
+      "id": "w_038cb23b0d6aca7a",
+      "kind": "example",
+      "text": "そういう性質の金は受け取れない.",
+      "file": "assets/audio/examples/w_038cb23b0d6aca7a.mp3"
+    },
+    {
+      "id": "w_0425c1ca413261f8",
+      "kind": "example",
+      "text": "夕方になると深川方向に向かう下り車線の車が増えて，橋を先頭に一キロ程度の渋滞に悩まされる。このジレンマを解消するために考案されたのがリバーシブル（走行方向の可逆）車線",
+      "file": "assets/audio/examples/w_0425c1ca413261f8.mp3"
+    },
+    {
+      "id": "w_0b6a1d5b2fe36807",
+      "kind": "example",
+      "text": "私は貧しい子供たちの学費を援助しながら実質的な助けを与えている。",
+      "file": "assets/audio/examples/w_0b6a1d5b2fe36807.mp3"
+    },
+    {
+      "id": "w_1af9fce09c9a5387",
+      "kind": "example",
+      "text": "他人の幸福を羨んだ",
+      "file": "assets/audio/examples/w_1af9fce09c9a5387.mp3"
+    },
+    {
+      "id": "w_211e9f9848d19129",
+      "kind": "example",
+      "text": "もし一人っ子でもオンリー・チャイルドと呼ばれ，両親の愛情があふれる前向きなイメージです",
+      "file": "assets/audio/examples/w_211e9f9848d19129.mp3"
+    },
+    {
+      "id": "w_1efbbd0a483ff9d0",
+      "kind": "example",
+      "text": "（船が桁にぶっつかると，ベルとブザーが鳴る。同時にサーチライトが点灯し，警告する",
+      "file": "assets/audio/examples/w_1efbbd0a483ff9d0.mp3"
+    },
+    {
+      "id": "w_25c1cddd4806bf82",
+      "kind": "example",
+      "text": "生き物が見つかる",
+      "file": "assets/audio/examples/w_25c1cddd4806bf82.mp3"
+    },
+    {
+      "id": "w_29d959eaa87e0919",
+      "kind": "example",
+      "text": "髪の毛がばらりとたれる",
+      "file": "assets/audio/examples/w_29d959eaa87e0919.mp3"
+    },
+    {
+      "id": "w_290120abe40cf24f",
+      "kind": "example",
+      "text": "あの騒ぎはいったい何だ.",
+      "file": "assets/audio/examples/w_290120abe40cf24f.mp3"
+    },
+    {
+      "id": "w_2cffc1f24b171c92",
+      "kind": "example",
+      "text": "人を動かす力がある.",
+      "file": "assets/audio/examples/w_2cffc1f24b171c92.mp3"
+    },
+    {
+      "id": "w_36f3f15969358bd0",
+      "kind": "example",
+      "text": "肩透しを食う",
+      "file": "assets/audio/examples/w_36f3f15969358bd0.mp3"
+    },
+    {
+      "id": "w_3c35511df6f1cac1",
+      "kind": "example",
+      "text": "正確な時刻を教えてください",
+      "file": "assets/audio/examples/w_3c35511df6f1cac1.mp3"
+    },
+    {
+      "id": "w_3bee9848854c9f45",
+      "kind": "example",
+      "text": "園内の売店でお土産を販売する",
+      "file": "assets/audio/examples/w_3bee9848854c9f45.mp3"
+    },
+    {
+      "id": "w_46a151be6d522ea0",
+      "kind": "example",
+      "text": "永久不滅",
+      "file": "assets/audio/examples/w_46a151be6d522ea0.mp3"
+    },
+    {
+      "id": "w_471352b7953c55a4",
+      "kind": "example",
+      "text": "今日はコミセンで集まりがある",
+      "file": "assets/audio/examples/w_471352b7953c55a4.mp3"
+    },
+    {
+      "id": "w_52c6ca040bc47941",
+      "kind": "example",
+      "text": "人生の盛りを過ぎてしまった",
+      "file": "assets/audio/examples/w_52c6ca040bc47941.mp3"
+    },
+    {
+      "id": "w_523b11961463d850",
+      "kind": "example",
+      "text": "家庭の主婦のポケット・マネーでも買える",
+      "file": "assets/audio/examples/w_523b11961463d850.mp3"
+    },
+    {
+      "id": "w_5bf9ba7979b6e9f8",
+      "kind": "example",
+      "text": "射手と助手が交替する.",
+      "file": "assets/audio/examples/w_5bf9ba7979b6e9f8.mp3"
+    },
+    {
+      "id": "w_56402bace5da76b9",
+      "kind": "example",
+      "text": "ボート競技はシェル艇使うが、カヌーだってボートの一種で、他の艇もボートだ。",
+      "file": "assets/audio/examples/w_56402bace5da76b9.mp3"
+    },
+    {
+      "id": "w_5ed01d7a88c40360",
+      "kind": "example",
+      "text": "勇気の大半は慎重さである。それによって私は命拾いしたのだ。(ウィリアム・シェイクスピア)",
+      "file": "assets/audio/examples/w_5ed01d7a88c40360.mp3"
+    },
+    {
+      "id": "w_6a14f4fb1bf8c167",
+      "kind": "example",
+      "text": "軍隊に入った弟の面会に行った.",
+      "file": "assets/audio/examples/w_6a14f4fb1bf8c167.mp3"
+    },
+    {
+      "id": "w_6bd3f9448ae0e3a2",
+      "kind": "example",
+      "text": "いつも地味な身なりをしている.",
+      "file": "assets/audio/examples/w_6bd3f9448ae0e3a2.mp3"
+    },
+    {
+      "id": "w_662fb4e58f069c2b",
+      "kind": "example",
+      "text": "お向かいさんに一声かける",
+      "file": "assets/audio/examples/w_662fb4e58f069c2b.mp3"
+    },
+    {
+      "id": "w_75a1bf2da6281f89",
+      "kind": "example",
+      "text": "私塾を開いて青年を教育する.",
+      "file": "assets/audio/examples/w_75a1bf2da6281f89.mp3"
+    },
+    {
+      "id": "w_7ee3ae2a7f928c64",
+      "kind": "example",
+      "text": "豪華で贅沢な生活をする",
+      "file": "assets/audio/examples/w_7ee3ae2a7f928c64.mp3"
+    },
+    {
+      "id": "w_8794b1f76744af5d",
+      "kind": "example",
+      "text": "外来語の氾濫で国語が汚染される",
+      "file": "assets/audio/examples/w_8794b1f76744af5d.mp3"
+    },
+    {
+      "id": "w_8dd1ba850593bddc",
+      "kind": "example",
+      "text": "外敵が国境を越えて来寇する.",
+      "file": "assets/audio/examples/w_8dd1ba850593bddc.mp3"
+    },
+    {
+      "id": "w_93593483348c5a1f",
+      "kind": "example",
+      "text": "放火[漏電]による火災が発生する",
+      "file": "assets/audio/examples/w_93593483348c5a1f.mp3"
+    },
+    {
+      "id": "w_94eebc19836feecc",
+      "kind": "example",
+      "text": "その歌は誰が作曲したのか分かっている.",
+      "file": "assets/audio/examples/w_94eebc19836feecc.mp3"
+    },
+    {
+      "id": "w_983ea53fbf2e83e5",
+      "kind": "example",
+      "text": "部屋はそれほど広くはないが、清潔で快適だった",
+      "file": "assets/audio/examples/w_983ea53fbf2e83e5.mp3"
+    },
+    {
+      "id": "w_a82850c81b2924f3",
+      "kind": "example",
+      "text": "食料が無く木の根すら食った",
+      "file": "assets/audio/examples/w_a82850c81b2924f3.mp3"
+    },
+    {
+      "id": "w_a489378444140b3b",
+      "kind": "example",
+      "text": "湯が飲み加減だ",
+      "file": "assets/audio/examples/w_a489378444140b3b.mp3"
+    },
+    {
+      "id": "w_ba335b8ea06374ef",
+      "kind": "example",
+      "text": "新鮮な旬の野菜を添える",
+      "file": "assets/audio/examples/w_ba335b8ea06374ef.mp3"
+    },
+    {
+      "id": "w_bfb980ab8575a940",
+      "kind": "example",
+      "text": "宿を取る",
+      "file": "assets/audio/examples/w_bfb980ab8575a940.mp3"
+    },
+    {
+      "id": "w_cdf80653a9d5986f",
+      "kind": "example",
+      "text": "賞金の一部を割いて寄付する",
+      "file": "assets/audio/examples/w_cdf80653a9d5986f.mp3"
+    },
+    {
+      "id": "w_d16eddc3944c223d",
+      "kind": "example",
+      "text": "豪華で贅沢な生活をする",
+      "file": "assets/audio/examples/w_d16eddc3944c223d.mp3"
+    },
+    {
+      "id": "w_d3a58aebb4ab933c",
+      "kind": "example",
+      "text": "深刻な様相を呈し始めた",
+      "file": "assets/audio/examples/w_d3a58aebb4ab933c.mp3"
+    },
+    {
+      "id": "w_cfab928983935376",
+      "kind": "example",
+      "text": "駒を進める",
+      "file": "assets/audio/examples/w_cfab928983935376.mp3"
+    },
+    {
+      "id": "w_d1f54303e542d1ed",
+      "kind": "example",
+      "text": "重大な混乱を生じている",
+      "file": "assets/audio/examples/w_d1f54303e542d1ed.mp3"
+    },
+    {
+      "id": "w_d9cfbcfbff6cad8d",
+      "kind": "example",
+      "text": "米国はいろいろな人種の寄り合い所帯だ.",
+      "file": "assets/audio/examples/w_d9cfbcfbff6cad8d.mp3"
+    },
+    {
+      "id": "w_e54ff186509d6479",
+      "kind": "example",
+      "text": "見解が異なる時に誰も譲歩しなければ意見の一致ができない。",
+      "file": "assets/audio/examples/w_e54ff186509d6479.mp3"
+    },
+    {
+      "id": "w_e827f2cbbdfecbdf",
+      "kind": "example",
+      "text": "見合いをしてから交際を始める.",
+      "file": "assets/audio/examples/w_e827f2cbbdfecbdf.mp3"
+    },
+    {
+      "id": "w_f8af1abd32dbfe9d",
+      "kind": "example",
+      "text": "水素と酸素は水を組成する.",
+      "file": "assets/audio/examples/w_f8af1abd32dbfe9d.mp3"
+    },
+    {
+      "id": "w_f117986fa15363e2",
+      "kind": "example",
+      "text": "衝突した刹那、気を失った",
+      "file": "assets/audio/examples/w_f117986fa15363e2.mp3"
+    },
+    {
+      "id": "w_187aa2adfb841e8c",
+      "kind": "example",
+      "text": "お子さんに一つずつすべて教えてあげようとせず、自分で考えられる力をつけてあげてください。",
+      "file": "assets/audio/examples/w_187aa2adfb841e8c.mp3"
+    },
+    {
+      "id": "w_53bb3cf73ffdb8b6",
+      "kind": "example",
+      "text": "鶏を熱い湯にさっとつける.",
+      "file": "assets/audio/examples/w_53bb3cf73ffdb8b6.mp3"
+    },
+    {
+      "id": "w_6d129de0dacae5bb",
+      "kind": "example",
+      "text": "夜を徹して会議をする.",
+      "file": "assets/audio/examples/w_6d129de0dacae5bb.mp3"
+    },
+    {
+      "id": "w_6a95b86178733f43",
+      "kind": "example",
+      "text": "タバコ屋の娘に首ったけになる",
+      "file": "assets/audio/examples/w_6a95b86178733f43.mp3"
+    },
+    {
+      "id": "w_9c014cb5652a4679",
+      "kind": "example",
+      "text": "再審を要求[請求]する",
+      "file": "assets/audio/examples/w_9c014cb5652a4679.mp3"
+    },
+    {
+      "id": "w_ae7c649b01299fea",
+      "kind": "example",
+      "text": "精神力が大事な競技なので、試合でしっかり集中できるように、精神を統一する。",
+      "file": "assets/audio/examples/w_ae7c649b01299fea.mp3"
+    },
+    {
+      "id": "w_e431b1a6abf799bf",
+      "kind": "example",
+      "text": "イ：お互い信じて支え合い、生きていくことを願います。",
+      "file": "assets/audio/examples/w_e431b1a6abf799bf.mp3"
+    }
+  ],
+  "elapsed_seconds": 20.292,
+  "dry_run": false
+}

@@ -1,0 +1,945 @@
+﻿id,level,surface,reading_kana,meaning_ko,display_surface,decision,evidence,collides_with,example_jp
+w_55a89ec42223f73e,N5,いい,いい,"좋음, 좋은",,needs-review,ambiguous or no common kanji form,,善い事をすればいい報いがある.
+w_4c739feaedcd1de0,N5,ようか,ようか,"8일, 여드레",八日,example-exact,unique JMdict form occurs in curated example,,日本プロサッカー・リーグは八日，延長戦に採用していた「サドン・デス方式」の名称を，「Ｖゴール方式」に変更すると発表した
+w_1da8dde639dcee40,N5,でも,でも,"하지만, 그렇지만",,keep-kana,ambiguous or no common kanji form,,ロ：でも勝手に使わせるようにはしないでください。
+w_aba657db70bdb298,N5,ならう,ならう,"배우다, 익히다",習う,example-exact,unique JMdict form occurs in curated example,w_a0c558d30a7b5279,書斎に端座して書を習う
+w_901e9473e86b14cd,N5,また,また,또,,needs-review,ambiguous or no common kanji form,,また悪をした
+w_0ea9569520107931,N5,てがみ,てがみ,편지,手紙,example-exact,unique JMdict form occurs in curated example,w_5ef17e779ccf6818,手紙を書く暇もない.
+w_5284226e672d96c5,N5,にさつ,にさつ,두 권(잡지),二冊,manual-context,meaning and inflection reviewed,,このざっしをにさつかいました。
+w_8cc945ebe05fb345,N5,くらい,くらい,어둡다,暗い,example-exact,unique JMdict form occurs in curated example,w_871d839872345899,いつも暗い顔をしている.
+w_b24621b76259caa8,N5,さんさつ,さんさつ,세 권(책),三冊,manual-context,meaning and inflection reviewed,,としょかんでほんをさんさつかりました。
+w_825bad35884b199b,N5,すぐに,すぐに,"곧, 바로",直ぐに,example-exact,unique JMdict form occurs in curated example,,溺者を発見したら直ぐに救助するのが最も大切である
+w_01658ab2cabde4e9,N5,もっと,もっと,"좀 더, 더",,keep-kana,ambiguous or no common kanji form,,被害はもっと広がる模様だ.
+w_2b11811c35f6554d,N5,こちら,こちら,"이쪽, 이 분, 이 사람",,needs-review,ambiguous or no common kanji form,,こちらに来てください。
+w_409c10a69baafd5f,N5,でる,でる,나가(오)다,出る,manual-homophone,meaning-sensitive JMdict choice,w_52ca205b3d7f3971,取り次ぎに出る
+w_38856be7d8a54293,N5,ほしい,ほしい,가지고 싶다,欲しい,manual-homophone,meaning-sensitive JMdict choice,,くせ毛の私はサラサラのつるっとした直毛がほしい。
+w_44328544e7a3b011,N5,なぜ,なぜ,왜,何故,jmdict-unambiguous,common JMdict form,,なぜしきりにしゃべり散らしているんだ.
+w_4dd00aad4051c89d,N5,のみもの,のみもの,마실 것,飲み物,example-exact,unique JMdict form occurs in curated example,,飲み物をご用意しましょうか?
+w_35b6d26ef3b6e9a4,N5,たくさん,たくさん,많이,沢山,jmdict-unambiguous,common JMdict form,,店にお客がたくさん来る.
+w_f12a1758289392e6,N5,なんこ,なんこ,몇 개,何個,example-exact,unique JMdict form occurs in curated example,,みかんなら何個でも食べられる
+w_59c56506badd0309,N5,しつもんする,しつもんする,질문하다,質問する,manual-context,meaning and inflection reviewed,,何でもないように質問する
+w_208233a335ee5617,N5,かぞく,かぞく,가족,家族,example-exact,unique JMdict form occurs in curated example,w_67a0aa7719932f47,家族と共に過ごしている
+w_4e598e988857cbcc,N5,ちず,ちず,지도,地図,example-exact,unique JMdict form occurs in curated example,w_48838b2b24ace976,テーブルの上に地図を広げる.
+w_095ed617a1f2ddc6,N5,いただきます,いただきます,잘 먹겠습니다.,頂きます,example-exact,unique JMdict form occurs in curated example,,飛んだ御造作を頂きます
+w_d2cb5673c3552ae0,N5,にかい,にかい,2층,二階,example-exact,unique JMdict form occurs in curated example,,荷物を二階に担ぎ上げる
+w_b685581646830d57,N5,こちらこそ,こちらこそ,저야말로,,keep-kana-reviewed,explicit modern-kana preference,,こちらこそ、いつもお世話になっております
+w_dd5441408bb2d6e5,N5,いつつ,いつつ,"다섯, 다섯 개",五つ,example-exact,unique JMdict form occurs in curated example,,大きく五つに分けられる
+w_7ce478d1c4361987,N5,さんかい,さんかい,"3회, 세 번",三回,example-exact,unique JMdict form occurs in curated example,,すすぎは三回します.
+w_794b4334a01909b6,N5,おく,おく,"놓다, 두다",置く,manual-homophone,meaning-sensitive JMdict choice,,ラベンダーの香りのルームフレグランスをベッドルームに置く
+w_8d8468b11a0a1fa9,N5,いろいろ,いろいろ,여러 가지임,色々,jmdict-unambiguous,common JMdict form,w_1cd9d956ac65ad3e,いろいろの施策を講じた.
+w_b36e1365aa1b125e,N5,こうちゃ,こうちゃ,홍차,紅茶,example-exact,unique JMdict form occurs in curated example,,コールドブリューはコーヒーはもちろん、緑茶∙紅茶などにも応用できる
+w_4fdd9f73dd3e62a1,N5,ページ,ページ,"페이지, 쪽",,keep-kana-reviewed,explicit modern-kana preference,,ロ：次のページの9ページを探してみてください。
+w_3c9e0c4d130ffe55,N5,かかる,かかる,"(시간·비용이) 들다, 걸리다",掛かる,manual-homophone,meaning-sensitive JMdict choice,,気に掛かる
+w_df4f6ee7671f5be7,N5,どちら,どちら,"어느 쪽, 어느 분",,needs-review,ambiguous or no common kanji form,,どちらが勝つかすぐには予断できない.
+w_579247e75349eed1,N5,たぶん,たぶん,아마,多分,example-exact,unique JMdict form occurs in curated example,,多分くるでしょう
+w_f55e5f14ba3846ae,N5,つかれる,つかれる,"피곤하다, 지치다",疲れる,example-exact,unique JMdict form occurs in curated example,w_880411bf45f00ee7,このごろは嫌なことばかり重なって疲れる.
+w_58075cd1141bf75e,N5,かど,かど,모퉁이,角,example-exact,unique JMdict form occurs in curated example,,角を曲がれば大通りに出る.
+w_d09fc1ab6a37791a,N5,つく,つく,(전기가) 켜지다,点く,manual-homophone,meaning-sensitive JMdict choice,w_1fb1432fdae5690a,電気が付く
+w_b44959bb47bfe991,N5,おおぜい,おおぜい,많이,大勢,manual-homophone,meaning-sensitive JMdict choice,,客が大ぜい押しかける.
+w_6ec2f5694292b36a,N5,とる,とる,"집다, 잡다",取る,manual-homophone,meaning-sensitive JMdict choice,w_318b933aa9deca08,背伸びして棚の荷物を取る
+w_8ff89e4ad25acab4,N5,ゆっくり,ゆっくり,천천히,,keep-kana,ambiguous or no common kanji form,,安全を第一にゆっくり運転する
+w_bc6fa5bc224dbef9,N5,いくら,いくら,얼마(값),,needs-review,ambiguous or no common kanji form,,そんな例はいくらもある
+w_df6f8bed5b534092,N5,にだい,にだい,두 대(자전거),,needs-review,ambiguous or no common kanji form,,電気バス2台を導入する
+w_f6ee1c3e08f743b5,N5,まど,まど,창문,窓,example-exact,unique JMdict form occurs in curated example,w_76f2a5f23785b571,窓を閉めてください
+w_da1aa3397e73de5f,N5,ラジオ,ラジオ,라디오,,keep-kana,ambiguous or no common kanji form,,大衆がトーク・ラジオを反映するのでなく，トーク・ラジオが大衆を反映するのだ
+w_76d36dbae91cd174,N5,あらう,あらう,씻다,洗う,example-exact,unique JMdict form occurs in curated example,w_336db92caf7feb12,"なべの耳を取って,鍋尻からなべ底まできれいに洗う"
+w_89e001a5ce85e728,N5,きれいです,きれいです,깨끗합니다,綺麗です,manual-context,meaning and inflection reviewed,,両者の顔を見ればどれほどパンチをくらったのか分かりますが、チャンピオンの顔はきれいです。
+w_417e0e04947ef7f1,N5,ちょうど,ちょうど,"정각, 정확히",丁度,example-exact,unique JMdict form occurs in curated example,,9時丁度にショーが始まる。
+w_e93be767be58449e,N5,シャツ,シャツ,셔츠,,keep-kana,ambiguous or no common kanji form,,シャツを直に着る
+w_8d966401d98ece25,N5,おいしい,おいしい,맛있다,美味しい,example-exact,unique JMdict form occurs in curated example,,安い上に美味しい
+w_44191f7e02bdbca4,N5,かける,かける,(안경을) 쓰다,掛ける,manual-homophone,meaning-sensitive JMdict choice,,度なし眼鏡を掛ける
+w_9f4bac962871acc8,N5,おじさん,おじさん,"아저씨, 삼촌",,needs-review,ambiguous or no common kanji form,,少禿げの小父さん
+w_e3d3cc0b38f77224,N5,にキロ,にキロ,2킬로미터,二キロ,manual-context,meaning and inflection reviewed,,学校から半径二キロ以内にある.
+w_99b6b975daf6a3ba,N5,パーティー,パーティー,파티,,keep-kana,ambiguous or no common kanji form,,誕生パーティーです。
+w_1f3b58708b016b7f,N5,そば,そば,"옆, 곁",,needs-review,ambiguous or no common kanji form,,私のそばにいてください。
+w_6331df76a706ca58,N5,べんり,べんり,편리함,便利,example-exact,unique JMdict form occurs in curated example,,コンピューターの便利さも知らずに手作業だけに固執するのは‘船に刻みて剣を求む’を頼むことに他ならない.
+w_8d6e887ea2a8b1d8,N5,すき,すき,좋아함,好き,example-exact,unique JMdict form occurs in curated example,,食べ物は熱いのが好きだ.
+w_25cb652a0907a58a,N5,プール,プール,"풀, 수영장",,keep-kana,ambiguous or no common kanji form,,Aプール以外にもダイビングプールがあるなら定期的に教室が開かれている。
+w_d812138a73807a63,N5,ギター,ギター,기타(악기),,keep-kana,ambiguous or no common kanji form,,当時は，とにかくギターが好きで，特にフィンガー・ピッキングスタイルのギター・レコードを集めました
+w_426a6ad568579abe,N5,ピアノ,ピアノ,피아노,,keep-kana,ambiguous or no common kanji form,,一流のピアノの先生に就ける.
+w_ab8f966f8b3fb171,N5,ほんや,ほんや,"책방, 서점",本屋,example-exact,unique JMdict form occurs in curated example,,本屋がレコード店を兼営している.
+w_31df4b7ee4f99920,N5,けっこう,けっこう,"충분함, 이제 됐음",結構,example-exact,unique JMdict form occurs in curated example,w_139be75fa16ee36c,もう結構です
+w_e1b4921bc5902b92,N5,きって,きって,우표,切手,example-exact,unique JMdict form occurs in curated example,w_50bb9153fcefb747,切手を一枚ください
+w_f2a724a359b23f1d,N5,アパート,アパート,아파트,,keep-kana,ambiguous or no common kanji form,,僕はアパートに住んでいる
+w_e8bf101d5d035c24,N5,はじめて,はじめて,처음으로,初めて,manual-homophone,meaning-sensitive JMdict choice,,この小説は初めて邦訳された.
+w_b29a4071c1fdde80,N5,スカート,スカート,"스커트, 치마",,keep-kana,ambiguous or no common kanji form,,ロ：お母さん、寒くても、足首までくるスカートよりはミニスカートのほうが可愛いんですよ。
+w_5c2d9927c4fbe888,N5,おもしろい,おもしろい,재미있다,面白い,example-exact,unique JMdict form occurs in curated example,w_08908a001d06c5eb,レベチで面白い
+w_4dd0a16ccf0be360,N5,まずい,まずい,맛없다,不味い,jmdict-unambiguous,common JMdict form,,魚の焼き直しはまずい.
+w_6313f9284b018464,N5,いちだい,いちだい,한 대(자전거),一台,example-exact,unique JMdict form occurs in curated example,,学生である私は車どころか、自転車一台を買うお金もない。
+w_dc9a475966f7d870,N5,おばさん,おばさん,이모,,needs-review,ambiguous or no common kanji form,,おばさんは第1子のお産を順調にした。
+w_035875c57095c84d,N5,それでは,それでは,그럼,,keep-kana-reviewed,explicit modern-kana preference,,それでは、また
+w_09b924ace3343845,N5,スキー,スキー,스키,,keep-kana,ambiguous or no common kanji form,,彼はスキーに行った.
+w_72e1cb4ba34fc820,N5,べんきょうがしたい,べんきょうがしたい,공부를 하고 싶다,勉強がしたい,manual-context,meaning and inflection reviewed,,らいねんはにほんでべんきょうがしたいです。
+w_e1f8cbd438805e5e,N5,だんだん,だんだん,"점점, 점차",,needs-review,ambiguous or no common kanji form,,段段と夜が明けてくる
+w_2c647eb6552532c8,N5,エレベーター,エレベーター,엘리베이터,,keep-kana,ambiguous or no common kanji form,,エレベーターが故障する
+w_0b4b42871f3bf612,N5,ナイフ,ナイフ,"나이프, 칼",,keep-kana,ambiguous or no common kanji form,,ナイフでは切れない
+w_f84e4af1931a66af,N5,だいどころ,だいどころ,부엌,台所,example-exact,unique JMdict form occurs in curated example,w_29fd13f6f877956f,農家といっても昔とは違う。台所にはピカピカのガス・レンジもある
+w_f12b7cd5ea51cf7a,N5,はる,はる,붙이다,貼る,manual-homophone,meaning-sensitive JMdict choice,,ポスターを張る[はがす].
+w_3ddce52a2caa733a,N5,みち,みち,길,道,example-exact,unique JMdict form occurs in curated example,w_84eb455426c5a140,道なき道を踏み分けて進んだ.
+w_f7dcb52b9848b040,N5,ふく,ふく,(바람이) 불다,吹く,example-exact,unique JMdict form occurs in curated example,,肌寒い風が吹く.
+w_31141f538d260d85,N5,つまらない,つまらない,시시하다,,keep-kana-reviewed,explicit modern-kana preference,,相手の指導で勝利するのは、自分としてはつまらない。
+w_380dce933ba2841c,N5,たいてい,たいてい,대체로,大抵,example-exact,unique JMdict form occurs in curated example,w_ff87bb6908adb37e,休日は大抵家で過ごす
+w_950bfdb77150e285,N5,ゆうめいだ,ゆうめいだ,유명하다,有名だ,manual-context,meaning and inflection reviewed,,この街では，ランドマークともなっているふたつの高層ホテルが有名だ
+w_99c47cc1df2be37c,N5,おもい,おもい,무겁다,重い,example-exact,unique JMdict form occurs in curated example,w_6544e85ecab8bd79,殺人に対する罪科は重い.
+w_3759f3c20989a136,N5,おやすみなさい,おやすみなさい,안녕히 주무세요,お休みなさい,jmdict-unambiguous,common JMdict form,,‘おやすみなさい'と言って寝てしまう
+w_c88186a84ee8ef98,N5,まっすぐ,まっすぐ,"똑바로, 곧장",真っ直ぐ,jmdict-unambiguous,common JMdict form,,消息を聞いてまっすぐに飛んで来た.
+w_03de143ddf3b2084,N5,げんかん,げんかん,현관,玄関,example-exact,unique JMdict form occurs in curated example,,玄関の外に外灯をつける.
+w_4e9b8a9d056fb2bc,N5,わたる,わたる,건너다,渡る,example-exact,unique JMdict form occurs in curated example,w_5e33ed6531ff94b6,流れの速い[はげしい]川を渡る.
+w_d631fd55fbc45d65,N5,たいへん,たいへん,"힘듦, 큰일임",大変,example-exact,unique JMdict form occurs in curated example,,その節は大変お世話になりました
+w_232fd4c69bca3059,N5,さす,さす,"(우산을) 쓰다, 받다",,needs-review,ambiguous or no common kanji form,,雨傘を差す
+w_87351a3c5f2160a9,N5,ときどき,ときどき,때때로,時々,example-exact,unique JMdict form occurs in curated example,,時々、皮膚にちくっとした痛みを感じる
+w_7bd42a74b3f21cd5,N5,あした,あした,내일,明日,manual-homophone,meaning-sensitive JMdict choice,w_a6b4b27691fedbcb,天気はあしたの朝から下り坂になるでしょう
+w_d8dcbb01e7e6526f,N5,どういたしまして,どういたしまして,천만에요,どう致しまして,jmdict-unambiguous,common JMdict form,,昨日は失礼しました。どういたしまして、こちらこそ失礼いたしました
+w_728f59d1c6f9c5f4,N5,はく,はく,"(바지를) 입다, (신발·양말을) 신다",穿く,example-exact,unique JMdict form occurs in curated example,,ズボンを穿く
+w_fa01e280023d6933,N5,きる,きる,자르다,切る,example-exact,unique JMdict form occurs in curated example,,丸太をひき切る.
+w_6b2eba28cfff51ce,N5,デパート,デパート,백화점,,keep-kana,ambiguous or no common kanji form,,デパートは朝10時に店開きをする.
+w_3f7247bd3bb94359,N5,ぎんこう,ぎんこう,은행,銀行,example-exact,unique JMdict form occurs in curated example,w_391386c4147ce4af,銀行の方に勤めている.
+w_9ac4eb19ccb26979,N5,きらいです,きらいです,싫습니다,嫌いです,manual-context,meaning and inflection reviewed,,お好きですか。いいえ、嫌いです
+w_54eb6541260bdfb0,N5,セーター,セーター,스웨터,,keep-kana,ambiguous or no common kanji form,,白いセーターは汚れやすいのが欠点だ.
+w_8d91f549cf7aaf0c,N5,いれる,いれる,넣다,入れる,example-exact,unique JMdict form occurs in curated example,,空き箱に時計を入れる.
+w_262ab17a9d5f3f78,N5,だいじょうぶ,だいじょうぶ,괜찮음,大丈夫,jmdict-unambiguous,common JMdict form,,だいじょうぶです。
+w_e25c204a215c6bc5,N5,たのしい,たのしい,즐겁다,楽しい,example-exact,unique JMdict form occurs in curated example,w_8d526aa1c09b62a2,外出は子供の視点から見てみるとよりいっそう楽しいものなのです。(ラワナ・ブラックウェル)
+w_a48055accfd30bcb,N5,いたい,いたい,아프다,痛い,example-exact,unique JMdict form occurs in curated example,w_03f1fbfb1a4e6d33,靴が窮屈で足が痛い.
+w_d8b942a0bbdb88b3,N5,ちがいます,ちがいます,"아닙니다, 틀립니다",違います,manual-context,meaning and inflection reviewed,,それは違います。
+w_d1ca2d4600b815b5,N5,つよい,つよい,"강하다, 세다",強い,example-exact,unique JMdict form occurs in curated example,w_f0b5618bdca7c0ae,水圧が強い
+w_412d7a3479a4f8a3,N5,にひき,にひき,두 마리(고양이),二匹,manual-context,meaning and inflection reviewed,,二匹の猫がベランダで日向ぼっこをしている
+w_20734b71d5df79ef,N5,あし,あし,"발, 다리",足,example-exact,unique JMdict form occurs in curated example,w_ea3d8a4e6ed4bc82,足任せに歩く
+w_e08e5b558857d76c,N5,かぜ,かぜ,감기,風邪,manual-homophone,meaning-sensitive JMdict choice,,冷たい風に当たってかぜがぶりかえす
+w_969c1949db151a59,N5,あぶない,あぶない,위험하다,危ない,example-exact,unique JMdict form occurs in curated example,,人の跡をつけることは危ない.
+w_72ca2a9c4ae1017a,N5,いぬ,いぬ,개,犬,example-exact,unique JMdict form occurs in curated example,w_0eb0f469760ebd47,犬の遠ぼえがする.
+w_e2505ce2fcaf3d73,N5,おとな,おとな,어른,大人,example-exact,unique JMdict form occurs in curated example,,大人の真似をしている
+w_3850f53c9864fb42,N5,ボールペン,ボールペン,볼펜,,keep-kana,ambiguous or no common kanji form,,ペンと言ったところでボールペンしかない.
+w_92515fbd8be28da0,N5,はし,はし,"다리, 교량",橋,example-exact,unique JMdict form occurs in curated example,,洪水に橋が押し流された.
+w_912a89defaf6cfee,N5,かぶる,かぶる,(모자를) 쓰다,被る,jmdict-unambiguous,common JMdict form,w_a89a3400861519f5,政策がかぶる部分がある
+w_8599f01b62ec3b89,N5,しめる,しめる,(문을) 닫다,閉める,manual-homophone,meaning-sensitive JMdict choice,w_eff8aedd9cddd1a9,風が行かないように戸を閉める
+w_946af014ad2b6ee1,N5,ごちそうさま,ごちそうさま,잘 먹었습니다,ご馳走様,jmdict-unambiguous,common JMdict form,,ロ：はい、ごちそうさまでした。
+w_4e9ce7da04c4774f,N5,のぼる,のぼる,(산을) 오르다,登る,example-exact,unique JMdict form occurs in curated example,,あえぎあえぎ山を登る.
+w_2e349e2b0bfb1818,N5,ストーブ,ストーブ,"스토브, 난로",,keep-kana,ambiguous or no common kanji form,,ストーブにやかんを掛ける
+w_4c0800ab464a16af,N5,あに,あに,"오빠, 형",兄,example-exact,unique JMdict form occurs in curated example,,弟が兄を怒らせる.
+w_05f6406e9ab15b32,N5,のる,のる,"(차, 비행기를) 타다",乗る,example-exact,unique JMdict form occurs in curated example,w_79bf77758ff71250,家族が同じ車に乗る.
+w_b378eb40b444bf6e,N5,しずかに,しずかに,조용히,静かに,example-exact,unique JMdict form occurs in curated example,w_4afc49c52138c0b2,皆さん、お静かにしてください
+w_7233f2e9e3f48a80,N5,きっぷ,きっぷ,"표, 티켓",切符,example-exact,unique JMdict form occurs in curated example,,コンサートの切符を手に入れる
+w_be0c2a8c15c51508,N5,おす,おす,"누르다, 밀다",押す,manual-homophone,meaning-sensitive JMdict choice,w_b38cfcd67ff64a8e,リセットボタンを押す.
+w_aef420c79bbeb170,N5,ひま,ひま,"틈, 짬, 여가",暇,example-exact,unique JMdict form occurs in curated example,,暇を作る
+w_661368cc7fe5e352,N5,ひまでした,ひまでした,한가했습니다,暇でした,manual-context,meaning and inflection reviewed,,きのうのごごはひまでした。
+w_fc031afb71d1faf9,N5,のむ,のむ,"마시다, 삼키다",飲む,example-exact,unique JMdict form occurs in curated example,w_633b31657d51ba57,車座になって酒を飲む.
+w_e3e2e1235da0170b,N5,げんき,げんき,건강함,元気,example-exact,unique JMdict form occurs in curated example,w_3c23adf18899bec0,元気其の物
+w_0d26f4ecd5bf00c4,N5,あたたかい,あたたかい,따뜻하다,暖かい,manual-homophone,meaning-sensitive JMdict choice,w_cc7c486ee55f4e80,去年に引き替え、今年は暖かい
+w_7a7f3406f9ada41f,N5,おととい,おととい,그저께,一昨日,example-exact,unique JMdict form occurs in curated example,w_08414fa5796dc2f4,一昨日の晩から胃がちくちく痛む
+w_4a7bd63718f4b15d,N5,かう,かう,"사다, 구입하다",買う,example-exact,unique JMdict form occurs in curated example,w_7b4426d6f2756a8c,米を買う金で肥料を買う.
+w_03bf1e956aafced1,N5,かぜをひく,かぜをひく,감기에 들다,風邪をひく,example-exact,unique JMdict form occurs in curated example,,寝冷えで風邪をひく.
+w_e7f652ae64d8d30e,N5,すう,すう,(담배를) 피우다,吸う,example-exact,unique JMdict form occurs in curated example,,腹ばいになってタバコを吸う.
+w_31babae8ff2696b9,N5,あたらしい,あたらしい,새롭다,新しい,example-exact,unique JMdict form occurs in curated example,w_4d8d34ddefce90aa,色使いが新しい.
+w_fa949ea235fc38a2,N5,かない,かない,아내,家内,example-exact,unique JMdict form occurs in curated example,,家内を店のレジに座らせる.
+w_50ffd2ba2cc08cff,N5,ふつか,ふつか,"2일, 초이틀",二日,manual-homophone,meaning-sensitive JMdict choice,,一回転するのに二日かかる
+w_7391edd8a2c4c832,N5,いちど,いちど,한 번,一度,example-exact,unique JMdict form occurs in curated example,w_01e3fc0965037397,一度クリックしただけで高額な料金を請求してくるワンクリ詐欺
+w_de109ade477aaf3c,N5,にぎやかです,にぎやかです,떠들썩합니다,賑やかです,manual-context,meaning and inflection reviewed,,このまちはよるもにぎやかです。
+w_35d37fc58d80467b,N5,きたない,きたない,"더럽다, 지저분하다",汚い,example-exact,unique JMdict form occurs in curated example,w_0577bd8fb5ad5060,机の上が汚い
+w_f70f47a2eb8d0348,N5,うすい,うすい,얇다,薄い,example-exact,unique JMdict form occurs in curated example,w_d18208a487d10453,分が薄い.
+w_9c2d3700794d4e08,N5,ゆうべ,ゆうべ,어젯밤,昨夜,manual-homophone,meaning-sensitive JMdict choice,,夕べの火事で村が灰の山と化した.
+w_ac9371491b36f6a2,N5,ぼうし,ぼうし,모자,帽子,manual-homophone,meaning-sensitive JMdict choice,,娘に帽子をかぶせてやる.
+w_c01b591995b9335a,N5,とぶ,とぶ,날다,飛ぶ,manual-homophone,meaning-sensitive JMdict choice,w_0f26111535f0210a,カモメが群れ飛ぶ.
+w_d97131dc7962498d,N5,りっぱ,りっぱ,훌륭함,立派,example-exact,unique JMdict form occurs in curated example,,見掛けは立派
+w_76ee0a63fa5a65c7,N5,とまる,とまる,멈추다,止まる,example-exact,unique JMdict form occurs in curated example,w_ac4a28f37332b6a0,心臓の鼓動が止まる.
+w_1b21326fcb2d8421,N5,おきる,おきる,일어나다,起きる,example-exact,unique JMdict form occurs in curated example,w_39a427c6dee763c4,6時半に起きる
+w_60b16783522d51c6,N5,やさい,やさい,야채,野菜,example-exact,unique JMdict form occurs in curated example,w_e506759b6040f2fd,野菜を取り合わせて作る
+w_581fe312603d2f10,N5,あまい,あまい,달다,甘い,example-exact,unique JMdict form occurs in curated example,w_c0cc225df4622838,蜜[はちみつ]のように甘い.
+w_b98ec43cc7ba192f,N5,おふろにはいる,おふろにはいる,목욕하다,お風呂に入る,example-exact,unique JMdict form occurs in curated example,,家に帰ってすぐお風呂に入る
+w_49d4a04f0684a107,N5,へたです,へたです,서툽니다,下手です,manual-context,meaning and inflection reviewed,,何しろ，掃除と整理が恐ろしく下手ですから。まあ最近はやりのアバウト人間です
+w_e297167e239ff6ac,N5,れいぞうこ,れいぞうこ,냉장고,冷蔵庫,example-exact,unique JMdict form occurs in curated example,,冷蔵庫が台所をふさいでいる.
+w_43e6795a8212c516,N5,つとめる,つとめる,근무하다,勤める,example-exact,unique JMdict form occurs in curated example,w_87abe3f691f2a5ec,会社に勤める.
+w_995636b83892830d,N5,ちかい,ちかい,가깝다,近い,example-exact,unique JMdict form occurs in curated example,,彼の腕前は神業に近い.
+w_1890c7a3bfe4781f,N5,からい,からい,맵다,辛い,example-exact,unique JMdict form occurs in curated example,w_73af8c94eaaf7836,サンショウは小粒でもぴりりと辛い.
+w_38c3571b4d7aa01a,N5,ちいさい,ちいさい,작다,小さい,example-exact,unique JMdict form occurs in curated example,w_be0a4fc6dd818d25,そのうちのいくつか[幾人]はとても小さい.
+w_9898d6dcfbf040cb,N5,でんわ,でんわ,전화,電話,example-exact,unique JMdict form occurs in curated example,w_1b9d8a75f2b91a55,電話を待っています。
+w_2a02d91ea5c3fe03,N5,ゆうびんきょく,ゆうびんきょく,우체국,郵便局,example-exact,unique JMdict form occurs in curated example,,郵便局はすぐ手近にある
+w_cc4944533f0911af,N5,てんき,てんき,날씨,天気,example-exact,unique JMdict form occurs in curated example,w_76d3472883c72fe8,天気が全然よくありません。
+w_54750cb36373fd36,N5,あそぶ,あそぶ,놀다,遊ぶ,example-exact,unique JMdict form occurs in curated example,,母の側[傍]で子供が遊ぶ.
+w_3c8a052098392b1a,N5,おりる,おりる,내리다,降りる,manual-homophone,meaning-sensitive JMdict choice,w_631cf27db2365483,夜の帳が下りる
+w_ae4c2c199424ca13,N5,じょうず,じょうず,"능숙함, 잘함",上手,example-exact,unique JMdict form occurs in curated example,w_1335d3c40feacf5d,彼女は踊りが上手だ
+w_655c49430ab10602,N5,たいせつ,たいせつ,"중요함, 소중함",大切,example-exact,unique JMdict form occurs in curated example,,彼は，クラフトマンシップの大切さを訴えています
+w_deddb7435f3d9350,N5,あるく,あるく,걷다,歩く,example-exact,unique JMdict form occurs in curated example,w_a8ec89206d4fff44,足に任せて歩く.
+w_58ebca3b2291ffb6,N5,せっけん,せっけん,비누,石けん,example-exact,unique JMdict form occurs in curated example,,リキッドタイプの石けん
+w_7be0da7ae0c0dfbd,N5,でかける,でかける,외출하다,出掛ける,example-exact,unique JMdict form occurs in curated example,,出掛ける支度をする.
+w_1dc2a01d84d091eb,N5,しんぶんをよむ,しんぶんをよむ,신문을 읽다,新聞を読む,manual-context,meaning and inflection reviewed,,ちちはまいあさしんぶんをよむ。
+w_926c2576f47ea612,N5,わたす,わたす,건네다,渡す,example-exact,unique JMdict form occurs in curated example,w_b6ec99032db8c18a,舟で人を渡す.
+w_1183a3688186cdef,N5,シャワーをあびる,シャワーをあびる,샤워하다,シャワーを浴びる,example-exact,unique JMdict form occurs in curated example,,熱い水でシャワーを浴びる。
+w_3884f3361dd5cc56,N5,いそがしい,いそがしい,바쁘다,忙しい,example-exact,unique JMdict form occurs in curated example,,暮れはなかなか忙しい.
+w_5b4445d187ac74c5,N5,はたち,はたち,"20세, 스무 살",二十歳,manual-homophone,meaning-sensitive JMdict choice,,来年は二十になる
+w_43e0b900a9d10cc3,N5,わかい,わかい,젊다,若い,example-exact,unique JMdict form occurs in curated example,w_4358ae52c7f1b4d8,老境に入っても気が若い.
+w_90e10f6847d27828,N5,とおい,とおい,멀다,遠い,example-exact,unique JMdict form occurs in curated example,,千里が遠いといっても
+w_44bc31f10823f315,N5,けっこんする,けっこんする,결혼하다,結婚する,manual-context,meaning and inflection reviewed,,良縁を得て結婚する.
+w_7c2fb518a9047447,N5,おととし,おととし,재작년,一昨年,jmdict-unambiguous,common JMdict form,,明けておととしの春.
+w_f7ee39d72844c141,N5,おぼえる,おぼえる,"기억하다, 암기하다",覚える,example-exact,unique JMdict form occurs in curated example,w_c19e856353cf049c,人の名前を覚える
+w_923e439a3ee8ba0c,N5,つめたい,つめたい,차갑다,冷たい,example-exact,unique JMdict form occurs in curated example,,冬の乾いた風が冷たい.
+w_0500788ad7f74945,N5,かえす,かえす,되돌려주다,返す,example-exact,unique JMdict form occurs in curated example,w_113c116f7b2b3d71,贈り物を突返す
+w_17b789a30464c292,N5,うまれる,うまれる,태어나다,生まれる,example-exact,unique JMdict form occurs in curated example,w_9f48fc575582aa14,月が満ちて生まれる.
+w_cea1a4546e3779a7,N5,こうえん,こうえん,공원,公園,example-exact,unique JMdict form occurs in curated example,w_0868c5b03add8f4b,公園を一回りする
+w_1a3198f41e5aabef,N5,えらぶ,えらぶ,"고르다, 선택하다",選ぶ,example-exact,unique JMdict form occurs in curated example,w_f71f6fdcc2491b8d,相性の人を選ぶ.
+w_0ec81e693208cfb1,N5,りょうり,りょうり,요리,料理,example-exact,unique JMdict form occurs in curated example,w_afca84ce3be3c5e2,はい、料理するのが好きです。
+w_accc231b1738056c,N5,くだもの,くだもの,과일,果物,example-exact,unique JMdict form occurs in curated example,,器に果物をいっぱい盛る.
+w_05806d8778786e6e,N5,しゃしん,しゃしん,사진,写真,example-exact,unique JMdict form occurs in curated example,w_02ed6d62e248827b,この写真を拡大してください。
+w_85f9dd6060389151,N5,じょうぶ,じょうぶ,튼튼함,丈夫,example-exact,unique JMdict form occurs in curated example,,彼は丈夫なたちだ
+w_4a71718d7be3875a,N5,けす,けす,(불을) 끄다,消す,example-exact,unique JMdict form occurs in curated example,w_46f4a926941aa00f,水をかけて火を消す
+w_9b26b06b04353c7e,N5,まいしゅう,まいしゅう,매주,毎週,example-exact,unique JMdict form occurs in curated example,,彼は毎週山に登る.
+w_b621bc708ba80edb,N5,じしょ,じしょ,사전,辞書,example-exact,unique JMdict form occurs in curated example,,辞書で単語の意味を探した.
+w_1643e2acabb6bed2,N5,ほそい,ほそい,가늘다,細い,example-exact,unique JMdict form occurs in curated example,w_e928239923f76996,線のように細い
+w_c9f37118e390cfee,N5,みがく,みがく,(이를) 닦다,磨く,example-exact,unique JMdict form occurs in curated example,w_42ee94816d70a67e,歯を磨く; 歯磨きをする
+w_961e8495d97af933,N5,わすれる,わすれる,잊다,忘れる,example-exact,unique JMdict form occurs in curated example,w_2f41bf48aae2a583,いやなことはさらりと忘れる.
+w_d75a2128ac2e3e18,N5,ならべる,ならべる,진열하다,並べる,example-exact,unique JMdict form occurs in curated example,,商品を店頭に並べる
+w_f2cac506608d8950,N5,ごぜんちゅう,ごぜんちゅう,오전 내내,午前中,example-exact,unique JMdict form occurs in curated example,,仕事を午前中にやっつける
+w_17c2769bec0dd3c4,N5,およぐ,およぐ,헤엄치다,泳ぐ,example-exact,unique JMdict form occurs in curated example,,金魚がゆらりと泳ぐ.
+w_25d246fcafff391e,N5,おてあらい,おてあらい,화장실,お手洗い,example-exact,unique JMdict form occurs in curated example,,お手洗いのタオルを使い捨てのペーパータオルに変更する
+w_991b3f178bb17c4b,N5,まがる,まがる,"돌다, (방향을) 틀다",曲がる,example-exact,unique JMdict form occurs in curated example,,路地を突き当たって右に曲がる.
+w_afd06155d77947af,N5,けいかん,けいかん,경관,警官,example-exact,unique JMdict form occurs in curated example,,警官に見とがめられる.
+w_3f5f8950779c095c,N5,せんたくする,せんたくする,세탁하다,洗濯する,manual-context,meaning and inflection reviewed,,着物の縫い目をほどいて洗濯する.
+w_a1a38e164f0a3264,N5,はちじゅうえん,はちじゅうえん,80엔,八十円,manual-context,meaning and inflection reviewed,,このえんぴつははちじゅうえんです。
+w_27f194a34e98e0b0,N4,ゲーム,ゲーム,게임,,keep-kana,ambiguous or no common kanji form,,これ以上に糞ゲームってある？
+w_fe954a6bef42344a,N4,くれる,くれる,(나에게) 주다,,needs-review,ambiguous or no common kanji form,,目に物見せてくれる
+w_45e6afe394050228,N4,アメリカ,アメリカ,미국,,needs-review,ambiguous or no common kanji form,,東京を経てアメリカに帰る.
+w_486d794e67b43b00,N4,はず,はず,"~일 것이다, ~해야 한다",筈,example-exact,unique JMdict form occurs in curated example,,その人ならできる筈だ
+w_3ec592997b865dca,N4,やっぱり,やっぱり,역시,,needs-review,ambiguous or no common kanji form,,その仕事はやっぱりわたしには無理だ.
+w_cb00cd37f1c38658,N4,だから,だから,"그러니까, 그래서",,keep-kana,ambiguous or no common kanji form,,だから、病気になったのだ
+w_9dc889bbbcb824da,N4,ほとんど,ほとんど,"대부분, 거의",殆ど,jmdict-unambiguous,common JMdict form,,ほとんど死に瀕した
+w_cbd7bfb69667bf89,N4,まず,まず,"먼저, 우선",先ず,example-exact,unique JMdict form occurs in curated example,,先ず以て報告に来るべきだ
+w_2bc4b215ecdc92f2,N4,チェック,チェック,"체크, 점검",,keep-kana,ambiguous or no common kanji form,,施術前に毛量や毛質、肌質などを細かくチェックする
+w_d709df1abacda2e3,N4,つもり,つもり,"의도, 계획",,needs-review,ambiguous or no common kanji form,,十時に寝るつもりだ
+w_d449fd0042d0816c,N4,もし,もし,만약,,needs-review,ambiguous or no common kanji form,,もしやあの人ではと胸が騒いだ.
+w_c5ae09d783203646,N4,しっかりしている,しっかりしている,"착실하다, 다부지다",,keep-kana,ambiguous or no common kanji form,,値段は目先しっかりしている.
+w_64df6e045aa7c770,N4,きっと,きっと,"확실히, 의심할 여지 없이",,needs-review,ambiguous or no common kanji form,,きっとそうだ
+w_d1f69f3aa5b47854,N4,もらう,もらう,받다,貰う,example-exact,unique JMdict form occurs in curated example,,この机は僕が貰う
+w_328b3a4907a4cb55,N4,または,または,또는,又は,jmdict-unambiguous,common JMdict form,,"願書は持参するか,または郵送してください"
+w_082b84701552dac0,N4,けれど,けれど,"하지만, 그러나",,keep-kana,ambiguous or no common kanji form,,金はある。けれどもひまがない
+w_9e9c55cf8360497d,N4,プレゼント,プレゼント,선물,,keep-kana,ambiguous or no common kanji form,,プレゼントです。
+w_ae771b4fd6bc8a90,N4,だめ,だめ,"안 됨, 불가능함",駄目,example-exact,unique JMdict form occurs in curated example,,機械が駄目になる
+w_a2adf1cb9c70191e,N4,あげる,あげる,주다,上げる,example-exact,unique JMdict form occurs in curated example,,書いて上げる
+w_901a3275a5a22df0,N4,ゆっくりと,ゆっくりと,천천히,,keep-kana,ambiguous or no common kanji form,,その歌手がゆっくりと舞台の中央に歩み出ると、観客の拍手がわき起こった
+w_6ea8c8dbd447c1ac,N4,おかげさまで,おかげさまで,덕분에,お陰様で,jmdict-unambiguous,common JMdict form,,おかげさまでようよう歩けるようになりました.
+w_1ae8c4e5ec07e559,N4,ビル,ビル,건물(약어),,keep-kana,ambiguous or no common kanji form,,駅ビルに出店する
+w_10bb84681c578e93,N4,なるほど,なるほど,"과연, 그렇구나",,needs-review,ambiguous or no common kanji form,,"なるほど,それは名案だ."
+w_e4bb87bdfaec5058,N4,どんどん,どんどん,쑥쑥,,keep-kana,ambiguous or no common kanji form,,質問がどんどん(と)出た
+w_188cc4ec3c57d0e8,N4,ガス,ガス,가스,,needs-review,ambiguous or no common kanji form,,ガスがかかる
+w_f47ff1eed7e97a5c,N4,さっき,さっき,아까,,keep-kana-reviewed,explicit modern-kana preference,,さっき、彼女にチョクったんだ
+w_1a03ede5b3ef08ab,N4,やっと,やっと,"겨우, 간신히",,needs-review,ambiguous or no common kanji form,,話がやっと本論に入る
+w_abe8ce16dbbe2552,N4,ひどい,ひどい,"끔찍한, 대단한, 불공평한, 잔인한",酷い,example-exact,unique JMdict form occurs in curated example,,酷い目に遭わせる
+w_7a32f316cd4a9222,N4,それで,それで,그래서,,needs-review,ambiguous or no common kanji form,,風邪を引いた。 それで休んだ
+w_4407cb271d83b95a,N4,パソコン,パソコン,컴퓨터,,keep-kana,ambiguous or no common kanji form,,パソコンを習わせる
+w_98601c5f9fe56540,N4,うまい,うまい,"(1) 맛있다, (2) 능숙하다",,keep-kana-reviewed,explicit modern-kana preference,,初めての挑戦ですが、1ラウンドと2ラウンドチャンピオンがうまいです。
+w_8794ea0733093080,N4,びっくりする,びっくりする,놀라다,,keep-kana,ambiguous or no common kanji form,,身がすくむほどびっくりする.
+w_2f22a51db540eabf,N4,アジア,アジア,아시아,,needs-review,ambiguous or no common kanji form,,東南アジア市場の拡大に注力する
+w_ee0e6a8ae62194a4,N4,ケーキ,ケーキ,케이크,,keep-kana,ambiguous or no common kanji form,,ケーキを八つに分ける
+w_1b6764cdacb5aa11,N4,スーツ,スーツ,"정장, 슈트",,keep-kana,ambiguous or no common kanji form,,チャコールグレースーツに赤いネクタイが映える
+w_8be88d55282fef3e,N4,パパ,パパ,아빠,,keep-kana,ambiguous or no common kanji form,,これで、私もパパになりました。
+w_2539ca8094dbd583,N4,チケット,チケット,"티켓, 표",,keep-kana,ambiguous or no common kanji form,,インターネットであらかじめチケットを予約すれば、チケット売り場に並んでチケットを買う手間を省くことができる。
+w_b6d40355b557d202,N4,ガラス,ガラス,유리,,needs-review,ambiguous or no common kanji form,,ガラス戸をがらりと開ける
+w_1321e85d33a3b099,N4,コンサート,コンサート,콘서트,,keep-kana,ambiguous or no common kanji form,,このコンサートは、オリンピックムーブメントの一環として開催された
+w_ea7d40f28b87ae4b,N4,テニス,テニス,테니스,,keep-kana,ambiguous or no common kanji form,,水泳は言うまでもなくテニスもよくできる.
+w_b4d23f4f4fb20992,N4,ベル,ベル,"종, 벨",,keep-kana,ambiguous or no common kanji form,,アパートの階ごとに非常ベルが取りつけられている.
+w_6adb23638ce7da0e,N4,レポート,レポート,리포트,,keep-kana,ambiguous or no common kanji form,,レポート提出をネグる
+w_1ed0622bed06b6ac,N4,アフリカ,アフリカ,아프리카,,needs-review,ambiguous or no common kanji form,,アフリカの秘境をレポする.
+w_16699f6292844bcd,N4,オーバー,オーバー,"오버코트; 초과, 과장",,keep-kana,ambiguous or no common kanji form,,オーバーを着込む
+w_7c16b84742ec7d12,N4,すっかり,すっかり,"전부, 모두, 완전히",,keep-kana,ambiguous or no common kanji form,,"実は,すっかり忘れていた"
+w_5d44d44a212aa9b3,N4,うそです,うそです,거짓말입니다,嘘です,manual-context,meaning and inflection reviewed,,それは真っ赤な嘘です
+w_93dcc4efaa4ffbd4,N4,おもちゃ,おもちゃ,장난감,玩具,example-exact,unique JMdict form occurs in curated example,,部屋中に玩具を散らかす
+w_16f928e8de2043ff,N4,アルバイト,アルバイト,아르바이트,,keep-kana,ambiguous or no common kanji form,,アルバイトをして家計を助ける.
+w_66c87676a778f34f,N4,おや,おや,어라!,,keep-kana-reviewed,explicit modern-kana preference,,親に死なれる
+w_024079311e55aa98,N4,テキスト,テキスト,"본문, 교재",,keep-kana,ambiguous or no common kanji form,,テキストボックスの枠線が消えた
+w_4845600465ed917d,N4,いただく,いただく,받다(겸양어),頂く,example-exact,unique JMdict form occurs in curated example,,お土産を頂く
+w_d71bc7586cff3f68,N4,サラダ,サラダ,샐러드,,keep-kana,ambiguous or no common kanji form,,果物を皿[サラダを小皿]に取り分ける.
+w_ec666a473c6c95cc,N4,なるべく,なるべく,"되도록, 가능한 한",,keep-kana-reviewed,explicit modern-kana preference,,なるべく簡潔に話を済ませる
+w_7d5921f33cc2cfff,N4,ガソリン,ガソリン,휘발유,,keep-kana,ambiguous or no common kanji form,,ガソリンを満タンにして出発した.
+w_32b6716e6d619778,N4,レジ,レジ,"계산대, 레지스터",,keep-kana,ambiguous or no common kanji form,,家内を店のレジに座らせる.
+w_7741f337155794b3,N4,コンピューター,コンピューター,컴퓨터,,keep-kana,ambiguous or no common kanji form,,コンピューターを取り扱う手際が上手だ.
+w_ee0fa7304b0545a8,N4,スクリーン,スクリーン,"화면, 스크린",,keep-kana,ambiguous or no common kanji form,,スマホ画面の縁をなぞるだけでスクリーンショットが撮れる
+w_243717f739c5a6b1,N4,ステーキ,ステーキ,스테이크,,keep-kana,ambiguous or no common kanji form,,この店はステーキで有名になりました。
+w_2e1101ee126c77c4,N4,とうとう,とうとう,드디어,,keep-kana-reviewed,explicit modern-kana preference,,3時間も待ったが、とうとう彼は来なかった
+w_306ddbd039779417,N4,それに,それに,게다가,,needs-review,ambiguous or no common kanji form,,晴れたし、それに風もなかった
+w_4f147f1212bea594,N4,アナウンサー,アナウンサー,아나운서,,keep-kana,ambiguous or no common kanji form,,彼女は現在、フリーアナウンサーとして活動している
+w_cb46428b5693ae56,N4,すると,すると,"그때, 그러면",,keep-kana,ambiguous or no common kanji form,,扉が開いた。すると、その人が中から現れた
+w_04d5f5cb597c1c62,N4,いらっしゃる,いらっしゃる,"존경어, 존대 표현 위한",,keep-kana-reviewed,explicit modern-kana preference,,お母さんは明日いらっしゃるとおっしゃった.
+w_7bbc01295f752849,N4,ごみ,ごみ,쓰레기,,needs-review,ambiguous or no common kanji form,,ごみの捨て所がない.
+w_97e7d7c923d83b1c,N4,アイディア,アイディア,아이디어,,keep-kana,ambiguous or no common kanji form,,頭が煮詰まっていいアイディアが浮かばない
+w_a492d05c86081587,N4,カーテン,カーテン,커튼,,keep-kana,ambiguous or no common kanji form,,カーテンを掛けないと道から素通しだ.
+w_8409c8697b8b3079,N4,アクセサリー,アクセサリー,액세서리,,keep-kana,ambiguous or no common kanji form,,お揃いのアクセサリーを身につける
+w_8a50b9d0ef8fb7b7,N4,ハンバーグ,ハンバーグ,햄버거 스테이크,,keep-kana,ambiguous or no common kanji form,,豆腐ハンバーグは健康にいいのですがどうしても普通のハンバーグが食べたくなるときがあります。
+w_c86653591778887f,N4,ジャム,ジャム,잼,,keep-kana,ambiguous or no common kanji form,,パンにジャムを付ける.
+w_be85f3d35d6b8b68,N4,サンドイッチ,サンドイッチ,샌드위치,,keep-kana,ambiguous or no common kanji form,,液晶ディスプレーというのは，二枚のガラス板のすき間に液晶という特殊な液体をサンドイッチしたものである
+w_c1395761ef105cb2,N4,やせましたね,やせましたね,살이 빠졌네요,痩せましたね,manual-context,meaning and inflection reviewed,,久しぶりに会った友達に「やせましたね」と言われました。
+w_e98b841eff2444ea,N4,ステレオ,ステレオ,스테레오,,keep-kana,ambiguous or no common kanji form,,ステレオは二つのスピーカーから互いに違う音を出すことで音響をリアルに再生することができる。
+w_04bbfe9d5df156d4,N4,サンダル,サンダル,샌들,,keep-kana,ambiguous or no common kanji form,,彼女は花柄ワンピースに、フリンジが付いたプラットホームサンダルを合わせた
+w_882a31f37a05a290,N4,ぶどう,ぶどう,포도,,needs-review,ambiguous or no common kanji form,,赤ぶどう酒を1本空ける
+w_339aec6708f5b601,N4,スーツケース,スーツケース,"여행가방, 캐리어",,keep-kana,ambiguous or no common kanji form,,彼女はスーツケースを手にとって，搭乗ゲートの人の列のうしろについた
+w_cd41f85563b3a206,N4,エスカレーター,エスカレーター,에스컬레이터,,keep-kana,ambiguous or no common kanji form,,エンジニアはエスカレーターの修理を終えた後、エスカレーターがちゃんと反転するのか確認した。
+w_0e193c3cc307bb6f,N4,ちっとも,ちっとも,전혀(부정 동사),,needs-review,ambiguous or no common kanji form,,ちっとも黙っておらない
+w_4a75a3682bcdd4b1,N4,かまいません,かまいません,괜찮습니다,構いません,example-exact,unique JMdict form occurs in curated example,w_ce285518225afb6d,明晩なら来ても構いません
+w_f4cd6fcb686d7713,N4,ガソリンスタンド,ガソリンスタンド,주유소,,keep-kana,ambiguous or no common kanji form,,車のガソリンが切れたため、ガソリンスタンドに行ってガソリンを入れた。
+w_b6a0b9341a1603b2,N4,オートバイ,オートバイ,오토바이,,keep-kana,ambiguous or no common kanji form,,オートバイに飛び乗って逃げる.
+w_e2165c4745c4e5fa,N4,おとなしい,おとなしい,얌전하다,大人しい,example-exact,unique JMdict form occurs in curated example,,家では大人しい
+w_2afc4f4102d1bf3f,N4,けんか,けんか,싸움,喧嘩,manual-homophone,meaning-sensitive JMdict choice,,"互いに言い募ったあげく,けんかになった."
+w_512fde07bc888caa,N4,けんかする,けんかする,싸움,,keep-kana,ambiguous or no common kanji form,,どたどた(と)とっ組んでけんかする.
+w_dba5ddfd94c5dbca,N4,すっと,すっと,"곧장, 똑바로, 빨리",,keep-kana,ambiguous or no common kanji form,,いつのまにか雪がすっと溶けてしまった.
+w_6f5d32495c167657,N4,なさる,なさる,하시다(존경어),,needs-review,ambiguous or no common kanji form,,父上はすべてのことを直接ご自身でなさる.
+w_6f3c0426d5e18caa,N4,やわらかい,やわらかい,부드럽다,柔らかい,example-exact,unique JMdict form occurs in curated example,w_9a69e415985ac07b,この布地は生地が柔らかい.
+w_dc0b78fec5acb3d8,N4,さびしい,さびしい,"쓸쓸하다, 외롭다",寂しい,example-exact,unique JMdict form occurs in curated example,w_28791ccc16b6f97b,親に死なれて寂しい
+w_dbe3e7e377657834,N4,ワープロ,ワープロ,워드프로세서,,keep-kana,ambiguous or no common kanji form,,はい、私はワープロを持ってます。
+w_71d51d40bd252269,N4,きびしい,きびしい,"엄하다, 엄격하다",厳しい,example-exact,unique JMdict form occurs in curated example,w_1b23bca76df0323b,手タレの条件は厳しい。指が細くて長いのはもちろん，色白で節がないこと
+w_96b7c0f92f57641f,N4,パートタイム,パートタイム,파트타임,,keep-kana,ambiguous or no common kanji form,,私は学校に通いながらパートタイムで会社で仕事もした。
+w_8055df2a8ee6ed9e,N4,うかがう,うかがう,"묻다, 부탁하다",,needs-review,ambiguous or no common kanji form,,鍵穴から中をうかがう.
+w_8619b2bfc1bda7fc,N4,いたす,いたす,하다(겸양어),致す,example-exact,unique JMdict form occurs in curated example,w_c10a94ad3bf74d6b,人を死に致す
+w_7d52aa26e8ea1bff,N4,あやまりました,あやまりました,사과했습니다,謝りました,manual-context,meaning and inflection reviewed,,約束に遅れたので、友達にあやまりました。
+w_1cda3de6e8bb6711,N4,さしあげる,さしあげる,드리다(경어),差し上げる,example-exact,unique JMdict form occurs in curated example,w_97a3b823f67674e9,お礼の手紙を差し上げる
+w_089e5e37dd2ccd76,N4,いっしょうけんめい,いっしょうけんめい,열심히,一生懸命,example-exact,unique JMdict form occurs in curated example,w_b8c392e0ced001dc,息子と娘を生んで一生懸命暮らした.
+w_9f4e85bedd654fca,N4,きけんです,きけんです,위험합니다,危険です,manual-context,meaning and inflection reviewed,,ふぐには毒があるので素人の料理は危険です。
+w_82efffce3d2c635a,N4,たいいんする,たいいんする,퇴원하다,退院する,manual-context,meaning and inflection reviewed,,完治して退院する.
+w_dc3906550d4c187f,N4,まちがえやすい,まちがえやすい,틀리기 쉽다,間違えやすい,manual-context,meaning and inflection reviewed,,読み間違えやすい漢字
+w_25b648bf778c94cd,N3,する,する,하다,,needs-review,ambiguous or no common kanji form,,10分の1に縮尺する.
+w_f225f8353368badf,N3,わけ,わけ,이유,訳,example-exact,unique JMdict form occurs in curated example,w_83ae7074dc030eb4,欠席した訳を言うのが順だ
+w_8aa654b726b3973b,N3,しまう,しまう,"치우다, 안에 넣다",,needs-review,ambiguous or no common kanji form,,おもちゃを仕舞う
+w_0eb7fb9f9547d8f1,N3,いつも,いつも,항상,,keep-kana-reviewed,explicit modern-kana preference,,いつも敵役にまわる
+w_16b5e002c7a1d2f2,N3,そのうち,そのうち,머지않아,その内,jmdict-unambiguous,common JMdict form,,男は「イエスの再臨が近づいてきて、世界はそのうち終焉に至る」と言った。
+w_4d69f0da34b2cf58,N3,まご,まご,손자,孫,example-exact,unique JMdict form occurs in curated example,w_67b726b2a8728054,孫を早く得たいものだ.
+w_7cd203c92785ebef,N3,ずっと,ずっと,"쭉, 계속; 훨씬",,keep-kana,ambiguous or no common kanji form,,目がずっとちくちくしていたが、目薬をさしてしばらくしたら、だいぶ楽になった。
+w_dd6cfb328dbd2400,N3,せい,せい,"원인, 이유, 잘못, 결함",,keep-kana-reviewed,explicit modern-kana preference,,習い、性となる
+w_1557e553aea269a3,N3,もちろん,もちろん,물론,勿論,jmdict-unambiguous,common JMdict form,,彼は英語はもちろんのことフランス語もできる.
+w_65567f562d1637de,N3,ちゃんと,ちゃんと,"제대로, 확실히",,keep-kana,ambiguous or no common kanji form,,サザエのつぼ焼きは食べる前に食べ方を教えてもらわないとちゃんと食べられないことがあります。
+w_1c4e9708ae69cbb7,N3,すべて,すべて,모두,全て,jmdict-unambiguous,common JMdict form,w_cefba8d96d3392c2,人間はすべて法の前に平等である.
+w_3ef3013e7a8e4116,N3,すべての,すべての,모든,全ての,manual-context,meaning and inflection reviewed,,この社会からすべての罪人を誅滅する.
+w_8482bd5323c88fa3,N3,カード,カード,카드,,keep-kana,ambiguous or no common kanji form,,会員カードがあります。
+w_668cba7ff473553a,N3,イメージ,イメージ,이미지,,keep-kana,ambiguous or no common kanji form,,お客様に悪いイメージを与えたくない.
+w_9f019ac84d1a7128,N3,サービス,サービス,"서비스, 무료 제공",,keep-kana,ambiguous or no common kanji form,,ヤン社長は、会員らと1年間、無料でサービスを提供すると約定した。
+w_3ad346e39e2ff177,N3,つまり,つまり,"즉, 다시 말해",,keep-kana-reviewed,explicit modern-kana preference,,彼は曇った日、つまり雨や風が適切な日を選んで写真を撮る。
+w_42e866c37406b5ad,N3,メンバー,メンバー,"구성원, 회원",,keep-kana,ambiguous or no common kanji form,,ロ：うちのサークルのメンバーはお互い気がよく合うんだ。
+w_cf44989e0ac5563a,N3,チェックする,チェックする,체크하다,,keep-kana,ambiguous or no common kanji form,,出席をチェックする。
+w_71734773320f58ba,N3,しっかり,しっかり,"단단히, 꽉, 제대로",,needs-review,ambiguous or no common kanji form,,年はとっても足はしっかりしている
+w_18a15a1c8844b218,N3,そのまま,そのまま,그대로,,keep-kana-reviewed,explicit modern-kana preference,,彼の笑顔はまったく童顔そのままだ.
+w_156a7a5dffb72ac5,N3,それぞれ,それぞれ,각각,,needs-review,ambiguous or no common kanji form,,人にはそれぞれ向き不向きがある.
+w_9e5e37d7e879c72a,N3,グループ,グループ,"그룹, 집단",,keep-kana,ambiguous or no common kanji form,,レース後半も先頭グループとメイン集団とのタイム差は1分台と相変わらなかった。
+w_74ceac84fb765eab,N3,セット,セット,세트,,keep-kana,ambiguous or no common kanji form,,三つでセットになっている.
+w_d5f8141da5f9b6f9,N3,コード,コード,"코드, 규약",,keep-kana,ambiguous or no common kanji form,,メモ帳で制御コードを入力する
+w_672b201b0d3b2ec1,N3,おかしい,おかしい,이상하다,,needs-review,ambiguous or no common kanji form,,ちょっとおかしい事になっている
+w_25dd9dc478c947cd,N3,テーマ,テーマ,"주제, 테마",,keep-kana,ambiguous or no common kanji form,,宇宙をテーマに曲作りをする
+w_64d1fd1365d78128,N3,わかりやすい,わかりやすい,알기 쉽다,,needs-review,ambiguous or no common kanji form,,分かりやすい例えを使って説明する
+w_66cc4fca408401b0,N3,ママ,ママ,엄마,,keep-kana,ambiguous or no common kanji form,,これで、私もママになりました。
+w_16bb47fc2f77a4c7,N3,サイズ,サイズ,사이즈,,keep-kana,ambiguous or no common kanji form,,サイズが合いません。
+w_a27d455fe2eef037,N3,スタイル,スタイル,스타일,,keep-kana,ambiguous or no common kanji form,,このスタイルはもう流行らない
+w_7a351a9f11bcc39f,N3,そろそろ,そろそろ,슬슬,,keep-kana,ambiguous or no common kanji form,,そろそろスイカ(水瓜)が出るころだ
+w_c07355323d29e4ab,N3,まったく,まったく,전혀,全く,jmdict-unambiguous,common JMdict form,w_2c314e0899617574,指にまったく感覚がない.
+w_8fdcc4961a0171a0,N3,スター,スター,별,,keep-kana,ambiguous or no common kanji form,,スターになる
+w_8ff15ccaaa16be1d,N3,アルバム,アルバム,앨범,,keep-kana,ambiguous or no common kanji form,,アルバムの表紙が日に焼ける
+w_9a63e40ea88a885c,N3,しばらく,しばらく,잠시,暫く,jmdict-unambiguous,common JMdict form,,仕事の手を休めてしばらく休息する.
+w_ba89429f60737539,N3,エネルギー,エネルギー,에너지,,keep-kana,ambiguous or no common kanji form,,太陽エネルギーを電気に変換する.
+w_08cdbe4932bb3c07,N3,チャンス,チャンス,"기회, 찬스",,keep-kana,ambiguous or no common kanji form,,チャンスを見逃した
+w_e55ed4f6c0478c54,N3,ケース,ケース,"경우, 사례",,needs-review,ambiguous or no common kanji form,,さまざまなケースを例示して説明する.
+w_2b4dfaa297bb70d2,N3,エンジン,エンジン,엔진,,keep-kana,ambiguous or no common kanji form,,車のエンジンの音がぶんぶんと鳴る.
+w_729f291cb71c2dcc,N3,ミス,ミス,"실수, 미스",,needs-review,ambiguous or no common kanji form,,今日もラインの読み違いは無かったけれど、ストロークのミスがありました。
+w_0411ab62ab973eb3,N3,カバー,カバー,"커버, 덮개",,keep-kana,ambiguous or no common kanji form,,カバーを少し持ち上げて中をのぞいてみる.
+w_617986ba153ebe08,N3,インタビュー,インタビュー,인터뷰,,keep-kana,ambiguous or no common kanji form,,当時の記録，住民のインタビューの分析などを通じて，ナチズムが「ドイツ庶民」にどう受け取られ，どんな風に浸透していったかが考察されている
+w_2cb60f5afdc9fb67,N3,くせ,くせ,버릇,癖,example-exact,unique JMdict form occurs in curated example,w_111d2464a080f298,だだをこねる癖がある.
+w_fc1994f9fa849063,N3,オフィス,オフィス,사무실,,keep-kana,ambiguous or no common kanji form,,オフィスが，ＧＨＱの隣で，コーン・パイプをくわえたマッカーサーをよく見かけました
+w_776127b5e47c3418,N3,カー,カー,"차, 자동차",,keep-kana,ambiguous or no common kanji form,,フロン類は，冷蔵庫やカー・エア・コンの冷媒や断熱材に使われている
+w_bb155fd3f44b4abd,N3,クリスマス,クリスマス,크리스마스,,keep-kana,ambiguous or no common kanji form,,パイプオルガンのあるチャペルでは，クリスマスにはキャンドル・サービスを行ないます
+w_bb82ebdcacdf5f3e,N3,かんたんな,かんたんな,간단한,簡単な,manual-context,meaning and inflection reviewed,,中庸とは決して、足して二で割る式の簡単なものではない
+w_46383522b3acf1c9,N3,あらゆる,あらゆる,"모든, 온갖",,needs-review,ambiguous or no common kanji form,,あらゆる苦労をなめてきた.
+w_02120114862d3c4a,N3,すきだ,すきだ,좋아하다,好きだ,manual-context,meaning and inflection reviewed,,絵を描くのがすきだ。
+w_8ced55e5dccd8e1b,N3,サイン,サイン,"사인, 서명; 신호",,keep-kana,ambiguous or no common kanji form,,ここにサイン、お願いします。
+w_75085f66ce060b20,N3,ヨーロッパ,ヨーロッパ,유럽,,needs-review,ambiguous or no common kanji form,,ヨーロッパ諸国を歴訪する.
+w_105efa07618d8026,N3,きちんと,きちんと,정확히,,keep-kana,ambiguous or no common kanji form,,時間をきちんと守る.
+w_92f2cceffefa8a7e,N3,チャレンジ,チャレンジ,"챌린지, 도전",,keep-kana,ambiguous or no common kanji form,,ユーチューブを通じてアイスバケツチャレンジに挑戦した映像を公開した女優
+w_ad5cc82e7991ff51,N3,メモ,メモ,"메모, 주석",,keep-kana,ambiguous or no common kanji form,,電子メモタブレットで作成したメモを印刷する
+w_128d29f45bc02c6a,N3,だいたい,だいたい,대략,大体,manual-homophone,meaning-sensitive JMdict choice,w_ce2b7c1de446f647,大体[ほぼ]次のとおりである
+w_fec5985f6767757f,N3,ゴール,ゴール,목표,,keep-kana,ambiguous or no common kanji form,,サッカーでアタッカーの目標はゴールを決めることだ。
+w_0e85c73b6c150596,N3,アイデア,アイデア,아이디어,,keep-kana,ambiguous or no common kanji form,,"年を取って頭が働かなくなり,いいアイデアが浮かばない."
+w_903e5145aa609f5d,N3,いらっしゃい,いらっしゃい,환영,,keep-kana,ambiguous or no common kanji form,,いらっしゃい。楽にしてください。
+w_ad627d920f9f817c,N3,スイッチ,スイッチ,스위치,,keep-kana,ambiguous or no common kanji form,,門の前で立ち止まりインターホンのスイッチを押した.
+w_9e3481dc47d209d0,N3,やめる,やめる,그만두다,辞める,example-exact,unique JMdict form occurs in curated example,w_da535a991def07ed,思い切って仕事を辞める
+w_9a227b930a63af01,N3,コーチ,コーチ,코치,,keep-kana,ambiguous or no common kanji form,,サッカーチームをコーチする.
+w_326aea9cf6cffa08,N3,キャンプ,キャンプ,"캠프, 진영",,keep-kana,ambiguous or no common kanji form,,キャンプ生活をする.
+w_71054613e3ca4e9f,N3,たっぷり,たっぷり,"듬뿍, 충분히",,keep-kana,ambiguous or no common kanji form,,飯をおわんにたっぷり盛る
+w_c4183df97780a7e1,N3,マナー,マナー,매너,,keep-kana,ambiguous or no common kanji form,,マナーの悪さに眉を顰める
+w_76fadfa2f7cff0ca,N3,こわい,こわい,무섭다,怖い,example-exact,unique JMdict form occurs in curated example,w_f7e7cb647a4e4a2d,日本の落語には、「饅頭怖い」という面白い話があります。
+w_4dde3428187bb98a,N3,たまたま,たまたま,우연히,,needs-review,ambiguous or no common kanji form,,キム博士は、たまたま偶然その理論を発見した。
+w_3d3ebf43e5e3e709,N3,アドバイス,アドバイス,"어드바이스, 충고",,keep-kana,ambiguous or no common kanji form,,イ：私のアドバイスを無視しないでください。
+w_6137a9f052a73aa2,N3,そっくり,そっくり,똑같이 생김,,keep-kana,ambiguous or no common kanji form,,彼の家族はみんな一様に顔がそっくりだ。
+w_a1d24bae2917d6bb,N3,ぴったり,ぴったり,"딱(밀착함, 어울림)",,keep-kana,ambiguous or no common kanji form,,この色はあの人にぴったりする
+w_03d47d9381223e3a,N3,きつい,きつい,힘들다,,keep-kana,ambiguous or no common kanji form,,体がきつい。
+w_e9d71ca2f36c44d4,N3,キッチン,キッチン,키친,,keep-kana,ambiguous or no common kanji form,,キッチンドリンカーに陥る
+w_f84fa3add9cb216e,N3,スケジュール,スケジュール,스케줄,,keep-kana,ambiguous or no common kanji form,,すみませんが、今日はスケジュールがいっぱいです。
+w_062802327bbd983b,N3,キャプテン,キャプテン,"캡틴, 주장",,keep-kana,ambiguous or no common kanji form,,ロ：左腕に腕章をつけた選手がキャプテンです。
+w_2d3607c509de64a2,N3,さっぱり,さっぱり,"상쾌함, 말끔함",,keep-kana,ambiguous or no common kanji form,,入浴してさっぱり(と)した
+w_c3efb06de3094405,N3,キャンセル,キャンセル,취소,,keep-kana,ambiguous or no common kanji form,,余程な事情がない限り、キャンセルにならない
+w_6b2bd94a040d7f61,N3,ずいぶん,ずいぶん,상당히,随分,jmdict-unambiguous,common JMdict form,w_b0fa73f425bb6383,けち臭くそのようなやり方をするとはずいぶんきたない。
+w_ace5f18d0879f642,N3,ぜんぜん,ぜんぜん,전혀,全然,example-exact,unique JMdict form occurs in curated example,w_d3e9c63c13baacbd,欠点をつかみ出す所が全然ない; 一点非の打ち所がない; 間然する所が全くない.
+w_31da48090d6c10eb,N3,ヒント,ヒント,힌트,,keep-kana,ambiguous or no common kanji form,,私が出したクイズを誰も当てられないので、ヒントを少し与えることにした。
+w_ef5feff1d3ccd761,N3,うっかり,うっかり,"깜빡, 무심코(실수하는 모습)",,keep-kana,ambiguous or no common kanji form,,あ、うっかり約束を忘れちゃった
+w_e3f8ae1ac4c6e455,N3,そっと,そっと,살짝,,needs-review,ambiguous or no common kanji form,,そっと耳打ちしてやった.
+w_0465760f8e83cea2,N3,おかしな,おかしな,이상한,,needs-review,ambiguous or no common kanji form,,可笑しな話しで合点がいかない
+w_72b1dd2e3e407693,N3,がっかり,がっかり,"실망하다, 낙담하다",,keep-kana,ambiguous or no common kanji form,,がっかり極まりない。
+w_7324984adc736a5d,N3,がっかりする,がっかりする,낙심하다,,keep-kana,ambiguous or no common kanji form,,落選の報を聞いてがっかりする
+w_95e8ac550383556d,N3,スケート,スケート,스케이트,,keep-kana,ambiguous or no common kanji form,,（スピードスケートで）よろよろとバランスを崩したニーマンが転倒，横滑りしながらアウト・コースの方に飛び出した
+w_5379aa117b5e16b1,N3,さっそく,さっそく,즉시,早速,example-exact,unique JMdict form occurs in curated example,w_b72207d33f55c934,電話をかけたら早速やって来た
+w_6a0aa8779064ce8b,N3,あわ,あわ,거품,泡,example-exact,unique JMdict form occurs in curated example,w_b0bd981d3bda964c,ぶくぶくと泡を立てる.
+w_85fb7ce1728eaa62,N3,カタログ,カタログ,카탈로그,,needs-review,ambiguous or no common kanji form,,たくさんの商品カタログに迷って，カウンターに相談に行った
+w_75e6de69c398c013,N3,らくな,らくな,편한,楽な,manual-context,meaning and inflection reviewed,,ラップ・ミュージックを聞いていると，とても楽な気分になる
+w_18dc98c1f1411b8b,N3,ユーモア,ユーモア,유머,,keep-kana,ambiguous or no common kanji form,,ユーモア感覚があるほうです。
+w_6642ae5b80aa389c,N3,ウイスキー,ウイスキー,위스키,,keep-kana,ambiguous or no common kanji form,,ウイスキーを水で割る.
+w_3f2637fd3045f747,N3,ふる,ふる,흔들다,振る,example-exact,unique JMdict form occurs in curated example,w_e09a49f56218e718,それじゃ、またねって手を振る
+w_58d18ba17769cc1a,N3,アイスクリーム,アイスクリーム,아이스크림,,keep-kana,ambiguous or no common kanji form,,シャーベットはアイスクリームの兄弟のようなものです。
+w_67c55246091e5e55,N3,しつこい,しつこい,끈질기다,,needs-review,ambiguous or no common kanji form,,しつこい守備で相手を追い詰める
+w_59e6ccaef4f27f08,N3,たまる,たまる,쌓이다,溜まる,manual-homophone,meaning-sensitive JMdict choice,w_f9e0f3dbb59a25b1,ベランダに埃が溜まる
+w_5ebc893f4c292db6,N3,カーブ,カーブ,"곡선, 커브",,keep-kana,ambiguous or no common kanji form,,前の打席，カーブでやられてたから，カーブだけに的をしぼっていた
+w_f068c9d471b0c6a2,N3,カーブしている,カーブしている,굽어 있다,,keep-kana,ambiguous or no common kanji form,,荻野漕艇場のスタートから300mにかけては川がカーブしているため流れのスピードは変わってくる。
+w_1a09b8cfa343e777,N3,リサイクル,リサイクル,"리사이클, 재활용",,keep-kana,ambiguous or no common kanji form,,空き瓶を取り集めてリサイクルする.
+w_7ca8064312bdb7b2,N3,パンフレット,パンフレット,"팸플릿, 소책자",,keep-kana,ambiguous or no common kanji form,,パンフレットをガリ版で刷る.
+w_14b7a7565fa9e8f4,N3,たびたび,たびたび,"자주, 여러 번",度々,jmdict-unambiguous,common JMdict form,,基本に忠実な激しいタックルで，たびたびＭ大のファンブルを誘った
+w_b9111f44a6cece15,N3,しゃべる,しゃべる,말하다,喋る,example-exact,unique JMdict form occurs in curated example,,誰にも喋るなよ
+w_52e806fe56473fd8,N3,ノック,ノック,노크,,keep-kana,ambiguous or no common kanji form,,ぬっとドアを開けないでノックしてください。
+w_1bfd0444cb26da23,N3,ゆるい,ゆるい,"느슨하다, 완만하다",緩い,example-exact,unique JMdict form occurs in curated example,w_5383cc0f3350da7d,ひもが緩い
+w_4b12fd88bdcd3bf7,N3,なつかしい,なつかしい,그립다,懐かしい,example-exact,unique JMdict form occurs in curated example,w_568660177b238b65,過ぎた日が今更のように懐かしい.
+w_fe90c06cc5136491,N3,ぶつける,ぶつける,"부딪다, 들이받다",,needs-review,ambiguous or no common kanji form,,頭を戸に打付ける
+w_a36d8551b00e3fd4,N3,うわさ,うわさ,소문,噂,jmdict-unambiguous,common JMdict form,w_48edbcd9cc1bd313,そのうわさで持ち切りだ.
+w_8619d8e46998e20e,N3,だるい,だるい,나른하다,怠い,example-exact,unique JMdict form occurs in curated example,,高熱で全身が怠い
+w_8fdb066e76411edb,N3,あきらめる,あきらめる,포기하다,諦める,manual-homophone,meaning-sensitive JMdict choice,w_f8828c1e725c917d,怖がっておのずからあきらめる.
+w_f641945e8d6571c0,N3,あわてて,あわてて,"허둥대며, 황급하게",慌てて,manual-context,meaning and inflection reviewed,,彼は口ではそう言ったものの内心ではあわてているようだった.
+w_b2b8ad5066c610c6,N3,ぶらぶら,ぶらぶら,"어슬렁어슬렁, 천천히",,keep-kana,ambiguous or no common kanji form,,ぶらぶらと近づいてくる。
+w_0cac833dd5c18449,N3,さいきん,さいきん,최근,最近,example-exact,unique JMdict form occurs in curated example,w_72906b1feea37df4,最近、目にする機会が増えた
+w_a61620b169657c43,N3,むく,むく,(껍질을) 벗기다,剥く,manual-homophone,meaning-sensitive JMdict choice,,バナナの皮をさっと剝く.
+w_6dabf4237be1a307,N3,かれる,かれる,시들다,枯れる,example-exact,unique JMdict form occurs in curated example,w_8efd4d5e30a414c9,煙害で山林が枯れる
+w_47b233d6232a19c7,N3,かならず,かならず,반드시,必ず,example-exact,unique JMdict form occurs in curated example,w_37328bc83de7e43a,侵略は必ず防がなければならない.
+w_8cb2f2c1faee7d8f,N3,どきどき,どきどき,두근두근,,keep-kana,ambiguous or no common kanji form,,名前が呼ばれないかと思って、どきどきした
+w_04e254adf543c228,N3,はかる,はかる,"재다, 측정하다",測る,example-exact,unique JMdict form occurs in curated example,w_e7f479187f36afac,静止した状態で測る
+w_ddc4c211ea049dc1,N3,ふらふら,ふらふら,"비틀비틀, 휘청휘청",,keep-kana,ambiguous or no common kanji form,,疲れてふらふらになる.
+w_d7bf6ee8c6585cce,N3,このごろ,このごろ,요즈음,この頃,jmdict-unambiguous,common JMdict form,w_aae7ac3f2729716f,このごろ夫婦げんかが多くなった.
+w_79310f4ddfb535bb,N3,まぶしい,まぶしい,눈부시다,眩しい,example-exact,unique JMdict form occurs in curated example,w_c13f2d70a64be03d,照り付ける太陽が眩しい
+w_c2cb813bbf10739d,N3,あわせる,あわせる,합치다,合わせる,example-exact,unique JMdict form occurs in curated example,,「肌を合わせる」というのは，エッチなイミもあるけれど，もとは「心を合わせる」とか「示し合わせる」ということだ
+w_217384955200e9db,N3,きまり,きまり,규칙,決まり,example-exact,unique JMdict form occurs in curated example,w_9c02e2c234a205df,決まりに従って行動する
+w_453f3b9c5058ab25,N3,おそろしい,おそろしい,무섭다,恐ろしい,example-exact,unique JMdict form occurs in curated example,w_a4435942eb37a45e,習慣は恐ろしい.
+w_6eb60bb5310e4b19,N3,ためる,ためる,"모으다, 담다",貯める,example-exact,unique JMdict form occurs in curated example,,せっせと金を貯める
+w_91e8c336d4454520,N3,りっぱな,りっぱな,훌륭한,立派な,manual-context,meaning and inflection reviewed,,子を立派な人に育てる.
+w_bf7d5c4f25bd15e8,N3,こぼす,こぼす,"쏟다, 엎지르다",,needs-review,ambiguous or no common kanji form,,バケツの水を少し零す
+w_0f5482e1ea9e0a5e,N3,ながれ,ながれ,흐름,流れ,example-exact,unique JMdict form occurs in curated example,w_a190e772e12a363a,気血の流れを良し、治る力を高めるのが瀉法である
+w_ca1c520d25a84601,N3,なだらかな,なだらかな,완만한,,keep-kana,ambiguous or no common kanji form,,なだらかな丘陵を縫うカントリー・ロードに沿って，中世の姿を残す素朴な村村が点在する
+w_34cbcd4491dcafdb,N3,ないしょにする,ないしょにする,비밀로 하다,内緒にする,manual-context,meaning and inflection reviewed,,誕生日の計画は当日までないしょにする。
+w_05060983e5f24a85,N3,のばす,のばす,"연장하다, 연기하다",延ばす,manual-homophone,meaning-sensitive JMdict choice,w_4fa2413486371202,日を延ばす; 日送りにする
+w_432f26e9704d0a8b,N3,ぜったいに,ぜったいに,절대로,絶対に,example-exact,unique JMdict form occurs in curated example,w_3ab16e565cd75205,絶対に負けないと豪語する.
+w_f1a259336a25d471,N3,おわる,おわる,끝나다,終わる,example-exact,unique JMdict form occurs in curated example,w_2e1c725abcc5c203,スコアレスドローで終わる
+w_9c48300c28335a56,N3,たたむ,たたむ,"접다, 개다",畳む,example-exact,unique JMdict form occurs in curated example,w_6d74d0384fabf212,ハンカチを畳む.
+w_576098eca2c5c7c0,N3,うなる,うなる,신음하다,唸る,example-exact,unique JMdict form occurs in curated example,,高熱でうんうんと唸る
+w_97688a85478dfd96,N3,ゆでる,ゆでる,삶다,茹でる,example-exact,unique JMdict form occurs in curated example,,枝豆を殻つきのまま茹でる
+w_3a1fc271b293a3c4,N3,かがやく,かがやく,빛나다,輝く,example-exact,unique JMdict form occurs in curated example,w_2bcc58862e764fb6,燦然たる栄誉に輝く.
+w_f041779928fc3a0a,N3,がらがら,がらがら,텅텅(텅 빈 모습),,keep-kana,ambiguous or no common kanji form,,がらがらに空いた駐車場
+w_a5a0b52f993172ca,N3,からから,からから,바싹바싹(몹시 건조한 모습),,keep-kana,ambiguous or no common kanji form,,喉がからからに渇く
+w_4859ff46423d869b,N3,おぼれる,おぼれる,물에 빠지다,溺れる,example-exact,unique JMdict form occurs in curated example,,危うく溺れるところだった
+w_2483b98c4224bf99,N3,あきる,あきる,"질리다, 식상하다",飽きる,example-exact,unique JMdict form occurs in curated example,w_5ed6c4ba3aaf50f2,長話に飽きる
+w_e8881da1f1c3d900,N3,しばる,しばる,묶다,縛る,example-exact,unique JMdict form occurs in curated example,w_9f231925f59ed7f1,本を一山ずつ縛る
+w_cd92ddcb3ad43e81,N3,かわく,かわく,마르다,乾く,example-exact,unique JMdict form occurs in curated example,w_b480848a70c6cde2,ぬれた着物が半ば乾く.
+w_a0adae11f85d8920,N3,あまる,あまる,남다,余る,example-exact,unique JMdict form occurs in curated example,w_fa49af9b638a1de5,小遣いが余る
+w_3bd8001bb85b0c71,N3,にぎる,にぎる,움켜쥐다,握る,jmdict-unambiguous,common JMdict form,w_5087ca0f2f02704e,政権を握っている.
+w_4c228c581f6ab0dc,N3,あつめる,あつめる,모으다,集める,example-exact,unique JMdict form occurs in curated example,w_e1c3c47439908fec,人類の全知を集める.
+w_26e6054b35783079,N3,とじる,とじる,"닫다, (눈을)감다",閉じる,example-exact,unique JMdict form occurs in curated example,w_903895183827ef59,目を閉じる
+w_61de5aabc302e1e5,N3,どなる,どなる,호통치다,怒鳴る,example-exact,unique JMdict form occurs in curated example,w_72943e17cc2418be,人前で怒鳴る
+w_dd807f7eb5cfd6ab,N3,うばう,うばう,빼앗다,奪う,example-exact,unique JMdict form occurs in curated example,w_833594898192c2a8,彼女の心を奪う.
+w_1acadab0e96ab9d7,N3,くたびれる,くたびれる,지치다,,needs-review,ambiguous or no common kanji form,,長旅をしてすっかり草臥れる
+w_46295160a102bb64,N3,たしかめる,たしかめる,확인하다,確かめる,example-exact,unique JMdict form occurs in curated example,w_79aa315fe2fb6fed,言葉の意味を辞書で確かめる
+w_ea1731b43f90b6b2,N3,ころぶ,ころぶ,넘어지다,転ぶ,example-exact,unique JMdict form occurs in curated example,w_523564dca147c289,つるっと滑って転ぶ.
+w_8a0359a0fc57e5a7,N3,まげる,まげる,"구부리다, 굽히다",曲げる,example-exact,unique JMdict form occurs in curated example,w_47d4e0fc7e943945,主義を曲げる
+w_40a370857d95e22e,N3,まずしい,まずしい,가난하다,貧しい,example-exact,unique JMdict form occurs in curated example,w_af76d4b3d5ba5ac0,欲張りは常に貧しい。
+w_5c91c9030e80a0f2,N2,そのため,そのため,"그 때문에, 그래서",,needs-review,ambiguous or no common kanji form,,ロ：そうです。そのため韓国と交易する国も多くなりました。
+w_1623a8c707cf4d7c,N2,おやつ,おやつ,간식,,needs-review,ambiguous or no common kanji form,,おやつにゆで卵を食べる
+w_becbe89dce937f34,N2,いってきます,いってきます,다녀오겠습니다,行ってきます,example-exact,unique JMdict form occurs in curated example,,ちょっとトイレ行ってきます。
+w_2903ad5dfafa9ef5,N2,そういえば,そういえば,"그러고 보니, 말하자면",そう言えば,jmdict-unambiguous,common JMdict form,,ロ：古くなったからかな。そういえば弾力が感じられない。
+w_7934b5204436a2d2,N2,シリーズ,シリーズ,시리즈,,keep-kana,ambiguous or no common kanji form,,日本シリーズが開幕する
+w_806caa630bc4966a,N2,モデル,モデル,모델,,keep-kana,ambiguous or no common kanji form,,アラ還モデルを募集する
+w_1c76154de61ebf76,N2,まあまあ,まあまあ,그저 그럼; 자자(달램),,keep-kana,ambiguous or no common kanji form,,最近の成績はまあまあです。
+w_0f985655aefb7416,N2,おはよう,おはよう,"좋은 아침, 안녕하세요(약어)",,needs-review,ambiguous or no common kanji form,,みなさん、おはようございます。それでは今日の授業を始めます。
+w_5344b7237e4585fb,N2,スタート,スタート,"스타트, 출발",,keep-kana,ambiguous or no common kanji form,,課題だったスタートでの遅れも左足を後ろに引く，陸上のクラウチング・スタートのような飛び出しをマスターして乗り越えた
+w_5094def9feedccf2,N2,コース,コース,"과정, 코스",,keep-kana,ambiguous or no common kanji form,,バスが同一コースを循環する.
+w_44d95881ae9460b7,N2,バンド,バンド,밴드; 벨트,,keep-kana,ambiguous or no common kanji form,,ビートルズが好きで始めた音楽。バンドを解散して４年になる
+w_6ca79734fc42c810,N2,フリー,フリー,"프리, 자유",,keep-kana,ambiguous or no common kanji form,,フリー・アルバイターのＭさんが，タイでこつ然と姿を消した
+w_aee9a39c44e5dfde,N2,カラー,カラー,칼라(깃); 컬러(색),,keep-kana,ambiguous or no common kanji form,,コンピューター上のカラー画像で，色情報を破棄して，モノクロ画像に変換すると，ファイルの大きさは約３分の１になる
+w_a36d1a7420e62662,N2,ステージ,ステージ,"스테이지, 무대",,keep-kana,ambiguous or no common kanji form,,今年はスプリンター向けの平坦ステージが7ステージも登場する。
+w_9c2fb37ac164be4e,N2,バック,バック,백; 뒤,,keep-kana,ambiguous or no common kanji form,,車線を変える前にバックミラーで後ろに車が来るかを確認しなければならない。
+w_41ff05de9ac088d2,N2,パンツ,パンツ,팬티,,keep-kana,ambiguous or no common kanji form,,パンツ姿で外に出ないでください.
+w_70d88b7ff080f900,N2,プログラム,プログラム,프로그램,,keep-kana,ambiguous or no common kanji form,,様々な文化プログラムが全国で開催される
+w_345b257e320eb063,N2,ダム,ダム,댐,,keep-kana,ambiguous or no common kanji form,,ダムの水量を調節しようとする
+w_1f5b759becbda853,N2,シーズン,シーズン,계절(스포츠),,keep-kana,ambiguous or no common kanji form,,オフシーズンの旅こそ，「旅」本来の楽しみを得ることができる
+w_7be7b280d00ddd2e,N2,そのころ,そのころ,"그 무렵, 그때",その頃,jmdict-unambiguous,unambiguous JMdict form,,そのころ，私の声は今より一オクターブぐらい高くて，本当にかわいらしい感じで歌いました
+w_f2d2e2a518024414,N2,いきなり,いきなり,"갑자기, 느닷없이",,needs-review,ambiguous or no common kanji form,,やにわに[いきなり]飛び掛かる
+w_320433fac64d8f72,N2,きっかけ,きっかけ,"계기, 실마리",,needs-review,ambiguous or no common kanji form,,話しかけるきっかけを作る
+w_2256b19c727c08a4,N2,パターン,パターン,"패턴, 유형",,keep-kana,ambiguous or no common kanji form,,この問題はパターンを使えば簡単に解ける
+w_861ca6b450098d91,N2,ショップ,ショップ,가게,,keep-kana,ambiguous or no common kanji form,,昨日、ペットショップで犬笛を買ってきた
+w_8b7f21a425217dde,N2,どうせ,どうせ,"어차피, 아무튼",,keep-kana,ambiguous or no common kanji form,,どうせわれわれが勝つ事は確かだ.
+w_5b83a0c147418419,N2,ピンク,ピンク,분홍색,,keep-kana,ambiguous or no common kanji form,,ピンクが特に好きな彼女のために私はピンクのカバンをプレゼントした。
+w_e451cbd66171f0d9,N2,ようやく,ようやく,"마침내, 겨우",,needs-review,ambiguous or no common kanji form,,小説の草稿をようやく脱稿した.
+w_6603ba1e283d2377,N2,ナンバー,ナンバー,"넘버, 번호",,keep-kana,ambiguous or no common kanji form,,この曲はスタンダードナンバーに入る.
+w_98ef0c87ce249536,N2,さっさと,さっさと,빨리,,keep-kana,ambiguous or no common kanji form,,ロ：のろのろ答えないで、さっさと言ってもらえない？
+w_e45322b4b76efeda,N2,スマート,スマート,"스마트함, 날씬함",,keep-kana,ambiguous or no common kanji form,,スマート農業の導入を進める
+w_d0d456b0d48b9410,N2,マスク,マスク,마스크,,keep-kana,ambiguous or no common kanji form,,PM2.5に対応するマスクを着用する
+w_396a3a8e81b9bf77,N2,メニュー,メニュー,메뉴,,keep-kana,ambiguous or no common kanji form,,右クリックで表示されるコンテクストメニューは、メニュー項目を追加して拡張できる
+w_84ebf670f5baf34e,N2,コレクション,コレクション,"컬렉션, 수집",,keep-kana,ambiguous or no common kanji form,,例えば、単なるコレクション目的で銃の所持が許可されることはない。
+w_33f9de4191ccc28f,N2,サンプル,サンプル,"샘플, 견본",,keep-kana,ambiguous or no common kanji form,,いろいろのサンプルを見くらべる.
+w_308e4771b0c7c2e0,N2,サークル,サークル,"동아리, 모임",,keep-kana,ambiguous or no common kanji form,,うちのサークルは、本を読んだ後で討論をする集まりだ。
+w_0744100c4e1f9bac,N2,ダブル,ダブル,더블,,keep-kana,ambiguous or no common kanji form,,彼女は15得点、11リバウンドでダブルダブルを達成した
+w_835755354dd51d08,N2,マンション,マンション,"맨션, 아파트",,keep-kana,ambiguous or no common kanji form,,このマンションにします。
+w_fe190a6cec38a37a,N2,ボーナス,ボーナス,보너스,,keep-kana,ambiguous or no common kanji form,,冬のボーナスで懐が暖まった
+w_2b97883065a84202,N2,ランチ,ランチ,"점심, 런치",,keep-kana,ambiguous or no common kanji form,,ワシントンの一部のレストランには最近，十八ドルランチのメニューが現れ，好評だそうだ
+w_74124cfa141496e3,N2,せめて,せめて,적어도,,needs-review,ambiguous or no common kanji form,,せめてうそはつかない。
+w_b2311ab4de564cd1,N2,ポスター,ポスター,포스터,,keep-kana,ambiguous or no common kanji form,,選挙のポスターが街頭に張り出される.
+w_061c9a2227408a77,N2,かたかな,かたかな,가타카나,,needs-review,ambiguous or no common kanji form,,外来語はかたかなで書くことが多い。
+w_5872217ac737e861,N2,スクール,スクール,학교,,keep-kana,ambiguous or no common kanji form,,私は中高の6年間ずっとスクールバスで通学していた。
+w_7d88671df843fa46,N2,タイヤ,タイヤ,타이어,,keep-kana,ambiguous or no common kanji form,,たくさんの古タイヤが野積みになっている.
+w_c222e1855f3b5056,N2,チップ,チップ,"팁, 칩",,keep-kana,ambiguous or no common kanji form,,チップを現金に替えてください。
+w_9873f3727efa1340,N2,リズム,リズム,리듬,,keep-kana,ambiguous or no common kanji form,,快いリズムに合わせて、ダンスを踊る
+w_3c648280458c6258,N2,あくまで,あくまで,"어디까지나, 끝까지",,needs-review,ambiguous or no common kanji form,,それは飽くまで個人的な意見に過ぎない
+w_75c3159271a952c8,N2,センチ,センチ,센티미터,,keep-kana,ambiguous or no common kanji form,,きゅうりは半分に切り、1センチ幅の斜め切りにする
+w_c7625b45ece7b1b9,N2,マラソン,マラソン,마라톤,,keep-kana,ambiguous or no common kanji form,,マラソンコースを試走してみる.
+w_dc39e7e1be6cb170,N2,ワンピース,ワンピース,원피스,,keep-kana,ambiguous or no common kanji form,,彼女は花柄ワンピースに、フリンジが付いたプラットホームサンダルを合わせた
+w_dbea07b05b8ca08b,N2,カロリー,カロリー,칼로리,,keep-kana,ambiguous or no common kanji form,,食事の前に注射をして，常にカロリー計算に気を配らなければならない
+w_82eacc05b961d54b,N2,レンズ,レンズ,렌즈,,keep-kana,ambiguous or no common kanji form,,このレンズは収差が少ない.
+w_5bcdc979b7ed1e3d,N2,オイル,オイル,기름,,keep-kana,ambiguous or no common kanji form,,油の拡散を防ぐため、オイルフェンスを張る
+w_64b66d55227bd248,N2,ストップ,ストップ,"스톱, 정지",,keep-kana,ambiguous or no common kanji form,,球の勢いを吸収してネット際に落とすのがストップだ。
+w_c4a0d13e223c2ee4,N2,ジャーナリスト,ジャーナリスト,"저널리스트, 기자",,keep-kana,ambiguous or no common kanji form,,この映画には，ニューヨークのアルゴンキン・ホテルにたむろした作家やジャーナリストがあまた登場する
+w_d207065630caf7d8,N2,ダイヤモンド,ダイヤモンド,다이아몬드,,keep-kana,ambiguous or no common kanji form,,ダイヤモンドを一周する.
+w_dae9fe34d49fdf06,N2,リボン,リボン,리본,,keep-kana,ambiguous or no common kanji form,,アウェアネスリボンの中でも特によく知られているのが、レッドリボンとピンクリボンである
+w_070f23eaf200c13e,N2,サラリーマン,サラリーマン,회사 직원,,keep-kana,ambiguous or no common kanji form,,サラリーマンであってもその仕事のプロになるべきだと思う。だから，プロになろうという意味の英語ビー・プロフェッショナルを会社のスローガンに掲げていた
+w_16d4b8043ccddd54,N2,テニスコート,テニスコート,테니스 코트,,keep-kana,ambiguous or no common kanji form,,ロ：テニスコートを通り過ぎる時にボールが当たったんだ。
+w_8238efd567b931bf,N2,プリント,プリント,"프린트, 인쇄물",,keep-kana,ambiguous or no common kanji form,,プリントが全員に行き渡る
+w_b0fa1c830ecb6288,N2,アンテナ,アンテナ,안테나,,keep-kana,ambiguous or no common kanji form,,地デジ用アンテナを取り付ける
+w_2bf57019d31625a6,N2,ハンドル,ハンドル,"핸들, 손잡이",,keep-kana,ambiguous or no common kanji form,,左の方向にハンドルを切る.
+w_b976fbc3fd9d2341,N2,ビタミン,ビタミン,비타민,,keep-kana,ambiguous or no common kanji form,,ビタミンB(ビー)を多量に含んでいる.
+w_3193085fb0c6152e,N2,ガム,ガム,껌,,needs-review,ambiguous or no common kanji form,,ガムが靴底に粘り着いた.
+w_9bfdc3c5cb55e3fc,N2,キャンパス,キャンパス,캠퍼스,,keep-kana,ambiguous or no common kanji form,,キャンパス全図で私たちの学科の建物を探してみた。
+w_43f14ae8b5ebc464,N2,リットル,リットル,리터,,keep-kana,ambiguous or no common kanji form,,一升は約1.8(いってんはち)リットルだ
+w_e768db3f16c5235d,N2,スピーカー,スピーカー,스피커,,keep-kana,ambiguous or no common kanji form,,このスピーカーは、防磁タイプになっている
+w_f7a4d07f8680af2b,N2,ネックレス,ネックレス,목걸이,,keep-kana,ambiguous or no common kanji form,,肌の白いジスには銀製ネックレスより金製ネックレスがよく似合っていた。
+w_4f69ef1d9fc91046,N2,すっきり,すっきり,"분명한, 맑은, 깔끔한",,keep-kana,ambiguous or no common kanji form,,病気がまだすっきりしない.
+w_89783675f0c46f94,N2,モーター,モーター,모터,,keep-kana,ambiguous or no common kanji form,,なべの底のサーモスタットが蒸し上がりを感知すると，モーターに電流が流れる
+w_d398cb6463d92c0e,N2,スライド,スライド,슬라이드,,keep-kana,ambiguous or no common kanji form,,スライドを上映する.
+w_5ef5af7f184e9a87,N2,テンポ,テンポ,템포,,keep-kana,ambiguous or no common kanji form,,早いテンポで進行する.
+w_72537e8f1bac00cf,N2,ベテラン,ベテラン,베테랑,,keep-kana,ambiguous or no common kanji form,,新人の華やかな活躍で、ベテランが霞んでしまった
+w_e7cd95c7495b6b8b,N2,ランニング,ランニング,"러닝, 달리기",,keep-kana,ambiguous or no common kanji form,,ランニングシュートが見事にゴールインした.
+w_0d063b862854d2c6,N2,ロビー,ロビー,로비,,keep-kana,ambiguous or no common kanji form,,今回の改装は，バー・カウンターなどを階下に移し，ロビーを設けた
+w_d96a01f013da3fc5,N2,ヘリコプター,ヘリコプター,헬리콥터,,keep-kana,ambiguous or no common kanji form,,高山にヘリコプターで降り立ち，豊富な残雪のスロープに思い思いのシュプールを描くヘリスキーにうってつけのシーズンになった
+w_e5e4f2ad1b7b422a,N2,クーラー,クーラー,"에어컨, 냉방기",,keep-kana,ambiguous or no common kanji form,,私の家のクーラーには、室内の空気を浄化してくれる機能がある。
+w_7752b9b9b2ea811d,N2,ロッカー,ロッカー,"사물함, 로커",,keep-kana,ambiguous or no common kanji form,,空いているロッカーがないのか、ロッカーの扉をがばっと開けてみた。
+w_d6eac65a7edc9976,N2,ふわふわ,ふわふわ,"푹신푹신, 둥실둥실",,keep-kana,ambiguous or no common kanji form,,焼きたてのパンがふわふわと柔らかかった。
+w_db5366ff804778b0,N2,シャッター,シャッター,셔터,,keep-kana,ambiguous or no common kanji form,,ぱちりとカメラのシャッターを切る.
+w_bd1879a3f57c209a,N2,ゼミ,ゼミ,세미나,,keep-kana,ambiguous or no common kanji form,,キム教授は授業について学生たちの意見を聞くためにゼミを開いた。
+w_13225792ed5d74c5,N2,ビニール,ビニール,비닐,,keep-kana,ambiguous or no common kanji form,,ひとりの老人が，ショッピング・カートに白いビニール袋を満載にして，これをゆっくり押していた
+w_e7b3c6dbac3b1fa9,N2,マフラー,マフラー,"목도리, 머플러",,keep-kana,ambiguous or no common kanji form,,マフラータオルをオーダーメードで製作する
+w_c704423c36ddc196,N2,ギャング,ギャング,"갱, 폭력단",,keep-kana,ambiguous or no common kanji form,,ギャングのボスは繰り返し言う。「彼ら（ギャングたち）にリスペクトを払ってくださいよ」。…自分たちが欲しいのは人間として正当に扱われることだ。そうすれば相応の対応をする，というのだ。
+w_f55aaa41fd14f035,N2,コンクール,コンクール,"콩쿠르, 경연 대회",,keep-kana,ambiguous or no common kanji form,,コンクールを後援している
+w_c1b163bf11b90384,N2,アクセント,アクセント,"악센트, 강세",,keep-kana,ambiguous or no common kanji form,,ひだを取って腰回りにアクセントをつける.
+w_ef1462a5b69b7bd2,N2,コック,コック,요리사; 수도꼭지,,keep-kana,ambiguous or no common kanji form,,コックはタマネギの皮を一皮ずつ剥いていった。
+w_e6116103dbcc68cb,N2,フライパン,フライパン,프라이팬,,keep-kana,ambiguous or no common kanji form,,熱したフライパンにとかした生卵を流しこむやじゅうじゅうと音がした.
+w_33c3b31daaa2075f,N2,カセット,カセット,카세트,,keep-kana,ambiguous or no common kanji form,,私は父の飾り棚から昔の歌手の音楽カセットを見ていた。
+w_689c76e1da0fa958,N2,ブラシ,ブラシ,"브러시, 솔",,needs-review,ambiguous or no common kanji form,,排ガスで汚れた表面を，ぞうきんやデッキ・ブラシで磨いている
+w_2625a6f1c96ae16c,N2,モダン,モダン,"모던, 현대적",,keep-kana,ambiguous or no common kanji form,,私たちはリビングに現代的な家具を配置してモダンな感じの新居を完成した。
+w_7b2d219820bd99a5,N2,オーケストラ,オーケストラ,오케스트라,,keep-kana,ambiguous or no common kanji form,,舞台の上とオーケストラ・ピットと，両方の音がナマナマしいまでに鮮かに聞こえていた
+w_c5438a2dab2c8feb,N2,ずるい,ずるい,"교활하다, 치사하다",,needs-review,ambiguous or no common kanji form,,狡い事をする
+w_acc876653588012b,N2,コーラス,コーラス,"합창, 후렴",,keep-kana,ambiguous or no common kanji form,,昔はママさんコーラスといえば，ビブラートがつきものの，ハーモニーが常識だったが，最近は違う
+w_0e4c16e89825c541,N2,レジャー,レジャー,"레저, 여가",,keep-kana,ambiguous or no common kanji form,,ビーチ・バレーは「レジャー・スポーツとして，世界で人気が出ると確信していた
+w_4d438cf8f92e9462,N2,クリーニング,クリーニング,"세탁, 드라이클리닝",,keep-kana,ambiguous or no common kanji form,,季節外れの服を集めてクリーニング屋にドライクリーニングに出した。
+w_3caab7484a603e60,N2,エプロン,エプロン,앞치마,,keep-kana,ambiguous or no common kanji form,,ジスは「家事を手伝う」と言ってエプロンをつけた。
+w_3e3b911293ac6f59,N2,おおよそ,おおよそ,"대략, 관한",,needs-review,ambiguous or no common kanji form,,大凡の筋を説明する
+w_23ad56ee33f20e5e,N2,ダイヤル,ダイヤル,다이얼,,keep-kana,ambiguous or no common kanji form,,ポケットダイヤルの増加で公共の安全が脅かされる
+w_ceec571ad56a4793,N2,シーツ,シーツ,"시트, 종이",,keep-kana,ambiguous or no common kanji form,,シーツがごわついて寝られない.
+w_d9e22abde44c3a57,N2,ストッキング,ストッキング,스타킹,,keep-kana,ambiguous or no common kanji form,,ストッキングが伝線する.
+w_4fd0783444da72d2,N2,スカーフ,スカーフ,스카프,,keep-kana,ambiguous or no common kanji form,,スカーフの結び方やコサージ作りを覚えれば，同じ服も見違える
+w_d66201884ced4538,N2,コンセント,コンセント,"콘센트, 전원 콘센트",,keep-kana,ambiguous or no common kanji form,,イ：コンセントにプラグがあまりにも挿され過ぎています。
+w_eff6f42ca8c5949f,N2,サイレン,サイレン,사이렌,,keep-kana,ambiguous or no common kanji form,,サイレンの音に我知らず道の端に身をよけた.
+w_6bb5a1271f35b2b1,N2,セメント,セメント,시멘트,,keep-kana,ambiguous or no common kanji form,,砂とセメントを練り合わせる.
+w_2f7318457b9f7446,N2,ピストル,ピストル,"권총, 피스톨",,keep-kana,ambiguous or no common kanji form,,射撃で使われるレーザーピストルって危険なピストルなのか気になる。
+w_5221eddb38995df6,N2,スリッパ,スリッパ,슬리퍼,,keep-kana,ambiguous or no common kanji form,,スリッパをずるずる引きずる.
+w_ded44e32c6a7a4d9,N2,ミシン,ミシン,재봉틀,,keep-kana,ambiguous or no common kanji form,,ミシンで切れ地を縫い合わせる.
+w_d5e995df4d9237db,N2,ウーマン,ウーマン,여자,,keep-kana,ambiguous or no common kanji form,,ジスは会社に通いながら家の切り盛りも上手なスーパーウーマンだ。
+w_d672b7ae7476d950,N2,イコール,イコール,"동등한, 같은",,keep-kana,ambiguous or no common kanji form,,イコールな関係
+w_55b71aeefe260c58,N2,モノレール,モノレール,모노레일,,keep-kana,ambiguous or no common kanji form,,モノレールの窓から，きゅう舎や馬を見下ろしていたのに…
+w_76c3e5adbd77cbb5,N2,チョーク,チョーク,"분필, 초크",,keep-kana,ambiguous or no common kanji form,,先生はチョークで黒板をとんとん叩いた。
+w_bd8ba6e8506305c9,N2,ブローチ,ブローチ,브로치,,keep-kana,ambiguous or no common kanji form,,ブローチを胸につける.
+w_07d2e6af164edb95,N2,ブラウス,ブラウス,블라우스,,keep-kana,ambiguous or no common kanji form,,エアリーなブラウスをチョイスする
+w_d42b384ab852fd1e,N2,うろうろ,うろうろ,"어슬렁어슬렁, 우왕좌왕",,keep-kana,ambiguous or no common kanji form,,虎がうろうろする。
+w_efba51efd9b64ec0,N2,せっせと,せっせと,"부지런히, 열심히",,keep-kana,ambiguous or no common kanji form,,釣り人はせっせと釣り糸を巻き上げた。
+w_4bf6dcc1032d5d46,N2,ウール,ウール,양털,,keep-kana,ambiguous or no common kanji form,,祖母はくるくるするウールで帽子を作った。
+w_bb2f02bf8612a31c,N2,オルガン,オルガン,오르간,,keep-kana,ambiguous or no common kanji form,,先生のオルガン伴奏で合唱する.
+w_bf913ba9deeff8be,N2,ナイロン,ナイロン,나일론,,keep-kana,ambiguous or no common kanji form,,父に買ってあげたシャツはナイロンに綿が混紡されて柔らかくて汗もよく吸収された。
+w_87d6d130008c550c,N2,プラットホーム,プラットホーム,"플랫폼, 승강장",,keep-kana,ambiguous or no common kanji form,,プラットホームまで兄を出迎える.
+w_6aeb9c1f5df61e28,N2,ウェイトレス,ウェイトレス,웨이트리스,,keep-kana,ambiguous or no common kanji form,,そのウェイトレスは笑顔で注文を取った。
+w_2f8ceee1f5935e9b,N2,ファスナー,ファスナー,"지퍼, 파스너",,keep-kana,ambiguous or no common kanji form,,ファスナーがうまくかみ合わない
+w_f9324df0df5b99e7,N2,どっと,どっと,갑자기,,keep-kana,ambiguous or no common kanji form,,どっと疲れが出る
+w_781b744ff9b2998d,N2,ビルディング,ビルディング,건물,,keep-kana,ambiguous or no common kanji form,,ロ：海外でビルディングを建設する仕事をしています。
+w_8e80ce9d946a7bf5,N2,めっきり,めっきり,"눈에 띄게, 부쩍",,keep-kana,ambiguous or no common kanji form,,老来めっきり物ぐさになった
+w_249123639c3e4839,N2,にこにこ,にこにこ,"싱글벙글, 방긋방긋",,keep-kana,ambiguous or no common kanji form,,嬉しいことでもあるのかにこにこしている.
+w_76888fa930968791,N2,ぶつぶつ,ぶつぶつ,"투덜투덜, 중얼중얼",,keep-kana,ambiguous or no common kanji form,,イ：何をぶつぶつ言うんだ？
+w_d3d86f4ea708b113,N2,ぎっしり,ぎっしり,"단단히, 완전히",,keep-kana,ambiguous or no common kanji form,,この餃子は豆腐や肉、ニラなどで具がぎっしり詰まっていて、歯ごたえが良い。
+w_6e944754268c9b91,N2,ずらす,ずらす,"(위치·시간을) 옮기다, 늦추다",,keep-kana,ambiguous or no common kanji form,,約束の時間をずらす
+w_0beeafd0189a47d8,N2,エチケット,エチケット,예절,,keep-kana,ambiguous or no common kanji form,,礼儀作法は単に形式化されたエチケットではなく、心のこもった行動でなければならない。
+w_f01cca1be0d4385f,N2,スチュワーデス,スチュワーデス,"스튜어디스, 승무원",,keep-kana,ambiguous or no common kanji form,,子供のとき空港に行くとユニホームを着て歩き回るスチュワーデスが本当に素敵に見えた。
+w_b40f9c063be59826,N2,レインコート,レインコート,"레인코트, 비옷",,keep-kana,ambiguous or no common kanji form,,私は雨の日には子供にレインコートを着せる。
+w_11d04976f3550bcb,N2,ペンチ,ペンチ,펜치,,keep-kana,ambiguous or no common kanji form,,針金[ワイヤー]をペンチで切る.
+w_efea8d64c87236ab,N2,ラッシュアワー,ラッシュアワー,"러시아워, 혼잡 시간대",,keep-kana,ambiguous or no common kanji form,,イ：かなり遅れましたよね。ラッシュアワーで渋滞していて立ち往生していました。
+w_99375e60fdeb18f4,N2,オートメーション,オートメーション,자동화,,keep-kana,ambiguous or no common kanji form,,長引く景気低迷が，自治体としては最高水準の東京都のオフィス・オートメーション化計画を直撃している
+w_e13f09519cb49365,N2,インキ,インキ,잉크,,keep-kana,ambiguous or no common kanji form,,スポイトでインキを入れる.
+w_de63da100ac1f50b,N2,つまずく,つまずく,발이 걸려 넘어지다,躓く,jmdict-unambiguous,common JMdict form,w_590d55e05e5f7b6c,段(になっている所)につまずく.
+w_2bac7e5120c4dcfa,N2,のろのろ,のろのろ,천천히,,keep-kana,ambiguous or no common kanji form,,凍りついた路面を車がはうようにのろのろと進んでいる.
+w_cc2b86ac2830c1b9,N2,うなずく,うなずく,끄덕이다,頷く,example-exact,unique JMdict form occurs in curated example,,うんうんと頷く
+w_740c00b0639ea524,N2,しゃっくり,しゃっくり,딸꾹질,,needs-review,ambiguous or no common kanji form,,吃逆が止まらない
+w_feade8e1757f1108,N2,ぴかぴか,ぴかぴか,반짝이다,,keep-kana,ambiguous or no common kanji form,,靴がぴかぴかする。
+w_f1a8679b2fc50a6c,N2,しゃがむ,しゃがむ,쪼그리고 앉다,,keep-kana,ambiguous or no common kanji form,,部屋のまんなかにひざを抱えてしゃがむ.
+w_ac9469bbfc665be5,N2,ひとりでに,ひとりでに,"저절로, 자동으로",独りでに,example-exact,unique JMdict form occurs in curated example,,ドアが独りでに開いた
+w_463b73e9be94bc29,N2,しぼむ,しぼむ,"시들다, 쪼그라들다",萎む,jmdict-unambiguous,common JMdict form,,花がしおれる[しぼむ]
+w_d3d2b10204204a0d,N2,ずらり,ずらり,죽 늘어선 모양,,keep-kana,ambiguous or no common kanji form,,イ: 遊園地の入口にずらりと並んでいるあの車をちょっと見て。
+w_74ae6b79324143f2,N2,そそっかしい,そそっかしい,부주의한,,keep-kana,ambiguous or no common kanji form,,あの人はそそっかしい性格だ
+w_308680a8ffac242b,N2,ぴたり,ぴたり,"딱, 꼭 맞게",,keep-kana,ambiguous or no common kanji form,,残り94ydで50度のウェッジを振り抜くと、ピン右1mにぴたりになる。
+w_b1c2aa5444f0f1c7,N2,くるむ,くるむ,"싸다, 감싸다",,needs-review,ambiguous or no common kanji form,,体をバスタオルで包む
+w_d0c435d3cd403082,N2,まごまご,まごまご,"우물쭈물, 당황함",,keep-kana,ambiguous or no common kanji form,,慌てた子供は、まごまごしながら言い訳を並べた。
+w_53cc9946cf9a22e6,N2,ごめんください,ごめんください,"실례합니다, 계십니까",,needs-review,ambiguous or no common kanji form,,ごめんください((訪問の時))
+w_927fd41084037694,N2,はきはき,はきはき,명확히,,keep-kana,ambiguous or no common kanji form,,所帯やつれがして昔のはきはきした面影は少しもない.
+w_81d9a253570bac6e,N2,ばからしい,ばからしい,"어리석다, 터무니없다",馬鹿らしい,example-exact,unique JMdict form occurs in curated example,,馬鹿らしい目にあう
+w_4c88110f6a425af8,N2,あぶる,あぶる,"태우다, 그슬리다, 굽다, 볶다",,needs-review,ambiguous or no common kanji form,,アジの干物を軽く炙る
+w_c04ce01d6f5db784,N2,ダイヤグラム,ダイヤグラム,"도표, 다이어그램",,keep-kana,ambiguous or no common kanji form,,設計のダイヤグラムを見ながら説明した。
+w_7826d7569e12800d,N2,こしらえる,こしらえる,"만들다, 제조하다",拵える,example-exact,unique JMdict form occurs in curated example,,自分で洋服を拵える
+w_6be80965290001db,N2,おおざっぱ,おおざっぱ,"대략적인, 엉성한",大雑把,example-exact,unique JMdict form occurs in curated example,,大雑把な見積り
+w_791d10aec524f918,N1,これまでの,これまでの,지금까지의,,keep-kana,ambiguous or no common kanji form,,キム博士は、これまでの学説を覆す主張を打ち出した。
+w_27a3e7cf4b5f70f5,N1,だったら,だったら,"그렇다면, ~라면",,keep-kana,ambiguous or no common kanji form,,ロ：だったら、ジャケットの肩の部分にパッドを敷いてみてください。
+w_3fdb6246f1e9c47f,N1,ただ,ただ,"공짜, 무료",只,manual-homophone,meaning-sensitive JMdict choice,,只より高いものはない
+w_b82d7d0d2eeafbd8,N1,ありきたり,ありきたり,"흔함, 평범함",,needs-review,ambiguous or no common kanji form,,サークルの会長が演説をする時のレパートリーはありきたりすぎて、みんなあくびをしながら座っていた。
+w_549f9aad5033ae65,N1,ありきたりの,ありきたりの,흔한,,keep-kana,ambiguous or no common kanji form,,ありきたりの考え[デザイン]
+w_191333b61c6cba84,N1,すぐには,すぐには,"바로는, 당장에는",,keep-kana,ambiguous or no common kanji form,,すぐにはご返事できません
+w_8fceccfb0b0413c3,N1,なんなり,なんなり,무엇이든,何なり,jmdict-unambiguous,unambiguous JMdict form,,ロ：もちろんです。なんなりと仰せつけください。
+w_1ffdc03d4cddffda,N1,いやみ,いやみ,불쾌한 언행,嫌み,manual-homophone,meaning-sensitive JMdict choice,w_0ac774f928c1e0ad,嫌みを言ったらすねて帰ってしまった.
+w_ece3fbaf654b9a73,N1,なにより,なにより,무엇보다,何より,jmdict-unambiguous,common JMdict form,,なによりも廉恥を重んじる.
+w_af9376e11faa99a9,N1,システム,システム,"제도, 시스템",,keep-kana,ambiguous or no common kanji form,,3.9G通信システムを導入する
+w_62ca309fa490e070,N1,おいて,おいて,"~에 있어서, ~에서",,needs-review,ambiguous or no common kanji form,,人物に於いて彼に劣る
+w_1739219b9edbbe14,N1,まとめ,まとめ,"정리, 종합",,needs-review,ambiguous or no common kanji form,,学習の纏めをする
+w_4e62d76c327ed8cd,N1,ファン,ファン,"팬, 선풍기",,needs-review,ambiguous or no common kanji form,,ファンの声援に力を得る.
+w_a5967031d1f5a72a,N1,ポイント,ポイント,"포인트, 점",,keep-kana,ambiguous or no common kanji form,,あと3ポイントで21点に届くので、ゲームセットまであとわずかだ。
+w_b52e594ce0eb0d25,N1,とりあえず,とりあえず,"일단, 우선",,needs-review,ambiguous or no common kanji form,,彼は取るものもとりあえず駆けつけた.
+w_9ff2a3a749bee4f6,N1,コメント,コメント,"논평, 댓글, 코멘트",,keep-kana,ambiguous or no common kanji form,,撮り下ろしコメント映像が公開される
+w_ef7c2b36a078abcb,N1,とって,とって,손잡이,取っ手,jmdict-unambiguous,common JMdict form,,ドアのとってがすっぽ抜ける.
+w_8cd59a37580c63ca,N1,セックス,セックス,"성별, 성",,keep-kana,ambiguous or no common kanji form,,セックス[性]に目覚める年ごろ
+w_d3853ae5a233cdbf,N1,いくつか,いくつか,"몇 개쯤, 조금",幾つか,example-exact,unique JMdict form occurs in curated example,,解明された点は幾つかありますが，その一つはクロモソム・トランスロケーションです
+w_bf03a7c1b0d7b64c,N1,やはり,やはり,역시,,needs-review,ambiguous or no common kanji form,,おでんはやはり冬の料理として人気があります。
+w_bad0e19337295845,N1,メディア,メディア,미디어,,keep-kana,ambiguous or no common kanji form,,メディアで度々紹介されている
+w_f6a3abe945961983,N1,メーカー,メーカー,"제조사, 메이커",,keep-kana,ambiguous or no common kanji form,,椅子から立ち上がって，部屋の隅のコーヒー・メーカーへと向かった
+w_641852edd60b94a9,N1,ゆっくりする,ゆっくりする,"편하게 쉬다, 느긋이 시간을 보내다",,keep-kana,ambiguous or no common kanji form,,ロ：あなたは運転をすごくゆっくりするじゃない。
+w_e596b084e6eb9cf6,N1,タイム,タイム,"시간, 때",,keep-kana,ambiguous or no common kanji form,,ゴールするまでのタイムと、ゲートを通過する際のペナルティタイムにより、勝敗が決まります。
+w_091ad7cf6f4a2599,N1,ファイル,ファイル,"파일, 서류철",,keep-kana,ambiguous or no common kanji form,,MPEGファイルをMP4ファイルに変換する
+w_13145fffde75ad12,N1,ベース,ベース,베이스; 기지,,keep-kana,ambiguous or no common kanji form,,ベースを上げる.
+w_44789e3583d7ac80,N1,マーク,マーク,"마크, 표시",,needs-review,ambiguous or no common kanji form,,3人掛かりでマークする.
+w_dcd1405aac0b7b9f,N1,しばらくは,しばらくは,"당분간은, 한동안은",,keep-kana,ambiguous or no common kanji form,,ロ：しばらくは育児にだけに専念したいからです。
+w_2466f73e99a3755f,N1,バー,バー,바; 막대,,keep-kana,ambiguous or no common kanji form,,バーに手をかけ，静止した。…敗北への恐れでなく，記録の深い淵をのぞき込む目だ。
+w_ed8aae9d747d05eb,N1,ベスト,ベスト,"최고, 가장 좋은",,keep-kana,ambiguous or no common kanji form,,この中で、ベストのスタートが出来たのは5、6艇です。
+w_7aece5e49766fd9c,N1,タイミング,タイミング,타이밍,,keep-kana,ambiguous or no common kanji form,,Ａへのスルー・パスは，ブラジルコンビならではの絶妙なタイミングだ
+w_33e620d8eaf9dd33,N1,はっきり,はっきり,"확실히, 분명히",,keep-kana,ambiguous or no common kanji form,,全てをはっきりさせる
+w_ae211a48bc00a86c,N1,はっきりしている,はっきりしている,분명하다,,keep-kana,ambiguous or no common kanji form,,行く先がはっきりしている.
+w_11f44b191e516e20,N1,リスク,リスク,"리스크, 위험",,needs-review,ambiguous or no common kanji form,,‘長生きリスクへの対応'というテーマで講演する
+w_d83dcb838b42ae21,N1,ショー,ショー,보여주다,,keep-kana,ambiguous or no common kanji form,,ストリップショーを見せる。
+w_e251d23193cec09f,N1,オンライン,オンライン,온라인,,keep-kana,ambiguous or no common kanji form,,銀行オンラインヘハッカーが侵入した.
+w_e3fe85feaff71b45,N1,スト,スト,"파업, 스트라이크(약어)",,keep-kana,ambiguous or no common kanji form,,ストを打つ
+w_eb411740fdd65b19,N1,カット,カット,"컷, 자름",,keep-kana,ambiguous or no common kanji form,,ワンカットを撮る.
+w_9a83a2519b4832ae,N1,ゲスト,ゲスト,손님,,keep-kana,ambiguous or no common kanji form,,小説を書き，最近ではFMラジオのゲスト・パーソナリティーも務める
+w_cd2a25ed4e7bfa66,N1,ジャンル,ジャンル,장르,,keep-kana,ambiguous or no common kanji form,,ジャンル別に分ける.
+w_b7cb25ad92217c67,N1,チャンネル,チャンネル,"경로, 채널",,keep-kana,ambiguous or no common kanji form,,テレビのチャンネルを切り替える
+w_02a2c34d787b06bb,N1,ニュー,ニュー,새로운,,needs-review,ambiguous or no common kanji form,,これが今、世に喧しいニューファッションだ
+w_e67e1fd79bfb98ca,N1,コーナー,コーナー,"모서리, 구석",,keep-kana,ambiguous or no common kanji form,,コーナーの滑りがずいぶんよくなった。無駄なく回れるようになった
+w_a17a21df32791603,N1,スペース,スペース,공간,,keep-kana,ambiguous or no common kanji form,,私たちにはみな，自分のまわりに他人に立ち入られたくない一定の空間がある。ポータブル・テリトリーとか「パーソナル・スペース」と呼ばれるものだ。
+w_478ca372d6f55c92,N1,ダメージ,ダメージ,"대미지, 타격",,keep-kana,ambiguous or no common kanji form,,かなり最初のダメージを引きずっているようだ。
+w_382569a75d62f02d,N1,トラブル,トラブル,"문제, 곤란(때때로 사용된 로서 동사)",,keep-kana,ambiguous or no common kanji form,,エンジンにトラブルが発生する
+w_a018889fd8c6dab3,N1,もはや,もはや,"이미, 벌써",最早,jmdict-unambiguous,common JMdict form,,犯人はもはや釜山に飛んだ.
+w_64fd84869465d0ba,N1,ホール,ホール,"홀, 회관, 구멍",,keep-kana,ambiguous or no common kanji form,,世界の著名な楽団はほとんど自分たちの専用ホール持ち，その独特の響きはホールによって作りあげられる
+w_41a63dea2a52d5d7,N1,コントロール,コントロール,"통제, 제어",,keep-kana,ambiguous or no common kanji form,,コントロールが甘くて乱打される.
+w_85b0bbcf6d4c7ee7,N1,ジャンプ,ジャンプ,점프,,keep-kana,ambiguous or no common kanji form,,彼女はイメトレを繰り返すことで、本番のオリンピックの舞台で４回転ジャンプを決めることができたと言った
+w_fe2bdc9c16d513c4,N1,ソロ,ソロ,솔로,,keep-kana,ambiguous or no common kanji form,,この歌は女子ソロで始まり、コーラスで仕上がる。
+w_32043d25e28fb561,N1,わずかに,わずかに,아주 조금,,needs-review,ambiguous or no common kanji form,,僅かに右へ寄る
+w_b70cb17c6e366d2a,N1,キャリア,キャリア,"커리어, 경력",,keep-kana,ambiguous or no common kanji form,,キャリアカウンセラーとマンツーマンで相談する
+w_87dc0f0b335d2713,N1,セール,セール,"판매, 세일",,keep-kana,ambiguous or no common kanji form,,ロ：いいえ、お客様。その値段は定価であり、そこで20％セールをした価格で販売しています。
+w_99eaed30cb8182a3,N1,ソース,ソース,소스; 출처,,keep-kana,ambiguous or no common kanji form,,ソースが甘いです。
+w_aeba66e9dfd61083,N1,センス,センス,센스,,keep-kana,ambiguous or no common kanji form,,センスの良いジョークグッズをプレゼントすれば喜ばれること間違いなしだ
+w_9712e4bb3dda5e5c,N1,ドライバー,ドライバー,운전기사; 드라이버(공구),,keep-kana,ambiguous or no common kanji form,,ドライバーが自分で点検し，車検を受けるユーザー車検が増えている
+w_3f7aaf7a2881e48a,N1,リード,リード,"리드, 선도",,keep-kana,ambiguous or no common kanji form,,ピッチャー交代の機を逸して、大量リードを許してしまった
+w_e301a7cfc1c25eed,N1,パート,パート,파트타임; 파트,,keep-kana,ambiguous or no common kanji form,,パートにでる
+w_a0a1f7684e595f61,N1,スタジオ,スタジオ,스튜디오,,keep-kana,ambiguous or no common kanji form,,スタジオの光る照明のおかげで写真がきれいに撮れた。
+w_8ab0cb6313ded950,N1,ブーム,ブーム,붐,,keep-kana,ambiguous or no common kanji form,,グルメ・ブームが台所にも浸透した
+w_1e1d72edb4f1b9f1,N1,シート,シート,시트; 좌석,,keep-kana,ambiguous or no common kanji form,,シートが動き、風が吹き付ける4D映画を体験する
+w_9ab22525169e4b3d,N1,なんとなく,なんとなく,"왠지 모르게, 어쩐지",何となく,example-exact,unique JMdict form occurs in curated example,,何となく気に食わない
+w_9e69d4aff30c5d9e,N1,どうにか,どうにか,어떻게든,,keep-kana,ambiguous or no common kanji form,,おかげ様でどうにかやっています
+w_71ae1cd1bef418a4,N1,ロスする,ロスする,헛되이 쓰다,,keep-kana,ambiguous or no common kanji form,,待ち時間を減らし、貴重な時間をロスするのを防ぐ。
+w_0b99d6f77afb720d,N1,シンプルだ,シンプルだ,심플하다,,keep-kana,ambiguous or no common kanji form,,彼の一見したところ「大したことのない」パーオン率の数値は、シンプルだが特徴ある事実で説明がつく。
+w_4cb8320fa4be3214,N1,どうやら,どうやら,"아무래도, 어쩐지",,keep-kana,ambiguous or no common kanji form,,どうやら卒業できそうだ
+w_2937defb90e09c33,N1,タレント,タレント,"탤런트, 연예인",,keep-kana,ambiguous or no common kanji form,,アメリカズゴットタレントで優勝する
+w_70c06b47b3d53364,N1,シナリオ,シナリオ,시나리오,,keep-kana,ambiguous or no common kanji form,,いいシナリオを持ってさえいれば，だれでもステージに立つことが許される
+w_be8f9e3b572d5ccc,N1,フォローする,フォローする,"보조하다, 지원하다",,keep-kana,ambiguous or no common kanji form,,新入社員の業務をフォローする
+w_07d3bb8da0c5e1ca,N1,タワー,タワー,타워,,keep-kana,ambiguous or no common kanji form,,(南山の)ソウルタワーに上ったらソウルが一望できました.
+w_e7ed78ebf1aa1734,N1,こっそり,こっそり,"살짝, 몰래",,keep-kana,ambiguous or no common kanji form,,うつむいた子供が閉じた目を上向きにあけて周囲をこっそり見渡した。
+w_e87b81cd80809eea,N1,でかい,でかい,거대한,,keep-kana,ambiguous or no common kanji form,,でかい家に住んでいる
+w_6617f202ca2572bc,N1,フロント,フロント,프런트; 정면,,keep-kana,ambiguous or no common kanji form,,お客さんがフロントでチェックインを終えてルームに上がっていった。
+w_1e03a40ecdb791f9,N1,スポット,スポット,"스폿, 장소",,keep-kana,ambiguous or no common kanji form,,ホットスポットサービスエリアを大幅に拡大する
+w_52bbb54154624fa0,N1,つながり,つながり,"(1) 연계, 관계 (2) 연결",繋がり,example-exact,unique JMdict form occurs in curated example,w_dbd3956009c2603f,繋がりが断ち切れる
+w_2d9827cc0a03a024,N1,ペア,ペア,"쌍, 페어",,keep-kana,ambiguous or no common kanji form,,メダルの期待がかかる韓国A・Bペアだ。
+w_8fad3869170794a3,N1,ポジション,ポジション,"위치, 직위",,keep-kana,ambiguous or no common kanji form,,ホームポジションとは攻守において自分の基準となる位置だ。
+w_cbb543268703906e,N1,ポーズ,ポーズ,포즈; 일시정지,,needs-review,ambiguous or no common kanji form,,バランス維持が難しいポーズでの静止もポイント加算の対象だ。
+w_36103f319bbb1adc,N1,おまけ,おまけ,"덤, 부록",,needs-review,ambiguous or no common kanji form,,今日は寒いし、おまけに雨まで降っている
+w_edb196369622bda4,N1,クイズ,クイズ,퀴즈,,keep-kana,ambiguous or no common kanji form,,クイズの答えを当てる.
+w_73260f3a8baed863,N1,ガイド,ガイド,가이드,,keep-kana,ambiguous or no common kanji form,,ガイドさんの話を聞いてください。
+w_20068d00657e38be,N1,ジャズ,ジャズ,재즈,,keep-kana,ambiguous or no common kanji form,,なんだか例えようもなく美しい歌がスターダストというジャズのスタンダード・ナンバーだと知り，僕はジャズが好きになった
+w_06c9da1f5d3ef9b3,N1,くまなく,くまなく,"구석구석까지, 샅샅이",隈なく,example-exact,unique JMdict form occurs in curated example,,月光が隈なく照り渡っていた
+w_ffe60e200721352c,N1,ストレートに,ストレートに,직설적으로,,keep-kana,ambiguous or no common kanji form,,イ：ジスはたまにストレートに言うから気分を害することがあるよ。
+w_331f176fbc68df97,N1,ブル,ブル,황소,,keep-kana,ambiguous or no common kanji form,,インスタグラマブルなスポットを旅する
+w_0b5031de22246a1d,N1,モニター,モニター,모니터(컴퓨터),,keep-kana,ambiguous or no common kanji form,,ジスは、コンピューターを平面モニターに変えたら、画面の歪みが少なくて気に入った。
+w_8b0655d592da5722,N1,もたらす,もたらす,"가져오다, 초래하다",,needs-review,ambiguous or no common kanji form,,硬化をもたらす。
+w_416fe10aba191688,N1,パチンコ,パチンコ,파칭코,,keep-kana,ambiguous or no common kanji form,,（パチンコ）台に使われているプラスチック盤を細かく砕き，ハンガーやバケツに再生することができる
+w_862d6a9a85c61cfc,N1,さっぱりする,さっぱりする,"상쾌해지다, 산뜻해지다",,keep-kana,ambiguous or no common kanji form,,ピーナッツを皮ごと食べると香ばしく、後味もさっぱりする。
+w_45d8c37e069c510c,N1,エンジニア,エンジニア,기술자,,keep-kana,ambiguous or no common kanji form,,うちの会社では、今回ソフトウェア・エンジニア300名を雇うことにした。
+w_dba8fad4ae9dcab9,N1,できるだけ,できるだけ,가능한 한,出来るだけ,jmdict-unambiguous,common JMdict form,,不敏ながらできるだけやってみます.
+w_d03f95e5561a135e,N1,ミュージック,ミュージック,음악,,keep-kana,ambiguous or no common kanji form,,フォンテラがリズム隊をバックに，オルガンを弾きながらブラック・ミュージックの心を説いた
+w_c44d9c0b597af16a,N1,わざと,わざと,일부러,,needs-review,ambiguous or no common kanji form,,わざと冷たく当たる.
+w_61a461e00a21af9a,N1,センサー,センサー,센서,,keep-kana,ambiguous or no common kanji form,,車速センサーが壊れる
+w_615555ad4277846e,N1,グレー,グレー,회색,,keep-kana,ambiguous or no common kanji form,,白色だった車は，メタリック・グレーに塗装し直されていた
+w_9c95b12510a0d9c0,N1,スケール,スケール,스케일,,keep-kana,ambiguous or no common kanji form,,「スパイダー・ウェブ」のようなアタックの強いナンバーでの盛り上がり方は，シンガーとしてのスケールをおおいに見せつける
+w_7724a0e73ddb55d4,N1,キャッチ,キャッチ,"캐치, 잡음",,keep-kana,ambiguous or no common kanji form,,情報[ボール]をキャッチする.
+w_892425c32fc89827,N1,じっくり,じっくり,"차분히, 곰곰이",,keep-kana,ambiguous or no common kanji form,,じっくり(と)考える
+w_02fc9927cbd61342,N1,じっくりと,じっくりと,"정성껏, 곰곰이",,keep-kana,ambiguous or no common kanji form,,友達の言ったことの前後をじっくりと考えてみたら、その内容がまったく合っていなかった。
+w_fb24f7ebac8ea800,N1,バッジ,バッジ,배지,,keep-kana,ambiguous or no common kanji form,,様様なデザイン，はなやかな色のピンバッジが，店内のカウンターやラックいっぱいに並んでいる
+w_e7ff19cf3beb91b0,N1,バックアップ,バックアップ,"백업, 지원",,keep-kana,ambiguous or no common kanji form,,万が一の災害に備えて、リモートサイトへのバックアップやレプリケーションの仕組みを構築する
+w_dc857ce9d12b9435,N1,レンジ,レンジ,레인지,,keep-kana,ambiguous or no common kanji form,,農家といっても昔とは違う。台所にはピカピカのガス・レンジもある
+w_70b4e5c2f2319ca3,N1,あきらめずに,あきらめずに,포기하지 않고,諦めずに,manual-context,meaning and inflection reviewed,,やせた土地だったが、人々はあきらめずに開墾した。
+w_bc8a214354f72d67,N1,ポンプ,ポンプ,펌프,,needs-review,ambiguous or no common kanji form,,ポンプで池から田へ水をくみ上げる.
+w_bdf796f38164734f,N1,ランプ,ランプ,"램프, 등",,needs-review,ambiguous or no common kanji form,,ランプにほやをかける.
+w_8bfb0e290d3d8ef0,N1,まみれ,まみれ,"~투성이, ~범벅",,needs-review,ambiguous or no common kanji form,,傷だらけの男はどこから走ってきたのか、血と汗にまみれていた。
+w_6a188b6ea4873c0b,N1,フォーム,フォーム,"거품, 형태",,keep-kana,ambiguous or no common kanji form,,コーヒーショップの店員は泡立て器で作ったミルクフォームをコーヒーの上にのせた。
+w_b0e1785de19c076b,N1,ボルト,ボルト,볼트,,keep-kana,ambiguous or no common kanji form,,この電線には二百ボルトの電流が流れている.
+w_3fe0ede3ad73468b,N1,ロープ,ロープ,"로프, 밧줄",,keep-kana,ambiguous or no common kanji form,,船のロープがずるずるとほどけていった.
+w_ae70c9f3987fc920,N1,ハードル,ハードル,"허들, 장애물",,keep-kana,ambiguous or no common kanji form,,ハードルは思ったよりかなり高い障害だ。
+w_a38cf5c75dcec358,N1,チェンジ,チェンジ,"체인지, 교체",,keep-kana,ambiguous or no common kanji form,,コートサイドを入れ替わることをチェンジエンドと言う。
+w_5ad8d1ef0c131dd4,N1,ファイト,ファイト,"파이팅, 투지",,keep-kana,ambiguous or no common kanji form,,一度のエラーですっかりファイトを失ってしまった.
+w_fa61bffad222fcce,N1,ほっとする,ほっとする,안심하다,,keep-kana,ambiguous or no common kanji form,,試験が終わってほっとする
+w_973e6723bb85a420,N1,プライド,プライド,프라이드,,keep-kana,ambiguous or no common kanji form,,クリーンアップのプライドはちょっぴり傷ついたが，チームは白星を手にすることができた
+w_19305ba76991bd08,N1,とっくに,とっくに,"진작에, 훨씬 전에",,needs-review,ambiguous or no common kanji form,,とっくに帰った
+w_dfb61c53e9141aa6,N1,アプローチ,アプローチ,"접근, 어프로치",,keep-kana,ambiguous or no common kanji form,,手前からのアプローチを寄せきれなかった1番で唯一のボギーを叩いた。
+w_a0e253ea8f6eecee,N1,サイクル,サイクル,사이클,,keep-kana,ambiguous or no common kanji form,,景気にはサイクルがある.
+w_ca3e8bf2e517379e,N1,ドリル,ドリル,"드릴, 연습 문제",,keep-kana,ambiguous or no common kanji form,,父はドリルで板に穴をあけた。
+w_5576d68632312993,N1,あっさり,あっさり,"산뜻하게, 깔끔하게; 시원스럽게",,keep-kana,ambiguous or no common kanji form,,この料理はあっさりした味がある.
+w_4903d483853218c2,N1,カメラマン,カメラマン,카메라맨,,keep-kana,ambiguous or no common kanji form,,放送局では、演技者、演出家、カメラマンなど、各自の役割が分担されている。
+w_a5e04248978c6f8c,N1,ブーツ,ブーツ,부츠,,keep-kana,ambiguous or no common kanji form,,ブーツをはいている.
+w_6dfc2daef0d4cdea,N1,コンパクトな,コンパクトな,콤팩트한,,keep-kana,ambiguous or no common kanji form,,日本は逆にコンパクトな3-2-1という形のようです。
+w_1be5ccd3605af1b6,N1,うんざり,うんざり,"지긋지긋함, 질림",,keep-kana,ambiguous or no common kanji form,,もうその事はうんざりだ.
+w_a691689e7604b569,N1,きっちり,きっちり,"정확히, 단단히",,keep-kana,ambiguous or no common kanji form,,10番でも2mをきっちり沈め、2オンに成功した15番(パー5)もバーディとした。
+w_00b6d9661826f4ca,N1,しかたなく,しかたなく,어쩔 수 없이,仕方なく,example-exact,unique JMdict form occurs in curated example,,仕方なく諦める
+w_1fb1769f2ff2a414,N1,アルミ,アルミ,알루미늄,,keep-kana,ambiguous or no common kanji form,,ＣＤ－ＲＯＭのデジタル信号は，このアルミ膜に刻まれたピットと呼ばれる微細な凹凸の形で，渦巻き状に記録されている
+w_5f17979c49bed7c4,N1,クレーム,クレーム,"클레임, 불만",,keep-kana,ambiguous or no common kanji form,,クレームを付ける.
+w_4275cf566052b54f,N1,ヤング,ヤング,"젊은, 어린",,keep-kana,ambiguous or no common kanji form,,ヤングレディー
+w_92b609a19a2d5bb5,N1,ノウハウ,ノウハウ,노하우,,keep-kana,ambiguous or no common kanji form,,姉は自ら会得したテストをうまくと受けれるノウハウを私に教えてくれた。
+w_d893936600008bb3,N1,ユニフォーム,ユニフォーム,유니폼,,keep-kana,ambiguous or no common kanji form,,うちのチームの選手は白いユニフォームを、相手チームの選手は青いユニフォームを着て試合をした。
+w_9a3cb2d934476a1e,N1,ドライ,ドライ,"드라이, 건조함",,keep-kana,ambiguous or no common kanji form,,ドライカレーは、日本で独特の発展をしたカレーライスの一つです。
+w_433b9769a3ecbeef,N1,ホース,ホース,호스,,keep-kana,ambiguous or no common kanji form,,ロ：水をちょっとあげないとね。ホースを蛇口につないでくれる？
+w_ab9860cf947d0beb,N1,いっそ,いっそ,차라리,,keep-kana,ambiguous or no common kanji form,,ゴースト・ライターがいると思われてるくらいなら，いっそペンネームにしようかと考えた
+w_289eeb92d45d9b35,N1,しいて,しいて,"억지로, 굳이",強いて,example-exact,unique JMdict form occurs in curated example,w_cd89b540108a739e,強いて食べろとは言わない.
+w_0a23dbb2c8a38a8e,N1,ストック,ストック,"스톡, 재고",,keep-kana,ambiguous or no common kanji form,,バンプストック装置を禁止する
+w_54d832950a353e23,N1,カクテル,カクテル,칵테일,,keep-kana,ambiguous or no common kanji form,,私はバーテンダーにカクテル1杯を注文して席に着いた。
+w_b8af14200695dbef,N1,あらかじめ,あらかじめ,미리,予め,example-exact,unique JMdict form occurs in curated example,w_e88804a27645a87c,予め用意された原稿を読む
+w_f628f0f0985057a9,N1,ゆとり,ゆとり,여유,,needs-review,ambiguous or no common kanji form,,部屋にはまだゆとりがある.
+w_2f80515abdd9d298,N1,インターフォン,インターフォン,인터폰,,keep-kana,ambiguous or no common kanji form,,インターフォンを切る。
+w_9a7d75418a7441d3,N1,ゼリー,ゼリー,젤리,,keep-kana,ambiguous or no common kanji form,,アガーを使って、ゼリーを作る
+w_709425fc55e51f1b,N1,ユニーク,ユニーク,"독특함, 유니크함",,keep-kana,ambiguous or no common kanji form,,この若きローカリストたちのユニークな音楽に，ひきつけられずにはいられなかった
+w_ac480dfae7f71b45,N1,ネック,ネック,"장애물, 걸림돌, 방해물",,keep-kana,ambiguous or no common kanji form,,父は私に「勉強するのにネックはないのか」と聞いた。
+w_e3bd581a07151df2,N1,こだわる,こだわる,"고집하다, 구애되다",,needs-review,ambiguous or no common kanji form,,人の言葉にこだわる
+w_25e0770474ee096a,N1,アラブ,アラブ,아랍,,keep-kana,ambiguous or no common kanji form,,ユダヤ人とアラブ人は聖地エルサレムを巡る争いを繰り返してきた
+w_9ded52127611be05,N1,ライス,ライス,"밥, 라이스",,keep-kana,ambiguous or no common kanji form,,日本ではカレーといえばカレーライスを指す場合が多いです。
+w_332457b11211fd19,N1,カテゴリー,カテゴリー,범주,,keep-kana,ambiguous or no common kanji form,,花と木はいずれも植物という大きなカテゴリーに属する。
+w_0783dd396f0d364e,N1,サンキュー,サンキュー,고맙습니다,,keep-kana,ambiguous or no common kanji form,,‘サンキューソーマッチ'と言いながら握手をする
+w_150dcbd2b6dcb160,N1,ロープウェイ,ロープウェイ,로프웨이,,keep-kana,ambiguous or no common kanji form,,ロ：ロープウェイに乗せて送ります。
+w_eb1001bcd17c8807,N1,てっきり,てっきり,틀림없이 (~인 줄 알다) 〈잘못된 판단〉,,keep-kana,ambiguous or no common kanji form,,てっきり奴の仕業だと思ったら、間違いだった
+w_708c2cfcd8bee1df,N1,トーン,トーン,톤,,keep-kana,ambiguous or no common kanji form,,党内では「出るぞ，出るぞ」と騒いでいたのに，トーン・ダウンしている
+w_e270207422023e07,N1,ソックス,ソックス,"양말, 삭스",,needs-review,ambiguous or no common kanji form,,その店には靴下、ストッキングはもちろん、さまざまなカバーソックスも売っている。
+w_8c8f60588e1e408a,N1,とりわけ,とりわけ,특히,取り分け,jmdict-unambiguous,common JMdict form,w_0e25c0ea9143aa5a,今回の名節に両親にプレゼントとして肉をあげようと、肉質がとりわけ高いものを選んで購入した。
+w_07538960d746fa8e,N1,アクセル,アクセル,"액셀러레이터, 가속 페달",,keep-kana,ambiguous or no common kanji form,,ロ：うん、ドライバーがブレーキ踏もうとしたのにミスしてアクセルペダルを踏んだらしい。
+w_d525325d361368d5,N1,ムード,ムード,"기분, 분위기",,keep-kana,ambiguous or no common kanji form,,野球を離れても，チーム最大のムード・メーカーである
+w_b6d1d9cff527ba72,N1,しょっちゅう,しょっちゅう,"항상, 끊임없이",,keep-kana,ambiguous or no common kanji form,,あの学校は始終[しょっちゅう]もめている.
+w_9ed74574a63f718f,N1,スプリング,スプリング,"스프링, 용수철",,keep-kana,ambiguous or no common kanji form,,スプリングを引いたら弾性のため元の状態に戻った。
+w_78903c35aa861984,N1,ベストセラー,ベストセラー,베스트셀러,,keep-kana,ambiguous or no common kanji form,,彼は数多くのベストセラー作品を書いた名望の高い作家だ。
+w_b8bca88a48498fac,N1,デマ,デマ,"헛소문, 유언비어, 가짜 뉴스",,keep-kana,ambiguous or no common kanji form,,とんでもないデマが広まる.
+w_197a348290d71a39,N1,パジャマ,パジャマ,잠옷,,keep-kana,ambiguous or no common kanji form,,彼は肌が透けて見える薄いパジャマを着ていた。
+w_0c825fbe71037413,N1,アマチュア,アマチュア,아마추어,,keep-kana,ambiguous or no common kanji form,,アイドルは歌手としてプロであることを求められず，アマチュアらしさが歓迎された
+w_afffd3debfe297c0,N1,セクション,セクション,"부분, 구역",,keep-kana,ambiguous or no common kanji form,,2月に開催されたシクロクロス東京は、砂浜のセクションが名物で、レインボーブリッジをバックに熱戦が繰り広げられる。
+w_c73145fc9684b446,N1,レイアウト,レイアウト,레이아웃,,keep-kana,ambiguous or no common kanji form,,テクニカルなダウンヒルを経て、アップダウンを含む上りを経て戻ってくるコースレイアウトだった。
+w_9c532c04ac32630c,N1,メカニズム,メカニズム,메커니즘,,keep-kana,ambiguous or no common kanji form,,メカニズムを発見する。
+w_cd159f09949315fa,N1,ひとまず,ひとまず,"일단, 우선",一先ず,jmdict-unambiguous,common JMdict form,,一先ず始めてみようと思う
+w_4faf46757097cc32,N1,アンコール,アンコール,앙코르,,keep-kana,ambiguous or no common kanji form,,アンコールワットは‘王都の寺院'を意味し、12世紀に建てられた
+w_d657c24071e2a7cd,N1,ニュアンス,ニュアンス,뉘앙스,,keep-kana,ambiguous or no common kanji form,,翻訳をしていると、原語のニュアンスを生かすことが難しい時がある。
+w_82f52f595b1292d7,N1,いたって,いたって,지극히,至って,example-exact,unique JMdict form occurs in curated example,,私は至って普通の人間です
+w_c1de77401a2512e8,N1,ぼんやりしている,ぼんやりしている,분명하지 않다,,keep-kana,ambiguous or no common kanji form,,寝ぼけて頭がぼんやりしている.
+w_ee863faf3a923d6b,N1,ガレージ,ガレージ,차고,,keep-kana,ambiguous or no common kanji form,,車をガレージに入れる
+w_c7a2b0e5ff4b6e30,N1,さわやかだ,さわやかだ,"상쾌하다, 산뜻하다",爽やかだ,manual-context,meaning and inflection reviewed,,木の葉から水分と酸素が発散され、朝の森はしっとりしてさわやかだ。
+w_8e7a4e8b18d76953,N1,ポット,ポット,"냄비, 화분",,keep-kana,ambiguous or no common kanji form,,なべ，バケツ，ポットなど，水を入れる容器もあり合わせのものばかりだった
+w_5638135273efe305,N1,クレーン,クレーン,크레인,,keep-kana,ambiguous or no common kanji form,,柱に金属ワイヤを通し，大型クレーン車で引っ張った
+w_2ecea75442206e84,N1,ノルマ,ノルマ,"노르마, 업무 할당량",,keep-kana,ambiguous or no common kanji form,,ノルマを全力を尽くしてやり切る
+w_a7ae5b11d7ef3475,N1,コマーシャル,コマーシャル,"광고, 상업 방송",,keep-kana,ambiguous or no common kanji form,,番組の間にコマーシャルが挟まる
+w_a4f5956737afa7f1,N1,タイムリー,タイムリー,"적시, 시기적절",,keep-kana,ambiguous or no common kanji form,,バットの先でしたが､A選手の1、2塁間へ先制のタイムリーヒットになりました。
+w_5b3841260ecdd853,N1,メロディー,メロディー,멜로디,,keep-kana,ambiguous or no common kanji form,,メロディーが心を和めてくれる.
+w_4e728fed6daebd41,N1,さも,さも,"정말 그런 듯이, 아주",,needs-review,ambiguous or no common kanji form,,この暑さも今が頂上だ
+w_ebb704f1195e8d39,N1,ロマンチック,ロマンチック,로맨틱,,keep-kana,ambiguous or no common kanji form,,私は、ロマンチックコメディが好きです。
+w_4f074a3de205fb12,N1,カーペット,カーペット,카펫,,keep-kana,ambiguous or no common kanji form,,レッドカーペットにシースルードレスで登場する
+w_6ab2d0dd61671815,N1,タイマー,タイマー,타이머,,keep-kana,ambiguous or no common kanji form,,オフィシャルタイマーを務めるのはAさんだから正確なタイム測定が期待される。
+w_8dc15742d3e128af,N1,こたつ,こたつ,코타츠,炬燵,jmdict-unambiguous,common JMdict form,,こたつの残火に灰をかける
+w_c4b941dde1a017e1,N1,タイル,タイル,타일,,keep-kana,ambiguous or no common kanji form,,暗がりのなかで，ニッケルのパイプやマジョリカ焼のタイルが光っていた
+w_fd59875f1b84098f,N1,ガイドブック,ガイドブック,가이드북,,keep-kana,ambiguous or no common kanji form,,ガイドブックで詳しい内容を確かめられる
+w_9e6355e686a5d64f,N1,ジャンボ,ジャンボ,점보,,keep-kana,ambiguous or no common kanji form,,ジャンボサイズ
+w_dea6f8d689f5815b,N1,ちょくちょく,ちょくちょく,"종종, 자주",,keep-kana,ambiguous or no common kanji form,,飲めなかったお酒もちょくちょく飲むことで少しずつ酒量が増えているようだ。
+w_d8a0ad165c123102,N1,ことごとく,ことごとく,전부,悉く,jmdict-unambiguous,common JMdict form,,彼女は数々の事業に手を染め、ことごとく成功を収めていた
+w_9fcb434f99acee44,N1,ややこしい,ややこしい,"복잡하다, 까다롭다",,keep-kana,ambiguous or no common kanji form,,仕事が思ったよりややこしい.
+w_3b772f7542f495bf,N1,インターナショナル,インターナショナル,국제적인,,keep-kana,ambiguous or no common kanji form,,オックスファムは世界に九つの組織があり，それをオックスファムインターナショナルが総括している
+w_87847c4cb7198c80,N1,インフレ,インフレ,인플레이션(약어),,keep-kana,ambiguous or no common kanji form,,それはインフレ防止の妙策と言える.
+w_ce70656918f80907,N1,いいかげんに,いいかげんに,대충,いい加減に,manual-context,meaning and inflection reviewed,,いいかげんに切り上げろ.
+w_5c9f7042b17a9c34,N1,コンパス,コンパス,"나침반, 컴퍼스",,keep-kana,ambiguous or no common kanji form,,私は図面をもっときれいに描くために定規とコンパスを使った。
+w_2c0a491e51162b7d,N1,だらしない,だらしない,"단정하지 못한, 절도가 없는",,keep-kana-reviewed,explicit modern-kana preference,,だらしない服装
+w_7096f81dd3d5b54f,N1,つくづく,つくづく,"절실히, 뼈저리게",,needs-review,ambiguous or no common kanji form,,つくづくと感じた
+w_497c065e6cf6e038,N1,もっぱら,もっぱら,"오로지, 한결같이",専ら,example-exact,unique JMdict form occurs in curated example,w_e8c92034827d20e7,スポーツ観戦が専らの楽しみだ
+w_0fba30f39984036e,N1,すんなり,すんなり,"수월하게, 순조롭게",,keep-kana,ambiguous or no common kanji form,,交渉はすんなり終わった
+w_8c2b4a92073949da,N1,しわざ,しわざ,"짓, 소행",仕業,example-exact,unique JMdict form occurs in curated example,w_2a5bde6cf8e65b4d,あいつの仕業に他ならない
+w_9a9c3881eecb9849,N1,おろかな,おろかな,어리석은,愚かな,manual-context,meaning and inflection reviewed,w_c611f279483773aa,おろかなことです。
+w_33caa3e491259f49,N1,カルテ,カルテ,"진료 기록, 카르테",,keep-kana,ambiguous or no common kanji form,,彼は患者が自分の症状について話したことをカルテにしっかりと記録して保管しておく。
+w_52019f7d0cd6186e,N1,おおむね,おおむね,"대체로, 대강",概ね,manual-homophone,meaning-sensitive JMdict choice,,事の大旨を知る
+w_aa1c390b5fd9a754,N1,かろうじて,かろうじて,"겨우, 간신히",辛うじて,example-exact,unique JMdict form occurs in curated example,,やっと[辛うじて]完成に至る
+w_34c7b578bcbd18fd,N1,スライスする,スライスする,얇게 썰다,,keep-kana,ambiguous or no common kanji form,,しゃぶしゃぶ用に肉をスライスする
+w_3d91e2fbf4fd826e,N1,ナプキン,ナプキン,냅킨,,keep-kana,ambiguous or no common kanji form,,彼女は食事を終えた後にナプキンで口元を拭いた。
+w_fb689f67f99328fc,N1,あいまいに,あいまいに,애매하게,曖昧に,manual-context,meaning and inflection reviewed,,事実を曖昧に暈して言う
+w_97f721182a3b5485,N1,エキスパート,エキスパート,전문가,,keep-kana,ambiguous or no common kanji form,,A社のLG400アルテックエキスパートを使用しています。
+w_3dd265dc10e79033,N1,カンニング,カンニング,"부정행위, 커닝",,keep-kana,ambiguous or no common kanji form,,カンニングを見つかる.
+w_ab0690fd530b7382,N1,リタイア,リタイア,"(1) 기권 (2) 퇴직, 퇴직",,keep-kana,ambiguous or no common kanji form,,次次とリタイアしていくマシンを横目に，最後まで気を緩めなかった
+w_21e13fbafa5dc2e4,N1,デッサン,デッサン,데생,,keep-kana,ambiguous or no common kanji form,,裸像をデッサンする.
+w_a3e4b1cc3e60aae9,N1,ピント,ピント,"핀트, 초점",,keep-kana,ambiguous or no common kanji form,,ピントが惚ける
+w_00b884bb498a4ecb,N1,すべ,すべ,방법,術,manual-homophone,meaning-sensitive JMdict choice,w_8cc2ed324ee1f9d0,それ以外に説明できる術がないんです。
+w_e2438e51c00bb53d,N1,ナンセンス,ナンセンス,"난센스, 터무니없음",,keep-kana,ambiguous or no common kanji form,,ロ:うん。でもご飯を食べない代わりにチョコレートをご飯よりたくさん食べていてナンセンスのほかにない。
+w_ac4b3af22a1109c7,N1,インフォメーション,インフォメーション,정보,,keep-kana,ambiguous or no common kanji form,,こちらはインフォメーション・デスクですか?
+w_80be339f5cb11529,N1,ブランク,ブランク,"블랭크, 공백",,keep-kana,ambiguous or no common kanji form,,ロ：はい、なるべくブランクを作らないでください。
+w_d37193b49b365e4f,N1,サンタクロース,サンタクロース,산타클로스,,keep-kana,ambiguous or no common kanji form,,子供たちは「まだサンタクロースがいる」と信じているんです。
+w_ed2a4c274e00e2cf,N1,まとまり,まとまり,"정리됨, 통일성, 짜임새",,needs-review,ambiguous or no common kanji form,,チームの纏まりを大事にする
+w_eb9cafec6db797de,N1,シビアな,シビアな,"엄격한, 어려운",,keep-kana,ambiguous or no common kanji form,,コースがすべて狭いうえに斜度がきつく、ラインどりが非常にシビアな戦いだった。
+w_e4f32f242a4239cc,N1,ありありと,ありありと,"똑똑히, 뚜렷이",,keep-kana,ambiguous or no common kanji form,,ろうばいの色がありありと見えた.
+w_bc0f323b1130aac3,N1,インテリ,インテリ,"지식인(약어), 지식인층",,keep-kana,ambiguous or no common kanji form,,真のインテリなら、社会の発展のために自分の能力を生かせなければならない。
+w_aac844efa1eda5ec,N1,ワット,ワット,와트,,keep-kana,ambiguous or no common kanji form,,アンコールワットは‘王都の寺院'を意味し、12世紀に建てられた
+w_08149ad39d83534d,N1,とっさに,とっさに,순간적으로,咄嗟に,jmdict-unambiguous,common JMdict form,,追い詰められて、とっさにパチこいた
+w_9e410c3c2a5118de,N1,チームワーク,チームワーク,팀워크,,keep-kana,ambiguous or no common kanji form,,チームワークがよくとれている.
+w_b05e0429ceb0902c,N1,ボイコット,ボイコット,보이콧,,keep-kana,ambiguous or no common kanji form,,授業[投票]をボイコットする.
+w_823390f8452e7d8b,N1,つぶやく,つぶやく,중얼거리다,呟く,example-exact,unique JMdict form occurs in curated example,,不満げに呟く
+w_4af33ecfd6bc5d49,N1,コントラスト,コントラスト,"콘트라스트, 대조, 대비",,keep-kana,ambiguous or no common kanji form,,この絵は明暗のコントラストがはっきりしていて強烈な印象を与える。
+w_a046f85e2ae2b662,N1,そそる,そそる,"(어떤 행동, 감정 등을)자아내다, 돋우다",,needs-review,ambiguous or no common kanji form,,興味をそそる
+w_382846b85737478b,N1,ネガ,ネガ,"네거티브, 음화",,keep-kana,ambiguous or no common kanji form,,ネガを修整する.
+w_6e41549e5b443d35,N1,コンスタント,コンスタント,일정한 모양,,keep-kana,ambiguous or no common kanji form,,コンスタント力なしに世界では戦えないため、日々の努力で少しずつ力をつける。
+w_706ae61e7198af9c,N1,コンスタントに,コンスタントに,"일정하게, 꾸준하게",,keep-kana,ambiguous or no common kanji form,,コンスタントに売れる
+w_a2e6614246e92396,N1,すさまじい,すさまじい,"대단하다, 무시무시하다",凄まじい,example-exact,unique JMdict form occurs in curated example,,凄まじいスピードでゴールした
+w_0fd551cc4c3b764e,N1,なめる,なめる,핥다; 깔보다,舐める,jmdict-unambiguous,common JMdict form,,愛犬が飼い主の顔を嘗める
+w_6cb99412a6ae1115,N1,ルーズな,ルーズな,"느슨한, 단정치 못한",,keep-kana,ambiguous or no common kanji form,,ルーズな性格
+w_bf191cadc60129ef,N1,エレガント,エレガント,"우아함, 엘레강스",,keep-kana,ambiguous or no common kanji form,,ダイアナは表向きは華麗なロイヤル・ファミリーの責務を果たしていたが，エレガントな笑顔も家庭では暗く閉ざされた
+w_308bfaa6344ebab1,N1,エレガントな,エレガントな,"우아한, 고상한",,keep-kana,ambiguous or no common kanji form,,エレガントなオート・クチュール系が似合う
+w_179937b765bc082a,N1,ナイター,ナイター,야간 경기(나이터),,keep-kana,ambiguous or no common kanji form,,六日のナイターで９回を投げた
+w_d61e38acb4bac891,N1,まちまち,まちまち,가지각색,,needs-review,ambiguous or no common kanji form,,考え[報告]がまちまちだ.
+w_5036fc069c57f6e4,N1,サボる,サボる,"땡땡이치다, 게으름 피우다",,keep-kana,ambiguous or no common kanji form,,学校をサボる.
+w_bfa2c36a62a0117e,N1,しきたり,しきたり,"관습, 관례",,needs-review,ambiguous or no common kanji form,,頑なに昔からのしきたりを守る
+w_9e33dceb0d820298,N1,ためらう,ためらう,"주저하다, 망설이다",躊躇う,example-exact,unique JMdict form occurs in curated example,,打ち明けるのを躊躇う
+w_862152d331038cdb,N1,ささいな,ささいな,사소한,些細な,manual-context,meaning and inflection reviewed,,ささいなことで友と絶交する.
+w_1b09935e0ceb6288,N1,しがみつく,しがみつく,매달리다,,needs-review,ambiguous or no common kanji form,,怖がって、母親にしがみつく
+w_67b9ee16274ff79d,N1,リストアップ,リストアップ,"리스트 업, 목록 작성",,keep-kana,ambiguous or no common kanji form,,有望株をリストアップする
+w_c530d263e6c6b918,N1,うずうず,うずうず,근질근질(좀이 쑤시는 모양),,keep-kana,ambiguous or no common kanji form,,ロ：うん。口がうずうずするけど、我慢してみる。
+w_63fc3539396e6a0b,N1,はかどる,はかどる,진척되다,捗る,example-exact,unique JMdict form occurs in curated example,w_366b4df014f1ce9e,仕事がすいすい捗る
+w_cc78ebd8b2b6037f,N1,おおらかな,おおらかな,대범한,大らかな,manual-context,meaning and inflection reviewed,,どうか私の過ちをおおらかなに理解してください。
+w_790cf4bdda0645fb,N1,もどかしい,もどかしい,"답답하다, 안타깝다",,keep-kana,ambiguous or no common kanji form,,時間のたつのがもどかしい.
+w_38c9c0e9cf84d685,N1,よみがえる,よみがえる,"되살아나다, 소생하다",蘇る,manual-homophone,meaning-sensitive JMdict choice,w_af85f2a34de69533,昔の記憶が蘇る
+w_c9278b57465a3ff2,N1,にわかには,にわかには,갑자기는,俄には,manual-context,meaning and inflection reviewed,,俄には答えられない
+w_5ff01808c115b8c9,N1,もろい,もろい,"무르다, 약하다, 깨지기 쉽다",脆い,example-exact,unique JMdict form occurs in curated example,,瀬戸物は脆い
+w_f470be1926d64588,N1,かたくな,かたくな,"완고함, 고집스러움",頑な,jmdict-unambiguous,common JMdict form,,頑なに口をつぐむ
+w_43ee33fb295d1f1e,N1,いとも,いとも,"매우,아주",,needs-review,ambiguous or no common kanji form,,いとも軽々と持ち上げた
+w_cc7e713c46e8ee0b,N1,おろそかに,おろそかに,소홀하게,疎かに,manual-context,meaning and inflection reviewed,,公務をおろそかにする.
+w_ac2312063a365246,N1,うやむやに,うやむやに,"흐지부지하게, 애매하게",有耶無耶に,manual-context,meaning and inflection reviewed,,キムさんは、自分をめぐる噂について解明するつもりはなく、うやむやにもみ消そうとするばかりだ。
+w_df2c2e00cd40ceee,N1,やんわり,やんわり,"부드럽게, 살며시",,keep-kana-reviewed,explicit modern-kana preference,,やんわりと手を握る
+w_76cd61803b197a73,N1,ウエイト,ウエイト,"웨이트, 중량",,keep-kana,ambiguous or no common kanji form,,ウエイトトレーニングをやっています。
+w_868780bf4c6a4941,N1,オリエンテーション,オリエンテーション,오리엔테이션,,keep-kana,ambiguous or no common kanji form,,オリエンテーションをする。
+w_8dc786b54fd8e287,N1,ノイローゼ,ノイローゼ,노이로제,,keep-kana,ambiguous or no common kanji form,,育児ノイローゼが原因で、離婚に至るケースもある
+w_00fdfc96ba99bd53,N1,そわそわ,そわそわ,"불안한 모습, 안절부절못하는 모습",,keep-kana,ambiguous or no common kanji form,,そわそわと(して)周りを見る
+w_216be17021a4cb21,N1,まばらだ,まばらだ,"드문드문 있다, 듬성듬성하다",疎らだ,manual-context,meaning and inflection reviewed,,席がまばらだ。
+w_fc60d1c406caed4b,N1,みっちり,みっちり,"착실히, 충분히",,keep-kana,ambiguous or no common kanji form,,実力をみっちりつける
+w_87719fa65c93c9d4,N1,ひしひしと,ひしひしと,"절실히, 절절히(강하게 느끼는 모양)",,keep-kana,ambiguous or no common kanji form,,身の危険を犇犇と感じる
+w_11b661b8d29254b0,N1,かばう,かばう,"두둔하다, 비호하다",庇う,example-exact,unique JMdict form occurs in curated example,w_b6b1ec7b196b2373,仲間を庇う
+w_4b91c461392670d4,N1,しきりに,しきりに,"자꾸, 연달아",頻りに,example-exact,unique JMdict form occurs in curated example,,帰ろうとする人を頻りに引き留める
+w_ea4b80af3a66574a,N1,おだやかな,おだやかな,"온화한, 평온한",穏やかな,manual-context,meaning and inflection reviewed,,穏やかな夕暮れの風景が広がる
+w_bc10256c90a28adf,N1,すべすべ,すべすべ,"(사물, 피부 등)매끈매끈한 모양",,needs-review,ambiguous or no common kanji form,,肌がすべすべになる
+w_a9841b379e175833,N1,ぞんざいな,ぞんざいな,"거친, 난폭한",,keep-kana,ambiguous or no common kanji form,,ぞんざいな口を利く
+w_e9a573a3b86611ec,N1,ひたむき,ひたむき,"한 가지 일에 전념함, 한결같음, 오로지",,needs-review,ambiguous or no common kanji form,,直向きに練習に打ち込む
+w_26d81f5679705394,N1,くつろぐ,くつろぐ,"느긋이, 편하게 쉬다",寛ぐ,example-exact,unique JMdict form occurs in curated example,,ソファーで寛ぐ
+w_ce0807a7c50748e8,N1,しぶとい,しぶとい,"고집이 세고 주눅들지 않다, 끈질기다, 강인하다",,keep-kana,ambiguous or no common kanji form,,しぶとい人間だ.
+w_a36fccc77c3aab60,N1,オートマチック,オートマチック,자동의,,keep-kana,ambiguous or no common kanji form,,中型のオートマチック車を一台お願いします。
+w_94819b8faa3d17a8,N1,くよくよ,くよくよ,끙끙(사소한 일을 걱정하는 모습),,keep-kana,ambiguous or no common kanji form,,くよくよせずに太く短く生きる
+w_07fdd31838199aaa,N1,ずばり,ずばり,"(정곡, 핵심 등을 정확히 찌르는 모양)바로, 정확히",,keep-kana,ambiguous or no common kanji form,,ずばりと言い当てる
+w_f78bf1d1ec7f3007,N1,たやすい,たやすい,"쉽다, 용이하다",容易い,jmdict-unambiguous,common JMdict form,w_c09a59c654de1d4b,いともたやすい
+w_4f3c623502b2e1fc,N1,すみやかに,すみやかに,신속히,速やかに,manual-context,meaning and inflection reviewed,,事件を速やかに処理する
+w_7b77229d7578e77d,N1,そっぽ,そっぽ,"외면, 딴 쪽",,needs-review,ambiguous or no common kanji form,,外方を見る
+w_3ed43a6a0116d395,N1,かさばる,かさばる,부피가 커지다,,needs-review,ambiguous or no common kanji form,,容器が大きいので嵩張る
+w_2f612443ccb862f7,N1,おのずと,おのずと,"저절로, 자연히",自ずと,example-exact,unique JMdict form occurs in curated example,,年を取れば自ずと分かってくる
+w_690a4fa3e51077a6,N1,すがすがしい,すがすがしい,"상쾌하다, 시원하다",清々しい,manual-homophone,meaning-sensitive JMdict choice,,清清しい気持ちになる
+w_a5aecb63abc015f0,N1,なだめる,なだめる,달래다,宥める,example-exact,unique JMdict form occurs in curated example,,泣く子を宥める
+w_cad5672ec93eca6c,N1,おびただしい,おびただしい,"엄청나다, 수량이 매우 많다",夥しい,jmdict-unambiguous,common JMdict form,,過ぎた日に自分を探すなら，私の背後にはシャドー・ボックスの人物のように，おびただしい過去が縦列に続いている
+w_842c01324c0f7575,N1,あどけない,あどけない,천진난만하다,,keep-kana,ambiguous or no common kanji form,,街の女性たちはあどけない軍人たちを色目を使って誘惑した。
+w_09df22599f2680a8,N1,ずっしりと,ずっしりと,"묵직한 모습, 무거운 느낌",,keep-kana,ambiguous or no common kanji form,,ずっしりとした鉄の塊。
+w_53a6bcd205f9feef,N1,なじむ,なじむ,"친숙해지다, 정들다",馴染む,example-exact,unique JMdict form occurs in curated example,,肌に馴染む
+w_a6eec0b6c22ca7ad,N1,うすうす,うすうす,"희미하게, 어렴풋이",薄々,example-exact,unique JMdict form occurs in curated example,,前から薄々気づいてはいた
+w_b44f9643ac2cf7aa,N1,たたえる,たたえる,"칭찬하다, 찬양하다",称える,example-exact,unique JMdict form occurs in curated example,,勇敢な行いを称える
+w_f7150303f9f13754,N1,じめじめする,じめじめする,축축하다,,keep-kana,ambiguous or no common kanji form,,服がじめじめする。
+w_628691a446bfd8e5,N1,じゃまする,じゃまする,"방해하다, 훼방 놓다",邪魔する,manual-context,meaning and inflection reviewed,,勉強中の弟をじゃまするのはやめなさい。
+w_44435dfc11169488,N1,あっけない,あっけない,어이없다,,needs-review,ambiguous or no common kanji form,,イ：討論しようとする人々が悪口と誹謗をするなんて、ちょっとあっけない。
+w_cfe9a75c1b556e63,N1,てんで,てんで,"전혀(아님), 완전히",,keep-kana,ambiguous or no common kanji form,,てんで話にならない
+w_3f6beba4a6bb1e23,N1,もめる,もめる,"옥신각신하다, 분쟁이 일다",揉める,example-exact,unique JMdict form occurs in curated example,,考え方の違いで同僚と揉める
+w_f2ad7e17b7d9da41,N1,へとへと,へとへと,기진맥진,,keep-kana,ambiguous or no common kanji form,,ジスは食べたものをほとんど吐いた後、へとへとになって寝ころんだ。
+w_c36280d2912eaabe,N1,すくう,すくう,(액체 등을)뜨다,掬う,manual-homophone,meaning-sensitive JMdict choice,,スープを掬う
+w_72437cd0f7cb9aa0,N1,あくどい,あくどい,"지나치다, 악랄하다",,needs-review,ambiguous or no common kanji form,,狡猾であくどい。
+w_3090bb4659a97310,N1,にじむ,にじむ,"번지다, 스며들다",滲む,example-exact,unique JMdict form occurs in curated example,w_2e433c5735cb4ae7,インクが滲む
+w_036a3fdf64057122,N1,みすぼらしい,みすぼらしい,초라하다,,needs-review,ambiguous or no common kanji form,,(旅立ちの)身なりがみすぼらしい.
+w_fb563ffa4a981ae4,N1,ほほえましい,ほほえましい,흐뭇하다,微笑ましい,example-exact,unique JMdict form occurs in curated example,,微笑ましいエピソードを紹介する
+w_b5230a80bd127c1c,N1,めいめいに,めいめいに,"각각에게, 각자에게",,keep-kana,ambiguous or no common kanji form,,めいめいに等しく分け与える
+w_75fe6fbac6e7ce8b,N1,けなされる,けなされる,비난을 받다,貶される,manual-context,meaning and inflection reviewed,,ロ：これだから海外に行って私たちが一緒にけなされるのよ。
+w_fce281a434e56887,N1,おびえる,おびえる,겁을 내다,怯える,example-exact,unique JMdict form occurs in curated example,w_87e4eb8400560adc,石油値上げの声に怯える
+w_a4092744f57bc1a2,N1,かぶれる,かぶれる,"영향을 받다, 피부가 짓무르다",,needs-review,ambiguous or no common kanji form,,薬品に気触れる
+w_0e945f50fef8ccd1,N1,ぎくしゃくする,ぎくしゃくする,"원활하지 못하다, 껄끄럽다",,keep-kana,ambiguous or no common kanji form,,会話がぎくしゃくする
+w_44db7429578a8638,N1,ティッシュペーパー,ティッシュペーパー,티슈 페이퍼,,keep-kana,ambiguous or no common kanji form,,ティッシュペーパーを捨てる。
+w_62cc45e0adfe3713,N1,うろたえる,うろたえる,"허둥거리다, 당황하다",,needs-review,ambiguous or no common kanji form,,急報を受けて狼狽える
+w_d8f9e2302104e892,N1,やむをえず,やむをえず,어쩔 수 없이,やむを得ず,example-exact,unique JMdict form occurs in curated example,,うちの会社は、やむを得ず機械たちを眠らせている。
+w_d248c9c77adbc413,N1,つぶさに,つぶさに,"(1) 자세하게, 상세하게 (2) 빠짐없이, 모두",,needs-review,ambiguous or no common kanji form,,具に取りそろえる
+w_e8dd5516fe237fd5,N1,しくじる,しくじる,"실수하다, 실패하다",,keep-kana,ambiguous or no common kanji form,,肝心かなめの所でしくじる
+w_749e92c77b3f04a5,N1,ぎこちない,ぎこちない,"어색하다, 부자연스럽다",,keep-kana,ambiguous or no common kanji form,,演技がぎこちない
+w_74fd7b7d7f5ce3c7,N1,ほどける,ほどける,"(매듭, 끈이) 풀리다",解ける,example-exact,unique JMdict form occurs in curated example,w_f25835b153fd2a07,結び目が解ける
+w_c96ba7d2455202aa,N1,かねがね,かねがね,전부터,,needs-review,ambiguous or no common kanji form,,おうわさはかねがねうかがっております。
+w_3cf40d8a4082b925,N1,ぼやく,ぼやく,투덜대다,,keep-kana,ambiguous or no common kanji form,,安い給料をぼやく
+w_413251e0a4bd1046,N1,なつく,なつく,친해져서 따르다,,needs-review,ambiguous or no common kanji form,,子供がよく懐く
+w_eb7cb3b40736d2e8,N1,めきめき,めきめき,"두드러지게, 눈에 띄게, 부쩍",,keep-kana,ambiguous or no common kanji form,,めきめきと体重が増えた
+w_47edcddb0f1d2f8d,N1,てきぱき,てきぱき,척척,,keep-kana,ambiguous or no common kanji form,,ユミンは私が聞いた質問にてきぱきと答えた。
+w_64273f22846e27af,N1,てきぱきと,てきぱきと,일을 솜씨 좋게 처리하는 모습. 척척,,keep-kana,ambiguous or no common kanji form,,受け持った仕事をてきぱきと片付ける
+w_8f12e829bd3a3c60,N1,せかせかと,せかせかと,"조급히, 분주히",,keep-kana,ambiguous or no common kanji form,,せかせかと行動する
+w_d07cea24a5a27e75,N1,むっとする,むっとする,부루퉁해지다,,keep-kana,ambiguous or no common kanji form,,悪臭でむっとする.
+w_5f46d44ecbf267a0,N1,はなはだしい,はなはだしい,심하다,甚だしい,example-exact,unique JMdict form occurs in curated example,w_df6a3abae7a48d60,賢愚の差が甚だしい.
+w_22505daebb227709,N1,むしる,むしる,"쥐어뜯다, 잡아 뽑다",毟る,example-exact,unique JMdict form occurs in curated example,,雑草を毟る
+w_964a437b76d2daca,N1,もくろむ,もくろむ,"계획하다, 꾀하다",目論む,example-exact,unique JMdict form occurs in curated example,,売り上げの倍増を目論む
+w_581a28544054818a,N1,さする,さする,"문지르다, 쓰다듬다",摩る,jmdict-unambiguous,common JMdict form,,レンズを摩する
+w_a553ed66f04dcd24,N1,わずらわしい,わずらわしい,"성가시다, 번거롭다",煩わしい,example-exact,unique JMdict form occurs in curated example,w_9626fdb33e0fb4f7,なんのかのと煩わしい
+w_15250f716c78bbf5,N1,やりとげる,やりとげる,달성하다,やり遂げる,jmdict-unambiguous,unambiguous JMdict form,,受け持った仕事をてきぱき(と)やりとげる.
+w_291c8cccd3b11be4,N1,くじける,くじける,"꺾이다, 굴하다, 좌절하다",,needs-review,ambiguous or no common kanji form,,途中で挫ける
+w_1715b578802aa5e8,N1,おっくうだ,おっくうだ,귀찮다,億劫だ,manual-context,meaning and inflection reviewed,,年をとると何もかもおっくうだ.
+w_967839923e783839,N1,エアメール,エアメール,항공 우편,,keep-kana,ambiguous or no common kanji form,,エアメールにします。
+w_9e9920009cc9ad91,N1,がやがや,がやがや,"여럿이 시끄럽게 떠드는 모양, 왁자지껄",,keep-kana,ambiguous or no common kanji form,,子供たちががやがやと騒ぐ音で目が覚めた。
+w_58e7dc3697f3b7ef,N1,へりくだる,へりくだる,겸손하게 굴다,,needs-review,ambiguous or no common kanji form,,謙ることで円滑なコミュニケーションを図る
+w_aeb2ae8f421e5627,N1,せかす,せかす,재촉하다,急かす,example-exact,unique JMdict form occurs in curated example,w_44c0bcb9bd3fe519,仕事を急かす
+w_d0a649f398f31376,N1,なれなれしい,なれなれしい,"허물없다, 지나치게 친하다",馴れ馴れしい,example-exact,unique JMdict form occurs in curated example,,だれにでも馴れ馴れしい態度をとる
+w_560fcad7938d0b0c,N1,つねる,つねる,꼬집다,,needs-review,ambiguous or no common kanji form,,ももを抓る
+w_a6b82112020af822,N1,ふんだん,ふんだん,"풍부함, 넉넉함",,keep-kana,ambiguous or no common kanji form,,ふんだんな軍資金
+w_33745c45474f45be,N1,うなだれる,うなだれる,머리를 숙이다. 고개를 떨구다,,needs-review,ambiguous or no common kanji form,,検事の論告に項垂れる
+w_7a0c4cfd681dd94f,N1,さえる,さえる,"(1)맑고 깨끗하다 (2)잠이 깨다, 머리가 맑아지다",冴える,example-exact,unique JMdict form occurs in curated example,w_059b0e6154be17a2,頭が冴える
+w_6e458f1cbfee6aad,N1,ぼつぼつ,ぼつぼつ,슬슬; 군데군데,,needs-review,ambiguous or no common kanji form,,どれ、ぼつぼつ仕事に掛かろうか
+w_b5762ff3178df835,N1,すばしこい,すばしこい,"재빠르다, 날쌔다",,keep-kana,ambiguous or no common kanji form,,行動がすばしこい
+w_66e3b8ac6e5991e1,N1,まごつく,まごつく,"허둥대다, 당황하다",,keep-kana-reviewed,explicit modern-kana preference,,慣れない仕事にまごつく
+w_54f7b169d940b986,N1,ばてる,ばてる,"지치다, 녹초가 되다",,keep-kana,ambiguous or no common kanji form,,体がばてる
+w_4a6400c61a33361e,N1,まっとうする,まっとうする,"다하다, 완수하다",全うする,example-exact,unique JMdict form occurs in curated example,,重責を果たす[全うする]
+w_52a2e8992f64e713,N1,あつらえる,あつらえる,"주문하다, 맞추다",誂える,example-exact,unique JMdict form occurs in curated example,,個々人のライフスタイルに合わせた家具やインテリア空間を誂える
+w_cfdebd5aab551258,N1,ありふれる,ありふれる,흔하다,,needs-review,ambiguous or no common kanji form,,わらじがありふれる。
+w_1f093ceab4675dbd,N1,かたくなな,かたくなな,고집이 센,頑なな,manual-context,meaning and inflection reviewed,w_9f1686ef32612a2e,かたくなな心を解きほぐす
+w_4d71c8e8bb9e8afa,N1,ここちよく,ここちよく,"기분좋게, 쾌적하게",心地よく,manual-context,meaning and inflection reviewed,,心地よく暮らしていく
+w_537486932462a5df,N1,しなびる,しなびる,"시들다, 쪼그라들다",,needs-review,ambiguous or no common kanji form,,野菜が萎びる
+w_3f0352fdd33c8b6b,N1,どうしようもない,どうしようもない,어쩔 방법이 없다,,keep-kana-reviewed,explicit modern-kana preference,,ここまできたら、もうどうしようもない
+w_28ab53ea12303357,N1,やつれる,やつれる,"여위다, 수척해지다",,needs-review,ambiguous or no common kanji form,,長のわずらいで窶れる

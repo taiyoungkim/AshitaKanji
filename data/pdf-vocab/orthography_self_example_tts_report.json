@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-08-10T04:23:48.305243+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 11,
+  "jobs": 11,
+  "preexisting": 0,
+  "planned": 11,
+  "created": 11,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_34cbcd4491dcafdb",
+      "kind": "example",
+      "text": "誕生日の計画は当日まで内緒にする。",
+      "file": "assets/audio/examples/w_34cbcd4491dcafdb.mp3"
+    },
+    {
+      "id": "w_5284226e672d96c5",
+      "kind": "example",
+      "text": "この雑誌を二冊買いました。",
+      "file": "assets/audio/examples/w_5284226e672d96c5.mp3"
+    },
+    {
+      "id": "w_7d52aa26e8ea1bff",
+      "kind": "example",
+      "text": "約束に遅れたので、友達に謝りました。",
+      "file": "assets/audio/examples/w_7d52aa26e8ea1bff.mp3"
+    },
+    {
+      "id": "w_c1395761ef105cb2",
+      "kind": "example",
+      "text": "久しぶりに会った友達に「痩せましたね」と言われました。",
+      "file": "assets/audio/examples/w_c1395761ef105cb2.mp3"
+    },
+    {
+      "id": "w_628691a446bfd8e5",
+      "kind": "example",
+      "text": "勉強中の弟を邪魔するのはやめなさい。",
+      "file": "assets/audio/examples/w_628691a446bfd8e5.mp3"
+    },
+    {
+      "id": "w_1dc2a01d84d091eb",
+      "kind": "example",
+      "text": "父は毎朝新聞を読む。",
+      "file": "assets/audio/examples/w_1dc2a01d84d091eb.mp3"
+    },
+    {
+      "id": "w_661368cc7fe5e352",
+      "kind": "example",
+      "text": "昨日の午後は暇でした。",
+      "file": "assets/audio/examples/w_661368cc7fe5e352.mp3"
+    },
+    {
+      "id": "w_72e1cb4ba34fc820",
+      "kind": "example",
+      "text": "来年は日本で勉強がしたいです。",
+      "file": "assets/audio/examples/w_72e1cb4ba34fc820.mp3"
+    },
+    {
+      "id": "w_a1a38e164f0a3264",
+      "kind": "example",
+      "text": "この鉛筆は八十円です。",
+      "file": "assets/audio/examples/w_a1a38e164f0a3264.mp3"
+    },
+    {
+      "id": "w_b24621b76259caa8",
+      "kind": "example",
+      "text": "図書館で本を三冊借りました。",
+      "file": "assets/audio/examples/w_b24621b76259caa8.mp3"
+    },
+    {
+      "id": "w_de109ade477aaf3c",
+      "kind": "example",
+      "text": "この町は夜も賑やかです。",
+      "file": "assets/audio/examples/w_de109ade477aaf3c.mp3"
+    }
+  ],
+  "elapsed_seconds": 1.159,
+  "dry_run": false
+}

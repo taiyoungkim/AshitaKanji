@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-08-09T16:49:07.842738+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 6638,
+  "jobs": 6638,
+  "preexisting": 1032,
+  "planned": 5606,
+  "created": 0,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [],
+  "elapsed_seconds": 0.0,
+  "dry_run": true
+}

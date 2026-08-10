@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-05T23:05:53.543699+00:00",
+  "generated_at": "2026-08-08T13:55:32.543898+00:00",
   "count": 2699,
   "vocabulary": [
     {
@@ -2818,11 +2818,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_be6f8b1c566e6227",
+      "id": "w_e3d3cc0b38f77224",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "にキロ",
-      "reading_kana": "にキきロろ",
+      "reading_kana": "にキロ",
       "alt_readings": "",
       "meaning_ko": "2킬로미터",
       "meaning_ko_variants": "2킬로미터",
@@ -3910,11 +3910,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_608dbda9b2ea6200",
+      "id": "w_6b2eba28cfff51ce",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "デパート",
-      "reading_kana": "デでパぱートと",
+      "reading_kana": "デパート",
       "alt_readings": "",
       "meaning_ko": "백화점",
       "meaning_ko_variants": "백화점",
@@ -3931,11 +3931,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_3fe7e9fc059934cd",
+      "id": "w_0b4b42871f3bf612",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "ナイフ",
-      "reading_kana": "ナなイいフふ",
+      "reading_kana": "ナイフ",
       "alt_readings": "",
       "meaning_ko": "나이프, 칼",
       "meaning_ko_variants": "나이프, 칼",
@@ -3973,11 +3973,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_1f4b6582df244388",
+      "id": "w_426a6ad568579abe",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "ピアノ",
-      "reading_kana": "ピぴアあノの",
+      "reading_kana": "ピアノ",
       "alt_readings": "",
       "meaning_ko": "피아노",
       "meaning_ko_variants": "피아노",
@@ -3994,11 +3994,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_8b35c2f6558b9cf4",
+      "id": "w_25cb652a0907a58a",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "プール",
-      "reading_kana": "プぷールる",
+      "reading_kana": "プール",
       "alt_readings": "",
       "meaning_ko": "풀, 수영장",
       "meaning_ko_variants": "풀, 수영장",
@@ -4015,11 +4015,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_aa2b58c910ffa978",
+      "id": "w_4fdd9f73dd3e62a1",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "ページ",
-      "reading_kana": "ペぺージじ",
+      "reading_kana": "ページ",
       "alt_readings": "",
       "meaning_ko": "페이지, 쪽",
       "meaning_ko_variants": "페이지, 쪽",
@@ -4057,11 +4057,11 @@
       "qa_note": ""
     },
     {
-      "id": "w_452c54b1f3670c56",
+      "id": "w_da1aa3397e73de5f",
       "primary_level": "N5",
       "levels": "N5",
       "surface": "ラジオ",
-      "reading_kana": "ラらジじオお",
+      "reading_kana": "ラジオ",
       "alt_readings": "",
       "meaning_ko": "라디오",
       "meaning_ko_variants": "라디오",

@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-10T04:16:15.486Z",
+  "elapsed_sec": 45,
+  "word_source": "data/pdf-vocab/jlpt_orthography_wordlist.csv",
+  "out": "data/pdf-vocab/examples_orthography_seed.csv",
+  "misses_file": "data/pdf-vocab/naver_examples_orthography_misses.json",
+  "total_words_selected": 6638,
+  "output_existing_rows": 6585,
+  "existing_rows": 6585,
+  "seeded_rows": 0,
+  "target_rows": 53,
+  "processed": 53,
+  "collected": 53,
+  "misses": 0,
+  "miss_samples": []
+}

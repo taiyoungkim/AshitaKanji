@@ -1,0 +1,2710 @@
+{
+  "generated_at": "2026-08-10T04:15:29.993782+00:00",
+  "summary": {
+    "input_count": 6638,
+    "orthography_overrides": 342,
+    "duplicate_groups_merged": 141,
+    "replacement_count": 141,
+    "replacement_counts": {
+      "N4": 7,
+      "N2": 1,
+      "N1": 21,
+      "N5": 67,
+      "N3": 45
+    },
+    "final_count": 6638,
+    "unique_pairs": 6638,
+    "level_counts": {
+      "N5": 339,
+      "N4": 600,
+      "N3": 1499,
+      "N2": 1700,
+      "N1": 2500
+    },
+    "seed_examples": 6585,
+    "examples_to_collect": 53
+  },
+  "merged_aliases": [
+    {
+      "removed_id": "w_aba657db70bdb298",
+      "retained_id": "w_a0c558d30a7b5279",
+      "surface": "習う",
+      "reading_kana": "ならう",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "ならう"
+    },
+    {
+      "removed_id": "w_0ea9569520107931",
+      "retained_id": "w_5ef17e779ccf6818",
+      "surface": "手紙",
+      "reading_kana": "てがみ",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "てがみ"
+    },
+    {
+      "removed_id": "w_8cc945ebe05fb345",
+      "retained_id": "w_871d839872345899",
+      "surface": "暗い",
+      "reading_kana": "くらい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "くらい"
+    },
+    {
+      "removed_id": "w_05806d8778786e6e",
+      "retained_id": "w_02ed6d62e248827b",
+      "surface": "写真",
+      "reading_kana": "しゃしん",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "しゃしん"
+    },
+    {
+      "removed_id": "w_409c10a69baafd5f",
+      "retained_id": "w_52ca205b3d7f3971",
+      "surface": "出る",
+      "reading_kana": "でる",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "でる"
+    },
+    {
+      "removed_id": "w_31babae8ff2696b9",
+      "retained_id": "w_4d8d34ddefce90aa",
+      "surface": "新しい",
+      "reading_kana": "あたらしい",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "あたらしい"
+    },
+    {
+      "removed_id": "w_3ddce52a2caa733a",
+      "retained_id": "w_84eb455426c5a140",
+      "surface": "道",
+      "reading_kana": "みち",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "みち"
+    },
+    {
+      "removed_id": "w_9898d6dcfbf040cb",
+      "retained_id": "w_1b9d8a75f2b91a55",
+      "surface": "電話",
+      "reading_kana": "でんわ",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "でんわ"
+    },
+    {
+      "removed_id": "w_7bd42a74b3f21cd5",
+      "retained_id": "w_a6b4b27691fedbcb",
+      "surface": "明日",
+      "reading_kana": "あした",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "あした"
+    },
+    {
+      "removed_id": "w_20734b71d5df79ef",
+      "retained_id": "w_ea3d8a4e6ed4bc82",
+      "surface": "足",
+      "reading_kana": "あし",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "あし"
+    },
+    {
+      "removed_id": "w_31df4b7ee4f99920",
+      "retained_id": "w_139be75fa16ee36c",
+      "surface": "結構",
+      "reading_kana": "けっこう",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "けっこう"
+    },
+    {
+      "removed_id": "w_208233a335ee5617",
+      "retained_id": "w_67a0aa7719932f47",
+      "surface": "家族",
+      "reading_kana": "かぞく",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "かぞく"
+    },
+    {
+      "removed_id": "w_4e598e988857cbcc",
+      "retained_id": "w_48838b2b24ace976",
+      "surface": "地図",
+      "reading_kana": "ちず",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "ちず"
+    },
+    {
+      "removed_id": "w_5c2d9927c4fbe888",
+      "retained_id": "w_08908a001d06c5eb",
+      "surface": "面白い",
+      "reading_kana": "おもしろい",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "おもしろい"
+    },
+    {
+      "removed_id": "w_8d8468b11a0a1fa9",
+      "retained_id": "w_1cd9d956ac65ad3e",
+      "surface": "色々",
+      "reading_kana": "いろいろ",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "いろいろ"
+    },
+    {
+      "removed_id": "w_4a7bd63718f4b15d",
+      "retained_id": "w_7b4426d6f2756a8c",
+      "surface": "買う",
+      "reading_kana": "かう",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "かう"
+    },
+    {
+      "removed_id": "w_3f7247bd3bb94359",
+      "retained_id": "w_391386c4147ce4af",
+      "surface": "銀行",
+      "reading_kana": "ぎんこう",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "ぎんこう"
+    },
+    {
+      "removed_id": "w_f55e5f14ba3846ae",
+      "retained_id": "w_880411bf45f00ee7",
+      "surface": "疲れる",
+      "reading_kana": "つかれる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "つかれる"
+    },
+    {
+      "removed_id": "w_d09fc1ab6a37791a",
+      "retained_id": "w_1fb1432fdae5690a",
+      "surface": "点く",
+      "reading_kana": "つく",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "つく"
+    },
+    {
+      "removed_id": "w_fc031afb71d1faf9",
+      "retained_id": "w_633b31657d51ba57",
+      "surface": "飲む",
+      "reading_kana": "のむ",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "のむ"
+    },
+    {
+      "removed_id": "w_6ec2f5694292b36a",
+      "retained_id": "w_318b933aa9deca08",
+      "surface": "取る",
+      "reading_kana": "とる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "とる"
+    },
+    {
+      "removed_id": "w_38c3571b4d7aa01a",
+      "retained_id": "w_be0a4fc6dd818d25",
+      "surface": "小さい",
+      "reading_kana": "ちいさい",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "ちいさい"
+    },
+    {
+      "removed_id": "w_f6ee1c3e08f743b5",
+      "retained_id": "w_76f2a5f23785b571",
+      "surface": "窓",
+      "reading_kana": "まど",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "まど"
+    },
+    {
+      "removed_id": "w_76d36dbae91cd174",
+      "retained_id": "w_336db92caf7feb12",
+      "surface": "洗う",
+      "reading_kana": "あらう",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "あらう"
+    },
+    {
+      "removed_id": "w_ae4c2c199424ca13",
+      "retained_id": "w_1335d3c40feacf5d",
+      "surface": "上手",
+      "reading_kana": "じょうず",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "じょうず"
+    },
+    {
+      "removed_id": "w_cc4944533f0911af",
+      "retained_id": "w_76d3472883c72fe8",
+      "surface": "天気",
+      "reading_kana": "てんき",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "てんき"
+    },
+    {
+      "removed_id": "w_05f6406e9ab15b32",
+      "retained_id": "w_79bf77758ff71250",
+      "surface": "乗る",
+      "reading_kana": "のる",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "のる"
+    },
+    {
+      "removed_id": "w_17b789a30464c292",
+      "retained_id": "w_9f48fc575582aa14",
+      "surface": "生まれる",
+      "reading_kana": "うまれる",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "うまれる"
+    },
+    {
+      "removed_id": "w_e1b4921bc5902b92",
+      "retained_id": "w_50bb9153fcefb747",
+      "surface": "切手",
+      "reading_kana": "きって",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "きって"
+    },
+    {
+      "removed_id": "w_961e8495d97af933",
+      "retained_id": "w_2f41bf48aae2a583",
+      "surface": "忘れる",
+      "reading_kana": "わすれる",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "わすれる"
+    },
+    {
+      "removed_id": "w_f84e4af1931a66af",
+      "retained_id": "w_29fd13f6f877956f",
+      "surface": "台所",
+      "reading_kana": "だいどころ",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "だいどころ"
+    },
+    {
+      "removed_id": "w_0d26f4ecd5bf00c4",
+      "retained_id": "w_cc7c486ee55f4e80",
+      "surface": "暖かい",
+      "reading_kana": "あたたかい",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "あたたかい"
+    },
+    {
+      "removed_id": "w_380dce933ba2841c",
+      "retained_id": "w_ff87bb6908adb37e",
+      "surface": "大抵",
+      "reading_kana": "たいてい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "たいてい"
+    },
+    {
+      "removed_id": "w_99c47cc1df2be37c",
+      "retained_id": "w_6544e85ecab8bd79",
+      "surface": "重い",
+      "reading_kana": "おもい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "おもい"
+    },
+    {
+      "removed_id": "w_4e9b8a9d056fb2bc",
+      "retained_id": "w_5e33ed6531ff94b6",
+      "surface": "渡る",
+      "reading_kana": "わたる",
+      "removed_level": "N5",
+      "retained_level": "N2",
+      "removed_original_surface": "わたる"
+    },
+    {
+      "removed_id": "w_7a7f3406f9ada41f",
+      "retained_id": "w_08414fa5796dc2f4",
+      "surface": "一昨日",
+      "reading_kana": "おととい",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_original_surface": "おととい"
+    },
+    {
+      "removed_id": "w_e25c204a215c6bc5",
+      "retained_id": "w_8d526aa1c09b62a2",
+      "surface": "楽しい",
+      "reading_kana": "たのしい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "たのしい"
+    },
+    {
+      "removed_id": "w_a48055accfd30bcb",
+      "retained_id": "w_03f1fbfb1a4e6d33",
+      "surface": "痛い",
+      "reading_kana": "いたい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "いたい"
+    },
+    {
+      "removed_id": "w_d1ca2d4600b815b5",
+      "retained_id": "w_f0b5618bdca7c0ae",
+      "surface": "強い",
+      "reading_kana": "つよい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "つよい"
+    },
+    {
+      "removed_id": "w_72ca2a9c4ae1017a",
+      "retained_id": "w_0eb0f469760ebd47",
+      "surface": "犬",
+      "reading_kana": "いぬ",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "いぬ"
+    },
+    {
+      "removed_id": "w_912a89defaf6cfee",
+      "retained_id": "w_a89a3400861519f5",
+      "surface": "被る",
+      "reading_kana": "かぶる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "かぶる"
+    },
+    {
+      "removed_id": "w_8599f01b62ec3b89",
+      "retained_id": "w_eff8aedd9cddd1a9",
+      "surface": "閉める",
+      "reading_kana": "しめる",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "しめる"
+    },
+    {
+      "removed_id": "w_b378eb40b444bf6e",
+      "retained_id": "w_4afc49c52138c0b2",
+      "surface": "静かに",
+      "reading_kana": "しずかに",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "しずかに"
+    },
+    {
+      "removed_id": "w_be0c2a8c15c51508",
+      "retained_id": "w_b38cfcd67ff64a8e",
+      "surface": "押す",
+      "reading_kana": "おす",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "おす"
+    },
+    {
+      "removed_id": "w_e3e2e1235da0170b",
+      "retained_id": "w_3c23adf18899bec0",
+      "surface": "元気",
+      "reading_kana": "げんき",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "げんき"
+    },
+    {
+      "removed_id": "w_7391edd8a2c4c832",
+      "retained_id": "w_01e3fc0965037397",
+      "surface": "一度",
+      "reading_kana": "いちど",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "いちど"
+    },
+    {
+      "removed_id": "w_35d37fc58d80467b",
+      "retained_id": "w_0577bd8fb5ad5060",
+      "surface": "汚い",
+      "reading_kana": "きたない",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "きたない"
+    },
+    {
+      "removed_id": "w_f70f47a2eb8d0348",
+      "retained_id": "w_d18208a487d10453",
+      "surface": "薄い",
+      "reading_kana": "うすい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "うすい"
+    },
+    {
+      "removed_id": "w_c01b591995b9335a",
+      "retained_id": "w_0f26111535f0210a",
+      "surface": "飛ぶ",
+      "reading_kana": "とぶ",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "とぶ"
+    },
+    {
+      "removed_id": "w_76ee0a63fa5a65c7",
+      "retained_id": "w_ac4a28f37332b6a0",
+      "surface": "止まる",
+      "reading_kana": "とまる",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "とまる"
+    },
+    {
+      "removed_id": "w_1b21326fcb2d8421",
+      "retained_id": "w_39a427c6dee763c4",
+      "surface": "起きる",
+      "reading_kana": "おきる",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "おきる"
+    },
+    {
+      "removed_id": "w_60b16783522d51c6",
+      "retained_id": "w_e506759b6040f2fd",
+      "surface": "野菜",
+      "reading_kana": "やさい",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "やさい"
+    },
+    {
+      "removed_id": "w_581fe312603d2f10",
+      "retained_id": "w_c0cc225df4622838",
+      "surface": "甘い",
+      "reading_kana": "あまい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "あまい"
+    },
+    {
+      "removed_id": "w_43e6795a8212c516",
+      "retained_id": "w_87abe3f691f2a5ec",
+      "surface": "勤める",
+      "reading_kana": "つとめる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "つとめる"
+    },
+    {
+      "removed_id": "w_1890c7a3bfe4781f",
+      "retained_id": "w_73af8c94eaaf7836",
+      "surface": "辛い",
+      "reading_kana": "からい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "からい"
+    },
+    {
+      "removed_id": "w_3c8a052098392b1a",
+      "retained_id": "w_631cf27db2365483",
+      "surface": "降りる",
+      "reading_kana": "おりる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "おりる"
+    },
+    {
+      "removed_id": "w_deddb7435f3d9350",
+      "retained_id": "w_a8ec89206d4fff44",
+      "surface": "歩く",
+      "reading_kana": "あるく",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "あるく"
+    },
+    {
+      "removed_id": "w_926c2576f47ea612",
+      "retained_id": "w_b6ec99032db8c18a",
+      "surface": "渡す",
+      "reading_kana": "わたす",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "わたす"
+    },
+    {
+      "removed_id": "w_43e0b900a9d10cc3",
+      "retained_id": "w_4358ae52c7f1b4d8",
+      "surface": "若い",
+      "reading_kana": "わかい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "わかい"
+    },
+    {
+      "removed_id": "w_f7ee39d72844c141",
+      "retained_id": "w_c19e856353cf049c",
+      "surface": "覚える",
+      "reading_kana": "おぼえる",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "おぼえる"
+    },
+    {
+      "removed_id": "w_0500788ad7f74945",
+      "retained_id": "w_113c116f7b2b3d71",
+      "surface": "返す",
+      "reading_kana": "かえす",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "かえす"
+    },
+    {
+      "removed_id": "w_cea1a4546e3779a7",
+      "retained_id": "w_0868c5b03add8f4b",
+      "surface": "公園",
+      "reading_kana": "こうえん",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "こうえん"
+    },
+    {
+      "removed_id": "w_1a3198f41e5aabef",
+      "retained_id": "w_f71f6fdcc2491b8d",
+      "surface": "選ぶ",
+      "reading_kana": "えらぶ",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "えらぶ"
+    },
+    {
+      "removed_id": "w_0ec81e693208cfb1",
+      "retained_id": "w_afca84ce3be3c5e2",
+      "surface": "料理",
+      "reading_kana": "りょうり",
+      "removed_level": "N5",
+      "retained_level": "N4",
+      "removed_original_surface": "りょうり"
+    },
+    {
+      "removed_id": "w_4a71718d7be3875a",
+      "retained_id": "w_46f4a926941aa00f",
+      "surface": "消す",
+      "reading_kana": "けす",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "けす"
+    },
+    {
+      "removed_id": "w_1643e2acabb6bed2",
+      "retained_id": "w_e928239923f76996",
+      "surface": "細い",
+      "reading_kana": "ほそい",
+      "removed_level": "N5",
+      "retained_level": "N3",
+      "removed_original_surface": "ほそい"
+    },
+    {
+      "removed_id": "w_c9f37118e390cfee",
+      "retained_id": "w_42ee94816d70a67e",
+      "surface": "磨く",
+      "reading_kana": "みがく",
+      "removed_level": "N5",
+      "retained_level": "N2",
+      "removed_original_surface": "みがく"
+    },
+    {
+      "removed_id": "w_0cac833dd5c18449",
+      "retained_id": "w_72906b1feea37df4",
+      "surface": "最近",
+      "reading_kana": "さいきん",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "さいきん"
+    },
+    {
+      "removed_id": "w_d7bf6ee8c6585cce",
+      "retained_id": "w_aae7ac3f2729716f",
+      "surface": "この頃",
+      "reading_kana": "このごろ",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "このごろ"
+    },
+    {
+      "removed_id": "w_76fadfa2f7cff0ca",
+      "retained_id": "w_f7e7cb647a4e4a2d",
+      "surface": "怖い",
+      "reading_kana": "こわい",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "こわい"
+    },
+    {
+      "removed_id": "w_ace5f18d0879f642",
+      "retained_id": "w_d3e9c63c13baacbd",
+      "surface": "全然",
+      "reading_kana": "ぜんぜん",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "ぜんぜん"
+    },
+    {
+      "removed_id": "w_f1a259336a25d471",
+      "retained_id": "w_2e1c725abcc5c203",
+      "surface": "終わる",
+      "reading_kana": "おわる",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "おわる"
+    },
+    {
+      "removed_id": "w_4c228c581f6ab0dc",
+      "retained_id": "w_e1c3c47439908fec",
+      "surface": "集める",
+      "reading_kana": "あつめる",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "あつめる"
+    },
+    {
+      "removed_id": "w_089e5e37dd2ccd76",
+      "retained_id": "w_b8c392e0ced001dc",
+      "surface": "一生懸命",
+      "reading_kana": "いっしょうけんめい",
+      "removed_level": "N4",
+      "retained_level": "N4",
+      "removed_original_surface": "いっしょうけんめい"
+    },
+    {
+      "removed_id": "w_6b2bd94a040d7f61",
+      "retained_id": "w_b0fa73f425bb6383",
+      "surface": "随分",
+      "reading_kana": "ずいぶん",
+      "removed_level": "N3",
+      "retained_level": "N4",
+      "removed_original_surface": "ずいぶん"
+    },
+    {
+      "removed_id": "w_4a75a3682bcdd4b1",
+      "retained_id": "w_ce285518225afb6d",
+      "surface": "構いません",
+      "reading_kana": "かまいません",
+      "removed_level": "N4",
+      "retained_level": "N2",
+      "removed_original_surface": "かまいません"
+    },
+    {
+      "removed_id": "w_6f3c0426d5e18caa",
+      "retained_id": "w_9a69e415985ac07b",
+      "surface": "柔らかい",
+      "reading_kana": "やわらかい",
+      "removed_level": "N4",
+      "retained_level": "N2",
+      "removed_original_surface": "やわらかい"
+    },
+    {
+      "removed_id": "w_dc0b78fec5acb3d8",
+      "retained_id": "w_28791ccc16b6f97b",
+      "surface": "寂しい",
+      "reading_kana": "さびしい",
+      "removed_level": "N4",
+      "retained_level": "N2",
+      "removed_original_surface": "さびしい"
+    },
+    {
+      "removed_id": "w_71d51d40bd252269",
+      "retained_id": "w_1b23bca76df0323b",
+      "surface": "厳しい",
+      "reading_kana": "きびしい",
+      "removed_level": "N4",
+      "retained_level": "N3",
+      "removed_original_surface": "きびしい"
+    },
+    {
+      "removed_id": "w_8619b2bfc1bda7fc",
+      "retained_id": "w_c10a94ad3bf74d6b",
+      "surface": "致す",
+      "reading_kana": "いたす",
+      "removed_level": "N4",
+      "retained_level": "N4",
+      "removed_original_surface": "いたす"
+    },
+    {
+      "removed_id": "w_1cda3de6e8bb6711",
+      "retained_id": "w_97a3b823f67674e9",
+      "surface": "差し上げる",
+      "reading_kana": "さしあげる",
+      "removed_level": "N4",
+      "retained_level": "N2",
+      "removed_original_surface": "さしあげる"
+    },
+    {
+      "removed_id": "w_f225f8353368badf",
+      "retained_id": "w_83ae7074dc030eb4",
+      "surface": "訳",
+      "reading_kana": "わけ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "わけ"
+    },
+    {
+      "removed_id": "w_4d69f0da34b2cf58",
+      "retained_id": "w_67b726b2a8728054",
+      "surface": "孫",
+      "reading_kana": "まご",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "まご"
+    },
+    {
+      "removed_id": "w_1c4e9708ae69cbb7",
+      "retained_id": "w_cefba8d96d3392c2",
+      "surface": "全て",
+      "reading_kana": "すべて",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "すべて"
+    },
+    {
+      "removed_id": "w_0f5482e1ea9e0a5e",
+      "retained_id": "w_a190e772e12a363a",
+      "surface": "流れ",
+      "reading_kana": "ながれ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "ながれ"
+    },
+    {
+      "removed_id": "w_47b233d6232a19c7",
+      "retained_id": "w_37328bc83de7e43a",
+      "surface": "必ず",
+      "reading_kana": "かならず",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "かならず"
+    },
+    {
+      "removed_id": "w_c07355323d29e4ab",
+      "retained_id": "w_2c314e0899617574",
+      "surface": "全く",
+      "reading_kana": "まったく",
+      "removed_level": "N3",
+      "retained_level": "N2",
+      "removed_original_surface": "まったく"
+    },
+    {
+      "removed_id": "w_a36d8551b00e3fd4",
+      "retained_id": "w_48edbcd9cc1bd313",
+      "surface": "噂",
+      "reading_kana": "うわさ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "うわさ"
+    },
+    {
+      "removed_id": "w_2cb60f5afdc9fb67",
+      "retained_id": "w_111d2464a080f298",
+      "surface": "癖",
+      "reading_kana": "くせ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "くせ"
+    },
+    {
+      "removed_id": "w_4b12fd88bdcd3bf7",
+      "retained_id": "w_568660177b238b65",
+      "surface": "懐かしい",
+      "reading_kana": "なつかしい",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "なつかしい"
+    },
+    {
+      "removed_id": "w_128d29f45bc02c6a",
+      "retained_id": "w_ce2b7c1de446f647",
+      "surface": "大体",
+      "reading_kana": "だいたい",
+      "removed_level": "N3",
+      "retained_level": "N1",
+      "removed_original_surface": "だいたい"
+    },
+    {
+      "removed_id": "w_9e3481dc47d209d0",
+      "retained_id": "w_da535a991def07ed",
+      "surface": "辞める",
+      "reading_kana": "やめる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "やめる"
+    },
+    {
+      "removed_id": "w_217384955200e9db",
+      "retained_id": "w_9c02e2c234a205df",
+      "surface": "決まり",
+      "reading_kana": "きまり",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "きまり"
+    },
+    {
+      "removed_id": "w_3a1fc271b293a3c4",
+      "retained_id": "w_2bcc58862e764fb6",
+      "surface": "輝く",
+      "reading_kana": "かがやく",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "かがやく"
+    },
+    {
+      "removed_id": "w_6a0aa8779064ce8b",
+      "retained_id": "w_b0bd981d3bda964c",
+      "surface": "泡",
+      "reading_kana": "あわ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "あわ"
+    },
+    {
+      "removed_id": "w_dd807f7eb5cfd6ab",
+      "retained_id": "w_833594898192c2a8",
+      "surface": "奪う",
+      "reading_kana": "うばう",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "うばう"
+    },
+    {
+      "removed_id": "w_5379aa117b5e16b1",
+      "retained_id": "w_b72207d33f55c934",
+      "surface": "早速",
+      "reading_kana": "さっそく",
+      "removed_level": "N3",
+      "retained_level": "N2",
+      "removed_original_surface": "さっそく"
+    },
+    {
+      "removed_id": "w_3f2637fd3045f747",
+      "retained_id": "w_e09a49f56218e718",
+      "surface": "振る",
+      "reading_kana": "ふる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "ふる"
+    },
+    {
+      "removed_id": "w_40a370857d95e22e",
+      "retained_id": "w_af76d4b3d5ba5ac0",
+      "surface": "貧しい",
+      "reading_kana": "まずしい",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "まずしい"
+    },
+    {
+      "removed_id": "w_3bd8001bb85b0c71",
+      "retained_id": "w_5087ca0f2f02704e",
+      "surface": "握る",
+      "reading_kana": "にぎる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "にぎる"
+    },
+    {
+      "removed_id": "w_59e6ccaef4f27f08",
+      "retained_id": "w_f9e0f3dbb59a25b1",
+      "surface": "溜まる",
+      "reading_kana": "たまる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "たまる"
+    },
+    {
+      "removed_id": "w_46295160a102bb64",
+      "retained_id": "w_79aa315fe2fb6fed",
+      "surface": "確かめる",
+      "reading_kana": "たしかめる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "たしかめる"
+    },
+    {
+      "removed_id": "w_2483b98c4224bf99",
+      "retained_id": "w_5ed6c4ba3aaf50f2",
+      "surface": "飽きる",
+      "reading_kana": "あきる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "あきる"
+    },
+    {
+      "removed_id": "w_26e6054b35783079",
+      "retained_id": "w_903895183827ef59",
+      "surface": "閉じる",
+      "reading_kana": "とじる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "とじる"
+    },
+    {
+      "removed_id": "w_1bfd0444cb26da23",
+      "retained_id": "w_5383cc0f3350da7d",
+      "surface": "緩い",
+      "reading_kana": "ゆるい",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "ゆるい"
+    },
+    {
+      "removed_id": "w_04e254adf543c228",
+      "retained_id": "w_e7f479187f36afac",
+      "surface": "測る",
+      "reading_kana": "はかる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "はかる"
+    },
+    {
+      "removed_id": "w_cd92ddcb3ad43e81",
+      "retained_id": "w_b480848a70c6cde2",
+      "surface": "乾く",
+      "reading_kana": "かわく",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "かわく"
+    },
+    {
+      "removed_id": "w_a0adae11f85d8920",
+      "retained_id": "w_fa49af9b638a1de5",
+      "surface": "余る",
+      "reading_kana": "あまる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "あまる"
+    },
+    {
+      "removed_id": "w_8fdb066e76411edb",
+      "retained_id": "w_f8828c1e725c917d",
+      "surface": "諦める",
+      "reading_kana": "あきらめる",
+      "removed_level": "N3",
+      "retained_level": "N1",
+      "removed_original_surface": "あきらめる"
+    },
+    {
+      "removed_id": "w_e8881da1f1c3d900",
+      "retained_id": "w_9f231925f59ed7f1",
+      "surface": "縛る",
+      "reading_kana": "しばる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "しばる"
+    },
+    {
+      "removed_id": "w_6dabf4237be1a307",
+      "retained_id": "w_8efd4d5e30a414c9",
+      "surface": "枯れる",
+      "reading_kana": "かれる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "かれる"
+    },
+    {
+      "removed_id": "w_8a0359a0fc57e5a7",
+      "retained_id": "w_47d4e0fc7e943945",
+      "surface": "曲げる",
+      "reading_kana": "まげる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "まげる"
+    },
+    {
+      "removed_id": "w_ea1731b43f90b6b2",
+      "retained_id": "w_523564dca147c289",
+      "surface": "転ぶ",
+      "reading_kana": "ころぶ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "ころぶ"
+    },
+    {
+      "removed_id": "w_79310f4ddfb535bb",
+      "retained_id": "w_c13f2d70a64be03d",
+      "surface": "眩しい",
+      "reading_kana": "まぶしい",
+      "removed_level": "N3",
+      "retained_level": "N2",
+      "removed_original_surface": "まぶしい"
+    },
+    {
+      "removed_id": "w_453f3b9c5058ab25",
+      "retained_id": "w_a4435942eb37a45e",
+      "surface": "恐ろしい",
+      "reading_kana": "おそろしい",
+      "removed_level": "N3",
+      "retained_level": "N2",
+      "removed_original_surface": "おそろしい"
+    },
+    {
+      "removed_id": "w_61de5aabc302e1e5",
+      "retained_id": "w_72943e17cc2418be",
+      "surface": "怒鳴る",
+      "reading_kana": "どなる",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "どなる"
+    },
+    {
+      "removed_id": "w_05060983e5f24a85",
+      "retained_id": "w_4fa2413486371202",
+      "surface": "延ばす",
+      "reading_kana": "のばす",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "のばす"
+    },
+    {
+      "removed_id": "w_9c48300c28335a56",
+      "retained_id": "w_6d74d0384fabf212",
+      "surface": "畳む",
+      "reading_kana": "たたむ",
+      "removed_level": "N3",
+      "retained_level": "N3",
+      "removed_original_surface": "たたむ"
+    },
+    {
+      "removed_id": "w_432f26e9704d0a8b",
+      "retained_id": "w_3ab16e565cd75205",
+      "surface": "絶対に",
+      "reading_kana": "ぜったいに",
+      "removed_level": "N3",
+      "retained_level": "N2",
+      "removed_original_surface": "ぜったいに"
+    },
+    {
+      "removed_id": "w_289eeb92d45d9b35",
+      "retained_id": "w_cd89b540108a739e",
+      "surface": "強いて",
+      "reading_kana": "しいて",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_original_surface": "しいて"
+    },
+    {
+      "removed_id": "w_52bbb54154624fa0",
+      "retained_id": "w_dbd3956009c2603f",
+      "surface": "繋がり",
+      "reading_kana": "つながり",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_original_surface": "つながり"
+    },
+    {
+      "removed_id": "w_38c9c0e9cf84d685",
+      "retained_id": "w_af85f2a34de69533",
+      "surface": "蘇る",
+      "reading_kana": "よみがえる",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_original_surface": "よみがえる"
+    },
+    {
+      "removed_id": "w_11b661b8d29254b0",
+      "retained_id": "w_b6b1ec7b196b2373",
+      "surface": "庇う",
+      "reading_kana": "かばう",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_original_surface": "かばう"
+    },
+    {
+      "removed_id": "w_de63da100ac1f50b",
+      "retained_id": "w_590d55e05e5f7b6c",
+      "surface": "躓く",
+      "reading_kana": "つまずく",
+      "removed_level": "N2",
+      "retained_level": "N2",
+      "removed_original_surface": "つまずく"
+    },
+    {
+      "removed_id": "w_1ffdc03d4cddffda",
+      "retained_id": "w_0ac774f928c1e0ad",
+      "surface": "嫌み",
+      "reading_kana": "いやみ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "いやみ"
+    },
+    {
+      "removed_id": "w_00b884bb498a4ecb",
+      "retained_id": "w_8cc2ed324ee1f9d0",
+      "surface": "術",
+      "reading_kana": "すべ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "すべ"
+    },
+    {
+      "removed_id": "w_9a9c3881eecb9849",
+      "retained_id": "w_c611f279483773aa",
+      "surface": "愚かな",
+      "reading_kana": "おろかな",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "おろかな"
+    },
+    {
+      "removed_id": "w_8c2b4a92073949da",
+      "retained_id": "w_2a5bde6cf8e65b4d",
+      "surface": "仕業",
+      "reading_kana": "しわざ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "しわざ"
+    },
+    {
+      "removed_id": "w_b8af14200695dbef",
+      "retained_id": "w_e88804a27645a87c",
+      "surface": "予め",
+      "reading_kana": "あらかじめ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "あらかじめ"
+    },
+    {
+      "removed_id": "w_8c8f60588e1e408a",
+      "retained_id": "w_0e25c0ea9143aa5a",
+      "surface": "取り分け",
+      "reading_kana": "とりわけ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "とりわけ"
+    },
+    {
+      "removed_id": "w_497c065e6cf6e038",
+      "retained_id": "w_e8c92034827d20e7",
+      "surface": "専ら",
+      "reading_kana": "もっぱら",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "もっぱら"
+    },
+    {
+      "removed_id": "w_63fc3539396e6a0b",
+      "retained_id": "w_366b4df014f1ce9e",
+      "surface": "捗る",
+      "reading_kana": "はかどる",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "はかどる"
+    },
+    {
+      "removed_id": "w_74fd7b7d7f5ce3c7",
+      "retained_id": "w_f25835b153fd2a07",
+      "surface": "解ける",
+      "reading_kana": "ほどける",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "ほどける"
+    },
+    {
+      "removed_id": "w_1f093ceab4675dbd",
+      "retained_id": "w_9f1686ef32612a2e",
+      "surface": "頑なな",
+      "reading_kana": "かたくなな",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "かたくなな"
+    },
+    {
+      "removed_id": "w_fce281a434e56887",
+      "retained_id": "w_87e4eb8400560adc",
+      "surface": "怯える",
+      "reading_kana": "おびえる",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "おびえる"
+    },
+    {
+      "removed_id": "w_5f46d44ecbf267a0",
+      "retained_id": "w_df6a3abae7a48d60",
+      "surface": "甚だしい",
+      "reading_kana": "はなはだしい",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "はなはだしい"
+    },
+    {
+      "removed_id": "w_a553ed66f04dcd24",
+      "retained_id": "w_9626fdb33e0fb4f7",
+      "surface": "煩わしい",
+      "reading_kana": "わずらわしい",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "わずらわしい"
+    },
+    {
+      "removed_id": "w_f78bf1d1ec7f3007",
+      "retained_id": "w_c09a59c654de1d4b",
+      "surface": "容易い",
+      "reading_kana": "たやすい",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "たやすい"
+    },
+    {
+      "removed_id": "w_3090bb4659a97310",
+      "retained_id": "w_2e433c5735cb4ae7",
+      "surface": "滲む",
+      "reading_kana": "にじむ",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "にじむ"
+    },
+    {
+      "removed_id": "w_7a0c4cfd681dd94f",
+      "retained_id": "w_059b0e6154be17a2",
+      "surface": "冴える",
+      "reading_kana": "さえる",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "さえる"
+    },
+    {
+      "removed_id": "w_aeb2ae8f421e5627",
+      "retained_id": "w_44c0bcb9bd3fe519",
+      "surface": "急かす",
+      "reading_kana": "せかす",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_original_surface": "せかす"
+    }
+  ],
+  "replacements": [
+    {
+      "id": "w_187aa2adfb841e8c",
+      "assigned_level": "N4",
+      "original_level": "N4",
+      "surface": "お子さん",
+      "reading_kana": "おこさん",
+      "meaning_ko": "(남의) 자녀",
+      "frequency": 3.68,
+      "seed_example": false
+    },
+    {
+      "id": "w_6a95b86178733f43",
+      "assigned_level": "N4",
+      "original_level": "N4",
+      "surface": "娘",
+      "reading_kana": "むすめ",
+      "meaning_ko": "딸, 아가씨",
+      "frequency": 5.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_6d129de0dacae5bb",
+      "assigned_level": "N4",
+      "original_level": "N4",
+      "surface": "会議",
+      "reading_kana": "かいぎ",
+      "meaning_ko": "회의, 회합",
+      "frequency": 4.89,
+      "seed_example": false
+    },
+    {
+      "id": "w_53bb3cf73ffdb8b6",
+      "assigned_level": "N4",
+      "original_level": "N4",
+      "surface": "湯",
+      "reading_kana": "ゆ",
+      "meaning_ko": "뜨거운 물, 목욕물",
+      "frequency": 4.3,
+      "seed_example": false
+    },
+    {
+      "id": "w_e431b1a6abf799bf",
+      "assigned_level": "N4",
+      "original_level": "N3",
+      "surface": "お互い",
+      "reading_kana": "おたがい",
+      "meaning_ko": "서로, 상호",
+      "frequency": 4.73,
+      "seed_example": false
+    },
+    {
+      "id": "w_ae7c649b01299fea",
+      "assigned_level": "N4",
+      "original_level": "N3",
+      "surface": "競技",
+      "reading_kana": "きょうぎ",
+      "meaning_ko": "경기, 시합",
+      "frequency": 4.44,
+      "seed_example": false
+    },
+    {
+      "id": "w_9c014cb5652a4679",
+      "assigned_level": "N4",
+      "original_level": "N3",
+      "surface": "請求",
+      "reading_kana": "せいきゅう",
+      "meaning_ko": "청구, 요구",
+      "frequency": 4.43,
+      "seed_example": false
+    },
+    {
+      "id": "w_185bd766c346483b",
+      "assigned_level": "N2",
+      "original_level": "N2",
+      "surface": "朝寝坊",
+      "reading_kana": "あさねぼう",
+      "meaning_ko": "늦잠, 늦게 일어나는 사람",
+      "frequency": 2.44,
+      "seed_example": false
+    },
+    {
+      "id": "w_688880989b8ec518",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "一目",
+      "reading_kana": "いちもく",
+      "meaning_ko": "한눈, 일견",
+      "frequency": 3.95,
+      "seed_example": true
+    },
+    {
+      "id": "w_727f7cb99378848b",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "参上",
+      "reading_kana": "さんじょう",
+      "meaning_ko": "방문함, 찾아뵘",
+      "frequency": 3.47,
+      "seed_example": true
+    },
+    {
+      "id": "w_2b26724b2b319010",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "お供",
+      "reading_kana": "おとも",
+      "meaning_ko": "수행, 동행",
+      "frequency": 3.38,
+      "seed_example": true
+    },
+    {
+      "id": "w_fc4b1b2a9b67e073",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "取り付ける",
+      "reading_kana": "とりつける",
+      "meaning_ko": "설치하다; (합의를) 받아내다",
+      "frequency": 3.38,
+      "seed_example": true
+    },
+    {
+      "id": "w_d6a47632d886cffc",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "取り替え",
+      "reading_kana": "とりかえ",
+      "meaning_ko": "교체, 교환",
+      "frequency": 3.36,
+      "seed_example": true
+    },
+    {
+      "id": "w_3129de0be21afd27",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "埋め込む",
+      "reading_kana": "うめこむ",
+      "meaning_ko": "묻어 넣다, 삽입하다",
+      "frequency": 3.05,
+      "seed_example": true
+    },
+    {
+      "id": "w_48bf32a7bfb7243b",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "遅くとも",
+      "reading_kana": "おそくとも",
+      "meaning_ko": "늦어도",
+      "frequency": 3.02,
+      "seed_example": true
+    },
+    {
+      "id": "w_4b8574e4cbd2e533",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "介抱",
+      "reading_kana": "かいほう",
+      "meaning_ko": "간호, 병구완",
+      "frequency": 2.99,
+      "seed_example": true
+    },
+    {
+      "id": "w_24f78b7b84fbad86",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "細やか",
+      "reading_kana": "こまやか",
+      "meaning_ko": "섬세함, 자상함",
+      "frequency": 2.96,
+      "seed_example": true
+    },
+    {
+      "id": "w_ed86d3d08d22d18b",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "梢",
+      "reading_kana": "こずえ",
+      "meaning_ko": "나무 꼭대기",
+      "frequency": 2.84,
+      "seed_example": true
+    },
+    {
+      "id": "w_a172145e6a7a76d8",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "うたた寝",
+      "reading_kana": "うたたね",
+      "meaning_ko": "졸고 있음",
+      "frequency": 2.64,
+      "seed_example": true
+    },
+    {
+      "id": "w_0b04688fd6bb90a0",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "懐く",
+      "reading_kana": "なつく",
+      "meaning_ko": "정들다, 따르다",
+      "frequency": 2.62,
+      "seed_example": true
+    },
+    {
+      "id": "w_dccafa7233121f28",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "講読",
+      "reading_kana": "こうどく",
+      "meaning_ko": "강독",
+      "frequency": 2.56,
+      "seed_example": true
+    },
+    {
+      "id": "w_bc99b4de7f368899",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "碁盤",
+      "reading_kana": "ごばん",
+      "meaning_ko": "바둑판",
+      "frequency": 2.41,
+      "seed_example": true
+    },
+    {
+      "id": "w_95dcaf9c2e9062b9",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "取り立てる",
+      "reading_kana": "とりたてる",
+      "meaning_ko": "(빚을) 받아내다; 발탁하다",
+      "frequency": 2.33,
+      "seed_example": true
+    },
+    {
+      "id": "w_ed3b692c35933354",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "恐れ入る",
+      "reading_kana": "おそれいる",
+      "meaning_ko": "송구하다, 황송하다",
+      "frequency": 2.32,
+      "seed_example": true
+    },
+    {
+      "id": "w_a1dfd00d0d68c478",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "お宮",
+      "reading_kana": "おみや",
+      "meaning_ko": "신사",
+      "frequency": 2.28,
+      "seed_example": true
+    },
+    {
+      "id": "w_76936c9c142f0a2c",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "焦げ茶",
+      "reading_kana": "こげちゃ",
+      "meaning_ko": "짙은 갈색",
+      "frequency": 2.19,
+      "seed_example": true
+    },
+    {
+      "id": "w_37c885dc3e5c332d",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "中程",
+      "reading_kana": "なかほど",
+      "meaning_ko": "가운데, 중간",
+      "frequency": 2.14,
+      "seed_example": true
+    },
+    {
+      "id": "w_50c79dbb941aed3a",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "蹴飛ばす",
+      "reading_kana": "けとばす",
+      "meaning_ko": "걷어차다",
+      "frequency": 2.06,
+      "seed_example": true
+    },
+    {
+      "id": "w_72b3908f46cdf2c4",
+      "assigned_level": "N1",
+      "original_level": "N1",
+      "surface": "稲光",
+      "reading_kana": "いなびかり",
+      "meaning_ko": "번갯불",
+      "frequency": 2.04,
+      "seed_example": true
+    },
+    {
+      "id": "w_7ed84a7c01d905d4",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "今年",
+      "reading_kana": "ことし",
+      "meaning_ko": "올해",
+      "frequency": 5.05,
+      "seed_example": true
+    },
+    {
+      "id": "w_7db678ed78c2c659",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "昨日",
+      "reading_kana": "きのう",
+      "meaning_ko": "어제",
+      "frequency": 5.05,
+      "seed_example": true
+    },
+    {
+      "id": "w_e025ade26d3c4186",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "可愛い",
+      "reading_kana": "かわいい",
+      "meaning_ko": "귀엽다",
+      "frequency": 5.04,
+      "seed_example": true
+    },
+    {
+      "id": "w_623d9f78e8f3f7cf",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お酒",
+      "reading_kana": "おさけ",
+      "meaning_ko": "술",
+      "frequency": 5.03,
+      "seed_example": true
+    },
+    {
+      "id": "w_5fea848de2213d5f",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "嫌い",
+      "reading_kana": "きらい",
+      "meaning_ko": "싫어함",
+      "frequency": 5.02,
+      "seed_example": true
+    },
+    {
+      "id": "w_c43679841bf56e89",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "学生",
+      "reading_kana": "がくせい",
+      "meaning_ko": "학생",
+      "frequency": 4.99,
+      "seed_example": true
+    },
+    {
+      "id": "w_dc1f9347145f4dab",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "薬",
+      "reading_kana": "くすり",
+      "meaning_ko": "약",
+      "frequency": 4.99,
+      "seed_example": true
+    },
+    {
+      "id": "w_3b99165f45748b41",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "綺麗",
+      "reading_kana": "きれい",
+      "meaning_ko": "예쁘다, 깨끗하다",
+      "frequency": 4.95,
+      "seed_example": true
+    },
+    {
+      "id": "w_ac30e81acb1f9794",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "外国人",
+      "reading_kana": "がいこくじん",
+      "meaning_ko": "외국인",
+      "frequency": 4.88,
+      "seed_example": true
+    },
+    {
+      "id": "w_b93e781c9cc5aca8",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "紙",
+      "reading_kana": "かみ",
+      "meaning_ko": "종이",
+      "frequency": 4.82,
+      "seed_example": true
+    },
+    {
+      "id": "w_d05df9f6622b759b",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "家庭",
+      "reading_kana": "かてい",
+      "meaning_ko": "가정",
+      "frequency": 4.76,
+      "seed_example": true
+    },
+    {
+      "id": "w_7612d2a4581e044d",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "後ろ",
+      "reading_kana": "うしろ",
+      "meaning_ko": "뒤",
+      "frequency": 4.76,
+      "seed_example": true
+    },
+    {
+      "id": "w_17e14c49e7823e6f",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "兄弟",
+      "reading_kana": "きょうだい",
+      "meaning_ko": "형제",
+      "frequency": 4.71,
+      "seed_example": true
+    },
+    {
+      "id": "w_c650245fe94b2d55",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お風呂",
+      "reading_kana": "おふろ",
+      "meaning_ko": "목욕",
+      "frequency": 4.68,
+      "seed_example": true
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "居る",
+      "reading_kana": "いる",
+      "meaning_ko": "있다",
+      "frequency": 4.68,
+      "seed_example": true
+    },
+    {
+      "id": "w_de95050774bb705b",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "映画館",
+      "reading_kana": "えいがかん",
+      "meaning_ko": "영화관",
+      "frequency": 4.65,
+      "seed_example": true
+    },
+    {
+      "id": "w_181a27625f8934fa",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "靴",
+      "reading_kana": "くつ",
+      "meaning_ko": "신발",
+      "frequency": 4.64,
+      "seed_example": true
+    },
+    {
+      "id": "w_ea6f68c218e562a7",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お腹",
+      "reading_kana": "おなか",
+      "meaning_ko": "배",
+      "frequency": 4.62,
+      "seed_example": true
+    },
+    {
+      "id": "w_7d83d95f95124a6c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "午前",
+      "reading_kana": "ごぜん",
+      "meaning_ko": "오전",
+      "frequency": 4.6,
+      "seed_example": true
+    },
+    {
+      "id": "w_b064045ef64d646b",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お母さん",
+      "reading_kana": "おかあさん",
+      "meaning_ko": "어머니",
+      "frequency": 4.58,
+      "seed_example": true
+    },
+    {
+      "id": "w_a882bc49caa49a27",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "鍵",
+      "reading_kana": "かぎ",
+      "meaning_ko": "열쇠",
+      "frequency": 4.57,
+      "seed_example": true
+    },
+    {
+      "id": "w_a4f86ff3aa7df0b8",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "買い物",
+      "reading_kana": "かいもの",
+      "meaning_ko": "쇼핑, 장보기",
+      "frequency": 4.52,
+      "seed_example": true
+    },
+    {
+      "id": "w_2ca4f4c0fb3330ca",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "財布",
+      "reading_kana": "さいふ",
+      "meaning_ko": "지갑",
+      "frequency": 4.5,
+      "seed_example": true
+    },
+    {
+      "id": "w_612ff07319f81b78",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お茶",
+      "reading_kana": "おちゃ",
+      "meaning_ko": "차",
+      "frequency": 4.48,
+      "seed_example": true
+    },
+    {
+      "id": "w_0e507343bb54e8a0",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "静か",
+      "reading_kana": "しずか",
+      "meaning_ko": "조용함",
+      "frequency": 4.47,
+      "seed_example": true
+    },
+    {
+      "id": "w_11a2c660fd649dc1",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お姉さん",
+      "reading_kana": "おねえさん",
+      "meaning_ko": "누나/언니",
+      "frequency": 4.45,
+      "seed_example": true
+    },
+    {
+      "id": "w_4d20e94fde998e57",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "熱い",
+      "reading_kana": "あつい",
+      "meaning_ko": "뜨겁다",
+      "frequency": 4.42,
+      "seed_example": true
+    },
+    {
+      "id": "w_243f41603717696c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "漢字",
+      "reading_kana": "かんじ",
+      "meaning_ko": "한자",
+      "frequency": 4.4,
+      "seed_example": true
+    },
+    {
+      "id": "w_f8664ab5d676e9fa",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お弁当",
+      "reading_kana": "おべんとう",
+      "meaning_ko": "도시락",
+      "frequency": 4.39,
+      "seed_example": true
+    },
+    {
+      "id": "w_7aa37a17271d254c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お菓子",
+      "reading_kana": "おかし",
+      "meaning_ko": "과자",
+      "frequency": 4.37,
+      "seed_example": true
+    },
+    {
+      "id": "w_cf565ce42d105936",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "軽い",
+      "reading_kana": "かるい",
+      "meaning_ko": "가볍다",
+      "frequency": 4.37,
+      "seed_example": true
+    },
+    {
+      "id": "w_b410c1c4c2bfce39",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "椅子",
+      "reading_kana": "いす",
+      "meaning_ko": "의자",
+      "frequency": 4.36,
+      "seed_example": true
+    },
+    {
+      "id": "w_629f8d7567d61ed2",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "階段",
+      "reading_kana": "かいだん",
+      "meaning_ko": "계단",
+      "frequency": 4.36,
+      "seed_example": true
+    },
+    {
+      "id": "w_4240dd849d6317ba",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お父さん",
+      "reading_kana": "おとうさん",
+      "meaning_ko": "아버지",
+      "frequency": 4.35,
+      "seed_example": true
+    },
+    {
+      "id": "w_0363b4d7e46c0a57",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "歌う",
+      "reading_kana": "うたう",
+      "meaning_ko": "노래하다",
+      "frequency": 4.34,
+      "seed_example": true
+    },
+    {
+      "id": "w_07ad732dad59f356",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "奥さん",
+      "reading_kana": "おくさん",
+      "meaning_ko": "아내, 부인",
+      "frequency": 4.33,
+      "seed_example": true
+    },
+    {
+      "id": "w_5b637076c1aa0e76",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お兄さん",
+      "reading_kana": "おにいさん",
+      "meaning_ko": "형/오빠",
+      "frequency": 4.32,
+      "seed_example": true
+    },
+    {
+      "id": "w_085bdcc3fd373943",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "今朝",
+      "reading_kana": "けさ",
+      "meaning_ko": "오늘 아침",
+      "frequency": 4.29,
+      "seed_example": true
+    },
+    {
+      "id": "w_60d7f086f59b73e0",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "金曜日",
+      "reading_kana": "きんようび",
+      "meaning_ko": "금요일",
+      "frequency": 4.27,
+      "seed_example": true
+    },
+    {
+      "id": "w_81692f3ef0c299c7",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "お皿",
+      "reading_kana": "おさら",
+      "meaning_ko": "접시",
+      "frequency": 4.25,
+      "seed_example": true
+    },
+    {
+      "id": "w_53c860c03d92179a",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "月曜日",
+      "reading_kana": "げつようび",
+      "meaning_ko": "월요일",
+      "frequency": 4.24,
+      "seed_example": true
+    },
+    {
+      "id": "w_84c3e99d20916362",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "黄色",
+      "reading_kana": "きいろ",
+      "meaning_ko": "노란색",
+      "frequency": 4.24,
+      "seed_example": true
+    },
+    {
+      "id": "w_d317994d8c83fe94",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "傘",
+      "reading_kana": "かさ",
+      "meaning_ko": "우산",
+      "frequency": 4.17,
+      "seed_example": true
+    },
+    {
+      "id": "w_704d51dee3db7382",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "牛乳",
+      "reading_kana": "ぎゅうにゅう",
+      "meaning_ko": "우유",
+      "frequency": 4.16,
+      "seed_example": true
+    },
+    {
+      "id": "w_a086fdbd8376013f",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "余り",
+      "reading_kana": "あまり",
+      "meaning_ko": "그다지 ~않은, 잉여, 남음",
+      "frequency": 4.08,
+      "seed_example": true
+    },
+    {
+      "id": "w_f098e0ab483c71c1",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "火曜日",
+      "reading_kana": "かようび",
+      "meaning_ko": "화요일",
+      "frequency": 4.04,
+      "seed_example": true
+    },
+    {
+      "id": "w_912b91e5453bb38b",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "宿題",
+      "reading_kana": "しゅくだい",
+      "meaning_ko": "숙제",
+      "frequency": 4.02,
+      "seed_example": true
+    },
+    {
+      "id": "w_3473a458725f217a",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "交差点",
+      "reading_kana": "こうさてん",
+      "meaning_ko": "교차로",
+      "frequency": 3.97,
+      "seed_example": true
+    },
+    {
+      "id": "w_9cc18b739ed5dc9c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "靴下",
+      "reading_kana": "くつした",
+      "meaning_ko": "양말",
+      "frequency": 3.97,
+      "seed_example": true
+    },
+    {
+      "id": "w_9327a8c5e7b5900e",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "黄色い",
+      "reading_kana": "きいろい",
+      "meaning_ko": "노랗다",
+      "frequency": 3.9,
+      "seed_example": true
+    },
+    {
+      "id": "w_d60ba2009ed6ef90",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "咲く",
+      "reading_kana": "さく",
+      "meaning_ko": "피다",
+      "frequency": 3.86,
+      "seed_example": true
+    },
+    {
+      "id": "w_955fc343e00c20e9",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "喫茶店",
+      "reading_kana": "きっさてん",
+      "meaning_ko": "찻집, 카페",
+      "frequency": 3.86,
+      "seed_example": true
+    },
+    {
+      "id": "w_a7aa783483eb1022",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "曇り",
+      "reading_kana": "くもり",
+      "meaning_ko": "흐림",
+      "frequency": 3.79,
+      "seed_example": true
+    },
+    {
+      "id": "w_de1206f531e9733d",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "飴",
+      "reading_kana": "あめ",
+      "meaning_ko": "사탕",
+      "frequency": 3.77,
+      "seed_example": true
+    },
+    {
+      "id": "w_d2cfe93c2de12009",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "今晩",
+      "reading_kana": "こんばん",
+      "meaning_ko": "오늘 밤",
+      "frequency": 3.74,
+      "seed_example": true
+    },
+    {
+      "id": "w_0472c2d72d95757c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "上着",
+      "reading_kana": "うわぎ",
+      "meaning_ko": "겉옷",
+      "frequency": 3.71,
+      "seed_example": true
+    },
+    {
+      "id": "w_b69623c9f42326bc",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "浴びる",
+      "reading_kana": "あびる",
+      "meaning_ko": "목욕하다, 샤워하다",
+      "frequency": 3.71,
+      "seed_example": true
+    },
+    {
+      "id": "w_a3426772d384ade7",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "要る",
+      "reading_kana": "いる",
+      "meaning_ko": "필요하다",
+      "frequency": 3.71,
+      "seed_example": true
+    },
+    {
+      "id": "w_5d55bbe96ead710f",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "鉛筆",
+      "reading_kana": "えんぴつ",
+      "meaning_ko": "연필",
+      "frequency": 3.71,
+      "seed_example": true
+    },
+    {
+      "id": "w_9a383d9657d65488",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "作文",
+      "reading_kana": "さくぶん",
+      "meaning_ko": "작문",
+      "frequency": 3.65,
+      "seed_example": true
+    },
+    {
+      "id": "w_f633b5d4edaf65e3",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "交番",
+      "reading_kana": "こうばん",
+      "meaning_ko": "파출소",
+      "frequency": 3.48,
+      "seed_example": true
+    },
+    {
+      "id": "w_6d28963c45f76f38",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "在る",
+      "reading_kana": "ある",
+      "meaning_ko": "있다, 존재하다, 가지다",
+      "frequency": 3.38,
+      "seed_example": true
+    },
+    {
+      "id": "w_83c36d0b9febe099",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "御飯",
+      "reading_kana": "ごはん",
+      "meaning_ko": "밥, 식사",
+      "frequency": 3.35,
+      "seed_example": true
+    },
+    {
+      "id": "w_40998838c1d8464a",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "差す",
+      "reading_kana": "さす",
+      "meaning_ko": "펴다, 꽂다, 비치다",
+      "frequency": 3.17,
+      "seed_example": true
+    },
+    {
+      "id": "w_d66b673684779f0c",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "花瓶",
+      "reading_kana": "かびん",
+      "meaning_ko": "꽃병",
+      "frequency": 3.14,
+      "seed_example": true
+    },
+    {
+      "id": "w_95504292f83e24e8",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "閉まる",
+      "reading_kana": "しまる",
+      "meaning_ko": "닫히다",
+      "frequency": 3.05,
+      "seed_example": true
+    },
+    {
+      "id": "w_36d22dc998793dad",
+      "assigned_level": "N5",
+      "original_level": "N5",
+      "surface": "曇る",
+      "reading_kana": "くもる",
+      "meaning_ko": "흐리다",
+      "frequency": 2.5,
+      "seed_example": true
+    },
+    {
+      "id": "w_d3a58aebb4ab933c",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "深刻",
+      "reading_kana": "しんこく",
+      "meaning_ko": "심각한, 진지한",
+      "frequency": 4.31,
+      "seed_example": false
+    },
+    {
+      "id": "w_d16eddc3944c223d",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "豪華",
+      "reading_kana": "ごうか",
+      "meaning_ko": "호화로움",
+      "frequency": 4.31,
+      "seed_example": false
+    },
+    {
+      "id": "w_8794b1f76744af5d",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "汚染",
+      "reading_kana": "おせん",
+      "meaning_ko": "오염",
+      "frequency": 4.29,
+      "seed_example": false
+    },
+    {
+      "id": "w_a489378444140b3b",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "加減",
+      "reading_kana": "かげん",
+      "meaning_ko": "정도, 가감; 조절",
+      "frequency": 4.28,
+      "seed_example": false
+    },
+    {
+      "id": "w_3c35511df6f1cac1",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "時刻",
+      "reading_kana": "じこく",
+      "meaning_ko": "시간, 때",
+      "frequency": 4.28,
+      "seed_example": false
+    },
+    {
+      "id": "w_29d959eaa87e0919",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "髪の毛",
+      "reading_kana": "かみのけ",
+      "meaning_ko": "머리카락(머리)",
+      "frequency": 4.28,
+      "seed_example": false
+    },
+    {
+      "id": "w_f117986fa15363e2",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "衝突",
+      "reading_kana": "しょうとつ",
+      "meaning_ko": "충돌",
+      "frequency": 4.27,
+      "seed_example": false
+    },
+    {
+      "id": "w_471352b7953c55a4",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "集まり",
+      "reading_kana": "あつまり",
+      "meaning_ko": "모임, 집합",
+      "frequency": 4.27,
+      "seed_example": false
+    },
+    {
+      "id": "w_662fb4e58f069c2b",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "向かい",
+      "reading_kana": "むかい",
+      "meaning_ko": "맞은편",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_bfb980ab8575a940",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "宿",
+      "reading_kana": "やど",
+      "meaning_ko": "여관, 숙박",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_983ea53fbf2e83e5",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "快適",
+      "reading_kana": "かいてき",
+      "meaning_ko": "쾌적함, 편안함",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_0338be5f3d19fc08",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "愛する",
+      "reading_kana": "あいする",
+      "meaning_ko": "사랑하다",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_0b6a1d5b2fe36807",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "援助",
+      "reading_kana": "えんじょ",
+      "meaning_ko": "도움, 지원, 원조, 지지",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_f8af1abd32dbfe9d",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "酸素",
+      "reading_kana": "さんそ",
+      "meaning_ko": "산소",
+      "frequency": 4.26,
+      "seed_example": false
+    },
+    {
+      "id": "w_94eebc19836feecc",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "作曲",
+      "reading_kana": "さっきょく",
+      "meaning_ko": "작곡",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_8dd1ba850593bddc",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "国境",
+      "reading_kana": "こっきょう",
+      "meaning_ko": "국경",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_1af9fce09c9a5387",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "幸福",
+      "reading_kana": "こうふく",
+      "meaning_ko": "행복",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_ba335b8ea06374ef",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "新鮮",
+      "reading_kana": "しんせん",
+      "meaning_ko": "신선한",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_25c1cddd4806bf82",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "生き物",
+      "reading_kana": "いきもの",
+      "meaning_ko": "생물, 생명체",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_36f3f15969358bd0",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "食う",
+      "reading_kana": "くう",
+      "meaning_ko": "먹다(남성, 속어)",
+      "frequency": 4.24,
+      "seed_example": false
+    },
+    {
+      "id": "w_cdf80653a9d5986f",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "寄付",
+      "reading_kana": "きふ",
+      "meaning_ko": "기부",
+      "frequency": 4.23,
+      "seed_example": false
+    },
+    {
+      "id": "w_46a151be6d522ea0",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "永久",
+      "reading_kana": "えいきゅう",
+      "meaning_ko": "영원, 영구, 불멸",
+      "frequency": 4.23,
+      "seed_example": false
+    },
+    {
+      "id": "w_6a14f4fb1bf8c167",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "軍隊",
+      "reading_kana": "ぐんたい",
+      "meaning_ko": "군대, 병력",
+      "frequency": 4.23,
+      "seed_example": false
+    },
+    {
+      "id": "w_211e9f9848d19129",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "愛情",
+      "reading_kana": "あいじょう",
+      "meaning_ko": "애정",
+      "frequency": 4.22,
+      "seed_example": false
+    },
+    {
+      "id": "w_e54ff186509d6479",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "見解",
+      "reading_kana": "けんかい",
+      "meaning_ko": "의견, 관점",
+      "frequency": 4.22,
+      "seed_example": false
+    },
+    {
+      "id": "w_038cb23b0d6aca7a",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "性質",
+      "reading_kana": "せいしつ",
+      "meaning_ko": "성질, 성격",
+      "frequency": 4.21,
+      "seed_example": false
+    },
+    {
+      "id": "w_93593483348c5a1f",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "火災",
+      "reading_kana": "かさい",
+      "meaning_ko": "화재",
+      "frequency": 4.21,
+      "seed_example": false
+    },
+    {
+      "id": "w_1efbbd0a483ff9d0",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "警告",
+      "reading_kana": "けいこく",
+      "meaning_ko": "경고",
+      "frequency": 4.21,
+      "seed_example": false
+    },
+    {
+      "id": "w_6bd3f9448ae0e3a2",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "地味",
+      "reading_kana": "じみ",
+      "meaning_ko": "수수함, 검소함",
+      "frequency": 4.2,
+      "seed_example": false
+    },
+    {
+      "id": "w_5ed01d7a88c40360",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "慎重",
+      "reading_kana": "しんちょう",
+      "meaning_ko": "신중함",
+      "frequency": 4.2,
+      "seed_example": false
+    },
+    {
+      "id": "w_2cffc1f24b171c92",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "動かす",
+      "reading_kana": "うごかす",
+      "meaning_ko": "움직이다, 작동시키다",
+      "frequency": 4.19,
+      "seed_example": false
+    },
+    {
+      "id": "w_a82850c81b2924f3",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "食料",
+      "reading_kana": "しょくりょう",
+      "meaning_ko": "음식",
+      "frequency": 4.19,
+      "seed_example": false
+    },
+    {
+      "id": "w_d9cfbcfbff6cad8d",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "人種",
+      "reading_kana": "じんしゅ",
+      "meaning_ko": "인종",
+      "frequency": 4.18,
+      "seed_example": false
+    },
+    {
+      "id": "w_52c6ca040bc47941",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "盛り",
+      "reading_kana": "さかり",
+      "meaning_ko": "한창때, 전성기",
+      "frequency": 4.18,
+      "seed_example": false
+    },
+    {
+      "id": "w_75a1bf2da6281f89",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "青年",
+      "reading_kana": "せいねん",
+      "meaning_ko": "청년, 젊은이",
+      "frequency": 4.18,
+      "seed_example": false
+    },
+    {
+      "id": "w_0425c1ca413261f8",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "下り",
+      "reading_kana": "くだり",
+      "meaning_ko": "하행(도쿄에서 멀어지는 방향)",
+      "frequency": 4.17,
+      "seed_example": false
+    },
+    {
+      "id": "w_3bee9848854c9f45",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "土産",
+      "reading_kana": "みやげ",
+      "meaning_ko": "기념품",
+      "frequency": 4.17,
+      "seed_example": false
+    },
+    {
+      "id": "w_7ee3ae2a7f928c64",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "贅沢",
+      "reading_kana": "ぜいたく",
+      "meaning_ko": "사치, 호화",
+      "frequency": 4.17,
+      "seed_example": false
+    },
+    {
+      "id": "w_d1f54303e542d1ed",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "重大",
+      "reading_kana": "じゅうだい",
+      "meaning_ko": "심각한, 진지한, 중요한",
+      "frequency": 4.17,
+      "seed_example": false
+    },
+    {
+      "id": "w_e827f2cbbdfecbdf",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "交際",
+      "reading_kana": "こうさい",
+      "meaning_ko": "교제",
+      "frequency": 4.16,
+      "seed_example": false
+    },
+    {
+      "id": "w_523b11961463d850",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "主婦",
+      "reading_kana": "しゅふ",
+      "meaning_ko": "주부",
+      "frequency": 4.15,
+      "seed_example": false
+    },
+    {
+      "id": "w_5bf9ba7979b6e9f8",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "助手",
+      "reading_kana": "じょしゅ",
+      "meaning_ko": "조수, 보조자",
+      "frequency": 4.15,
+      "seed_example": false
+    },
+    {
+      "id": "w_cfab928983935376",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "進める",
+      "reading_kana": "すすめる",
+      "meaning_ko": "나아가다, 진행하다, 서두르다",
+      "frequency": 4.15,
+      "seed_example": false
+    },
+    {
+      "id": "w_290120abe40cf24f",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "騒ぎ",
+      "reading_kana": "さわぎ",
+      "meaning_ko": "소동, 소란",
+      "frequency": 4.15,
+      "seed_example": false
+    },
+    {
+      "id": "w_56402bace5da76b9",
+      "assigned_level": "N3",
+      "original_level": "N3",
+      "surface": "一種",
+      "reading_kana": "いっしゅ",
+      "meaning_ko": "일종, 한 종류",
+      "frequency": 4.14,
+      "seed_example": false
+    }
+  ]
+}

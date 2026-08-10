@@ -23,10 +23,13 @@ const SEED_DB_NAME = 'ashitakanji.seed.db';
 //   재하이드레이션으로 새 id 데이터를 받아야 함(미bump 시 신규 id seed를 무시).
 // '4' — N3 빈출 399 보강 + N5 정리 + JMdict POS + frequency/reading_chapter(회독).
 // 기존 설치 재하이드레이션 트리거(안 올리면 신규 어휘/빈도/챕터 전파 안 됨).
-const WORD_CURATION_VERSION = '5';
-// '3' — N3 보강으로 신규 한자 + word_kanji 링크 추가 → 기존 설치 재하이드레이션.
-const KANJI_CURATION_VERSION = '3';
-const EXAMPLE_CURATION_VERSION = '1';
+// '6' — PDF 최빈출 2,699개 전량 포함 최종 6,638개 단어장으로 교체.
+// '7' — 가나-only 표제어 342개를 현대 한자 표기로 정규화하고 표기 중복을 교체.
+const WORD_CURATION_VERSION = '8';
+// '5' — 정규화된 표제어의 한자와 word_kanji 링크 추가.
+const KANJI_CURATION_VERSION = '5';
+// '4' — 표기 중복 교체 단어까지 포함해 6,638개 예문을 다시 1:1 연결.
+const EXAMPLE_CURATION_VERSION = '5';
 const BUNDLED_DB_REQUIRE = (() => {
   try {
     // assets/jlpt.db is created by scripts/build-db.ts (Track A6)
@@ -185,6 +188,7 @@ async function hydrateSeedDataIfNeeded(db: SQLite.SQLiteDatabase): Promise<void>
         ),
         db.getAllAsync<{ id: string }>(`SELECT id FROM word`),
       ]);
+      const seedDataVersion = await getAppMeta(seedDb, 'data_version');
 
       const localWordIds = new Set(localWordRows.map((row) => row.id));
       const seedWordIds = new Set(wordRows.map((row) => row.id));
@@ -303,6 +307,12 @@ async function hydrateSeedDataIfNeeded(db: SQLite.SQLiteDatabase): Promise<void>
           await db.runAsync(
             `INSERT OR REPLACE INTO app_meta (key, value) VALUES (?, ?)`,
             ['example_curation_version', EXAMPLE_CURATION_VERSION],
+          );
+        }
+        if (seedDataVersion) {
+          await db.runAsync(
+            `INSERT OR REPLACE INTO app_meta (key, value) VALUES (?, ?)`,
+            ['data_version', seedDataVersion],
           );
         }
         await db.execAsync('COMMIT');

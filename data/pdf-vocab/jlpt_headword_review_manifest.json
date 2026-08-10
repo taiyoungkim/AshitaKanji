@@ -1,0 +1,455 @@
+{
+  "generated_at": "2026-08-10T06:49:30.379906+00:00",
+  "summary": {
+    "input_count": 6638,
+    "surface_or_reading_changes": 40,
+    "meaning_changes": 43,
+    "merged_rows": 19,
+    "backfills": 19,
+    "final_count": 6638,
+    "level_counts": {
+      "N5": 339,
+      "N4": 600,
+      "N3": 1499,
+      "N2": 1700,
+      "N1": 2500
+    },
+    "unique_pairs": 6638,
+    "seed_examples": 6619,
+    "examples_to_complete": 19
+  },
+  "changed_ids": [
+    "w_0014ac027b7eefb9",
+    "w_053f7db9e9a81e55",
+    "w_078c37ed2c920c51",
+    "w_0bfe4152b243c799",
+    "w_1138a558fc818ae2",
+    "w_157443e88683e1c9",
+    "w_19b870ba56899b62",
+    "w_2042955fbd7ed6b5",
+    "w_22b57ca13e715d81",
+    "w_245d63ae14dc7240",
+    "w_26913edea9440b3b",
+    "w_295d47ac323c9139",
+    "w_2a2702f1f74ccfdc",
+    "w_2a768ef5dc0abdb7",
+    "w_2a78a365c1e9575b",
+    "w_2c3933bd8ef5180a",
+    "w_2cd841d468cc927a",
+    "w_4a507c2b9903c25a",
+    "w_53f5a11a43999634",
+    "w_58ebca3b2291ffb6",
+    "w_67e9a28d0777853f",
+    "w_6be80965290001db",
+    "w_716e7b794dbcaf51",
+    "w_728f59d1c6f9c5f4",
+    "w_8065e96840fda82b",
+    "w_8b805c96245bb577",
+    "w_8ff22e997b700b80",
+    "w_9494eebc5e3647b8",
+    "w_99d5ab94af6fd5e5",
+    "w_9ab1e43c1a5da994",
+    "w_a66198a344df39a0",
+    "w_abc611c14f035fc6",
+    "w_b87f291dcfcaefd7",
+    "w_bb5fea9b072bbd3e",
+    "w_dc9e68a1700899e0",
+    "w_dcf81ee7c767ed7f",
+    "w_e231cd88a2b8f92c",
+    "w_e4c9461baa503259",
+    "w_ec8e542da036aeea",
+    "w_f619074e36479304"
+  ],
+  "meaning_changed_ids": [
+    "w_01f119facf6e9d97",
+    "w_06e7e51d003ac3e4",
+    "w_08fb3f57661da121",
+    "w_213905929b42e976",
+    "w_2442f06ad4b1e2c1",
+    "w_3e244d7a11df3ed3",
+    "w_47be56537c24560e",
+    "w_51b95d78d41ec7ac",
+    "w_554c0ea216ecc414",
+    "w_5be62d71deeeebf2",
+    "w_6257d89430551d56",
+    "w_654de4aa5b8a5a22",
+    "w_6790384d17755893",
+    "w_69c992c9db76a823",
+    "w_70ecb3468f47ed85",
+    "w_7400af29ea55cfe6",
+    "w_7ea20007b10fcf12",
+    "w_860e76f83693f071",
+    "w_8d1a9456355ab2d7",
+    "w_97db66ffd893f4b5",
+    "w_9da5d3e318f2c437",
+    "w_9ea346dbfdc4c768",
+    "w_9f1844144a87d5f8",
+    "w_a02732cc17e7d4fd",
+    "w_a1af5d3d26a5e7b2",
+    "w_a392e3edd73c3036",
+    "w_a79d251aabe4dbff",
+    "w_ad855f3ec592f3c8",
+    "w_afe9492907d6e9b6",
+    "w_b6692781d912a8ce",
+    "w_b76b29ffb14e7358",
+    "w_b9dfaa030a7cffff",
+    "w_bb59d051bed3ec91",
+    "w_c0fa2c9662d17f0b",
+    "w_c849a3f0fc65ee8e",
+    "w_d05df9f6622b759b",
+    "w_e1e5d18b1acfa419",
+    "w_e74097848962e54a",
+    "w_f071d7224bb06a7d",
+    "w_f3c36a6b1c35c8d8",
+    "w_f87709f6a85bf0b8",
+    "w_fac30bc019ff0119",
+    "w_ffbffe59a26904d3"
+  ],
+  "merged_aliases": [
+    {
+      "removed_id": "w_7d793dd7d0ec2242",
+      "retained_id": "w_a2fa581b2cf9bf8b",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_surface": "阻む",
+      "canonical_surface": "阻む",
+      "reading_kana": "はばむ",
+      "reason": "잘못된 읽기 そばむ 항목을 정상 읽기 はばむ 항목과 통합"
+    },
+    {
+      "removed_id": "w_109d152ccf1f17f4",
+      "retained_id": "w_fac3d8bca8a39cc2",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_surface": "食い違う",
+      "canonical_surface": "食い違う",
+      "reading_kana": "くいちがう",
+      "reason": "앞부분이 누락된 읽기 항목을 정상 읽기 くいちがう 항목과 통합"
+    },
+    {
+      "removed_id": "w_487a91bcf4c2ebc1",
+      "retained_id": "w_be45bc6bb7ee0f57",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_surface": "問い合わせる",
+      "canonical_surface": "問い合わせる",
+      "reading_kana": "といあわせる",
+      "reason": "누락된 읽기 항목을 정상 읽기 といあわせる 항목과 통합"
+    },
+    {
+      "removed_id": "w_574769853d30b36b",
+      "retained_id": "w_0356a9732a7cd592",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_surface": "真っ先",
+      "canonical_surface": "真っ先",
+      "reading_kana": "まっさき",
+      "reason": "중복 촉음 읽기 오타 항목을 정상 표제어와 통합"
+    },
+    {
+      "removed_id": "w_6c45184e2a4fa7a0",
+      "retained_id": "w_fcba82e2406eee81",
+      "removed_level": "N1",
+      "retained_level": "N2",
+      "removed_surface": "惑わす",
+      "canonical_surface": "惑わす",
+      "reading_kana": "まどわす",
+      "reason": "다른 단어 읽기가 붙은 항목을 정상 표제어와 통합"
+    },
+    {
+      "removed_id": "w_70d376775b49e19c",
+      "retained_id": "w_cf782b6f2e06a5cc",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_surface": "裏づけ",
+      "canonical_surface": "裏付け",
+      "reading_kana": "うらづけ",
+      "reason": "오쿠리가나만 다른 동일 표제어"
+    },
+    {
+      "removed_id": "w_21c103cb7b4545dc",
+      "retained_id": "w_e680ce9adf7c863a",
+      "removed_level": "N1",
+      "retained_level": "N1",
+      "removed_surface": "気がかり",
+      "canonical_surface": "気掛かり",
+      "reading_kana": "きがかり",
+      "reason": "동일 PDF 의미의 표기 중복"
+    },
+    {
+      "removed_id": "w_f048e6ae66b0fa0e",
+      "retained_id": "w_85fc5f056fd49807",
+      "removed_level": "N2",
+      "retained_level": "N3",
+      "removed_surface": "落着く",
+      "canonical_surface": "落ち着く",
+      "reading_kana": "おちつく",
+      "reason": "오쿠리가나만 다른 동일 표제어"
+    },
+    {
+      "removed_id": "w_5a4260a855090d55",
+      "retained_id": "w_157443e88683e1c9",
+      "removed_level": "N2",
+      "retained_level": "N2",
+      "removed_surface": "係わる",
+      "canonical_surface": "関わる",
+      "reading_kana": "かかわる",
+      "reason": "係る/係わる를 현대 일반 표기 하나로 통합"
+    },
+    {
+      "removed_id": "w_1854d01ccebf9b55",
+      "retained_id": "w_dc9e68a1700899e0",
+      "removed_level": "N2",
+      "retained_level": "N2",
+      "removed_surface": "先程",
+      "canonical_surface": "先程",
+      "reading_kana": "さきほど",
+      "reason": "한자·가나 표기만 다른 동일 표제어"
+    },
+    {
+      "removed_id": "w_494f224e459f607c",
+      "retained_id": "w_5306465650e71486",
+      "removed_level": "N2",
+      "retained_level": "N2",
+      "removed_surface": "手ごろ",
+      "canonical_surface": "手頃",
+      "reading_kana": "てごろ",
+      "reason": "한자·가나 표기만 다른 동일 표제어"
+    },
+    {
+      "removed_id": "w_6c4c847c16982fb1",
+      "retained_id": "w_1138a558fc818ae2",
+      "removed_level": "N2",
+      "retained_level": "N3",
+      "removed_surface": "話し掛ける",
+      "canonical_surface": "話し掛ける",
+      "reading_kana": "はなしかける",
+      "reason": "레벨 간 동일 표제어 중복"
+    },
+    {
+      "removed_id": "w_890b93fece49c035",
+      "retained_id": "w_00c99649445717dd",
+      "removed_level": "N2",
+      "retained_level": "N2",
+      "removed_surface": "間も無く",
+      "canonical_surface": "間もなく",
+      "reading_kana": "まもなく",
+      "reason": "보조 형용사 無く의 관용 표기 중복"
+    },
+    {
+      "removed_id": "w_41f80514da34307e",
+      "retained_id": "w_2a78a365c1e9575b",
+      "removed_level": "N2",
+      "retained_level": "N3",
+      "removed_surface": "呼び掛ける",
+      "canonical_surface": "呼び掛ける",
+      "reading_kana": "よびかける",
+      "reason": "레벨 간 동일 표제어 중복"
+    },
+    {
+      "removed_id": "w_f5b6029d9b208c0f",
+      "retained_id": "w_26913edea9440b3b",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_surface": "子供",
+      "canonical_surface": "子供",
+      "reading_kana": "こども",
+      "reason": "子ども/子供 표기 중복"
+    },
+    {
+      "removed_id": "w_b911d6ff59c309dd",
+      "retained_id": "w_053f7db9e9a81e55",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_surface": "友達",
+      "canonical_surface": "友達",
+      "reading_kana": "ともだち",
+      "reason": "友だち/友達 표기 중복"
+    },
+    {
+      "removed_id": "w_f098e0ab483c71c1",
+      "retained_id": "w_245d63ae14dc7240",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_surface": "火曜日",
+      "canonical_surface": "火曜日",
+      "reading_kana": "かようび",
+      "reason": "요일 표기 교정 후 생기는 동일 표제어"
+    },
+    {
+      "removed_id": "w_60d7f086f59b73e0",
+      "retained_id": "w_2cd841d468cc927a",
+      "removed_level": "N5",
+      "retained_level": "N5",
+      "removed_surface": "金曜日",
+      "canonical_surface": "金曜日",
+      "reading_kana": "きんようび",
+      "reason": "요일 표기 교정 후 생기는 동일 표제어"
+    },
+    {
+      "removed_id": "w_be4b3560c276b748",
+      "retained_id": "w_568660177b238b65",
+      "removed_level": "N2",
+      "retained_level": "N3",
+      "removed_surface": "懐かし",
+      "canonical_surface": "懐かしい",
+      "reading_kana": "なつかしい",
+      "reason": "어미가 잘린 표제어를 정상 형용사와 통합"
+    }
+  ],
+  "backfills": [
+    {
+      "id": "w_65b969c52dc19ac2",
+      "level": "N5",
+      "surface": "少し",
+      "reading_kana": "すこし",
+      "meaning_ko": "조금, 약간",
+      "frequency": 5.43
+    },
+    {
+      "id": "w_aee488186f66c2a2",
+      "level": "N5",
+      "surface": "白",
+      "reading_kana": "しろ",
+      "meaning_ko": "흰색, 하양",
+      "frequency": 5.04
+    },
+    {
+      "id": "w_039c519fd62d3882",
+      "level": "N5",
+      "surface": "新聞",
+      "reading_kana": "しんぶん",
+      "meaning_ko": "신문",
+      "frequency": 4.87
+    },
+    {
+      "id": "w_4c61acba86c4d604",
+      "level": "N5",
+      "surface": "水曜日",
+      "reading_kana": "すいようび",
+      "meaning_ko": "수요일",
+      "frequency": 4.04
+    },
+    {
+      "id": "w_1e9f921233a4335f",
+      "level": "N2",
+      "surface": "無沙汰",
+      "reading_kana": "ぶさた",
+      "meaning_ko": "소식이 없음, 연락이 뜸함",
+      "frequency": 3.66
+    },
+    {
+      "id": "w_393a2f780ea3a234",
+      "level": "N2",
+      "surface": "先々月",
+      "reading_kana": "せんせんげつ",
+      "meaning_ko": "지지난달",
+      "frequency": 3.32
+    },
+    {
+      "id": "w_efac32fc7e566446",
+      "level": "N2",
+      "surface": "先々週",
+      "reading_kana": "せんせんしゅう",
+      "meaning_ko": "지지난주",
+      "frequency": 3.3
+    },
+    {
+      "id": "w_007680925f9898a2",
+      "level": "N2",
+      "surface": "火口",
+      "reading_kana": "かこう",
+      "meaning_ko": "분화구",
+      "frequency": 3.24
+    },
+    {
+      "id": "w_c12c4efe43384aa2",
+      "level": "N2",
+      "surface": "茶色い",
+      "reading_kana": "ちゃいろい",
+      "meaning_ko": "갈색의",
+      "frequency": 3.08
+    },
+    {
+      "id": "w_43c420f6bdcd573b",
+      "level": "N2",
+      "surface": "堪える",
+      "reading_kana": "こらえる",
+      "meaning_ko": "견디다, 참다",
+      "frequency": 3.03
+    },
+    {
+      "id": "w_3f7be39781ba3513",
+      "level": "N2",
+      "surface": "通ずる",
+      "reading_kana": "つうずる",
+      "meaning_ko": "통하다, 이어지다",
+      "frequency": 3.0
+    },
+    {
+      "id": "w_f1fcc99d67415f95",
+      "level": "N2",
+      "surface": "羨む",
+      "reading_kana": "うらやむ",
+      "meaning_ko": "부러워하다",
+      "frequency": 2.68
+    },
+    {
+      "id": "w_b98563c83919ac09",
+      "level": "N1",
+      "surface": "逆転",
+      "reading_kana": "ぎゃくてん",
+      "meaning_ko": "역전",
+      "frequency": 4.36
+    },
+    {
+      "id": "w_21dd11caaa9c3389",
+      "level": "N1",
+      "surface": "事項",
+      "reading_kana": "じこう",
+      "meaning_ko": "사항, 항목",
+      "frequency": 4.32
+    },
+    {
+      "id": "w_aa4d76b169602e1e",
+      "level": "N1",
+      "surface": "関与",
+      "reading_kana": "かんよ",
+      "meaning_ko": "관여",
+      "frequency": 4.31
+    },
+    {
+      "id": "w_10284144fa6f8fa9",
+      "level": "N1",
+      "surface": "提示",
+      "reading_kana": "ていじ",
+      "meaning_ko": "제시",
+      "frequency": 4.25
+    },
+    {
+      "id": "w_74f7e87454f7a2e7",
+      "level": "N1",
+      "surface": "勘弁",
+      "reading_kana": "かんべん",
+      "meaning_ko": "용서, 봐줌",
+      "frequency": 4.17
+    },
+    {
+      "id": "w_261a31967386799c",
+      "level": "N1",
+      "surface": "救済",
+      "reading_kana": "きゅうさい",
+      "meaning_ko": "구제",
+      "frequency": 4.03
+    },
+    {
+      "id": "w_1a549e7eef1574a3",
+      "level": "N1",
+      "surface": "動向",
+      "reading_kana": "どうこう",
+      "meaning_ko": "동향",
+      "frequency": 3.89
+    }
+  ],
+  "promoted_examples": []
+}

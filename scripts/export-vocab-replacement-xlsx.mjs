@@ -14,7 +14,7 @@ const inputPath = path.join(
   projectRoot,
   "data",
   "pdf-vocab",
-  "replacement_candidates.json",
+  "replacement_candidates_reviewed.json",
 );
 const report = JSON.parse(await fs.readFile(inputPath, "utf8"));
 const candidates = report.candidates;
@@ -25,6 +25,7 @@ const candidateSheet = workbook.worksheets.add("제외 후보");
 const variantSheet = workbook.worksheets.add("변형 그룹");
 const scoreSheet = workbook.worksheets.add("점수 감사");
 const rulesSheet = workbook.worksheets.add("선정 규칙");
+const manualSheet = workbook.worksheets.add("수동 검수");
 
 const colors = {
   navy: "#0F172A",
@@ -131,6 +132,13 @@ const candidateHeaders = [
   "기존태그",
   "검토결정",
   "검토메모",
+  "수동검수상태",
+  "수동판정",
+  "수동검수근거",
+  "제안표기",
+  "제안읽기",
+  "제안한국어뜻",
+  "제안품사",
 ];
 const candidateValues = candidates.map((row) => [
   row.selected_rank,
@@ -165,6 +173,13 @@ const candidateValues = candidates.map((row) => [
   row.legacy_tags,
   row.review_decision,
   row.review_note,
+  row.manual_review_status,
+  row.manual_decision,
+  row.manual_note,
+  row.suggested_surface,
+  row.suggested_reading,
+  row.suggested_meaning_ko,
+  row.suggested_part_of_speech,
 ]);
 candidateSheet
   .getRangeByIndexes(0, 0, candidateValues.length + 1, candidateHeaders.length)
@@ -207,11 +222,19 @@ styleTableSheet(
     AD: 34,
     AE: 14,
     AF: 30,
+    AG: 14,
+    AH: 14,
+    AI: 52,
+    AJ: 20,
+    AK: 20,
+    AL: 28,
+    AM: 14,
   },
 );
 candidateSheet.getRange(`J2:J${candidateValues.length + 1}`).format.wrapText = true;
 candidateSheet.getRange(`O2:P${candidateValues.length + 1}`).format.wrapText = true;
 candidateSheet.getRange(`AB2:AF${candidateValues.length + 1}`).format.wrapText = true;
+candidateSheet.getRange(`AI2:AM${candidateValues.length + 1}`).format.wrapText = true;
 candidateSheet.getRange(`L2:L${candidateValues.length + 1}`).format.numberFormat = "0.00";
 candidateSheet.getRange(`A2:A${candidateValues.length + 1}`).format.numberFormat = "#,##0";
 candidateSheet.getRange(`F2:F${candidateValues.length + 1}`).format.numberFormat = "#,##0";
@@ -224,6 +247,24 @@ candidateSheet
   .conditionalFormats.add("containsText", {
     text: "1차 제외 추천",
     format: { fill: colors.redLight, font: { color: "#991B1B", bold: true } },
+  });
+candidateSheet
+  .getRange(`AH2:AH${candidateValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "제외 확정",
+    format: { fill: colors.redLight, font: { color: "#991B1B", bold: true } },
+  });
+candidateSheet
+  .getRange(`AH2:AH${candidateValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "수정 후 유지",
+    format: { fill: colors.amberLight, font: { color: "#92400E" } },
+  });
+candidateSheet
+  .getRange(`AH2:AH${candidateValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "유지",
+    format: { fill: colors.greenLight, font: { color: "#166534" } },
   });
 candidateSheet
   .getRange(`B2:B${candidateValues.length + 1}`)
@@ -553,6 +594,34 @@ summarySheet.getRange("A23:C23").format = {
 };
 summarySheet.getRange("B24:B28").format.numberFormat = "#,##0";
 
+summarySheet.getRange("D23:F23").merge();
+summarySheet.getRange("D23").values = [["수동 검수 결과"]];
+summarySheet.getRange("D24:E29").values = [
+  ["검수 완료", null],
+  ["제외 확정", null],
+  ["제외 가능", null],
+  ["수정 후 유지", null],
+  ["유지", null],
+  ["2차 미검수", null],
+];
+summarySheet.getRange("E24:E29").formulas = [
+  [`=COUNTIF('제외 후보'!AG2:AG${candidateValues.length + 1},"검수 완료")`],
+  [`=COUNTIF('제외 후보'!AH2:AH${candidateValues.length + 1},"제외 확정")`],
+  [`=COUNTIF('제외 후보'!AH2:AH${candidateValues.length + 1},"제외 가능")`],
+  [`=COUNTIF('제외 후보'!AH2:AH${candidateValues.length + 1},"수정 후 유지")`],
+  [`=COUNTIF('제외 후보'!AH2:AH${candidateValues.length + 1},"유지")`],
+  [`=COUNTIF('제외 후보'!AG2:AG${candidateValues.length + 1},"2차 미검수")`],
+];
+summarySheet.getRange("D23:F23").format = {
+  fill: colors.slate,
+  font: { name: "Aptos", size: 10, bold: true, color: colors.white },
+};
+summarySheet.getRange("D24:E29").format = {
+  font: { name: "Aptos", size: 10, color: colors.text },
+  borders: { preset: "inside", style: "thin", color: colors.border },
+};
+summarySheet.getRange("E24:E29").format.numberFormat = "#,##0";
+
 summarySheet.getRange("A1:A30").format.columnWidth = 25;
 summarySheet.getRange("B1:B30").format.columnWidth = 15;
 summarySheet.getRange("C1:C30").format.columnWidth = 42;
@@ -562,16 +631,96 @@ for (const column of ["D", "E", "F", "G", "H"]) {
 summarySheet.freezePanes.freezeRows(1);
 summarySheet.showGridLines = false;
 
+// Manual review details (245 evidence-backed rows only).
+const reviewedRows = candidates.filter((row) => row.manual_review_status === "검수 완료");
+const manualHeaders = [
+  "수동판정",
+  "단어ID",
+  "급수",
+  "현재표기",
+  "현재읽기",
+  "현재뜻",
+  "자동권장조치",
+  "검수근거",
+  "제안표기",
+  "제안읽기",
+  "제안뜻",
+  "제안품사",
+  "대표표기",
+  "대표읽기",
+];
+const manualValues = reviewedRows.map((row) => [
+  row.manual_decision,
+  row.word_id,
+  row.level,
+  row.surface,
+  row.reading_kana,
+  row.meaning_ko,
+  row.recommended_action,
+  row.manual_note,
+  row.suggested_surface,
+  row.suggested_reading,
+  row.suggested_meaning_ko,
+  row.suggested_part_of_speech,
+  row.canonical_surface,
+  row.canonical_reading,
+]);
+manualSheet
+  .getRangeByIndexes(0, 0, manualValues.length + 1, manualHeaders.length)
+  .values = [manualHeaders, ...manualValues];
+styleTableSheet(manualSheet, manualValues.length, manualHeaders.length, "ManualReviewTable", {
+  A: 15,
+  B: 22,
+  C: 9,
+  D: 19,
+  E: 19,
+  F: 34,
+  G: 23,
+  H: 58,
+  I: 20,
+  J: 20,
+  K: 28,
+  L: 14,
+  M: 19,
+  N: 19,
+});
+manualSheet.getRange(`F2:N${manualValues.length + 1}`).format.wrapText = true;
+manualSheet
+  .getRange(`A2:A${manualValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "제외 확정",
+    format: { fill: colors.redLight, font: { color: "#991B1B", bold: true } },
+  });
+manualSheet
+  .getRange(`A2:A${manualValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "제외 가능",
+    format: { fill: colors.amberLight, font: { color: "#92400E" } },
+  });
+manualSheet
+  .getRange(`A2:A${manualValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "수정 후 유지",
+    format: { fill: colors.blueLight, font: { color: "#1E3A8A" } },
+  });
+manualSheet
+  .getRange(`A2:A${manualValues.length + 1}`)
+  .conditionalFormats.add("containsText", {
+    text: "유지",
+    format: { fill: colors.greenLight, font: { color: "#166534" } },
+  });
+
 await fs.mkdir(outputDir, { recursive: true });
 const previewDir = path.join(outputDir, "previews");
 await fs.mkdir(previewDir, { recursive: true });
 
 const previewRanges = [
-  ["요약", "A1:H28"],
+  ["요약", "A1:H29"],
   ["제외 후보", "A1:P18"],
   ["변형 그룹", "A1:P18"],
   ["점수 감사", "A1:M18"],
   ["선정 규칙", "A1:D32"],
+  ["수동 검수", "A1:N18"],
 ];
 for (const [sheetName, range] of previewRanges) {
   const preview = await workbook.render({
@@ -588,7 +737,7 @@ for (const [sheetName, range] of previewRanges) {
 
 const inspection = await workbook.inspect({
   kind: "table",
-  range: "요약!A1:H28",
+  range: "요약!A1:H29",
   include: "values,formulas",
   tableMaxRows: 30,
   tableMaxCols: 10,
@@ -605,4 +754,4 @@ const errors = await workbook.inspect({
 console.log(errors.ndjson);
 
 const output = await SpreadsheetFile.exportXlsx(workbook);
-await output.save(path.join(outputDir, "jlpt_replacement_candidates.xlsx"));
+await output.save(path.join(outputDir, "jlpt_replacement_candidates_reviewed.xlsx"));

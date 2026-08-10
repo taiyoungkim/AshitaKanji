@@ -1,6 +1,6 @@
 // 사전 생성 TTS 오디오(edge-tts Nanami) 재생.
-// 번들된 mp3 에셋(assets/audio/{words,examples}/<id>.mp3)을 id로 조회 → expo-audio 재생.
-// 에셋 맵(audioMap.gen.ts)에 없으면 호출측이 expo-speech 폴백.
+// Android는 Ogg/Opus, iOS/web은 MP3 에셋을 플랫폼별 정적 맵으로 조회한다.
+// 에셋 맵에 없으면 호출측이 expo-speech로 폴백한다.
 
 import { Asset } from 'expo-asset';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';

@@ -9,11 +9,13 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gunzipSync } from 'node:zlib';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_DB = resolve(ROOT, 'assets/jlpt.db');
 const DEFAULT_OUT = resolve(ROOT, 'data/track-a/naver_examples_qa_work.csv');
 const DEFAULT_REPORT = resolve(ROOT, 'data/track-a/naver_examples_report.json');
+const DEFAULT_JMDICT = resolve(ROOT, '.cache/JMdict_e.gz');
 const NAVER_EXAMPLE_API = 'https://ja.dict.naver.com/api3/jako/search';
 const NAVER_SEARCH_URL = 'https://ja.dict.naver.com/#/search?query=';
 const HEADERS = [
@@ -37,15 +39,27 @@ const HEADERS = [
 
 const args = parseArgs(process.argv.slice(2));
 const dbPath = resolve(args.db ?? DEFAULT_DB);
+const wordsPath = args.words ? resolve(args.words) : null;
 const outPath = resolve(args.out ?? DEFAULT_OUT);
 const reportPath = resolve(args.report ?? DEFAULT_REPORT);
+const missesPath = resolve(
+  args.misses ?? reportPath.replace(/\.json$/i, '') + '_misses.json',
+);
+const seedPath = args.seed ? resolve(args.seed) : null;
+const identityManifestPath = args['identity-manifest']
+  ? resolve(args['identity-manifest'])
+  : null;
+const jmdictPath = resolve(args.jmdict ?? DEFAULT_JMDICT);
 const limit = Number(args.limit ?? 0);
 const offset = Number(args.offset ?? 0);
 const concurrency = Math.max(1, Number(args.concurrency ?? 3));
 const delayMs = Math.max(0, Number(args.delayMs ?? 180));
 const timeoutMs = Math.max(1000, Number(args.timeoutMs ?? 8000));
+const maxAttempts = Math.max(1, Number(args.retries ?? 3));
 const force = Boolean(args.force);
 const refreshExisting = Boolean(args['refresh-existing']);
+const contextualQuery = Boolean(args.contextual);
+const resetContextual = Boolean(args['reset-contextual']);
 const levels = args.levels ? new Set(String(args.levels).split(',').map((v) => v.trim()).filter(Boolean)) : null;
 
 if (args.help) {
@@ -56,17 +70,41 @@ if (args.help) {
 await main();
 
 async function main() {
-  if (!existsSync(dbPath)) {
+  if (!wordsPath && !existsSync(dbPath)) {
     throw new Error(`DB not found: ${rel(dbPath)}. Run npm run track-a:build first.`);
+  }
+  if (wordsPath && !existsSync(wordsPath)) {
+    throw new Error(`Word list not found: ${rel(wordsPath)}`);
+  }
+  if (seedPath && !existsSync(seedPath)) {
+    throw new Error(`Seed example CSV not found: ${rel(seedPath)}`);
+  }
+  if (identityManifestPath && !existsSync(identityManifestPath)) {
+    throw new Error(`Identity manifest not found: ${rel(identityManifestPath)}`);
   }
   ensureParent(outPath);
   ensureParent(reportPath);
+  ensureParent(missesPath);
 
-  const words = readWords(dbPath)
+  const words = readWords(wordsPath ?? dbPath)
     .filter((word) => !levels || levels.has(word.level))
     .slice(offset, limit > 0 ? offset + limit : undefined);
-  const existing = existsSync(outPath) ? readCsv(outPath) : [];
-  const byWordId = new Map(existing.map((row) => [row.word_id, row]));
+  attachJmdictForms(words, jmdictPath);
+  const outputOnDisk = existsSync(outPath) ? readCsv(outPath) : [];
+  const outputExisting = resetContextual
+    ? outputOnDisk.filter((row) => !clean(row.qa_note).includes('; query='))
+    : outputOnDisk;
+  const resetRows = outputOnDisk.length - outputExisting.length;
+  const byWordId = new Map(outputExisting.map((row) => [row.word_id, row]));
+  const seeded = seedPath
+    ? mergeSeedExamples({
+        byWordId,
+        words,
+        seedRows: readCsv(seedPath),
+        identityManifestPath,
+      })
+    : [];
+  const existing = Array.from(byWordId.values());
   // --refresh-existing: CSV에 이미 예문이 있는 단어만 재선택 (신규 수집 없이 품질 갱신).
   const targets = refreshExisting
     ? words.filter((word) => byWordId.has(word.id))
@@ -79,7 +117,11 @@ async function main() {
   let cursor = 0;
   let processed = 0;
 
-  console.log(`words=${words.length}, existing=${existing.length}, targets=${targets.length}`);
+  console.log(
+    `words=${words.length}, output_existing=${outputExisting.length}, ` +
+      `reset_contextual=${resetRows}, seeded=${seeded.length}, ` +
+      `ready=${existing.length}, targets=${targets.length}`,
+  );
 
   async function worker(workerId) {
     while (cursor < targets.length) {
@@ -105,7 +147,18 @@ async function main() {
       processed += 1;
       if (processed % 10 === 0 || processed === targets.length) {
         writeCsv(outPath, Array.from(byWordId.values()).sort(compareRows));
-        writeReport(reportPath, { words, existing, collected, misses, processed, targets, startedAt });
+        writeReport(reportPath, {
+          words,
+          outputExisting,
+          existing,
+          seeded,
+          collected,
+          misses,
+          processed,
+          targets,
+          startedAt,
+        });
+        writeMisses(missesPath, { misses, processed, targets, startedAt });
         console.log(`processed ${processed}/${targets.length}, collected=${collected.length}, misses=${misses.length}`);
       }
     }
@@ -113,24 +166,143 @@ async function main() {
 
   await Promise.all(Array.from({ length: concurrency }, (_, i) => worker(i + 1)));
   writeCsv(outPath, Array.from(byWordId.values()).sort(compareRows));
-  writeReport(reportPath, { words, existing, collected, misses, processed, targets, startedAt });
+  writeReport(reportPath, {
+    words,
+    outputExisting,
+    existing,
+    seeded,
+    collected,
+    misses,
+    processed,
+    targets,
+    startedAt,
+  });
+  writeMisses(missesPath, { misses, processed, targets, startedAt });
 }
 
 function readWords(path) {
+  if (/\.json$/i.test(path)) {
+    const parsed = JSON.parse(readFileSync(path, 'utf8'));
+    const rows = Array.isArray(parsed) ? parsed : parsed.vocabulary ?? parsed.words ?? [];
+    return rows
+      .filter((row) => Number(row.deprecated ?? 0) === 0)
+      .map(normalizeWordRow);
+  }
+  if (/\.csv$/i.test(path)) {
+    return readCsv(path)
+      .filter((row) => Number(row.deprecated ?? 0) === 0)
+      .map(normalizeWordRow);
+  }
   const sql = `
-    SELECT id, level, surface, reading_kana, meaning_ko
+    SELECT id, level, surface, reading_kana, meaning_ko, part_of_speech,
+           example_jp, example_ko, example_jp_author, example_license
     FROM word
     WHERE deprecated = 0
     ORDER BY level, id
   `;
   const raw = execFileSync('sqlite3', ['-json', path, sql], { encoding: 'utf8' });
-  return JSON.parse(raw);
+  return JSON.parse(raw).map(normalizeWordRow);
+}
+
+function normalizeWordRow(row) {
+  return {
+    id: clean(row.id),
+    level: clean(row.level),
+    surface: clean(row.surface),
+    reading_kana: clean(row.reading_kana),
+    meaning_ko: clean(row.meaning_ko),
+    part_of_speech: clean(row.part_of_speech),
+    example_jp: clean(row.example_jp),
+    example_ko: clean(row.example_ko),
+    example_jp_author: clean(row.example_jp_author),
+    example_license: clean(row.example_license),
+  };
+}
+
+function attachJmdictForms(words, path) {
+  if (!existsSync(path)) return;
+  const wantedReadings = new Set(words.map((word) => word.reading_kana).filter(Boolean));
+  const formsByReading = new Map();
+  const xml = gunzipSync(readFileSync(path)).toString('utf8');
+  for (const match of xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)) {
+    const body = match[1];
+    const readings = [...body.matchAll(/<reb>(.*?)<\/reb>/g)]
+      .map((item) => clean(item[1]))
+      .filter((reading) => wantedReadings.has(reading));
+    if (readings.length === 0) continue;
+    const forms = [...body.matchAll(/<keb>(.*?)<\/keb>/g)].map((item) => clean(item[1]));
+    for (const reading of readings) {
+      const bucket = formsByReading.get(reading) ?? new Set();
+      for (const form of forms) bucket.add(form);
+      formsByReading.set(reading, bucket);
+    }
+  }
+  for (const word of words) {
+    word.match_forms = unique([
+      word.surface,
+      word.reading_kana,
+      ...(formsByReading.get(word.reading_kana) ?? []),
+    ]);
+  }
+}
+
+function mergeSeedExamples({ byWordId, words, seedRows, identityManifestPath }) {
+  const wordById = new Map(words.map((word) => [word.id, word]));
+  const idRemap = new Map();
+  if (identityManifestPath) {
+    const manifest = JSON.parse(readFileSync(identityManifestPath, 'utf8'));
+    for (const row of manifest.retained_corrections ?? []) {
+      if (Number(row.identity_changed) === 1 && row.old_id && row.new_id) {
+        idRemap.set(clean(row.old_id), clean(row.new_id));
+      }
+    }
+  }
+
+  const seeded = [];
+  for (const source of seedRows) {
+    const oldId = clean(source.word_id);
+    const targetId = wordById.has(oldId) ? oldId : idRemap.get(oldId);
+    if (!targetId || byWordId.has(targetId)) continue;
+    const word = wordById.get(targetId);
+    if (!word || !clean(source.jp) || !clean(source.ko)) continue;
+
+    const wasRemapped = targetId !== oldId;
+    // Stable IDs encode surface+reading, not meaning. A new PDF sense can reuse an
+    // old ID while requiring a different example (e.g. かける "안경을 쓰다" vs
+    // legacy "말을 걸다"). Seed only examples already approved into the final
+    // candidate row, and require exact Japanese text equality.
+    if (!word.example_jp || clean(source.jp) !== word.example_jp) continue;
+    if (word.example_ko && clean(source.ko) !== word.example_ko) continue;
+    const row = {
+      ...source,
+      word_id: targetId,
+      source_url: `${NAVER_SEARCH_URL}${encodeURIComponent(word.surface)}`,
+      query: word.surface,
+      qa_note: wasRemapped
+        ? `${clean(source.qa_note)}; id-remapped ${oldId}->${targetId}`.replace(/^;\s*/, '')
+        : clean(source.qa_note),
+    };
+    byWordId.set(targetId, row);
+    seeded.push(row);
+  }
+  return seeded;
 }
 
 async function collectWordExample(word) {
-  const json = await fetchNaverExamples(word.surface);
-  const items = json?.searchResultMap?.searchResultListMap?.EXAMPLE?.items;
-  const best = selectBestExample(Array.isArray(items) ? items : [], word);
+  const queries = contextualQuery
+    ? unique([makeContextQuery(word), word.surface])
+    : [word.surface];
+  let best = null;
+  let selectedQuery = word.surface;
+  for (const query of queries) {
+    const json = await fetchNaverExamples(query);
+    const items = json?.searchResultMap?.searchResultListMap?.EXAMPLE?.items;
+    best = selectBestExample(Array.isArray(items) ? items : [], word);
+    if (best) {
+      selectedQuery = query;
+      break;
+    }
+  }
   if (!best) return null;
   const sourceName = best.sourceName || 'NAVER 일본어사전';
   return {
@@ -148,9 +320,19 @@ async function collectWordExample(word) {
     naver_example_id: best.exampleId,
     naver_source_cid: best.sourceCid,
     naver_source_name: sourceName,
-    query: word.surface,
-    qa_note: best.note,
+    query: selectedQuery,
+    qa_note: `${best.note}; query=${selectedQuery}`,
   };
+}
+
+function makeContextQuery(word) {
+  const meaning = clean(word.meaning_ko)
+    .replace(/[()[\]{}]/g, ' ')
+    .replace(/[;,/|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 36);
+  return meaning ? `${word.surface} ${meaning}` : word.surface;
 }
 
 async function fetchNaverExamples(query, attempt = 1) {
@@ -174,7 +356,7 @@ async function fetchNaverExamples(query, attempt = 1) {
     });
   } catch (err) {
     clearTimeout(timeout);
-    if (attempt < 3) {
+    if (attempt < maxAttempts) {
       await sleep(1200 * attempt);
       return fetchNaverExamples(query, attempt + 1);
     }
@@ -183,7 +365,7 @@ async function fetchNaverExamples(query, attempt = 1) {
   clearTimeout(timeout);
   const text = await response.text();
   if (!response.ok) {
-    if (attempt < 3 && (response.status === 429 || response.status >= 500)) {
+    if (attempt < maxAttempts && (response.status === 429 || response.status >= 500)) {
       await sleep(1200 * attempt);
       return fetchNaverExamples(query, attempt + 1);
     }
@@ -192,7 +374,7 @@ async function fetchNaverExamples(query, attempt = 1) {
   try {
     return JSON.parse(text);
   } catch {
-    if (attempt < 3) {
+    if (attempt < maxAttempts) {
       await sleep(1200 * attempt);
       return fetchNaverExamples(query, attempt + 1);
     }
@@ -203,30 +385,48 @@ async function fetchNaverExamples(query, attempt = 1) {
 function selectBestExample(items, word) {
   const surface = compact(word.surface);
   const reading = compact(word.reading_kana);
+  const meaningTokens = koreanMeaningTokens(word.meaning_ko);
   const candidates = items
-    .map((item) => toCandidate(item, surface, reading))
+    .map((item) => toCandidate(item, word, surface, reading, meaningTokens))
     .filter(Boolean)
     .sort((a, b) => b.score - a.score);
   return candidates[0] ?? null;
 }
 
-function toCandidate(item, surface, reading) {
+function toCandidate(item, word, surface, reading, meaningTokens) {
   const jp = cleanExampleHtml(item.expExample1);
   const ko = cleanExampleHtml(item.expExample2 || item.translation);
   if (!jp || !ko) return null;
   if (!hasJapanese(jp) || !hasKorean(ko)) return null;
+  if (hasKorean(jp)) return null;
   const compactJp = compact(jp);
+  const searchableJp = compact(cleanSearchableExampleHtml(item.expExample1));
+  const targetMatch = matchJapaneseTarget({
+    compactJp,
+    searchableJp,
+    surface,
+    reading,
+    knownForms: word.match_forms,
+    partOfSpeech: word.part_of_speech,
+  });
+  if (!targetMatch.matched) return null;
   if (compactJp === surface || compactJp === reading) return null;
   if (compactJp.length < Math.max(4, surface.length + 2)) return null;
 
   let score = 0;
-  if (compactJp.includes(surface)) score += 50;
-  if (reading && compactJp.includes(reading)) score += 8;
+  if (targetMatch.exactSurface) score += 50;
+  if (targetMatch.exactReading) score += 20;
+  if (targetMatch.jmdictForm) score += 42;
+  if (targetMatch.stemOnly) score += 8;
   if (String(item.haveTrans) === '1') score += 20;
   if (String(item.matchType || '').startsWith('exact')) score += 8;
   if (/[。.!?？,，、]/.test(jp)) score += 5;
   if (jp.length <= 80) score += 5;
   if (item.sourceDictnameURL) score += 2;
+
+  const compactKo = compact(ko);
+  const meaningHits = meaningTokens.filter((token) => compactKo.includes(token)).length;
+  score += Math.min(meaningHits, 3) * 12;
 
   // 일반 사용 예문 선호 — 사자성어·관용구·속담 감점, 일상 문장 가점.
   // (예: 秋(あき)에 危急存亡の秋, 明後日에 紺屋の明後日 같은 비일반 예문 회피)
@@ -253,8 +453,63 @@ function toCandidate(item, surface, reading) {
     exampleId: clean(item.exampleId),
     sourceCid: clean(item.sourceCid),
     sourceName: clean(item.sourceDictnameKO || item.sourceDictnameOri),
-    note: `auto-selected score=${score}`,
+    note:
+      `auto-selected score=${score} meaning_hits=${meaningHits} ` +
+      `target_match=${targetMatch.kind}`,
   };
+}
+
+function cleanSearchableExampleHtml(value) {
+  return decodeHtml(clean(value)
+    .replace(/<rp[^>]*>[\s\S]*?<\/rp>/gi, '')
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim());
+}
+
+function matchJapaneseTarget({ compactJp, searchableJp, surface, reading, knownForms, partOfSpeech }) {
+  const exactSurface = Boolean(surface && (compactJp.includes(surface) || searchableJp.includes(surface)));
+  const exactReading = Boolean(reading && (compactJp.includes(reading) || searchableJp.includes(reading)));
+  const jmdictForm = unique(knownForms ?? [])
+    .filter((form) => form !== surface && form !== reading)
+    .find((form) => compactJp.includes(form) || searchableJp.includes(form));
+  if (exactSurface || exactReading || jmdictForm) {
+    return {
+      matched: true,
+      exactSurface,
+      exactReading,
+      jmdictForm: Boolean(jmdictForm),
+      stemOnly: false,
+      kind: exactSurface ? 'surface' : exactReading ? 'reading' : 'jmdict-form',
+    };
+  }
+
+  const pos = clean(partOfSpeech);
+  const allowStem = pos === 'verb' || pos === 'adjective' || /[うくぐすつぬぶむるい]$/.test(reading);
+  const stems = allowStem
+    ? unique([inflectionStem(surface), inflectionStem(reading)]).filter((stem) => stem.length >= 2)
+    : [];
+  const stem = stems.find((candidate) =>
+    compactJp.includes(candidate) || searchableJp.includes(candidate));
+  return {
+    matched: Boolean(stem),
+    exactSurface: false,
+    exactReading: false,
+    jmdictForm: false,
+    stemOnly: Boolean(stem),
+    kind: stem ? 'stem' : 'none',
+  };
+}
+
+function inflectionStem(value) {
+  const text = compact(value);
+  return text.length >= 3 ? text.slice(0, -1) : '';
+}
+
+function koreanMeaningTokens(value) {
+  const stop = new Set(['하다', '되다', '있다', '없다', '이다', '것', '등']);
+  return unique((clean(value).match(/[가-힣]{2,}/g) || []).filter((token) => !stop.has(token)));
 }
 
 function cleanExampleHtml(value) {
@@ -315,7 +570,9 @@ function hasKorean(value) {
 }
 
 function readCsv(path) {
-  const text = readFileSync(path, 'utf8');
+  // Python's utf-8-sig CSV writer emits a BOM.  Strip it so the first key is
+  // `id`/`word_id` rather than an invisible-BOM-prefixed field name.
+  const text = readFileSync(path, 'utf8').replace(/^\uFEFF/, '');
   const rows = parseCsv(text);
   const [headers, ...records] = rows;
   return records
@@ -368,19 +625,37 @@ function writeCsv(path, rows) {
   writeFileSync(path, `${csv.join('\n')}\n`);
 }
 
-function writeReport(path, { words, existing, collected, misses, processed, targets, startedAt }) {
+function writeReport(
+  path,
+  { words, outputExisting, existing, seeded, collected, misses, processed, targets, startedAt },
+) {
   const report = {
     generated_at: new Date().toISOString(),
     elapsed_sec: Math.round((Date.now() - startedAt) / 1000),
-    db: rel(dbPath),
+    word_source: rel(wordsPath ?? dbPath),
     out: rel(outPath),
+    misses_file: rel(missesPath),
     total_words_selected: words.length,
+    output_existing_rows: outputExisting.length,
     existing_rows: existing.length,
+    seeded_rows: seeded.length,
     target_rows: targets.length,
     processed,
     collected: collected.length,
     misses: misses.length,
     miss_samples: misses.slice(0, 40),
+  };
+  writeFileSync(path, `${JSON.stringify(report, null, 2)}\n`);
+}
+
+function writeMisses(path, { misses, processed, targets, startedAt }) {
+  const report = {
+    generated_at: new Date().toISOString(),
+    elapsed_sec: Math.round((Date.now() - startedAt) / 1000),
+    processed,
+    target_rows: targets.length,
+    misses: misses.length,
+    items: misses,
   };
   writeFileSync(path, `${JSON.stringify(report, null, 2)}\n`);
 }
@@ -392,6 +667,10 @@ function csvEscape(value) {
 
 function compareRows(a, b) {
   return String(a.word_id).localeCompare(String(b.word_id));
+}
+
+function unique(values) {
+  return [...new Set(values.map(clean).filter(Boolean))];
 }
 
 function parseArgs(argv) {
@@ -426,14 +705,23 @@ Usage: node scripts/collect-naver-examples.mjs [options]
 
 Options:
   --db PATH             Bundled SQLite DB to read words from (default: assets/jlpt.db)
+  --words PATH          Read words from final JSON/CSV instead of SQLite
   --out PATH            Output CSV (default: data/track-a/naver_examples_qa_work.csv)
   --report PATH         Output JSON report (default: data/track-a/naver_examples_report.json)
+  --misses PATH         Full miss/error JSON (default: <report>_misses.json)
+  --seed PATH           Seed matching existing examples from another QA CSV
+  --identity-manifest PATH
+                        Remap seed rows whose stable word ID changed
+  --jmdict PATH         JMdict gzip for reading-linked written forms
+  --contextual          Search with "Japanese surface + Korean meaning" first
+  --reset-contextual    Drop prior contextual auto-collections before this run
   --levels N5,N4        Restrict JLPT levels
   --limit N             Collect at most N selected words
   --offset N            Skip N selected words before collecting
   --concurrency N       Parallel workers (default: 3)
   --delayMs N           Per-worker delay before requests (default: 180)
   --timeoutMs N         Per-request timeout (default: 8000)
+  --retries N           Attempts per query (default: 3; use 1 for bulk first pass)
   --force               Recollect rows already present in the output CSV
   --refresh-existing    Re-select only words already in the CSV (no new words)
 `);

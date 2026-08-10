@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-10T16:10:34.206061+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 6,
+  "jobs": 6,
+  "preexisting": 0,
+  "planned": 6,
+  "created": 6,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_49d4a04f0684a107",
+      "kind": "word",
+      "text": "へた",
+      "file": "assets/audio/words/w_49d4a04f0684a107.mp3"
+    },
+    {
+      "id": "w_95c7513478ff8738",
+      "kind": "word",
+      "text": "こんざつ",
+      "file": "assets/audio/words/w_95c7513478ff8738.mp3"
+    },
+    {
+      "id": "w_2469bcc59515558e",
+      "kind": "word",
+      "text": "きにいる",
+      "file": "assets/audio/words/w_2469bcc59515558e.mp3"
+    },
+    {
+      "id": "w_c1de77401a2512e8",
+      "kind": "word",
+      "text": "ぼんやり",
+      "file": "assets/audio/words/w_c1de77401a2512e8.mp3"
+    },
+    {
+      "id": "w_de109ade477aaf3c",
+      "kind": "word",
+      "text": "にぎやか",
+      "file": "assets/audio/words/w_de109ade477aaf3c.mp3"
+    },
+    {
+      "id": "w_123b00c50a0e4b79",
+      "kind": "word",
+      "text": "おうだんきんし",
+      "file": "assets/audio/words/w_123b00c50a0e4b79.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.478,
+  "dry_run": false
+}

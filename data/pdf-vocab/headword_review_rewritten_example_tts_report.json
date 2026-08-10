@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-08-10T06:59:12.302360+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_headword_review_wordlist_final.csv",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 12,
+  "jobs": 12,
+  "preexisting": 0,
+  "planned": 12,
+  "created": 12,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_245d63ae14dc7240",
+      "kind": "example",
+      "text": "火曜日に友達と会います。",
+      "file": "assets/audio/examples/w_245d63ae14dc7240.mp3"
+    },
+    {
+      "id": "w_053f7db9e9a81e55",
+      "kind": "example",
+      "text": "学校で新しい友達ができました。",
+      "file": "assets/audio/examples/w_053f7db9e9a81e55.mp3"
+    },
+    {
+      "id": "w_26913edea9440b3b",
+      "kind": "example",
+      "text": "子供たちが公園で遊んでいます。",
+      "file": "assets/audio/examples/w_26913edea9440b3b.mp3"
+    },
+    {
+      "id": "w_716e7b794dbcaf51",
+      "kind": "example",
+      "text": "木曜日に病院へ行きます。",
+      "file": "assets/audio/examples/w_716e7b794dbcaf51.mp3"
+    },
+    {
+      "id": "w_078c37ed2c920c51",
+      "kind": "example",
+      "text": "土曜日に家族と買い物に行きます。",
+      "file": "assets/audio/examples/w_078c37ed2c920c51.mp3"
+    },
+    {
+      "id": "w_2cd841d468cc927a",
+      "kind": "example",
+      "text": "金曜日は仕事が早く終わります。",
+      "file": "assets/audio/examples/w_2cd841d468cc927a.mp3"
+    },
+    {
+      "id": "w_58ebca3b2291ffb6",
+      "kind": "example",
+      "text": "石鹸で手を洗います。",
+      "file": "assets/audio/examples/w_58ebca3b2291ffb6.mp3"
+    },
+    {
+      "id": "w_728f59d1c6f9c5f4",
+      "kind": "example",
+      "text": "出かける前に靴を履きます。",
+      "file": "assets/audio/examples/w_728f59d1c6f9c5f4.mp3"
+    },
+    {
+      "id": "w_ec8e542da036aeea",
+      "kind": "example",
+      "text": "駅の近くに小さな店が一軒あります。",
+      "file": "assets/audio/examples/w_ec8e542da036aeea.mp3"
+    },
+    {
+      "id": "w_157443e88683e1c9",
+      "kind": "example",
+      "text": "環境に関わる問題について話し合った。",
+      "file": "assets/audio/examples/w_157443e88683e1c9.mp3"
+    },
+    {
+      "id": "w_2042955fbd7ed6b5",
+      "kind": "example",
+      "text": "電話をかけたが、相手は話し中だった。",
+      "file": "assets/audio/examples/w_2042955fbd7ed6b5.mp3"
+    },
+    {
+      "id": "w_2a768ef5dc0abdb7",
+      "kind": "example",
+      "text": "豆腐にはタンパク質が多く含まれている。",
+      "file": "assets/audio/examples/w_2a768ef5dc0abdb7.mp3"
+    }
+  ],
+  "elapsed_seconds": 1.282,
+  "dry_run": false
+}

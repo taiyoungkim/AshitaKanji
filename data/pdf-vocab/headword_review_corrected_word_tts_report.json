@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-10T06:53:58.849899+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_headword_review_wordlist_final.csv",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 2,
+  "jobs": 2,
+  "preexisting": 0,
+  "planned": 2,
+  "created": 2,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_19b870ba56899b62",
+      "kind": "word",
+      "text": "だしん",
+      "file": "assets/audio/words/w_19b870ba56899b62.mp3"
+    },
+    {
+      "id": "w_2a2702f1f74ccfdc",
+      "kind": "word",
+      "text": "あしでまとい",
+      "file": "assets/audio/words/w_2a2702f1f74ccfdc.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.542,
+  "dry_run": false
+}

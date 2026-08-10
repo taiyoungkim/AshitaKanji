@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-08T17:04:55.125476+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.json",
+  "new_vs_db": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 1392,
+  "jobs": 1392,
+  "preexisting": 1,
+  "planned": 1391,
+  "created": 1391,
+  "skipped": 1,
+  "failed": 0,
+  "failures": [],
+  "elapsed_seconds": 99.152,
+  "dry_run": false
+}

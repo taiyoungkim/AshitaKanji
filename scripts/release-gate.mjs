@@ -177,6 +177,16 @@ for (const rel of REQUIRED_ASSETS) {
       const wordExampleExists = tableExists('word_example') === 1;
       add('jlpt.db word_example table', wordExampleExists, wordExampleExists ? 'OK' : '없음');
       if (wordExampleExists) {
+        const totalExamples = tableCount('word_example');
+        const coveredExampleWords = Number(execFileSync('sqlite3', [
+          dbPath,
+          'SELECT COUNT(DISTINCT word_id) FROM word_example;',
+        ], { encoding: 'utf8' }).trim());
+        add(
+          'jlpt.db example coverage',
+          totalExamples === 6638 && coveredExampleWords === 6638,
+          `examples=${totalExamples}, words=${coveredExampleWords}`,
+        );
         const naverExamples = tableCount('word_example', `source='naver-ja-dict'`);
         add(
           'jlpt.db naver examples',
@@ -191,6 +201,24 @@ for (const rel of REQUIRED_ASSETS) {
           'jlpt.db naver example permission',
           blockedNaverExamples === 0,
           `blocked_or_pending=${blockedNaverExamples}`,
+        );
+        const selfExamples = tableCount(
+          'word_example',
+          `source='self' AND permission_status='self'`,
+        );
+        add(
+          'jlpt.db self-authored examples',
+          selfExamples > 0 && selfExamples + naverExamples === totalExamples,
+          `self_examples=${selfExamples}, naver+self=${naverExamples + selfExamples}/${totalExamples}`,
+        );
+        const blockedExamples = tableCount(
+          'word_example',
+          `permission_status NOT IN ('cleared', 'self')`,
+        );
+        add(
+          'jlpt.db example permission',
+          blockedExamples === 0,
+          `blocked_or_pending=${blockedExamples}`,
         );
       }
     } catch (err) {

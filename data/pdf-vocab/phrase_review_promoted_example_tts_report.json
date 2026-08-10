@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-08-10T16:10:35.830448+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 14,
+  "jobs": 14,
+  "preexisting": 0,
+  "planned": 14,
+  "created": 14,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_039c519fd62d3882",
+      "kind": "example",
+      "text": "父は毎朝新聞を読む。",
+      "file": "assets/audio/examples/w_039c519fd62d3882.mp3"
+    },
+    {
+      "id": "w_c650245fe94b2d55",
+      "kind": "example",
+      "text": "家に帰ってすぐお風呂に入る",
+      "file": "assets/audio/examples/w_c650245fe94b2d55.mp3"
+    },
+    {
+      "id": "w_b69623c9f42326bc",
+      "kind": "example",
+      "text": "熱い水でシャワーを浴びる。",
+      "file": "assets/audio/examples/w_b69623c9f42326bc.mp3"
+    },
+    {
+      "id": "w_e08e5b558857d76c",
+      "kind": "example",
+      "text": "寝冷えで風邪をひく.",
+      "file": "assets/audio/examples/w_e08e5b558857d76c.mp3"
+    },
+    {
+      "id": "w_52ca205b3d7f3971",
+      "kind": "example",
+      "text": "イ:キム元長官が今回の総選挙に出るのは事実だろうか。",
+      "file": "assets/audio/examples/w_52ca205b3d7f3971.mp3"
+    },
+    {
+      "id": "w_d317994d8c83fe94",
+      "kind": "example",
+      "text": "ロ：そうだね。傘をさすのが曖昧だね。",
+      "file": "assets/audio/examples/w_d317994d8c83fe94.mp3"
+    },
+    {
+      "id": "w_be4b2b8277c1d5eb",
+      "kind": "example",
+      "text": "イ：この料理は合わない材料がごちゃ混ぜになって変な味がする。",
+      "file": "assets/audio/examples/w_be4b2b8277c1d5eb.mp3"
+    },
+    {
+      "id": "w_f06af9fbb03b953c",
+      "kind": "example",
+      "text": "役に立つどころかお荷物になる",
+      "file": "assets/audio/examples/w_f06af9fbb03b953c.mp3"
+    },
+    {
+      "id": "w_370695fd7f9ee2ba",
+      "kind": "example",
+      "text": "芸を身につける.",
+      "file": "assets/audio/examples/w_370695fd7f9ee2ba.mp3"
+    },
+    {
+      "id": "w_82a8a19743899089",
+      "kind": "example",
+      "text": "誕生日の計画は当日まで内緒にする。",
+      "file": "assets/audio/examples/w_82a8a19743899089.mp3"
+    },
+    {
+      "id": "w_80121247ba5c6668",
+      "kind": "example",
+      "text": "来年は日本で勉強がしたいです。",
+      "file": "assets/audio/examples/w_80121247ba5c6668.mp3"
+    },
+    {
+      "id": "w_1046b061849458f3",
+      "kind": "example",
+      "text": "ユミンは怒っているのではなく、ただ口数が少ないだけだ。",
+      "file": "assets/audio/examples/w_1046b061849458f3.mp3"
+    },
+    {
+      "id": "w_ca953bed102a78e0",
+      "kind": "example",
+      "text": "ロ：それでも成功した人々を見て刺激を受けるほうがはるかに役立つと思うますが。",
+      "file": "assets/audio/examples/w_ca953bed102a78e0.mp3"
+    },
+    {
+      "id": "w_179d9fa903e31f9e",
+      "kind": "example",
+      "text": "二言目には愚痴を言う",
+      "file": "assets/audio/examples/w_179d9fa903e31f9e.mp3"
+    }
+  ],
+  "elapsed_seconds": 1.467,
+  "dry_run": false
+}

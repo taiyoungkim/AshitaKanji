@@ -1,0 +1,2747 @@
+{
+  "summary": {
+    "total_words": 6638,
+    "kana_only_audited": 944,
+    "kanji_display_overrides": 342,
+    "display_collisions": 141,
+    "kept_or_needs_review": 602
+  },
+  "overrides": {
+    "w_4c739feaedcd1de0": {
+      "surface": "ようか",
+      "reading_kana": "ようか",
+      "display_surface": "八日",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_aba657db70bdb298": {
+      "surface": "ならう",
+      "reading_kana": "ならう",
+      "display_surface": "習う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_a0c558d30a7b5279"
+    },
+    "w_0ea9569520107931": {
+      "surface": "てがみ",
+      "reading_kana": "てがみ",
+      "display_surface": "手紙",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_5ef17e779ccf6818"
+    },
+    "w_5284226e672d96c5": {
+      "surface": "にさつ",
+      "reading_kana": "にさつ",
+      "display_surface": "二冊",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_8cc945ebe05fb345": {
+      "surface": "くらい",
+      "reading_kana": "くらい",
+      "display_surface": "暗い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_871d839872345899"
+    },
+    "w_b24621b76259caa8": {
+      "surface": "さんさつ",
+      "reading_kana": "さんさつ",
+      "display_surface": "三冊",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_825bad35884b199b": {
+      "surface": "すぐに",
+      "reading_kana": "すぐに",
+      "display_surface": "直ぐに",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_409c10a69baafd5f": {
+      "surface": "でる",
+      "reading_kana": "でる",
+      "display_surface": "出る",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_52ca205b3d7f3971"
+    },
+    "w_38856be7d8a54293": {
+      "surface": "ほしい",
+      "reading_kana": "ほしい",
+      "display_surface": "欲しい",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_44328544e7a3b011": {
+      "surface": "なぜ",
+      "reading_kana": "なぜ",
+      "display_surface": "何故",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_4dd00aad4051c89d": {
+      "surface": "のみもの",
+      "reading_kana": "のみもの",
+      "display_surface": "飲み物",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_35b6d26ef3b6e9a4": {
+      "surface": "たくさん",
+      "reading_kana": "たくさん",
+      "display_surface": "沢山",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_f12a1758289392e6": {
+      "surface": "なんこ",
+      "reading_kana": "なんこ",
+      "display_surface": "何個",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_59c56506badd0309": {
+      "surface": "しつもんする",
+      "reading_kana": "しつもんする",
+      "display_surface": "質問する",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_208233a335ee5617": {
+      "surface": "かぞく",
+      "reading_kana": "かぞく",
+      "display_surface": "家族",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_67a0aa7719932f47"
+    },
+    "w_4e598e988857cbcc": {
+      "surface": "ちず",
+      "reading_kana": "ちず",
+      "display_surface": "地図",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_48838b2b24ace976"
+    },
+    "w_095ed617a1f2ddc6": {
+      "surface": "いただきます",
+      "reading_kana": "いただきます",
+      "display_surface": "頂きます",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_d2cb5673c3552ae0": {
+      "surface": "にかい",
+      "reading_kana": "にかい",
+      "display_surface": "二階",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_dd5441408bb2d6e5": {
+      "surface": "いつつ",
+      "reading_kana": "いつつ",
+      "display_surface": "五つ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_7ce478d1c4361987": {
+      "surface": "さんかい",
+      "reading_kana": "さんかい",
+      "display_surface": "三回",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_794b4334a01909b6": {
+      "surface": "おく",
+      "reading_kana": "おく",
+      "display_surface": "置く",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_8d8468b11a0a1fa9": {
+      "surface": "いろいろ",
+      "reading_kana": "いろいろ",
+      "display_surface": "色々",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_1cd9d956ac65ad3e"
+    },
+    "w_b36e1365aa1b125e": {
+      "surface": "こうちゃ",
+      "reading_kana": "こうちゃ",
+      "display_surface": "紅茶",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3c9e0c4d130ffe55": {
+      "surface": "かかる",
+      "reading_kana": "かかる",
+      "display_surface": "掛かる",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_579247e75349eed1": {
+      "surface": "たぶん",
+      "reading_kana": "たぶん",
+      "display_surface": "多分",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_f55e5f14ba3846ae": {
+      "surface": "つかれる",
+      "reading_kana": "つかれる",
+      "display_surface": "疲れる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_880411bf45f00ee7"
+    },
+    "w_58075cd1141bf75e": {
+      "surface": "かど",
+      "reading_kana": "かど",
+      "display_surface": "角",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_d09fc1ab6a37791a": {
+      "surface": "つく",
+      "reading_kana": "つく",
+      "display_surface": "点く",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_1fb1432fdae5690a"
+    },
+    "w_b44959bb47bfe991": {
+      "surface": "おおぜい",
+      "reading_kana": "おおぜい",
+      "display_surface": "大勢",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_6ec2f5694292b36a": {
+      "surface": "とる",
+      "reading_kana": "とる",
+      "display_surface": "取る",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_318b933aa9deca08"
+    },
+    "w_f6ee1c3e08f743b5": {
+      "surface": "まど",
+      "reading_kana": "まど",
+      "display_surface": "窓",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_76f2a5f23785b571"
+    },
+    "w_76d36dbae91cd174": {
+      "surface": "あらう",
+      "reading_kana": "あらう",
+      "display_surface": "洗う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_336db92caf7feb12"
+    },
+    "w_89e001a5ce85e728": {
+      "surface": "きれいです",
+      "reading_kana": "きれいです",
+      "display_surface": "綺麗です",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_417e0e04947ef7f1": {
+      "surface": "ちょうど",
+      "reading_kana": "ちょうど",
+      "display_surface": "丁度",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_8d966401d98ece25": {
+      "surface": "おいしい",
+      "reading_kana": "おいしい",
+      "display_surface": "美味しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_44191f7e02bdbca4": {
+      "surface": "かける",
+      "reading_kana": "かける",
+      "display_surface": "掛ける",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_e3d3cc0b38f77224": {
+      "surface": "にキロ",
+      "reading_kana": "にキロ",
+      "display_surface": "二キロ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_6331df76a706ca58": {
+      "surface": "べんり",
+      "reading_kana": "べんり",
+      "display_surface": "便利",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_8d6e887ea2a8b1d8": {
+      "surface": "すき",
+      "reading_kana": "すき",
+      "display_surface": "好き",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_ab8f966f8b3fb171": {
+      "surface": "ほんや",
+      "reading_kana": "ほんや",
+      "display_surface": "本屋",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_31df4b7ee4f99920": {
+      "surface": "けっこう",
+      "reading_kana": "けっこう",
+      "display_surface": "結構",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_139be75fa16ee36c"
+    },
+    "w_e1b4921bc5902b92": {
+      "surface": "きって",
+      "reading_kana": "きって",
+      "display_surface": "切手",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_50bb9153fcefb747"
+    },
+    "w_e8bf101d5d035c24": {
+      "surface": "はじめて",
+      "reading_kana": "はじめて",
+      "display_surface": "初めて",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_5c2d9927c4fbe888": {
+      "surface": "おもしろい",
+      "reading_kana": "おもしろい",
+      "display_surface": "面白い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_08908a001d06c5eb"
+    },
+    "w_4dd0a16ccf0be360": {
+      "surface": "まずい",
+      "reading_kana": "まずい",
+      "display_surface": "不味い",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_6313f9284b018464": {
+      "surface": "いちだい",
+      "reading_kana": "いちだい",
+      "display_surface": "一台",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_72e1cb4ba34fc820": {
+      "surface": "べんきょうがしたい",
+      "reading_kana": "べんきょうがしたい",
+      "display_surface": "勉強がしたい",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_f84e4af1931a66af": {
+      "surface": "だいどころ",
+      "reading_kana": "だいどころ",
+      "display_surface": "台所",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_29fd13f6f877956f"
+    },
+    "w_f12b7cd5ea51cf7a": {
+      "surface": "はる",
+      "reading_kana": "はる",
+      "display_surface": "貼る",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_3ddce52a2caa733a": {
+      "surface": "みち",
+      "reading_kana": "みち",
+      "display_surface": "道",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_84eb455426c5a140"
+    },
+    "w_f7dcb52b9848b040": {
+      "surface": "ふく",
+      "reading_kana": "ふく",
+      "display_surface": "吹く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_380dce933ba2841c": {
+      "surface": "たいてい",
+      "reading_kana": "たいてい",
+      "display_surface": "大抵",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_ff87bb6908adb37e"
+    },
+    "w_950bfdb77150e285": {
+      "surface": "ゆうめいだ",
+      "reading_kana": "ゆうめいだ",
+      "display_surface": "有名だ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_99c47cc1df2be37c": {
+      "surface": "おもい",
+      "reading_kana": "おもい",
+      "display_surface": "重い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_6544e85ecab8bd79"
+    },
+    "w_3759f3c20989a136": {
+      "surface": "おやすみなさい",
+      "reading_kana": "おやすみなさい",
+      "display_surface": "お休みなさい",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_c88186a84ee8ef98": {
+      "surface": "まっすぐ",
+      "reading_kana": "まっすぐ",
+      "display_surface": "真っ直ぐ",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_03de143ddf3b2084": {
+      "surface": "げんかん",
+      "reading_kana": "げんかん",
+      "display_surface": "玄関",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_4e9b8a9d056fb2bc": {
+      "surface": "わたる",
+      "reading_kana": "わたる",
+      "display_surface": "渡る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_5e33ed6531ff94b6"
+    },
+    "w_d631fd55fbc45d65": {
+      "surface": "たいへん",
+      "reading_kana": "たいへん",
+      "display_surface": "大変",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_87351a3c5f2160a9": {
+      "surface": "ときどき",
+      "reading_kana": "ときどき",
+      "display_surface": "時々",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_7bd42a74b3f21cd5": {
+      "surface": "あした",
+      "reading_kana": "あした",
+      "display_surface": "明日",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_a6b4b27691fedbcb"
+    },
+    "w_d8dcbb01e7e6526f": {
+      "surface": "どういたしまして",
+      "reading_kana": "どういたしまして",
+      "display_surface": "どう致しまして",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_728f59d1c6f9c5f4": {
+      "surface": "はく",
+      "reading_kana": "はく",
+      "display_surface": "穿く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_fa01e280023d6933": {
+      "surface": "きる",
+      "reading_kana": "きる",
+      "display_surface": "切る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3f7247bd3bb94359": {
+      "surface": "ぎんこう",
+      "reading_kana": "ぎんこう",
+      "display_surface": "銀行",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_391386c4147ce4af"
+    },
+    "w_9ac4eb19ccb26979": {
+      "surface": "きらいです",
+      "reading_kana": "きらいです",
+      "display_surface": "嫌いです",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_8d91f549cf7aaf0c": {
+      "surface": "いれる",
+      "reading_kana": "いれる",
+      "display_surface": "入れる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_262ab17a9d5f3f78": {
+      "surface": "だいじょうぶ",
+      "reading_kana": "だいじょうぶ",
+      "display_surface": "大丈夫",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_e25c204a215c6bc5": {
+      "surface": "たのしい",
+      "reading_kana": "たのしい",
+      "display_surface": "楽しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_8d526aa1c09b62a2"
+    },
+    "w_a48055accfd30bcb": {
+      "surface": "いたい",
+      "reading_kana": "いたい",
+      "display_surface": "痛い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_03f1fbfb1a4e6d33"
+    },
+    "w_d8b942a0bbdb88b3": {
+      "surface": "ちがいます",
+      "reading_kana": "ちがいます",
+      "display_surface": "違います",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_d1ca2d4600b815b5": {
+      "surface": "つよい",
+      "reading_kana": "つよい",
+      "display_surface": "強い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_f0b5618bdca7c0ae"
+    },
+    "w_412d7a3479a4f8a3": {
+      "surface": "にひき",
+      "reading_kana": "にひき",
+      "display_surface": "二匹",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_20734b71d5df79ef": {
+      "surface": "あし",
+      "reading_kana": "あし",
+      "display_surface": "足",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_ea3d8a4e6ed4bc82"
+    },
+    "w_e08e5b558857d76c": {
+      "surface": "かぜ",
+      "reading_kana": "かぜ",
+      "display_surface": "風邪",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_969c1949db151a59": {
+      "surface": "あぶない",
+      "reading_kana": "あぶない",
+      "display_surface": "危ない",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_72ca2a9c4ae1017a": {
+      "surface": "いぬ",
+      "reading_kana": "いぬ",
+      "display_surface": "犬",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_0eb0f469760ebd47"
+    },
+    "w_e2505ce2fcaf3d73": {
+      "surface": "おとな",
+      "reading_kana": "おとな",
+      "display_surface": "大人",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_92515fbd8be28da0": {
+      "surface": "はし",
+      "reading_kana": "はし",
+      "display_surface": "橋",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_912a89defaf6cfee": {
+      "surface": "かぶる",
+      "reading_kana": "かぶる",
+      "display_surface": "被る",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_a89a3400861519f5"
+    },
+    "w_8599f01b62ec3b89": {
+      "surface": "しめる",
+      "reading_kana": "しめる",
+      "display_surface": "閉める",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_eff8aedd9cddd1a9"
+    },
+    "w_946af014ad2b6ee1": {
+      "surface": "ごちそうさま",
+      "reading_kana": "ごちそうさま",
+      "display_surface": "ご馳走様",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_4e9ce7da04c4774f": {
+      "surface": "のぼる",
+      "reading_kana": "のぼる",
+      "display_surface": "登る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_4c0800ab464a16af": {
+      "surface": "あに",
+      "reading_kana": "あに",
+      "display_surface": "兄",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_05f6406e9ab15b32": {
+      "surface": "のる",
+      "reading_kana": "のる",
+      "display_surface": "乗る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_79bf77758ff71250"
+    },
+    "w_b378eb40b444bf6e": {
+      "surface": "しずかに",
+      "reading_kana": "しずかに",
+      "display_surface": "静かに",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_4afc49c52138c0b2"
+    },
+    "w_7233f2e9e3f48a80": {
+      "surface": "きっぷ",
+      "reading_kana": "きっぷ",
+      "display_surface": "切符",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_be0c2a8c15c51508": {
+      "surface": "おす",
+      "reading_kana": "おす",
+      "display_surface": "押す",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_b38cfcd67ff64a8e"
+    },
+    "w_aef420c79bbeb170": {
+      "surface": "ひま",
+      "reading_kana": "ひま",
+      "display_surface": "暇",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_661368cc7fe5e352": {
+      "surface": "ひまでした",
+      "reading_kana": "ひまでした",
+      "display_surface": "暇でした",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_fc031afb71d1faf9": {
+      "surface": "のむ",
+      "reading_kana": "のむ",
+      "display_surface": "飲む",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_633b31657d51ba57"
+    },
+    "w_e3e2e1235da0170b": {
+      "surface": "げんき",
+      "reading_kana": "げんき",
+      "display_surface": "元気",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_3c23adf18899bec0"
+    },
+    "w_0d26f4ecd5bf00c4": {
+      "surface": "あたたかい",
+      "reading_kana": "あたたかい",
+      "display_surface": "暖かい",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_cc7c486ee55f4e80"
+    },
+    "w_7a7f3406f9ada41f": {
+      "surface": "おととい",
+      "reading_kana": "おととい",
+      "display_surface": "一昨日",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_08414fa5796dc2f4"
+    },
+    "w_4a7bd63718f4b15d": {
+      "surface": "かう",
+      "reading_kana": "かう",
+      "display_surface": "買う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_7b4426d6f2756a8c"
+    },
+    "w_03bf1e956aafced1": {
+      "surface": "かぜをひく",
+      "reading_kana": "かぜをひく",
+      "display_surface": "風邪をひく",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_e7f652ae64d8d30e": {
+      "surface": "すう",
+      "reading_kana": "すう",
+      "display_surface": "吸う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_31babae8ff2696b9": {
+      "surface": "あたらしい",
+      "reading_kana": "あたらしい",
+      "display_surface": "新しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_4d8d34ddefce90aa"
+    },
+    "w_fa949ea235fc38a2": {
+      "surface": "かない",
+      "reading_kana": "かない",
+      "display_surface": "家内",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_50ffd2ba2cc08cff": {
+      "surface": "ふつか",
+      "reading_kana": "ふつか",
+      "display_surface": "二日",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_7391edd8a2c4c832": {
+      "surface": "いちど",
+      "reading_kana": "いちど",
+      "display_surface": "一度",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_01e3fc0965037397"
+    },
+    "w_de109ade477aaf3c": {
+      "surface": "にぎやかです",
+      "reading_kana": "にぎやかです",
+      "display_surface": "賑やかです",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_35d37fc58d80467b": {
+      "surface": "きたない",
+      "reading_kana": "きたない",
+      "display_surface": "汚い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_0577bd8fb5ad5060"
+    },
+    "w_f70f47a2eb8d0348": {
+      "surface": "うすい",
+      "reading_kana": "うすい",
+      "display_surface": "薄い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_d18208a487d10453"
+    },
+    "w_9c2d3700794d4e08": {
+      "surface": "ゆうべ",
+      "reading_kana": "ゆうべ",
+      "display_surface": "昨夜",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_ac9371491b36f6a2": {
+      "surface": "ぼうし",
+      "reading_kana": "ぼうし",
+      "display_surface": "帽子",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_c01b591995b9335a": {
+      "surface": "とぶ",
+      "reading_kana": "とぶ",
+      "display_surface": "飛ぶ",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_0f26111535f0210a"
+    },
+    "w_d97131dc7962498d": {
+      "surface": "りっぱ",
+      "reading_kana": "りっぱ",
+      "display_surface": "立派",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_76ee0a63fa5a65c7": {
+      "surface": "とまる",
+      "reading_kana": "とまる",
+      "display_surface": "止まる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_ac4a28f37332b6a0"
+    },
+    "w_1b21326fcb2d8421": {
+      "surface": "おきる",
+      "reading_kana": "おきる",
+      "display_surface": "起きる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_39a427c6dee763c4"
+    },
+    "w_60b16783522d51c6": {
+      "surface": "やさい",
+      "reading_kana": "やさい",
+      "display_surface": "野菜",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e506759b6040f2fd"
+    },
+    "w_581fe312603d2f10": {
+      "surface": "あまい",
+      "reading_kana": "あまい",
+      "display_surface": "甘い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_c0cc225df4622838"
+    },
+    "w_b98ec43cc7ba192f": {
+      "surface": "おふろにはいる",
+      "reading_kana": "おふろにはいる",
+      "display_surface": "お風呂に入る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_49d4a04f0684a107": {
+      "surface": "へたです",
+      "reading_kana": "へたです",
+      "display_surface": "下手です",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_e297167e239ff6ac": {
+      "surface": "れいぞうこ",
+      "reading_kana": "れいぞうこ",
+      "display_surface": "冷蔵庫",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_43e6795a8212c516": {
+      "surface": "つとめる",
+      "reading_kana": "つとめる",
+      "display_surface": "勤める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_87abe3f691f2a5ec"
+    },
+    "w_995636b83892830d": {
+      "surface": "ちかい",
+      "reading_kana": "ちかい",
+      "display_surface": "近い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_1890c7a3bfe4781f": {
+      "surface": "からい",
+      "reading_kana": "からい",
+      "display_surface": "辛い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_73af8c94eaaf7836"
+    },
+    "w_38c3571b4d7aa01a": {
+      "surface": "ちいさい",
+      "reading_kana": "ちいさい",
+      "display_surface": "小さい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_be0a4fc6dd818d25"
+    },
+    "w_9898d6dcfbf040cb": {
+      "surface": "でんわ",
+      "reading_kana": "でんわ",
+      "display_surface": "電話",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_1b9d8a75f2b91a55"
+    },
+    "w_2a02d91ea5c3fe03": {
+      "surface": "ゆうびんきょく",
+      "reading_kana": "ゆうびんきょく",
+      "display_surface": "郵便局",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_cc4944533f0911af": {
+      "surface": "てんき",
+      "reading_kana": "てんき",
+      "display_surface": "天気",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_76d3472883c72fe8"
+    },
+    "w_54750cb36373fd36": {
+      "surface": "あそぶ",
+      "reading_kana": "あそぶ",
+      "display_surface": "遊ぶ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3c8a052098392b1a": {
+      "surface": "おりる",
+      "reading_kana": "おりる",
+      "display_surface": "降りる",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_631cf27db2365483"
+    },
+    "w_ae4c2c199424ca13": {
+      "surface": "じょうず",
+      "reading_kana": "じょうず",
+      "display_surface": "上手",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_1335d3c40feacf5d"
+    },
+    "w_655c49430ab10602": {
+      "surface": "たいせつ",
+      "reading_kana": "たいせつ",
+      "display_surface": "大切",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_deddb7435f3d9350": {
+      "surface": "あるく",
+      "reading_kana": "あるく",
+      "display_surface": "歩く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_a8ec89206d4fff44"
+    },
+    "w_58ebca3b2291ffb6": {
+      "surface": "せっけん",
+      "reading_kana": "せっけん",
+      "display_surface": "石けん",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_7be0da7ae0c0dfbd": {
+      "surface": "でかける",
+      "reading_kana": "でかける",
+      "display_surface": "出掛ける",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_1dc2a01d84d091eb": {
+      "surface": "しんぶんをよむ",
+      "reading_kana": "しんぶんをよむ",
+      "display_surface": "新聞を読む",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_926c2576f47ea612": {
+      "surface": "わたす",
+      "reading_kana": "わたす",
+      "display_surface": "渡す",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b6ec99032db8c18a"
+    },
+    "w_1183a3688186cdef": {
+      "surface": "シャワーをあびる",
+      "reading_kana": "シャワーをあびる",
+      "display_surface": "シャワーを浴びる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3884f3361dd5cc56": {
+      "surface": "いそがしい",
+      "reading_kana": "いそがしい",
+      "display_surface": "忙しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_5b4445d187ac74c5": {
+      "surface": "はたち",
+      "reading_kana": "はたち",
+      "display_surface": "二十歳",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_43e0b900a9d10cc3": {
+      "surface": "わかい",
+      "reading_kana": "わかい",
+      "display_surface": "若い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_4358ae52c7f1b4d8"
+    },
+    "w_90e10f6847d27828": {
+      "surface": "とおい",
+      "reading_kana": "とおい",
+      "display_surface": "遠い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_44bc31f10823f315": {
+      "surface": "けっこんする",
+      "reading_kana": "けっこんする",
+      "display_surface": "結婚する",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_7c2fb518a9047447": {
+      "surface": "おととし",
+      "reading_kana": "おととし",
+      "display_surface": "一昨年",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_f7ee39d72844c141": {
+      "surface": "おぼえる",
+      "reading_kana": "おぼえる",
+      "display_surface": "覚える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_c19e856353cf049c"
+    },
+    "w_923e439a3ee8ba0c": {
+      "surface": "つめたい",
+      "reading_kana": "つめたい",
+      "display_surface": "冷たい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_0500788ad7f74945": {
+      "surface": "かえす",
+      "reading_kana": "かえす",
+      "display_surface": "返す",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_113c116f7b2b3d71"
+    },
+    "w_17b789a30464c292": {
+      "surface": "うまれる",
+      "reading_kana": "うまれる",
+      "display_surface": "生まれる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_9f48fc575582aa14"
+    },
+    "w_cea1a4546e3779a7": {
+      "surface": "こうえん",
+      "reading_kana": "こうえん",
+      "display_surface": "公園",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_0868c5b03add8f4b"
+    },
+    "w_1a3198f41e5aabef": {
+      "surface": "えらぶ",
+      "reading_kana": "えらぶ",
+      "display_surface": "選ぶ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_f71f6fdcc2491b8d"
+    },
+    "w_0ec81e693208cfb1": {
+      "surface": "りょうり",
+      "reading_kana": "りょうり",
+      "display_surface": "料理",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_afca84ce3be3c5e2"
+    },
+    "w_accc231b1738056c": {
+      "surface": "くだもの",
+      "reading_kana": "くだもの",
+      "display_surface": "果物",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_05806d8778786e6e": {
+      "surface": "しゃしん",
+      "reading_kana": "しゃしん",
+      "display_surface": "写真",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_02ed6d62e248827b"
+    },
+    "w_85f9dd6060389151": {
+      "surface": "じょうぶ",
+      "reading_kana": "じょうぶ",
+      "display_surface": "丈夫",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_4a71718d7be3875a": {
+      "surface": "けす",
+      "reading_kana": "けす",
+      "display_surface": "消す",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_46f4a926941aa00f"
+    },
+    "w_9b26b06b04353c7e": {
+      "surface": "まいしゅう",
+      "reading_kana": "まいしゅう",
+      "display_surface": "毎週",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_b621bc708ba80edb": {
+      "surface": "じしょ",
+      "reading_kana": "じしょ",
+      "display_surface": "辞書",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_1643e2acabb6bed2": {
+      "surface": "ほそい",
+      "reading_kana": "ほそい",
+      "display_surface": "細い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e928239923f76996"
+    },
+    "w_c9f37118e390cfee": {
+      "surface": "みがく",
+      "reading_kana": "みがく",
+      "display_surface": "磨く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_42ee94816d70a67e"
+    },
+    "w_961e8495d97af933": {
+      "surface": "わすれる",
+      "reading_kana": "わすれる",
+      "display_surface": "忘れる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_2f41bf48aae2a583"
+    },
+    "w_d75a2128ac2e3e18": {
+      "surface": "ならべる",
+      "reading_kana": "ならべる",
+      "display_surface": "並べる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_f2cac506608d8950": {
+      "surface": "ごぜんちゅう",
+      "reading_kana": "ごぜんちゅう",
+      "display_surface": "午前中",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_17c2769bec0dd3c4": {
+      "surface": "およぐ",
+      "reading_kana": "およぐ",
+      "display_surface": "泳ぐ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_25d246fcafff391e": {
+      "surface": "おてあらい",
+      "reading_kana": "おてあらい",
+      "display_surface": "お手洗い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_991b3f178bb17c4b": {
+      "surface": "まがる",
+      "reading_kana": "まがる",
+      "display_surface": "曲がる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_afd06155d77947af": {
+      "surface": "けいかん",
+      "reading_kana": "けいかん",
+      "display_surface": "警官",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3f5f8950779c095c": {
+      "surface": "せんたくする",
+      "reading_kana": "せんたくする",
+      "display_surface": "洗濯する",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_a1a38e164f0a3264": {
+      "surface": "はちじゅうえん",
+      "reading_kana": "はちじゅうえん",
+      "display_surface": "八十円",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_486d794e67b43b00": {
+      "surface": "はず",
+      "reading_kana": "はず",
+      "display_surface": "筈",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_9dc889bbbcb824da": {
+      "surface": "ほとんど",
+      "reading_kana": "ほとんど",
+      "display_surface": "殆ど",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_cbd7bfb69667bf89": {
+      "surface": "まず",
+      "reading_kana": "まず",
+      "display_surface": "先ず",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_d1f69f3aa5b47854": {
+      "surface": "もらう",
+      "reading_kana": "もらう",
+      "display_surface": "貰う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_328b3a4907a4cb55": {
+      "surface": "または",
+      "reading_kana": "または",
+      "display_surface": "又は",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_ae771b4fd6bc8a90": {
+      "surface": "だめ",
+      "reading_kana": "だめ",
+      "display_surface": "駄目",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_a2adf1cb9c70191e": {
+      "surface": "あげる",
+      "reading_kana": "あげる",
+      "display_surface": "上げる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_6ea8c8dbd447c1ac": {
+      "surface": "おかげさまで",
+      "reading_kana": "おかげさまで",
+      "display_surface": "お陰様で",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_abe8ce16dbbe2552": {
+      "surface": "ひどい",
+      "reading_kana": "ひどい",
+      "display_surface": "酷い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_5d44d44a212aa9b3": {
+      "surface": "うそです",
+      "reading_kana": "うそです",
+      "display_surface": "嘘です",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_93dcc4efaa4ffbd4": {
+      "surface": "おもちゃ",
+      "reading_kana": "おもちゃ",
+      "display_surface": "玩具",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_4845600465ed917d": {
+      "surface": "いただく",
+      "reading_kana": "いただく",
+      "display_surface": "頂く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_c1395761ef105cb2": {
+      "surface": "やせましたね",
+      "reading_kana": "やせましたね",
+      "display_surface": "痩せましたね",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_4a75a3682bcdd4b1": {
+      "surface": "かまいません",
+      "reading_kana": "かまいません",
+      "display_surface": "構いません",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_ce285518225afb6d"
+    },
+    "w_e2165c4745c4e5fa": {
+      "surface": "おとなしい",
+      "reading_kana": "おとなしい",
+      "display_surface": "大人しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_2afc4f4102d1bf3f": {
+      "surface": "けんか",
+      "reading_kana": "けんか",
+      "display_surface": "喧嘩",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_6f3c0426d5e18caa": {
+      "surface": "やわらかい",
+      "reading_kana": "やわらかい",
+      "display_surface": "柔らかい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_9a69e415985ac07b"
+    },
+    "w_dc0b78fec5acb3d8": {
+      "surface": "さびしい",
+      "reading_kana": "さびしい",
+      "display_surface": "寂しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_28791ccc16b6f97b"
+    },
+    "w_71d51d40bd252269": {
+      "surface": "きびしい",
+      "reading_kana": "きびしい",
+      "display_surface": "厳しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_1b23bca76df0323b"
+    },
+    "w_8619b2bfc1bda7fc": {
+      "surface": "いたす",
+      "reading_kana": "いたす",
+      "display_surface": "致す",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_c10a94ad3bf74d6b"
+    },
+    "w_7d52aa26e8ea1bff": {
+      "surface": "あやまりました",
+      "reading_kana": "あやまりました",
+      "display_surface": "謝りました",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_1cda3de6e8bb6711": {
+      "surface": "さしあげる",
+      "reading_kana": "さしあげる",
+      "display_surface": "差し上げる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_97a3b823f67674e9"
+    },
+    "w_089e5e37dd2ccd76": {
+      "surface": "いっしょうけんめい",
+      "reading_kana": "いっしょうけんめい",
+      "display_surface": "一生懸命",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b8c392e0ced001dc"
+    },
+    "w_9f4e85bedd654fca": {
+      "surface": "きけんです",
+      "reading_kana": "きけんです",
+      "display_surface": "危険です",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_82efffce3d2c635a": {
+      "surface": "たいいんする",
+      "reading_kana": "たいいんする",
+      "display_surface": "退院する",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_dc3906550d4c187f": {
+      "surface": "まちがえやすい",
+      "reading_kana": "まちがえやすい",
+      "display_surface": "間違えやすい",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_f225f8353368badf": {
+      "surface": "わけ",
+      "reading_kana": "わけ",
+      "display_surface": "訳",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_83ae7074dc030eb4"
+    },
+    "w_16b5e002c7a1d2f2": {
+      "surface": "そのうち",
+      "reading_kana": "そのうち",
+      "display_surface": "その内",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_4d69f0da34b2cf58": {
+      "surface": "まご",
+      "reading_kana": "まご",
+      "display_surface": "孫",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_67b726b2a8728054"
+    },
+    "w_1557e553aea269a3": {
+      "surface": "もちろん",
+      "reading_kana": "もちろん",
+      "display_surface": "勿論",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_1c4e9708ae69cbb7": {
+      "surface": "すべて",
+      "reading_kana": "すべて",
+      "display_surface": "全て",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_cefba8d96d3392c2"
+    },
+    "w_3ef3013e7a8e4116": {
+      "surface": "すべての",
+      "reading_kana": "すべての",
+      "display_surface": "全ての",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_c07355323d29e4ab": {
+      "surface": "まったく",
+      "reading_kana": "まったく",
+      "display_surface": "全く",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_2c314e0899617574"
+    },
+    "w_9a63e40ea88a885c": {
+      "surface": "しばらく",
+      "reading_kana": "しばらく",
+      "display_surface": "暫く",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_2cb60f5afdc9fb67": {
+      "surface": "くせ",
+      "reading_kana": "くせ",
+      "display_surface": "癖",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_111d2464a080f298"
+    },
+    "w_bb82ebdcacdf5f3e": {
+      "surface": "かんたんな",
+      "reading_kana": "かんたんな",
+      "display_surface": "簡単な",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_02120114862d3c4a": {
+      "surface": "すきだ",
+      "reading_kana": "すきだ",
+      "display_surface": "好きだ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_128d29f45bc02c6a": {
+      "surface": "だいたい",
+      "reading_kana": "だいたい",
+      "display_surface": "大体",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_ce2b7c1de446f647"
+    },
+    "w_9e3481dc47d209d0": {
+      "surface": "やめる",
+      "reading_kana": "やめる",
+      "display_surface": "辞める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_da535a991def07ed"
+    },
+    "w_76fadfa2f7cff0ca": {
+      "surface": "こわい",
+      "reading_kana": "こわい",
+      "display_surface": "怖い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_f7e7cb647a4e4a2d"
+    },
+    "w_6b2bd94a040d7f61": {
+      "surface": "ずいぶん",
+      "reading_kana": "ずいぶん",
+      "display_surface": "随分",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_b0fa73f425bb6383"
+    },
+    "w_ace5f18d0879f642": {
+      "surface": "ぜんぜん",
+      "reading_kana": "ぜんぜん",
+      "display_surface": "全然",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_d3e9c63c13baacbd"
+    },
+    "w_5379aa117b5e16b1": {
+      "surface": "さっそく",
+      "reading_kana": "さっそく",
+      "display_surface": "早速",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b72207d33f55c934"
+    },
+    "w_6a0aa8779064ce8b": {
+      "surface": "あわ",
+      "reading_kana": "あわ",
+      "display_surface": "泡",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b0bd981d3bda964c"
+    },
+    "w_75e6de69c398c013": {
+      "surface": "らくな",
+      "reading_kana": "らくな",
+      "display_surface": "楽な",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_3f2637fd3045f747": {
+      "surface": "ふる",
+      "reading_kana": "ふる",
+      "display_surface": "振る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e09a49f56218e718"
+    },
+    "w_59e6ccaef4f27f08": {
+      "surface": "たまる",
+      "reading_kana": "たまる",
+      "display_surface": "溜まる",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_f9e0f3dbb59a25b1"
+    },
+    "w_14b7a7565fa9e8f4": {
+      "surface": "たびたび",
+      "reading_kana": "たびたび",
+      "display_surface": "度々",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_b9111f44a6cece15": {
+      "surface": "しゃべる",
+      "reading_kana": "しゃべる",
+      "display_surface": "喋る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_1bfd0444cb26da23": {
+      "surface": "ゆるい",
+      "reading_kana": "ゆるい",
+      "display_surface": "緩い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_5383cc0f3350da7d"
+    },
+    "w_4b12fd88bdcd3bf7": {
+      "surface": "なつかしい",
+      "reading_kana": "なつかしい",
+      "display_surface": "懐かしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_568660177b238b65"
+    },
+    "w_a36d8551b00e3fd4": {
+      "surface": "うわさ",
+      "reading_kana": "うわさ",
+      "display_surface": "噂",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_48edbcd9cc1bd313"
+    },
+    "w_8619d8e46998e20e": {
+      "surface": "だるい",
+      "reading_kana": "だるい",
+      "display_surface": "怠い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_8fdb066e76411edb": {
+      "surface": "あきらめる",
+      "reading_kana": "あきらめる",
+      "display_surface": "諦める",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_f8828c1e725c917d"
+    },
+    "w_f641945e8d6571c0": {
+      "surface": "あわてて",
+      "reading_kana": "あわてて",
+      "display_surface": "慌てて",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_0cac833dd5c18449": {
+      "surface": "さいきん",
+      "reading_kana": "さいきん",
+      "display_surface": "最近",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_72906b1feea37df4"
+    },
+    "w_a61620b169657c43": {
+      "surface": "むく",
+      "reading_kana": "むく",
+      "display_surface": "剥く",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_6dabf4237be1a307": {
+      "surface": "かれる",
+      "reading_kana": "かれる",
+      "display_surface": "枯れる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_8efd4d5e30a414c9"
+    },
+    "w_47b233d6232a19c7": {
+      "surface": "かならず",
+      "reading_kana": "かならず",
+      "display_surface": "必ず",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_37328bc83de7e43a"
+    },
+    "w_04e254adf543c228": {
+      "surface": "はかる",
+      "reading_kana": "はかる",
+      "display_surface": "測る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e7f479187f36afac"
+    },
+    "w_d7bf6ee8c6585cce": {
+      "surface": "このごろ",
+      "reading_kana": "このごろ",
+      "display_surface": "この頃",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_aae7ac3f2729716f"
+    },
+    "w_79310f4ddfb535bb": {
+      "surface": "まぶしい",
+      "reading_kana": "まぶしい",
+      "display_surface": "眩しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_c13f2d70a64be03d"
+    },
+    "w_c2cb813bbf10739d": {
+      "surface": "あわせる",
+      "reading_kana": "あわせる",
+      "display_surface": "合わせる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_217384955200e9db": {
+      "surface": "きまり",
+      "reading_kana": "きまり",
+      "display_surface": "決まり",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_9c02e2c234a205df"
+    },
+    "w_453f3b9c5058ab25": {
+      "surface": "おそろしい",
+      "reading_kana": "おそろしい",
+      "display_surface": "恐ろしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_a4435942eb37a45e"
+    },
+    "w_6eb60bb5310e4b19": {
+      "surface": "ためる",
+      "reading_kana": "ためる",
+      "display_surface": "貯める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_91e8c336d4454520": {
+      "surface": "りっぱな",
+      "reading_kana": "りっぱな",
+      "display_surface": "立派な",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_0f5482e1ea9e0a5e": {
+      "surface": "ながれ",
+      "reading_kana": "ながれ",
+      "display_surface": "流れ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_a190e772e12a363a"
+    },
+    "w_34cbcd4491dcafdb": {
+      "surface": "ないしょにする",
+      "reading_kana": "ないしょにする",
+      "display_surface": "内緒にする",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_05060983e5f24a85": {
+      "surface": "のばす",
+      "reading_kana": "のばす",
+      "display_surface": "延ばす",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_4fa2413486371202"
+    },
+    "w_432f26e9704d0a8b": {
+      "surface": "ぜったいに",
+      "reading_kana": "ぜったいに",
+      "display_surface": "絶対に",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_3ab16e565cd75205"
+    },
+    "w_f1a259336a25d471": {
+      "surface": "おわる",
+      "reading_kana": "おわる",
+      "display_surface": "終わる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_2e1c725abcc5c203"
+    },
+    "w_9c48300c28335a56": {
+      "surface": "たたむ",
+      "reading_kana": "たたむ",
+      "display_surface": "畳む",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_6d74d0384fabf212"
+    },
+    "w_576098eca2c5c7c0": {
+      "surface": "うなる",
+      "reading_kana": "うなる",
+      "display_surface": "唸る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_97688a85478dfd96": {
+      "surface": "ゆでる",
+      "reading_kana": "ゆでる",
+      "display_surface": "茹でる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3a1fc271b293a3c4": {
+      "surface": "かがやく",
+      "reading_kana": "かがやく",
+      "display_surface": "輝く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_2bcc58862e764fb6"
+    },
+    "w_4859ff46423d869b": {
+      "surface": "おぼれる",
+      "reading_kana": "おぼれる",
+      "display_surface": "溺れる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_2483b98c4224bf99": {
+      "surface": "あきる",
+      "reading_kana": "あきる",
+      "display_surface": "飽きる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_5ed6c4ba3aaf50f2"
+    },
+    "w_e8881da1f1c3d900": {
+      "surface": "しばる",
+      "reading_kana": "しばる",
+      "display_surface": "縛る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_9f231925f59ed7f1"
+    },
+    "w_cd92ddcb3ad43e81": {
+      "surface": "かわく",
+      "reading_kana": "かわく",
+      "display_surface": "乾く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b480848a70c6cde2"
+    },
+    "w_a0adae11f85d8920": {
+      "surface": "あまる",
+      "reading_kana": "あまる",
+      "display_surface": "余る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_fa49af9b638a1de5"
+    },
+    "w_3bd8001bb85b0c71": {
+      "surface": "にぎる",
+      "reading_kana": "にぎる",
+      "display_surface": "握る",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_5087ca0f2f02704e"
+    },
+    "w_4c228c581f6ab0dc": {
+      "surface": "あつめる",
+      "reading_kana": "あつめる",
+      "display_surface": "集める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e1c3c47439908fec"
+    },
+    "w_26e6054b35783079": {
+      "surface": "とじる",
+      "reading_kana": "とじる",
+      "display_surface": "閉じる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_903895183827ef59"
+    },
+    "w_61de5aabc302e1e5": {
+      "surface": "どなる",
+      "reading_kana": "どなる",
+      "display_surface": "怒鳴る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_72943e17cc2418be"
+    },
+    "w_dd807f7eb5cfd6ab": {
+      "surface": "うばう",
+      "reading_kana": "うばう",
+      "display_surface": "奪う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_833594898192c2a8"
+    },
+    "w_46295160a102bb64": {
+      "surface": "たしかめる",
+      "reading_kana": "たしかめる",
+      "display_surface": "確かめる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_79aa315fe2fb6fed"
+    },
+    "w_ea1731b43f90b6b2": {
+      "surface": "ころぶ",
+      "reading_kana": "ころぶ",
+      "display_surface": "転ぶ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_523564dca147c289"
+    },
+    "w_8a0359a0fc57e5a7": {
+      "surface": "まげる",
+      "reading_kana": "まげる",
+      "display_surface": "曲げる",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_47d4e0fc7e943945"
+    },
+    "w_40a370857d95e22e": {
+      "surface": "まずしい",
+      "reading_kana": "まずしい",
+      "display_surface": "貧しい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_af76d4b3d5ba5ac0"
+    },
+    "w_becbe89dce937f34": {
+      "surface": "いってきます",
+      "reading_kana": "いってきます",
+      "display_surface": "行ってきます",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_2903ad5dfafa9ef5": {
+      "surface": "そういえば",
+      "reading_kana": "そういえば",
+      "display_surface": "そう言えば",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_7be7b280d00ddd2e": {
+      "surface": "そのころ",
+      "reading_kana": "そのころ",
+      "display_surface": "その頃",
+      "decision": "jmdict-unambiguous",
+      "evidence": "unambiguous JMdict form",
+      "collides_with": ""
+    },
+    "w_de63da100ac1f50b": {
+      "surface": "つまずく",
+      "reading_kana": "つまずく",
+      "display_surface": "躓く",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_590d55e05e5f7b6c"
+    },
+    "w_cc2b86ac2830c1b9": {
+      "surface": "うなずく",
+      "reading_kana": "うなずく",
+      "display_surface": "頷く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_ac9469bbfc665be5": {
+      "surface": "ひとりでに",
+      "reading_kana": "ひとりでに",
+      "display_surface": "独りでに",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_463b73e9be94bc29": {
+      "surface": "しぼむ",
+      "reading_kana": "しぼむ",
+      "display_surface": "萎む",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_81d9a253570bac6e": {
+      "surface": "ばからしい",
+      "reading_kana": "ばからしい",
+      "display_surface": "馬鹿らしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_7826d7569e12800d": {
+      "surface": "こしらえる",
+      "reading_kana": "こしらえる",
+      "display_surface": "拵える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_6be80965290001db": {
+      "surface": "おおざっぱ",
+      "reading_kana": "おおざっぱ",
+      "display_surface": "大雑把",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_3fdb6246f1e9c47f": {
+      "surface": "ただ",
+      "reading_kana": "ただ",
+      "display_surface": "只",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_8fceccfb0b0413c3": {
+      "surface": "なんなり",
+      "reading_kana": "なんなり",
+      "display_surface": "何なり",
+      "decision": "jmdict-unambiguous",
+      "evidence": "unambiguous JMdict form",
+      "collides_with": ""
+    },
+    "w_1ffdc03d4cddffda": {
+      "surface": "いやみ",
+      "reading_kana": "いやみ",
+      "display_surface": "嫌み",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_0ac774f928c1e0ad"
+    },
+    "w_ece3fbaf654b9a73": {
+      "surface": "なにより",
+      "reading_kana": "なにより",
+      "display_surface": "何より",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_ef7c2b36a078abcb": {
+      "surface": "とって",
+      "reading_kana": "とって",
+      "display_surface": "取っ手",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_d3853ae5a233cdbf": {
+      "surface": "いくつか",
+      "reading_kana": "いくつか",
+      "display_surface": "幾つか",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_a018889fd8c6dab3": {
+      "surface": "もはや",
+      "reading_kana": "もはや",
+      "display_surface": "最早",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_9ab22525169e4b3d": {
+      "surface": "なんとなく",
+      "reading_kana": "なんとなく",
+      "display_surface": "何となく",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_52bbb54154624fa0": {
+      "surface": "つながり",
+      "reading_kana": "つながり",
+      "display_surface": "繋がり",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_dbd3956009c2603f"
+    },
+    "w_06c9da1f5d3ef9b3": {
+      "surface": "くまなく",
+      "reading_kana": "くまなく",
+      "display_surface": "隈なく",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_dba8fad4ae9dcab9": {
+      "surface": "できるだけ",
+      "reading_kana": "できるだけ",
+      "display_surface": "出来るだけ",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_70b4e5c2f2319ca3": {
+      "surface": "あきらめずに",
+      "reading_kana": "あきらめずに",
+      "display_surface": "諦めずに",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_00b6d9661826f4ca": {
+      "surface": "しかたなく",
+      "reading_kana": "しかたなく",
+      "display_surface": "仕方なく",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_289eeb92d45d9b35": {
+      "surface": "しいて",
+      "reading_kana": "しいて",
+      "display_surface": "強いて",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_cd89b540108a739e"
+    },
+    "w_b8af14200695dbef": {
+      "surface": "あらかじめ",
+      "reading_kana": "あらかじめ",
+      "display_surface": "予め",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e88804a27645a87c"
+    },
+    "w_8c8f60588e1e408a": {
+      "surface": "とりわけ",
+      "reading_kana": "とりわけ",
+      "display_surface": "取り分け",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_0e25c0ea9143aa5a"
+    },
+    "w_cd159f09949315fa": {
+      "surface": "ひとまず",
+      "reading_kana": "ひとまず",
+      "display_surface": "一先ず",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_82f52f595b1292d7": {
+      "surface": "いたって",
+      "reading_kana": "いたって",
+      "display_surface": "至って",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_c7a2b0e5ff4b6e30": {
+      "surface": "さわやかだ",
+      "reading_kana": "さわやかだ",
+      "display_surface": "爽やかだ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_8dc15742d3e128af": {
+      "surface": "こたつ",
+      "reading_kana": "こたつ",
+      "display_surface": "炬燵",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_d8a0ad165c123102": {
+      "surface": "ことごとく",
+      "reading_kana": "ことごとく",
+      "display_surface": "悉く",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_ce70656918f80907": {
+      "surface": "いいかげんに",
+      "reading_kana": "いいかげんに",
+      "display_surface": "いい加減に",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_497c065e6cf6e038": {
+      "surface": "もっぱら",
+      "reading_kana": "もっぱら",
+      "display_surface": "専ら",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_e8c92034827d20e7"
+    },
+    "w_8c2b4a92073949da": {
+      "surface": "しわざ",
+      "reading_kana": "しわざ",
+      "display_surface": "仕業",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_2a5bde6cf8e65b4d"
+    },
+    "w_9a9c3881eecb9849": {
+      "surface": "おろかな",
+      "reading_kana": "おろかな",
+      "display_surface": "愚かな",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": "w_c611f279483773aa"
+    },
+    "w_52019f7d0cd6186e": {
+      "surface": "おおむね",
+      "reading_kana": "おおむね",
+      "display_surface": "概ね",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_aa1c390b5fd9a754": {
+      "surface": "かろうじて",
+      "reading_kana": "かろうじて",
+      "display_surface": "辛うじて",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_fb689f67f99328fc": {
+      "surface": "あいまいに",
+      "reading_kana": "あいまいに",
+      "display_surface": "曖昧に",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_00b884bb498a4ecb": {
+      "surface": "すべ",
+      "reading_kana": "すべ",
+      "display_surface": "術",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_8cc2ed324ee1f9d0"
+    },
+    "w_08149ad39d83534d": {
+      "surface": "とっさに",
+      "reading_kana": "とっさに",
+      "display_surface": "咄嗟に",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_823390f8452e7d8b": {
+      "surface": "つぶやく",
+      "reading_kana": "つぶやく",
+      "display_surface": "呟く",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_a2e6614246e92396": {
+      "surface": "すさまじい",
+      "reading_kana": "すさまじい",
+      "display_surface": "凄まじい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_0fd551cc4c3b764e": {
+      "surface": "なめる",
+      "reading_kana": "なめる",
+      "display_surface": "舐める",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_9e33dceb0d820298": {
+      "surface": "ためらう",
+      "reading_kana": "ためらう",
+      "display_surface": "躊躇う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_862152d331038cdb": {
+      "surface": "ささいな",
+      "reading_kana": "ささいな",
+      "display_surface": "些細な",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_63fc3539396e6a0b": {
+      "surface": "はかどる",
+      "reading_kana": "はかどる",
+      "display_surface": "捗る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_366b4df014f1ce9e"
+    },
+    "w_cc78ebd8b2b6037f": {
+      "surface": "おおらかな",
+      "reading_kana": "おおらかな",
+      "display_surface": "大らかな",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_38c9c0e9cf84d685": {
+      "surface": "よみがえる",
+      "reading_kana": "よみがえる",
+      "display_surface": "蘇る",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": "w_af85f2a34de69533"
+    },
+    "w_c9278b57465a3ff2": {
+      "surface": "にわかには",
+      "reading_kana": "にわかには",
+      "display_surface": "俄には",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_5ff01808c115b8c9": {
+      "surface": "もろい",
+      "reading_kana": "もろい",
+      "display_surface": "脆い",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_f470be1926d64588": {
+      "surface": "かたくな",
+      "reading_kana": "かたくな",
+      "display_surface": "頑な",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_cc7e713c46e8ee0b": {
+      "surface": "おろそかに",
+      "reading_kana": "おろそかに",
+      "display_surface": "疎かに",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_ac2312063a365246": {
+      "surface": "うやむやに",
+      "reading_kana": "うやむやに",
+      "display_surface": "有耶無耶に",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_216be17021a4cb21": {
+      "surface": "まばらだ",
+      "reading_kana": "まばらだ",
+      "display_surface": "疎らだ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_11b661b8d29254b0": {
+      "surface": "かばう",
+      "reading_kana": "かばう",
+      "display_surface": "庇う",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_b6b1ec7b196b2373"
+    },
+    "w_4b91c461392670d4": {
+      "surface": "しきりに",
+      "reading_kana": "しきりに",
+      "display_surface": "頻りに",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_ea4b80af3a66574a": {
+      "surface": "おだやかな",
+      "reading_kana": "おだやかな",
+      "display_surface": "穏やかな",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_26d81f5679705394": {
+      "surface": "くつろぐ",
+      "reading_kana": "くつろぐ",
+      "display_surface": "寛ぐ",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_f78bf1d1ec7f3007": {
+      "surface": "たやすい",
+      "reading_kana": "たやすい",
+      "display_surface": "容易い",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": "w_c09a59c654de1d4b"
+    },
+    "w_4f3c623502b2e1fc": {
+      "surface": "すみやかに",
+      "reading_kana": "すみやかに",
+      "display_surface": "速やかに",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_2f612443ccb862f7": {
+      "surface": "おのずと",
+      "reading_kana": "おのずと",
+      "display_surface": "自ずと",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_690a4fa3e51077a6": {
+      "surface": "すがすがしい",
+      "reading_kana": "すがすがしい",
+      "display_surface": "清々しい",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_a5aecb63abc015f0": {
+      "surface": "なだめる",
+      "reading_kana": "なだめる",
+      "display_surface": "宥める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_cad5672ec93eca6c": {
+      "surface": "おびただしい",
+      "reading_kana": "おびただしい",
+      "display_surface": "夥しい",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_53a6bcd205f9feef": {
+      "surface": "なじむ",
+      "reading_kana": "なじむ",
+      "display_surface": "馴染む",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_a6eec0b6c22ca7ad": {
+      "surface": "うすうす",
+      "reading_kana": "うすうす",
+      "display_surface": "薄々",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_b44f9643ac2cf7aa": {
+      "surface": "たたえる",
+      "reading_kana": "たたえる",
+      "display_surface": "称える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_628691a446bfd8e5": {
+      "surface": "じゃまする",
+      "reading_kana": "じゃまする",
+      "display_surface": "邪魔する",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_3f6beba4a6bb1e23": {
+      "surface": "もめる",
+      "reading_kana": "もめる",
+      "display_surface": "揉める",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_c36280d2912eaabe": {
+      "surface": "すくう",
+      "reading_kana": "すくう",
+      "display_surface": "掬う",
+      "decision": "manual-homophone",
+      "evidence": "meaning-sensitive JMdict choice",
+      "collides_with": ""
+    },
+    "w_3090bb4659a97310": {
+      "surface": "にじむ",
+      "reading_kana": "にじむ",
+      "display_surface": "滲む",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_2e433c5735cb4ae7"
+    },
+    "w_fb563ffa4a981ae4": {
+      "surface": "ほほえましい",
+      "reading_kana": "ほほえましい",
+      "display_surface": "微笑ましい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_75fe6fbac6e7ce8b": {
+      "surface": "けなされる",
+      "reading_kana": "けなされる",
+      "display_surface": "貶される",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_fce281a434e56887": {
+      "surface": "おびえる",
+      "reading_kana": "おびえる",
+      "display_surface": "怯える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_87e4eb8400560adc"
+    },
+    "w_d8f9e2302104e892": {
+      "surface": "やむをえず",
+      "reading_kana": "やむをえず",
+      "display_surface": "やむを得ず",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_74fd7b7d7f5ce3c7": {
+      "surface": "ほどける",
+      "reading_kana": "ほどける",
+      "display_surface": "解ける",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_f25835b153fd2a07"
+    },
+    "w_5f46d44ecbf267a0": {
+      "surface": "はなはだしい",
+      "reading_kana": "はなはだしい",
+      "display_surface": "甚だしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_df6a3abae7a48d60"
+    },
+    "w_22505daebb227709": {
+      "surface": "むしる",
+      "reading_kana": "むしる",
+      "display_surface": "毟る",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_964a437b76d2daca": {
+      "surface": "もくろむ",
+      "reading_kana": "もくろむ",
+      "display_surface": "目論む",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_581a28544054818a": {
+      "surface": "さする",
+      "reading_kana": "さする",
+      "display_surface": "摩る",
+      "decision": "jmdict-unambiguous",
+      "evidence": "common JMdict form",
+      "collides_with": ""
+    },
+    "w_a553ed66f04dcd24": {
+      "surface": "わずらわしい",
+      "reading_kana": "わずらわしい",
+      "display_surface": "煩わしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_9626fdb33e0fb4f7"
+    },
+    "w_15250f716c78bbf5": {
+      "surface": "やりとげる",
+      "reading_kana": "やりとげる",
+      "display_surface": "やり遂げる",
+      "decision": "jmdict-unambiguous",
+      "evidence": "unambiguous JMdict form",
+      "collides_with": ""
+    },
+    "w_1715b578802aa5e8": {
+      "surface": "おっくうだ",
+      "reading_kana": "おっくうだ",
+      "display_surface": "億劫だ",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    },
+    "w_aeb2ae8f421e5627": {
+      "surface": "せかす",
+      "reading_kana": "せかす",
+      "display_surface": "急かす",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_44c0bcb9bd3fe519"
+    },
+    "w_d0a649f398f31376": {
+      "surface": "なれなれしい",
+      "reading_kana": "なれなれしい",
+      "display_surface": "馴れ馴れしい",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_7a0c4cfd681dd94f": {
+      "surface": "さえる",
+      "reading_kana": "さえる",
+      "display_surface": "冴える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": "w_059b0e6154be17a2"
+    },
+    "w_4a6400c61a33361e": {
+      "surface": "まっとうする",
+      "reading_kana": "まっとうする",
+      "display_surface": "全うする",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_52a2e8992f64e713": {
+      "surface": "あつらえる",
+      "reading_kana": "あつらえる",
+      "display_surface": "誂える",
+      "decision": "example-exact",
+      "evidence": "unique JMdict form occurs in curated example",
+      "collides_with": ""
+    },
+    "w_1f093ceab4675dbd": {
+      "surface": "かたくなな",
+      "reading_kana": "かたくなな",
+      "display_surface": "頑なな",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": "w_9f1686ef32612a2e"
+    },
+    "w_4d71c8e8bb9e8afa": {
+      "surface": "ここちよく",
+      "reading_kana": "ここちよく",
+      "display_surface": "心地よく",
+      "decision": "manual-context",
+      "evidence": "meaning and inflection reviewed",
+      "collides_with": ""
+    }
+  }
+}

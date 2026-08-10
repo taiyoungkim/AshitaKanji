@@ -9,6 +9,19 @@
 - `jlpt_app_vocab.json`: 앱 연결용 목록만 담은 가벼운 JSON입니다.
 - `jlpt_vocab.xlsx`: 위 데이터를 검토하기 위한 필터 가능한 워크북입니다.
 - `extraction_report.json`: PDF별 행 수, 섹션 수, 검증 집계입니다.
+- `jlpt_final_wordlist.csv` / `.json`: PDF 최빈출 2,699개를 전부 포함하면서 기존
+  급수별 개수와 스키마를 유지한 최종 앱 단어장 6,638개입니다.
+- `naver_examples_final_qa_work.csv`: 최종 단어장에 연결된 사용 허가 확인 예문입니다.
+- `self_authored_examples.json`: 최초 자체 작성·번역 예문 53개의 용례 검증 원본이며,
+  `self_authored_examples_qa_work.csv`는 구문 검수까지 반영한 자체 예문 136개입니다.
+- `examples_final_qa_work.csv`: NAVER 6,502개와 자체 예문 136개를 합친 앱 DB 빌드용
+  최종 예문 6,638개입니다.
+- `example_reference_audit.json` / `example_completion_report.json`: 외부 용례 조회와
+  예문 100% 커버리지 검증 기록입니다.
+- `example_tts_generation_report.json` / `example_tts_validation_report.json`: 예문
+  TTS 6,638개 생성·문장 일치·MP3 스트림·오디오맵 전수 검증 기록입니다.
+- `jlpt_final_replacement_manifest.json`: 기존 DB에서 유지·추가·제외·교정된 항목의
+  재현 가능한 교체 기록입니다.
 
 CSV는 Excel에서도 바로 열 수 있도록 UTF-8 BOM으로 저장합니다. 원본 필드는 `*_raw`, 정규화한 앱 필드는 `surface`, `reading_kana`, `meaning_ko`입니다. `source_entry_id`를 이용하면 각 항목을 PDF 파일·페이지·순서까지 다시 추적할 수 있습니다.
 
@@ -16,4 +29,10 @@ CSV는 Excel에서도 바로 열 수 있도록 UTF-8 BOM으로 저장합니다. 
 
 ```sh
 /Users/tyoung/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/extract-jlpt-pdfs.py
+```
+
+검수 완료된 최종 단어장과 예문을 앱 DB로 빌드:
+
+```sh
+npm run track-a:build
 ```

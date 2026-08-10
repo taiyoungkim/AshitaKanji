@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-08-10T06:53:52.696912+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_headword_review_wordlist_final.csv",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 19,
+  "jobs": 19,
+  "preexisting": 15,
+  "planned": 4,
+  "created": 4,
+  "skipped": 15,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_aee488186f66c2a2",
+      "kind": "word",
+      "text": "しろ",
+      "file": "assets/audio/words/w_aee488186f66c2a2.mp3"
+    },
+    {
+      "id": "w_4c61acba86c4d604",
+      "kind": "word",
+      "text": "すいようび",
+      "file": "assets/audio/words/w_4c61acba86c4d604.mp3"
+    },
+    {
+      "id": "w_039c519fd62d3882",
+      "kind": "word",
+      "text": "しんぶん",
+      "file": "assets/audio/words/w_039c519fd62d3882.mp3"
+    },
+    {
+      "id": "w_65b969c52dc19ac2",
+      "kind": "word",
+      "text": "すこし",
+      "file": "assets/audio/words/w_65b969c52dc19ac2.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.464,
+  "dry_run": false
+}

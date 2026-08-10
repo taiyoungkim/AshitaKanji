@@ -1,0 +1,3199 @@
+{
+  "generated_at": "2026-08-09T16:38:17.610Z",
+  "purpose": "Usage-reference audit only; final app examples are original editorial sentences.",
+  "sources": [
+    {
+      "name": "Tatoeba",
+      "url": "https://tatoeba.org/en/terms_of_use",
+      "license_note": "Text sentences default to CC BY 2.0 FR and require attribution when reused."
+    },
+    {
+      "name": "WWWJDIC / EDRDG",
+      "url": "https://www.edrdg.org/wwwjdic/wwwjdicinf.html",
+      "license_note": "Used as a supplementary dictionary and corpus reference."
+    }
+  ],
+  "target_count": 53,
+  "exact_hit_count": 39,
+  "any_variant_hit_count": 51,
+  "items": [
+    {
+      "word_id": "w_5284226e672d96c5",
+      "level": "N5",
+      "surface": "にさつ",
+      "reading_kana": "にさつ",
+      "meaning_ko": "두 권(잡지)",
+      "queries": [
+        "にさつ"
+      ],
+      "searches": [
+        {
+          "query": "にさつ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%AB%E3%81%95%E3%81%A4",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%AB%E3%81%95%E3%81%A4&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 3604,
+          "candidates": [
+            {
+              "id": 10999749,
+              "text": "何様のつもり？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10999749"
+            },
+            {
+              "id": 10844830,
+              "text": "いったい何様のつもり？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10844830"
+            },
+            {
+              "id": 10129724,
+              "text": "週に３冊本を読むよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10129724"
+            },
+            {
+              "id": 2739614,
+              "text": "趣味は人間観察です。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2739614"
+            },
+            {
+              "id": 11897826,
+              "text": "本当に警察官なんですか？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11897826"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_b24621b76259caa8",
+      "level": "N5",
+      "surface": "さんさつ",
+      "reading_kana": "さんさつ",
+      "meaning_ko": "세 권(책)",
+      "queries": [
+        "さんさつ"
+      ],
+      "searches": [
+        {
+          "query": "さんさつ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%95%E3%82%93%E3%81%95%E3%81%A4",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%95%E3%82%93%E3%81%95%E3%81%A4&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 4206,
+          "candidates": [
+            {
+              "id": 10129724,
+              "text": "週に３冊本を読むよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10129724"
+            },
+            {
+              "id": 10129726,
+              "text": "一週間に３冊本を読みます。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10129726"
+            },
+            {
+              "id": 10129725,
+              "text": "一週間で３冊本を読みました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10129725"
+            },
+            {
+              "id": 10342191,
+              "text": "この３冊の本のうち、どれが一番オススメ？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10342191"
+            },
+            {
+              "id": 12154609,
+              "text": "この３冊の中で、どれを最初に読むのがいいと思う？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/12154609"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_716e7b794dbcaf51",
+      "level": "N5",
+      "surface": "木よう日",
+      "reading_kana": "もくようび",
+      "meaning_ko": "목요일",
+      "queries": [
+        "木よう日",
+        "木曜日"
+      ],
+      "searches": [
+        {
+          "query": "木よう日",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%9C%A8%E3%82%88%E3%81%86%E6%97%A5",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%9C%A8%E3%82%88%E3%81%86%E6%97%A5&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 19,
+          "candidates": [
+            {
+              "id": 10620365,
+              "text": "木曜日より金曜日に来ていただきたいのですが。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10620365"
+            },
+            {
+              "id": 13658271,
+              "text": "月曜日、火曜日、水曜日、木曜日、金曜日、土曜日、日曜日。",
+              "owner": "Seael",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13658271"
+            },
+            {
+              "id": 75901,
+              "text": "代々木公園で丸一日を過ごした。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75901"
+            },
+            {
+              "id": 1018170,
+              "text": "杖道は、「杖」と呼ぶ木製の棒、および木刀を用いる日本武道である。",
+              "owner": "yurusu",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1018170"
+            },
+            {
+              "id": 2670479,
+              "text": "今日は木曜日です。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2670479"
+            }
+          ]
+        },
+        {
+          "query": "木曜日",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%9C%A8%E6%9B%9C%E6%97%A5",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%9C%A8%E6%9B%9C%E6%97%A5&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 13,
+          "candidates": [
+            {
+              "id": 2670479,
+              "text": "今日は木曜日です。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2670479"
+            },
+            {
+              "id": 11885775,
+              "text": "明後日は、木曜日よ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11885775"
+            },
+            {
+              "id": 170804,
+              "text": "再来週の木曜日はどう？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/170804"
+            },
+            {
+              "id": 169944,
+              "text": "昨日は木曜日だった。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/169944"
+            },
+            {
+              "id": 11924439,
+              "text": "木曜日にプールに行ったんだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11924439"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_72e1cb4ba34fc820",
+      "level": "N5",
+      "surface": "べんきょうがしたい",
+      "reading_kana": "べんきょうがしたい",
+      "meaning_ko": "공부를 하고 싶다",
+      "queries": [
+        "べんきょうがしたい"
+      ],
+      "searches": [
+        {
+          "query": "べんきょうがしたい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%B9%E3%82%93%E3%81%8D%E3%82%87%E3%81%86%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%B9%E3%82%93%E3%81%8D%E3%82%87%E3%81%86%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 236,
+          "candidates": [
+            {
+              "id": 10001899,
+              "text": "ヘブライ語の勉強がしたいんです。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10001899"
+            },
+            {
+              "id": 7577263,
+              "text": "トムと私はフランス語の勉強がしたい。",
+              "owner": "Sawara",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/7577263"
+            },
+            {
+              "id": 7577193,
+              "text": "トムは本当にフランス語の勉強がしたい。",
+              "owner": "Sawara",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/7577193"
+            },
+            {
+              "id": 10169321,
+              "text": "私は英語の勉強をしない代わりに、フランス語の勉強がしたいと思っていた。",
+              "owner": "h_aibe",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10169321"
+            },
+            {
+              "id": 7562219,
+              "text": "勉強が足りず話にまったくついていけない。",
+              "owner": "Sonata",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/7562219"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_661368cc7fe5e352",
+      "level": "N5",
+      "surface": "ひまでした",
+      "reading_kana": "ひまでした",
+      "meaning_ko": "한가했습니다",
+      "queries": [
+        "ひまでした"
+      ],
+      "searches": [
+        {
+          "query": "ひまでした",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%B2%E3%81%BE%E3%81%A7%E3%81%97%E3%81%9F",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%B2%E3%81%BE%E3%81%A7%E3%81%97%E3%81%9F&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 811,
+          "candidates": [
+            {
+              "id": 2828937,
+              "text": "今日の避難訓練お疲れさまでした。",
+              "owner": "thayne",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2828937"
+            },
+            {
+              "id": 192415,
+              "text": "ルーシーと犬をひいたのは彼の車でした。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/192415"
+            },
+            {
+              "id": 1227387,
+              "text": "標識は見ませんでした。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1227387"
+            },
+            {
+              "id": 230509,
+              "text": "あの日見えたのは満月でした。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/230509"
+            },
+            {
+              "id": 10574437,
+              "text": "トムは投票に行きませんでした。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10574437"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_de109ade477aaf3c",
+      "level": "N5",
+      "surface": "にぎやかです",
+      "reading_kana": "にぎやかです",
+      "meaning_ko": "떠들썩합니다",
+      "queries": [
+        "にぎやかです"
+      ],
+      "searches": [
+        {
+          "query": "にぎやかです",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%AB%E3%81%8E%E3%82%84%E3%81%8B%E3%81%A7%E3%81%99",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%AB%E3%81%8E%E3%82%84%E3%81%8B%E3%81%A7%E3%81%99&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 73,
+          "candidates": [
+            {
+              "id": 10901912,
+              "text": "隣の教室はとてもにぎやかです。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10901912"
+            },
+            {
+              "id": 10901899,
+              "text": "ここはとてもにぎやかな所です。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10901899"
+            },
+            {
+              "id": 10901922,
+              "text": "ここは大きくてにぎやかな町です。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10901922"
+            },
+            {
+              "id": 538118,
+              "text": "病院における感染制御策を実践する上で、消毒薬の有効活用は重要な課題です。",
+              "owner": "xtofu80",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/538118"
+            },
+            {
+              "id": 10070844,
+              "text": "この新製品は、独自に開発した技術で他社製品よりも安い価格で販売することを可能にしました。",
+              "owner": "h_aibe",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10070844"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_1dc2a01d84d091eb",
+      "level": "N5",
+      "surface": "しんぶんをよむ",
+      "reading_kana": "しんぶんをよむ",
+      "meaning_ko": "신문을 읽다",
+      "queries": [
+        "しんぶんをよむ"
+      ],
+      "searches": [
+        {
+          "query": "しんぶんをよむ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%97%E3%82%93%E3%81%B6%E3%82%93%E3%82%92%E3%82%88%E3%82%80",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%97%E3%82%93%E3%81%B6%E3%82%93%E3%82%92%E3%82%88%E3%82%80&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 70,
+          "candidates": [
+            {
+              "id": 99829,
+              "text": "彼は毎朝、新聞を読む。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/99829"
+            },
+            {
+              "id": 10883887,
+              "text": "新聞を読むのは嫌いです。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10883887"
+            },
+            {
+              "id": 103747,
+              "text": "彼は新聞を読むのが好きだ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/103747"
+            },
+            {
+              "id": 10456279,
+              "text": "彼は毎日欠かさず新聞を読む。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10456279"
+            },
+            {
+              "id": 99824,
+              "text": "彼は毎朝かかさず新聞を読む。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/99824"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_a1a38e164f0a3264",
+      "level": "N5",
+      "surface": "はちじゅうえん",
+      "reading_kana": "はちじゅうえん",
+      "meaning_ko": "80엔",
+      "queries": [
+        "はちじゅうえん"
+      ],
+      "searches": [
+        {
+          "query": "はちじゅうえん",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%AF%E3%81%A1%E3%81%98%E3%82%85%E3%81%86%E3%81%88%E3%82%93",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%AF%E3%81%A1%E3%81%98%E3%82%85%E3%81%86%E3%81%88%E3%82%93&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 237,
+          "candidates": [
+            {
+              "id": 2901187,
+              "text": "80円切手を1枚下さい。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2901187"
+            },
+            {
+              "id": 2922467,
+              "text": "80円切手があったらなぁ。",
+              "owner": "odango_daisuki",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2922467"
+            },
+            {
+              "id": 202997,
+              "text": "チケットは1枚20円です。",
+              "owner": "tommy__san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/202997"
+            },
+            {
+              "id": 191021,
+              "text": "為替相場は１ドル１４５円だ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/191021"
+            },
+            {
+              "id": 223344,
+              "text": "このバスは一区間９０円です。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/223344"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_c1395761ef105cb2",
+      "level": "N4",
+      "surface": "やせましたね",
+      "reading_kana": "やせましたね",
+      "meaning_ko": "살이 빠졌네요",
+      "queries": [
+        "やせましたね"
+      ],
+      "searches": [
+        {
+          "query": "やせましたね",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%82%84%E3%81%9B%E3%81%BE%E3%81%97%E3%81%9F%E3%81%AD",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%82%84%E3%81%9B%E3%81%BE%E3%81%97%E3%81%9F%E3%81%AD&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 64,
+          "candidates": [
+            {
+              "id": 995202,
+              "text": "明日からお隣で屋根の工事をさせていただくんでご挨拶に伺いました。ほこりが出たりしてご迷惑掛かるかも知れませんがよろしくお願いします。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/995202"
+            },
+            {
+              "id": 461940,
+              "text": "背中合わせに立って腕を組んで、一方が前屈する事でもう一方の背筋を伸ばす体操を、子供の頃よくやりましたよね。",
+              "owner": "qahwa",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/461940"
+            },
+            {
+              "id": 10079807,
+              "text": "その役場は１８９５年から１８９７年にかけて建てられました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10079807"
+            },
+            {
+              "id": 9614765,
+              "text": "日本は敗戦後ソ連と平和条約を締結し損ねました。",
+              "owner": "Sim5634",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9614765"
+            },
+            {
+              "id": 145526,
+              "text": "心配や寝不足で彼女は最近１０ポンド近くも痩せてしまった。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/145526"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_7d52aa26e8ea1bff",
+      "level": "N4",
+      "surface": "あやまりました",
+      "reading_kana": "あやまりました",
+      "meaning_ko": "사과했습니다",
+      "queries": [
+        "あやまりました"
+      ],
+      "searches": [
+        {
+          "query": "あやまりました",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%82%E3%82%84%E3%81%BE%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%82%E3%82%84%E3%81%BE%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 382,
+          "candidates": [
+            {
+              "id": 11960412,
+              "text": "お互いに謝りました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11960412"
+            },
+            {
+              "id": 10313864,
+              "text": "トムは後で謝りました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10313864"
+            },
+            {
+              "id": 2349370,
+              "text": "私は謝りませんでした。",
+              "owner": "hutian",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2349370"
+            },
+            {
+              "id": 2976615,
+              "text": "昨日のこと、謝りに来ました。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2976615"
+            },
+            {
+              "id": 198260,
+              "text": "はじめのうちは自分の誤りが気になりました。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/198260"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_d6f29ee958d55c51",
+      "level": "N3",
+      "surface": "前と同じで",
+      "reading_kana": "まえとおなじで",
+      "meaning_ko": "예전과 같이",
+      "queries": [
+        "前と同じで"
+      ],
+      "searches": [
+        {
+          "query": "前と同じで",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%89%8D%E3%81%A8%E5%90%8C%E3%81%98%E3%81%A7",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%89%8D%E3%81%A8%E5%90%8C%E3%81%98%E3%81%A7&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 7,
+          "candidates": [
+            {
+              "id": 11444344,
+              "text": "今も3年前と同じ体重です。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11444344"
+            },
+            {
+              "id": 11584168,
+              "text": "トムは以前、私と同じ棟の同じ階に住んでました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11584168"
+            },
+            {
+              "id": 3052160,
+              "text": "一糸もまとわぬ素裸の娘が、いきなり小沢の眼の前に飛び出して来たのである。 雨に濡れているので、裸の白さが一層なまなましい。 小沢ははっと眼をそらした。同時に、娘も急に身をすくめて、しゃがもうとした。 が、再び視線があった時、もう娘は、 「助けて下さい！」 　とすがりついて来た。 昭和二十一年五月一日の、夜更けの出来事である。",
+              "owner": "WestofEden",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3052160"
+            },
+            {
+              "id": 11027815,
+              "text": "有名人と名前が同じで苦労する。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11027815"
+            },
+            {
+              "id": 1136382,
+              "text": "大会で優勝したからって天狗になるな。お前と同じくらいに上手いやつなんて、世の中にはごろごろいるんだぞ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1136382"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_a71c1720e2b5e259",
+      "level": "N3",
+      "surface": "後の別の日にやる",
+      "reading_kana": "あとのべつのひにやる",
+      "meaning_ko": "나중에 다른 날에 하다",
+      "queries": [
+        "後の別の日にやる",
+        "別の日に"
+      ],
+      "searches": [
+        {
+          "query": "後の別の日にやる",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%BE%8C%E3%81%AE%E5%88%A5%E3%81%AE%E6%97%A5%E3%81%AB%E3%82%84%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%BE%8C%E3%81%AE%E5%88%A5%E3%81%AE%E6%97%A5%E3%81%AB%E3%82%84%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "別の日に",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%88%A5%E3%81%AE%E6%97%A5%E3%81%AB",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%88%A5%E3%81%AE%E6%97%A5%E3%81%AB&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 20,
+          "candidates": [
+            {
+              "id": 12836608,
+              "text": "また別の日にやれるさ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/12836608"
+            },
+            {
+              "id": 4292455,
+              "text": "かなり雨が激しかったので、私たちは別の日に彼を訪ねることにした。",
+              "owner": "User67230",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/4292455"
+            },
+            {
+              "id": 1039880,
+              "text": "子供たちは歌った。「雨よ、雨よ、遠くに行ってしまえ。また別の日に来なさい」",
+              "owner": "thyc244",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1039880"
+            },
+            {
+              "id": 11853804,
+              "text": "父の日に、お父さんに何か特別なことしたりする？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11853804"
+            },
+            {
+              "id": 2850252,
+              "text": "明日君は登別に行くのかい。",
+              "owner": "e4zh1nmcz",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2850252"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_de989302383b6361",
+      "level": "N3",
+      "surface": "本当ではないと思う",
+      "reading_kana": "ほんとうではないとおもう",
+      "meaning_ko": "사실이 아니라고 생각하다",
+      "queries": [
+        "本当ではないと思う"
+      ],
+      "searches": [
+        {
+          "query": "本当ではないと思う",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%9C%AC%E5%BD%93%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%81%A8%E6%80%9D%E3%81%86",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%9C%AC%E5%BD%93%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%81%A8%E6%80%9D%E3%81%86&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 5,
+          "candidates": [
+            {
+              "id": 117631,
+              "text": "彼の言うことは本当ではないと思う。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/117631"
+            },
+            {
+              "id": 1471086,
+              "text": "人は、誰にも思い出されなくなった時初めて、本当に死ぬのである。",
+              "owner": "may",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1471086"
+            },
+            {
+              "id": 2866717,
+              "text": "「英語圏の人は英語産業で不当に儲けてると思わない？ 僕は日本人なんだから、日本人だけで作った教材を使いたい」「でもさ、ネイティブチェックされてないと本当にいい英語かどうか分かんないじゃん」「いい英語って何だよ。ネイティブの使う英語がいい英語？ ネイティブってそんなに偉いのかよ？」",
+              "owner": "tommy__san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2866717"
+            },
+            {
+              "id": 3128116,
+              "text": "最初は静かすぎてどうなるかと思ったけど、今ではこのクラスで本当によかったって思う。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3128116"
+            },
+            {
+              "id": 1771070,
+              "text": "なんであんな女を好きになるんだ？本当に訳がわからなかった。無表情というか無感動というか、とても隆の好みとは思えない。そうしてやつらが付き合い始めて１週間が経った頃、隆に誘われて３人で会うことになった。驚いた。香は見違えるほど生き生きとしていて、ちょっとしたことにも笑顔を見せる。誰だって恋してしまういい女だった。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1771070"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_18c8394a587d12b2",
+      "level": "N3",
+      "surface": "残念だと思う",
+      "reading_kana": "ざんねんだとおもう",
+      "meaning_ko": "유감스럽다고생각하다",
+      "queries": [
+        "残念だと思う"
+      ],
+      "searches": [
+        {
+          "query": "残念だと思う",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%AE%8B%E5%BF%B5%E3%81%A0%E3%81%A8%E6%80%9D%E3%81%86",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%AE%8B%E5%BF%B5%E3%81%A0%E3%81%A8%E6%80%9D%E3%81%86&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 3,
+          "candidates": [
+            {
+              "id": 81524,
+              "text": "本当に残念だと思う。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/81524"
+            },
+            {
+              "id": 10621710,
+              "text": "個人的に、変更が遅くなると残念だと思うけど、やっと良い方向に少しずつ向かいそうで嬉しいな！",
+              "owner": "DJ_Saidez",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10621710"
+            },
+            {
+              "id": 398162,
+              "text": "日本の論者にはこういう謙遜な態度が少ないのが残念だと思います。",
+              "owner": "blay_paul",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/398162"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_4b8b74ca3e33a730",
+      "level": "N3",
+      "surface": "娘の息子",
+      "reading_kana": "むすめのむすこ",
+      "meaning_ko": "딸의 아들",
+      "queries": [
+        "娘の息子"
+      ],
+      "searches": [
+        {
+          "query": "娘の息子",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A8%98%E3%81%AE%E6%81%AF%E5%AD%90",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A8%98%E3%81%AE%E6%81%AF%E5%AD%90&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 164544,
+              "text": "私には二人の息子と二人の娘がいます。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/164544"
+            },
+            {
+              "id": 94173,
+              "text": "彼女の息子たちも、娘と同様に、大学に行っている。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/94173"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_5d1903868c9f2e19",
+      "level": "N3",
+      "surface": "多すぎて残る",
+      "reading_kana": "おおすぎてのこる",
+      "meaning_ko": "너무 많아서 남다",
+      "queries": [
+        "多すぎて残る",
+        "多すぎる"
+      ],
+      "searches": [
+        {
+          "query": "多すぎて残る",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A4%9A%E3%81%99%E3%81%8E%E3%81%A6%E6%AE%8B%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A4%9A%E3%81%99%E3%81%8E%E3%81%A6%E6%AE%8B%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "多すぎる",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A4%9A%E3%81%99%E3%81%8E%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A4%9A%E3%81%99%E3%81%8E%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 47,
+          "candidates": [
+            {
+              "id": 8716633,
+              "text": "多すぎる？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8716633"
+            },
+            {
+              "id": 8722375,
+              "text": "あれは多すぎる？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8722375"
+            },
+            {
+              "id": 13523725,
+              "text": "YouTube 上の CM が多すぎる。",
+              "owner": "LeviHighway",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13523725"
+            },
+            {
+              "id": 12132544,
+              "text": "やることが多すぎる。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/12132544"
+            },
+            {
+              "id": 9399227,
+              "text": "授業数が多すぎるよ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9399227"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_053241823c023c93",
+      "level": "N3",
+      "surface": "急いだようすで",
+      "reading_kana": "いそいだようすで",
+      "meaning_ko": "서두르는 모습으로",
+      "queries": [
+        "急いだようすで"
+      ],
+      "searches": [
+        {
+          "query": "急いだようすで",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%80%A5%E3%81%84%E3%81%A0%E3%82%88%E3%81%86%E3%81%99%E3%81%A7",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%80%A5%E3%81%84%E3%81%A0%E3%82%88%E3%81%86%E3%81%99%E3%81%A7&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 8,
+          "candidates": [
+            {
+              "id": 182605,
+              "text": "急いだ方がいいですよ。列車は３時にでます。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/182605"
+            },
+            {
+              "id": 8974607,
+              "text": "大丈夫ですよ。もうすぐ救急車がここに来ますからね。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8974607"
+            },
+            {
+              "id": 9855811,
+              "text": "緊急を要する処置が必要な場合、誰に連絡すればいいですか？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9855811"
+            },
+            {
+              "id": 235807,
+              "text": "１月２０日（月曜日）の午前中に最終の議事事項を出しますので、早急にお返事を下さい。",
+              "owner": "e4zh1nmcz",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/235807"
+            },
+            {
+              "id": 8622265,
+              "text": "中国でのコロナウイルスのアウトブレイクに対する不安により、全世界の経済を支えるサプライチェーンに長期的な損害を生み出す可能性が見込まれ、全世界の株価は月曜日に急落した。",
+              "owner": "mochico",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8622265"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_123b00c50a0e4b79",
+      "level": "N3",
+      "surface": "横断禁止です",
+      "reading_kana": "おうだんきんしです",
+      "meaning_ko": "횡단금지입니다",
+      "queries": [
+        "横断禁止です",
+        "横断禁止"
+      ],
+      "searches": [
+        {
+          "query": "横断禁止です",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%A8%AA%E6%96%AD%E7%A6%81%E6%AD%A2%E3%81%A7%E3%81%99",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%A8%AA%E6%96%AD%E7%A6%81%E6%AD%A2%E3%81%A7%E3%81%99&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "横断禁止",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%A8%AA%E6%96%AD%E7%A6%81%E6%AD%A2",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%A8%AA%E6%96%AD%E7%A6%81%E6%AD%A2&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        }
+      ]
+    },
+    {
+      "word_id": "w_9a24bef9d9066779",
+      "level": "N3",
+      "surface": "だれにも話さない",
+      "reading_kana": "だれにもはなさない",
+      "meaning_ko": "누구에게도 이야기하지 않는다",
+      "queries": [
+        "だれにも話さない"
+      ],
+      "searches": [
+        {
+          "query": "だれにも話さない",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A0%E3%82%8C%E3%81%AB%E3%82%82%E8%A9%B1%E3%81%95%E3%81%AA%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A0%E3%82%8C%E3%81%AB%E3%82%82%E8%A9%B1%E3%81%95%E3%81%AA%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 30,
+          "candidates": [
+            {
+              "id": 3754940,
+              "text": "誰にも話さないよ。",
+              "owner": "e4zh1nmcz",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3754940"
+            },
+            {
+              "id": 2040872,
+              "text": "誰にも話さないで。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2040872"
+            },
+            {
+              "id": 11678566,
+              "text": "誰にも話さないって約束する？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11678566"
+            },
+            {
+              "id": 7897648,
+              "text": "君が何をしたか僕は誰にも話さないだろう。",
+              "owner": "Ninja",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/7897648"
+            },
+            {
+              "id": 10645501,
+              "text": "今の話、口が裂けても誰にも言わないから安心して。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10645501"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_34cbcd4491dcafdb",
+      "level": "N3",
+      "surface": "ないしょにする",
+      "reading_kana": "ないしょにする",
+      "meaning_ko": "비밀로 하다",
+      "queries": [
+        "ないしょにする",
+        "内緒にする"
+      ],
+      "searches": [
+        {
+          "query": "ないしょにする",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%AA%E3%81%84%E3%81%97%E3%82%87%E3%81%AB%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%AA%E3%81%84%E3%81%97%E3%82%87%E3%81%AB%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 924,
+          "candidates": [
+            {
+              "id": 10629500,
+              "text": "そんな奴と一緒にするな！",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10629500"
+            },
+            {
+              "id": 11054056,
+              "text": "私はただの女じゃないのよ。そんじょそこらの女と一緒にするのはやめてくれる？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11054056"
+            },
+            {
+              "id": 2104762,
+              "text": "あなたと一緒に食事をするのは楽しい。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2104762"
+            },
+            {
+              "id": 2136033,
+              "text": "あなたと一緒に過ごす残りの人生を想像してみているのです。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2136033"
+            },
+            {
+              "id": 220651,
+              "text": "この単語の意味が分からないな。辞書で調べることにするか。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/220651"
+            }
+          ]
+        },
+        {
+          "query": "内緒にする",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%86%85%E7%B7%92%E3%81%AB%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%86%85%E7%B7%92%E3%81%AB%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 13060680,
+              "text": "次のイベントには友達と一緒に参加する予定で、どんな内容になるか楽しみです。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13060680"
+            },
+            {
+              "id": 103528,
+              "text": "彼は人前では何も言わなかったが、結婚するつもりだと、内緒で私に言っていた。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/103528"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_4948be9f9aed94b0",
+      "level": "N2",
+      "surface": "何々",
+      "reading_kana": "なになに",
+      "meaning_ko": "그런, 이러한 그런, 이러한, 무엇",
+      "queries": [
+        "何々"
+      ],
+      "searches": [
+        {
+          "query": "何々",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%BD%95%E3%80%85",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%BD%95%E3%80%85&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 36,
+          "candidates": [
+            {
+              "id": 187815,
+              "text": "何て図々しい奴だ！",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/187815"
+            },
+            {
+              "id": 187360,
+              "text": "何千もの人々がそこにいた。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/187360"
+            },
+            {
+              "id": 120588,
+              "text": "彼が何をしようと我々は気にしない。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/120588"
+            },
+            {
+              "id": 187308,
+              "text": "何百人もの人々がこの工場で働いている。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/187308"
+            },
+            {
+              "id": 76305,
+              "text": "何か飄々とはぐらかされてる気がするわ。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/76305"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_061c9a2227408a77",
+      "level": "N2",
+      "surface": "かたかな",
+      "reading_kana": "かたかな",
+      "meaning_ko": "가타카나",
+      "queries": [
+        "かたかな",
+        "カタカナ"
+      ],
+      "searches": [
+        {
+          "query": "かたかな",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%8B%E3%81%9F%E3%81%8B%E3%81%AA",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%8B%E3%81%9F%E3%81%8B%E3%81%AA&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 20921,
+          "candidates": [
+            {
+              "id": 10989476,
+              "text": "平仮名は書けるんだけど、片仮名はまだ書けないんだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10989476"
+            },
+            {
+              "id": 9540486,
+              "text": "トムはそれ理解したかな？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9540486"
+            },
+            {
+              "id": 1321634,
+              "text": "眠くて仕方がなかった。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1321634"
+            },
+            {
+              "id": 107979,
+              "text": "彼は経験豊かな教師だ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/107979"
+            },
+            {
+              "id": 92814,
+              "text": "彼女はしたたかな女だ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/92814"
+            }
+          ]
+        },
+        {
+          "query": "カタカナ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 15,
+          "candidates": [
+            {
+              "id": 11015511,
+              "text": "聞きなれないカタカナでごまかさないでくれ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11015511"
+            },
+            {
+              "id": 11021441,
+              "text": "日本語にはカタカナの言葉がたくさんあります。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11021441"
+            },
+            {
+              "id": 11015545,
+              "text": "聞きなれないカタカナ語でごまかさないでくれ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11015545"
+            },
+            {
+              "id": 10985102,
+              "text": "ひらがなは書けますが、カタカナはまだ書けません。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10985102"
+            },
+            {
+              "id": 2970688,
+              "text": "太郎のフランス語はバリバリのカタカナ発音だった。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2970688"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_7e60069f3d1c6fe5",
+      "level": "N2",
+      "surface": "塵紙",
+      "reading_kana": "ちりがみ",
+      "meaning_ko": "휴지, 화장지",
+      "queries": [
+        "塵紙",
+        "ちり紙",
+        "ちりがみ"
+      ],
+      "searches": [
+        {
+          "query": "塵紙",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A1%B5%E7%B4%99",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A1%B5%E7%B4%99&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "ちり紙",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A1%E3%82%8A%E7%B4%99",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A1%E3%82%8A%E7%B4%99&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 17,
+          "candidates": [
+            {
+              "id": 157228,
+              "text": "私は古新聞をちり紙と交換した。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/157228"
+            },
+            {
+              "id": 10593275,
+              "text": "ドアに「関係者以外の立ち入りを禁じる」という貼り紙がしてあるにもかかわらず、トムは勝手に中に入って行った。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10593275"
+            },
+            {
+              "id": 1191503,
+              "text": "彼女はまた近いうちに便りを出す旨を手紙に付け加えた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1191503"
+            },
+            {
+              "id": 1120568,
+              "text": "外国での生活がどんなに忙しくても、彼は少なくとも週一回、必ず母国の両親に手紙を書いた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1120568"
+            },
+            {
+              "id": 12003480,
+              "text": "折り紙に必要なものは、1枚の紙だけです。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/12003480"
+            }
+          ]
+        },
+        {
+          "query": "ちりがみ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A1%E3%82%8A%E3%81%8C%E3%81%BF",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A1%E3%82%8A%E3%81%8C%E3%81%BF&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 583,
+          "candidates": [
+            {
+              "id": 11211845,
+              "text": "集中すると周りが見えない。",
+              "owner": "ITA",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11211845"
+            },
+            {
+              "id": 157228,
+              "text": "私は古新聞をちり紙と交換した。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/157228"
+            },
+            {
+              "id": 11047043,
+              "text": "向こうから街の灯りが見えてきた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11047043"
+            },
+            {
+              "id": 11013886,
+              "text": "調味料の配分が絶妙にうまくいった。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11013886"
+            },
+            {
+              "id": 222976,
+              "text": "このワイン口当たりが良くて飲みやすいわ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/222976"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_901d2f293b5d66be",
+      "level": "N2",
+      "surface": "組合せ",
+      "reading_kana": "くみあわせ",
+      "meaning_ko": "조합",
+      "queries": [
+        "組合せ",
+        "組み合わせ"
+      ],
+      "searches": [
+        {
+          "query": "組合せ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%B5%84%E5%90%88%E3%81%9B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%B5%84%E5%90%88%E3%81%9B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 13,
+          "candidates": [
+            {
+              "id": 140617,
+              "text": "組合に制裁を加えることは妥当ではない。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/140617"
+            },
+            {
+              "id": 140615,
+              "text": "組合は１０パーセントの賃上げを迫っている。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/140615"
+            },
+            {
+              "id": 13066194,
+              "text": "マンションの管理組合の清掃活動に参加した。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13066194"
+            },
+            {
+              "id": 11030776,
+              "text": "意外と面白い組み合わせかもね。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11030776"
+            },
+            {
+              "id": 11014051,
+              "text": "トーナメントの組み合わせを見たら、みんな無言になった。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11014051"
+            }
+          ]
+        },
+        {
+          "query": "組み合わせ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%B5%84%E3%81%BF%E5%90%88%E3%82%8F%E3%81%9B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 10,
+          "candidates": [
+            {
+              "id": 11030776,
+              "text": "意外と面白い組み合わせかもね。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11030776"
+            },
+            {
+              "id": 11014051,
+              "text": "トーナメントの組み合わせを見たら、みんな無言になった。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11014051"
+            },
+            {
+              "id": 5058855,
+              "text": "数を表す文字と演算子を組み合わせたものを式と呼びます。",
+              "owner": "MisterTrouser",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/5058855"
+            },
+            {
+              "id": 75579,
+              "text": "はい、今度はこれね！これとこれの組み合わせなんて超いけてるかも！",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75579"
+            },
+            {
+              "id": 4865457,
+              "text": "創造力とは、既に知られている要素を、意外な方法で組み合わせる能力である。",
+              "owner": "guijiu",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/4865457"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_6aeb9c1f5df61e28",
+      "level": "N2",
+      "surface": "ウェイトレス",
+      "reading_kana": "ウェイトレス",
+      "meaning_ko": "웨이트리스",
+      "queries": [
+        "ウェイトレス"
+      ],
+      "searches": [
+        {
+          "query": "ウェイトレス",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%88%E3%83%AC%E3%82%B9",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%88%E3%83%AC%E3%82%B9&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 12,
+          "candidates": [
+            {
+              "id": 228307,
+              "text": "ウェイトレスはジュースを私の前に置いた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/228307"
+            },
+            {
+              "id": 1616390,
+              "text": "ウェイトレスはジュースのグラスを私の前に置いた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1616390"
+            },
+            {
+              "id": 10159595,
+              "text": "彼女、近くのレストランでウェイトレスとして働いてるよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10159595"
+            },
+            {
+              "id": 236553,
+              "text": "「スーはあなたのことすごく怒っているわよ」そのウェイトレスは言うのであった。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/236553"
+            },
+            {
+              "id": 124994,
+              "text": "店の人は私のことを知るようになり、私はいつも同じウェイトレスに応対してもらっていた。",
+              "owner": "ITA",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/124994"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_d2505f7e95557e03",
+      "level": "N2",
+      "surface": "打合せ",
+      "reading_kana": "うちあわせ",
+      "meaning_ko": "사전 협의, 미팅",
+      "queries": [
+        "打合せ",
+        "打ち合わせ"
+      ],
+      "searches": [
+        {
+          "query": "打合せ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%89%93%E5%90%88%E3%81%9B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%89%93%E5%90%88%E3%81%9B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 8,
+          "candidates": [
+            {
+              "id": 6554946,
+              "text": "打ち合わせはいつ始まりますか？",
+              "owner": "wakatyann630",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/6554946"
+            },
+            {
+              "id": 138027,
+              "text": "打ち合わせは来週に延期になった。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/138027"
+            },
+            {
+              "id": 10636944,
+              "text": "明日はここで打ち合わせの予定です。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10636944"
+            },
+            {
+              "id": 8845069,
+              "text": "打ち合わせはね、多分中止になるよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8845069"
+            },
+            {
+              "id": 13479126,
+              "text": "来週の火曜日に会議室Aで打ち合わせをしましょう。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13479126"
+            }
+          ]
+        },
+        {
+          "query": "打ち合わせ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 7,
+          "candidates": [
+            {
+              "id": 6554946,
+              "text": "打ち合わせはいつ始まりますか？",
+              "owner": "wakatyann630",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/6554946"
+            },
+            {
+              "id": 138027,
+              "text": "打ち合わせは来週に延期になった。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/138027"
+            },
+            {
+              "id": 10636944,
+              "text": "明日はここで打ち合わせの予定です。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10636944"
+            },
+            {
+              "id": 8845069,
+              "text": "打ち合わせはね、多分中止になるよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8845069"
+            },
+            {
+              "id": 13479126,
+              "text": "来週の火曜日に会議室Aで打ち合わせをしましょう。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13479126"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_a66198a344df39a0",
+      "level": "N2",
+      "surface": "引算",
+      "reading_kana": "ひきざん",
+      "meaning_ko": "뺄셈",
+      "queries": [
+        "引算",
+        "引き算"
+      ],
+      "searches": [
+        {
+          "query": "引算",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%BC%95%E7%AE%97",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%BC%95%E7%AE%97&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 4,
+          "candidates": [
+            {
+              "id": 10932449,
+              "text": "うちの子、引き算が苦手なのよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10932449"
+            },
+            {
+              "id": 155301,
+              "text": "足し算は好きだけど引き算は嫌いだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/155301"
+            },
+            {
+              "id": 168446,
+              "text": "子供達は、足し算と引き算を習っている。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/168446"
+            },
+            {
+              "id": 11056157,
+              "text": "足し算引き算は出来なくても、絵は描ける。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11056157"
+            }
+          ]
+        },
+        {
+          "query": "引き算",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%BC%95%E3%81%8D%E7%AE%97",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%BC%95%E3%81%8D%E7%AE%97&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 4,
+          "candidates": [
+            {
+              "id": 10932449,
+              "text": "うちの子、引き算が苦手なのよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10932449"
+            },
+            {
+              "id": 155301,
+              "text": "足し算は好きだけど引き算は嫌いだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/155301"
+            },
+            {
+              "id": 168446,
+              "text": "子供達は、足し算と引き算を習っている。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/168446"
+            },
+            {
+              "id": 11056157,
+              "text": "足し算引き算は出来なくても、絵は描ける。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11056157"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_2a580f196c7e6bfc",
+      "level": "N2",
+      "surface": "和英",
+      "reading_kana": "わえい",
+      "meaning_ko": "일영, 일본어-영어",
+      "queries": [
+        "和英"
+      ],
+      "searches": [
+        {
+          "query": "和英",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%92%8C%E8%8B%B1",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%92%8C%E8%8B%B1&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 4,
+          "candidates": [
+            {
+              "id": 1170579,
+              "text": "何言っても和製英語は日本語だ。",
+              "owner": "cntrational",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1170579"
+            },
+            {
+              "id": 77213,
+              "text": "和室が好きな英国人もいると言われます。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/77213"
+            },
+            {
+              "id": 81575,
+              "text": "本棚に英和辞典がありますか。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/81575"
+            },
+            {
+              "id": 75168,
+              "text": "TOEICの学習に限らず、英語を学ぶのであれば英和辞典は必携の書の一つでしょう。",
+              "owner": "fcbond",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75168"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_7dbaaf931093de54",
+      "level": "N2",
+      "surface": "銘々",
+      "reading_kana": "めいめい",
+      "meaning_ko": "각자, 각각",
+      "queries": [
+        "銘々",
+        "めいめい"
+      ],
+      "searches": [
+        {
+          "query": "銘々",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E9%8A%98%E3%80%85",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E9%8A%98%E3%80%85&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "めいめい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%82%81%E3%81%84%E3%82%81%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%82%81%E3%81%84%E3%82%81%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 9017,
+          "candidates": [
+            {
+              "id": 80233,
+              "text": "明々白々だ。",
+              "owner": "shanghainese",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/80233"
+            },
+            {
+              "id": 194682,
+              "text": "めいめいに３枚ずつ配ります。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/194682"
+            },
+            {
+              "id": 194681,
+              "text": "めいめいに自分の好みがある。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/194681"
+            },
+            {
+              "id": 235295,
+              "text": "３人の少年たちはめいめい賞を得た。",
+              "owner": "e4zh1nmcz",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/235295"
+            },
+            {
+              "id": 97620,
+              "text": "彼らはめいめい自転車を持っている。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/97620"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_4867b4450104d27c",
+      "level": "N2",
+      "surface": "形容動詞",
+      "reading_kana": "けいようどうし",
+      "meaning_ko": "형용동사",
+      "queries": [
+        "形容動詞"
+      ],
+      "searches": [
+        {
+          "query": "形容動詞",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%BD%A2%E5%AE%B9%E5%8B%95%E8%A9%9E",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%BD%A2%E5%AE%B9%E5%8B%95%E8%A9%9E&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 76332,
+              "text": "英語には８つの主な品詞があります：　名詞、動詞、形容詞、副詞、代名詞、前置詞、接続詞そして感嘆詞。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/76332"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_e4c9461baa503259",
+      "level": "N2",
+      "surface": "目覚し",
+      "reading_kana": "めざまし",
+      "meaning_ko": "자명종, 알람",
+      "queries": [
+        "目覚し",
+        "目覚まし",
+        "目覚まし時計"
+      ],
+      "searches": [
+        {
+          "query": "目覚し",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%9B%AE%E8%A6%9A%E3%81%97",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%9B%AE%E8%A6%9A%E3%81%97&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 112,
+          "candidates": [
+            {
+              "id": 79917,
+              "text": "目覚しは５時３０分に鳴った。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/79917"
+            },
+            {
+              "id": 179784,
+              "text": "近年科学は目覚しく進歩した。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/179784"
+            },
+            {
+              "id": 84340,
+              "text": "父は目覚しを６時にあわせた。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/84340"
+            },
+            {
+              "id": 2946674,
+              "text": "彼は寝る前に目覚し時計をあわせた。",
+              "owner": "busic",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2946674"
+            },
+            {
+              "id": 79916,
+              "text": "目覚し時計が鳴らなかったので寝過ごしてしまった。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/79916"
+            }
+          ]
+        },
+        {
+          "query": "目覚まし",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%9B%AE%E8%A6%9A%E3%81%BE%E3%81%97",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%9B%AE%E8%A6%9A%E3%81%BE%E3%81%97&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 87,
+          "candidates": [
+            {
+              "id": 12934034,
+              "text": "目覚ましはセットした？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/12934034"
+            },
+            {
+              "id": 79908,
+              "text": "目覚ましを止めなさい。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/79908"
+            },
+            {
+              "id": 10272040,
+              "text": "目覚まし時計って、あります？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10272040"
+            },
+            {
+              "id": 11065713,
+              "text": "目覚ましセットするの忘れた。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11065713"
+            },
+            {
+              "id": 11831410,
+              "text": "目覚ましが鳴らなかったんだよ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11831410"
+            }
+          ]
+        },
+        {
+          "query": "目覚まし時計",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%9B%AE%E8%A6%9A%E3%81%BE%E3%81%97%E6%99%82%E8%A8%88",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%9B%AE%E8%A6%9A%E3%81%BE%E3%81%97%E6%99%82%E8%A8%88&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 11,
+          "candidates": [
+            {
+              "id": 10272040,
+              "text": "目覚まし時計って、あります？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10272040"
+            },
+            {
+              "id": 8881944,
+              "text": "自分の部屋に目覚まし時計ってある？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8881944"
+            },
+            {
+              "id": 162521,
+              "text": "私の目覚まし時計は今朝鳴らなかった。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/162521"
+            },
+            {
+              "id": 79906,
+              "text": "目覚まし時計のなる時間を合わせなさい。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/79906"
+            },
+            {
+              "id": 3927440,
+              "text": "私の目覚まし時計の音、うるさすぎるんだよね。",
+              "owner": "Ariel131",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3927440"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_c04ce01d6f5db784",
+      "level": "N2",
+      "surface": "ダイヤグラム",
+      "reading_kana": "ダイヤグラム",
+      "meaning_ko": "도표, 다이어그램",
+      "queries": [
+        "ダイヤグラム",
+        "ダイアグラム"
+      ],
+      "searches": [
+        {
+          "query": "ダイヤグラム",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%83%80%E3%82%A4%E3%83%A4%E3%82%B0%E3%83%A9%E3%83%A0",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%83%80%E3%82%A4%E3%83%A4%E3%82%B0%E3%83%A9%E3%83%A0&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "ダイアグラム",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%83%80%E3%82%A4%E3%82%A2%E3%82%B0%E3%83%A9%E3%83%A0",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%83%80%E3%82%A4%E3%82%A2%E3%82%B0%E3%83%A9%E3%83%A0&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        }
+      ]
+    },
+    {
+      "word_id": "w_8421448456160faa",
+      "level": "N1",
+      "surface": "今までになく新しい",
+      "reading_kana": "いままでになくあたらしい",
+      "meaning_ko": "지금까지 없이 새로운",
+      "queries": [
+        "今までになく新しい"
+      ],
+      "searches": [
+        {
+          "query": "今までになく新しい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%BB%8A%E3%81%BE%E3%81%A7%E3%81%AB%E3%81%AA%E3%81%8F%E6%96%B0%E3%81%97%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%BB%8A%E3%81%BE%E3%81%A7%E3%81%AB%E3%81%AA%E3%81%8F%E6%96%B0%E3%81%97%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 5,
+          "candidates": [
+            {
+              "id": 455212,
+              "text": "今年の３月頃に「小学校の新しい教育課程では、円周率を『３』として教えるのだそうだ」という話が広まった。",
+              "owner": "xtofu80",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/455212"
+            },
+            {
+              "id": 192857,
+              "text": "ヨーロッパには今ではこの病気の新たな症例は全くないと報道されている。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/192857"
+            },
+            {
+              "id": 3081098,
+              "text": "自動ドアは今までよりもよりスマートな方法で制御されるかもしれない。新しく改良されたコントロールシステムでは、ドアは人がドアに向かって真っ直ぐ進んで来た時にのみ開きます。もし、人がドアの前でただ立っているだけであったり、ドアに沿って歩いているだけの場合はドアは閉まり続けています。",
+              "owner": "fouafouadougou",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3081098"
+            },
+            {
+              "id": 10566767,
+              "text": "中古の車を買おうと思ってたけど、今はそれなりに稼いでるから、奮発して新車を買うことにしたんだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10566767"
+            },
+            {
+              "id": 347866,
+              "text": "この国から遠く離れたところで今夜を見つめているみなさん。外国の議会や宮殿で見ているみなさん、忘れ去られた世界の片隅でひとつのラジオの周りに身を寄せ合っているみなさん、私たちの物語はそれぞれ異なります。けれども私たちはみな、ひとつの運命を共有しているのです。アメリカのリーダーシップはもうすぐ、新たな夜明けを迎えます。",
+              "owner": "zhouj1955",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/347866"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_b81a9762ee45b4ca",
+      "level": "N1",
+      "surface": "不安なところ",
+      "reading_kana": "ふあんなところ",
+      "meaning_ko": "불안한 점",
+      "queries": [
+        "不安なところ"
+      ],
+      "searches": [
+        {
+          "query": "不安なところ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%B8%8D%E5%AE%89%E3%81%AA%E3%81%A8%E3%81%93%E3%82%8D",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%B8%8D%E5%AE%89%E3%81%AA%E3%81%A8%E3%81%93%E3%82%8D&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 13065805,
+              "text": "彼の優しい言葉が、私の不安な心を落ち着かせてくれた。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13065805"
+            },
+            {
+              "id": 437491,
+              "text": "長吉は人間というものは年を取ると、若い時分に経験した若いものしか知らない煩悶不安をばけろりと忘れてしまって、次の時代に生れて来る若いものの身の上を極めて無頓着に訓戒批評する事のできる便利な性質を持っているものだ、年を取ったものと若いものの間には到底一致されない懸隔のある事をつくづく感じた。",
+              "owner": "Scott",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/437491"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_09817d6743813802",
+      "level": "N1",
+      "surface": "他と比べて特によい",
+      "reading_kana": "ほかとくらべてとくによい",
+      "meaning_ko": "다른 것과 비교하여 특히 좋다",
+      "queries": [
+        "他と比べて特によい"
+      ],
+      "searches": [
+        {
+          "query": "他と比べて特によい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%BB%96%E3%81%A8%E6%AF%94%E3%81%B9%E3%81%A6%E7%89%B9%E3%81%AB%E3%82%88%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%BB%96%E3%81%A8%E6%AF%94%E3%81%B9%E3%81%A6%E7%89%B9%E3%81%AB%E3%82%88%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 2684884,
+              "text": "日本でのツイッター人気の理由の一つは日本語という言語の特性にある。表意文字を使う日本語は、中国語には敵わないものの、他の多くの言語に比べて140字に多くの内容を盛り込むことができる。ちなみにこの例文の日本語版はちょうど140字で書かれているのだが、他の言語では何字になるだろうか？",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2684884"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_680e978c049c2d7a",
+      "level": "N1",
+      "surface": "大体同じだ",
+      "reading_kana": "だいたいおなじだ",
+      "meaning_ko": "대체로 같다",
+      "queries": [
+        "大体同じだ"
+      ],
+      "searches": [
+        {
+          "query": "大体同じだ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A4%A7%E4%BD%93%E5%90%8C%E3%81%98%E3%81%A0",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A4%A7%E4%BD%93%E5%90%8C%E3%81%98%E3%81%A0&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 6,
+          "candidates": [
+            {
+              "id": 9358041,
+              "text": "これはあれと大体同じ大きさだよ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9358041"
+            },
+            {
+              "id": 403874,
+              "text": "彼らは大体同じ年齢です。",
+              "owner": "qahwa",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/403874"
+            },
+            {
+              "id": 13179724,
+              "text": "精神的な健康も身体と同じくらい大切だ。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13179724"
+            },
+            {
+              "id": 1035899,
+              "text": "彼女は大体あなたと同じくらいの身長です。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1035899"
+            },
+            {
+              "id": 76954,
+              "text": "４月に孵化した雛も５ヶ月になった。身体の大きさは親鳥とほぼ同じ、オス鳥のとさかが少し小さいぐらいか。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/76954"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_b74b3f90a0e2ef4d",
+      "level": "N1",
+      "surface": "怒ったような顔をする",
+      "reading_kana": "おこったようなかおをする",
+      "meaning_ko": "화가 난 듯한 얼굴을 하다",
+      "queries": [
+        "怒ったような顔をする",
+        "怒った顔"
+      ],
+      "searches": [
+        {
+          "query": "怒ったような顔をする",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%80%92%E3%81%A3%E3%81%9F%E3%82%88%E3%81%86%E3%81%AA%E9%A1%94%E3%82%92%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%80%92%E3%81%A3%E3%81%9F%E3%82%88%E3%81%86%E3%81%AA%E9%A1%94%E3%82%92%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "怒った顔",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%80%92%E3%81%A3%E3%81%9F%E9%A1%94",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%80%92%E3%81%A3%E3%81%9F%E9%A1%94&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 5,
+          "candidates": [
+            {
+              "id": 1202931,
+              "text": "グレイスは怒った顔をしていた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1202931"
+            },
+            {
+              "id": 225446,
+              "text": "グレイスは怒った顔つきをした。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/225446"
+            },
+            {
+              "id": 9547115,
+              "text": "怒ったハチに刺されて、顔が腫れてしまった。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9547115"
+            },
+            {
+              "id": 108695,
+              "text": "彼は顔を赤くして怒った。",
+              "owner": "Kalamunda",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/108695"
+            },
+            {
+              "id": 3244976,
+              "text": "彼の顔は怒りで赤くなった。",
+              "owner": "Kalamunda",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3244976"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_71ae1cd1bef418a4",
+      "level": "N1",
+      "surface": "ロスする",
+      "reading_kana": "ロスする",
+      "meaning_ko": "헛되이 쓰다",
+      "queries": [
+        "ロスする"
+      ],
+      "searches": [
+        {
+          "query": "ロスする",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%83%AD%E3%82%B9%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%83%AD%E3%82%B9%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 56,
+          "candidates": [
+            {
+              "id": 10905982,
+              "text": "サンタクロースは実在する。",
+              "owner": "SomeHungryBois",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10905982"
+            },
+            {
+              "id": 199330,
+              "text": "ナイロンストッキングはすぐ伝線する。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/199330"
+            },
+            {
+              "id": 8622238,
+              "text": "中国衛生当局は、コロナウイルス拡大を阻止するための措置をとっている。",
+              "owner": "mochico",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8622238"
+            },
+            {
+              "id": 4291986,
+              "text": "ほら，コムロだかヒムロだか忘れたけど変なダンスをする女性歌手が昔いたじゃない？",
+              "owner": "admiral",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/4291986"
+            },
+            {
+              "id": 8622198,
+              "text": "新型コロナウイルスが発生した当初、当局はそれに対する有益な情報をほとんど明かさなかった。",
+              "owner": "mochico",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8622198"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_9d5a34da95f2f027",
+      "level": "N1",
+      "surface": "詳しく丁寧に",
+      "reading_kana": "くわしくていねいに",
+      "meaning_ko": "자세하고 꼼꼼하게",
+      "queries": [
+        "詳しく丁寧に"
+      ],
+      "searches": [
+        {
+          "query": "詳しく丁寧に",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%A9%B3%E3%81%97%E3%81%8F%E4%B8%81%E5%AF%A7%E3%81%AB",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%A9%B3%E3%81%97%E3%81%8F%E4%B8%81%E5%AF%A7%E3%81%AB&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 10610334,
+              "text": "詳しく丁寧な説明をありがとうございます。では、残念ですがアドプトは、見送ることにします。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10610334"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_73cded3df40c0ac2",
+      "level": "N1",
+      "surface": "一度に大勢来る",
+      "reading_kana": "いちどにおおぜいくる",
+      "meaning_ko": "한꺼번에 많이 몰려들다",
+      "queries": [
+        "一度に大勢来る",
+        "大勢来る",
+        "殺到する"
+      ],
+      "searches": [
+        {
+          "query": "一度に大勢来る",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%B8%80%E5%BA%A6%E3%81%AB%E5%A4%A7%E5%8B%A2%E6%9D%A5%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%B8%80%E5%BA%A6%E3%81%AB%E5%A4%A7%E5%8B%A2%E6%9D%A5%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "大勢来る",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%A4%A7%E5%8B%A2%E6%9D%A5%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%A4%A7%E5%8B%A2%E6%9D%A5%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 9089161,
+              "text": "毎年、大勢の観光客がこの島にやって来る。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9089161"
+            },
+            {
+              "id": 4897843,
+              "text": "毎年決まって大勢の外国人が日本にやって来る。",
+              "owner": "huizi99",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/4897843"
+            }
+          ]
+        },
+        {
+          "query": "殺到する",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%AE%BA%E5%88%B0%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%AE%BA%E5%88%B0%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 10913709,
+              "text": "レジにお客さんが殺到してるみたい。ちょっと、助っ人に行ってきて。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10913709"
+            },
+            {
+              "id": 236354,
+              "text": "「君の仕事についてはお客さんから不満が殺到している。すぐに辞めてもらおう」「ふん、くそったれめ。こんな所はじめから勤めたくなかったんだ」",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/236354"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_96879858cc1acc3a",
+      "level": "N1",
+      "surface": "便利で役に立つ",
+      "reading_kana": "べんりでやくにたつ",
+      "meaning_ko": "편리해서 쓸모가 있다",
+      "queries": [
+        "便利で役に立つ",
+        "役に立つ"
+      ],
+      "searches": [
+        {
+          "query": "便利で役に立つ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%BE%BF%E5%88%A9%E3%81%A7%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%BE%BF%E5%88%A9%E3%81%A7%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "役に立つ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 74,
+          "candidates": [
+            {
+              "id": 8579887,
+              "text": "役に立つはずだ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8579887"
+            },
+            {
+              "id": 11989000,
+              "text": "役に立つと思うよ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11989000"
+            },
+            {
+              "id": 2349359,
+              "text": "役に立つでしょう。",
+              "owner": "hutian",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2349359"
+            },
+            {
+              "id": 467323,
+              "text": "鉄は役に立つ金属だ。",
+              "owner": "Namikaze",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/467323"
+            },
+            {
+              "id": 205898,
+              "text": "それが何の役に立つんだ？",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/205898"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_6fe42c797390a279",
+      "level": "N1",
+      "surface": "意外につまらない",
+      "reading_kana": "いがいにつまらない",
+      "meaning_ko": "의외로 시시하다",
+      "queries": [
+        "意外につまらない",
+        "つまらない"
+      ],
+      "searches": [
+        {
+          "query": "意外につまらない",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%84%8F%E5%A4%96%E3%81%AB%E3%81%A4%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%84%8F%E5%A4%96%E3%81%AB%E3%81%A4%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "つまらない",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A4%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A4%E3%81%BE%E3%82%89%E3%81%AA%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1189,
+          "candidates": [
+            {
+              "id": 8689056,
+              "text": "つまらないの？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8689056"
+            },
+            {
+              "id": 9488923,
+              "text": "僕はつまらない奴さ。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9488923"
+            },
+            {
+              "id": 10917235,
+              "text": "明日もう一度集まらない？",
+              "owner": "SomeHungryBois",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10917235"
+            },
+            {
+              "id": 3462148,
+              "text": "つまらない章は飛ばせ。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3462148"
+            },
+            {
+              "id": 2210270,
+              "text": "この小説はつまらない。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2210270"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_56a1039c8162e796",
+      "level": "N1",
+      "surface": "細かく丁寧に",
+      "reading_kana": "こまかくていねいに",
+      "meaning_ko": "섬세하고 정성껏",
+      "queries": [
+        "細かく丁寧に",
+        "丁寧に"
+      ],
+      "searches": [
+        {
+          "query": "細かく丁寧に",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%B4%B0%E3%81%8B%E3%81%8F%E4%B8%81%E5%AF%A7%E3%81%AB",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%B4%B0%E3%81%8B%E3%81%8F%E4%B8%81%E5%AF%A7%E3%81%AB&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "丁寧に",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E4%B8%81%E5%AF%A7%E3%81%AB",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E4%B8%81%E5%AF%A7%E3%81%AB&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 40,
+          "candidates": [
+            {
+              "id": 155071,
+              "text": "丁寧におじぎをしました。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/155071"
+            },
+            {
+              "id": 8603600,
+              "text": "トムは丁寧にお辞儀をした。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/8603600"
+            },
+            {
+              "id": 89463,
+              "text": "彼女は私に丁寧に頭を下げた。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/89463"
+            },
+            {
+              "id": 11027806,
+              "text": "安い食材ほど丁寧に味つけする。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11027806"
+            },
+            {
+              "id": 5704283,
+              "text": "彼は丁寧に求人の依頼を断った。",
+              "owner": "saturo",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/5704283"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_5dfbd4797c0ee663",
+      "level": "N1",
+      "surface": "熱心に取り組む",
+      "reading_kana": "ねっしんにとりくむ",
+      "meaning_ko": "열심히 몰두하다",
+      "queries": [
+        "熱心に取り組む",
+        "取り組む"
+      ],
+      "searches": [
+        {
+          "query": "熱心に取り組む",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%86%B1%E5%BF%83%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%86%B1%E5%BF%83%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "取り組む",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 12,
+          "candidates": [
+            {
+              "id": 13146569,
+              "text": "毎日一定の時間、数学の問題演習に取り組む。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13146569"
+            },
+            {
+              "id": 13066063,
+              "text": "企業は、CSR活動を通じて社会貢献に取り組むべきだ。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13066063"
+            },
+            {
+              "id": 186504,
+              "text": "過去ではなく、未来に向けて取り組むのが当社の方針です。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/186504"
+            },
+            {
+              "id": 74599,
+              "text": "世界が一丸となって気候変動の問題に取り組む必要がある。",
+              "owner": "fcbond",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/74599"
+            },
+            {
+              "id": 13492074,
+              "text": "時間を区切って集中して取り組むと、効率は大きく向上する。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13492074"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_83e779f20086d7c7",
+      "level": "N1",
+      "surface": "簡素だ",
+      "reading_kana": "かんそだ",
+      "meaning_ko": "간소하다",
+      "queries": [
+        "簡素だ"
+      ],
+      "searches": [
+        {
+          "query": "簡素だ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%B0%A1%E7%B4%A0%E3%81%A0",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%B0%A1%E7%B4%A0%E3%81%A0&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 13147018,
+              "text": "この定規は柔らかい素材でできていて、簡単に曲げられるのが特徴だ。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13147018"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_3884d5cbe10b1a2d",
+      "level": "N1",
+      "surface": "曇っていて暗い",
+      "reading_kana": "くもっていてくらい",
+      "meaning_ko": "흐리고 어둡다",
+      "queries": [
+        "曇っていて暗い",
+        "曇っている"
+      ],
+      "searches": [
+        {
+          "query": "曇っていて暗い",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%9B%87%E3%81%A3%E3%81%A6%E3%81%84%E3%81%A6%E6%9A%97%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%9B%87%E3%81%A3%E3%81%A6%E3%81%84%E3%81%A6%E6%9A%97%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "曇っている",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%9B%87%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%9B%87%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 6,
+          "candidates": [
+            {
+              "id": 171528,
+              "text": "今日は曇っている。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/171528"
+            },
+            {
+              "id": 1483659,
+              "text": "今日は昨日より深く曇っている。",
+              "owner": "marshmallowcat",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1483659"
+            },
+            {
+              "id": 910532,
+              "text": "十畳と八畳の二間をぶち抜いた座敷の真ん中に、三つの大きい燭台の灯が気のせいかぼんやりと曇って、庭先の八つ手の葉にさらさらと舞い落ちる雪の音が静かにきこえた。",
+              "owner": "Scott",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/910532"
+            },
+            {
+              "id": 13492206,
+              "text": "夕暮れの駅のホームには、オレンジ色の光が斜めに差し込んでいた。 古い喫茶店の窓ガラスは曇っていて、中の様子がぼんやりとしか見えない。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13492206"
+            },
+            {
+              "id": 10720410,
+              "text": "曇ってきたぞ。もうすぐ雨が降るかもしれないな。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/10720410"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_2a2702f1f74ccfdc",
+      "level": "N1",
+      "surface": "手足まとい",
+      "reading_kana": "てあしまとい",
+      "meaning_ko": "방해, 훼방, 걸림돌",
+      "queries": [
+        "手足まとい",
+        "足手まとい",
+        "足手纏い"
+      ],
+      "searches": [
+        {
+          "query": "手足まとい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E6%89%8B%E8%B6%B3%E3%81%BE%E3%81%A8%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E6%89%8B%E8%B6%B3%E3%81%BE%E3%81%A8%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 11,
+          "candidates": [
+            {
+              "id": 74686,
+              "text": "手伝いたいけど、多分足手まといになるよね。",
+              "owner": "fcbond",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/74686"
+            },
+            {
+              "id": 9524792,
+              "text": "足手まといになりたくないの。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9524792"
+            },
+            {
+              "id": 896626,
+              "text": "私がチームの一員だと、足手まといになるのではありませんか？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/896626"
+            },
+            {
+              "id": 9711764,
+              "text": "今、私たちには人手が足りないのよ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9711764"
+            },
+            {
+              "id": 76744,
+              "text": "この校閲力の弱さは人手が足らないとしか考えられませんね。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/76744"
+            }
+          ]
+        },
+        {
+          "query": "足手まとい",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%B6%B3%E6%89%8B%E3%81%BE%E3%81%A8%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%B6%B3%E6%89%8B%E3%81%BE%E3%81%A8%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 11,
+          "candidates": [
+            {
+              "id": 9524792,
+              "text": "足手まといになりたくないの。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9524792"
+            },
+            {
+              "id": 74686,
+              "text": "手伝いたいけど、多分足手まといになるよね。",
+              "owner": "fcbond",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/74686"
+            },
+            {
+              "id": 896626,
+              "text": "私がチームの一員だと、足手まといになるのではありませんか？",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/896626"
+            },
+            {
+              "id": 185844,
+              "text": "我々は今人手不足だ。",
+              "owner": "KK_kaku_",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/185844"
+            },
+            {
+              "id": 9711764,
+              "text": "今、私たちには人手が足りないのよ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9711764"
+            }
+          ]
+        },
+        {
+          "query": "足手纏い",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%B6%B3%E6%89%8B%E7%BA%8F%E3%81%84",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%B6%B3%E6%89%8B%E7%BA%8F%E3%81%84&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        }
+      ]
+    },
+    {
+      "word_id": "w_4cc19e15e367d9bf",
+      "level": "N1",
+      "surface": "つかの間の",
+      "reading_kana": "つかのまの",
+      "meaning_ko": "짧은, 잠깐 동안의",
+      "queries": [
+        "つかの間の"
+      ],
+      "searches": [
+        {
+          "query": "つかの間の",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A4%E3%81%8B%E3%81%AE%E9%96%93%E3%81%AE",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A4%E3%81%8B%E3%81%AE%E9%96%93%E3%81%AE&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 588,
+          "candidates": [
+            {
+              "id": 2904798,
+              "text": "この文にはいくつかの間違いがあります。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/2904798"
+            },
+            {
+              "id": 9768490,
+              "text": "気持ちを落ち着かせるのに時間がかかった。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/9768490"
+            },
+            {
+              "id": 3044988,
+              "text": "この政策の是非については専門家の間でも意見が分かれている。",
+              "owner": "tommy_san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/3044988"
+            },
+            {
+              "id": 11029927,
+              "text": "夏から連敗しまくっていつの間にか最下位。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11029927"
+            },
+            {
+              "id": 11054277,
+              "text": "このツールを使えば多くの手間から解放される。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11054277"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_912da0fe9257c8dc",
+      "level": "N1",
+      "surface": "どんよりした天気だ",
+      "reading_kana": "どんよりしたてんきだ",
+      "meaning_ko": "우중충한 날씨다",
+      "queries": [
+        "どんよりした天気だ"
+      ],
+      "searches": [
+        {
+          "query": "どんよりした天気だ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%A9%E3%82%93%E3%82%88%E3%82%8A%E3%81%97%E3%81%9F%E5%A4%A9%E6%B0%97%E3%81%A0",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%A9%E3%82%93%E3%82%88%E3%82%8A%E3%81%97%E3%81%9F%E5%A4%A9%E6%B0%97%E3%81%A0&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 2,
+          "candidates": [
+            {
+              "id": 13059120,
+              "text": "天気予報では晴れると言っていたのに、突然雨が降り出して驚いた。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13059120"
+            },
+            {
+              "id": 5761757,
+              "text": "日本人は季節や天候の変化を大変気にするが、これは日本人が米作りを非常に大事なことと考え、どうやって効率よく米を生産するかが、日本人の生活の仕方や考え方に強い影響を与えてきたことと関係があると言われている。",
+              "owner": "yippe",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/5761757"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_70d376775b49e19c",
+      "level": "N1",
+      "surface": "裏づけ",
+      "reading_kana": "うらづけ",
+      "meaning_ko": "뒷받침, 증거",
+      "queries": [
+        "裏づけ",
+        "裏付け"
+      ],
+      "searches": [
+        {
+          "query": "裏づけ",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%A3%8F%E3%81%A5%E3%81%91",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%A3%8F%E3%81%A5%E3%81%91&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 11044521,
+              "text": "売上が右肩上がりで好調を裏づけた。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/11044521"
+            }
+          ]
+        },
+        {
+          "query": "裏付け",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%A3%8F%E4%BB%98%E3%81%91",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%A3%8F%E4%BB%98%E3%81%91&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        }
+      ]
+    },
+    {
+      "word_id": "w_9c28ebc71a102542",
+      "level": "N1",
+      "surface": "非常に素晴らしいとほめる",
+      "reading_kana": "ひじょうにすばらしいとほめる",
+      "meaning_ko": "매우 훌륭하다고 칭찬하다",
+      "queries": [
+        "非常に素晴らしいとほめる",
+        "絶賛する",
+        "ほめる"
+      ],
+      "searches": [
+        {
+          "query": "非常に素晴らしいとほめる",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E9%9D%9E%E5%B8%B8%E3%81%AB%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%84%E3%81%A8%E3%81%BB%E3%82%81%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E9%9D%9E%E5%B8%B8%E3%81%AB%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%84%E3%81%A8%E3%81%BB%E3%82%81%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "絶賛する",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E7%B5%B6%E8%B3%9B%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E7%B5%B6%E8%B3%9B%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 0,
+          "candidates": []
+        },
+        {
+          "query": "ほめる",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%BB%E3%82%81%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%BB%E3%82%81%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 522,
+          "candidates": [
+            {
+              "id": 114470,
+              "text": "彼はいつも彼女を誉める。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/114470"
+            },
+            {
+              "id": 13146614,
+              "text": "相手の長所を見つけて褒める。",
+              "owner": "Gardenia",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/13146614"
+            },
+            {
+              "id": 91521,
+              "text": "彼女はほめる言葉に困る程だ。",
+              "owner": "bunbuku",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/91521"
+            },
+            {
+              "id": 168473,
+              "text": "子供を誉めることは大事なことだ。",
+              "owner": "tommy__san",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/168473"
+            },
+            {
+              "id": 195974,
+              "text": "ほめることが学習者にやる気を起こさせる。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/195974"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_628691a446bfd8e5",
+      "level": "N1",
+      "surface": "じゃまする",
+      "reading_kana": "じゃまする",
+      "meaning_ko": "방해하다, 훼방 놓다",
+      "queries": [
+        "じゃまする",
+        "邪魔する"
+      ],
+      "searches": [
+        {
+          "query": "じゃまする",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E3%81%98%E3%82%83%E3%81%BE%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E3%81%98%E3%82%83%E3%81%BE%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 255,
+          "candidates": [
+            {
+              "id": 181956,
+              "text": "君を邪魔するくらいなら私は数独をやってるよ。",
+              "owner": "sugisaki",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/181956"
+            },
+            {
+              "id": 75625,
+              "text": "だってお隣さんだし。ちょくちょくお邪魔するから。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75625"
+            },
+            {
+              "id": 75875,
+              "text": "仲間と決別してから、他のプレイヤーを邪魔するようになった・・。",
+              "owner": "kamojun",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75875"
+            },
+            {
+              "id": 163414,
+              "text": "私の邪魔をするな。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/163414"
+            },
+            {
+              "id": 94335,
+              "text": "彼女の邪魔をするな。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/94335"
+            }
+          ]
+        },
+        {
+          "query": "邪魔する",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E9%82%AA%E9%AD%94%E3%81%99%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E9%82%AA%E9%AD%94%E3%81%99%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 13,
+          "candidates": [
+            {
+              "id": 181956,
+              "text": "君を邪魔するくらいなら私は数独をやってるよ。",
+              "owner": "sugisaki",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/181956"
+            },
+            {
+              "id": 75625,
+              "text": "だってお隣さんだし。ちょくちょくお邪魔するから。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75625"
+            },
+            {
+              "id": 75875,
+              "text": "仲間と決別してから、他のプレイヤーを邪魔するようになった・・。",
+              "owner": "kamojun",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/75875"
+            },
+            {
+              "id": 163414,
+              "text": "私の邪魔をするな。",
+              "owner": "arnab",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/163414"
+            },
+            {
+              "id": 94335,
+              "text": "彼女の邪魔をするな。",
+              "owner": "small_snow",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/94335"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "word_id": "w_548067bd0dc1e719",
+      "level": "N1",
+      "surface": "返事をしぶっている",
+      "reading_kana": "へんじをしぶっている",
+      "meaning_ko": "대답하기를 꺼리다, 주저하다",
+      "queries": [
+        "返事をしぶっている"
+      ],
+      "searches": [
+        {
+          "query": "返事をしぶっている",
+          "search_url": "https://tatoeba.org/en/sentences/search?from=jpn&query=%E8%BF%94%E4%BA%8B%E3%82%92%E3%81%97%E3%81%B6%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B",
+          "api_url": "https://api.tatoeba.org/v1/sentences?lang=jpn&q=%E8%BF%94%E4%BA%8B%E3%82%92%E3%81%97%E3%81%B6%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B&sort=relevance&is_orphan=no&is_unapproved=no&limit=5",
+          "total": 1,
+          "candidates": [
+            {
+              "id": 1179619,
+              "text": "古い友人にメールを送った。ずっとご無沙汰していて、２年ほど前に一度接触したがまたすぐ連絡しないようになった。返事はまだ来ない。少しドキドキする。",
+              "owner": "mookeee",
+              "license": "CC BY 2.0 FR",
+              "sentence_url": "https://tatoeba.org/en/sentences/show/1179619"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

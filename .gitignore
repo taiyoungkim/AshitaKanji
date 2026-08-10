@@ -91,6 +91,7 @@ dist-review-ios/
 assets/audio/
 assets/audio.bak/
 src/lib/audio/audioMap.gen.ts
+src/lib/audio/audioMap.gen.android.ts
 
 # Track A vocab work backups (timestamped snapshots)
 data/track-a/*.bak-*
