@@ -4,7 +4,7 @@
 // 리콜(회상) → 공개 → 2단계 자가평가. 닫기·진행바·남은 개수는 상단 헤더가 담당한다.
 
 import { useEffect, useRef } from 'react';
-import { useRouter } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 import { ActivityIndicator, Alert, StyleSheet, Text, View } from 'react-native';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 import { layout, spacing, typography, type ThemeColors } from '~/design/tokens';
@@ -17,6 +17,7 @@ import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStor
 import { StudyActions } from './components/StudyActions';
 import { StudyCard } from './components/StudyCard';
 import { StudyHeader } from './components/StudyHeader';
+import { subscribeToStudyRouteRemoval } from './studySessionLifecycle';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
 // 디바이스 실제 inset(상태바/노치·홈 인디케이터)을 직접 사용한다.
@@ -35,16 +36,16 @@ export default function StudyScreen(): React.ReactNode {
   const showReveal = useSessionStore((s) => s.showReveal);
   const submitGrade = useSessionStore((s) => s.submitGrade);
   const endSession = useSessionStore((s) => s.endSession);
-  const abandon = useSessionStore((s) => s.abandon);
   const settingsHydrated = useSettingsStore((s) => s._hydrated);
   const tts = useTTS();
   const router = useRouter();
+  const navigation = useNavigation();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const navigatedToDone = useRef(false);
 
   // 설정 복원(persist) 후 세션 시작 — stale 기본값으로 시작 방지.
-  // 이미 진행 중이면 유지. 언마운트 시 미완 세션은 abandoned 로 기록 후 정리.
+  // 이미 진행 중이면 유지하고, 실제 라우트 이탈 시 미완 세션을 정리한다.
   useEffect(() => {
     if (settingsHydrated && !engine) {
       const config = settingsToSessionConfig(useSettingsStore.getState());
@@ -55,12 +56,14 @@ export default function StudyScreen(): React.ReactNode {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settingsHydrated]);
 
+  // 회전·구성 변경으로 화면 컴포넌트만 다시 만들어질 때는 진행 중 세션을 유지한다.
+  // 사용자가 뒤로 가거나 닫아서 라우트 자체가 제거될 때만 미완 세션을 종료한다.
   useEffect(() => {
-    return () => {
-      void abandon();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return subscribeToStudyRouteRemoval(
+      (listener) => navigation.addListener('beforeRemove', listener),
+      useSessionStore.getState,
+    );
+  }, [navigation]);
 
   // 오늘 큐 소진 → 세션 종료 + 요약 산정 → Done 화면(/done)으로 이동.
   // 단, 데이터 미탑재(dataEmpty)면 "끝!"이 아니라 빌드 안내를 보여야 하므로 종료 보류.
