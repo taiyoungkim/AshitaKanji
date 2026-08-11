@@ -1,16 +1,18 @@
 // Design Ref: Onikan handoff 화면 2 (`1b`) — 학습 카드.
 //
-// 앞→뒤 전환은 뒤집기가 아니라 **이어붙이기**다. 단어·발음이 자리를 지킨 채 아래로
-// 뜻·예문이 붙는다 — 방금 본 단어를 잃지 않게.
+// 앞→뒤 전환은 뒤집기가 아니다. 앞면에서는 단어·발음을 카드 중앙에 두고,
+// 공개하면 둘을 위로 이동시키면서 아래에 뜻·예문을 이어 붙인다.
 //
 // 확정 디자인 1b에 따라 앞면에서 표제어·읽기·TTS를 함께 보여준다.
 // 뜻과 예문만 공개 동작 뒤에 이어 붙인다.
 
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Animated, Easing, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
   cardShadow,
   font,
   layout,
+  motion,
   radius,
   spacing,
   typography,
@@ -19,7 +21,11 @@ import {
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconSpeaker } from '~/design/icons';
 import { renderKanjiFace } from '~/lib/cardType';
+import { useReducedMotion } from '~/hooks/useReducedMotion';
 import type { Word } from '~/types/Card';
+import { getCenteredPromptOffset } from '../studyCardMotion';
+
+const REVEALED_PROMPT_TOP = spacing.huge * 3;
 
 interface Props {
   word: Word;
@@ -40,6 +46,37 @@ export function StudyCard({
 }: Props): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const reducedMotion = useReducedMotion();
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const [promptHeight, setPromptHeight] = useState(0);
+  const revealProgress = useRef(new Animated.Value(revealed ? 1 : 0)).current;
+  const centeredOffset = getCenteredPromptOffset(
+    viewportHeight,
+    promptHeight,
+    REVEALED_PROMPT_TOP,
+  );
+
+  useEffect(() => {
+    revealProgress.stopAnimation();
+    if (!revealed) {
+      revealProgress.setValue(0);
+      return;
+    }
+    if (reducedMotion !== false) {
+      revealProgress.setValue(1);
+      return;
+    }
+
+    const animation = Animated.timing(revealProgress, {
+      toValue: 1,
+      duration: motion.riseInMs,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [reducedMotion, revealProgress, revealed]);
+
   return (
     <Pressable
       style={[styles.card, cardShadow(colors)]}
@@ -48,35 +85,71 @@ export function StudyCard({
       accessibilityLabel={revealed ? undefined : '탭해서 뜻 확인'}
     >
       <ScrollView
+        onLayout={(event) => setViewportHeight(event.nativeEvent.layout.height)}
         contentContainerStyle={styles.scrollBody}
         showsVerticalScrollIndicator={false}
         // 공개 전에는 스크롤이 카드 탭을 삼키지 않도록 잠근다.
         scrollEnabled={revealed}
       >
-        <Text style={styles.word}>{renderKanjiFace(word)}</Text>
+        <Animated.View
+          onLayout={(event) => setPromptHeight(event.nativeEvent.layout.height)}
+          style={[
+            styles.prompt,
+            {
+              transform: [
+                {
+                  translateY: revealProgress.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [centeredOffset, 0],
+                  }),
+                },
+              ],
+            },
+          ]}
+        >
+          <Text style={styles.word}>{renderKanjiFace(word)}</Text>
 
-        {!!word.reading_kana && (
-          <View style={styles.readingRow}>
-            <Text style={styles.reading}>{word.reading_kana}</Text>
-            {onSpeak && (
-              <Pressable
-                onPress={(event) => {
-                  event.stopPropagation();
-                  onSpeak();
-                }}
-                hitSlop={8}
-                style={styles.speakBtn}
-                accessibilityRole="button"
-                accessibilityLabel="발음 듣기"
-              >
-                <IconSpeaker size={20} color={colors.ink} />
-              </Pressable>
-            )}
-          </View>
-        )}
+          {!!word.reading_kana && (
+            <View style={styles.readingRow}>
+              <Text style={styles.reading}>{word.reading_kana}</Text>
+              {onSpeak && (
+                <Pressable
+                  onPress={(event) => {
+                    event.stopPropagation();
+                    onSpeak();
+                  }}
+                  hitSlop={8}
+                  style={styles.speakBtn}
+                  accessibilityRole="button"
+                  accessibilityLabel="발음 듣기"
+                >
+                  <IconSpeaker size={20} color={colors.ink} />
+                </Pressable>
+              )}
+            </View>
+          )}
+        </Animated.View>
 
         {revealed ? (
-          <View style={styles.revealBlock}>
+          <Animated.View
+            style={[
+              styles.revealBlock,
+              {
+                opacity: revealProgress.interpolate({
+                  inputRange: [0, 0.4, 1],
+                  outputRange: [0, 0, 1],
+                }),
+                transform: [
+                  {
+                    translateY: revealProgress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [16, 0],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          >
             <Text style={styles.meaning}>{word.meaning_ko}</Text>
 
             {word.example_jp && (
@@ -102,7 +175,7 @@ export function StudyCard({
                 <Text style={styles.detailLabel}>단어 상세 ›</Text>
               </Pressable>
             )}
-          </View>
+          </Animated.View>
         ) : (
           <View style={styles.hint}>
             <View style={styles.hintDot}>
@@ -131,10 +204,11 @@ const makeStyles = (c: ThemeColors) =>
       alignItems: 'center',
       // 긴 카드에서도 표제어가 상단에 붙지 않도록 시선 중심 쪽으로 내린다.
       // 공개 후에도 같은 위치를 유지하고, 긴 뜻·예문은 기존 ScrollView가 처리한다.
-      paddingTop: spacing.huge * 3,
+      paddingTop: REVEALED_PROMPT_TOP,
       paddingHorizontal: 24,
       paddingBottom: 24,
     },
+    prompt: { alignItems: 'center' },
     word: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
     readingRow: {
       flexDirection: 'row',
