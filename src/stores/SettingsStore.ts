@@ -37,6 +37,8 @@ interface SettingsState {
   dailyNewLimit: number; // 5-50.
   ttsEnabled: boolean;
   ttsSpeed: number; // 0.5-1.0.
+  /** 학습 카드에서 뜻을 처음 공개할 때 단어 음성을 자동 재생한다. */
+  autoPlayWordTtsOnReveal: boolean;
   /** 고강도(>30) 경고를 이미 확인했는지 — SessionConfig.highIntensityAcknowledged 로 전달. */
   highIntensityWarned: boolean;
   /** 첫 실행 튜토리얼(오니기리 가게 안내) 완료 여부 — 완료/스킵 시 true, 이후 미노출. */
@@ -53,6 +55,7 @@ interface SettingsState {
   setDailyNewLimit: (n: number) => void;
   setTtsEnabled: (on: boolean) => void;
   setTtsSpeed: (n: number) => void;
+  setAutoPlayWordTtsOnReveal: (on: boolean) => void;
   acknowledgeHighIntensity: () => void;
   completeTutorial: () => void;
   setCollectionView: (view: CollectionView) => void;
@@ -64,6 +67,7 @@ const DEFAULTS = {
   dailyNewLimit: 12,
   ttsEnabled: true,
   ttsSpeed: TTS_SPEED_DEFAULT,
+  autoPlayWordTtsOnReveal: true,
   highIntensityWarned: false,
   tutorialCompleted: false,
   collectionView: 'list' as CollectionView,
@@ -114,6 +118,10 @@ export const useSettingsStore = create<SettingsState>()(
         set({ ttsSpeed: clampTtsSpeed(n) });
       },
 
+      setAutoPlayWordTtsOnReveal(on) {
+        set({ autoPlayWordTtsOnReveal: on });
+      },
+
       acknowledgeHighIntensity() {
         set({ highIntensityWarned: true });
       },
@@ -139,6 +147,7 @@ export const useSettingsStore = create<SettingsState>()(
         dailyNewLimit: s.dailyNewLimit,
         ttsEnabled: s.ttsEnabled,
         ttsSpeed: s.ttsSpeed,
+        autoPlayWordTtsOnReveal: s.autoPlayWordTtsOnReveal,
         highIntensityWarned: s.highIntensityWarned,
         tutorialCompleted: s.tutorialCompleted,
         collectionView: s.collectionView,
@@ -151,6 +160,9 @@ export const useSettingsStore = create<SettingsState>()(
           if (state.selectedLevels.length === 0) state.selectedLevels = ['N5'];
           state.dailyNewLimit = clampDailyNew(state.dailyNewLimit);
           state.ttsSpeed = clampTtsSpeed(state.ttsSpeed);
+          if (typeof state.autoPlayWordTtsOnReveal !== 'boolean') {
+            state.autoPlayWordTtsOnReveal = true;
+          }
           if (!['system', 'light', 'dark'].includes(state.themePreference)) {
             state.themePreference = 'system';
           }

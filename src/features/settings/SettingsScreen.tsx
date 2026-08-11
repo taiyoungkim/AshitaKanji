@@ -46,12 +46,16 @@ export default function SettingsScreen(): React.ReactNode {
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const ttsEnabled = useSettingsStore((s) => s.ttsEnabled);
   const ttsSpeed = useSettingsStore((s) => s.ttsSpeed);
+  const autoPlayWordTtsOnReveal = useSettingsStore((s) => s.autoPlayWordTtsOnReveal);
   const highIntensityWarned = useSettingsStore((s) => s.highIntensityWarned);
   const themePreference = useSettingsStore((s) => s.themePreference);
   const toggleLevel = useSettingsStore((s) => s.toggleLevel);
   const setDailyNewLimit = useSettingsStore((s) => s.setDailyNewLimit);
   const setTtsEnabled = useSettingsStore((s) => s.setTtsEnabled);
   const setTtsSpeed = useSettingsStore((s) => s.setTtsSpeed);
+  const setAutoPlayWordTtsOnReveal = useSettingsStore(
+    (s) => s.setAutoPlayWordTtsOnReveal,
+  );
   const acknowledgeHighIntensity = useSettingsStore((s) => s.acknowledgeHighIntensity);
   const setThemePreference = useSettingsStore((s) => s.setThemePreference);
   const router = useRouter();
@@ -152,16 +156,29 @@ export default function SettingsScreen(): React.ReactNode {
             />
           </View>
           {ttsEnabled && (
-            <View style={styles.speedRow}>
-              <Text style={styles.switchLabel}>속도</Text>
-              <Stepper
-                value={`${ttsSpeed.toFixed(1)}x`}
-                onMinus={() => setTtsSpeed(ttsSpeed - SPEED_STEP)}
-                onPlus={() => setTtsSpeed(ttsSpeed + SPEED_STEP)}
-                minusDisabled={ttsSpeed <= TTS_SPEED_MIN + 1e-9}
-                plusDisabled={ttsSpeed >= TTS_SPEED_MAX - 1e-9}
-              />
-            </View>
+            <>
+              <View style={styles.ttsOptionRow}>
+                <Text style={styles.switchLabel}>뜻 확인 시 단어 자동 재생</Text>
+                <Switch
+                  accessibilityLabel="뜻 확인 시 단어 자동 재생"
+                  value={autoPlayWordTtsOnReveal}
+                  onValueChange={setAutoPlayWordTtsOnReveal}
+                  trackColor={{ false: c.pressed, true: c.ink }}
+                  thumbColor={c.canvas}
+                  ios_backgroundColor={c.pressed}
+                />
+              </View>
+              <View style={styles.speedRow}>
+                <Text style={styles.switchLabel}>속도</Text>
+                <Stepper
+                  value={`${ttsSpeed.toFixed(1)}x`}
+                  onMinus={() => setTtsSpeed(ttsSpeed - SPEED_STEP)}
+                  onPlus={() => setTtsSpeed(ttsSpeed + SPEED_STEP)}
+                  minusDisabled={ttsSpeed <= TTS_SPEED_MIN + 1e-9}
+                  plusDisabled={ttsSpeed >= TTS_SPEED_MAX - 1e-9}
+                />
+              </View>
+            </>
           )}
         </Section>
 
@@ -360,6 +377,13 @@ const makeStyles = (c: ThemeColors) =>
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: spacing.lg,
+  },
+  ttsOptionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.lg,
     marginTop: spacing.lg,
   },
   switchLabel: {

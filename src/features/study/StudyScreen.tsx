@@ -17,6 +17,7 @@ import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStor
 import { StudyActions } from './components/StudyActions';
 import { StudyCard } from './components/StudyCard';
 import { StudyHeader } from './components/StudyHeader';
+import { revealStudyCard } from './studyRevealAudio';
 import { subscribeToStudyRouteRemoval } from './studySessionLifecycle';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
@@ -33,7 +34,6 @@ export default function StudyScreen(): React.ReactNode {
   const summary = useSessionStore((s) => s.summary);
   const dataEmpty = useSessionStore((s) => s.dataEmpty);
   const startSession = useSessionStore((s) => s.startSession);
-  const showReveal = useSessionStore((s) => s.showReveal);
   const submitGrade = useSessionStore((s) => s.submitGrade);
   const endSession = useSessionStore((s) => s.endSession);
   const settingsHydrated = useSettingsStore((s) => s._hydrated);
@@ -91,6 +91,21 @@ export default function StudyScreen(): React.ReactNode {
     ]);
   };
 
+  const handleReveal = () => {
+    const session = useSessionStore.getState();
+    const word = session.card?.word;
+    if (!word) return;
+
+    const settings = useSettingsStore.getState();
+    revealStudyCard({
+      alreadyRevealed: session.reveal,
+      ttsEnabled: settings.ttsEnabled,
+      autoPlayWordTts: settings.autoPlayWordTtsOnReveal,
+      onReveal: session.showReveal,
+      onSpeakWord: () => tts.speakAudio('word', word.id, word.reading_kana),
+    });
+  };
+
   // 데이터 미탑재 — 빈 큐를 "오늘 끝"으로 오인하지 않게 명시 안내(P0).
   const notice = dataEmpty
     ? { overline: '데이터 없음', title: '학습 데이터 없음', body: '단어 DB가 아직 탑재되지 않았어요. (assets/jlpt.db 빌드 필요)' }
@@ -110,7 +125,7 @@ export default function StudyScreen(): React.ReactNode {
           <StudyCard
             word={card.word}
             revealed={reveal}
-            onReveal={showReveal}
+            onReveal={handleReveal}
             onSpeak={
               tts.enabled
                 ? () => tts.speakAudio('word', card.word.id, card.word.reading_kana)
@@ -125,7 +140,7 @@ export default function StudyScreen(): React.ReactNode {
           />
           <StudyActions
             revealed={reveal}
-            onReveal={showReveal}
+            onReveal={handleReveal}
             onGrade={(g) => void submitGrade(g)}
             disabled={busy}
           />
