@@ -9,6 +9,7 @@
 
 import { createContext, useContext, useMemo } from 'react';
 import { useColorScheme, type StyleSheet } from 'react-native';
+import { useSettingsStore } from '~/stores/SettingsStore';
 import { darkColors, lightColors, makeButtons, type ThemeColors } from './tokens';
 
 export type ThemeName = 'light' | 'dark';
@@ -35,7 +36,10 @@ const ThemeContext = createContext<Theme>(lightTheme);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }): React.ReactNode {
   const scheme = useColorScheme();
-  const theme = scheme === 'dark' ? darkTheme : lightTheme;
+  const preference = useSettingsStore((state) => state.themePreference);
+  const resolvedName: ThemeName =
+    preference === 'system' ? (scheme === 'dark' ? 'dark' : 'light') : preference;
+  const theme = resolvedName === 'dark' ? darkTheme : lightTheme;
   return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
 }
 

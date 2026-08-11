@@ -11,6 +11,7 @@ import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
 
 /** 도감 목록 ↔ 그리드. */
 export type CollectionView = 'list' | 'grid';
+export type ThemePreference = 'system' | 'light' | 'dark';
 
 // 일일 신규 한도 경계 (Plan SC).
 export const DAILY_NEW_MIN = 5;
@@ -42,6 +43,8 @@ interface SettingsState {
   tutorialCompleted: boolean;
   /** 도감 뷰 모드 — 되돌리기 쉬운 조작이라 상태를 저장하고 다음 진입 시 복원한다. */
   collectionView: CollectionView;
+  /** 시스템 테마를 따르거나 라이트/다크를 직접 고정한다. */
+  themePreference: ThemePreference;
   /** persist 복원 완료 여부 — UI가 stale 기본값으로 세션 시작하는 것 방지. */
   _hydrated: boolean;
 
@@ -53,6 +56,7 @@ interface SettingsState {
   acknowledgeHighIntensity: () => void;
   completeTutorial: () => void;
   setCollectionView: (view: CollectionView) => void;
+  setThemePreference: (preference: ThemePreference) => void;
 }
 
 const DEFAULTS = {
@@ -63,6 +67,7 @@ const DEFAULTS = {
   highIntensityWarned: false,
   tutorialCompleted: false,
   collectionView: 'list' as CollectionView,
+  themePreference: 'system' as ThemePreference,
 };
 
 // 레벨 배열을 JLPT 표준 순서(N5→N1)로 정렬·중복 제거.
@@ -120,6 +125,10 @@ export const useSettingsStore = create<SettingsState>()(
       setCollectionView(view) {
         set({ collectionView: view });
       },
+
+      setThemePreference(preference) {
+        set({ themePreference: preference });
+      },
     }),
     {
       name: 'ashitakanji.settings',
@@ -133,6 +142,7 @@ export const useSettingsStore = create<SettingsState>()(
         highIntensityWarned: s.highIntensityWarned,
         tutorialCompleted: s.tutorialCompleted,
         collectionView: s.collectionView,
+        themePreference: s.themePreference,
       }),
       onRehydrateStorage: () => (state) => {
         // 복원 직후 정규화 + hydrated 표시.
@@ -141,6 +151,9 @@ export const useSettingsStore = create<SettingsState>()(
           if (state.selectedLevels.length === 0) state.selectedLevels = ['N5'];
           state.dailyNewLimit = clampDailyNew(state.dailyNewLimit);
           state.ttsSpeed = clampTtsSpeed(state.ttsSpeed);
+          if (!['system', 'light', 'dark'].includes(state.themePreference)) {
+            state.themePreference = 'system';
+          }
         }
         useSettingsStore.setState({ _hydrated: true });
       },

@@ -46,6 +46,7 @@ import type {
 } from '~/features/onigiri/progress';
 import { remainingCaption } from '~/features/home/homePresentation';
 import { useSessionStore } from '~/stores/SessionStore';
+import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { buildDoneRewardPresentation } from './rewardPresentation';
 import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCapture';
 
@@ -85,6 +86,7 @@ export default function DoneScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   const toast = useToast();
   const { height: windowHeight } = useWindowDimensions();
+  const reducedMotion = useReducedMotion();
   const summary = useSessionStore((s) => s.summary);
   const resetSession = useSessionStore((s) => s.reset);
   const [progress, setProgress] = useState<OnigiriProgressSnapshot | null>(null);
@@ -92,11 +94,12 @@ export default function DoneScreen(): React.ReactNode {
   const [receiptOpen, setReceiptOpen] = useState(false);
   const receiptRef = useRef<View>(null);
 
-  const rise = useRef(new Animated.Value(0)).current;
-  const pop = useRef(new Animated.Value(0)).current;
-  const limeFade = useRef(new Animated.Value(0)).current;
-  const dim = useRef(new Animated.Value(0)).current;
-  const print = useRef(new Animated.Value(0)).current;
+  // 접근성 설정 확인 전에도 결과가 보이도록 최종 상태에서 시작한다.
+  const rise = useRef(new Animated.Value(1)).current;
+  const pop = useRef(new Animated.Value(1)).current;
+  const limeFade = useRef(new Animated.Value(1)).current;
+  const dim = useRef(new Animated.Value(1)).current;
+  const print = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     let alive = true;
@@ -142,10 +145,22 @@ export default function DoneScreen(): React.ReactNode {
   // 진입 연출 — 보상 카드가 떠오르고, 체크가 튀고, 방금 채워진 칸이 라임에서 잉크로 가라앉는다.
   useEffect(() => {
     if (!progress && !progressFailed) return;
+    if (reducedMotion === null) return;
+
+    rise.stopAnimation();
+    pop.stopAnimation();
+    limeFade.stopAnimation();
+    if (reducedMotion) {
+      rise.setValue(1);
+      pop.setValue(1);
+      limeFade.setValue(1);
+      return;
+    }
+
     rise.setValue(0);
     pop.setValue(0);
     limeFade.setValue(0);
-    Animated.parallel([
+    const animation = Animated.parallel([
       Animated.timing(rise, {
         toValue: 1,
         duration: motion.riseInMs,
@@ -167,8 +182,10 @@ export default function DoneScreen(): React.ReactNode {
         // 배경색 보간이라 네이티브 드라이버를 쓸 수 없다.
         useNativeDriver: false,
       }),
-    ]).start();
-  }, [progress, progressFailed, rise, pop, limeFade]);
+    ]);
+    animation.start();
+    return () => animation.stop();
+  }, [progress, progressFailed, reducedMotion, rise, pop, limeFade]);
 
   const receiptRows = useMemo<ReceiptRow[]>(
     () => [
@@ -188,6 +205,14 @@ export default function DoneScreen(): React.ReactNode {
 
   const openReceipt = () => {
     setReceiptOpen(true);
+    dim.stopAnimation();
+    print.stopAnimation();
+    if (reducedMotion !== false) {
+      dim.setValue(1);
+      print.setValue(1);
+      return;
+    }
+
     dim.setValue(0);
     print.setValue(0);
     Animated.parallel([

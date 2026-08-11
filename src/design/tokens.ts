@@ -41,9 +41,13 @@ export interface ThemeColors {
   shadow: string;
   /** 화면당 단 하나의 주요 액션. */
   primary: string;
+  /** primary 버튼의 누름 상태. */
+  primaryPressed: string;
   onPrimary: string;
   /** 활성 탭 틴트 (12px AA 대비 확보용 별도 톤). */
   tabActive: string;
+  /** ink 버튼의 누름 상태. */
+  inkPressed: string;
   /** 보상 순간 전용 lime. */
   secondary: string;
   onSecondary: string;
@@ -67,8 +71,10 @@ export const lightColors: ThemeColors = {
   plate: grey.g96,
   shadow: 'rgba(0,0,0,0.05)',
   primary: '#EA580C',
+  primaryPressed: '#C2410C',
   onPrimary: '#FFFFFF',
   tabActive: '#C2410C',
+  inkPressed: grey.g10,
   secondary: '#A3E635',
   onSecondary: grey.g15,
   link: '#C2410C',
@@ -90,8 +96,10 @@ export const darkColors: ThemeColors = {
   plate: grey.g96, // 다크에서도 고정 — 검정 선화 일러스트 보호
   shadow: 'rgba(0,0,0,0.4)',
   primary: '#F97316',
+  primaryPressed: '#FB923C',
   onPrimary: grey.g15,
   tabActive: '#EA580C',
+  inkPressed: '#FFFFFF',
   secondary: '#A3E635',
   onSecondary: grey.g15,
   link: '#F97316',

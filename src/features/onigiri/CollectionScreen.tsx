@@ -15,6 +15,7 @@ import {
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
@@ -33,6 +34,7 @@ import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { recipeImage } from '~/features/onigiri/recipeAssets';
+import { getCollectionGridCellWidth } from '~/features/onigiri/collectionGrid';
 import {
   computeOnigiriProgress,
   type OnigiriProgressEntry,
@@ -49,6 +51,7 @@ export default function CollectionScreen(): React.ReactNode {
   const router = useRouter();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const { width: viewportWidth } = useWindowDimensions();
   const view = useSettingsStore((s) => s.collectionView);
   const setView = useSettingsStore((s) => s.setCollectionView);
   const [snapshot, setSnapshot] = useState<OnigiriProgressSnapshot | null>(null);
@@ -81,6 +84,11 @@ export default function CollectionScreen(): React.ReactNode {
   const current = snapshot?.current ?? null;
   const allCollected = !!snapshot && completed === total;
   const isGrid = view === 'grid';
+  const gridCellWidth = getCollectionGridCellWidth(
+    viewportWidth,
+    layout.gutter,
+    layout.gapTight,
+  );
 
   return (
     <SafeAreaView style={styles.root} edges={['top']}>
@@ -150,7 +158,12 @@ export default function CollectionScreen(): React.ReactNode {
           {isGrid ? (
             <View style={styles.grid}>
               {snapshot.entries.map((entry) => (
-                <GridCell key={entry.item.id} entry={entry} onPress={openDetail} />
+                <GridCell
+                  key={entry.item.id}
+                  entry={entry}
+                  width={gridCellWidth}
+                  onPress={openDetail}
+                />
               ))}
             </View>
           ) : (
@@ -203,9 +216,11 @@ function ListRow({
 
 function GridCell({
   entry,
+  width,
   onPress,
 }: {
   entry: OnigiriProgressEntry;
+  width: number;
   onPress: (entry: OnigiriProgressEntry) => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -217,7 +232,7 @@ function GridCell({
     <Pressable
       onPress={() => onPress(entry)}
       disabled={locked}
-      style={styles.cell}
+      style={[styles.cell, { width }]}
       accessibilityRole="button"
       accessibilityLabel={locked ? '잠긴 메뉴' : `${entry.item.name} 상세 보기`}
     >
@@ -282,15 +297,14 @@ const makeStyles = (c: ThemeColors) =>
       borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: c.pressed,
     },
-    rowPressed: { opacity: 0.7 },
+    rowPressed: { backgroundColor: c.soft },
     rowIndex: { ...typography.caption, color: c.body, width: 28 },
     rowName: { ...typography.listTitle, color: c.ink, flex: 1 },
     rowStatus: { ...typography.captionStrong, color: c.body },
     mutedText: { color: c.mute },
 
     grid: { flexDirection: 'row', flexWrap: 'wrap', gap: layout.gapTight, marginTop: spacing.sm },
-    // 3열: 좌우 여백을 뺀 폭을 셋으로 나눈다.
-    cell: { width: '31.5%', gap: spacing.sm },
+    cell: { gap: spacing.sm },
     cellTile: {
       aspectRatio: 1,
       borderRadius: radius.tile,

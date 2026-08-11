@@ -1,6 +1,6 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-06-13
+Last updated: 2026-08-11
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
 Current version: **0.1.0** → 출시 시 **1.0.0** 로 bump 필요
 
@@ -27,6 +27,7 @@ Current version: **0.1.0** → 출시 시 **1.0.0** 로 bump 필요
   - 검증: `curl -I https://taiyoungkim.github.io/AshitaKanji/privacy/` → **200**
   - support URL 동일 검증
 - [ ] **버전 bump** — `app.json` `version` `0.1.0` → `1.0.0`. (build number는 EAS `autoIncrement`/`remote`가 처리)
+- [ ] **Android 최종 APK 콜드 스타트 게이트** — 초기화된 에뮬레이터 또는 실기기에 새로 설치한 뒤 시작 화면→홈→첫 학습 카드→TTS까지 확인. `expo_runtime_version` 리소스와 필요한 APK 자산도 대조. 상세 절차는 [`ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md`](./ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md) 참고.
 - [ ] **Apple 자산 채우기** — `eas.json` submit.production.ios `ascAppId: "TBD"`, `appleTeamId: "TBD"` → 실값.
   - App Store Connect에서 앱 레코드 생성 후 ascAppId 확보, Apple Developer 멤버십(연 $99) 필요
 - [ ] **Google Play 서비스 계정 키** — `eas.json`가 `./secrets/play-service-account.json` 참조하나 **`secrets/` 폴더 없음**.

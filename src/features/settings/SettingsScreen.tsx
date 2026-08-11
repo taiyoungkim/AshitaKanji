@@ -16,7 +16,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { font, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
 import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
 import {
@@ -26,12 +26,18 @@ import {
   TTS_SPEED_MAX,
   TTS_SPEED_MIN,
   isHighIntensity,
+  type ThemePreference,
   useSettingsStore,
 } from '~/stores/SettingsStore';
 import { buildExportService } from './buildExportService';
 
 const DAILY_STEP = 1;
 const SPEED_STEP = 0.1;
+const THEME_OPTIONS: readonly { value: ThemePreference; label: string }[] = [
+  { value: 'system', label: '시스템' },
+  { value: 'light', label: '라이트' },
+  { value: 'dark', label: '다크' },
+];
 
 export default function SettingsScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -41,11 +47,13 @@ export default function SettingsScreen(): React.ReactNode {
   const ttsEnabled = useSettingsStore((s) => s.ttsEnabled);
   const ttsSpeed = useSettingsStore((s) => s.ttsSpeed);
   const highIntensityWarned = useSettingsStore((s) => s.highIntensityWarned);
+  const themePreference = useSettingsStore((s) => s.themePreference);
   const toggleLevel = useSettingsStore((s) => s.toggleLevel);
   const setDailyNewLimit = useSettingsStore((s) => s.setDailyNewLimit);
   const setTtsEnabled = useSettingsStore((s) => s.setTtsEnabled);
   const setTtsSpeed = useSettingsStore((s) => s.setTtsSpeed);
   const acknowledgeHighIntensity = useSettingsStore((s) => s.acknowledgeHighIntensity);
+  const setThemePreference = useSettingsStore((s) => s.setThemePreference);
   const router = useRouter();
   const [exporting, setExporting] = useState(false);
 
@@ -155,6 +163,32 @@ export default function SettingsScreen(): React.ReactNode {
               />
             </View>
           )}
+        </Section>
+
+        {/* 화면 테마 */}
+        <Section title="화면 테마" hint="시스템 설정을 따르거나 직접 선택합니다.">
+          <View style={styles.themeRow}>
+            {THEME_OPTIONS.map((option) => {
+              const selected = themePreference === option.value;
+              return (
+                <Pressable
+                  key={option.value}
+                  onPress={() => setThemePreference(option.value)}
+                  style={({ pressed }) => [
+                    styles.themeChoice,
+                    pressed && !selected && styles.themeChoicePressed,
+                    selected && styles.themeChoiceSelected,
+                  ]}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected }}
+                >
+                  <Text style={[styles.themeChoiceText, selected && styles.themeChoiceTextSelected]}>
+                    {option.label}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
         </Section>
 
         {/* 데이터 백업 */}
@@ -331,6 +365,34 @@ const makeStyles = (c: ThemeColors) =>
   switchLabel: {
     ...typography.body,
     color: c.ink,
+  },
+  themeRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  themeChoice: {
+    flex: 1,
+    minHeight: layout.touchTarget,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: c.pressed,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.sm,
+  },
+  themeChoicePressed: {
+    backgroundColor: c.soft,
+  },
+  themeChoiceSelected: {
+    backgroundColor: c.ink,
+    borderColor: c.ink,
+  },
+  themeChoiceText: {
+    ...typography.captionStrong,
+    color: c.body,
+  },
+  themeChoiceTextSelected: {
+    color: c.canvas,
   },
   stepper: {
     flexDirection: 'row',

@@ -40,6 +40,13 @@ export function Button({
   accessibilityLabel,
 }: Props): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const pressedStyle = {
+    primary: styles.primaryPressed,
+    secondary: styles.secondaryPressed,
+    subtle: styles.subtlePressed,
+    outline: styles.outlinePressed,
+    ink: styles.inkPressed,
+  }[variant];
 
   return (
     <Pressable
@@ -52,7 +59,7 @@ export function Button({
         styles.base,
         styles[variant],
         tall && styles.tall,
-        pressed && styles.pressed,
+        pressed && !disabled && pressedStyle,
         disabled && styles.disabled,
         style,
       ]}
@@ -76,7 +83,6 @@ const makeStyles = (c: ThemeColors) =>
       borderColor: 'transparent',
     },
     tall: { minHeight: layout.gradeButtonHeight },
-    pressed: { opacity: 0.85 },
     disabled: { opacity: 0.4 },
 
     primary: { backgroundColor: c.primary },
@@ -84,6 +90,11 @@ const makeStyles = (c: ThemeColors) =>
     subtle: { backgroundColor: c.soft, minHeight: layout.touchTarget },
     outline: { backgroundColor: 'transparent', borderColor: c.pressed },
     ink: { backgroundColor: c.ink },
+    primaryPressed: { backgroundColor: c.primaryPressed },
+    secondaryPressed: { backgroundColor: c.soft },
+    subtlePressed: { backgroundColor: c.pressed },
+    outlinePressed: { backgroundColor: c.soft },
+    inkPressed: { backgroundColor: c.inkPressed },
 
     label: { ...typography.cta, textAlign: 'center' },
     tallLabel: { fontSize: 17 },

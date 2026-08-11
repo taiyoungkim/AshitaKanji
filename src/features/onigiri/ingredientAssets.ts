@@ -9,7 +9,7 @@ export interface IngredientMeta {
 }
 
 export const INGREDIENTS: Record<string, IngredientMeta> = {
-  RICE: { name: '밥', image: require('../../../assets/onigiri/ingredients/rice.png') },
+  RICE: { name: '쌀', image: require('../../../assets/onigiri/ingredients/rice.png') },
   RICE_GRAIN: {
     name: '쌀알',
     image: require('../../../assets/onigiri/ingredients/rice-grain.png'),

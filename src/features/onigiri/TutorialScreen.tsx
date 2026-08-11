@@ -29,6 +29,7 @@ import { Button } from '~/components/ui/Button';
 import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { Receipt } from '~/features/onigiri/components';
 import { useSettingsStore } from '~/stores/SettingsStore';
+import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { catImages } from './catAssets';
 import { INGREDIENTS_PER_ONIGIRI, TEMP_ONIGIRI_CATALOG } from './catalog';
 import { ingredientImage, ingredientName } from './ingredientAssets';
@@ -89,20 +90,31 @@ export default function TutorialScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   const completeTutorial = useSettingsStore((s) => s.completeTutorial);
   const { width, height } = useWindowDimensions();
+  const reducedMotion = useReducedMotion();
 
   const [step, setStep] = useState<Step>('setup');
   const [cardIndex, setCardIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
-  const anim = useRef(new Animated.Value(0)).current;
+  // 네이티브 설정을 읽는 동안 콘텐츠를 숨기지 않는다.
+  const anim = useRef(new Animated.Value(1)).current;
   useEffect(() => {
+    anim.stopAnimation();
+    if (reducedMotion === null) return;
+    if (reducedMotion) {
+      anim.setValue(1);
+      return;
+    }
+
     anim.setValue(0);
-    Animated.timing(anim, {
+    const animation = Animated.timing(anim, {
       toValue: 1,
       duration: motion.durationMs,
       useNativeDriver: true,
-    }).start();
-  }, [step, cardIndex, anim]);
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [step, cardIndex, anim, reducedMotion]);
 
   const finish = useCallback(() => {
     completeTutorial();

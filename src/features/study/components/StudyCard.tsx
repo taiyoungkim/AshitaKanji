@@ -3,8 +3,8 @@
 // 앞→뒤 전환은 뒤집기가 아니라 **이어붙이기**다. 단어·발음이 자리를 지킨 채 아래로
 // 뜻·예문이 붙는다 — 방금 본 단어를 잃지 않게.
 //
-// 읽기는 한자 포함 카드(A/B/E)에서만 공개 전까지 감춘다 (`shouldHideReading`).
-// 가나·가타카나 카드는 읽기가 곧 표기라 감춰도 의미가 없어 앞면에 그대로 둔다.
+// 확정 디자인 1b에 따라 앞면에서 표제어·읽기·TTS를 함께 보여준다.
+// 뜻과 예문만 공개 동작 뒤에 이어 붙인다.
 
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
@@ -18,7 +18,7 @@ import {
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconSpeaker } from '~/design/icons';
-import { renderKanjiFace, shouldHideReading } from '~/lib/cardType';
+import { renderKanjiFace } from '~/lib/cardType';
 import type { Word } from '~/types/Card';
 
 interface Props {
@@ -40,13 +40,11 @@ export function StudyCard({
 }: Props): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
-  const readingVisible = revealed || !shouldHideReading(word);
-
   return (
     <Pressable
       style={[styles.card, cardShadow(colors)]}
       onPress={revealed ? undefined : onReveal}
-      accessibilityRole="button"
+      accessibilityRole={revealed ? undefined : 'button'}
       accessibilityLabel={revealed ? undefined : '탭해서 뜻 확인'}
     >
       <ScrollView
@@ -57,12 +55,15 @@ export function StudyCard({
       >
         <Text style={styles.word}>{renderKanjiFace(word)}</Text>
 
-        {readingVisible && (
+        {!!word.reading_kana && (
           <View style={styles.readingRow}>
             <Text style={styles.reading}>{word.reading_kana}</Text>
             {onSpeak && (
               <Pressable
-                onPress={onSpeak}
+                onPress={(event) => {
+                  event.stopPropagation();
+                  onSpeak();
+                }}
                 hitSlop={8}
                 style={styles.speakBtn}
                 accessibilityRole="button"
@@ -104,7 +105,9 @@ export function StudyCard({
           </View>
         ) : (
           <View style={styles.hint}>
-            <View style={styles.hintDot} />
+            <View style={styles.hintDot}>
+              <Text style={styles.hintMark}>?</Text>
+            </View>
             <Text style={styles.hintLabel}>탭해서 뜻 확인</Text>
           </View>
         )}
@@ -126,7 +129,9 @@ const makeStyles = (c: ThemeColors) =>
     scrollBody: {
       flexGrow: 1,
       alignItems: 'center',
-      paddingTop: spacing.xxl,
+      // 긴 카드에서도 표제어가 상단에 붙지 않도록 시선 중심 쪽으로 내린다.
+      // 공개 후에도 같은 위치를 유지하고, 긴 뜻·예문은 기존 ScrollView가 처리한다.
+      paddingTop: spacing.huge * 3,
       paddingHorizontal: 24,
       paddingBottom: 24,
     },
@@ -156,7 +161,10 @@ const makeStyles = (c: ThemeColors) =>
       borderWidth: 1.5,
       borderStyle: 'dashed',
       borderColor: c.pressed,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
+    hintMark: { ...typography.bodyStrong, color: c.body },
     hintLabel: { ...typography.body, color: c.body },
 
     revealBlock: { alignSelf: 'stretch', alignItems: 'center', marginTop: 32 },

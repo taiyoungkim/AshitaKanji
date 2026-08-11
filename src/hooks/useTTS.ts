@@ -30,6 +30,8 @@ export function useTTS(): UseTTS {
   // 마운트 동안 콜백에서 최신 값 참조 (speak는 useCallback 안정화).
   const enabledRef = useRef(enabled);
   const rateRef = useRef(rate);
+  const speechRequestRef = useRef(0);
+  const speechKeyRef = useRef<string | null>(null);
   enabledRef.current = enabled;
   rateRef.current = rate;
 
@@ -39,37 +41,76 @@ export function useTTS(): UseTTS {
   // 실제 발화 onError 시에만 unsupported 처리(아래 speak).
   useEffect(() => {
     return () => {
-      Speech.stop();
+      speechRequestRef.current += 1;
+      speechKeyRef.current = null;
+      void Speech.stop();
+      stopWordAudio();
     };
   }, []);
 
   const speak = useCallback((text: string | null | undefined) => {
     if (!enabledRef.current || !text) return;
-    Speech.stop(); // 직전 발화 중단(중복 방지).
-    setStatus('speaking');
-    Speech.speak(text, {
-      language: JA_LANG,
-      rate: rateRef.current,
-      onDone: () => setStatus((s) => (s === 'speaking' ? 'idle' : s)),
-      onStopped: () => setStatus((s) => (s === 'speaking' ? 'idle' : s)),
-      onError: () => setStatus('unsupported'),
-    });
+    // 같은 발화가 중지 대기/재생 중이면 큐에 다시 넣지 않는다.
+    if (speechKeyRef.current === text) return;
+
+    const request = speechRequestRef.current + 1;
+    speechRequestRef.current = request;
+    speechKeyRef.current = text;
+    stopWordAudio();
+
+    void Speech.stop()
+      .catch(() => undefined)
+      .then(() => {
+        if (speechRequestRef.current !== request || !enabledRef.current) return;
+        setStatus('speaking');
+        Speech.speak(text, {
+          language: JA_LANG,
+          rate: rateRef.current,
+          onDone: () => {
+            if (speechRequestRef.current !== request) return;
+            speechKeyRef.current = null;
+            setStatus('idle');
+          },
+          onStopped: () => {
+            if (speechRequestRef.current !== request) return;
+            speechKeyRef.current = null;
+            setStatus('idle');
+          },
+          onError: () => {
+            if (speechRequestRef.current !== request) return;
+            speechKeyRef.current = null;
+            setStatus('unsupported');
+          },
+        });
+      });
   }, []);
 
   const speakAudio = useCallback(
     (kind: AudioKind, id: string, fallbackText: string | null | undefined) => {
       if (!enabledRef.current) return;
-      Speech.stop();
-      stopWordAudio();
-      void playWordAudio(kind, id, rateRef.current).then((ok) => {
-        if (!ok) speak(fallbackText); // 사전 생성 오디오 없으면 expo-speech 폴백.
-      });
+      const request = speechRequestRef.current + 1;
+      speechRequestRef.current = request;
+      speechKeyRef.current = null;
+      setStatus((current) => (current === 'speaking' ? 'idle' : current));
+
+      // stop() 완료 후 최신 요청 하나만 재생한다. expo-speech는 그렇지 않으면 큐에 추가한다.
+      void Speech.stop()
+        .catch(() => undefined)
+        .then(() => {
+          if (speechRequestRef.current !== request || !enabledRef.current) return;
+          void playWordAudio(kind, id, rateRef.current).then((ok) => {
+            if (speechRequestRef.current !== request) return;
+            if (!ok) speak(fallbackText); // 사전 생성 오디오 없으면 expo-speech 폴백.
+          });
+        });
     },
     [speak],
   );
 
   const stop = useCallback(() => {
-    Speech.stop();
+    speechRequestRef.current += 1;
+    speechKeyRef.current = null;
+    void Speech.stop();
     stopWordAudio();
     setStatus((s) => (s === 'speaking' ? 'idle' : s));
   }, []);

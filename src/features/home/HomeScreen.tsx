@@ -359,7 +359,7 @@ const makeStyles = (c: ThemeColors) =>
       paddingLeft: 18,
       paddingRight: spacing.lg,
     },
-    progressPressed: { opacity: 0.85 },
+    progressPressed: { backgroundColor: c.soft },
     progressBody: { flex: 1, gap: 10 },
     progressHead: {
       flexDirection: 'row',
