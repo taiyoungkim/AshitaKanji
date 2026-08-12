@@ -9,12 +9,15 @@ import {
   ActivityIndicator,
   Linking,
   Modal,
+  Platform,
   Pressable,
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { initialWindowMetrics, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
 import { IconClose, IconSpeaker } from '~/design/icons';
@@ -70,6 +73,20 @@ export default function WordDetailScreen(): React.ReactNode {
   const [selectedKanji, setSelectedKanji] = useState<KanjiForWord | null>(null);
   const tts = useTTS();
   const toast = useToast();
+  const insets = useSafeAreaInsets();
+
+  // Android의 native-stack modal은 edge-to-edge 상태에서 top inset을 0으로
+  // 돌려주는 기기가 있다. 이 경우 상태바 높이를 보강해 닫기 버튼이 시스템
+  // 시계/아이콘과 겹치지 않게 한다. iOS page modal은 native sheet 자체가
+  // 상단 여백을 제공하므로 기존 11c 간격을 유지한다.
+  const modalTopInset =
+    Platform.OS === 'android'
+      ? Math.max(
+          insets.top,
+          initialWindowMetrics?.insets.top ?? 0,
+          StatusBar.currentHeight ?? 0,
+        )
+      : 0;
 
   const copyAndToast = (text: string | null | undefined) => {
     void copyText(text).then((ok) => {
@@ -150,7 +167,7 @@ export default function WordDetailScreen(): React.ReactNode {
   };
 
   return (
-    <View style={styles.sheetRootView}>
+    <View style={[styles.sheetRootView, { paddingTop: modalTopInset }]}>
       {/* BottomSheetHeader(11c): 좌 44 닫기 + 가운데 제목. */}
       <View style={styles.sheetHeader}>
         <Pressable
