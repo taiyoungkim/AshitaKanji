@@ -17,7 +17,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
 import {
-  cardShadow,
   layout,
   radius,
   spacing,
@@ -466,7 +465,6 @@ const makeStyles = (c: ThemeColors) =>
       borderRadius: 22,
       paddingHorizontal: spacing.lg,
       paddingVertical: 14,
-      ...cardShadow(c),
     },
     scoreIcon: {
       width: 46,
@@ -488,7 +486,6 @@ const makeStyles = (c: ThemeColors) =>
       paddingHorizontal: spacing.xl,
       paddingTop: 18,
       paddingBottom: spacing.xl,
-      ...cardShadow(c),
     },
     streakTop: { marginBottom: 18 },
     streakTitleRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
@@ -530,7 +527,6 @@ const makeStyles = (c: ThemeColors) =>
       paddingTop: spacing.lg,
       paddingBottom: 18,
       gap: spacing.xs,
-      ...cardShadow(c),
     },
     tileIcon: { position: 'absolute', right: 14, top: 14 },
     tileValue: { fontFamily: typography.resultTitle.fontFamily, fontSize: 28, lineHeight: 32, color: c.ink },

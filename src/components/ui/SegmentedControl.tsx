@@ -4,14 +4,7 @@
 // 상태 전환이 되고 하단 오렌지 CTA 는 계속 하나로 유지된다.
 
 import { Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
-import {
-  font,
-  layout,
-  radius,
-  spacing,
-  thumbShadow,
-  type ThemeColors,
-} from '~/design/tokens';
+import { font, layout, radius, spacing, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 
 export interface SegmentOption<T extends string> {
@@ -42,7 +35,7 @@ export function SegmentedControl<T extends string>({
           <Pressable
             key={option.value}
             onPress={() => onChange(option.value)}
-            style={[styles.item, on && styles.itemOn, on && thumbShadow()]}
+            style={[styles.item, on && styles.itemOn]}
             accessibilityRole="button"
             accessibilityState={{ selected: on }}
           >
@@ -70,6 +63,8 @@ const makeStyles = (c: ThemeColors) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
+    // 그림자를 넣지 않는다 — soft 트랙 위의 흰 면만으로 활성 상태가 읽히고,
+    // Level 1 은 card·toast 전용이다.
     itemOn: { backgroundColor: c.canvas },
     label: { fontFamily: font.semibold, fontSize: 16, lineHeight: 20, color: c.body },
     labelOn: { color: c.ink },

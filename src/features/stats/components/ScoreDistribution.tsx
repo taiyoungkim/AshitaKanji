@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import Svg, { Line, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
-import { cardShadow, font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import {
@@ -176,7 +176,6 @@ const makeStyles = (c: ThemeColors) =>
       borderRadius: 22,
       padding: layout.gutter,
       gap: layout.gapTight,
-      ...cardShadow(c),
     },
     title: { ...typography.cta, color: c.ink },
     lead: { ...typography.caption, color: c.body },

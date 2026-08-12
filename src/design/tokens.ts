@@ -237,27 +237,19 @@ export const motion = {
   printOutMs: 900,
 } as const;
 
-/** Level 1 — 시스템의 유일한 그림자. 히어로·보상·메뉴 카드와 토스트만. */
+/**
+ * Level 1 — 시스템의 유일한 그림자. 히어로·보상·메뉴 카드와 토스트만.
+ * 디자인 정본은 `0 6px 14px shadow` 이고, 여기서 14 는 **CSS blur radius** 다.
+ *
+ * 옛 `shadowRadius` 는 blur 가 아니라 가우시안 표준편차라 같은 숫자를 넣으면 약 두 배로
+ * 퍼진다(피그마보다 훨씬 세게 보였던 원인). Android `elevation` 은 opacity 를 무시하고
+ * 자체 그림자를 그려서 0.05 같은 미묘한 값이 사라진다.
+ * `boxShadow` 는 CSS 와 같은 의미라 정본 값을 그대로 옮길 수 있다.
+ */
 export function cardShadow(c: ThemeColors): ViewStyle {
-  return {
-    shadowColor: '#000000',
-    shadowOpacity: c.shadow === lightColors.shadow ? 0.05 : 0.4,
-    shadowRadius: 14,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 4,
-  };
+  return { boxShadow: `0px 6px 14px ${c.shadow}` };
 }
 
-/** 세그먼트 활성 썸 그림자 (0 1px 3px) */
-export function thumbShadow(): ViewStyle {
-  return {
-    shadowColor: '#000000',
-    shadowOpacity: 0.08,
-    shadowRadius: 3,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 2,
-  };
-}
 
 export function makeButtons(c: ThemeColors) {
   return {
