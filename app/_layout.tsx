@@ -144,9 +144,11 @@ function RootStack(): React.ReactNode {
         name="weakness"
         options={{ headerShown: true, title: '약점 복습', headerBackTitle: '뒤로' }}
       />
+      {/* 단어 상세는 바텀시트 패턴이다 (COMPONENTS.md 11c).
+          헤더는 화면이 직접 그린다 — 좌 44 닫기 + 가운데 "단어 상세". */}
       <Stack.Screen
         name="word/[id]"
-        options={{ headerShown: true, title: '단어 상세', headerBackTitle: '뒤로' }}
+        options={{ headerShown: false, presentation: 'modal' }}
       />
       <Stack.Screen name="onigiri/[id]" options={{ headerShown: false }} />
       <Stack.Screen

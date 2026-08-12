@@ -15,9 +15,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import { cardShadow, font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
-import { IconSpeaker } from '~/design/icons';
+import { IconClose, IconSpeaker } from '~/design/icons';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteKanjiRepo } from '~/db/repos/sqlite/SqliteKanjiRepo';
@@ -150,7 +150,23 @@ export default function WordDetailScreen(): React.ReactNode {
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <View style={styles.sheetRootView}>
+      {/* BottomSheetHeader(11c): 좌 44 닫기 + 가운데 제목. */}
+      <View style={styles.sheetHeader}>
+        <Pressable
+          onPress={() => router.back()}
+          style={styles.sheetHeaderClose}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel="닫기"
+        >
+          <IconClose size={22} color={c.body} />
+        </Pressable>
+        <Text style={styles.sheetHeaderTitle}>단어 상세</Text>
+        <View style={styles.sheetHeaderSpacer} />
+      </View>
+
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {/* 헤드: 표기 + 읽기 + 발음 */}
       <View style={styles.head}>
         <View style={styles.levelBadge}>
@@ -208,7 +224,7 @@ export default function WordDetailScreen(): React.ReactNode {
 
       {/* 한자 */}
       {(state.kanji.length > 0 || state.kanjiError) && (
-        <Section title="한자">
+        <Section title={`한자 ${state.kanji.length}`}>
           {state.kanjiError ? (
             <Text style={styles.kanjiError}>한자 데이터를 불러오지 못했어요.</Text>
           ) : (
@@ -292,7 +308,8 @@ export default function WordDetailScreen(): React.ReactNode {
         onClose={() => setSelectedKanji(null)}
         onOpenDictionary={openDictionary}
       />
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
@@ -451,9 +468,9 @@ const makeStyles = (c: ThemeColors) =>
     marginBottom: spacing.xs,
   },
   levelText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
-  surface: { fontSize: 48, lineHeight: 54, fontFamily: font.medium, color: c.ink, letterSpacing: -1 },
+  surface: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
   furigana: { ...typography.caption, color: c.body },
-  reading: { fontSize: 22, lineHeight: 28, color: c.body, fontFamily: font.medium },
+  reading: { ...typography.reading, color: c.body },
   ttsBtn: {
     marginTop: spacing.lg,
     borderWidth: 1,
@@ -512,6 +529,27 @@ const makeStyles = (c: ThemeColors) =>
   infoLabel: { color: c.body, fontFamily: font.medium },
   metaRow: { alignItems: 'center', marginTop: spacing.xs },
   metaText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
+  sheetRootView: { flex: 1, backgroundColor: c.softer },
+  sheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: spacing.sm,
+    paddingTop: spacing.sm,
+  },
+  sheetHeaderClose: {
+    width: layout.touchTarget,
+    height: layout.touchTarget,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // 오른쪽 44 스페이서로 제목을 광학 중앙에 둔다.
+  sheetHeaderTitle: {
+    flex: 1,
+    textAlign: 'center',
+    ...typography.cardTitle,
+    color: c.ink,
+  },
+  sheetHeaderSpacer: { width: layout.touchTarget },
   sheetRoot: { flex: 1, justifyContent: 'flex-end' },
   sheetBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.28)' },
   sheet: {
