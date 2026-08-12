@@ -234,7 +234,7 @@ const makeStyles = (c: ThemeColors) =>
   },
   revealText: { ...typography.body, color: c.body },
   detailLink: { paddingVertical: spacing.sm },
-  detailLinkText: { ...typography.caption, color: c.mute, fontFamily: font.medium },
+  detailLinkText: { ...typography.caption, color: c.body, fontFamily: font.medium },
   actions: { flexDirection: 'row', gap: spacing.lg, padding: spacing.xl },
   markBtn: { flex: 1, paddingVertical: spacing.xl, borderRadius: radius.pill, alignItems: 'center' },
   unknownBtn: { borderWidth: 1, borderColor: c.pressed, backgroundColor: c.canvas },

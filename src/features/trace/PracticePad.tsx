@@ -96,5 +96,5 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
   wrap: { alignItems: 'center', gap: spacing.xl },
   guideRow: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.lg },
-  guideLabel: { ...typography.caption, color: c.mute, fontFamily: font.medium },
+  guideLabel: { ...typography.caption, color: c.body, fontFamily: font.medium },
 });

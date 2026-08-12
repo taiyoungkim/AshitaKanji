@@ -18,7 +18,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { cardShadow, font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
 import type { Word } from '~/types/Card';
 import type { ScanGrade, ScanSummary } from '~/types/ScanResult';
@@ -327,8 +327,7 @@ const makeStyles = (c: ThemeColors) =>
     margin: spacing.xl,
     backgroundColor: c.canvas,
     borderRadius: radius.card,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    ...cardShadow(c),
     alignItems: 'center',
     justifyContent: 'center',
     gap: spacing.lg,
@@ -344,9 +343,8 @@ const makeStyles = (c: ThemeColors) =>
     alignItems: 'center',
     gap: spacing.lg,
     padding: spacing.lg,
-    borderRadius: radius.skeleton,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: c.pressed,
     backgroundColor: c.canvas,
   },
   candRowOn: { borderColor: c.ink },

@@ -148,8 +148,7 @@ const makeStyles = (c: ThemeColors) =>
     borderRadius: radius.skeleton,
     paddingVertical: spacing.lg,
     paddingHorizontal: spacing.lg,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    
   },
   rowLocked: { backgroundColor: c.soft },
   rowLeft: { gap: 2 },

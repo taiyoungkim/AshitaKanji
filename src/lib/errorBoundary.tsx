@@ -99,7 +99,7 @@ const makeStyles = (c: ThemeColors) =>
       fontFamily: font.regular,
       fontSize: 13,
       lineHeight: 18,
-      color: c.mute,
+      color: c.body,
       marginTop: spacing.lg,
     },
     button: { alignSelf: 'stretch', marginTop: spacing.huge },

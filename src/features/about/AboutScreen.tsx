@@ -123,13 +123,11 @@ const makeStyles = (c: ThemeColors) =>
   content: { padding: spacing.xl, gap: spacing.lg, alignItems: 'center' },
   appName: { ...typography.resultTitle, color: c.ink, marginTop: spacing.sm },
   appKanji: { fontSize: 18, lineHeight: 24, color: c.body, fontFamily: font.medium },
-  version: { ...typography.caption, color: c.mute },
+  version: { ...typography.caption, color: c.body },
   tagline: { ...typography.caption, color: c.body, textAlign: 'center', lineHeight: 22, marginVertical: spacing.sm },
   section: {
     backgroundColor: c.canvas,
     borderRadius: radius.card,
-    borderWidth: 1,
-    borderColor: c.pressed,
     padding: spacing.lg,
     gap: 6,
     alignSelf: 'stretch',
@@ -153,5 +151,5 @@ const makeStyles = (c: ThemeColors) =>
   },
   licenseBody: { ...typography.caption, color: c.body, lineHeight: 19 },
   link: { ...typography.caption, color: c.ink, fontFamily: font.medium },
-  privacyNote: { ...typography.overline, color: c.mute, textAlign: 'center', lineHeight: 18, marginTop: spacing.xs, textTransform: 'none', letterSpacing: 0 },
+  privacyNote: { ...typography.overline, color: c.body, textAlign: 'center', lineHeight: 18, marginTop: spacing.xs, textTransform: 'none', letterSpacing: 0 },
 });

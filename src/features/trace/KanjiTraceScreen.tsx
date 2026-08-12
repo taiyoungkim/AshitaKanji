@@ -104,7 +104,7 @@ const makeStyles = (c: ThemeColors) =>
   head: { alignItems: 'center', gap: spacing.xs },
   literal: { fontSize: 40, lineHeight: 46, fontFamily: font.medium, color: c.ink },
   gloss: { ...typography.body, color: c.body, textAlign: 'center' },
-  hint: { ...typography.caption, color: c.mute, textAlign: 'center' },
+  hint: { ...typography.caption, color: c.body, textAlign: 'center' },
 
   segment: {
     flexDirection: 'row',
