@@ -186,32 +186,34 @@ export default function WordDetailScreen(): React.ReactNode {
         {renderKanjiFace(w) !== w.reading_kana && (
           <Text style={styles.reading}>{w.reading_kana}</Text>
         )}
-        <Pressable
-          style={[styles.ttsBtn, tts.status === 'unsupported' && styles.ttsBtnOff]}
-          onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
-          disabled={!tts.enabled || tts.status === 'unsupported'}
-          accessibilityLabel="발음 듣기"
-          accessibilityRole="button"
-        >
-          <View style={styles.ttsBtnInner}>
-            <IconSpeaker size={18} color={c.ink} />
-            <Text style={styles.ttsIcon}>발음 듣기</Text>
-          </View>
-        </Pressable>
+        <View style={styles.headActions}>
+          <Pressable
+            style={[styles.ttsBtn, tts.status === 'unsupported' && styles.ttsBtnOff]}
+            onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
+            disabled={!tts.enabled || tts.status === 'unsupported'}
+            accessibilityLabel="발음 듣기"
+            accessibilityRole="button"
+          >
+            <View style={styles.ttsBtnInner}>
+              <IconSpeaker size={18} color={c.ink} />
+              <Text style={styles.ttsIcon}>발음 듣기</Text>
+            </View>
+          </Pressable>
+          <Pressable
+            style={styles.dictBtn}
+            onPress={() => openDictionary(w.surface)}
+            accessibilityLabel="네이버 일본어 사전에서 단어 보기"
+            accessibilityRole="link"
+          >
+            <Text style={styles.dictBtnText}>사전 ↗</Text>
+          </Pressable>
+        </View>
         {tts.status === 'unsupported' && (
           <Text style={styles.ttsHint}>이 기기는 일본어 음성을 지원하지 않아요.</Text>
         )}
         {!tts.enabled && (
           <Text style={styles.ttsHint}>설정에서 발음 듣기(TTS)를 켜면 음성이 나와요.</Text>
         )}
-        <Pressable
-          style={styles.dictBtn}
-          onPress={() => openDictionary(w.surface)}
-          accessibilityLabel="네이버 일본어 사전에서 단어 보기"
-          accessibilityRole="link"
-        >
-          <Text style={styles.dictBtnText}>사전 ↗</Text>
-        </Pressable>
       </View>
 
       {/* 뜻 */}
@@ -229,10 +231,11 @@ export default function WordDetailScreen(): React.ReactNode {
             <Text style={styles.kanjiError}>한자 데이터를 불러오지 못했어요.</Text>
           ) : (
             <View style={styles.kanjiGrid}>
-              {state.kanji.map((item) => (
+              {state.kanji.map((item, index) => (
                 <KanjiCard
                   key={`${item.literal}-${item.position}`}
                   item={item}
+                  divided={index > 0}
                   onPress={() => setSelectedKanji(item)}
                 />
               ))}
@@ -259,7 +262,10 @@ export default function WordDetailScreen(): React.ReactNode {
                   <Pressable
                     onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
                     disabled={!tts.enabled || tts.status === 'unsupported'}
-                    style={!tts.enabled || tts.status === 'unsupported' ? styles.exampleTtsOff : null}
+                    style={[
+                      styles.exampleTts,
+                      (!tts.enabled || tts.status === 'unsupported') && styles.exampleTtsOff,
+                    ]}
                     accessibilityLabel="예문 발음 듣기"
                     accessibilityRole="button"
                   >
@@ -331,9 +337,11 @@ function Section({
 
 function KanjiCard({
   item,
+  divided,
   onPress,
 }: {
   item: KanjiForWord;
+  divided: boolean;
   onPress: () => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -349,15 +357,17 @@ function KanjiCard({
 
   return (
     <Pressable
-      style={styles.kanjiCard}
+      style={[styles.kanjiCard, divided && styles.kanjiCardDivided]}
       onPress={onPress}
       accessibilityLabel={`${item.literal} 한자 상세 보기`}
       accessibilityRole="button"
     >
       <Text style={styles.kanjiLiteral}>{item.literal}</Text>
-      {meanings ? <Text style={styles.kanjiMeaning} numberOfLines={2}>{meanings}</Text> : null}
-      {readings ? <Text style={styles.kanjiReading} numberOfLines={2}>{readings}</Text> : null}
-      {radical ? <Text style={styles.kanjiMeta}>{radical}</Text> : null}
+      <View style={styles.kanjiContent}>
+        {meanings ? <Text style={styles.kanjiMeaning} numberOfLines={2}>{meanings}</Text> : null}
+        {readings ? <Text style={styles.kanjiReading} numberOfLines={2}>{readings}</Text> : null}
+        {radical ? <Text style={styles.kanjiMeta}>{radical}</Text> : null}
+      </View>
     </Pressable>
   );
 }
@@ -447,7 +457,12 @@ function DetailLine({ label, value }: { label: string; value: string }): React.R
 const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
   container: { flex: 1, backgroundColor: c.softer },
-  content: { padding: spacing.xl, gap: spacing.lg },
+  content: {
+    paddingHorizontal: spacing.xl,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xxl,
+    gap: layout.gapTight,
+  },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl, gap: spacing.sm },
   emptyText: { ...typography.body, color: c.body, fontFamily: font.medium },
   errorDetail: { ...typography.overline, color: c.body, textAlign: 'center', textTransform: 'none', letterSpacing: 0 },
@@ -455,52 +470,51 @@ const makeStyles = (c: ThemeColors) =>
     backgroundColor: c.canvas,
     borderRadius: radius.card,
     ...cardShadow(c),
-    padding: spacing.xl,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: 24,
     alignItems: 'center',
-    gap: 6,
   },
   levelBadge: {
-    borderWidth: 1,
-    borderColor: c.pressed,
+    backgroundColor: c.soft,
     borderRadius: radius.pill,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-    marginBottom: spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 5,
+    marginBottom: 14,
   },
-  levelText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
+  levelText: { ...typography.overline, color: c.ink, textTransform: 'none' },
   surface: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
   furigana: { ...typography.caption, color: c.body },
-  reading: { ...typography.reading, color: c.body },
+  reading: { ...typography.reading, color: c.body, marginTop: 6 },
+  headActions: { flexDirection: 'row', gap: spacing.sm, marginTop: 18 },
   ttsBtn: {
-    marginTop: spacing.lg,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    backgroundColor: c.soft,
     borderRadius: radius.pill,
-    paddingHorizontal: 18,
-    paddingVertical: spacing.sm,
+    minHeight: layout.touchTarget,
+    paddingHorizontal: spacing.lg,
+    justifyContent: 'center',
   },
   ttsBtnInner: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   ttsBtnOff: { opacity: 0.4 },
   ttsIcon: { ...typography.caption, color: c.ink, fontFamily: font.medium },
   ttsHint: { ...typography.overline, color: c.body, marginTop: 2, textTransform: 'none', letterSpacing: 0 },
   dictBtn: {
-    marginTop: spacing.sm,
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: c.pressed,
     borderRadius: radius.pill,
+    minHeight: layout.touchTarget,
     paddingHorizontal: spacing.lg,
-    paddingVertical: 7,
+    justifyContent: 'center',
   },
   dictBtnText: { ...typography.caption, color: c.ink, fontFamily: font.medium },
   section: {
     backgroundColor: c.canvas,
     borderRadius: radius.card,
     ...cardShadow(c),
-    padding: spacing.lg,
+    padding: spacing.xl,
   },
   sectionTitle: { ...typography.overline, color: c.body },
   sectionBody: { marginTop: spacing.sm, gap: 6 },
-  meaning: { fontSize: 20, lineHeight: 26, color: c.ink, fontFamily: font.medium },
+  meaning: { ...typography.meaning, color: c.ink },
   pos: { ...typography.caption, color: c.body },
   exampleStack: { gap: spacing.lg },
   exampleCard: {
@@ -511,18 +525,35 @@ const makeStyles = (c: ThemeColors) =>
   },
   exampleRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.lg },
   exampleJp: { flex: 1, fontSize: 18, lineHeight: 28, color: c.ink },
+  exampleTts: {
+    width: layout.touchTarget,
+    height: layout.touchTarget,
+    borderRadius: radius.pill,
+    backgroundColor: c.soft,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   exampleTtsOff: { opacity: 0.35 },
   exampleKo: { ...typography.caption, color: c.body, lineHeight: 20 },
-  kanjiGrid: { gap: spacing.sm },
+  kanjiGrid: {},
   kanjiCard: {
-    backgroundColor: c.soft,
-    borderRadius: radius.tileSm,
-    padding: spacing.lg,
-    gap: spacing.xs,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.lg,
+    paddingVertical: spacing.lg,
   },
-  kanjiLiteral: { fontSize: 34, lineHeight: 40, color: c.ink, fontFamily: font.medium },
-  kanjiMeaning: { ...typography.caption, color: c.ink, fontFamily: font.medium, lineHeight: 21 },
-  kanjiReading: { ...typography.caption, color: c.body, lineHeight: 19 },
+  kanjiCardDivided: { borderTopWidth: 1, borderTopColor: c.pressed },
+  kanjiLiteral: {
+    width: 52,
+    fontSize: 40,
+    lineHeight: 48,
+    color: c.ink,
+    fontFamily: font.bold,
+    textAlign: 'center',
+  },
+  kanjiContent: { flex: 1, gap: spacing.xs, minWidth: 0 },
+  kanjiMeaning: { fontSize: 17, lineHeight: 22, color: c.ink, fontFamily: font.semibold },
+  kanjiReading: { ...typography.body, color: c.body },
   kanjiMeta: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
   kanjiError: { ...typography.caption, color: c.body },
   infoLine: { ...typography.caption, color: c.ink, lineHeight: 20 },
@@ -533,8 +564,9 @@ const makeStyles = (c: ThemeColors) =>
   sheetHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: spacing.sm,
-    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingTop: 10,
+    paddingBottom: 6,
   },
   sheetHeaderClose: {
     width: layout.touchTarget,

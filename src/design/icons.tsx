@@ -193,6 +193,35 @@ export function IconFlame({ size = 26, color }: IconProps): React.ReactNode {
   );
 }
 
+/** 학습/테스트 — 학사모. */
+export function IconStudy({ size = 24, color }: IconProps): React.ReactNode {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M22 10 12 5 2 10l10 5 10-5ZM6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"
+        stroke={color}
+        strokeWidth={1.8}
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+/** 복습 — 되돌아가는 화살표. */
+export function IconRepeat({ size = 22, color }: IconProps): React.ReactNode {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M4 7h12a4 4 0 0 1 4 4v1M8 3 4 7l4 4M20 17H8a4 4 0 0 1-4-4v-1M16 21l4-4-4-4"
+        stroke={color}
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 /** 잠김 자물쇠 — 도감 목록의 잠긴 행. */
 export function IconLock({ size = 16, color }: IconProps): React.ReactNode {
   return (

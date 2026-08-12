@@ -25,9 +25,15 @@ import {
   type ThemeColors,
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import { IconCheck, IconFlame } from '~/design/icons';
+import {
+  IconCheck,
+  IconFlame,
+  IconHistory,
+  IconList,
+  IconRepeat,
+  IconStudy,
+} from '~/design/icons';
 import { Button } from '~/components/ui/Button';
-import { Overline } from '~/components/ui/Surface';
 import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
 import { useToast } from '~/components/Toast';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
@@ -164,7 +170,7 @@ export default function StatsScreen(): React.ReactNode {
             snapshot={snapshot}
             empty={state.phase === 'empty'}
             reducedMotion={reducedMotion !== false}
-            cta={<Button label="지금 연습하기" onPress={onStart} disabled={starting} />}
+            cta={<Button compact label="지금 연습하기" onPress={onStart} disabled={starting} />}
           />
         )}
       </Animated.ScrollView>
@@ -190,39 +196,46 @@ function RecordBody({
   return (
     <View style={styles.stack}>
       <StaggerCard index={0} reducedMotion={reducedMotion}>
-        <View style={styles.card}>
-          <Overline>최근 학습</Overline>
+        <View style={styles.scoreCard}>
+          <View style={styles.scoreIcon}>
+            <IconStudy size={24} color={colors.body} />
+          </View>
           {latest ? (
-            <>
-              <View style={styles.scoreRow}>
+            <View style={styles.scoreMain}>
+              <View style={styles.compactScoreRow}>
                 <AnimatedNumber
                   value={latest.correct}
-                  suffix={` / ${latest.total}`}
+                  suffix={`/${latest.total}`}
                   delay={0}
-                  style={styles.scoreValue}
+                  style={styles.compactScoreValue}
                 />
               </View>
               <Text style={styles.cardCaption}>
-                정답률 {Math.round(latest.percent)}% · {formatDay(latest.endedAt)}
+                테스트 점수 ({formatRecordDate(latest.endedAt)})
               </Text>
-            </>
+            </View>
           ) : (
-            <>
+            <View style={styles.scoreMain}>
               <Text style={styles.emptyTitle}>아직 기록이 없어요</Text>
-              <Text style={styles.cardCaption}>
-                첫 학습을 마치면 점수와 연속 기록이 여기에 쌓여요.
-              </Text>
-            </>
+              <Text style={styles.cardCaption}>첫 학습을 마치면 점수가 쌓여요.</Text>
+            </View>
           )}
         </View>
       </StaggerCard>
 
       <StaggerCard index={1} reducedMotion={reducedMotion}>
-        <View style={styles.card}>
-          <Overline>연속 학습</Overline>
-          <View style={styles.scoreRow}>
-            <IconFlame size={30} color={streakDays > 0 ? colors.primary : colors.pressed} />
-            <AnimatedNumber value={streakDays} suffix="일" delay={0} style={styles.scoreValue} />
+        <View style={styles.streakCard}>
+          <View style={styles.streakTop}>
+            <View style={styles.streakTitleRow}>
+              <View style={styles.flameWrap}>
+                <IconFlame size={40} color={streakDays > 0 ? '#F9734E' : colors.pressed} />
+                {streakDays > 0 && <Text style={styles.flameNumber}>{streakDays}</Text>}
+              </View>
+              <View>
+                <Text style={styles.streakTitle}>연속 학습</Text>
+                <Text style={styles.streakCaption}>{streakDays}일째</Text>
+              </View>
+            </View>
           </View>
           <View style={styles.weekRow}>
             {week.map((day, i) => (
@@ -241,12 +254,28 @@ function RecordBody({
       <StaggerCard index={2} reducedMotion={reducedMotion}>
         <View style={styles.tileGrid}>
           <View style={styles.tileRow}>
-            <StatTile label="읽은 단어" value={totals.learnedWords} />
-            <StatTile label="복습" value={totals.reviews} />
+            <StatTile
+              label="읽은 단어"
+              value={totals.learnedWords}
+              icon={<IconList size={22} color={colors.body} />}
+            />
+            <StatTile
+              label="복습"
+              value={totals.reviews}
+              icon={<IconRepeat size={22} color={colors.body} />}
+            />
           </View>
           <View style={styles.tileRow}>
-            <StatTile label="다시 본 것" value={totals.again} />
-            <StatTile label="학습" value={totals.completedSessions} />
+            <StatTile
+              label="다시 본 것"
+              value={totals.again}
+              icon={<IconHistory size={22} color={colors.body} />}
+            />
+            <StatTile
+              label="학습"
+              value={totals.completedSessions}
+              icon={<IconStudy size={22} color={colors.body} />}
+            />
           </View>
         </View>
       </StaggerCard>
@@ -360,19 +389,30 @@ function WeekCell({
   );
 }
 
-function StatTile({ label, value }: { label: string; value: number }): React.ReactNode {
+function StatTile({
+  label,
+  value,
+  icon,
+}: {
+  label: string;
+  value: number;
+  icon: React.ReactNode;
+}): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.tile}>
+      <View style={styles.tileIcon}>{icon}</View>
       <AnimatedNumber value={value} delay={0} style={styles.tileValue} />
       <Text style={styles.tileLabel}>{label}</Text>
     </View>
   );
 }
 
-function formatDay(ms: number): string {
+function formatRecordDate(ms: number): string {
   const d = new Date(ms);
-  return `${d.getMonth() + 1}월 ${d.getDate()}일`;
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
+    d.getDate(),
+  ).padStart(2, '0')}`;
 }
 
 const makeStyles = (c: ThemeColors) =>
@@ -417,24 +457,59 @@ const makeStyles = (c: ThemeColors) =>
 
     // 카드 그룹 사이는 28px, 카드 안은 12–16px.
     stack: { gap: layout.gapGroup },
-    card: {
+    scoreCard: {
+      minHeight: 74,
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 14,
       backgroundColor: c.canvas,
-      borderRadius: radius.card,
-      padding: layout.gutter,
-      gap: layout.gapTight,
+      borderRadius: 22,
+      paddingHorizontal: spacing.lg,
+      paddingVertical: 14,
       ...cardShadow(c),
     },
-    scoreRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-    scoreValue: { ...typography.hero, color: c.ink },
-    cardCaption: { ...typography.body, color: c.body },
-    emptyTitle: { ...typography.listTitle, color: c.ink },
+    scoreIcon: {
+      width: 46,
+      height: 46,
+      borderRadius: radius.tileMd,
+      backgroundColor: c.soft,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    scoreMain: { flex: 1, gap: 2 },
+    compactScoreRow: { flexDirection: 'row', alignItems: 'center' },
+    compactScoreValue: { ...typography.listTitle, color: c.ink },
+    cardCaption: { ...typography.caption, color: c.body },
+    emptyTitle: { ...typography.cardTitle, color: c.ink },
+
+    streakCard: {
+      backgroundColor: c.canvas,
+      borderRadius: 22,
+      paddingHorizontal: spacing.xl,
+      paddingTop: 18,
+      paddingBottom: spacing.xl,
+      ...cardShadow(c),
+    },
+    streakTop: { marginBottom: 18 },
+    streakTitleRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+    flameWrap: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
+    flameNumber: {
+      position: 'absolute',
+      bottom: 4,
+      fontSize: 11,
+      lineHeight: 12,
+      fontFamily: typography.captionStrong.fontFamily,
+      color: '#3A1A0E',
+    },
+    streakTitle: { ...typography.cta, color: c.ink },
+    streakCaption: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0.4 },
 
     weekRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.xs },
     weekCell: { alignItems: 'center', gap: spacing.sm, minWidth: 36 },
     weekLabel: { ...typography.caption, color: c.body },
     weekDot: {
-      width: 28,
-      height: 28,
+      width: 34,
+      height: 34,
       borderRadius: radius.pill,
       borderWidth: 1.5,
       borderColor: c.pressed,
@@ -448,12 +523,17 @@ const makeStyles = (c: ThemeColors) =>
     tileRow: { flexDirection: 'row', gap: layout.gapTight },
     tile: {
       flex: 1,
+      minHeight: 96,
       backgroundColor: c.canvas,
-      borderRadius: radius.card,
-      padding: layout.gutter,
+      borderRadius: radius.tile,
+      paddingHorizontal: spacing.lg,
+      paddingTop: spacing.lg,
+      paddingBottom: 18,
       gap: spacing.xs,
+      ...cardShadow(c),
     },
-    tileValue: { ...typography.resultTitle, color: c.ink },
-    tileLabel: { ...typography.body, color: c.body },
+    tileIcon: { position: 'absolute', right: 14, top: 14 },
+    tileValue: { fontFamily: typography.resultTitle.fontFamily, fontSize: 28, lineHeight: 32, color: c.ink },
+    tileLabel: { ...typography.caption, color: c.body, marginTop: spacing.xs },
 
   });

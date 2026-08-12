@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import Svg, { Line, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
-import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { cardShadow, font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import {
@@ -173,12 +173,13 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     card: {
       backgroundColor: c.canvas,
-      borderRadius: 24,
+      borderRadius: 22,
       padding: layout.gutter,
       gap: layout.gapTight,
+      ...cardShadow(c),
     },
-    title: { ...typography.cardTitle, color: c.ink },
-    lead: { ...typography.body, color: c.body },
+    title: { ...typography.cta, color: c.ink },
+    lead: { ...typography.caption, color: c.body },
     empty: { ...typography.body, color: c.body, paddingVertical: spacing.xl },
     chart: { height: CHART_HEIGHT, position: 'relative' },
     marker: {
@@ -199,5 +200,5 @@ const makeStyles = (c: ThemeColors) =>
     },
     axis: { flexDirection: 'row', justifyContent: 'space-between' },
     axisLabel: { ...typography.caption, color: c.body },
-    cta: { marginTop: spacing.xs },
+    cta: { alignItems: 'center', marginTop: spacing.lg },
   });

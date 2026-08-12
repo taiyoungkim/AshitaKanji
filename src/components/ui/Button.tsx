@@ -26,6 +26,8 @@ interface Props {
   disabled?: boolean;
   /** 평가쌍처럼 나란히 놓을 때 60pt 로 키운다. */
   tall?: boolean;
+  /** 카드 안 CTA처럼 48pt 높이와 16px 라벨을 쓰는 경우. */
+  compact?: boolean;
   style?: StyleProp<ViewStyle>;
   accessibilityLabel?: string;
 }
@@ -36,6 +38,7 @@ export function Button({
   variant = 'primary',
   disabled = false,
   tall = false,
+  compact = false,
   style,
   accessibilityLabel,
 }: Props): React.ReactNode {
@@ -59,12 +62,20 @@ export function Button({
         styles.base,
         styles[variant],
         tall && styles.tall,
+        compact && styles.compact,
         pressed && !disabled && pressedStyle,
         disabled && styles.disabled,
         style,
       ]}
     >
-      <Text style={[styles.label, styles[`${variant}Label`], tall && styles.tallLabel]}>
+      <Text
+        style={[
+          styles.label,
+          styles[`${variant}Label`],
+          tall && styles.tallLabel,
+          compact && styles.compactLabel,
+        ]}
+      >
         {label}
       </Text>
     </Pressable>
@@ -83,6 +94,7 @@ const makeStyles = (c: ThemeColors) =>
       borderColor: 'transparent',
     },
     tall: { minHeight: layout.gradeButtonHeight },
+    compact: { minHeight: 48, paddingHorizontal: 26, alignSelf: 'center' },
     disabled: { opacity: 0.4 },
 
     primary: { backgroundColor: c.primary },
@@ -98,6 +110,7 @@ const makeStyles = (c: ThemeColors) =>
 
     label: { ...typography.cta, textAlign: 'center' },
     tallLabel: { fontSize: 17 },
+    compactLabel: { fontSize: 16, lineHeight: 22 },
     primaryLabel: { color: c.onPrimary },
     secondaryLabel: { color: c.ink },
     subtleLabel: { color: c.ink, fontSize: 16 },
