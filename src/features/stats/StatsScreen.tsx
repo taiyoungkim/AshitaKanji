@@ -25,7 +25,7 @@ import {
   type ThemeColors,
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import { IconCheck } from '~/design/icons';
+import { IconCheck, IconFlame } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
 import { Overline } from '~/components/ui/Surface';
 import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
@@ -164,13 +164,10 @@ export default function StatsScreen(): React.ReactNode {
             snapshot={snapshot}
             empty={state.phase === 'empty'}
             reducedMotion={reducedMotion !== false}
+            cta={<Button label="지금 연습하기" onPress={onStart} disabled={starting} />}
           />
         )}
       </Animated.ScrollView>
-
-      <View style={styles.cta}>
-        <Button label="지금 연습하기" onPress={onStart} disabled={starting} />
-      </View>
     </SafeAreaView>
   );
 }
@@ -179,12 +176,15 @@ function RecordBody({
   snapshot,
   empty,
   reducedMotion,
+  cta,
 }: {
   snapshot: RecordSnapshot;
   empty: boolean;
   reducedMotion: boolean;
+  cta: React.ReactNode;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const { colors } = useTheme();
   const { latest, streakDays, week, totals, comparison } = snapshot;
 
   return (
@@ -221,6 +221,7 @@ function RecordBody({
         <View style={styles.card}>
           <Overline>연속 학습</Overline>
           <View style={styles.scoreRow}>
+            <IconFlame size={30} color={streakDays > 0 ? colors.primary : colors.pressed} />
             <AnimatedNumber value={streakDays} suffix="일" delay={0} style={styles.scoreValue} />
           </View>
           <View style={styles.weekRow}>
@@ -250,11 +251,18 @@ function RecordBody({
         </View>
       </StaggerCard>
 
-      {!empty && latest && (
-        <StaggerCard index={3} reducedMotion={reducedMotion}>
-          <ScoreDistribution comparison={comparison} currentPercent={latest.percent} />
-        </StaggerCard>
-      )}
+      <StaggerCard index={3} reducedMotion={reducedMotion}>
+        {!empty && latest ? (
+          <ScoreDistribution
+            comparison={comparison}
+            currentPercent={latest.percent}
+            cta={cta}
+          />
+        ) : (
+          // 아직 기록이 없으면 분포 카드 대신 CTA 만 남긴다.
+          cta
+        )}
+      </StaggerCard>
     </View>
   );
 }
@@ -416,7 +424,7 @@ const makeStyles = (c: ThemeColors) =>
       gap: layout.gapTight,
       ...cardShadow(c),
     },
-    scoreRow: { flexDirection: 'row', alignItems: 'baseline' },
+    scoreRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
     scoreValue: { ...typography.hero, color: c.ink },
     cardCaption: { ...typography.body, color: c.body },
     emptyTitle: { ...typography.listTitle, color: c.ink },
@@ -448,9 +456,4 @@ const makeStyles = (c: ThemeColors) =>
     tileValue: { ...typography.resultTitle, color: c.ink },
     tileLabel: { ...typography.body, color: c.body },
 
-    cta: {
-      paddingHorizontal: layout.gutter,
-      paddingBottom: spacing.md,
-      backgroundColor: c.softer,
-    },
   });

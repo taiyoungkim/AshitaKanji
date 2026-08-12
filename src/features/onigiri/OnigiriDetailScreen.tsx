@@ -14,7 +14,7 @@ import { font, layout, radius, spacing, typography, type ThemeColors } from '~/d
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconChevron } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { getOnigiriById, INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { ingredientImage, ingredientName } from '~/features/onigiri/ingredientAssets';
@@ -106,8 +106,8 @@ export default function OnigiriDetailScreen(): React.ReactNode {
               </Text>
             </View>
 
-            <Card elevated style={styles.summaryCard}>
-              <Tile
+            <Card variant="elevated" style={styles.summaryCard}>
+              <PlateTile
                 size={88}
                 cornerRadius={radius.tile}
                 locked={status === 'locked'}
@@ -116,7 +116,7 @@ export default function OnigiriDetailScreen(): React.ReactNode {
               />
               <View style={styles.summaryBody}>
                 <Overline>{overline}</Overline>
-                <ProgressCells
+                <ProgressSegments
                   total={INGREDIENTS_PER_ONIGIRI}
                   filled={acquired}
                   height={6}
@@ -143,14 +143,14 @@ export default function OnigiriDetailScreen(): React.ReactNode {
                 return (
                   <View key={`${key}-${index}`} style={styles.ingredientRow}>
                     {got ? (
-                      <Tile
+                      <PlateTile
                         size={44}
                         cornerRadius={radius.tileSm}
                         image={ingredientImage(key)}
                         imageSize={38}
                       />
                     ) : (
-                      <Tile size={44} cornerRadius={radius.tileSm} locked />
+                      <PlateTile size={44} cornerRadius={radius.tileSm} locked />
                     )}
                     <Text
                       style={[
@@ -178,7 +178,7 @@ export default function OnigiriDetailScreen(): React.ReactNode {
             {/* NEXT REWARD 를 카드에서 해제했다 — 회색 박스로 두면 카드 안 카드가 된다. */}
             {nextIngredient && status !== 'completed' && (
               <View style={styles.nextRewardRow}>
-                <Tile size={52} cornerRadius={16} locked />
+                <PlateTile size={52} cornerRadius={16} locked />
                 <View style={styles.nextRewardCopy}>
                   <Overline>다음 보상</Overline>
                   <Text style={styles.nextRewardLine}>

@@ -13,14 +13,14 @@ import {
   layout,
   radius,
   spacing,
-  thumbShadow,
   typography,
   type ThemeColors,
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconChevron } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { SegmentedControl } from '~/components/ui/SegmentedControl';
+import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { mascotImage, recipeImage } from '~/features/onigiri/recipeAssets';
@@ -177,24 +177,15 @@ export default function HomeScreen(): React.ReactNode {
       >
         <Overline>{today}</Overline>
 
-        <View style={styles.segment}>
-          {(['today', 'reading'] as const).map((m) => {
-            const on = mode === m;
-            return (
-              <Pressable
-                key={m}
-                onPress={() => setMode(m)}
-                style={[styles.segmentItem, on && styles.segmentItemOn, on && thumbShadow()]}
-                accessibilityRole="button"
-                accessibilityState={{ selected: on }}
-              >
-                <Text style={[styles.segmentLabel, on && styles.segmentLabelOn]}>
-                  {m === 'today' ? '오늘 학습' : '회독'}
-                </Text>
-              </Pressable>
-            );
-          })}
-        </View>
+        <SegmentedControl
+          style={styles.segment}
+          value={mode}
+          onChange={setMode}
+          options={[
+            { value: 'today', label: '오늘 학습' },
+            { value: 'reading', label: '회독' },
+          ]}
+        />
 
         {!data ? (
           <View style={styles.loading}>
@@ -202,7 +193,7 @@ export default function HomeScreen(): React.ReactNode {
           </View>
         ) : (
           <View style={styles.cardGroup}>
-            <Card elevated style={styles.heroCard}>
+            <Card variant="elevated" style={styles.heroCard}>
               <Overline>{isReading ? '회독' : '오늘의 학습'}</Overline>
               <View style={styles.heroRow}>
                 <Text style={styles.heroValue}>{heroValue}</Text>
@@ -243,7 +234,7 @@ export default function HomeScreen(): React.ReactNode {
                 accessibilityRole="button"
                 accessibilityLabel={`${current.item.name} 상세 보기, 재료 ${current.ingredientCount}개 모음`}
               >
-                <Tile size={48} image={recipeImage(current.item.imageKey)} imageSize={40} />
+                <PlateTile size={48} image={recipeImage(current.item.imageKey)} imageSize={40} />
                 <View style={styles.progressBody}>
                   <View style={styles.progressHead}>
                     <Text style={styles.progressName} numberOfLines={1}>
@@ -253,7 +244,7 @@ export default function HomeScreen(): React.ReactNode {
                       {current.ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
                     </Text>
                   </View>
-                  <ProgressCells
+                  <ProgressSegments
                     total={INGREDIENTS_PER_ONIGIRI}
                     filled={current.ingredientCount}
                     height={5}
@@ -272,7 +263,7 @@ export default function HomeScreen(): React.ReactNode {
         <View style={styles.spacer} />
 
         <View style={styles.mascotRow}>
-          <Tile size={44} image={mascotImage} imageSize={38} />
+          <PlateTile size={44} image={mascotImage} imageSize={38} />
           <Text style={styles.mascotLine}>{mascotLine}</Text>
         </View>
       </ScrollView>
@@ -294,24 +285,7 @@ const makeStyles = (c: ThemeColors) =>
       paddingTop: spacing.xxl,
     },
 
-    segment: {
-      flexDirection: 'row',
-      gap: spacing.xs,
-      marginTop: spacing.lg,
-      padding: spacing.xs,
-      borderRadius: radius.pill,
-      backgroundColor: c.soft,
-    },
-    segmentItem: {
-      flex: 1,
-      minHeight: layout.touchTarget,
-      borderRadius: radius.pill,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    segmentItemOn: { backgroundColor: c.canvas },
-    segmentLabel: { fontFamily: font.semibold, fontSize: 16, lineHeight: 20, color: c.body },
-    segmentLabelOn: { color: c.ink },
+    segment: { marginTop: spacing.lg },
 
     loading: { marginTop: spacing.huge, alignItems: 'center' },
 

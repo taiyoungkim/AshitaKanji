@@ -25,9 +25,11 @@ const AnimatedRect = Animated.createAnimatedComponent(Rect);
 interface Props {
   comparison: PersonalComparison;
   currentPercent: number;
+  /** 화면의 유일한 오렌지. 카드 안에 두는 것이 디자인 계약이다. */
+  cta: React.ReactNode;
 }
 
-export function ScoreDistribution({ comparison, currentPercent }: Props): React.ReactNode {
+export function ScoreDistribution({ comparison, currentPercent, cta }: Props): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const reducedMotion = useReducedMotion();
@@ -73,6 +75,7 @@ export function ScoreDistribution({ comparison, currentPercent }: Props): React.
       <View style={styles.card}>
         <Text style={styles.title}>내 학습 점수 분포</Text>
         <Text style={styles.empty}>학습 기록이 쌓이면 비교할 수 있어요</Text>
+        <View style={styles.cta}>{cta}</View>
       </View>
     );
   }
@@ -160,6 +163,8 @@ export function ScoreDistribution({ comparison, currentPercent }: Props): React.
         <Text style={styles.axisLabel}>평균 {Math.round(comparison.mean)}%</Text>
         <Text style={styles.axisLabel}>100%</Text>
       </View>
+
+      <View style={styles.cta}>{cta}</View>
     </View>
   );
 }
@@ -194,4 +199,5 @@ const makeStyles = (c: ThemeColors) =>
     },
     axis: { flexDirection: 'row', justifyContent: 'space-between' },
     axisLabel: { ...typography.caption, color: c.body },
+    cta: { marginTop: spacing.xs },
   });

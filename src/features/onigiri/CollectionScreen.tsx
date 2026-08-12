@@ -30,7 +30,7 @@ import {
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconGrid, IconList } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { recipeImage } from '~/features/onigiri/recipeAssets';
@@ -110,8 +110,8 @@ export default function CollectionScreen(): React.ReactNode {
           showsVerticalScrollIndicator={false}
         >
           {current && !allCollected && (
-            <Card elevated style={styles.currentCard}>
-              <Tile
+            <Card variant="elevated" style={styles.currentCard}>
+              <PlateTile
                 size={56}
                 cornerRadius={16}
                 image={recipeImage(current.item.imageKey)}
@@ -122,7 +122,7 @@ export default function CollectionScreen(): React.ReactNode {
                 <Text style={styles.currentName} numberOfLines={1}>
                   {current.item.name}
                 </Text>
-                <ProgressCells
+                <ProgressSegments
                   total={INGREDIENTS_PER_ONIGIRI}
                   filled={current.ingredientCount}
                   height={5}

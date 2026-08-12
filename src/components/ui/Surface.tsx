@@ -22,20 +22,27 @@ import {
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 
-/** 표준 콘텐츠 카드. `elevated` 로만 층을 나눈다. */
+/**
+ * 표준 콘텐츠 카드. 층은 **그림자 유무로만** 나눈다 — 테두리 변형은 없다.
+ * `flat` 은 "누를 수 있으나 히어로는 아닌" 카드(홈 진행 카드)다.
+ */
+export type CardVariant = 'elevated' | 'flat';
+
 export function Card({
   children,
-  elevated = false,
+  variant = 'flat',
   style,
 }: {
   children: React.ReactNode;
-  elevated?: boolean;
+  variant?: CardVariant;
   style?: StyleProp<ViewStyle>;
 }): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   return (
-    <View style={[styles.card, elevated && cardShadow(colors), style]}>{children}</View>
+    <View style={[styles.card, variant === 'elevated' && cardShadow(colors), style]}>
+      {children}
+    </View>
   );
 }
 
@@ -55,7 +62,7 @@ export function Overline({
  * 일러스트 배킹 타일. plate 는 다크에서도 고정이라 검정 선화가 살아남는다.
  * `locked` 면 그림 대신 hairline 링 + "?" 를 그린다 — 무엇을 받을지 미리 보여주지 않는다.
  */
-export function Tile({
+export function PlateTile({
   size,
   image,
   imageSize,
@@ -105,7 +112,7 @@ export function Tile({
  * 칸 분할 진행바. 홈·메뉴·상세는 `barFill`(탐색 맥락), 결과 화면만 `ink`(보상 순간).
  * `justFilled` 는 방금 채워진 칸으로, 라임에서 시작해 잉크로 가라앉는 연출의 대상이다.
  */
-export function ProgressCells({
+export function ProgressSegments({
   total,
   filled,
   height,

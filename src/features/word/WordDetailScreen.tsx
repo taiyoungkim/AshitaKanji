@@ -15,8 +15,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { cardShadow, font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
+import { IconSpeaker } from '~/design/icons';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteKanjiRepo } from '~/db/repos/sqlite/SqliteKanjiRepo';
@@ -176,7 +177,10 @@ export default function WordDetailScreen(): React.ReactNode {
           accessibilityLabel="발음 듣기"
           accessibilityRole="button"
         >
-          <Text style={styles.ttsIcon}>🔊 발음 듣기</Text>
+          <View style={styles.ttsBtnInner}>
+            <IconSpeaker size={18} color={c.ink} />
+            <Text style={styles.ttsIcon}>발음 듣기</Text>
+          </View>
         </Pressable>
         {tts.status === 'unsupported' && (
           <Text style={styles.ttsHint}>이 기기는 일본어 음성을 지원하지 않아요.</Text>
@@ -190,7 +194,7 @@ export default function WordDetailScreen(): React.ReactNode {
           accessibilityLabel="네이버 일본어 사전에서 단어 보기"
           accessibilityRole="link"
         >
-          <Text style={styles.dictBtnText}>네이버 사전 ↗</Text>
+          <Text style={styles.dictBtnText}>사전 ↗</Text>
         </Pressable>
       </View>
 
@@ -243,7 +247,7 @@ export default function WordDetailScreen(): React.ReactNode {
                     accessibilityLabel="예문 발음 듣기"
                     accessibilityRole="button"
                   >
-                    <Text style={styles.exampleTts}>🔊</Text>
+                    <IconSpeaker size={20} color={c.body} />
                   </Pressable>
                 </View>
                 {example.ko && (
@@ -401,7 +405,7 @@ function KanjiDetailSheet({
               accessibilityLabel="네이버에서 한자 보기"
               accessibilityRole="link"
             >
-              <Text style={styles.sheetDictText}>네이버에서 보기 ↗</Text>
+              <Text style={styles.sheetDictText}>사전 ↗</Text>
             </Pressable>
             <Pressable style={styles.sheetCloseBtn} onPress={onClose} accessibilityRole="button">
               <Text style={styles.sheetCloseText}>닫기</Text>
@@ -429,12 +433,11 @@ const makeStyles = (c: ThemeColors) =>
   content: { padding: spacing.xl, gap: spacing.lg },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xl, gap: spacing.sm },
   emptyText: { ...typography.body, color: c.body, fontFamily: font.medium },
-  errorDetail: { ...typography.overline, color: c.mute, textAlign: 'center', textTransform: 'none', letterSpacing: 0 },
+  errorDetail: { ...typography.overline, color: c.body, textAlign: 'center', textTransform: 'none', letterSpacing: 0 },
   head: {
     backgroundColor: c.canvas,
     borderRadius: radius.card,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    ...cardShadow(c),
     padding: spacing.xl,
     alignItems: 'center',
     gap: 6,
@@ -449,7 +452,7 @@ const makeStyles = (c: ThemeColors) =>
   },
   levelText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
   surface: { fontSize: 48, lineHeight: 54, fontFamily: font.medium, color: c.ink, letterSpacing: -1 },
-  furigana: { ...typography.caption, color: c.mute },
+  furigana: { ...typography.caption, color: c.body },
   reading: { fontSize: 22, lineHeight: 28, color: c.body, fontFamily: font.medium },
   ttsBtn: {
     marginTop: spacing.lg,
@@ -459,9 +462,10 @@ const makeStyles = (c: ThemeColors) =>
     paddingHorizontal: 18,
     paddingVertical: spacing.sm,
   },
+  ttsBtnInner: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   ttsBtnOff: { opacity: 0.4 },
   ttsIcon: { ...typography.caption, color: c.ink, fontFamily: font.medium },
-  ttsHint: { ...typography.overline, color: c.mute, marginTop: 2, textTransform: 'none', letterSpacing: 0 },
+  ttsHint: { ...typography.overline, color: c.body, marginTop: 2, textTransform: 'none', letterSpacing: 0 },
   dictBtn: {
     marginTop: spacing.sm,
     borderWidth: 1,
@@ -474,8 +478,7 @@ const makeStyles = (c: ThemeColors) =>
   section: {
     backgroundColor: c.canvas,
     borderRadius: radius.card,
-    borderWidth: 1,
-    borderColor: c.pressed,
+    ...cardShadow(c),
     padding: spacing.lg,
   },
   sectionTitle: { ...typography.overline, color: c.body },
@@ -491,26 +494,24 @@ const makeStyles = (c: ThemeColors) =>
   },
   exampleRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: spacing.lg },
   exampleJp: { flex: 1, fontSize: 18, lineHeight: 28, color: c.ink },
-  exampleTts: { fontSize: 20 },
   exampleTtsOff: { opacity: 0.35 },
   exampleKo: { ...typography.caption, color: c.body, lineHeight: 20 },
   kanjiGrid: { gap: spacing.sm },
   kanjiCard: {
-    borderWidth: 1,
-    borderColor: c.pressed,
-    borderRadius: radius.skeleton,
+    backgroundColor: c.soft,
+    borderRadius: radius.tileSm,
     padding: spacing.lg,
     gap: spacing.xs,
   },
   kanjiLiteral: { fontSize: 34, lineHeight: 40, color: c.ink, fontFamily: font.medium },
   kanjiMeaning: { ...typography.caption, color: c.ink, fontFamily: font.medium, lineHeight: 21 },
   kanjiReading: { ...typography.caption, color: c.body, lineHeight: 19 },
-  kanjiMeta: { ...typography.overline, color: c.mute, textTransform: 'none', letterSpacing: 0 },
+  kanjiMeta: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
   kanjiError: { ...typography.caption, color: c.body },
   infoLine: { ...typography.caption, color: c.ink, lineHeight: 20 },
   infoLabel: { color: c.body, fontFamily: font.medium },
   metaRow: { alignItems: 'center', marginTop: spacing.xs },
-  metaText: { ...typography.overline, color: c.mute, textTransform: 'none', letterSpacing: 0 },
+  metaText: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0 },
   sheetRoot: { flex: 1, justifyContent: 'flex-end' },
   sheetBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.28)' },
   sheet: {

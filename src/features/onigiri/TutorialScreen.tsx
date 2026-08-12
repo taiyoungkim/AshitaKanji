@@ -26,7 +26,7 @@ import {
 } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { Receipt } from '~/features/onigiri/components';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
@@ -213,8 +213,8 @@ export default function TutorialScreen(): React.ReactNode {
           <Overline>다 했어요</Overline>
           <View style={styles.spacer} />
           <TutorialCat pose="make" screenWidth={width} screenHeight={height} />
-          <Card elevated style={styles.rewardCard}>
-            <Tile
+          <Card variant="elevated" style={styles.rewardCard}>
+            <PlateTile
               size={72}
               cornerRadius={radius.tile}
               image={ingredientImage(TUTORIAL_INGREDIENT)}
@@ -228,7 +228,7 @@ export default function TutorialScreen(): React.ReactNode {
           </Card>
           <View style={styles.progressBlock}>
             <Text style={styles.recipeName}>{TUTORIAL_ONIGIRI.name}</Text>
-            <ProgressCells
+            <ProgressSegments
               total={INGREDIENTS_PER_ONIGIRI}
               filled={TUTORIAL_INGREDIENT_COUNT}
               height={8}
@@ -247,7 +247,7 @@ export default function TutorialScreen(): React.ReactNode {
         <>
           <Overline>완성 규칙</Overline>
           <View style={styles.spacer} />
-          <Tile
+          <PlateTile
             size={140}
             cornerRadius={radius.card}
             image={recipeImage(TUTORIAL_ONIGIRI.imageKey)}
@@ -257,7 +257,7 @@ export default function TutorialScreen(): React.ReactNode {
           <View style={styles.centerBlock}>
             <Text style={styles.title}>{TUTORIAL_ONIGIRI.name}</Text>
             <View style={styles.craftProgress}>
-              <ProgressCells
+              <ProgressSegments
                 total={INGREDIENTS_PER_ONIGIRI}
                 filled={INGREDIENTS_PER_ONIGIRI}
                 height={8}

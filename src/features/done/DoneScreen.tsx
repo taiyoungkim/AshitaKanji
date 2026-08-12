@@ -32,7 +32,7 @@ import {
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
+import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { useToast } from '~/components/Toast';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
@@ -316,9 +316,9 @@ export default function DoneScreen(): React.ReactNode {
                 ],
               }}
             >
-              <Card elevated style={styles.rewardCard}>
+              <Card variant="elevated" style={styles.rewardCard}>
                 <View style={styles.rewardTile}>
-                  <Tile
+                  <PlateTile
                     size={88}
                     cornerRadius={radius.tile}
                     image={rewardKey ? ingredientImage(rewardKey) : undefined}
@@ -483,7 +483,7 @@ function RewardProgress({
   const justFilled = justFilledIndex;
 
   if (justFilled < 0) {
-    return <ProgressCells total={total} filled={filled} height={8} gap={8} fill="ink" />;
+    return <ProgressSegments total={total} filled={filled} height={8} gap={8} fill="ink" />;
   }
 
   return (

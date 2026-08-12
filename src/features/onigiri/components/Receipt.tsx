@@ -7,7 +7,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconCheck } from '~/design/icons';
-import { ProgressCells } from '~/components/ui/Surface';
+import { ProgressSegments } from '~/components/ui/Surface';
 
 export interface ReceiptRow {
   label: string;
@@ -71,7 +71,7 @@ export function Receipt({
             {ingredientCount} / {ingredientTotal}
           </Text>
         </View>
-        <ProgressCells
+        <ProgressSegments
           total={ingredientTotal}
           filled={ingredientCount}
           height={6}

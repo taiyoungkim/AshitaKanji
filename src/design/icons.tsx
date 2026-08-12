@@ -179,6 +179,20 @@ export function IconCheck({ size = 24, color }: IconProps): React.ReactNode {
   );
 }
 
+/** 연속 학습 — 불꽃. 스트릭이 0이면 회색으로 꺼둔다. */
+export function IconFlame({ size = 26, color }: IconProps): React.ReactNode {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M12 3c.6 3 2.4 4.1 3.7 5.6A6.9 6.9 0 0 1 17.5 13a5.5 5.5 0 0 1-11 0c0-1.6.7-2.9 1.6-3.9.3 1 .9 1.7 1.7 2 .1-2.9 1.1-5.6 2.2-8.1Z"
+        stroke={color}
+        strokeWidth={1.8}
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
 /** 잠김 자물쇠 — 도감 목록의 잠긴 행. */
 export function IconLock({ size = 16, color }: IconProps): React.ReactNode {
   return (
