@@ -102,5 +102,5 @@ const makeStyles = (c: ThemeColors) =>
     secondaryLabel: { color: c.ink },
     subtleLabel: { color: c.ink, fontSize: 16 },
     outlineLabel: { color: c.ink },
-    inkLabel: { color: c.softer },
+    inkLabel: { color: c.onInk },
   });

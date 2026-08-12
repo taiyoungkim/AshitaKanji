@@ -8,6 +8,8 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { FullWindowOverlay } from 'react-native-screens';
+import { cardShadow, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
 
 type ToastContextValue = {
   show: (message: string) => void;
@@ -18,9 +20,16 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 const VISIBLE_MS = 1500;
 
 function ToastOverlay({ message }: { message: string }): React.ReactNode {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(makeStyles);
   const body = (
     <View pointerEvents="none" style={styles.root}>
-      <View style={styles.toast}>
+      {/* 화면 읽기 도구가 새 메시지를 읽도록 live region 으로 알린다. */}
+      <View
+        style={[styles.toast, cardShadow(colors)]}
+        accessibilityLiveRegion="polite"
+        accessibilityRole="alert"
+      >
         <Text style={styles.text}>{message}</Text>
       </View>
     </View>
@@ -32,6 +41,7 @@ function ToastOverlay({ message }: { message: string }): React.ReactNode {
 }
 
 export function ToastProvider({ children }: { children: React.ReactNode }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
   const [message, setMessage] = useState<string | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -61,30 +71,30 @@ export function useToast(): ToastContextValue {
   return ctx;
 }
 
-const styles = StyleSheet.create({
-  host: {
-    flex: 1,
-  },
-  root: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 80,
-    alignItems: 'center',
-    zIndex: 9999,
-    elevation: 9999,
-  },
-  toast: {
-    maxWidth: '86%',
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 22,
-    backgroundColor: 'rgba(28,28,30,0.95)',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-});
+const makeStyles = (c: ThemeColors) =>
+  StyleSheet.create({
+    host: {
+      flex: 1,
+    },
+    root: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 80,
+      alignItems: 'center',
+      zIndex: 9999,
+      elevation: 9999,
+    },
+    toast: {
+      maxWidth: '86%',
+      paddingVertical: spacing.md,
+      paddingHorizontal: spacing.xl,
+      borderRadius: radius.pill,
+      backgroundColor: c.ink,
+    },
+    text: {
+      ...typography.bodyStrong,
+      color: c.onInk,
+      textAlign: 'center',
+    },
+  });

@@ -37,6 +37,11 @@ const LICENSES: LicenseItem[] = [
     license: 'CC BY-SA 4.0',
   },
   {
+    title: '글꼴',
+    body: '앱 전체 글꼴은 Pretendard JP를 사용합니다. 한국어와 라틴 문자에 더해 일본어 자형을 포함해 학습 카드의 한자·가나를 온전히 표시합니다.',
+    license: 'Pretendard JP / SIL Open Font License 1.1',
+  },
+  {
     title: '간격 반복 알고리즘',
     body: 'FSRS 스케줄링은 오픈소스 ts-fsrs 라이브러리를 사용합니다.',
     license: 'MIT',

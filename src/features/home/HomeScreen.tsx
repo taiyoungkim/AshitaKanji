@@ -7,9 +7,6 @@ import { useCallback, useMemo, useState } from 'react';
 import { useFocusEffect, useRouter, type Href } from 'expo-router';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getDatabase } from '~/db/open';
-import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
-import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
 import {
   border,
   font,
@@ -32,17 +29,17 @@ import {
   type OnigiriProgressSnapshot,
 } from '~/features/onigiri/progress';
 import { loadLevelChapterStats } from '~/features/reading/buildReadingEngine';
+import {
+  loadTodayCounts,
+  resolveStudyRoute,
+  type TodayCounts,
+} from '~/features/study/resolveStudyEntry';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import type { JlptLevel } from '~/types/Card';
 import { chapterStatus, isChapterComplete, type ChapterStat } from '~/types/Reading';
 import { estimateStudyMinutes, formatKoreanDate, ingredientCaption } from './homePresentation';
 
 type HomeMode = 'today' | 'reading';
-
-interface TodayCounts {
-  due: number;
-  newAvail: number;
-}
 
 interface ReadingTarget {
   level: JlptLevel;
@@ -55,23 +52,6 @@ interface HomeData {
   counts: TodayCounts;
   progress: OnigiriProgressSnapshot;
   reading: ReadingTarget | null;
-}
-
-async function loadTodayCounts(levels: JlptLevel[], dailyNewLimit: number): Promise<TodayCounts> {
-  const db = await getDatabase();
-  const ucRepo = new SqliteUserCardRepo(db);
-  const cardRepo = new SqliteCardRepo(db);
-  const now = Date.now();
-
-  const due = await ucRepo.findAllDue(now);
-  const dueWords = await cardRepo.findByIds(due.map((c) => c.word_id));
-  const levelSet = new Set(levels);
-  const dueCount = dueWords.filter((w) => w.deprecated === 0 && levelSet.has(w.level)).length;
-
-  const existing = await ucRepo.existingWordIds();
-  const newCands = await cardRepo.findNewCandidates(levels, dailyNewLimit, existing);
-
-  return { due: dueCount, newAvail: newCands.length };
 }
 
 /** 회독은 순차 해금이라 '아직 안 끝난 첫 챕터'가 곧 다음에 할 묶음이다. */
@@ -185,8 +165,7 @@ export default function HomeScreen(): React.ReactNode {
       else router.push('/reading' as Href);
       return;
     }
-    if (todayTotal > 0) router.push('/study');
-    else router.push('/weakness');
+    router.push(resolveStudyRoute({ due: reviewCount, newAvail: newPlanned }));
   };
 
   return (

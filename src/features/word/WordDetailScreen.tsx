@@ -551,7 +551,7 @@ const makeStyles = (c: ThemeColors) =>
     paddingVertical: 11,
     alignItems: 'center',
   },
-  sheetDictText: { ...typography.caption, color: c.canvas, fontFamily: font.medium },
+  sheetDictText: { ...typography.caption, color: c.onInk, fontFamily: font.medium },
   sheetCloseBtn: {
     paddingHorizontal: 18,
     paddingVertical: 11,

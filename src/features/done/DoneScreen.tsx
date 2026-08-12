@@ -31,7 +31,6 @@ import {
   type ThemeColors,
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import { IconCheck } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
 import { Card, Overline, ProgressCells, Tile } from '~/components/ui/Surface';
 import { useToast } from '~/components/Toast';
@@ -47,6 +46,14 @@ import type {
 import { remainingCaption } from '~/features/home/homePresentation';
 import { useSessionStore } from '~/stores/SessionStore';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
+import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
+import { RewardBurst } from './components/RewardBurst';
+import {
+  planRewardMotion,
+  rewardMotionKey,
+  REWARD_TIMELINE,
+  PROGRESS_CELL_LIME_HOLD,
+} from './rewardMotion';
 import { buildDoneRewardPresentation } from './rewardPresentation';
 import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCapture';
 
@@ -95,9 +102,11 @@ export default function DoneScreen(): React.ReactNode {
   const receiptRef = useRef<View>(null);
 
   // 접근성 설정 확인 전에도 결과가 보이도록 최종 상태에서 시작한다.
-  const rise = useRef(new Animated.Value(1)).current;
-  const pop = useRef(new Animated.Value(1)).current;
+  const art = useRef(new Animated.Value(1)).current;
+  const recipeIn = useRef(new Animated.Value(1)).current;
   const limeFade = useRef(new Animated.Value(1)).current;
+  const noteIn = useRef(new Animated.Value(1)).current;
+  const ctaIn = useRef(new Animated.Value(1)).current;
   const dim = useRef(new Animated.Value(1)).current;
   const print = useRef(new Animated.Value(1)).current;
 
@@ -142,50 +151,67 @@ export default function DoneScreen(): React.ReactNode {
   const memorizedNote =
     newCount > 0 ? `오늘 외운 ${newCount}개는 내일 다시 확인해요.` : '내일 또 만나요.';
 
-  // 진입 연출 — 보상 카드가 떠오르고, 체크가 튀고, 방금 채워진 칸이 라임에서 잉크로 가라앉는다.
+  // 보상 시퀀스는 세션·재료 조합이 바뀔 때만 돈다.
+  // 영수증을 열었다 닫아도 이 키가 그대로면 재실행하지 않는다.
+  const motionKey = rewardMotionKey({
+    sessionId: summary?.sessionId ?? null,
+    itemId: reward?.item.id ?? null,
+    ingredientIndex: reward?.ingredientIndex ?? null,
+  });
+  const plan = planRewardMotion({
+    hasReward: rewardKey !== null,
+    ingredientCount,
+    reducedMotion: reducedMotion === true,
+  });
+  const playedKeyRef = useRef<string | null>(null);
+
+  // 진입 연출 — 재료 아트가 떠오르고, 레시피·안내문·CTA 가 순서대로 붙는다.
   useEffect(() => {
     if (!progress && !progressFailed) return;
     if (reducedMotion === null) return;
+    if (playedKeyRef.current === motionKey) return;
+    playedKeyRef.current = motionKey;
 
-    rise.stopAnimation();
-    pop.stopAnimation();
-    limeFade.stopAnimation();
+    const values = [art, recipeIn, limeFade, noteIn, ctaIn];
+    for (const v of values) v.stopAnimation();
+
     if (reducedMotion) {
-      rise.setValue(1);
-      pop.setValue(1);
-      limeFade.setValue(1);
+      // 모션 감소: 카운트업·드로잉·링 없이 최종 상태만. 정보량은 동일하다.
+      for (const v of values) v.setValue(1);
       return;
     }
 
-    rise.setValue(0);
-    pop.setValue(0);
-    limeFade.setValue(0);
+    for (const v of values) v.setValue(0);
+    const track = (value: Animated.Value, name: keyof typeof REWARD_TIMELINE, native = true) =>
+      Animated.timing(value, {
+        toValue: 1,
+        delay: REWARD_TIMELINE[name].delay,
+        duration: REWARD_TIMELINE[name].duration,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: native,
+      });
+
     const animation = Animated.parallel([
-      Animated.timing(rise, {
-        toValue: 1,
-        duration: motion.riseInMs,
-        easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
-      }),
-      Animated.timing(pop, {
-        toValue: 1,
-        duration: motion.popMs,
-        delay: motion.popDelayMs,
-        easing: Easing.out(Easing.back(2)),
-        useNativeDriver: true,
-      }),
-      Animated.timing(limeFade, {
-        toValue: 1,
-        duration: motion.limeFadeMs,
-        delay: motion.limeFadeDelayMs,
-        easing: Easing.inOut(Easing.ease),
-        // 배경색 보간이라 네이티브 드라이버를 쓸 수 없다.
-        useNativeDriver: false,
-      }),
+      track(art, 'art'),
+      track(recipeIn, 'recipe'),
+      // 배경색 보간이라 네이티브 드라이버를 쓸 수 없다.
+      track(limeFade, 'progressCell', false),
+      track(noteIn, 'note'),
+      track(ctaIn, 'cta'),
     ]);
     animation.start();
     return () => animation.stop();
-  }, [progress, progressFailed, reducedMotion, rise, pop, limeFade]);
+  }, [
+    progress,
+    progressFailed,
+    reducedMotion,
+    motionKey,
+    art,
+    recipeIn,
+    limeFade,
+    noteIn,
+    ctaIn,
+  ]);
 
   const receiptRows = useMemo<ReceiptRow[]>(
     () => [
@@ -284,9 +310,9 @@ export default function DoneScreen(): React.ReactNode {
           <>
             <Animated.View
               style={{
-                opacity: rise,
+                opacity: art,
                 transform: [
-                  { translateY: rise.interpolate({ inputRange: [0, 1], outputRange: [10, 0] }) },
+                  { scale: art.interpolate({ inputRange: [0, 1], outputRange: [0.8, 1] }) },
                 ],
               }}
             >
@@ -298,20 +324,10 @@ export default function DoneScreen(): React.ReactNode {
                     image={rewardKey ? ingredientImage(rewardKey) : undefined}
                     imageSize={65}
                   />
-                  {rewardKey && (
-                    <Animated.View
-                      style={[
-                        styles.checkBadge,
-                        {
-                          opacity: pop,
-                          transform: [
-                            { scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) },
-                          ],
-                        },
-                      ]}
-                    >
-                      <IconCheck size={19} color={colors.onSecondary} />
-                    </Animated.View>
+                  {/* 보상이 없으면 체크·링·스파크를 아예 렌더하지 않는다.
+                      모션 감소 판정 전(null)에도 띄우지 않는다 — 아래 시퀀스와 시작 시점을 맞춘다. */}
+                  {rewardKey && reducedMotion !== null && (
+                    <RewardBurst runKey={motionKey} instant={plan.instant} />
                   )}
                 </View>
                 <View style={styles.rewardCopy}>
@@ -322,36 +338,69 @@ export default function DoneScreen(): React.ReactNode {
               </Card>
             </Animated.View>
 
-            <View style={styles.recipeBlock}>
+            <Animated.View
+              style={[
+                styles.recipeBlock,
+                {
+                  opacity: recipeIn,
+                  transform: [
+                    { translateY: recipeIn.interpolate({ inputRange: [0, 1], outputRange: [10, 0] }) },
+                  ],
+                },
+              ]}
+            >
               <View style={styles.recipeHead}>
                 <Text style={styles.recipeName}>{recipeName}</Text>
-                <Text style={styles.recipeCount}>
-                  {ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
-                </Text>
+                <AnimatedNumber
+                  value={ingredientCount}
+                  suffix={` / ${INGREDIENTS_PER_ONIGIRI}`}
+                  delay={REWARD_TIMELINE.counts.delay}
+                  duration={REWARD_TIMELINE.counts.duration}
+                  runKey={motionKey}
+                  style={styles.recipeCount}
+                />
               </View>
               <RewardProgress
                 filled={ingredientCount}
                 total={INGREDIENTS_PER_ONIGIRI}
                 limeFade={limeFade}
+                justFilledIndex={plan.justFilledIndex}
               />
               <Text style={styles.recipeCaption}>{remainingCaption(remaining)}</Text>
-            </View>
+            </Animated.View>
 
             <View style={styles.summaryBlock}>
-              <SummaryRow label="새로 배운 단어" value={newCount} />
+              <SummaryRow
+                label="새로 배운 단어"
+                value={newCount}
+                runKey={motionKey}
+                animated
+              />
               <SummaryRow label="아직이라고 표시한 단어" value={againCount} />
             </View>
 
-            <Text style={styles.memorized}>{memorizedNote}</Text>
+            <Animated.Text style={[styles.memorized, { opacity: noteIn }]}>
+              {memorizedNote}
+            </Animated.Text>
           </>
         )}
       </ScrollView>
 
       {/* 오버레이가 떠 있는 동안 CTA 는 아예 렌더하지 않는다. */}
       {!receiptOpen && (
-        <View style={styles.cta}>
+        <Animated.View
+          style={[
+            styles.cta,
+            {
+              opacity: ctaIn,
+              transform: [
+                { translateY: ctaIn.interpolate({ inputRange: [0, 1], outputRange: [24, 0] }) },
+              ],
+            },
+          ]}
+        >
           <Button label="영수증 받고 마치기" onPress={openReceipt} disabled={loading} />
-        </View>
+        </Animated.View>
       )}
 
       {receiptOpen && (
@@ -422,13 +471,16 @@ function RewardProgress({
   filled,
   total,
   limeFade,
+  justFilledIndex,
 }: {
   filled: number;
   total: number;
   limeFade: Animated.Value;
+  /** 방금 채워진 칸. -1 이면 라임 연출 없이 평범한 진행바로 그린다. */
+  justFilledIndex: number;
 }): React.ReactNode {
   const { colors } = useTheme();
-  const justFilled = filled - 1;
+  const justFilled = justFilledIndex;
 
   if (justFilled < 0) {
     return <ProgressCells total={total} filled={filled} height={8} gap={8} fill="ink" />;
@@ -455,7 +507,7 @@ function RewardProgress({
               borderRadius: radius.pill,
               backgroundColor: limeFade.interpolate({
                 // 55% 지점까지 라임을 유지하다 잉크로 넘어간다.
-                inputRange: [0, 0.55, 1],
+                inputRange: [0, PROGRESS_CELL_LIME_HOLD, 1],
                 outputRange: [colors.secondary, colors.secondary, colors.ink],
               }),
             }}
@@ -466,12 +518,33 @@ function RewardProgress({
   );
 }
 
-function SummaryRow({ label, value }: { label: string; value: number }): React.ReactNode {
+function SummaryRow({
+  label,
+  value,
+  animated = false,
+  runKey,
+}: {
+  label: string;
+  value: number;
+  /** 새로 배운 단어만 카운트업한다. 나머지는 즉시 값으로 둔다. */
+  animated?: boolean;
+  runKey?: string;
+}): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.summaryRow}>
       <Text style={styles.summaryLabel}>{label}</Text>
-      <Text style={styles.summaryValue}>{value}</Text>
+      {animated ? (
+        <AnimatedNumber
+          value={value}
+          delay={REWARD_TIMELINE.counts.delay}
+          duration={REWARD_TIMELINE.counts.duration}
+          runKey={runKey}
+          style={styles.summaryValue}
+        />
+      ) : (
+        <Text style={styles.summaryValue}>{value}</Text>
+      )}
     </View>
   );
 }
@@ -498,17 +571,6 @@ const makeStyles = (c: ThemeColors) =>
       paddingHorizontal: layout.gutter,
     },
     rewardTile: { position: 'relative' },
-    checkBadge: {
-      position: 'absolute',
-      right: -6,
-      bottom: -6,
-      width: 30,
-      height: 30,
-      borderRadius: radius.pill,
-      backgroundColor: c.secondary,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     rewardCopy: { flex: 1, gap: 6 },
     rewardName: { ...typography.meaning, color: c.ink },
     rewardNote: { ...typography.body, color: c.body },

@@ -44,7 +44,7 @@ const GRADE_LABELS: { grade: ScanGrade; label: string }[] = [
 
 function gradeStyles(c: ThemeColors): Record<ScanGrade, { fill: ViewStyle; text: TextStyle }> {
   return {
-    known: { fill: { backgroundColor: c.ink, borderColor: c.ink }, text: { color: c.softer } },
+    known: { fill: { backgroundColor: c.ink, borderColor: c.ink }, text: { color: c.onInk } },
     confused: { fill: { backgroundColor: c.pressed, borderColor: c.pressed }, text: { color: c.ink } },
     unknown: { fill: { backgroundColor: c.soft, borderColor: c.soft }, text: { color: c.ink } },
     later: { fill: { backgroundColor: 'transparent', borderColor: c.pressed }, text: { color: c.body } },
@@ -314,7 +314,7 @@ const makeStyles = (c: ThemeColors) =>
     alignItems: 'center',
     justifyContent: 'center',
   },
-  batchText: { fontSize: 22, lineHeight: 26, fontFamily: font.medium, color: c.canvas },
+  batchText: { fontSize: 22, lineHeight: 26, fontFamily: font.medium, color: c.onInk },
   progress: {
     textAlign: 'center',
     marginTop: spacing.lg,

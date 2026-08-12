@@ -22,13 +22,14 @@ export default function RootLayout(): React.ReactNode {
   const [dbReady, setDbReady] = useState(false);
   const [dbError, setDbError] = useState<Error | null>(null);
 
-  // Pretendard — 위계를 굵기로 만드는 서체라 weight 별 패밀리를 각각 로드한다.
+  // Pretendard JP — 위계를 굵기로 만드는 서체라 weight 별 패밀리를 각각 로드한다.
+  // 일본어 자형이 필요한 학습 카드 때문에 plain 판이 아니라 JP 판을 쓴다.
   const [fontsLoaded, fontError] = useFonts({
-    'Pretendard-Regular': require('../assets/fonts/Pretendard-Regular.otf'),
-    'Pretendard-Medium': require('../assets/fonts/Pretendard-Medium.otf'),
-    'Pretendard-SemiBold': require('../assets/fonts/Pretendard-SemiBold.otf'),
-    'Pretendard-Bold': require('../assets/fonts/Pretendard-Bold.otf'),
-    'Pretendard-ExtraBold': require('../assets/fonts/Pretendard-ExtraBold.otf'),
+    'PretendardJP-Regular': require('../assets/fonts/PretendardJP-Regular.otf'),
+    'PretendardJP-Medium': require('../assets/fonts/PretendardJP-Medium.otf'),
+    'PretendardJP-SemiBold': require('../assets/fonts/PretendardJP-SemiBold.otf'),
+    'PretendardJP-Bold': require('../assets/fonts/PretendardJP-Bold.otf'),
+    'PretendardJP-ExtraBold': require('../assets/fonts/PretendardJP-ExtraBold.otf'),
   });
 
   // TTS가 무음 스위치(벨소리 OFF)에서도 나오도록 오디오 세션을 playback 으로.

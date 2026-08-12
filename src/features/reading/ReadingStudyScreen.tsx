@@ -240,7 +240,7 @@ const makeStyles = (c: ThemeColors) =>
   unknownBtn: { borderWidth: 1, borderColor: c.pressed, backgroundColor: c.canvas },
   unknownText: { ...typography.body, color: c.ink, fontFamily: font.semibold },
   knownBtn: { backgroundColor: c.ink },
-  knownText: { ...typography.body, color: c.canvas, fontFamily: font.semibold },
+  knownText: { ...typography.body, color: c.onInk, fontFamily: font.semibold },
   doneMark: { fontSize: 56, color: c.ink },
   doneTitle: { ...typography.screenTitle, color: c.ink },
   doneSub: { ...typography.body, color: c.body, marginBottom: spacing.xl },
@@ -250,7 +250,7 @@ const makeStyles = (c: ThemeColors) =>
     borderRadius: radius.pill,
     backgroundColor: c.ink,
   },
-  primaryBtnText: { ...typography.body, color: c.canvas, fontFamily: font.semibold },
+  primaryBtnText: { ...typography.body, color: c.onInk, fontFamily: font.semibold },
   secondaryBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.xl },
   secondaryBtnText: { ...typography.caption, color: c.body, fontFamily: font.medium },
 });

@@ -13,11 +13,13 @@ import type { TextStyle, ViewStyle } from 'react-native';
 // ─── Onikan Grey ramp (hue 228, ~2.6% sat) ───
 export const grey = {
   g99: '#FAFAFB',
+  g98: '#F7F7F9',
   g97: '#F2F2F4',
   g96: '#EDEDF1',
   g95: '#E8E8EC',
   g90: '#DCDCE2',
   g80: '#C4C4CC',
+  g70: '#A9A9B2',
   g60: '#8E8E97',
   g50: '#71717A',
   g40: '#56565E',
@@ -43,7 +45,10 @@ export interface ThemeColors {
   primary: string;
   /** primary 버튼의 누름 상태. */
   primaryPressed: string;
+  /** 주황 primary 면 위의 글자·아이콘. */
   onPrimary: string;
+  /** ink 면 위의 글자·아이콘. canvas/softer 를 전경색 대용으로 쓰지 않는다. */
+  onInk: string;
   /** 활성 탭 틴트 (12px AA 대비 확보용 별도 톤). */
   tabActive: string;
   /** ink 버튼의 누름 상태. */
@@ -72,22 +77,24 @@ export const lightColors: ThemeColors = {
   shadow: 'rgba(0,0,0,0.05)',
   primary: '#EA580C',
   primaryPressed: '#C2410C',
-  onPrimary: '#FFFFFF',
+  onPrimary: grey.g15,
+  onInk: grey.g98,
   tabActive: '#C2410C',
   inkPressed: grey.g10,
   secondary: '#A3E635',
   onSecondary: grey.g15,
   link: '#C2410C',
   barFill: grey.g50,
-  success: '#16A34A',
-  warning: '#F59E0B',
+  // 상태색은 모드별로 나눈다 — 각 면 위에서 AA 를 넘기는 톤이 다르다.
+  success: '#15803D',
+  warning: '#B45309',
   danger: '#DC2626',
   info: '#2563EB',
 };
 
 export const darkColors: ThemeColors = {
-  ink: '#F7F7F9',
-  body: '#A9A9B2',
+  ink: grey.g98,
+  body: grey.g70,
   mute: grey.g50,
   canvas: grey.g15,
   softer: grey.g10,
@@ -98,26 +105,28 @@ export const darkColors: ThemeColors = {
   primary: '#F97316',
   primaryPressed: '#FB923C',
   onPrimary: grey.g15,
+  onInk: grey.g15,
   tabActive: '#EA580C',
   inkPressed: '#FFFFFF',
   secondary: '#A3E635',
   onSecondary: grey.g15,
   link: '#F97316',
   barFill: grey.g50,
-  success: '#16A34A',
+  success: '#22C55E',
   warning: '#F59E0B',
-  danger: '#DC2626',
-  info: '#2563EB',
+  danger: '#F87171',
+  info: '#60A5FA',
 };
 
 // ─── Typography — Pretendard 단일 서체, 위계는 크기·굵기로만 ───
 // 커스텀 폰트는 weight별 패밀리로 로드한다 (RN에서 fontWeight 합성 회피).
+// JP 판을 쓰는 이유: 학습 카드가 일본어 한자를 그리는데 plain 판에는 일본어 자형이 없다.
 export const font = {
-  regular: 'Pretendard-Regular',
-  medium: 'Pretendard-Medium',
-  semibold: 'Pretendard-SemiBold',
-  bold: 'Pretendard-Bold',
-  extrabold: 'Pretendard-ExtraBold',
+  regular: 'PretendardJP-Regular',
+  medium: 'PretendardJP-Medium',
+  semibold: 'PretendardJP-SemiBold',
+  bold: 'PretendardJP-Bold',
+  extrabold: 'PretendardJP-ExtraBold',
 } as const;
 
 interface TextToken extends Pick<TextStyle, 'letterSpacing' | 'textTransform' | 'fontVariant'> {

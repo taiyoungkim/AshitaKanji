@@ -136,7 +136,7 @@ const makeStyles = (c: ThemeColors) =>
   },
   levelChipOn: { backgroundColor: c.ink, borderColor: c.ink },
   levelChipText: { ...typography.body, color: c.ink, fontFamily: font.medium },
-  levelChipTextOn: { color: c.canvas },
+  levelChipTextOn: { color: c.onInk },
   list: { gap: spacing.sm, paddingBottom: spacing.huge },
   muted: { ...typography.body, color: c.body, textAlign: 'center', marginTop: spacing.xxl },
   mutedText: { color: c.mute },

@@ -107,7 +107,7 @@ export default function SettingsScreen(): React.ReactNode {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.h1}>SETTINGS</Text>
+        <Text style={styles.h1}>설정</Text>
 
         {/* 레벨 선택 */}
         <Section title="학습 레벨" hint="최소 1개. 선택한 레벨에서 카드를 출제합니다.">
@@ -132,6 +132,7 @@ export default function SettingsScreen(): React.ReactNode {
         {/* 일일 신규 한도 */}
         <Section title="하루 새 단어" hint={`${DAILY_NEW_MIN}~${DAILY_NEW_MAX}개`}>
           <Stepper
+            label="하루 새 단어"
             value={`${dailyNewLimit}개`}
             onMinus={() => changeDailyNew(-DAILY_STEP)}
             onPlus={() => changeDailyNew(DAILY_STEP)}
@@ -151,7 +152,7 @@ export default function SettingsScreen(): React.ReactNode {
               value={ttsEnabled}
               onValueChange={setTtsEnabled}
               trackColor={{ false: c.pressed, true: c.ink }}
-              thumbColor={c.canvas}
+              thumbColor={ttsEnabled ? c.onInk : c.canvas}
               ios_backgroundColor={c.pressed}
             />
           </View>
@@ -164,13 +165,14 @@ export default function SettingsScreen(): React.ReactNode {
                   value={autoPlayWordTtsOnReveal}
                   onValueChange={setAutoPlayWordTtsOnReveal}
                   trackColor={{ false: c.pressed, true: c.ink }}
-                  thumbColor={c.canvas}
+                  thumbColor={autoPlayWordTtsOnReveal ? c.onInk : c.canvas}
                   ios_backgroundColor={c.pressed}
                 />
               </View>
               <View style={styles.speedRow}>
                 <Text style={styles.switchLabel}>속도</Text>
                 <Stepper
+                  label="발음 속도"
                   value={`${ttsSpeed.toFixed(1)}x`}
                   onMinus={() => setTtsSpeed(ttsSpeed - SPEED_STEP)}
                   onPlus={() => setTtsSpeed(ttsSpeed + SPEED_STEP)}
@@ -215,6 +217,8 @@ export default function SettingsScreen(): React.ReactNode {
             onPress={() => void onExport()}
             disabled={exporting}
             accessibilityRole="button"
+            accessibilityState={{ disabled: exporting, busy: exporting }}
+            accessibilityLabel="백업 내보내기 (JSON)"
           >
             {exporting ? (
               <ActivityIndicator color={c.ink} />
@@ -264,12 +268,15 @@ function Section({
 }
 
 function Stepper({
+  label,
   value,
   onMinus,
   onPlus,
   minusDisabled,
   plusDisabled,
 }: {
+  /** 무엇을 조절하는지. 화면 읽기 도구는 버튼만 읽으므로 문맥을 라벨에 넣는다. */
+  label: string;
   value: string;
   onMinus: () => void;
   onPlus: () => void;
@@ -283,7 +290,9 @@ function Stepper({
         style={[styles.stepBtn, minusDisabled && styles.stepBtnOff]}
         onPress={onMinus}
         disabled={minusDisabled}
-        accessibilityLabel="감소"
+        accessibilityRole="button"
+        accessibilityState={{ disabled: !!minusDisabled }}
+        accessibilityLabel={`${label} 감소, 현재 ${value}`}
       >
         <Text style={styles.stepSign}>−</Text>
       </Pressable>
@@ -292,7 +301,9 @@ function Stepper({
         style={[styles.stepBtn, plusDisabled && styles.stepBtnOff]}
         onPress={onPlus}
         disabled={plusDisabled}
-        accessibilityLabel="증가"
+        accessibilityRole="button"
+        accessibilityState={{ disabled: !!plusDisabled }}
+        accessibilityLabel={`${label} 증가, 현재 ${value}`}
       >
         <Text style={styles.stepSign}>＋</Text>
       </Pressable>
@@ -310,20 +321,19 @@ const makeStyles = (c: ThemeColors) =>
     flex: 1,
   },
   content: {
-    paddingHorizontal: spacing.xl,
-    paddingTop: spacing.xl,
-    paddingBottom: spacing.xxl,
+    paddingHorizontal: layout.gutter,
+    paddingTop: layout.gapGroup,
+    paddingBottom: spacing.huge,
   },
   h1: {
-    ...typography.resultTitle,
+    ...typography.screenTitle,
     color: c.ink,
     marginBottom: spacing.sm,
   },
+  // 구분선 대신 28px 간격으로 그룹을 나눈다. 제목·힌트·컨트롤은 proximity 로 묶는다.
   section: {
-    paddingVertical: spacing.xl,
-    borderTopWidth: 1,
-    borderTopColor: c.pressed,
-    gap: 6,
+    paddingTop: layout.gapGroup,
+    gap: spacing.sm,
   },
   sectionTitle: {
     ...typography.body,
@@ -343,6 +353,8 @@ const makeStyles = (c: ThemeColors) =>
     flexWrap: 'wrap',
   },
   levelChip: {
+    minHeight: layout.touchTarget,
+    justifyContent: 'center',
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.lg,
     borderRadius: 999,
@@ -360,12 +372,13 @@ const makeStyles = (c: ThemeColors) =>
     color: c.body,
   },
   levelTextOn: {
-    color: c.canvas,
+    color: c.onInk,
   },
   warn: {
     marginTop: spacing.sm,
     ...typography.caption,
-    color: c.body,
+    // 고강도는 주의 정보다 — body 로 묻으면 경고로 읽히지 않는다.
+    color: c.warning,
     fontFamily: font.medium,
   },
   switchRow: {
@@ -416,7 +429,7 @@ const makeStyles = (c: ThemeColors) =>
     color: c.body,
   },
   themeChoiceTextSelected: {
-    color: c.canvas,
+    color: c.onInk,
   },
   stepper: {
     flexDirection: 'row',
@@ -424,8 +437,8 @@ const makeStyles = (c: ThemeColors) =>
     gap: spacing.lg,
   },
   stepBtn: {
-    width: 40,
-    height: 40,
+    width: layout.touchTarget,
+    height: layout.touchTarget,
     borderRadius: 999,
     backgroundColor: c.soft,
     alignItems: 'center',
@@ -447,7 +460,10 @@ const makeStyles = (c: ThemeColors) =>
     textAlign: 'center',
     color: c.ink,
   },
+  // 관리 기능이라 오렌지 CTA 로 올리지 않고 중립 outline 을 유지한다.
   actionBtn: {
+    minHeight: layout.touchTarget,
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: c.pressed,
     borderRadius: 999,
@@ -463,6 +479,7 @@ const makeStyles = (c: ThemeColors) =>
     fontFamily: font.medium,
   },
   linkRow: {
+    minHeight: layout.touchTarget,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -473,11 +490,11 @@ const makeStyles = (c: ThemeColors) =>
   },
   linkChevron: {
     fontSize: 22,
-    color: c.mute,
+    color: c.body,
   },
   footer: {
     ...typography.caption,
-    color: c.mute,
+    color: c.body,
     textAlign: 'center',
     marginTop: spacing.xl,
   },
