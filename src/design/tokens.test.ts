@@ -12,8 +12,10 @@ describe('grey ramp', () => {
 });
 
 describe('전경 토큰', () => {
-  it('주황 면 위 글자는 두 모드 모두 잉크색이다', () => {
-    expect(lightColors.onPrimary).toBe('#1D1D21');
+  // 라이트는 브랜드 인상을 위해 흰색(3.56:1, AA 미달)을 감수한 결정이다.
+  // 다크는 orange-500 위에서 흰색이 2.80:1 까지 떨어져 잉크를 유지한다.
+  it('주황 면 위 글자는 라이트 흰색 · 다크 잉크다', () => {
+    expect(lightColors.onPrimary).toBe('#FFFFFF');
     expect(darkColors.onPrimary).toBe('#1D1D21');
   });
 

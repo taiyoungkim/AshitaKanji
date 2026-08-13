@@ -45,7 +45,11 @@ export interface ThemeColors {
   primary: string;
   /** primary 버튼의 누름 상태. */
   primaryPressed: string;
-  /** 주황 primary 면 위의 글자·아이콘. */
+  /**
+   * 주황 primary 면 위의 글자·아이콘.
+   * 라이트는 흰색(3.56:1)으로, 브랜드 인상을 위해 AA 미달을 감수한 선택이다.
+   * 다크는 orange-500 위에서 흰색이 2.80:1 까지 떨어져 잉크(5.99:1)를 유지한다.
+   */
   onPrimary: string;
   /** ink 면 위의 글자·아이콘. canvas/softer 를 전경색 대용으로 쓰지 않는다. */
   onInk: string;
@@ -77,7 +81,7 @@ export const lightColors: ThemeColors = {
   shadow: 'rgba(0,0,0,0.05)',
   primary: '#EA580C',
   primaryPressed: '#C2410C',
-  onPrimary: grey.g15,
+  onPrimary: '#FFFFFF',
   onInk: grey.g98,
   tabActive: '#C2410C',
   inkPressed: grey.g10,
