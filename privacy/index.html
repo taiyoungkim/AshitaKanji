@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — 오니칸 (오니기리 칸지)</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+    h1 { font-size: 1.8rem; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+    a { color: #0366d6; }
+    .meta { color: #666; font-size: 0.9rem; }
+    nav { margin-bottom: 1rem; }
+    nav a { color: #0366d6; text-decoration: none; }
+    ul { padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <nav><a href="../">← Home</a></nav>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: 2026-08-18 · Applies to <strong>오니칸 (오니기리 칸지)</strong></p>
+
+  <h2>Summary</h2>
+  <p>오니칸 is a local-first vocabulary learning app.</p>
+  <ul>
+    <li>Study progress, review logs, settings, and local statistics stay on your device. We do not operate a learning-data server.</li>
+    <li>After a study session ends, the app may show a full-screen advertisement served by <strong>Google AdMob</strong>.</li>
+    <li>On iOS, the app asks for App Tracking Transparency (ATT) permission so AdMob can serve personalized ads if you allow tracking. If you decline, the app still works and ads can still appear as non-personalized ads.</li>
+    <li>We do not use a first-party analytics or crash-reporting SDK.</li>
+    <li>The app may check for Expo Updates (version metadata) when it launches.</li>
+  </ul>
+
+  <h2>Data Stored On Your Device</h2>
+  <p>The app stores the following data locally on your device:</p>
+  <ul>
+    <li>Learned words and review progress</li>
+    <li>FSRS scheduling data</li>
+    <li>Review history</li>
+    <li>Study session statistics</li>
+    <li>App settings, including whether a tutorial was completed</li>
+    <li>Ad frequency-cap state (so we do not show ads too often)</li>
+  </ul>
+  <p>This learning data is stored in the app's local SQLite database and local storage. We do not upload it to a server we operate. You can export a JSON backup from Settings; that file leaves the device only if you choose to share or save it.</p>
+
+  <h2>Advertising</h2>
+  <p>The launch version shows <strong>interstitial ads</strong> after a completed study session, not during a card review.</p>
+  <p>Ads are loaded and shown by <strong>Google AdMob</strong>. AdMob may collect and process data such as:</p>
+  <ul>
+    <li>Advertising identifiers (IDFA on iOS if you allow tracking; the advertising ID on Android)</li>
+    <li>IP address and coarse location derived from IP</li>
+    <li>Device type, OS version, language, and similar device signals</li>
+    <li>Ad interaction and diagnostic information needed to serve and measure ads</li>
+  </ul>
+  <p>오니칸 does not send your word list, meanings, review grades, or FSRS schedule to AdMob.</p>
+  <p>Ad frequency inside the app is limited: new users get a short grace period, ads appear at most once every two completed sessions, at most three times per day, and not more often than once every ten minutes. If an ad fails to load, study completion is not blocked.</p>
+  <p>Google's own policies apply to data AdMob collects. See <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a>.</p>
+
+  <h2>App Tracking Transparency (iOS)</h2>
+  <p>On iOS 14.5 and later, the app requests tracking permission before initializing the ads SDK. The system prompt uses this purpose:</p>
+  <p><em>맞춤 광고 제공을 위해 추적 권한을 사용합니다.</em></p>
+  <ul>
+    <li>Allow: AdMob may use the advertising identifier for personalized ads.</li>
+    <li>Don't Allow: the app continues to work. Ads may still appear, but they are requested as non-personalized ads.</li>
+  </ul>
+  <p>You can change this later in iOS Settings → Privacy &amp; Security → Tracking.</p>
+
+  <h2>Other Network Activity</h2>
+  <ul>
+    <li><strong>Expo Updates</strong>: on launch the app may contact Expo's update service to check whether a newer JavaScript bundle is available. This check uses version metadata. It does not include your study progress.</li>
+    <li><strong>NAVER Japanese Dictionary</strong>: bundled example sentences do not contact NAVER. If you tap an external dictionary link, the system browser opens a NAVER search for that word or kanji. NAVER may then process the query, IP address, and browser information under its own policy.</li>
+    <li><strong>Pre-generated word and example audio</strong> is bundled with the app. Playing it does not require a network request.</li>
+  </ul>
+
+  <h2>Analytics and AI</h2>
+  <p>We do not use a first-party analytics SDK or crash reporter in this release.</p>
+  <p>The app does not include user-facing AI features. If those are added later, this policy and the store data declarations will be updated first. AI answers can be inaccurate.</p>
+
+  <h2>Data Deletion</h2>
+  <p>You can remove locally stored learning data by deleting the app from your device. Export a backup from Settings first if you want to keep it.</p>
+  <p>Advertising identifiers and ads data held by Google are governed by Google's tools and policies, not by an in-app delete control.</p>
+
+  <h2>Children</h2>
+  <p>The app is intended for general language learners and is <strong>not directed to children under 13</strong>. If a younger person uses it, a parent or guardian should supervise. Advertising is not child-directed.</p>
+
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:datin0214@gmail.com">datin0214@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/taiyoungkim/AshitaKanji">https://github.com/taiyoungkim/AshitaKanji</a></p>
+</body>
+</html>
