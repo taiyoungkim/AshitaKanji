@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-20T04:28:55.871Z",
+  "elapsed_sec": 59,
+  "word_source": "data/pdf-vocab/jlpt_feedback_backfill_additions.csv",
+  "out": "data/pdf-vocab/naver_examples_feedback_backfill_qa_work.csv",
+  "misses_file": "data/pdf-vocab/naver_examples_feedback_backfill_report_misses.json",
+  "total_words_selected": 89,
+  "output_existing_rows": 0,
+  "existing_rows": 0,
+  "seeded_rows": 0,
+  "target_rows": 89,
+  "processed": 89,
+  "collected": 88,
+  "misses": 1,
+  "miss_samples": [
+    {
+      "word_id": "w_6a6e331edd9cf1e0",
+      "surface": "自由席",
+      "reason": "no usable translated example"
+    }
+  ]
+}

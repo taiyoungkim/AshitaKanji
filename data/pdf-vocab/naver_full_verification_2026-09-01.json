@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-09-01T23:34:44.324506+09:00",
+  "word_count": 7027,
+  "source": "data/pdf-vocab/jlpt_final_wordlist.csv",
+  "source_sha256": "3c79fb2dc64fbc8c8f11054dbfb9824d661856cd2299a6d5559c1933f526598c",
+  "catalog_fetched_at": "2026-09-01T23:32:54+0900",
+  "passed": true,
+  "failure_count": 0,
+  "queue_count": 4,
+  "accepted_count": 794,
+  "accepted_manifest": "/Users/tyoung/AshitaKanji/data/pdf-vocab/naver_audit_accepted_queue.json",
+  "catalog_status": {
+    "manual_review": 26,
+    "match": 6231,
+    "naver_level_missing": 765,
+    "mismatch": 5
+  },
+  "search_status": {
+    "manual_review": 32,
+    "match": 366,
+    "search_unmatched": 90,
+    "search_no_jlpt": 358
+  },
+  "jmdict_issues": {
+    "derived-form": 45,
+    "surface-not-in-jmdict": 5,
+    "kana-not-in-jmdict": 8
+  },
+  "example_sources": {
+    "naver": 6207,
+    "self": 820
+  },
+  "example_containment": {
+    "surface": 7025,
+    "alt_form": 2
+  },
+  "issue_counts": {
+    "level-ambiguous": 26,
+    "naver-level-missing": 765,
+    "naver-search-unmatched": 90,
+    "spelling-surface-not-in-jmdict": 5,
+    "spelling-kana-not-in-jmdict": 8,
+    "level-mismatch": 5,
+    "catalog-mismatch-search-match": 1
+  },
+  "failure_issue_counts": {},
+  "queue_counts": {
+    "catalog-absent": 2,
+    "homograph": 1,
+    "catalog-absent-search-match": 1
+  },
+  "accepted_counts": {
+    "homograph": 25,
+    "suru-compound": 49,
+    "counter": 7,
+    "search-unmatched": 42,
+    "no-jlpt-badge": 340,
+    "catalog-absent-search-match": 305,
+    "spelling": 1,
+    "catalog-mismatch-unconfirmed": 5,
+    "catalog-absent": 20
+  },
+  "rows_with_issues": 4,
+  "rows_accepted": 794,
+  "audio_map": {
+    "ios_word": 7027,
+    "ios_example": 7027,
+    "android_word": 7027,
+    "android_example": 7027
+  },
+  "method": "Every active word is compared to NAVER Japanese Dictionary's displayed JLPT catalog by written form + reading. NAVER is the app's reference data; this is not represented as an official JLPT vocabulary list. Unmatched/ambiguous/mismatched rows are live-searched in NAVER Japanese Dictionary. Fail only on confirmed level mismatch, missing/broken example, missing TTS, or DB mismatch. Catalog-absent する-forms, counters, homographs, unconfirmed catalog mismatches, and JMdict derived-form flags are a review queue, not a release failure. Accepted queue IDs in naver_audit_accepted_queue.json stay out of the open queue unless they become a release failure or move into a human-review bucket.",
+  "confirmed_mismatches": [],
+  "failure_preview": [],
+  "queue_preview": [
+    {
+      "id": "w_3e5c61e8a0dce5c9",
+      "surface": "仕方ない",
+      "reading_kana": "しかたない",
+      "level": "N4",
+      "queue": "catalog-absent",
+      "issues": [
+        "naver-level-missing"
+      ],
+      "catalog_status": "naver_level_missing",
+      "search_status": "",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E4%BB%95%E6%96%B9%E3%81%AA%E3%81%84"
+    },
+    {
+      "id": "w_08ce685bcb19f6e1",
+      "surface": "後",
+      "reading_kana": "ご",
+      "level": "N2",
+      "queue": "homograph",
+      "issues": [
+        "level-ambiguous"
+      ],
+      "catalog_status": "manual_review",
+      "search_status": "match",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E5%BE%8C"
+    },
+    {
+      "id": "w_14e067fde838f088",
+      "surface": "課",
+      "reading_kana": "か",
+      "level": "N2",
+      "queue": "catalog-absent-search-match",
+      "issues": [
+        "naver-level-missing"
+      ],
+      "catalog_status": "naver_level_missing",
+      "search_status": "match",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E8%AA%B2"
+    },
+    {
+      "id": "w_9ee9519d3d6e7bd7",
+      "surface": "慣習",
+      "reading_kana": "かんしゅう",
+      "level": "N1",
+      "queue": "catalog-absent",
+      "issues": [
+        "naver-level-missing"
+      ],
+      "catalog_status": "naver_level_missing",
+      "search_status": "",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E6%85%A3%E7%BF%92"
+    }
+  ]
+}

@@ -1,0 +1,1437 @@
+{
+  "generated_at": "2026-08-18T14:12:00.526311+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 6638,
+  "jobs": 13276,
+  "preexisting": 13040,
+  "planned": 236,
+  "created": 236,
+  "skipped": 13040,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_0082c502590cf8a9",
+      "kind": "example",
+      "text": "三味線の弾けない芸者なんてお呼びでない",
+      "file": "assets/audio/examples/w_0082c502590cf8a9.mp3"
+    },
+    {
+      "id": "w_039cdc51bd6d8bd3",
+      "kind": "example",
+      "text": "のり気がなくなった着物は見苦しい.",
+      "file": "assets/audio/examples/w_039cdc51bd6d8bd3.mp3"
+    },
+    {
+      "id": "w_03687ec131de14f9",
+      "kind": "example",
+      "text": "並列に並べる。",
+      "file": "assets/audio/examples/w_03687ec131de14f9.mp3"
+    },
+    {
+      "id": "w_0968a3e2189db9bd",
+      "kind": "example",
+      "text": "振り出しを誤る",
+      "file": "assets/audio/examples/w_0968a3e2189db9bd.mp3"
+    },
+    {
+      "id": "w_09de3ae40ccf459c",
+      "kind": "example",
+      "text": "お祭り気分にかられて仕事をぞんざいにする.",
+      "file": "assets/audio/examples/w_09de3ae40ccf459c.mp3"
+    },
+    {
+      "id": "w_0a2dbc5713663d21",
+      "kind": "example",
+      "text": "物まねの域を脱する.",
+      "file": "assets/audio/examples/w_0a2dbc5713663d21.mp3"
+    },
+    {
+      "id": "w_0dc7924b50348485",
+      "kind": "example",
+      "text": "願書は持参するか,または郵送してください",
+      "file": "assets/audio/examples/w_0dc7924b50348485.mp3"
+    },
+    {
+      "id": "w_0fc26a137f6ee5f6",
+      "kind": "example",
+      "text": "物好き[すいきょう]にもほどがある; 好きも度が過ぎる.",
+      "file": "assets/audio/examples/w_0fc26a137f6ee5f6.mp3"
+    },
+    {
+      "id": "w_0d9e4ae0324cde4f",
+      "kind": "example",
+      "text": "学部を卒業したスンギュはもう学士になった。",
+      "file": "assets/audio/examples/w_0d9e4ae0324cde4f.mp3"
+    },
+    {
+      "id": "w_0b28b6215f18ebd1",
+      "kind": "example",
+      "text": "順逆の理を誤る.",
+      "file": "assets/audio/examples/w_0b28b6215f18ebd1.mp3"
+    },
+    {
+      "id": "w_0f632adc35d978b1",
+      "kind": "example",
+      "text": "玄人なみにギターをひく.",
+      "file": "assets/audio/examples/w_0f632adc35d978b1.mp3"
+    },
+    {
+      "id": "w_0fee8560d7ab9cc3",
+      "kind": "example",
+      "text": "気力が弱る",
+      "file": "assets/audio/examples/w_0fee8560d7ab9cc3.mp3"
+    },
+    {
+      "id": "w_0c1ac570ab390bf3",
+      "kind": "example",
+      "text": "地主から立ち退きを迫られる.",
+      "file": "assets/audio/examples/w_0c1ac570ab390bf3.mp3"
+    },
+    {
+      "id": "w_0c5742679b0cb098",
+      "kind": "example",
+      "text": "お健やかにお過ごしのことと存じます.",
+      "file": "assets/audio/examples/w_0c5742679b0cb098.mp3"
+    },
+    {
+      "id": "w_117206f59982bdc8",
+      "kind": "example",
+      "text": "ロ:耳の病気にかかったようなので、耳鼻科で受診してみて。",
+      "file": "assets/audio/examples/w_117206f59982bdc8.mp3"
+    },
+    {
+      "id": "w_14d8d8e3463811d9",
+      "kind": "example",
+      "text": "二人で夜更けまで杯を交わしつつ飲んだ.",
+      "file": "assets/audio/examples/w_14d8d8e3463811d9.mp3"
+    },
+    {
+      "id": "w_1acc9dd872e06a4d",
+      "kind": "example",
+      "text": "三日ごとに病む.",
+      "file": "assets/audio/examples/w_1acc9dd872e06a4d.mp3"
+    },
+    {
+      "id": "w_17f0f7e5b8a97bb2",
+      "kind": "example",
+      "text": "寿命が縮まる",
+      "file": "assets/audio/examples/w_17f0f7e5b8a97bb2.mp3"
+    },
+    {
+      "id": "w_1d8c58529f6a2cf3",
+      "kind": "example",
+      "text": "機先を制する.",
+      "file": "assets/audio/examples/w_1d8c58529f6a2cf3.mp3"
+    },
+    {
+      "id": "w_1d45a5dca81a74c2",
+      "kind": "example",
+      "text": "初版は売り切れた.",
+      "file": "assets/audio/examples/w_1d45a5dca81a74c2.mp3"
+    },
+    {
+      "id": "w_1ef4f939d961be2f",
+      "kind": "example",
+      "text": "彼女は金持ちだ。しかしながら実に質素だ",
+      "file": "assets/audio/examples/w_1ef4f939d961be2f.mp3"
+    },
+    {
+      "id": "w_1eca1c67dff0980f",
+      "kind": "example",
+      "text": "新しい政策が樹立された.",
+      "file": "assets/audio/examples/w_1eca1c67dff0980f.mp3"
+    },
+    {
+      "id": "w_1cb3c24ea6527cfa",
+      "kind": "example",
+      "text": "ミンジュンは、先天的に親から高い身長を受け継いだ。",
+      "file": "assets/audio/examples/w_1cb3c24ea6527cfa.mp3"
+    },
+    {
+      "id": "w_1fc993a9b8776402",
+      "kind": "example",
+      "text": "莫大な利潤を上げる.",
+      "file": "assets/audio/examples/w_1fc993a9b8776402.mp3"
+    },
+    {
+      "id": "w_2510258ff83a03f2",
+      "kind": "example",
+      "text": "周囲を見渡す余裕もない",
+      "file": "assets/audio/examples/w_2510258ff83a03f2.mp3"
+    },
+    {
+      "id": "w_259da403c894ca65",
+      "kind": "example",
+      "text": "病状が微かによくなっている",
+      "file": "assets/audio/examples/w_259da403c894ca65.mp3"
+    },
+    {
+      "id": "w_2309cb4d86d37a12",
+      "kind": "example",
+      "text": "幼い弟たちを扶養する",
+      "file": "assets/audio/examples/w_2309cb4d86d37a12.mp3"
+    },
+    {
+      "id": "w_27c43d84f52c14e7",
+      "kind": "example",
+      "text": "郷愁をそそる",
+      "file": "assets/audio/examples/w_27c43d84f52c14e7.mp3"
+    },
+    {
+      "id": "w_269635c455451fc3",
+      "kind": "example",
+      "text": "政事を司る",
+      "file": "assets/audio/examples/w_269635c455451fc3.mp3"
+    },
+    {
+      "id": "w_278434588a1720b2",
+      "kind": "example",
+      "text": "狂風が庭を荒らす.",
+      "file": "assets/audio/examples/w_278434588a1720b2.mp3"
+    },
+    {
+      "id": "w_27ea49ce54c03299",
+      "kind": "example",
+      "text": "ロ: そういう時は水気の多い化粧品を使ってみてね。",
+      "file": "assets/audio/examples/w_27ea49ce54c03299.mp3"
+    },
+    {
+      "id": "w_25d79c8180503b46",
+      "kind": "example",
+      "text": "彼女はどんな状況でも落ち着きと淑やかさを失わなかった。",
+      "file": "assets/audio/examples/w_25d79c8180503b46.mp3"
+    },
+    {
+      "id": "w_2a743040c74cfa0a",
+      "kind": "example",
+      "text": "漁村のうちの町では主にイシモチを釣って販売している。",
+      "file": "assets/audio/examples/w_2a743040c74cfa0a.mp3"
+    },
+    {
+      "id": "w_2a87144508502bd1",
+      "kind": "example",
+      "text": "そこは見晴らしのいい場所だ。ここにホテルを造る計画がある",
+      "file": "assets/audio/examples/w_2a87144508502bd1.mp3"
+    },
+    {
+      "id": "w_2d2834f101feaba2",
+      "kind": "example",
+      "text": "老衰で亡くなる",
+      "file": "assets/audio/examples/w_2d2834f101feaba2.mp3"
+    },
+    {
+      "id": "w_2dedb5be17e88b1e",
+      "kind": "example",
+      "text": "泣くにも泣けない有り様だ",
+      "file": "assets/audio/examples/w_2dedb5be17e88b1e.mp3"
+    },
+    {
+      "id": "w_2b3cc53a0b22ad3b",
+      "kind": "example",
+      "text": "彼は,誠実·勤勉を生の信条としている.",
+      "file": "assets/audio/examples/w_2b3cc53a0b22ad3b.mp3"
+    },
+    {
+      "id": "w_303e927f2052e96a",
+      "kind": "example",
+      "text": "がっちりとスクラムを組んで安定することが大事だ",
+      "file": "assets/audio/examples/w_303e927f2052e96a.mp3"
+    },
+    {
+      "id": "w_2c57f88c8af969f2",
+      "kind": "example",
+      "text": "同委の議決を経て定める",
+      "file": "assets/audio/examples/w_2c57f88c8af969f2.mp3"
+    },
+    {
+      "id": "w_2cf691cf183ad9c9",
+      "kind": "example",
+      "text": "レイシックを受ける人が増えている",
+      "file": "assets/audio/examples/w_2cf691cf183ad9c9.mp3"
+    },
+    {
+      "id": "w_2f551203846ddcc2",
+      "kind": "example",
+      "text": "野球は，１９１２年のストックホルム五輪では，デモンストレーション競技だった記録がある",
+      "file": "assets/audio/examples/w_2f551203846ddcc2.mp3"
+    },
+    {
+      "id": "w_334c23b7fc181a8b",
+      "kind": "example",
+      "text": "平和[全快]を希求する.",
+      "file": "assets/audio/examples/w_334c23b7fc181a8b.mp3"
+    },
+    {
+      "id": "w_3198be3ccbf277f9",
+      "kind": "example",
+      "text": "当てどもなく[いずれともなく]立ち去る.",
+      "file": "assets/audio/examples/w_3198be3ccbf277f9.mp3"
+    },
+    {
+      "id": "w_32bf60568e15559d",
+      "kind": "example",
+      "text": "ロ：スチームで食べ物を蒸す器械に手を入れて蒸気にやけどをしてしまったんだ。",
+      "file": "assets/audio/examples/w_32bf60568e15559d.mp3"
+    },
+    {
+      "id": "w_33a01c59dfc2f370",
+      "kind": "example",
+      "text": "彼の発言が誘い水になり、討議が活発になった",
+      "file": "assets/audio/examples/w_33a01c59dfc2f370.mp3"
+    },
+    {
+      "id": "w_37410a2c3fe378d8",
+      "kind": "example",
+      "text": "彼の真心が彼女の胸にとどいた.",
+      "file": "assets/audio/examples/w_37410a2c3fe378d8.mp3"
+    },
+    {
+      "id": "w_38d94ea01ef13ce1",
+      "kind": "example",
+      "text": "三回勝負の賭をする.",
+      "file": "assets/audio/examples/w_38d94ea01ef13ce1.mp3"
+    },
+    {
+      "id": "w_353a93fcbb7c13d6",
+      "kind": "example",
+      "text": "わき役に徹する",
+      "file": "assets/audio/examples/w_353a93fcbb7c13d6.mp3"
+    },
+    {
+      "id": "w_36d95d84c3b6f948",
+      "kind": "example",
+      "text": "短大に志望する。",
+      "file": "assets/audio/examples/w_36d95d84c3b6f948.mp3"
+    },
+    {
+      "id": "w_394086b0b5f607b0",
+      "kind": "example",
+      "text": "治療を種々試みる",
+      "file": "assets/audio/examples/w_394086b0b5f607b0.mp3"
+    },
+    {
+      "id": "w_35f57cc9ec210e3a",
+      "kind": "example",
+      "text": "束ねた髪を後ろに垂れる.",
+      "file": "assets/audio/examples/w_35f57cc9ec210e3a.mp3"
+    },
+    {
+      "id": "w_37a277ede744797e",
+      "kind": "example",
+      "text": "天災は忘れたころにやってくる.",
+      "file": "assets/audio/examples/w_37a277ede744797e.mp3"
+    },
+    {
+      "id": "w_3ab509c6a1e02b28",
+      "kind": "example",
+      "text": "海を飛び越えて渡り鳥が来る",
+      "file": "assets/audio/examples/w_3ab509c6a1e02b28.mp3"
+    },
+    {
+      "id": "w_3cc074c9d25ffad5",
+      "kind": "example",
+      "text": "いくら忠告しても効き目がない.",
+      "file": "assets/audio/examples/w_3cc074c9d25ffad5.mp3"
+    },
+    {
+      "id": "w_3a75b395a770a603",
+      "kind": "example",
+      "text": "居乍らにして天下の形勢を知る",
+      "file": "assets/audio/examples/w_3a75b395a770a603.mp3"
+    },
+    {
+      "id": "w_3d7f246d9cee3297",
+      "kind": "example",
+      "text": "着工してから三年めに完工した.",
+      "file": "assets/audio/examples/w_3d7f246d9cee3297.mp3"
+    },
+    {
+      "id": "w_3fcbffb7f6ee577c",
+      "kind": "example",
+      "text": "隊伍が整列する.",
+      "file": "assets/audio/examples/w_3fcbffb7f6ee577c.mp3"
+    },
+    {
+      "id": "w_421ac61489eec84b",
+      "kind": "example",
+      "text": "ちらっと一瞥する",
+      "file": "assets/audio/examples/w_421ac61489eec84b.mp3"
+    },
+    {
+      "id": "w_409e38e96ec7712e",
+      "kind": "example",
+      "text": "海と空とが連なる",
+      "file": "assets/audio/examples/w_409e38e96ec7712e.mp3"
+    },
+    {
+      "id": "w_4231572eea930be1",
+      "kind": "example",
+      "text": "紡績株は上がりめにある",
+      "file": "assets/audio/examples/w_4231572eea930be1.mp3"
+    },
+    {
+      "id": "w_3e8f47768886cb87",
+      "kind": "example",
+      "text": "サンダルばきの男性やスラックス姿の女性",
+      "file": "assets/audio/examples/w_3e8f47768886cb87.mp3"
+    },
+    {
+      "id": "w_404500ea6960f5d2",
+      "kind": "example",
+      "text": "幹線をさらに10キロ伸ばす",
+      "file": "assets/audio/examples/w_404500ea6960f5d2.mp3"
+    },
+    {
+      "id": "w_4460609f7c26505d",
+      "kind": "example",
+      "text": "こう不景気では上がったりだ.",
+      "file": "assets/audio/examples/w_4460609f7c26505d.mp3"
+    },
+    {
+      "id": "w_43b38d78d9fe572b",
+      "kind": "example",
+      "text": "駆け足から早足に移る",
+      "file": "assets/audio/examples/w_43b38d78d9fe572b.mp3"
+    },
+    {
+      "id": "w_46f5465c8d81ef3e",
+      "kind": "example",
+      "text": "仕事を見習う",
+      "file": "assets/audio/examples/w_46f5465c8d81ef3e.mp3"
+    },
+    {
+      "id": "w_42f309bdace0f794",
+      "kind": "example",
+      "text": "ストロボがうまく発光しない",
+      "file": "assets/audio/examples/w_42f309bdace0f794.mp3"
+    },
+    {
+      "id": "w_44df893bc2c36040",
+      "kind": "example",
+      "text": "二足で大地をしっかりと踏まえる.",
+      "file": "assets/audio/examples/w_44df893bc2c36040.mp3"
+    },
+    {
+      "id": "w_436ea4adc4583b0c",
+      "kind": "example",
+      "text": "パソコンのシミュレーション・ゲームでも，「提督の決断」がいま論議を雑誌などで巻きおこしている",
+      "file": "assets/audio/examples/w_436ea4adc4583b0c.mp3"
+    },
+    {
+      "id": "w_468a91e7e038d348",
+      "kind": "example",
+      "text": "独学で油絵を描き始める",
+      "file": "assets/audio/examples/w_468a91e7e038d348.mp3"
+    },
+    {
+      "id": "w_475ed81fb0fca7ed",
+      "kind": "example",
+      "text": "打者を揺さぶる.",
+      "file": "assets/audio/examples/w_475ed81fb0fca7ed.mp3"
+    },
+    {
+      "id": "w_4a2704218cfe13af",
+      "kind": "example",
+      "text": "温泉で保養する",
+      "file": "assets/audio/examples/w_4a2704218cfe13af.mp3"
+    },
+    {
+      "id": "w_49bb1afcb7859161",
+      "kind": "example",
+      "text": "予算に組み込む",
+      "file": "assets/audio/examples/w_49bb1afcb7859161.mp3"
+    },
+    {
+      "id": "w_4a1f83a3a2f69125",
+      "kind": "example",
+      "text": "十字路に標柱を立てる",
+      "file": "assets/audio/examples/w_4a1f83a3a2f69125.mp3"
+    },
+    {
+      "id": "w_48434db8ebe195e3",
+      "kind": "example",
+      "text": "違法ソフトの使用を禁じる",
+      "file": "assets/audio/examples/w_48434db8ebe195e3.mp3"
+    },
+    {
+      "id": "w_49ddbdd21810208d",
+      "kind": "example",
+      "text": "終日のネット断食を試みている",
+      "file": "assets/audio/examples/w_49ddbdd21810208d.mp3"
+    },
+    {
+      "id": "w_4ab8fddb51501156",
+      "kind": "example",
+      "text": "鉄棒で懸垂をする.",
+      "file": "assets/audio/examples/w_4ab8fddb51501156.mp3"
+    },
+    {
+      "id": "w_47aaf0ca27b40baa",
+      "kind": "example",
+      "text": "大学は本館の建物を学校を建てた宣教師の名前に命名した。",
+      "file": "assets/audio/examples/w_47aaf0ca27b40baa.mp3"
+    },
+    {
+      "id": "w_4de61628162f676c",
+      "kind": "example",
+      "text": "不満げに呟く",
+      "file": "assets/audio/examples/w_4de61628162f676c.mp3"
+    },
+    {
+      "id": "w_4ee4c1f82fd80d23",
+      "kind": "example",
+      "text": "下町のとある店に立ち寄る",
+      "file": "assets/audio/examples/w_4ee4c1f82fd80d23.mp3"
+    },
+    {
+      "id": "w_4e787162989e0bc2",
+      "kind": "example",
+      "text": "担架が粛々と運び出される",
+      "file": "assets/audio/examples/w_4e787162989e0bc2.mp3"
+    },
+    {
+      "id": "w_4fcd672fe0131c49",
+      "kind": "example",
+      "text": "不吉な予感がさっと頭をかすめて通った.",
+      "file": "assets/audio/examples/w_4fcd672fe0131c49.mp3"
+    },
+    {
+      "id": "w_4ffb857bc8cff280",
+      "kind": "example",
+      "text": "分業によって能率をあげる.",
+      "file": "assets/audio/examples/w_4ffb857bc8cff280.mp3"
+    },
+    {
+      "id": "w_4d987d72e7db4e37",
+      "kind": "example",
+      "text": "死亡したものと見なす",
+      "file": "assets/audio/examples/w_4d987d72e7db4e37.mp3"
+    },
+    {
+      "id": "w_500edf63c3635728",
+      "kind": "example",
+      "text": "ワンアワーデカスロンではとてつもない体力を消耗することになる。",
+      "file": "assets/audio/examples/w_500edf63c3635728.mp3"
+    },
+    {
+      "id": "w_53d13b7d0baf4f7c",
+      "kind": "example",
+      "text": "（船が桁にぶっつかると，ベルとブザーが鳴る。同時にサーチライトが点灯し，警告する",
+      "file": "assets/audio/examples/w_53d13b7d0baf4f7c.mp3"
+    },
+    {
+      "id": "w_52eb36eab96676c6",
+      "kind": "example",
+      "text": "この議案は速決を要する.",
+      "file": "assets/audio/examples/w_52eb36eab96676c6.mp3"
+    },
+    {
+      "id": "w_52a2392ec6f56422",
+      "kind": "example",
+      "text": "彼とは気兼ねなく[心安く]つきあっている.",
+      "file": "assets/audio/examples/w_52a2392ec6f56422.mp3"
+    },
+    {
+      "id": "w_5101399164b8609d",
+      "kind": "example",
+      "text": "休学も止むを得ない",
+      "file": "assets/audio/examples/w_5101399164b8609d.mp3"
+    },
+    {
+      "id": "w_561aa313d6caeaf1",
+      "kind": "example",
+      "text": "酸を塩基で中和させる.",
+      "file": "assets/audio/examples/w_561aa313d6caeaf1.mp3"
+    },
+    {
+      "id": "w_5d07f6d9cf1b9b07",
+      "kind": "example",
+      "text": "田舎のわらぶき屋根の家は洋風に新しく建てられた。",
+      "file": "assets/audio/examples/w_5d07f6d9cf1b9b07.mp3"
+    },
+    {
+      "id": "w_5853740d16b4b407",
+      "kind": "example",
+      "text": "勤め先に電話をする",
+      "file": "assets/audio/examples/w_5853740d16b4b407.mp3"
+    },
+    {
+      "id": "w_594aaafa80f4b28a",
+      "kind": "example",
+      "text": "下調べをして幾晩も徹夜して書くような苦労の果てにリーダブルな文章が出来上がる",
+      "file": "assets/audio/examples/w_594aaafa80f4b28a.mp3"
+    },
+    {
+      "id": "w_5ae440548476d253",
+      "kind": "example",
+      "text": "広広と展開する田園.",
+      "file": "assets/audio/examples/w_5ae440548476d253.mp3"
+    },
+    {
+      "id": "w_60fdfd50b368a133",
+      "kind": "example",
+      "text": "脚色の多い説明をする",
+      "file": "assets/audio/examples/w_60fdfd50b368a133.mp3"
+    },
+    {
+      "id": "w_62880e562f646e13",
+      "kind": "example",
+      "text": "性格が几帳面なジスも時々しくじる。",
+      "file": "assets/audio/examples/w_62880e562f646e13.mp3"
+    },
+    {
+      "id": "w_5d3188766451e65a",
+      "kind": "example",
+      "text": "失意に落ちた友を励ます",
+      "file": "assets/audio/examples/w_5d3188766451e65a.mp3"
+    },
+    {
+      "id": "w_60c180b80cc072ba",
+      "kind": "example",
+      "text": "岩石を破砕する",
+      "file": "assets/audio/examples/w_60c180b80cc072ba.mp3"
+    },
+    {
+      "id": "w_5e49b8feda09774b",
+      "kind": "example",
+      "text": "窓ガラスを割って弁償した.",
+      "file": "assets/audio/examples/w_5e49b8feda09774b.mp3"
+    },
+    {
+      "id": "w_5dbfbc1d6e28d829",
+      "kind": "example",
+      "text": "身の上を泣きながら語る",
+      "file": "assets/audio/examples/w_5dbfbc1d6e28d829.mp3"
+    },
+    {
+      "id": "w_66161e64a1fedd91",
+      "kind": "example",
+      "text": "前置きが長くて退屈する",
+      "file": "assets/audio/examples/w_66161e64a1fedd91.mp3"
+    },
+    {
+      "id": "w_6783c10e869b0a42",
+      "kind": "example",
+      "text": "豪壮な邸宅を構えている.",
+      "file": "assets/audio/examples/w_6783c10e869b0a42.mp3"
+    },
+    {
+      "id": "w_6460533518658af9",
+      "kind": "example",
+      "text": "晴天に恵まれる",
+      "file": "assets/audio/examples/w_6460533518658af9.mp3"
+    },
+    {
+      "id": "w_6558fe7dbc059f61",
+      "kind": "example",
+      "text": "料理は材料の善し悪しが決め手である",
+      "file": "assets/audio/examples/w_6558fe7dbc059f61.mp3"
+    },
+    {
+      "id": "w_62f3791be386083c",
+      "kind": "example",
+      "text": "その選手は同点ゴールを成功させた後、宙返りのセレモニーを披露した",
+      "file": "assets/audio/examples/w_62f3791be386083c.mp3"
+    },
+    {
+      "id": "w_6c9af09d30c0e6bc",
+      "kind": "example",
+      "text": "ロ：私は法学を専攻しています。",
+      "file": "assets/audio/examples/w_6c9af09d30c0e6bc.mp3"
+    },
+    {
+      "id": "w_68853538127f0977",
+      "kind": "example",
+      "text": "彼は仕事に斑がある",
+      "file": "assets/audio/examples/w_68853538127f0977.mp3"
+    },
+    {
+      "id": "w_694197d696105e21",
+      "kind": "example",
+      "text": "あの人は短気なのが傷だ",
+      "file": "assets/audio/examples/w_694197d696105e21.mp3"
+    },
+    {
+      "id": "w_69f93eeaa41ca495",
+      "kind": "example",
+      "text": "来たる三月を目途(と)して工事を急ぐ.",
+      "file": "assets/audio/examples/w_69f93eeaa41ca495.mp3"
+    },
+    {
+      "id": "w_69c58600218eaba8",
+      "kind": "example",
+      "text": "これと言う方策もない.",
+      "file": "assets/audio/examples/w_69c58600218eaba8.mp3"
+    },
+    {
+      "id": "w_6e71f536abfacdec",
+      "kind": "example",
+      "text": "自然に親しむ",
+      "file": "assets/audio/examples/w_6e71f536abfacdec.mp3"
+    },
+    {
+      "id": "w_6e0a10172950a4d4",
+      "kind": "example",
+      "text": "不振により無期限で二軍落ちした",
+      "file": "assets/audio/examples/w_6e0a10172950a4d4.mp3"
+    },
+    {
+      "id": "w_6ea2a595d3f1d3a7",
+      "kind": "example",
+      "text": "清らかな声で歌い上げる",
+      "file": "assets/audio/examples/w_6ea2a595d3f1d3a7.mp3"
+    },
+    {
+      "id": "w_6f6291c512a7bd9c",
+      "kind": "example",
+      "text": "お二人の前途に幸あれと祈る",
+      "file": "assets/audio/examples/w_6f6291c512a7bd9c.mp3"
+    },
+    {
+      "id": "w_70936bbd6932607d",
+      "kind": "example",
+      "text": "身内を不意に失った遺族たちに対するメンタル・ケアへの関心が高まっている",
+      "file": "assets/audio/examples/w_70936bbd6932607d.mp3"
+    },
+    {
+      "id": "w_74949f1db4a3a892",
+      "kind": "example",
+      "text": "舞台[政界]にカムバックする.",
+      "file": "assets/audio/examples/w_74949f1db4a3a892.mp3"
+    },
+    {
+      "id": "w_75b0b9d6475d8175",
+      "kind": "example",
+      "text": "師父と仰ぐ人.",
+      "file": "assets/audio/examples/w_75b0b9d6475d8175.mp3"
+    },
+    {
+      "id": "w_74f4b03d86a9823b",
+      "kind": "example",
+      "text": "無礼な振る舞いにまゆをひそめる.",
+      "file": "assets/audio/examples/w_74f4b03d86a9823b.mp3"
+    },
+    {
+      "id": "w_736b78e32bde5211",
+      "kind": "example",
+      "text": "キツネが女に化ける.",
+      "file": "assets/audio/examples/w_736b78e32bde5211.mp3"
+    },
+    {
+      "id": "w_7259ebed7e8b12f2",
+      "kind": "example",
+      "text": "私は、ジャングルを未開の種族の巣窟だと思っていた。",
+      "file": "assets/audio/examples/w_7259ebed7e8b12f2.mp3"
+    },
+    {
+      "id": "w_74626cb2d678c7da",
+      "kind": "example",
+      "text": "民泊[民宿]する; 民宿に泊まる",
+      "file": "assets/audio/examples/w_74626cb2d678c7da.mp3"
+    },
+    {
+      "id": "w_741dda77aa010333",
+      "kind": "example",
+      "text": "スポーツカーは、アスファルト道路に火をつけたように速く疾走した。",
+      "file": "assets/audio/examples/w_741dda77aa010333.mp3"
+    },
+    {
+      "id": "w_7693c24a3ae3f600",
+      "kind": "example",
+      "text": "分母と分子を約分する.",
+      "file": "assets/audio/examples/w_7693c24a3ae3f600.mp3"
+    },
+    {
+      "id": "w_77072cf78322487c",
+      "kind": "example",
+      "text": "議会の信任を得る.",
+      "file": "assets/audio/examples/w_77072cf78322487c.mp3"
+    },
+    {
+      "id": "w_78fd576a6ab3227d",
+      "kind": "example",
+      "text": "転居した事を申告する.",
+      "file": "assets/audio/examples/w_78fd576a6ab3227d.mp3"
+    },
+    {
+      "id": "w_773a443e6950d9ba",
+      "kind": "example",
+      "text": "非難の声が暴風のごとく押し寄せてきた.",
+      "file": "assets/audio/examples/w_773a443e6950d9ba.mp3"
+    },
+    {
+      "id": "w_78527b9c49a89cb7",
+      "kind": "example",
+      "text": "青年のおどけた身振りに娘だちがくすくす(と)笑っている.",
+      "file": "assets/audio/examples/w_78527b9c49a89cb7.mp3"
+    },
+    {
+      "id": "w_77841c7250d79151",
+      "kind": "example",
+      "text": "イ：どうせ一度の人生だから、生き甲斐を感じながら生きていかなければならないんじゃない？",
+      "file": "assets/audio/examples/w_77841c7250d79151.mp3"
+    },
+    {
+      "id": "w_81756aee05f201cc",
+      "kind": "example",
+      "text": "私有のヨットを持っている.",
+      "file": "assets/audio/examples/w_81756aee05f201cc.mp3"
+    },
+    {
+      "id": "w_801a4ef078453053",
+      "kind": "example",
+      "text": "無闇に山の 木を切る",
+      "file": "assets/audio/examples/w_801a4ef078453053.mp3"
+    },
+    {
+      "id": "w_83460d4f1892199d",
+      "kind": "example",
+      "text": "あの本は内容が貧弱だ.",
+      "file": "assets/audio/examples/w_83460d4f1892199d.mp3"
+    },
+    {
+      "id": "w_874a69ed8bec774f",
+      "kind": "example",
+      "text": "ピントを合わす",
+      "file": "assets/audio/examples/w_874a69ed8bec774f.mp3"
+    },
+    {
+      "id": "w_8209d27b08704155",
+      "kind": "example",
+      "text": "守衛に断って入る.",
+      "file": "assets/audio/examples/w_8209d27b08704155.mp3"
+    },
+    {
+      "id": "w_868dd8f818c0b138",
+      "kind": "example",
+      "text": "共学の可否を考える",
+      "file": "assets/audio/examples/w_868dd8f818c0b138.mp3"
+    },
+    {
+      "id": "w_83ca7fd8e77d8d56",
+      "kind": "example",
+      "text": "道端に伝助を据える.",
+      "file": "assets/audio/examples/w_83ca7fd8e77d8d56.mp3"
+    },
+    {
+      "id": "w_871701ef4118a88f",
+      "kind": "example",
+      "text": "両者の主張を折衷する",
+      "file": "assets/audio/examples/w_871701ef4118a88f.mp3"
+    },
+    {
+      "id": "w_862729309324e64d",
+      "kind": "example",
+      "text": "その学説は通説とされている.",
+      "file": "assets/audio/examples/w_862729309324e64d.mp3"
+    },
+    {
+      "id": "w_8c606ba89f9e5e75",
+      "kind": "example",
+      "text": "スンギュはみんなが着席すると前に出た。",
+      "file": "assets/audio/examples/w_8c606ba89f9e5e75.mp3"
+    },
+    {
+      "id": "w_89572880b51639eb",
+      "kind": "example",
+      "text": "ジャンパー姿で出掛ける.",
+      "file": "assets/audio/examples/w_89572880b51639eb.mp3"
+    },
+    {
+      "id": "w_8a262069c3cc71cd",
+      "kind": "example",
+      "text": "教習を受ける",
+      "file": "assets/audio/examples/w_8a262069c3cc71cd.mp3"
+    },
+    {
+      "id": "w_8b127c987e2412c1",
+      "kind": "example",
+      "text": "高層ビルを見上げて指差す",
+      "file": "assets/audio/examples/w_8b127c987e2412c1.mp3"
+    },
+    {
+      "id": "w_8ac4fda759a52dc2",
+      "kind": "example",
+      "text": "旧主の子息をもり立てる",
+      "file": "assets/audio/examples/w_8ac4fda759a52dc2.mp3"
+    },
+    {
+      "id": "w_8d174bfc2f12fead",
+      "kind": "example",
+      "text": "二桁の足し算をする",
+      "file": "assets/audio/examples/w_8d174bfc2f12fead.mp3"
+    },
+    {
+      "id": "w_91f0d29d4488ce58",
+      "kind": "example",
+      "text": "他人を傷付ける",
+      "file": "assets/audio/examples/w_91f0d29d4488ce58.mp3"
+    },
+    {
+      "id": "w_8e8e619883455076",
+      "kind": "example",
+      "text": "橋渡しを買って出る",
+      "file": "assets/audio/examples/w_8e8e619883455076.mp3"
+    },
+    {
+      "id": "w_8cbecda005e65fb1",
+      "kind": "example",
+      "text": "お母さんは明日いらっしゃるとおっしゃった.",
+      "file": "assets/audio/examples/w_8cbecda005e65fb1.mp3"
+    },
+    {
+      "id": "w_904cfeab89219814",
+      "kind": "example",
+      "text": "「振り子打法」と命名された独特のバッティング・フォームは，若くしなやかな個性を感じさせる",
+      "file": "assets/audio/examples/w_904cfeab89219814.mp3"
+    },
+    {
+      "id": "w_957c15a482f8f1d6",
+      "kind": "example",
+      "text": "軽快なリズムに乗って踊る",
+      "file": "assets/audio/examples/w_957c15a482f8f1d6.mp3"
+    },
+    {
+      "id": "w_96b5df687fd53908",
+      "kind": "example",
+      "text": "手紙に後書きを付け加える",
+      "file": "assets/audio/examples/w_96b5df687fd53908.mp3"
+    },
+    {
+      "id": "w_92d9523033611e3a",
+      "kind": "example",
+      "text": "雪の上にくっきりと足形が残る.",
+      "file": "assets/audio/examples/w_92d9523033611e3a.mp3"
+    },
+    {
+      "id": "w_96becb49b475a7d1",
+      "kind": "example",
+      "text": "発芽が後れる",
+      "file": "assets/audio/examples/w_96becb49b475a7d1.mp3"
+    },
+    {
+      "id": "w_9222afcf72d2af72",
+      "kind": "example",
+      "text": "荒っぽい口調で話す",
+      "file": "assets/audio/examples/w_9222afcf72d2af72.mp3"
+    },
+    {
+      "id": "w_9484300c5113a170",
+      "kind": "example",
+      "text": "じゃあ、私が前売券を買っておきます。",
+      "file": "assets/audio/examples/w_9484300c5113a170.mp3"
+    },
+    {
+      "id": "w_9453ee8c4d367c4e",
+      "kind": "example",
+      "text": "不況下の聖夜だが豪華なデコレーション道路に，悲鳴とも嘆息ともつかぬ声があちこちから上がった",
+      "file": "assets/audio/examples/w_9453ee8c4d367c4e.mp3"
+    },
+    {
+      "id": "w_9c9c135739153111",
+      "kind": "example",
+      "text": "文学には詩·小説および戯曲などがある.",
+      "file": "assets/audio/examples/w_9c9c135739153111.mp3"
+    },
+    {
+      "id": "w_a18c96ad4694ca31",
+      "kind": "example",
+      "text": "詫びを入れる",
+      "file": "assets/audio/examples/w_a18c96ad4694ca31.mp3"
+    },
+    {
+      "id": "w_a660433863f67375",
+      "kind": "example",
+      "text": "議事堂のひな型[形](がた)をつくる.",
+      "file": "assets/audio/examples/w_a660433863f67375.mp3"
+    },
+    {
+      "id": "w_a46f2c3f0d8fbd8b",
+      "kind": "example",
+      "text": "己の不明を恥じる",
+      "file": "assets/audio/examples/w_a46f2c3f0d8fbd8b.mp3"
+    },
+    {
+      "id": "w_a94f4515dcfa42bb",
+      "kind": "example",
+      "text": "それとなくなだめて怒りを和らげる.",
+      "file": "assets/audio/examples/w_a94f4515dcfa42bb.mp3"
+    },
+    {
+      "id": "w_ac51cb4ffd9656c5",
+      "kind": "example",
+      "text": "自衛のための軍備が必要だ.",
+      "file": "assets/audio/examples/w_ac51cb4ffd9656c5.mp3"
+    },
+    {
+      "id": "w_af28a5619819809b",
+      "kind": "example",
+      "text": "土地の風土に慣れる.",
+      "file": "assets/audio/examples/w_af28a5619819809b.mp3"
+    },
+    {
+      "id": "w_ae635112ff7a8f7b",
+      "kind": "example",
+      "text": "そらうそぶいて[しらを切って]白状しない.",
+      "file": "assets/audio/examples/w_ae635112ff7a8f7b.mp3"
+    },
+    {
+      "id": "w_ae9f0fe4cacdf332",
+      "kind": "example",
+      "text": "漢語と外来語の多いコンピュータ用語は固有語に純化される必要がある。",
+      "file": "assets/audio/examples/w_ae9f0fe4cacdf332.mp3"
+    },
+    {
+      "id": "w_b36e6034a0f6af76",
+      "kind": "example",
+      "text": "相手を負かす",
+      "file": "assets/audio/examples/w_b36e6034a0f6af76.mp3"
+    },
+    {
+      "id": "w_b39e01ca61885092",
+      "kind": "example",
+      "text": "大きな荷物をずるずる(と)引きずる.",
+      "file": "assets/audio/examples/w_b39e01ca61885092.mp3"
+    },
+    {
+      "id": "w_b2a3b09ad2a0ada9",
+      "kind": "example",
+      "text": "胸のレントゲンを撮る",
+      "file": "assets/audio/examples/w_b2a3b09ad2a0ada9.mp3"
+    },
+    {
+      "id": "w_b383a013718c8d23",
+      "kind": "example",
+      "text": "熱い湯にゆっくりと身を沈める.",
+      "file": "assets/audio/examples/w_b383a013718c8d23.mp3"
+    },
+    {
+      "id": "w_b1cd209259dba0e2",
+      "kind": "example",
+      "text": "申込書に写真を添える",
+      "file": "assets/audio/examples/w_b1cd209259dba0e2.mp3"
+    },
+    {
+      "id": "w_b11cc624e2e7780a",
+      "kind": "example",
+      "text": "偉大なスコアラーが君について記すのは君が勝ったか負けたかではなく君がどのように試合をしたかだ。(グラントランド・ライス)",
+      "file": "assets/audio/examples/w_b11cc624e2e7780a.mp3"
+    },
+    {
+      "id": "w_b853a9ba762cd577",
+      "kind": "example",
+      "text": "勤労の風を養う.",
+      "file": "assets/audio/examples/w_b853a9ba762cd577.mp3"
+    },
+    {
+      "id": "w_b55ea7d669adae14",
+      "kind": "example",
+      "text": "識者のことばに耳を傾ける.",
+      "file": "assets/audio/examples/w_b55ea7d669adae14.mp3"
+    },
+    {
+      "id": "w_b4ee8499a1eb6ef3",
+      "kind": "example",
+      "text": "イ：ミセス・オは、会う度にお顔が美しくなりますね。",
+      "file": "assets/audio/examples/w_b4ee8499a1eb6ef3.mp3"
+    },
+    {
+      "id": "w_b7bf1c8690f8d313",
+      "kind": "example",
+      "text": "評判が悪い; 不評だ.",
+      "file": "assets/audio/examples/w_b7bf1c8690f8d313.mp3"
+    },
+    {
+      "id": "w_b7be01d14b992429",
+      "kind": "example",
+      "text": "この手法が，より自然らしさを求める，最近のナチュラル・ガーデンのブームも加わって，家庭の花壇にも大きな影響を与えた形だ",
+      "file": "assets/audio/examples/w_b7be01d14b992429.mp3"
+    },
+    {
+      "id": "w_bda08ed7ad64810f",
+      "kind": "example",
+      "text": "不忠の臣国を乱す.",
+      "file": "assets/audio/examples/w_bda08ed7ad64810f.mp3"
+    },
+    {
+      "id": "w_bc3abd3710fc04af",
+      "kind": "example",
+      "text": "彼の考えに共鳴する.",
+      "file": "assets/audio/examples/w_bc3abd3710fc04af.mp3"
+    },
+    {
+      "id": "w_bd75aa731f4df5da",
+      "kind": "example",
+      "text": "花に題する",
+      "file": "assets/audio/examples/w_bd75aa731f4df5da.mp3"
+    },
+    {
+      "id": "w_bafabc8fcb443840",
+      "kind": "example",
+      "text": "手掛かりをたどって探索に出る.",
+      "file": "assets/audio/examples/w_bafabc8fcb443840.mp3"
+    },
+    {
+      "id": "w_bc2091722952b98d",
+      "kind": "example",
+      "text": "先輩を凌ぐ",
+      "file": "assets/audio/examples/w_bc2091722952b98d.mp3"
+    },
+    {
+      "id": "w_bcce1a49a9bd524d",
+      "kind": "example",
+      "text": "軽率のそしりを免れない",
+      "file": "assets/audio/examples/w_bcce1a49a9bd524d.mp3"
+    },
+    {
+      "id": "w_be035463f7a68af0",
+      "kind": "example",
+      "text": "ロ：はい。つかの間ではありますが日常を離れて楽しい時間を過ごしました。",
+      "file": "assets/audio/examples/w_be035463f7a68af0.mp3"
+    },
+    {
+      "id": "w_c1db72f774e3728e",
+      "kind": "example",
+      "text": "偏食による栄養失調.",
+      "file": "assets/audio/examples/w_c1db72f774e3728e.mp3"
+    },
+    {
+      "id": "w_c453e759b4056a60",
+      "kind": "example",
+      "text": "法律を専修する",
+      "file": "assets/audio/examples/w_c453e759b4056a60.mp3"
+    },
+    {
+      "id": "w_c1b14e74eb219424",
+      "kind": "example",
+      "text": "少量の晩酌は食欲を増進させる.",
+      "file": "assets/audio/examples/w_c1b14e74eb219424.mp3"
+    },
+    {
+      "id": "w_ca370c968ccf44ee",
+      "kind": "example",
+      "text": "光線は水にはいると屈折する",
+      "file": "assets/audio/examples/w_ca370c968ccf44ee.mp3"
+    },
+    {
+      "id": "w_cd415efa702763f7",
+      "kind": "example",
+      "text": "観衆が10万人を上回った",
+      "file": "assets/audio/examples/w_cd415efa702763f7.mp3"
+    },
+    {
+      "id": "w_ccc6fca5d20f754a",
+      "kind": "example",
+      "text": "外敵に対して備えを固める.",
+      "file": "assets/audio/examples/w_ccc6fca5d20f754a.mp3"
+    },
+    {
+      "id": "w_cbfd172f317c969e",
+      "kind": "example",
+      "text": "病害が少ないので豊作が期待される.",
+      "file": "assets/audio/examples/w_cbfd172f317c969e.mp3"
+    },
+    {
+      "id": "w_ccbf1de13dfa8cfe",
+      "kind": "example",
+      "text": "踏切の前で徐行する.",
+      "file": "assets/audio/examples/w_ccbf1de13dfa8cfe.mp3"
+    },
+    {
+      "id": "w_ce94554fe76bd18c",
+      "kind": "example",
+      "text": "子供が母親に甘える",
+      "file": "assets/audio/examples/w_ce94554fe76bd18c.mp3"
+    },
+    {
+      "id": "w_d0f6e5a0439f46dd",
+      "kind": "example",
+      "text": "紙幣を帯で束ねる.",
+      "file": "assets/audio/examples/w_d0f6e5a0439f46dd.mp3"
+    },
+    {
+      "id": "w_cf6e5403a48aae9c",
+      "kind": "example",
+      "text": "山の中腹にあずまやがぽつんと建っている.",
+      "file": "assets/audio/examples/w_cf6e5403a48aae9c.mp3"
+    },
+    {
+      "id": "w_d2caf0c32bdd7abd",
+      "kind": "example",
+      "text": "レンタカーを借りる.",
+      "file": "assets/audio/examples/w_d2caf0c32bdd7abd.mp3"
+    },
+    {
+      "id": "w_d1535d6d4c22a3a7",
+      "kind": "example",
+      "text": "人気ドラマを作ったキムPDは、「今回もお茶の間の劇場に話題を呼ぶ」と自負している。",
+      "file": "assets/audio/examples/w_d1535d6d4c22a3a7.mp3"
+    },
+    {
+      "id": "w_d44e9dee9505bfdc",
+      "kind": "example",
+      "text": "ダイアナは表向きは華麗なロイヤル・ファミリーの責務を果たしていたが，エレガントな笑顔も家庭では暗く閉ざされた",
+      "file": "assets/audio/examples/w_d44e9dee9505bfdc.mp3"
+    },
+    {
+      "id": "w_d71a8c96af7a8cb2",
+      "kind": "example",
+      "text": "水を引いて砂漠を灌漑する.",
+      "file": "assets/audio/examples/w_d71a8c96af7a8cb2.mp3"
+    },
+    {
+      "id": "w_d86ec5dbfd8e00db",
+      "kind": "example",
+      "text": "税金を滞納する",
+      "file": "assets/audio/examples/w_d86ec5dbfd8e00db.mp3"
+    },
+    {
+      "id": "w_d6ae36e458dcdd71",
+      "kind": "example",
+      "text": "大きくはあるが脆い",
+      "file": "assets/audio/examples/w_d6ae36e458dcdd71.mp3"
+    },
+    {
+      "id": "w_d947a0c1f9392a00",
+      "kind": "example",
+      "text": "インフルエンザの流行が下火になっている",
+      "file": "assets/audio/examples/w_d947a0c1f9392a00.mp3"
+    },
+    {
+      "id": "w_d959e50fd73c68bc",
+      "kind": "example",
+      "text": "彼女は，自然を愛し，それを手つかずで残したいという期待から，土地を買ってナショナル・トラストに寄贈した",
+      "file": "assets/audio/examples/w_d959e50fd73c68bc.mp3"
+    },
+    {
+      "id": "w_da1e3d3738f4241e",
+      "kind": "example",
+      "text": "主人の片目は、5人の使用人の目よりもよく物事を見ている。",
+      "file": "assets/audio/examples/w_da1e3d3738f4241e.mp3"
+    },
+    {
+      "id": "w_e4e05a9889537531",
+      "kind": "example",
+      "text": "危機に面する",
+      "file": "assets/audio/examples/w_e4e05a9889537531.mp3"
+    },
+    {
+      "id": "w_e04695b03865adc5",
+      "kind": "example",
+      "text": "火急の用件で上阪する",
+      "file": "assets/audio/examples/w_e04695b03865adc5.mp3"
+    },
+    {
+      "id": "w_e18f80d50d96027c",
+      "kind": "example",
+      "text": "あやふやな態度を取る",
+      "file": "assets/audio/examples/w_e18f80d50d96027c.mp3"
+    },
+    {
+      "id": "w_e4bdfd0f8c9326a2",
+      "kind": "example",
+      "text": "原稿を読み上げる",
+      "file": "assets/audio/examples/w_e4bdfd0f8c9326a2.mp3"
+    },
+    {
+      "id": "w_e662da8e9deb3398",
+      "kind": "example",
+      "text": "所定の用紙に記入する",
+      "file": "assets/audio/examples/w_e662da8e9deb3398.mp3"
+    },
+    {
+      "id": "w_e5529619877ac41b",
+      "kind": "example",
+      "text": "その家は元来私のものだ",
+      "file": "assets/audio/examples/w_e5529619877ac41b.mp3"
+    },
+    {
+      "id": "w_e6fe53b4864f33b0",
+      "kind": "example",
+      "text": "余暇を善用する.",
+      "file": "assets/audio/examples/w_e6fe53b4864f33b0.mp3"
+    },
+    {
+      "id": "w_e8d5d1492c47ef5f",
+      "kind": "example",
+      "text": "社員は社宅に住んでいる.",
+      "file": "assets/audio/examples/w_e8d5d1492c47ef5f.mp3"
+    },
+    {
+      "id": "w_e8d74934be15106c",
+      "kind": "example",
+      "text": "話をきっぱりする必要がある.",
+      "file": "assets/audio/examples/w_e8d74934be15106c.mp3"
+    },
+    {
+      "id": "w_e7c29b6898ae9a7d",
+      "kind": "example",
+      "text": "怠慢を父に叱責された.",
+      "file": "assets/audio/examples/w_e7c29b6898ae9a7d.mp3"
+    },
+    {
+      "id": "w_e9879a62aa327390",
+      "kind": "example",
+      "text": "立派に発育する",
+      "file": "assets/audio/examples/w_e9879a62aa327390.mp3"
+    },
+    {
+      "id": "w_eb362f6be10b400b",
+      "kind": "example",
+      "text": "被告のために弁論する.",
+      "file": "assets/audio/examples/w_eb362f6be10b400b.mp3"
+    },
+    {
+      "id": "w_e9b7122319d3941e",
+      "kind": "example",
+      "text": "多数決できめる",
+      "file": "assets/audio/examples/w_e9b7122319d3941e.mp3"
+    },
+    {
+      "id": "w_e9adb478aeae368f",
+      "kind": "example",
+      "text": "祝賀の宴に陪席する.",
+      "file": "assets/audio/examples/w_e9adb478aeae368f.mp3"
+    },
+    {
+      "id": "w_edb035ccb5afe706",
+      "kind": "example",
+      "text": "労使ともに譲歩しない",
+      "file": "assets/audio/examples/w_edb035ccb5afe706.mp3"
+    },
+    {
+      "id": "w_ed49f1a238a0b345",
+      "kind": "example",
+      "text": "防火シャッターを装置する",
+      "file": "assets/audio/examples/w_ed49f1a238a0b345.mp3"
+    },
+    {
+      "id": "w_ef70395b91040ca3",
+      "kind": "example",
+      "text": "アリが砂糖に群がる",
+      "file": "assets/audio/examples/w_ef70395b91040ca3.mp3"
+    },
+    {
+      "id": "w_f10d56d8651e9bba",
+      "kind": "example",
+      "text": "丸々損をした",
+      "file": "assets/audio/examples/w_f10d56d8651e9bba.mp3"
+    },
+    {
+      "id": "w_f19e836baf726613",
+      "kind": "example",
+      "text": "製鉄所の残滓をスコップでベルト・コンベヤーに積み込む",
+      "file": "assets/audio/examples/w_f19e836baf726613.mp3"
+    },
+    {
+      "id": "w_ee5860c38d319c6c",
+      "kind": "example",
+      "text": "小便を漏らす.",
+      "file": "assets/audio/examples/w_ee5860c38d319c6c.mp3"
+    },
+    {
+      "id": "w_efe85f3246a13482",
+      "kind": "example",
+      "text": "苦痛で顔が歪む",
+      "file": "assets/audio/examples/w_efe85f3246a13482.mp3"
+    },
+    {
+      "id": "w_ef69d226c0ff5071",
+      "kind": "example",
+      "text": "１０トンダンプ・カーが前方のダンプに衝突し炎上した",
+      "file": "assets/audio/examples/w_ef69d226c0ff5071.mp3"
+    },
+    {
+      "id": "w_f027db9e5dffd29e",
+      "kind": "example",
+      "text": "私は1ヶ月に2回、隔週で発刊される雑誌を購読している。",
+      "file": "assets/audio/examples/w_f027db9e5dffd29e.mp3"
+    },
+    {
+      "id": "w_edbd1d27cab0cd0f",
+      "kind": "example",
+      "text": "ロ:はい、チーム長。今、参加者たちの部屋の割当をしています。",
+      "file": "assets/audio/examples/w_edbd1d27cab0cd0f.mp3"
+    },
+    {
+      "id": "w_f1b7469967784a8e",
+      "kind": "example",
+      "text": "適宜な処置を講ずる",
+      "file": "assets/audio/examples/w_f1b7469967784a8e.mp3"
+    },
+    {
+      "id": "w_f5a20baa3b0a3ea7",
+      "kind": "example",
+      "text": "全盛をきわめる.",
+      "file": "assets/audio/examples/w_f5a20baa3b0a3ea7.mp3"
+    },
+    {
+      "id": "w_f53a7deac1bb2b7b",
+      "kind": "example",
+      "text": "盲点が摘示される.",
+      "file": "assets/audio/examples/w_f53a7deac1bb2b7b.mp3"
+    },
+    {
+      "id": "w_fc7c17b89ddc8307",
+      "kind": "example",
+      "text": "没落の運命にある.",
+      "file": "assets/audio/examples/w_fc7c17b89ddc8307.mp3"
+    },
+    {
+      "id": "w_f8f401f47c14479b",
+      "kind": "example",
+      "text": "遺骸を手厚く葬る.",
+      "file": "assets/audio/examples/w_f8f401f47c14479b.mp3"
+    },
+    {
+      "id": "w_fb7fe4c6a4a25b84",
+      "kind": "example",
+      "text": "毛布で覆って保温する",
+      "file": "assets/audio/examples/w_fb7fe4c6a4a25b84.mp3"
+    },
+    {
+      "id": "w_f7b7f5d841f3ee1c",
+      "kind": "example",
+      "text": "ジスはストローで飲み物をすいこんで飲んでいた。",
+      "file": "assets/audio/examples/w_f7b7f5d841f3ee1c.mp3"
+    },
+    {
+      "id": "w_fc4d257ad262c238",
+      "kind": "example",
+      "text": "上部が窄まった壷",
+      "file": "assets/audio/examples/w_fc4d257ad262c238.mp3"
+    },
+    {
+      "id": "w_f889521b53ba61cd",
+      "kind": "example",
+      "text": "彼の強情には閉口した.",
+      "file": "assets/audio/examples/w_f889521b53ba61cd.mp3"
+    },
+    {
+      "id": "w_fe232373db8fd318",
+      "kind": "example",
+      "text": "他人の目を欺くことはできても私の目を欺くことはできない.",
+      "file": "assets/audio/examples/w_fe232373db8fd318.mp3"
+    },
+    {
+      "id": "w_fcafb921f6e24a77",
+      "kind": "example",
+      "text": "汚い身なりをしている.",
+      "file": "assets/audio/examples/w_fcafb921f6e24a77.mp3"
+    },
+    {
+      "id": "w_fd444cbc0d12745d",
+      "kind": "example",
+      "text": "アルカリ溶液に浸すだけで，簡単にはがせる新しい樹脂を開発した",
+      "file": "assets/audio/examples/w_fd444cbc0d12745d.mp3"
+    }
+  ],
+  "elapsed_seconds": 33.776,
+  "dry_run": false
+}

@@ -1,28 +1,32 @@
-// 회독 학습 화면 — 단어 제시 → 뜻 확인 → 안다/모름. 모름은 즉시 반복, 모름0 = 챕터 완료.
+// 회독 학습 화면 — review-hub.html: 뜻 보기 후 모름/안다, 끝나면 허브로 돌아간다.
 // FSRS와 분리(보상 없음). 진행은 reading_progress에 즉시 영속(재개 가능).
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import {
-  ActivityIndicator,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
-import { useColors, useThemedStyles } from '~/design/theme';
-import { renderKanjiFace } from '~/lib/cardType';
+import { useLocalSearchParams, useRouter, type Href } from 'expo-router';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { HTML_FLOW_PAGE, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
+import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
+import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
+import { useSettingsStore } from '~/stores/SettingsStore';
+import { StudyProgressHeader } from '~/features/study/components/StudyProgressHeader';
+import { RecallStage } from '~/features/study/components/RecallStage';
+import { revealStudyCard } from '~/features/study/studyRevealAudio';
 import type { JlptLevel } from '~/types/Card';
 import { ReadingEngine, type ReadingState } from './ReadingEngine';
-import { buildReadingEngine, resetReadingChapter } from './buildReadingEngine';
+import { buildReadingEngine, recordReadingPass } from './buildReadingEngine';
 
 export default function ReadingStudyScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
-  const c = useColors();
+  const { colors, name } = useTheme();
   const router = useRouter();
+  const screenInsets = useFullScreenInsets();
+  const pageStyle = [
+    styles.root,
+    name === 'light' && { backgroundColor: HTML_FLOW_PAGE },
+    { paddingTop: screenInsets.top, paddingBottom: screenInsets.bottom },
+  ];
   const params = useLocalSearchParams<{ level: string; chapter: string }>();
   const level = params.level as JlptLevel;
   const chapter = Number(params.chapter);
@@ -36,12 +40,14 @@ export default function ReadingStudyScreen(): React.ReactNode {
   const [state, setState] = useState<ReadingState | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [busy, setBusy] = useState(false);
+  const completionHandled = useRef(false);
 
   useEffect(() => {
     if (!validParams) {
       router.back();
       return;
     }
+    preloadInterstitial();
     let alive = true;
     void buildReadingEngine().then(async (engine) => {
       engineRef.current = engine;
@@ -53,12 +59,28 @@ export default function ReadingStudyScreen(): React.ReactNode {
     };
   }, [level, chapter, validParams, router]);
 
+  useEffect(() => {
+    if (state?.phase !== 'done' || completionHandled.current) return;
+    completionHandled.current = true;
+    // 회독 기록을 먼저 저장한 뒤 전역 광고 빈도 캡을 적용한다.
+    void recordReadingPass(level, chapter)
+      .catch(() => undefined)
+      .then(() =>
+        showInterstitialIfEligible(() => {
+          router.replace(`/reading?completed=${chapter}` as Href);
+        }),
+      );
+  }, [state?.phase, level, chapter, router]);
+
   const mark = useCallback(
     async (known: boolean) => {
       const engine = engineRef.current;
       if (!engine || busy) return;
       setBusy(true);
-      const s = await engine.mark(known);
+      let s = await engine.mark(known);
+      if (s.phase === 'passEnd') {
+        s = await engine.reshuffle();
+      }
       setRevealed(false);
       setState(s);
       setBusy(false);
@@ -66,191 +88,101 @@ export default function ReadingStudyScreen(): React.ReactNode {
     [busy],
   );
 
+  useEffect(() => {
+    if (state?.phase !== 'passEnd') return;
+    const engine = engineRef.current;
+    if (!engine) return;
+    let alive = true;
+    void engine.reshuffle().then((next) => {
+      if (!alive) return;
+      setRevealed(false);
+      setState(next);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [state?.phase]);
+
+  // 학습 화면과 같은 공개 규칙 — 최초 공개에서만 상태를 바꾸고 설정에 따라 발음 1회 재생.
+  const handleReveal = useCallback(() => {
+    const word = state?.current;
+    if (!word) return;
+    const settings = useSettingsStore.getState();
+    revealStudyCard({
+      alreadyRevealed: revealed,
+      ttsEnabled: settings.ttsEnabled,
+      autoPlayWordTts: settings.autoPlayWordTtsOnReveal,
+      onReveal: () => setRevealed(true),
+      onSpeakWord: () => tts.speakAudio('word', word.id, word.reading_kana),
+    });
+  }, [revealed, state, tts]);
+
   if (!state) {
     return (
-      <SafeAreaView style={[styles.container, styles.center]}>
-        <ActivityIndicator color={c.ink} />
-      </SafeAreaView>
+      <View style={pageStyle}>
+        <View style={styles.center}>
+          <ActivityIndicator color={colors.body} />
+          <Text style={styles.noticeBody}>회독 준비 중…</Text>
+        </View>
+      </View>
     );
   }
 
   if (state.phase === 'done') {
     return (
-      <SafeAreaView style={[styles.container, styles.center]}>
-        <Text style={styles.doneMark}>✓</Text>
-        <Text style={styles.doneTitle}>
-          {level}-{chapter} 완료
-        </Text>
-        <Text style={styles.doneSub}>{state.total}단어 모두 외웠어요</Text>
-        <Pressable
-          style={styles.primaryBtn}
-          onPress={() => router.back()}
-          accessibilityRole="button"
-        >
-          <Text style={styles.primaryBtnText}>챕터 목록으로</Text>
-        </Pressable>
-        <Pressable
-          style={styles.secondaryBtn}
-          onPress={async () => {
-            await resetReadingChapter(level, chapter);
-            const engine = engineRef.current;
-            if (engine) setState(await engine.startChapter(level, chapter));
-          }}
-          accessibilityRole="button"
-        >
-          <Text style={styles.secondaryBtnText}>다시 외우기</Text>
-        </Pressable>
-      </SafeAreaView>
+      <View style={pageStyle}>
+        <View style={styles.center}>
+          <ActivityIndicator color={colors.body} />
+          <Text style={styles.noticeBody}>회독 기록 중…</Text>
+        </View>
+      </View>
     );
   }
 
-  if (state.phase === 'passEnd') {
-    const remaining = state.total - state.known;
+  const word = state.current;
+  if (!word) {
     return (
-      <SafeAreaView style={[styles.container, styles.center]}>
-        <Text style={styles.doneTitle}>패스 완료</Text>
-        <Text style={styles.doneSub}>
-          이번 바퀴 맞힘 {state.passTotal - state.wrong} · 모름 {state.wrong}
-        </Text>
-        <Text style={styles.doneSub}>
-          숙달 {state.known}/{state.total} · 남은 {remaining}개
-        </Text>
-        <Pressable
-          style={styles.primaryBtn}
-          onPress={() => {
-            const engine = engineRef.current;
-            if (engine) void engine.reshuffle().then(setState);
-          }}
-          accessibilityRole="button"
-        >
-          <Text style={styles.primaryBtnText}>틀린 것만 다시 섞어 보기 ({remaining})</Text>
-        </Pressable>
-        <Pressable style={styles.secondaryBtn} onPress={() => router.back()} accessibilityRole="button">
-          <Text style={styles.secondaryBtnText}>나가기 (나중에 이어서)</Text>
-        </Pressable>
-      </SafeAreaView>
+      <View style={pageStyle}>
+        <View style={styles.center}>
+          <ActivityIndicator color={colors.body} />
+          <Text style={styles.noticeBody}>다음 단어 준비 중…</Text>
+        </View>
+      </View>
     );
   }
-
-  const w = state.current!;
-  const pct = state.passTotal ? (state.passDone / state.passTotal) * 100 : 0;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Pressable onPress={() => router.back()} accessibilityRole="button" hitSlop={12}>
-          <Text style={styles.close}>✕</Text>
-        </Pressable>
-        <View style={styles.bar}>
-          <View style={[styles.barFill, { width: `${pct}%` }]} />
-        </View>
-        <Text style={styles.counter}>
-          {state.passDone}/{state.passTotal}
-        </Text>
-      </View>
-
-      <View style={styles.cardArea}>
-        <Pressable
-          onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
-          accessibilityRole="button"
-          accessibilityLabel="발음 듣기"
-        >
-          <Text style={styles.surface}>{renderKanjiFace(w)}</Text>
-        </Pressable>
-
-        {revealed ? (
-          <>
-            {renderKanjiFace(w) !== w.reading_kana && (
-              <Text style={styles.reading}>{w.reading_kana}</Text>
-            )}
-            <Text style={styles.meaning}>{w.meaning_ko}</Text>
-          </>
-        ) : (
-          <Pressable
-            style={styles.revealBtn}
-            onPress={() => setRevealed(true)}
-            accessibilityRole="button"
-          >
-            <Text style={styles.revealText}>뜻 보기</Text>
-          </Pressable>
-        )}
-
-        <Pressable
-          style={styles.detailLink}
-          onPress={() => router.push({ pathname: '/word/[id]', params: { id: w.id } })}
-          accessibilityRole="link"
-        >
-          <Text style={styles.detailLinkText}>단어 상세 · 한자 보기 ↗</Text>
-        </Pressable>
-      </View>
-
-      <View style={styles.actions}>
-        <Pressable
-          style={[styles.markBtn, styles.unknownBtn]}
-          onPress={() => void mark(false)}
-          disabled={busy}
-          accessibilityRole="button"
-        >
-          <Text style={styles.unknownText}>모름</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.markBtn, styles.knownBtn]}
-          onPress={() => void mark(true)}
-          disabled={busy}
-          accessibilityRole="button"
-        >
-          <Text style={styles.knownText}>안다</Text>
-        </Pressable>
-      </View>
-    </SafeAreaView>
+    <View style={pageStyle}>
+      <StudyProgressHeader
+        done={state.passDone}
+        total={state.passTotal}
+        onClose={() => router.replace('/reading' as Href)}
+        closeLabel="회독 종료"
+        variant="inline"
+      />
+      <RecallStage
+        surface={word.surface}
+        reading={word.reading_kana}
+        meaning={word.meaning_ko}
+        revealed={revealed}
+        onReveal={handleReveal}
+        onUnknown={() => void mark(false)}
+        onKnown={() => void mark(true)}
+        disabled={busy}
+      />
+    </View>
   );
 }
 
 const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
-  container: { flex: 1, backgroundColor: c.softer },
-  center: { alignItems: 'center', justifyContent: 'center', gap: spacing.lg, padding: spacing.xl },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.lg,
-    paddingHorizontal: spacing.xl,
-    paddingTop: spacing.lg,
-  },
-  close: { ...typography.resultTitle, color: c.body },
-  bar: { flex: 1, height: 6, borderRadius: 3, backgroundColor: c.soft, overflow: 'hidden' },
-  barFill: { height: '100%', backgroundColor: c.ink },
-  counter: { ...typography.caption, color: c.body, minWidth: 44, textAlign: 'right' },
-  cardArea: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: spacing.xl, padding: spacing.xl },
-  surface: { fontSize: 64, lineHeight: 76, color: c.ink, fontFamily: font.medium, textAlign: 'center' },
-  reading: { ...typography.resultTitle, color: c.body, textAlign: 'center' },
-  meaning: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
-  revealBtn: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.xxl,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: c.pressed,
-  },
-  revealText: { ...typography.body, color: c.body },
-  detailLink: { paddingVertical: spacing.sm },
-  detailLinkText: { ...typography.caption, color: c.body, fontFamily: font.medium },
-  actions: { flexDirection: 'row', gap: spacing.lg, padding: spacing.xl },
-  markBtn: { flex: 1, paddingVertical: spacing.xl, borderRadius: radius.pill, alignItems: 'center' },
-  unknownBtn: { borderWidth: 1, borderColor: c.pressed, backgroundColor: c.canvas },
-  unknownText: { ...typography.body, color: c.ink, fontFamily: font.semibold },
-  knownBtn: { backgroundColor: c.ink },
-  knownText: { ...typography.body, color: c.onInk, fontFamily: font.semibold },
-  doneMark: { fontSize: 56, color: c.ink },
-  doneTitle: { ...typography.screenTitle, color: c.ink },
-  doneSub: { ...typography.body, color: c.body, marginBottom: spacing.xl },
-  primaryBtn: {
-    paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.xxl,
-    borderRadius: radius.pill,
-    backgroundColor: c.ink,
-  },
-  primaryBtnText: { ...typography.body, color: c.onInk, fontFamily: font.semibold },
-  secondaryBtn: { paddingVertical: spacing.sm, paddingHorizontal: spacing.xl },
-  secondaryBtnText: { ...typography.caption, color: c.body, fontFamily: font.medium },
-});
+    root: { flex: 1, backgroundColor: c.softer },
+    center: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: layout.gutter,
+      gap: spacing.sm,
+    },
+    noticeBody: { ...typography.body, color: c.body, textAlign: 'center' },
+  });

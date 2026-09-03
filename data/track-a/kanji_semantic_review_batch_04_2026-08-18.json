@@ -1,0 +1,46 @@
+{
+  "reviewed_at": "2026-08-18",
+  "batch_id": "04",
+  "scope": "P0 semantic review queue, batch 04 (next 20)",
+  "basis": [
+    "data/track-a/kanji_semantic_review_queue.csv",
+    "data/track-a/kanji_qa_work.csv meanings_en/onyomi/kunyomi (KANJIDIC2)",
+    "active word_kanji examples in assets/jlpt.db",
+    "漢字ペディア one-character definitions"
+  ],
+  "secondary_references": {
+    "僅": "https://www.kanjipedia.jp/kanji/0001628500",
+    "兆": "https://www.kanjipedia.jp/kanji/0004779600/",
+    "冴": "https://www.kanjipedia.jp/kanji/0002091100",
+    "叱": "https://www.kanjipedia.jp/kanji/0002920800",
+    "呆": "https://www.kanjipedia.jp/kanji/0006338700",
+    "堤": "https://www.kanjipedia.jp/kanji/0004971700",
+    "娠": "https://www.kanjipedia.jp/kanji/0003614400"
+  },
+  "policy": {
+    "qa_status": "needs_review",
+    "reason": "AI-assisted semantic correction requires final human confirmation before verified"
+  },
+  "decisions": [
+    {"literal":"僅","old":["약간","불과"],"new":["약간","불과"],"reason":"a wee bit 및 わずか 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"兆","old":["조짐","징조"],"new":["조짐","징조","조"],"reason":"sign/omen 외에 10의 12제곱 수 단위 의미를 보완"},
+    {"literal":"冴","old":["선명하다","맑다","뛰어나다"],"new":["맑다","선명하다","머리가 잘 돌아가다","차갑다"],"reason":"clear/serene/skilful/cold 의미군을 구체적인 한국어로 정리"},
+    {"literal":"劣","old":["열등하다","뒤떨어지다"],"new":["열등하다","뒤떨어지다"],"reason":"inferior/worse 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"又","old":["또는"],"new":["또","또한","한편"],"reason":"又は의 ‘또는’에 한정된 뜻을 again/furthermore/on the other hand로 복원"},
+    {"literal":"叱","old":["꾸짖다"],"new":["꾸짖다"],"reason":"scold/reprove 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"呆","old":["어이없어하다","질리다"],"new":["어이없어하다","멍하다","어리석다"],"reason":"be amazed와 呆然·愚か 의미를 반영하고 단어 문맥의 ‘질리다’를 제거"},
+    {"literal":"呟","old":["중얼거리다"],"new":["중얼거리다"],"reason":"mutter/murmur 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"咲","old":["피다"],"new":["피다"],"reason":"blossom/bloom 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"唸","old":["신음하다"],"new":["신음하다","으르렁거리다"],"reason":"groan 외에 roar 의미를 보완"},
+    {"literal":"喋","old":["말하다"],"new":["말하다","수다 떨다"],"reason":"talk/chat/chatter 의미군을 반영"},
+    {"literal":"噛","old":["씹다"],"new":["씹다","물다"],"reason":"chew 외에 bite/gnaw 의미를 보완"},
+    {"literal":"囁","old":["속삭이다"],"new":["속삭이다"],"reason":"whisper/murmur 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"堤","old":["둑","제방"],"new":["둑","제방"],"reason":"dike/bank/embankment 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"堪","old":["견디다","참다"],"new":["견디다","참다"],"reason":"withstand/endure/resist 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"塗","old":["칠하다","바르다"],"new":["칠하다","바르다"],"reason":"paint/plaster/smear 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"夥","old":["엄청나다","수량이 매우 많다"],"new":["엄청나다","매우 많다"],"reason":"immense/tremendous 의미를 간결한 카드 표현으로 정리"},
+    {"literal":"妊","old":["임신"],"new":["임신하다","아이를 배다"],"reason":"pregnancy와 はらむ/みごもる 훈독을 동사 의미로 명확화"},
+    {"literal":"娠","old":["임신"],"new":["임신하다","아이를 배다"],"reason":"with child/pregnancy 및 はらむ/みごもる 의미를 반영"},
+    {"literal":"嫉","old":["질투"],"new":["질투하다","시기하다"],"reason":"jealous/envy와 そねむ/ねたむ 훈독을 동사 의미로 명확화"}
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-08-19T13:55:36.267137+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 15,
+  "jobs": 15,
+  "preexisting": 0,
+  "planned": 15,
+  "created": 15,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_f60f7b55eba0baba",
+      "kind": "example",
+      "text": "小さな変化を見逃す。",
+      "file": "assets/audio/examples/w_f60f7b55eba0baba.mp3"
+    },
+    {
+      "id": "w_581a28544054818a",
+      "kind": "example",
+      "text": "猫の頭を摩る。",
+      "file": "assets/audio/examples/w_581a28544054818a.mp3"
+    },
+    {
+      "id": "w_1fb1432fdae5690a",
+      "kind": "example",
+      "text": "部屋の電気が点く。",
+      "file": "assets/audio/examples/w_1fb1432fdae5690a.mp3"
+    },
+    {
+      "id": "w_3f7be39781ba3513",
+      "kind": "example",
+      "text": "この道は駅に通ずる。",
+      "file": "assets/audio/examples/w_3f7be39781ba3513.mp3"
+    },
+    {
+      "id": "w_91c6df1ecc084985",
+      "kind": "example",
+      "text": "駅前の医院で熱を診てもらった。",
+      "file": "assets/audio/examples/w_91c6df1ecc084985.mp3"
+    },
+    {
+      "id": "w_28a0a4b3ffaf3efe",
+      "kind": "example",
+      "text": "ハンドルを右に回す。",
+      "file": "assets/audio/examples/w_28a0a4b3ffaf3efe.mp3"
+    },
+    {
+      "id": "w_54b907b4edcebc12",
+      "kind": "example",
+      "text": "絵を逆さにする。",
+      "file": "assets/audio/examples/w_54b907b4edcebc12.mp3"
+    },
+    {
+      "id": "w_06e7e51d003ac3e4",
+      "kind": "example",
+      "text": "夜の街はまだにぎやかだ。",
+      "file": "assets/audio/examples/w_06e7e51d003ac3e4.mp3"
+    },
+    {
+      "id": "w_8df0fff24f94cc63",
+      "kind": "example",
+      "text": "電車代を払って改札を通った。",
+      "file": "assets/audio/examples/w_8df0fff24f94cc63.mp3"
+    },
+    {
+      "id": "w_f1fcc99d67415f95",
+      "kind": "example",
+      "text": "他人の成功を羨む。",
+      "file": "assets/audio/examples/w_f1fcc99d67415f95.mp3"
+    },
+    {
+      "id": "w_d1b5e8dd16233996",
+      "kind": "example",
+      "text": "未来を誓う。",
+      "file": "assets/audio/examples/w_d1b5e8dd16233996.mp3"
+    },
+    {
+      "id": "w_9c2d3700794d4e08",
+      "kind": "example",
+      "text": "昨夜は早く寝た。",
+      "file": "assets/audio/examples/w_9c2d3700794d4e08.mp3"
+    },
+    {
+      "id": "w_5b4445d187ac74c5",
+      "kind": "example",
+      "text": "来年で二十歳になる。",
+      "file": "assets/audio/examples/w_5b4445d187ac74c5.mp3"
+    },
+    {
+      "id": "w_728f59d1c6f9c5f4",
+      "kind": "example",
+      "text": "出かける前に靴を履く。",
+      "file": "assets/audio/examples/w_728f59d1c6f9c5f4.mp3"
+    },
+    {
+      "id": "w_f12b7cd5ea51cf7a",
+      "kind": "example",
+      "text": "壁にポスターを貼る。",
+      "file": "assets/audio/examples/w_f12b7cd5ea51cf7a.mp3"
+    }
+  ],
+  "elapsed_seconds": 1.565,
+  "dry_run": false
+}

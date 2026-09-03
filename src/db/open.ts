@@ -14,8 +14,14 @@ import { migrateToV2 } from './migrations/v2';
 import { migrateToV3 } from './migrations/v3';
 import { migrateToV4 } from './migrations/v4';
 import { migrateToV5 } from './migrations/v5';
+import { migrateToV6 } from './migrations/v6';
 import { remapLegacyWordIds } from './remapLegacyWordIds';
+import {
+  remapSuccessorWordIds,
+  WORD_SUCCESSOR_REMAP_VERSION,
+} from './remapSuccessorWordIds';
 import { CURRENT_SCHEMA_VERSION } from './schema';
+import { requiresWordSeedHydration } from './wordCurationVersion';
 
 const DB_NAME = 'ashitakanji.db';
 const SEED_DB_NAME = 'ashitakanji.seed.db';
@@ -25,11 +31,17 @@ const SEED_DB_NAME = 'ashitakanji.seed.db';
 // 기존 설치 재하이드레이션 트리거(안 올리면 신규 어휘/빈도/챕터 전파 안 됨).
 // '6' — PDF 최빈출 2,699개 전량 포함 최종 6,638개 단어장으로 교체.
 // '7' — 가나-only 표제어 342개를 현대 한자 표기로 정규화하고 표기 중복을 교체.
-const WORD_CURATION_VERSION = '8';
+// '9' — な형 형용사 중복 47장을 빼고 같은 급수 단어로 채움.
+// '10' — pass_n1 유의어·용법 구역을 핵심 목록에서 제외하고 보충 단어를 재선별.
+// '11' — NAVER JLPT 급수로 1,594개를 이동하고 부족한 N3/N1 389개만 보충.
+// '12' — 최신 NAVER 대조로 확정된 급수 교정을 기존 설치에도 재하이드레이션.
+export const WORD_CURATION_VERSION = '12';
 // '5' — 정규화된 표제어의 한자와 word_kanji 링크 추가.
-const KANJI_CURATION_VERSION = '5';
+// '10' — 한국어 뜻이 비어 있던 활성 한자 12개를 사전 교차검증 후 보완.
+const KANJI_CURATION_VERSION = '10';
 // '4' — 표기 중복 교체 단어까지 포함해 6,638개 예문을 다시 1:1 연결.
-const EXAMPLE_CURATION_VERSION = '5';
+// '7' — NAVER 급수 보충 389개를 포함해 7,027개 예문을 다시 1:1 연결.
+const EXAMPLE_CURATION_VERSION = '7';
 const BUNDLED_DB_REQUIRE = (() => {
   try {
     // assets/jlpt.db is created by scripts/build-db.ts (Track A6)
@@ -68,6 +80,7 @@ async function openDatabase(): Promise<SQLite.SQLiteDatabase> {
   // Always run migrations
   await runMigrations(db);
   await hydrateSeedDataIfNeeded(db);
+  await remountSuccessorWordIdsIfNeeded(db);
 
   // 데이터 적재 상태 점검 — 빈 DB로 조용히 출시되는 사고 방지(P0).
   // assets/jlpt.db 미탑재(Track A 미완) 시 word 테이블이 0행 → 가시 경고.
@@ -192,24 +205,22 @@ async function hydrateSeedDataIfNeeded(db: SQLite.SQLiteDatabase): Promise<void>
 
       const localWordIds = new Set(localWordRows.map((row) => row.id));
       const seedWordIds = new Set(wordRows.map((row) => row.id));
-      const validWordIds = needsWordHydration ? seedWordIds : localWordIds;
+      let hydrateWords = needsWordHydration && wordRows.length > 0;
 
-      // Sanity guard: refuse to hydrate from a seed whose active vocabulary is
-      // suspiciously smaller than what's installed. Without this, a partial/corrupt
-      // seed shipped via OTA would mass-deprecate real words through the "missing
-      // from seed" branch below — silently wiping a user's study list.
-      if (needsWordHydration && wordRows.length > 0) {
+      // Sanity guard: refuse to hydrate words from a seed whose active vocabulary
+      // is suspiciously smaller than what's installed. Kanji/example bumps still run.
+      if (hydrateWords) {
         const block = await assessSeedWordShrink(db, seedDb, wordRows);
         if (block) {
-          console.warn(`[db] seed hydration BLOCKED by sanity guard: ${block}`);
-          // TODO(telemetry): report blocked hydration — otherwise staleness is silent.
-          return;
+          console.warn(`[db] word hydration BLOCKED by sanity guard: ${block}`);
+          hydrateWords = false;
         }
       }
+      const validWordIds = hydrateWords ? seedWordIds : localWordIds;
 
       await db.execAsync('BEGIN IMMEDIATE');
       try {
-        if (needsWordHydration && wordRows.length > 0) {
+        if (hydrateWords) {
           for (const row of wordRows) {
             await upsertSeedWord(db, row);
           }
@@ -370,9 +381,34 @@ async function assessSeedWordShrink(
   return null;
 }
 
+async function remountSuccessorWordIdsIfNeeded(db: SQLite.SQLiteDatabase): Promise<void> {
+  const version = await getAppMeta(db, 'word_successor_remap_version');
+  if (version === WORD_SUCCESSOR_REMAP_VERSION) return;
+
+  try {
+    const stats = await remapSuccessorWordIds(db);
+    if (stats.unmatched === stats.legacyWords && stats.legacyWords > 0) {
+      // Seed words are not loaded yet — retry on the next launch.
+      return;
+    }
+    if (stats.remappedWords > 0) {
+      console.log(
+        `[db] remounted ${stats.remappedWords} successor word ids ` +
+          `(cards moved=${stats.cardsMoved}, merged=${stats.cardsMerged}, unmatched=${stats.unmatched})`,
+      );
+    }
+    await db.runAsync(`INSERT OR REPLACE INTO app_meta (key, value) VALUES (?, ?)`, [
+      'word_successor_remap_version',
+      WORD_SUCCESSOR_REMAP_VERSION,
+    ]);
+  } catch (err) {
+    console.warn('[db] successor remount skipped:', err);
+  }
+}
+
 async function shouldHydrateWordData(db: SQLite.SQLiteDatabase): Promise<boolean> {
   const version = await getAppMeta(db, 'word_curation_version');
-  if (version !== WORD_CURATION_VERSION) return true;
+  if (requiresWordSeedHydration(version, WORD_CURATION_VERSION)) return true;
   const row = await db.getFirstAsync<{ n: number }>(
     `SELECT COUNT(*) AS n
      FROM word
@@ -530,6 +566,9 @@ async function runMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
   }
   if (current < 5) {
     await migrateToV5(db);
+  }
+  if (current < 6) {
+    await migrateToV6(db);
   }
 
   const after = await getSchemaVersion(db);

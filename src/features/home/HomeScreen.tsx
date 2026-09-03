@@ -1,276 +1,280 @@
-// Design Ref: Onikan handoff 화면 1 — 홈 (`10a`).
-//
-// 회독은 두 번째 버튼이 아니라 상단 세그먼트의 '모드'다. 그래야 하단 오렌지 CTA 가
-// 계속 하나로 유지된다. 선택한 모드가 히어로 카드 내용과 CTA 문구에 함께 반영된다.
-
 import { useCallback, useMemo, useState } from 'react';
-import { useFocusEffect, useRouter, type Href } from 'expo-router';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useFocusEffect, useLocalSearchParams, useRouter, type Href } from 'expo-router';
+import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {
-  border,
-  font,
-  layout,
-  radius,
-  spacing,
-  typography,
-  type ThemeColors,
-} from '~/design/tokens';
+import { HTML_FLOW_PAGE, cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import { IconChevron } from '~/design/icons';
-import { Button } from '~/components/ui/Button';
-import { SegmentedControl } from '~/components/ui/SegmentedControl';
-import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
+import { getDatabase } from '~/db/open';
+import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
-import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
-import { mascotImage, recipeImage } from '~/features/onigiri/recipeAssets';
-import {
-  computeOnigiriProgress,
-  type OnigiriProgressSnapshot,
-} from '~/features/onigiri/progress';
+import { recipeImage } from '~/features/onigiri/recipeAssets';
+import { onboardingImages } from '~/features/onigiri/onboardingAssets';
+import { computeOnigiriProgress, type OnigiriProgressSnapshot } from '~/features/onigiri/progress';
 import { loadLevelChapterStats } from '~/features/reading/buildReadingEngine';
-import {
-  loadTodayCounts,
-  resolveStudyRoute,
-  type TodayCounts,
-} from '~/features/study/resolveStudyEntry';
+import { buildRecordService } from '~/features/stats/buildRecordService';
+import type { RecordSnapshot } from '~/features/stats/recordTypes';
+import { loadTodayCounts, resolveStudyRoute, type TodayCounts } from '~/features/study/resolveStudyEntry';
 import { useSettingsStore } from '~/stores/SettingsStore';
-import type { JlptLevel } from '~/types/Card';
-import { chapterStatus, isChapterComplete, type ChapterStat } from '~/types/Reading';
-import { estimateStudyMinutes, formatKoreanDate, ingredientCaption } from './homePresentation';
-
-type HomeMode = 'today' | 'reading';
+import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
+import { isChapterComplete, pickCurrentChapter } from '~/types/Reading';
+import { estimateStudyMinutes, formatKoreanDate } from './homePresentation';
+import { buildHomeDayState, type HomeDayState } from './homeState';
+import { StreakCard } from './components/StreakStamps';
+import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
+import type { OnigiriIngredientList } from '~/features/onigiri/types';
+import {
+  HomeNextCard,
+  HomeStudyCompleteHero,
+  HomeStudyHero,
+  MonthlyMenuCard,
+  RecentOnigiriCard,
+} from './components/HomeSections';
 
 interface ReadingTarget {
   level: JlptLevel;
   chapter: number;
   total: number;
-  known: number;
+  covered: number;
+}
+
+function toReadingTarget(level: JlptLevel, stat: ReturnType<typeof pickCurrentChapter>): ReadingTarget | null {
+  return stat ? { level, chapter: stat.chapter, total: stat.total, covered: stat.covered } : null;
 }
 
 interface HomeData {
   counts: TodayCounts;
   progress: OnigiriProgressSnapshot;
   reading: ReadingTarget | null;
+  readingCovered: number;
+  readingTotal: number;
+  record: RecordSnapshot | null;
+  day: HomeDayState;
 }
 
-/** 회독은 순차 해금이라 '아직 안 끝난 첫 챕터'가 곧 다음에 할 묶음이다. */
-function pickCurrentChapter(level: JlptLevel, stats: ChapterStat[]): ReadingTarget | null {
-  const sorted = [...stats].sort((a, b) => a.chapter - b.chapter);
-  const target =
-    sorted.find((s) => !isChapterComplete(s) && chapterStatus(sorted, s.chapter) === 'inProgress') ??
-    sorted.find((s) => !isChapterComplete(s)) ??
-    sorted[sorted.length - 1];
-  if (!target) return null;
-  return { level, chapter: target.chapter, total: target.total, known: target.known };
+function isSameLocalDay(leftMs: number, rightMs: number): boolean {
+  const left = new Date(leftMs);
+  const right = new Date(rightMs);
+  return left.getFullYear() === right.getFullYear() &&
+    left.getMonth() === right.getMonth() &&
+    left.getDate() === right.getDate();
 }
 
-async function loadHomeData(levels: JlptLevel[], dailyNewLimit: number): Promise<HomeData> {
+async function loadHomeData(levels: JlptLevel[], dailyNewLimit: number, nowMs = Date.now()): Promise<HomeData> {
   const readingLevel = levels[0] ?? 'N5';
-  const [countsResult, progressResult, readingResult] = await Promise.allSettled([
-    loadTodayCounts(levels, dailyNewLimit),
+  const [countsResult, progressResult, readingResult, recordResult, sessionsResult] = await Promise.allSettled([
+    loadTodayCounts(levels, dailyNewLimit, nowMs),
     buildOnigiriProgressService().then((svc) => svc.getSnapshot()),
     loadLevelChapterStats(readingLevel),
+    buildRecordService().then((svc) => svc.load(nowMs)),
+    getDatabase().then((db) => new SqliteSessionRepo(db).findAll()),
   ]);
 
+  const counts = countsResult.status === 'fulfilled' ? countsResult.value : { due: 0, newAvail: 0 };
+  const readingStats = readingResult.status === 'fulfilled' ? readingResult.value : [];
+  const sessions = sessionsResult.status === 'fulfilled' ? sessionsResult.value : [];
+  const readingCompleteToday = readingStats.some(
+    (stat) => isChapterComplete(stat) && stat.lastUpdatedAt != null && isSameLocalDay(stat.lastUpdatedAt, nowMs),
+  );
+  const day = buildHomeDayState({
+    sessions,
+    nowMs,
+    remainingStudyCount: counts.due + Math.min(counts.newAvail, dailyNewLimit),
+    readingCompleteToday,
+  });
+
   return {
-    counts: countsResult.status === 'fulfilled' ? countsResult.value : { due: 0, newAvail: 0 },
-    progress:
-      progressResult.status === 'fulfilled' ? progressResult.value : computeOnigiriProgress([]),
-    reading:
-      readingResult.status === 'fulfilled'
-        ? pickCurrentChapter(readingLevel, readingResult.value)
-        : null,
+    counts,
+    progress: progressResult.status === 'fulfilled' ? progressResult.value : computeOnigiriProgress([]),
+    reading: toReadingTarget(readingLevel, pickCurrentChapter(readingStats)),
+    readingCovered: readingStats.reduce((sum, stat) => sum + stat.covered, 0),
+    readingTotal: readingStats.reduce((sum, stat) => sum + stat.total, 0),
+    record: recordResult.status === 'fulfilled' ? recordResult.value : null,
+    day,
   };
 }
 
 export default function HomeScreen(): React.ReactNode {
   const router = useRouter();
-  const { colors } = useTheme();
+  const { colors, name } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const selectedLevels = useSettingsStore((s) => s.selectedLevels);
+  const setLevels = useSettingsStore((s) => s.setLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const hydrated = useSettingsStore((s) => s._hydrated);
+  const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
+  const captureMode = isVisualCaptureEnabled() && uiFixture != null;
+  const nowMs = captureMode ? VISUAL_NOW_MS : Date.now();
   const [data, setData] = useState<HomeData | null>(null);
-  const [mode, setMode] = useState<HomeMode>('today');
+  const [levelPickerOpen, setLevelPickerOpen] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
       if (!hydrated) return;
       let alive = true;
-      setData(null);
-      void loadHomeData(selectedLevels, dailyNewLimit).then((next) => {
+      void loadHomeData(selectedLevels, dailyNewLimit, nowMs).then((next) => {
         if (alive) setData(next);
       });
-      return () => {
-        alive = false;
-      };
-    }, [hydrated, selectedLevels, dailyNewLimit]),
+      return () => { alive = false; };
+    }, [hydrated, selectedLevels, dailyNewLimit, nowMs]),
   );
 
-  const today = useMemo(() => formatKoreanDate(new Date()), []);
-
-  const newPlanned = data ? Math.min(data.counts.newAvail, dailyNewLimit) : 0;
-  const reviewCount = data?.counts.due ?? 0;
-  const todayTotal = newPlanned + reviewCount;
-  const allClear = data != null && todayTotal === 0;
-
+  const today = useMemo(() => formatKoreanDate(new Date(nowMs)), [nowMs]);
+  const level = selectedLevels[0] ?? 'N5';
   const progress = data?.progress ?? computeOnigiriProgress([]);
   const current = progress.current;
-  const allCollected = progress.completedCount === progress.totalCount;
-  const firstOnigiriEmpty = progress.totalIngredientsEarned === 0 && current.ingredientCount === 0;
-
+  // The handoff's study-before fixture intentionally shows the first recipe
+  // (2/5) even though the production catalog currently uses four ingredients.
+  // Keep this visual-only projection local to capture mode; production stays data-driven.
+  const visualStudyBefore = isVisualCaptureEnabled() && uiFixture === '01-home-study-before';
+  const visualCurrent = visualStudyBefore
+    ? { ...current, item: { ...current.item, name: '참치마요', ingredients: ['RICE', 'TUNA', 'MAYO', 'NORI'] as OnigiriIngredientList }, ingredientCount: 2 }
+    : current;
   const reading = data?.reading ?? null;
-  const readingRemaining = reading ? Math.max(reading.total - reading.known, 0) : 0;
+  const day = data?.day ?? null;
+  const phase = day?.phase ?? 'studyBefore';
+  const todayAgain = day?.againCount ?? 0;
+  const streakDays = visualStudyBefore ? 5 : data?.record?.streakDays ?? 0;
+  const newCount = data ? Math.min(data.counts.newAvail, dailyNewLimit) : 0;
+  const dueCount = data?.counts.due ?? 0;
+  const plannedCount = newCount + dueCount;
+  const studyMinutes = estimateStudyMinutes(newCount, dueCount);
+  const recentEntry =
+    progress.lastReward?.item ??
+    [...progress.entries].reverse().find((entry) => entry.status === 'completed')?.item ??
+    current.item;
+  const readingTotal = data?.readingTotal ?? 0;
+  const readingCovered = data?.readingCovered ?? 0;
+  const menuProgress = readingTotal > 0 ? readingCovered / readingTotal : 0;
 
-  const isReading = mode === 'reading';
-
-  // 카드 하나에 히어로 숫자는 하나다. 오늘 몫에 새 단어가 있으면 그게 히어로가 되고,
-  // 복습만 남았으면 복습 수가 히어로를 맡는다. 나머지는 아래 메타 한 줄로 내려간다.
-  const heroIsReview = !isReading && newPlanned === 0 && reviewCount > 0;
-  const heroValue = isReading ? (reading?.total ?? 0) : heroIsReview ? reviewCount : newPlanned;
-  const heroUnit = isReading ? '빈도순 단어' : heroIsReview ? '복습' : '새 단어';
-
-  // 값이 0인 항목은 문장에서 뺀다 — "복습 0개"를 쓰지 않는다.
-  const heroMeta = isReading
-    ? [
-        reading?.level,
-        reading ? `${(reading.chapter - 1) * 50 + 1}–${reading.chapter * 50}번` : null,
-        reading ? `약 ${estimateStudyMinutes(readingRemaining, 0)}분` : null,
-      ]
-    : [
-        selectedLevels.join('·'),
-        !heroIsReview && reviewCount > 0 ? `복습 ${reviewCount}개` : null,
-        todayTotal > 0 ? `약 ${estimateStudyMinutes(newPlanned, reviewCount)}분` : null,
-        allClear ? '오늘 몫 완료' : null,
-      ];
-  const metaLine = heroMeta.filter(Boolean).join(' · ');
-
-  const mascotLine = allCollected
-    ? '전부 모았네. 대단해.'
-    : isReading
-      ? '가볍게 훑고 가.'
-      : allClear
-        ? '오늘 몫은 끝났어.'
-        : firstOnigiriEmpty
-          ? '왔네. 처음 보는 얼굴이네.'
-          : '왔네. 오늘 것만 하고 가.';
-
-  const ctaLabel = isReading ? '회독 시작' : allClear ? '복습 더 하기' : '오늘 학습 시작';
-
-  const onStart = () => {
+  const startStudy = () => {
     if (!data) return;
-    if (isReading) {
-      if (reading) router.push(`/reading-study?level=${reading.level}&chapter=${reading.chapter}` as Href);
-      else router.push('/reading' as Href);
-      return;
-    }
-    router.push(resolveStudyRoute({ due: reviewCount, newAvail: newPlanned }));
+    router.push(resolveStudyRoute({ due: dueCount, newAvail: newCount }));
+  };
+  const openHub = () => {
+    router.push('/reading' as Href);
+  };
+  const openTodayReview = () => {
+    if (!day?.studySessionId) return;
+    router.push(`/weakness?source=today&sessionId=${day.studySessionId}` as Href);
+  };
+  const openTodayWords = () => {
+    if (!day?.studySessionId) return;
+    router.push(`/today-words?sessionId=${day.studySessionId}` as Href);
+  };
+  // 홈 칩은 "지금 공부하는 레벨" 하나를 고르는 단일 선택이다.
+  // 고른 레벨을 앞에 붙이는 방식은 동작하지 않는다 — 스토어가 배열을 항상 N5→N1 로
+  // 정규화해서, 무엇을 골라도 selectedLevels[0] 이 가장 낮은 레벨로 되돌아간다.
+  // 여러 레벨을 함께 학습하려면 설정 > 학습 설정에서 고른다.
+  const selectPrimaryLevel = (next: JlptLevel) => {
+    setLevels([next]);
+    setLevelPickerOpen(false);
   };
 
   return (
-    <SafeAreaView style={styles.root} edges={['top']}>
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        <Overline>{today}</Overline>
-
-        <SegmentedControl
-          style={styles.segment}
-          value={mode}
-          onChange={setMode}
-          options={[
-            { value: 'today', label: '오늘 학습' },
-            { value: 'reading', label: '회독' },
-          ]}
-        />
+    <SafeAreaView style={[styles.root, name === 'light' && { backgroundColor: HTML_FLOW_PAGE }]} edges={['top']}>
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+        <View style={styles.header}>
+          <View>
+            <Text style={styles.date}>{today}</Text>
+            <Text style={styles.placeTitle}>오니기리 가게</Text>
+          </View>
+          <Pressable
+            style={({ pressed }) => [styles.levelChip, pressed && styles.levelChipPressed]}
+            onPress={() => setLevelPickerOpen(true)}
+            hitSlop={6}
+            accessibilityRole="button"
+            accessibilityLabel={`학습 레벨 ${level}, 변경`}
+          >
+            <Text style={styles.levelLabel}>{level}</Text>
+            <Text style={styles.levelChevron}>▾</Text>
+          </Pressable>
+        </View>
 
         {!data ? (
-          <View style={styles.loading}>
-            <ActivityIndicator color={colors.body} />
-          </View>
+          <View style={styles.loading}><ActivityIndicator color={colors.body} /></View>
         ) : (
-          <View style={styles.cardGroup}>
-            <Card variant="elevated" style={styles.heroCard}>
-              <Overline>{isReading ? '회독' : '오늘의 학습'}</Overline>
-              <View style={styles.heroRow}>
-                <Text style={styles.heroValue}>{heroValue}</Text>
-                <Text style={styles.heroUnit}>{heroUnit}</Text>
-              </View>
-              {metaLine.length > 0 && <Text style={styles.heroMeta}>{metaLine}</Text>}
-            </Card>
-
-            {isReading ? (
-              <View style={styles.readingBlock}>
-                <Text style={styles.readingNote}>
-                  기록에 남지 않고 가볍게 훑는 모드예요. 재료는 오늘 학습에서만 받아요.
-                </Text>
-                <View style={styles.chipRow}>
-                  <Pressable
-                    style={styles.chip}
-                    onPress={() => router.push('/reading' as Href)}
-                    accessibilityRole="button"
-                  >
-                    <Text style={styles.chipLabel}>범위 고르기</Text>
-                  </Pressable>
-                  <Pressable
-                    style={styles.chip}
-                    onPress={() => router.push('/weakness' as Href)}
-                    accessibilityRole="button"
-                  >
-                    <Text style={styles.chipLabel}>틀린 단어만</Text>
-                  </Pressable>
-                </View>
-              </View>
+          <>
+            {phase === 'studyBefore' ? (
+              <HomeStudyHero
+                recipe={visualCurrent.item}
+                ingredientCount={visualCurrent.ingredientCount}
+                plannedCount={plannedCount}
+                minutes={studyMinutes}
+                mascot={onboardingImages.home}
+                disabled={plannedCount === 0}
+                onPress={startStudy}
+              />
             ) : (
-              // 히어로와 같은 흰 카드지만 그림자를 뺐다 — 층은 그림자 유무로만 나눈다.
-              <Pressable
-                style={({ pressed }) => [styles.progressCard, pressed && styles.progressPressed]}
-                onPress={() =>
-                  router.push({ pathname: '/onigiri/[id]', params: { id: current.item.id } })
-                }
-                accessibilityRole="button"
-                accessibilityLabel={`${current.item.name} 상세 보기, 재료 ${current.ingredientCount}개 모음`}
-              >
-                <PlateTile size={48} image={recipeImage(current.item.imageKey)} imageSize={40} />
-                <View style={styles.progressBody}>
-                  <View style={styles.progressHead}>
-                    <Text style={styles.progressName} numberOfLines={1}>
-                      {current.item.name}
-                    </Text>
-                    <Text style={styles.progressCount}>
-                      {current.ingredientCount} / {INGREDIENTS_PER_ONIGIRI}
-                    </Text>
-                  </View>
-                  <ProgressSegments
-                    total={INGREDIENTS_PER_ONIGIRI}
-                    filled={current.ingredientCount}
-                    height={5}
-                    gap={6}
-                  />
-                  <Text style={styles.progressCaption}>
-                    {ingredientCaption(current.ingredientCount)}
-                  </Text>
-                </View>
-                <IconChevron size={20} color={colors.body} />
-              </Pressable>
+              <HomeStudyCompleteHero
+                studyCount={day?.studyCount ?? 0}
+                minutes={Math.max(1, Math.round((day?.durationSec ?? 0) / 60))}
+                streakDays={streakDays}
+                mascot={onboardingImages.home}
+                onBrowse={openTodayWords}
+              />
             )}
-          </View>
+
+            {phase !== 'studyBefore' ? (
+              <HomeNextCard
+                phase={phase}
+                reviewCount={todayAgain}
+                studyCount={day?.studyCount ?? 0}
+                reading={reading}
+                image={recipeImage(visualStudyBefore ? 'onigiri-001' : recentEntry.imageKey)}
+                onReview={openTodayReview}
+                onHub={openHub}
+              />
+            ) : null}
+
+            <StreakCard days={streakDays} />
+
+            {phase === 'studyBefore' ? (
+              <RecentOnigiriCard
+                name={visualStudyBefore ? '참치마요' : recentEntry.name}
+                image={recipeImage(recentEntry.imageKey)}
+                onPress={() => router.push({ pathname: '/onigiri/[id]', params: { id: recentEntry.id } })}
+              />
+            ) : null}
+
+            <MonthlyMenuCard
+              month={new Date().getMonth() + 1}
+              level={level}
+              total={readingTotal}
+              progress={menuProgress}
+              onPress={() => router.push('/collection' as Href)}
+            />
+          </>
         )}
-
-        <View style={styles.spacer} />
-
-        <View style={styles.mascotRow}>
-          <PlateTile size={44} image={mascotImage} imageSize={38} />
-          <Text style={styles.mascotLine}>{mascotLine}</Text>
-        </View>
       </ScrollView>
 
-      <View style={styles.footer}>
-        <Button label={ctaLabel} onPress={onStart} disabled={!data} />
-      </View>
+      <Modal
+        visible={levelPickerOpen}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setLevelPickerOpen(false)}
+      >
+        <Pressable style={styles.scrim} onPress={() => setLevelPickerOpen(false)}>
+          <Pressable style={[styles.levelSheet, cardShadow(colors)]} onPress={() => undefined}>
+            <Text style={styles.sheetTitle}>학습 레벨</Text>
+            <View style={styles.levelOptions}>
+              {JLPT_LEVELS.map((item) => {
+                const selected = item === level;
+                return (
+                  <Pressable
+                    key={item}
+                    style={[styles.levelOption, selected && styles.levelOptionSelected]}
+                    onPress={() => selectPrimaryLevel(item)}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected }}
+                  >
+                    <Text style={[styles.levelOptionLabel, selected && styles.levelOptionLabelSelected]}>{item}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -279,76 +283,54 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     root: { flex: 1, backgroundColor: c.softer },
     scroll: { flex: 1 },
-    scrollContent: {
-      flexGrow: 1,
-      paddingHorizontal: layout.gutter,
-      paddingTop: spacing.xxl,
+    content: { paddingHorizontal: 16, paddingTop: spacing.lg, paddingBottom: spacing.huge, gap: spacing.lg },
+    header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: spacing.sm },
+    date: { ...typography.caption, color: c.body, marginBottom: spacing.xs },
+    placeTitle: {
+      fontFamily: font.extrabold,
+      fontSize: 26,
+      lineHeight: 32,
+      letterSpacing: -0.5,
+      color: c.ink,
     },
-
-    segment: { marginTop: spacing.lg },
-
-    loading: { marginTop: spacing.huge, alignItems: 'center' },
-
-    // 두 카드는 12px 로 붙여 한 덩어리로 읽히게 한다.
-    cardGroup: { marginTop: spacing.xl, gap: layout.gapTight },
-    heroCard: { paddingVertical: 24, paddingHorizontal: layout.gutter },
-    heroRow: {
-      flexDirection: 'row',
-      alignItems: 'baseline',
-      gap: layout.gapTight,
-      marginTop: layout.gapTight,
-    },
-    heroValue: { ...typography.hero, color: c.ink },
-    heroUnit: { ...typography.body, color: c.body },
-    heroMeta: { ...typography.body, color: c.body, marginTop: 10, fontVariant: ['tabular-nums'] },
-
-    progressCard: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 14,
-      backgroundColor: c.canvas,
-      borderRadius: radius.card,
-      paddingVertical: spacing.lg,
-      paddingLeft: 18,
-      paddingRight: spacing.lg,
-    },
-    progressPressed: { backgroundColor: c.soft },
-    progressBody: { flex: 1, gap: 10 },
-    progressHead: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: spacing.sm,
-    },
-    progressName: { ...typography.cardTitle, color: c.ink, flexShrink: 1 },
-    progressCount: { ...typography.caption, color: c.body },
-    progressCaption: { ...typography.body, color: c.body },
-
-    readingBlock: { gap: spacing.lg, paddingHorizontal: spacing.xs },
-    readingNote: { ...typography.body, color: c.body },
-    chipRow: { flexDirection: 'row', gap: spacing.sm },
-    chip: {
-      borderRadius: radius.pill,
-      borderWidth: border.chip,
-      borderColor: c.pressed,
-      paddingVertical: 9,
+    levelChip: {
+      minWidth: 62,
+      minHeight: 40,
       paddingHorizontal: 14,
-    },
-    chipLabel: { fontFamily: font.semibold, fontSize: 14, lineHeight: 18, color: c.ink },
-
-    spacer: { flex: 1, minHeight: spacing.xxl },
-
-    mascotRow: {
+      borderRadius: radius.pill,
+      backgroundColor: c.canvas,
       flexDirection: 'row',
+      gap: 5,
       alignItems: 'center',
-      gap: layout.gapTight,
-      paddingBottom: 18,
+      justifyContent: 'center',
+      ...cardShadow(c),
     },
-    mascotLine: { ...typography.body, color: c.body, flex: 1 },
-
-    footer: {
+    levelChipPressed: { backgroundColor: c.soft },
+    levelLabel: { ...typography.bodyStrong, color: c.ink },
+    levelChevron: { ...typography.caption, color: c.mute },
+    loading: { minHeight: 360, alignItems: 'center', justifyContent: 'center' },
+    scrim: { flex: 1, backgroundColor: 'rgba(0,0,0,0.34)', justifyContent: 'flex-end' },
+    levelSheet: {
+      borderTopLeftRadius: radius.card,
+      borderTopRightRadius: radius.card,
+      backgroundColor: c.canvas,
       paddingHorizontal: layout.gutter,
-      paddingBottom: layout.gutter,
-      backgroundColor: c.softer,
+      paddingTop: spacing.xl,
+      paddingBottom: spacing.huge,
+      gap: spacing.lg,
     },
+    sheetTitle: { ...typography.listTitle, color: c.ink },
+    levelOptions: { flexDirection: 'row', gap: spacing.sm },
+    levelOption: {
+      flex: 1,
+      minHeight: 48,
+      borderRadius: radius.pill,
+      borderWidth: 1.5,
+      borderColor: c.pressed,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    levelOptionSelected: { backgroundColor: c.ink, borderColor: c.ink },
+    levelOptionLabel: { ...typography.bodyStrong, color: c.body },
+    levelOptionLabelSelected: { color: c.onInk },
   });

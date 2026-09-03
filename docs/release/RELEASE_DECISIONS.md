@@ -1,6 +1,6 @@
 # Release Decisions
 
-Last updated: 2026-05-29 (synced with PLAN v0.7.3)
+Last updated: 2026-09-03
 
 ## Confirmed
 
@@ -19,9 +19,10 @@ Last updated: 2026-05-29 (synced with PLAN v0.7.3)
 | **OpenAI internal budget (data prep)** | **$50 hard cap** for GPT-4o draft generation (6,200 Korean meanings) |
 | **Curation framing** | "Editor-curated 6,200" — "top-frequency" / "all JLPT" wording banned |
 | **JSON export** | **MVP** (promoted from V1.1, long-term learners need data safety) |
-| **OTA policy (MVP)** | **Disabled** (`expo.updates.enabled=false`) — zero outbound traffic |
-| **Hotfix channel (MVP)** | Store rebuild only; expedited Apple review for P0 |
-| **OTA reconsideration** | V1.1 trade-off review |
+| **Ads (launch)** | **On** — Google AdMob interstitial after a completed regular study, weakness review, or reading session. All flows share one frequency cap: 3-day/5-session grace, 1 ad per 2 sessions, 10 min gap, daily 3. Ads are not shown during card grading. ATT on iOS; decline → non-personalized ads. Learning data is not sent to AdMob. |
+| **OTA policy (launch)** | **Enabled in `app.json`** (`updates.enabled=true`, check on load). Version-metadata only. Disclose in Privacy Policy. |
+| **Hotfix channel** | Store rebuild for native/P0. JS hotfix may use Expo Updates after a matching runtime. |
+| **OTA reconsideration** | Keep disclosure in Privacy / Data Safety in sync if the update URL or payload changes. |
 | **Example attribution** | Tatoeba and owner-cleared NAVER examples show per-card/source attribution on reveal/detail screens |
 | **AI content framing** | "Released content is human-reviewed data" (no "disclosure avoidance" wording) |
 | **Placeholder release blocker** | CI gate scans `site/ docs/release/PRIVACY_POLICY.md docs/release/SUPPORT.md app/ store-assets/` (excludes PLAN/RELEASE_DECISIONS to avoid self-reference). Must be 0 hits. |

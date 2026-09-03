@@ -207,6 +207,22 @@ export function IconStudy({ size = 24, color }: IconProps): React.ReactNode {
   );
 }
 
+/** 테스트 점수 — 우상향 꺾은선. 기록 화면의 점수 카드에만 쓴다. */
+export function IconTrendUp({ size = 24, color }: IconProps): React.ReactNode {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M3 16.5 9 10l4 4 7-7.5"
+        stroke={color}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path d="M15 6h5.5v5.5" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+    </Svg>
+  );
+}
+
 /** 복습 — 되돌아가는 화살표. */
 export function IconRepeat({ size = 22, color }: IconProps): React.ReactNode {
   return (

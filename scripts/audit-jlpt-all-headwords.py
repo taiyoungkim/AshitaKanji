@@ -251,8 +251,8 @@ def main() -> None:
     args = parse_args()
     words = read_csv(args.words)
     examples = {row["word_id"]: row for row in read_csv(args.examples)}
-    if len(words) != 6638:
-        raise RuntimeError(f"expected 6638 words, found {len(words)}")
+    if len(words) != 7027:
+        raise RuntimeError(f"expected 7027 words, found {len(words)}")
     if len({row["id"] for row in words}) != len(words):
         raise RuntimeError("duplicate word IDs in input")
 

@@ -11,9 +11,14 @@ upstream/legacy QA source; it is no longer the release word list.
 - Release rows must be manually reviewed and changed to `qa_status='verified'`.
 - Rows with `～/〜` placeholders or parenthesized surface context are marked `deprecated=1`
   so the app exposes standalone vocabulary items, not grammar or affix patterns.
-- The release list keeps exactly 6,638 active words: N5 339 / N4 600 / N3 1,499 /
-  N2 1,700 / N1 2,500.
-- All 2,699 reviewed PDF frequency-core entries must be included.
+- The release list keeps post-move surpluses. After the 2026-08-20 feedback
+  pass the active set is 7,026 words:
+  N5 400 / N4 744 / N3 1,491 / N2 1,906 / N1 2,486.
+- All reviewed, in-scope PDF frequency-core entries must be included.
+- For `pass_n1`, only the `한자 읽기` and `문맥 규정` sections feed the app
+  vocabulary. The later `유의어` and `용법` sections remain in the source audit
+  but are excluded from the release core because they include supporting lower-level
+  paraphrases.
 - The release gate should only pass after every active (`deprecated=0`) study row is verified.
 - Kanji readings/radicals/stroke counts come from EDRDG KANJIDIC2 (CC BY-SA 4.0).
 - Kanji Korean meanings are draft QA data until `data/track-a/kanji_qa_work.csv`
@@ -27,8 +32,9 @@ upstream/legacy QA source; it is no longer the release word list.
 - Final vocabulary: `data/pdf-vocab/jlpt_final_wordlist.csv`
 - Replacement manifest: `data/pdf-vocab/jlpt_final_replacement_manifest.json`
 - KANJIDIC2 XML cache: `.cache/kanjidic2.xml.gz` (downloaded automatically if missing)
+- Korean Kangxi radical names: `data/track-a/kanji_radical_names_ko.json`
 - NAVER examples QA CSV: `data/pdf-vocab/naver_examples_final_qa_work.csv`
-- Target counts: N5 339 / N4 600 / N3 1499 / N2 1700 / N1 2500
+- Current counts: N5 400 / N4 744 / N3 1490 / N2 1907 / N1 2486 (confirmed NAVER badge rebalance; not quota targets)
 
 ## Commands
 
@@ -57,12 +63,31 @@ Collect owner-cleared NAVER Japanese Dictionary examples into the QA CSV:
 npm run track-a:naver-examples
 ```
 
+Audit kanji structure and rebuild the deterministic Korean-meaning review queue:
+
+```bash
+npm run kanji:audit
+npm run kanji:semantic-queue
+```
+
+The semantic queue ranks `auto` rows from P0 through P3 using contamination
+signals such as digits, word-level markup, parenthesized context, long phrases,
+and meanings copied from a single linked compound. It is a triage aid only; a
+high score is not proof that the meaning is wrong and never changes QA status.
+Rows already promoted to `needs_review` await human confirmation and are omitted
+from subsequent automatic-triage batches.
+
 ## Outputs
 
 - `data/pdf-vocab/jlpt_final_wordlist.csv`: verified release vocabulary
 - `data/track-a/kanji_qa_work.csv`: human QA work file for kanji meanings
+- `data/track-a/kanji_radical_names_ko.json`: complete 214-radical Korean name mapping
+- `data/track-a/kanji_audit_report.json`: structural/parity audit report
+- `data/track-a/kanji_semantic_review_queue.csv`: reproducible semantic review order
+- `data/track-a/kanji_semantic_review_report.json`: queue counts, rules, and top candidates
 - `data/pdf-vocab/examples_final_qa_work.csv`: owner-cleared + self-authored release examples
-- `data/pdf-vocab/self_authored_examples_qa_work.csv`: 53 self-authored completion examples
+- `data/pdf-vocab/self_authored_examples_qa_work.csv`: 178 self-authored examples
+- Change log + TTS follow-up: `docs/release/VOCAB_CHANGELOG_2026-08-18.md`
 - `assets/jlpt.db`: bundled SQLite database
 - `data/track-a/jlpt_db_report.json`: count and QA status report
 - `assets/tatoeba-authors.txt`: attribution placeholder until examples are bundled
@@ -74,13 +99,21 @@ npm run track-a:naver-examples
 3. Keep approved word rows at `qa_status=verified`; examples may remain `auto` until
    their content review is complete.
 4. Run `npm run track-a:build`.
-5. Confirm the report has `total=6638`, the exact target level counts,
-   `examples.total=6638`, `examples.words=6638`, `examples.self=53`, `activeQa.verified == total`,
+5. Confirm the report has `total=7027`, the exact target level counts,
+   `examples.total=7027`, `examples.words=7027`, `examples.naver=6207`, `examples.self=820`, `activeQa.verified == total`,
    and `activeQa.nonVerified == 0`.
-6. Review `data/track-a/kanji_qa_work.csv`; promote kanji rows to `verified` only after
-   the Korean meaning is human-checked.
+6. Run `npm run kanji:semantic-queue`, review P0 then P1 in
+   `data/track-a/kanji_semantic_review_queue.csv`, and edit the source QA CSV.
+   Promote a kanji row to `verified` only after its Korean meaning is human-checked.
 7. Review `data/pdf-vocab/examples_final_qa_work.csv`; only owner-cleared rows or
    self-authored rows (`permission_status IN ('cleared','self')`) are bundled.
+8. Run `npm run vocab:naver-audit`. The gate passes only when confirmed NAVER
+   level mismatches, missing/broken examples, missing TTS, and DB mismatches are
+   0. Catalog-absent する-forms, counters, and catalog-absent cards whose live
+   search matches the app level are recorded in
+   `naver_audit_accepted_queue.json` and omitted from the open queue.
+   Homographs, unconfirmed catalog mismatches, and search-unmatched rows stay
+   in `naver_full_verification_queue.csv` for human review.
 
 ## TTS generation and validation
 
@@ -102,6 +135,6 @@ npm run audio:prepare
 npm run tts:audit:examples
 ```
 
-The validator requires 6,638 active Ogg/Opus files and Android mappings, checks the
+The validator requires 7,027 active Ogg/Opus files and Android mappings, checks the
 Opus stream and positive duration of every file, and verifies generated text against
 the current database sentence. MP3 sources remain bundled only for iOS/web.

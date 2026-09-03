@@ -2,7 +2,7 @@
 
 import { describe, expect, it } from 'vitest';
 import type { JlptLevel, Word } from '~/types/Card';
-import { chapterStatus, isChapterComplete } from '~/types/Reading';
+import { chapterStatus, isChapterComplete, pickCurrentChapter } from '~/types/Reading';
 import { InMemoryReadingProgressRepo } from './InMemoryReadingProgressRepo';
 
 function w(id: string, chapter: number, level: JlptLevel = 'N5'): Word {
@@ -20,60 +20,81 @@ function w(id: string, chapter: number, level: JlptLevel = 'N5'): Word {
   };
 }
 
-// 블록 ch1: a,b · ch2: c,d  → 누적: 챕터1=a,b(2), 챕터2=a,b,c,d(4)
+// 독립 블록 ch1: a,b · ch2: c,d
 const pool = () => new InMemoryReadingProgressRepo([w('a', 1), w('b', 1), w('c', 2), w('d', 2)]);
 
-describe('InMemoryReadingProgressRepo (누적/회차)', () => {
-  it('getChapterKnown: 챕터N은 누적 단어, known은 그 회차 한정', async () => {
+describe('InMemoryReadingProgressRepo (독립 챕터)', () => {
+  it('returns only the selected chapter and separates seen from known', async () => {
     const r = pool();
-    const k1 = await r.getChapterKnown('N5', 1);
+    const k1 = await r.getChapterProgress('N5', 1);
     expect([...k1.keys()].sort()).toEqual(['a', 'b']); // 누적 챕터1
-    await r.setKnown('a', 1, true);
-    expect((await r.getChapterKnown('N5', 1)).get('a')).toBe(true);
-    // 챕터2는 누적 4단어, a는 회차2에선 아직 미숙
-    const k2 = await r.getChapterKnown('N5', 2);
-    expect([...k2.keys()].sort()).toEqual(['a', 'b', 'c', 'd']);
-    expect(k2.get('a')).toBe(false);
+    await r.recordExposure('a', 1, false);
+    expect((await r.getChapterProgress('N5', 1)).get('a')).toEqual({ seen: true, known: false });
+    const k2 = await r.getChapterProgress('N5', 2);
+    expect([...k2.keys()].sort()).toEqual(['c', 'd']);
   });
 
-  it('getLevelChapterStats: total 누적, known 회차별', async () => {
+  it('reports independent total, coverage, and mastery', async () => {
     const r = pool();
-    await r.setKnown('a', 1, true); // 회차1 known 1
-    await r.setKnown('a', 2, true); // 회차2 known
-    await r.setKnown('c', 2, true);
+    await r.recordExposure('a', 1, false);
+    await r.recordExposure('c', 2, true);
     const stats = await r.getLevelChapterStats('N5');
     expect(stats).toEqual([
-      { level: 'N5', chapter: 1, total: 2, known: 1 },
-      { level: 'N5', chapter: 2, total: 4, known: 2 },
+      { level: 'N5', chapter: 1, total: 2, covered: 1, known: 0 },
+      { level: 'N5', chapter: 2, total: 2, covered: 1, known: 1 },
     ]);
   });
 
-  it('resetChapter: 해당 회차만 초기화', async () => {
+  it('resetChapter resets mastery but preserves coverage', async () => {
     const r = pool();
-    await r.setKnown('a', 1, true);
-    await r.setKnown('a', 2, true);
-    await r.resetChapter('N5', 2);
+    await r.recordExposure('a', 1, true);
+    await r.resetChapter('N5', 1);
     const stats = await r.getLevelChapterStats('N5');
-    expect(stats.find((s) => s.chapter === 1)?.known).toBe(1);
-    expect(stats.find((s) => s.chapter === 2)?.known).toBe(0);
+    expect(stats.find((s) => s.chapter === 1)).toMatchObject({ covered: 1, known: 0 });
   });
 });
 
 describe('chapter status helpers', () => {
   it('isChapterComplete needs all known', () => {
-    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 2, known: 2 })).toBe(true);
-    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 2, known: 1 })).toBe(false);
-    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 0, known: 0 })).toBe(false);
+    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 2, covered: 2, known: 2 })).toBe(true);
+    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 2, covered: 2, known: 1 })).toBe(false);
+    expect(isChapterComplete({ level: 'N5', chapter: 1, total: 0, covered: 0, known: 0 })).toBe(false);
   });
 
   it('sequential unlock: completed → inProgress → locked', () => {
     const stats = [
-      { level: 'N5' as const, chapter: 1, total: 2, known: 2 }, // done
-      { level: 'N5' as const, chapter: 2, total: 2, known: 1 }, // current
-      { level: 'N5' as const, chapter: 3, total: 2, known: 0 }, // locked
+      { level: 'N5' as const, chapter: 1, total: 2, covered: 2, known: 2 }, // done
+      { level: 'N5' as const, chapter: 2, total: 2, covered: 2, known: 1 }, // current
+      { level: 'N5' as const, chapter: 3, total: 2, covered: 0, known: 0 }, // locked
     ];
     expect(chapterStatus(stats, 1)).toBe('completed');
     expect(chapterStatus(stats, 2)).toBe('inProgress');
     expect(chapterStatus(stats, 3)).toBe('locked');
+  });
+});
+
+describe('pickCurrentChapter', () => {
+  const stat = (chapter: number, known: number, total = 2) => ({
+    level: 'N5' as const,
+    chapter,
+    total,
+    covered: total,
+    known,
+  });
+
+  it('첫 미완료 챕터를 준다', () => {
+    expect(pickCurrentChapter([stat(1, 2), stat(2, 1), stat(3, 0)])?.chapter).toBe(2);
+  });
+
+  it('입력 순서가 뒤섞여도 챕터 번호 순으로 고른다', () => {
+    expect(pickCurrentChapter([stat(3, 0), stat(1, 2), stat(2, 1)])?.chapter).toBe(2);
+  });
+
+  it('전부 완료면 마지막 챕터를 준다 — 다시 외우기 대상', () => {
+    expect(pickCurrentChapter([stat(1, 2), stat(2, 2)])?.chapter).toBe(2);
+  });
+
+  it('챕터가 없으면 null 이다', () => {
+    expect(pickCurrentChapter([])).toBeNull();
   });
 });

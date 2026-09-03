@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-09-01T14:08:30.626899+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7027,
+  "selected_rows": 1,
+  "jobs": 2,
+  "preexisting": 0,
+  "planned": 2,
+  "created": 2,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_3e5c61e8a0dce5c9",
+      "kind": "word",
+      "text": "しかたない",
+      "file": "assets/audio/words/w_3e5c61e8a0dce5c9.mp3"
+    },
+    {
+      "id": "w_3e5c61e8a0dce5c9",
+      "kind": "example",
+      "text": "今さら後悔しても仕方ない。",
+      "file": "assets/audio/examples/w_3e5c61e8a0dce5c9.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.623,
+  "dry_run": false
+}

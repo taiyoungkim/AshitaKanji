@@ -1,0 +1,19 @@
+{
+  "pass": "example-review-queue-2026-08-20",
+  "policy": "Rewrite examples so the current headword surface appears. Replace Flitto/proverb/web-collected examples with short original study sentences. Convert leftover 自動的な to 自動的.",
+  "meaning_fixes": {
+    "w_2aec0f55185205c2": "인격, 성격"
+  },
+  "converts": {
+    "w_292833139acbd808": {
+      "surface": "自動的",
+      "reading_kana": "じどうてき",
+      "furigana": "じどうてき",
+      "meaning_ko": "자동적임",
+      "part_of_speech": "adjective",
+      "jp": "ドアが自動的に閉まる。",
+      "ko": "문이 자동으로 닫힌다."
+    }
+  },
+  "examples": {}
+}

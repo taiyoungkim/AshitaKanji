@@ -1,76 +1,72 @@
 {
-  "generated_at": "2026-08-08T16:48:40.293Z",
+  "generated_at": "2026-08-20T02:40:10.212Z",
   "inputs": {
     "words": "data/pdf-vocab/jlpt_final_wordlist.json",
     "examples": "data/pdf-vocab/naver_examples_final_qa_work.csv"
   },
   "summary": {
-    "final_words": 6638,
-    "examples": 6585,
-    "missing": 53,
-    "coverage_percent": 99.2,
-    "inherited_examples": 1032,
-    "newly_collected_examples": 5553,
+    "final_words": 6962,
+    "examples": 6136,
+    "missing": 826,
+    "coverage_percent": 88.14,
+    "inherited_examples": 1054,
+    "newly_collected_examples": 5082,
     "structural_validation": "PASS",
-    "content_review_rows": 1560
+    "content_review_rows": 0
   },
   "level_coverage": {
     "N5": {
-      "total": 339,
-      "covered": 331,
-      "missing": 8
+      "total": 397,
+      "covered": 327,
+      "missing": 70
     },
     "N4": {
-      "total": 600,
-      "covered": 598,
-      "missing": 2
+      "total": 728,
+      "covered": 643,
+      "missing": 85
     },
     "N3": {
-      "total": 1499,
-      "covered": 1489,
-      "missing": 10
+      "total": 1464,
+      "covered": 1308,
+      "missing": 156
     },
     "N2": {
-      "total": 1700,
-      "covered": 1688,
-      "missing": 12
+      "total": 1875,
+      "covered": 1651,
+      "missing": 224
     },
     "N1": {
-      "total": 2500,
-      "covered": 2479,
-      "missing": 21
+      "total": 2498,
+      "covered": 2207,
+      "missing": 291
     }
   },
   "match_type_counts": {
-    "surface": 5490,
-    "stem": 40,
-    "reading": 13,
-    "jmdict-form": 10
+    "surface": 5071,
+    "stem": 6,
+    "jmdict-form": 5
   },
   "meaning_hit_counts": {
-    "0": 728,
-    "1": 4467,
+    "0": 594,
+    "1": 4134,
     "2": 343,
-    "3": 15
+    "3": 11
   },
   "source_counts": {
-    "민중서림 엣센스 한일사전": 2612,
-    "민중서림 엣센스 일한사전": 2450,
-    "국립국어원 한국어-일본어 학습사전": 616,
-    "민중서림 엣센스 외래어사전": 373,
-    "교학사 일한사전": 235,
-    "글로벌회화": 122,
-    "플리토": 64,
+    "민중서림 엣센스 한일사전": 2490,
+    "민중서림 엣센스 일한사전": 2301,
+    "국립국어원 한국어-일본어 학습사전": 588,
+    "민중서림 엣센스 외래어사전": 356,
+    "교학사 일한사전": 211,
+    "글로벌회화": 129,
     "연세대학교 한국어학당 국가별 대표음식": 51,
-    "명언/속담": 49,
-    "사전연구사": 12,
-    "웹수집": 1
+    "사전연구사": 10
   },
   "duplicate_counts": {
-    "repeated_naver_example_ids": 357,
-    "rows_with_repeated_naver_example_ids": 753,
-    "repeated_japanese_texts": 359,
-    "rows_with_repeated_japanese_texts": 757
+    "repeated_naver_example_ids": 0,
+    "rows_with_repeated_naver_example_ids": 0,
+    "repeated_japanese_texts": 0,
+    "rows_with_repeated_japanese_texts": 0
   },
   "checks": {
     "final_word_count": true,
@@ -85,9 +81,393 @@
   },
   "missing_words": [
     {
+      "word_id": "w_a9ecc3b353d6e247",
+      "level": "N5",
+      "surface": "いる",
+      "reading_kana": "いる",
+      "meaning_ko": "있다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_55a89ec42223f73e",
+      "level": "N5",
+      "surface": "いい",
+      "reading_kana": "いい",
+      "meaning_ko": "좋음, 좋은",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_750cfe21b3229db6",
+      "level": "N5",
+      "surface": "これ",
+      "reading_kana": "これ",
+      "meaning_ko": "이것",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_901e9473e86b14cd",
+      "level": "N5",
+      "surface": "また",
+      "reading_kana": "また",
+      "meaning_ko": "또",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_98e68681f275b2c8",
+      "level": "N5",
+      "surface": "ここ",
+      "reading_kana": "ここ",
+      "meaning_ko": "여기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f9afbe72e023b2b4",
+      "level": "N5",
+      "surface": "上",
+      "reading_kana": "うえ",
+      "meaning_ko": "위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_544139731cfe7ca3",
+      "level": "N5",
+      "surface": "あなた",
+      "reading_kana": "あなた",
+      "meaning_ko": "당신, 너",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_776f8a3599870bb9",
+      "level": "N5",
+      "surface": "見る",
+      "reading_kana": "みる",
+      "meaning_ko": "보다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_65b969c52dc19ac2",
+      "level": "N5",
+      "surface": "少し",
+      "reading_kana": "すこし",
+      "meaning_ko": "조금, 약간",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_26913edea9440b3b",
+      "level": "N5",
+      "surface": "子供",
+      "reading_kana": "こども",
+      "meaning_ko": "아이, 어린이",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_262ab17a9d5f3f78",
+      "level": "N5",
+      "surface": "大丈夫",
+      "reading_kana": "だいじょうぶ",
+      "meaning_ko": "괜찮음",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_1a590a2722d8602f",
+      "level": "N5",
+      "surface": "駅",
+      "reading_kana": "えき",
+      "meaning_ko": "역",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9d121ba8f42b39e0",
+      "level": "N5",
+      "surface": "学校",
+      "reading_kana": "がっこう",
+      "meaning_ko": "학교",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7a18f1c9b04f4038",
+      "level": "N5",
+      "surface": "外",
+      "reading_kana": "そと",
+      "meaning_ko": "밖",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_053f7db9e9a81e55",
+      "level": "N5",
+      "surface": "友達",
+      "reading_kana": "ともだち",
+      "meaning_ko": "친구",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_fda788e47b26a124",
+      "level": "N5",
+      "surface": "色",
+      "reading_kana": "いろ",
+      "meaning_ko": "색",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a6b4b27691fedbcb",
+      "level": "N5",
+      "surface": "明日",
+      "reading_kana": "あした",
+      "meaning_ko": "내일",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0385d7c8467b50dd",
+      "level": "N5",
+      "surface": "いつ",
+      "reading_kana": "いつ",
+      "meaning_ko": "언제",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_67a0aa7719932f47",
+      "level": "N5",
+      "surface": "家族",
+      "reading_kana": "かぞく",
+      "meaning_ko": "가족",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_705444c4af714dc3",
+      "level": "N5",
+      "surface": "部屋",
+      "reading_kana": "へや",
+      "meaning_ko": "방",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d4c2e0e758843e78",
+      "level": "N5",
+      "surface": "作る",
+      "reading_kana": "つくる",
+      "meaning_ko": "만들다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5b4445d187ac74c5",
+      "level": "N5",
+      "surface": "二十歳",
+      "reading_kana": "はたち",
+      "meaning_ko": "20세, 스무 살",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_1cd9d956ac65ad3e",
+      "level": "N5",
+      "surface": "色々",
+      "reading_kana": "いろいろ",
+      "meaning_ko": "다양한; 여러 가지임",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1c59e13dadce6f6b",
+      "level": "N5",
+      "surface": "絵",
+      "reading_kana": "え",
+      "meaning_ko": "그림",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_80121247ba5c6668",
+      "level": "N5",
+      "surface": "勉強",
+      "reading_kana": "べんきょう",
+      "meaning_ko": "공부",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_8d526aa1c09b62a2",
+      "level": "N5",
+      "surface": "楽しい",
+      "reading_kana": "たのしい",
+      "meaning_ko": "즐겁다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_5877b188cb058939",
+      "level": "N5",
+      "surface": "千円",
+      "reading_kana": "せんえん",
+      "meaning_ko": "1000엔",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_01fbc4d975317826",
+      "level": "N5",
+      "surface": "歌",
+      "reading_kana": "うた",
+      "meaning_ko": "노래",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_224056d82bff1d52",
+      "level": "N5",
+      "surface": "カメラ",
+      "reading_kana": "カメラ",
+      "meaning_ko": "카메라",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f238004dca80f8bb",
+      "level": "N5",
+      "surface": "空",
+      "reading_kana": "そら",
+      "meaning_ko": "하늘",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_48fbd408a115f905",
+      "level": "N5",
+      "surface": "雨",
+      "reading_kana": "あめ",
+      "meaning_ko": "비",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_039c519fd62d3882",
+      "level": "N5",
+      "surface": "新聞",
+      "reading_kana": "しんぶん",
+      "meaning_ko": "신문",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f4580c5e0b48b27f",
+      "level": "N5",
+      "surface": "カップ",
+      "reading_kana": "カップ",
+      "meaning_ko": "컵",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_77c93537e7c5e4fd",
+      "level": "N5",
+      "surface": "いくつ",
+      "reading_kana": "いくつ",
+      "meaning_ko": "몇 개, 몇 살",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b93e781c9cc5aca8",
+      "level": "N5",
+      "surface": "紙",
+      "reading_kana": "かみ",
+      "meaning_ko": "종이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c1704a9998ae7783",
+      "level": "N5",
+      "surface": "弟",
+      "reading_kana": "おとうと",
+      "meaning_ko": "남동생",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_831749e2e88001b5",
+      "level": "N5",
+      "surface": "川",
+      "reading_kana": "かわ",
+      "meaning_ko": "강",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_35b6d26ef3b6e9a4",
+      "level": "N5",
+      "surface": "沢山",
+      "reading_kana": "たくさん",
+      "meaning_ko": "많이",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_df6f8bed5b534092",
+      "level": "N5",
+      "surface": "にだい",
+      "reading_kana": "にだい",
+      "meaning_ko": "두 대(자전거)",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_0e66d1e196b285b8",
+      "level": "N5",
+      "surface": "魚",
+      "reading_kana": "さかな",
+      "meaning_ko": "생선, 물고기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d8dcbb01e7e6526f",
+      "level": "N5",
+      "surface": "どう致しまして",
+      "reading_kana": "どういたしまして",
+      "meaning_ko": "천만에요",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a1a38e164f0a3264",
+      "level": "N5",
+      "surface": "八十円",
+      "reading_kana": "はちじゅうえん",
+      "meaning_ko": "80엔",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_73af8c94eaaf7836",
+      "level": "N5",
+      "surface": "辛い",
+      "reading_kana": "からい",
+      "meaning_ko": "맵다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9f4bac962871acc8",
+      "level": "N5",
+      "surface": "おじさん",
+      "reading_kana": "おじさん",
+      "meaning_ko": "아저씨, 삼촌",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_ea6f68c218e562a7",
+      "level": "N5",
+      "surface": "お腹",
+      "reading_kana": "おなか",
+      "meaning_ko": "배",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_58075cd1141bf75e",
+      "level": "N5",
+      "surface": "角",
+      "reading_kana": "かど",
+      "meaning_ko": "모퉁이",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_acd3c9b31394526d",
+      "level": "N5",
+      "surface": "塩",
+      "reading_kana": "しお",
+      "meaning_ko": "소금",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aef420c79bbeb170",
+      "level": "N5",
+      "surface": "暇",
+      "reading_kana": "ひま",
+      "meaning_ko": "틈, 짬, 여가",
+      "category": "PDF 신규"
+    },
+    {
       "word_id": "w_5284226e672d96c5",
       "level": "N5",
-      "surface": "にさつ",
+      "surface": "二冊",
       "reading_kana": "にさつ",
       "meaning_ko": "두 권(잡지)",
       "category": "PDF 신규"
@@ -95,154 +475,2234 @@
     {
       "word_id": "w_b24621b76259caa8",
       "level": "N5",
-      "surface": "さんさつ",
+      "surface": "三冊",
       "reading_kana": "さんさつ",
       "meaning_ko": "세 권(책)",
       "category": "PDF 신규"
     },
     {
+      "word_id": "w_efc870af9d3fa211",
+      "level": "N5",
+      "surface": "シャワー",
+      "reading_kana": "シャワー",
+      "meaning_ko": "샤워",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_078c37ed2c920c51",
+      "level": "N5",
+      "surface": "土曜日",
+      "reading_kana": "どようび",
+      "meaning_ko": "토요일",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_2cd841d468cc927a",
+      "level": "N5",
+      "surface": "金曜日",
+      "reading_kana": "きんようび",
+      "meaning_ko": "금요일",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b44959bb47bfe991",
+      "level": "N5",
+      "surface": "大勢",
+      "reading_kana": "おおぜい",
+      "meaning_ko": "많이",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e1f8cbd438805e5e",
+      "level": "N5",
+      "surface": "だんだん",
+      "reading_kana": "だんだん",
+      "meaning_ko": "점점, 점차",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_8eb8b9611ad0e755",
+      "level": "N5",
+      "surface": "洋服",
+      "reading_kana": "ようふく",
+      "meaning_ko": "양복, 서양식 옷",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_4c61acba86c4d604",
+      "level": "N5",
+      "surface": "水曜日",
+      "reading_kana": "すいようび",
+      "meaning_ko": "수요일",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_245d63ae14dc7240",
+      "level": "N5",
+      "surface": "火曜日",
+      "reading_kana": "かようび",
+      "meaning_ko": "화요일",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_3c9e0c4d130ffe55",
+      "level": "N5",
+      "surface": "掛かる",
+      "reading_kana": "かかる",
+      "meaning_ko": "(시간·비용이) 들다, 걸리다",
+      "category": "기존 유지"
+    },
+    {
       "word_id": "w_716e7b794dbcaf51",
       "level": "N5",
-      "surface": "木よう日",
+      "surface": "木曜日",
       "reading_kana": "もくようび",
       "meaning_ko": "목요일",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_72e1cb4ba34fc820",
+      "word_id": "w_f12b7cd5ea51cf7a",
       "level": "N5",
-      "surface": "べんきょうがしたい",
-      "reading_kana": "べんきょうがしたい",
-      "meaning_ko": "공부를 하고 싶다",
+      "surface": "貼る",
+      "reading_kana": "はる",
+      "meaning_ko": "붙이다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_661368cc7fe5e352",
+      "word_id": "w_d60ba2009ed6ef90",
       "level": "N5",
-      "surface": "ひまでした",
-      "reading_kana": "ひまでした",
-      "meaning_ko": "한가했습니다",
+      "surface": "咲く",
+      "reading_kana": "さく",
+      "meaning_ko": "피다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_accc231b1738056c",
+      "level": "N5",
+      "surface": "果物",
+      "reading_kana": "くだもの",
+      "meaning_ko": "과일",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_de109ade477aaf3c",
+      "word_id": "w_29fd13f6f877956f",
       "level": "N5",
-      "surface": "にぎやかです",
-      "reading_kana": "にぎやかです",
-      "meaning_ko": "떠들썩합니다",
+      "surface": "台所",
+      "reading_kana": "だいどころ",
+      "meaning_ko": "부엌",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_1dc2a01d84d091eb",
+      "word_id": "w_232fd4c69bca3059",
       "level": "N5",
-      "surface": "しんぶんをよむ",
-      "reading_kana": "しんぶんをよむ",
-      "meaning_ko": "신문을 읽다",
+      "surface": "さす",
+      "reading_kana": "さす",
+      "meaning_ko": "(우산을) 쓰다, 받다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_a1a38e164f0a3264",
+      "word_id": "w_c88186a84ee8ef98",
       "level": "N5",
-      "surface": "はちじゅうえん",
-      "reading_kana": "はちじゅうえん",
-      "meaning_ko": "80엔",
+      "surface": "真っ直ぐ",
+      "reading_kana": "まっすぐ",
+      "meaning_ko": "똑바로, 곧장",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_c1395761ef105cb2",
+      "word_id": "w_728f59d1c6f9c5f4",
+      "level": "N5",
+      "surface": "履く",
+      "reading_kana": "はく",
+      "meaning_ko": "(바지를) 입다, (신발·양말을) 신다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_f633b5d4edaf65e3",
+      "level": "N5",
+      "surface": "交番",
+      "reading_kana": "こうばん",
+      "meaning_ko": "파출소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7c2fb518a9047447",
+      "level": "N5",
+      "surface": "一昨年",
+      "reading_kana": "おととし",
+      "meaning_ko": "재작년",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_946af014ad2b6ee1",
+      "level": "N5",
+      "surface": "ご馳走様",
+      "reading_kana": "ごちそうさま",
+      "meaning_ko": "잘 먹었습니다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_733d47f14cb535a0",
       "level": "N4",
-      "surface": "やせましたね",
-      "reading_kana": "やせましたね",
-      "meaning_ko": "살이 빠졌네요",
-      "category": "PDF 신규"
+      "surface": "事",
+      "reading_kana": "こと",
+      "meaning_ko": "일, 것",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_7d52aa26e8ea1bff",
+      "word_id": "w_7b2c455e4c556f13",
       "level": "N4",
-      "surface": "あやまりました",
-      "reading_kana": "あやまりました",
-      "meaning_ko": "사과했습니다",
+      "surface": "あれ",
+      "reading_kana": "あれ",
+      "meaning_ko": "그것(저쪽, 거기)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_00016e229a19b84b",
+      "level": "N4",
+      "surface": "力",
+      "reading_kana": "ちから",
+      "meaning_ko": "힘",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f89e0ddb634dd390",
+      "level": "N4",
+      "surface": "しかし",
+      "reading_kana": "しかし",
+      "meaning_ko": "그러나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_38856be7d8a54293",
+      "level": "N4",
+      "surface": "欲しい",
+      "reading_kana": "ほしい",
+      "meaning_ko": "가지고 싶다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_d6f29ee958d55c51",
-      "level": "N3",
-      "surface": "前と同じで",
-      "reading_kana": "まえとおなじで",
-      "meaning_ko": "예전과 같이",
+      "word_id": "w_8aa654b726b3973b",
+      "level": "N4",
+      "surface": "しまう",
+      "reading_kana": "しまう",
+      "meaning_ko": "치우다, 안에 넣다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_a71c1720e2b5e259",
-      "level": "N3",
-      "surface": "後の別の日にやる",
-      "reading_kana": "あとのべつのひにやる",
-      "meaning_ko": "나중에 다른 날에 하다",
+      "word_id": "w_9e65776bfd50eecb",
+      "level": "N4",
+      "surface": "内",
+      "reading_kana": "うち",
+      "meaning_ko": "~이내, 안쪽",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f0a58113830dd425",
+      "level": "N4",
+      "surface": "彼",
+      "reading_kana": "かれ",
+      "meaning_ko": "그, 남자친구",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a129ca6eab781b62",
+      "level": "N4",
+      "surface": "心",
+      "reading_kana": "こころ",
+      "meaning_ko": "마음, 정신",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_26b1c6419970fa60",
+      "level": "N4",
+      "surface": "早く",
+      "reading_kana": "はやく",
+      "meaning_ko": "일찍, 빨리",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_de989302383b6361",
-      "level": "N3",
-      "surface": "本当ではないと思う",
-      "reading_kana": "ほんとうではないとおもう",
-      "meaning_ko": "사실이 아니라고 생각하다",
+      "word_id": "w_f007df3b1f8867ce",
+      "level": "N4",
+      "surface": "かなり",
+      "reading_kana": "かなり",
+      "meaning_ko": "상당히, 꽤",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8850b3a80af81e01",
+      "level": "N4",
+      "surface": "予定",
+      "reading_kana": "よてい",
+      "meaning_ko": "예정",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_672fe2093b0dc0ac",
+      "level": "N4",
+      "surface": "確か",
+      "reading_kana": "たしか",
+      "meaning_ko": "확실함, 분명함; 아마",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_73250ecefaf912d8",
+      "level": "N4",
+      "surface": "計画",
+      "reading_kana": "けいかく",
+      "meaning_ko": "계획",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_18c8394a587d12b2",
-      "level": "N3",
-      "surface": "残念だと思う",
-      "reading_kana": "ざんねんだとおもう",
-      "meaning_ko": "유감스럽다고생각하다",
+      "word_id": "w_64fa0e7b2bfbed44",
+      "level": "N4",
+      "surface": "安全",
+      "reading_kana": "あんぜん",
+      "meaning_ko": "안전함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f85fa063af3bde85",
+      "level": "N4",
+      "surface": "線",
+      "reading_kana": "せん",
+      "meaning_ko": "선, 줄, 철사, 전선",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7d7f86172ab0383f",
+      "level": "N4",
+      "surface": "考える",
+      "reading_kana": "かんがえる",
+      "meaning_ko": "생각하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e5a71b733bb0d80c",
+      "level": "N4",
+      "surface": "経験",
+      "reading_kana": "けいけん",
+      "meaning_ko": "경험",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_4b8b74ca3e33a730",
-      "level": "N3",
-      "surface": "娘の息子",
-      "reading_kana": "むすめのむすこ",
-      "meaning_ko": "딸의 아들",
+      "word_id": "w_a65dc597ed6e7ba0",
+      "level": "N4",
+      "surface": "行う",
+      "reading_kana": "おこなう",
+      "meaning_ko": "행하다, 실시하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_529c42c85aa82b35",
+      "level": "N4",
+      "surface": "運動",
+      "reading_kana": "うんどう",
+      "meaning_ko": "운동",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_5d1903868c9f2e19",
-      "level": "N3",
-      "surface": "多すぎて残る",
-      "reading_kana": "おおすぎてのこる",
-      "meaning_ko": "너무 많아서 남다",
+      "word_id": "w_82d2d40c223c0fc0",
+      "level": "N4",
+      "surface": "中々",
+      "reading_kana": "なかなか",
+      "meaning_ko": "매우, 상당히, 꽤",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_50f24aa0feb95de6",
+      "level": "N4",
+      "surface": "失敗",
+      "reading_kana": "しっぱい",
+      "meaning_ko": "실패, 실수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c6da63b3adc73b9c",
+      "level": "N4",
+      "surface": "気分",
+      "reading_kana": "きぶん",
+      "meaning_ko": "기분",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e3ac48305532880a",
+      "level": "N4",
+      "surface": "危険",
+      "reading_kana": "きけん",
+      "meaning_ko": "위험",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f5b1f7107c0f562a",
+      "level": "N4",
+      "surface": "営業",
+      "reading_kana": "えいぎょう",
+      "meaning_ko": "영업",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_29549f663bb73d32",
+      "level": "N4",
+      "surface": "自動",
+      "reading_kana": "じどう",
+      "meaning_ko": "자동",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c64315d4b97b6060",
+      "level": "N4",
+      "surface": "島",
+      "reading_kana": "しま",
+      "meaning_ko": "섬",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b47d6fe4e0d8b6b3",
+      "level": "N4",
+      "surface": "左",
+      "reading_kana": "ひだり",
+      "meaning_ko": "왼쪽",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_053241823c023c93",
-      "level": "N3",
-      "surface": "急いだようすで",
-      "reading_kana": "いそいだようすで",
-      "meaning_ko": "서두르는 모습으로",
+      "word_id": "w_e5149e3df7b27eb5",
+      "level": "N4",
+      "surface": "壁",
+      "reading_kana": "かべ",
+      "meaning_ko": "벽",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_013e176627a827e0",
+      "level": "N4",
+      "surface": "凄い",
+      "reading_kana": "すごい",
+      "meaning_ko": "훌륭한, 대단한, 큰",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ae771b4fd6bc8a90",
+      "level": "N4",
+      "surface": "だめ",
+      "reading_kana": "だめ",
+      "meaning_ko": "쓸모없는, 좋지 않음, 가망 없는",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d98d809b8fca7f44",
+      "level": "N4",
+      "surface": "値段",
+      "reading_kana": "ねだん",
+      "meaning_ko": "가격",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_318b933aa9deca08",
+      "level": "N4",
+      "surface": "取る",
+      "reading_kana": "とる",
+      "meaning_ko": "잡다, 빼앗다; 집다, 잡다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_123b00c50a0e4b79",
-      "level": "N3",
-      "surface": "横断禁止です",
-      "reading_kana": "おうだんきんしです",
-      "meaning_ko": "횡단금지입니다",
+      "word_id": "w_e79c8ba878e30a15",
+      "level": "N4",
+      "surface": "工場",
+      "reading_kana": "こうば",
+      "meaning_ko": "공장",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8a39016e9b870ca8",
+      "level": "N4",
+      "surface": "血",
+      "reading_kana": "ち",
+      "meaning_ko": "피, 혈액",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ec76d4bc377ba475",
+      "level": "N4",
+      "surface": "熱",
+      "reading_kana": "ねつ",
+      "meaning_ko": "열",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6d3287e138b0ac0c",
+      "level": "N4",
+      "surface": "以内",
+      "reading_kana": "いない",
+      "meaning_ko": "이내",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a8147229995301d5",
+      "level": "N4",
+      "surface": "合う",
+      "reading_kana": "あう",
+      "meaning_ko": "맞다, 어울리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1c0ffef8df7c7e42",
+      "level": "N4",
+      "surface": "小学校",
+      "reading_kana": "しょうがっこう",
+      "meaning_ko": "초등학교",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_172254f545edb835",
+      "level": "N4",
+      "surface": "産業",
+      "reading_kana": "さんぎょう",
+      "meaning_ko": "산업",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_98601c5f9fe56540",
+      "level": "N4",
+      "surface": "うまい",
+      "reading_kana": "うまい",
+      "meaning_ko": "(1) 맛있다, (2) 능숙하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_92515fbd8be28da0",
+      "level": "N4",
+      "surface": "橋",
+      "reading_kana": "はし",
+      "meaning_ko": "다리, 교량",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_9a24bef9d9066779",
-      "level": "N3",
-      "surface": "だれにも話さない",
-      "reading_kana": "だれにもはなさない",
-      "meaning_ko": "누구에게도 이야기하지 않는다",
+      "word_id": "w_2afc4f4102d1bf3f",
+      "level": "N4",
+      "surface": "喧嘩",
+      "reading_kana": "けんか",
+      "meaning_ko": "싸움",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_34cbcd4491dcafdb",
-      "level": "N3",
-      "surface": "ないしょにする",
-      "reading_kana": "ないしょにする",
-      "meaning_ko": "비밀로 하다",
+      "word_id": "w_0749cb9bf874ff70",
+      "level": "N4",
+      "surface": "わざわざ",
+      "reading_kana": "わざわざ",
+      "meaning_ko": "일부러, 번거롭게도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_25cb652a0907a58a",
+      "level": "N4",
+      "surface": "プール",
+      "reading_kana": "プール",
+      "meaning_ko": "풀, 수영장",
       "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_da1fc48e9a617b67",
+      "level": "N4",
+      "surface": "規則",
+      "reading_kana": "きそく",
+      "meaning_ko": "규칙",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5216c11371678f7c",
+      "level": "N4",
+      "surface": "文書",
+      "reading_kana": "ぶんしょ",
+      "meaning_ko": "문서",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_17ea17f7f7fd6d2b",
+      "level": "N4",
+      "surface": "落ちる",
+      "reading_kana": "おちる",
+      "meaning_ko": "떨어지다, 떨어뜨리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_916bc0f753534707",
+      "level": "N4",
+      "surface": "開く",
+      "reading_kana": "ひらく",
+      "meaning_ko": "열리다, 열다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_98c5ecbe9b1af8f0",
+      "level": "N4",
+      "surface": "ひげ",
+      "reading_kana": "ひげ",
+      "meaning_ko": "수염",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6f016ba1c9fb2b8d",
+      "level": "N4",
+      "surface": "もうすぐ",
+      "reading_kana": "もうすぐ",
+      "meaning_ko": "곧, 머지않아",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d8fc42ae9943b970",
+      "level": "N4",
+      "surface": "田舎",
+      "reading_kana": "いなか",
+      "meaning_ko": "시골",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a29706ddbe6add74",
+      "level": "N4",
+      "surface": "港",
+      "reading_kana": "みなと",
+      "meaning_ko": "항구",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b4d23f4f4fb20992",
+      "level": "N4",
+      "surface": "ベル",
+      "reading_kana": "ベル",
+      "meaning_ko": "종, 벨",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_328b3a4907a4cb55",
+      "level": "N4",
+      "surface": "又は",
+      "reading_kana": "または",
+      "meaning_ko": "또는",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d6a5cf39dd557c41",
+      "level": "N4",
+      "surface": "それほど",
+      "reading_kana": "それほど",
+      "meaning_ko": "그 정도, 그렇게까지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3adbb5bf09e4b321",
+      "level": "N4",
+      "surface": "届く",
+      "reading_kana": "とどく",
+      "meaning_ko": "닿다, 도착하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_392f5e6a2191934f",
+      "level": "N4",
+      "surface": "通る",
+      "reading_kana": "とおる",
+      "meaning_ko": "통과하다,지나가다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9dc889bbbcb824da",
+      "level": "N4",
+      "surface": "殆ど",
+      "reading_kana": "ほとんど",
+      "meaning_ko": "대부분, 거의",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_09596ca95ad863e9",
+      "level": "N4",
+      "surface": "よろしい",
+      "reading_kana": "よろしい",
+      "meaning_ko": "좋다; 괜찮다(정중 표현)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_061c9a2227408a77",
+      "level": "N4",
+      "surface": "かたかな",
+      "reading_kana": "かたかな",
+      "meaning_ko": "가타카나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fc15014ae9465b42",
+      "level": "N4",
+      "surface": "止める",
+      "reading_kana": "やめる",
+      "meaning_ko": "끝나다, 끝내다, 멈추다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fe75e712d18b48f2",
+      "level": "N4",
+      "surface": "止める",
+      "reading_kana": "とめる",
+      "meaning_ko": "멈추다(무언가)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_66c87676a778f34f",
+      "level": "N4",
+      "surface": "おや",
+      "reading_kana": "おや",
+      "meaning_ko": "어라!",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_ec8e542da036aeea",
+      "level": "N4",
+      "surface": "一軒",
+      "reading_kana": "いっけん",
+      "meaning_ko": "한 채, 한 동(집을 세는 단위)",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_f3ad58fce513b0df",
+      "level": "N4",
+      "surface": "手前",
+      "reading_kana": "てまえ",
+      "meaning_ko": "(자기) 앞, 이쪽",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4414661a2b5d631d",
+      "level": "N4",
+      "surface": "贈り物",
+      "reading_kana": "おくりもの",
+      "meaning_ko": "선물",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_16a8437b706000b6",
+      "level": "N4",
+      "surface": "運ぶ",
+      "reading_kana": "はこぶ",
+      "meaning_ko": "운반하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_88b3a30600dd8600",
+      "level": "N4",
+      "surface": "顎",
+      "reading_kana": "あご",
+      "meaning_ko": "턱",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9c2d3700794d4e08",
+      "level": "N4",
+      "surface": "昨夜",
+      "reading_kana": "ゆうべ",
+      "meaning_ko": "어젯밤",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e5782e3d2ce38351",
+      "level": "N4",
+      "surface": "用事",
+      "reading_kana": "ようじ",
+      "meaning_ko": "볼일, 용무",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_926081e6aef5ddde",
+      "level": "N4",
+      "surface": "くださる",
+      "reading_kana": "くださる",
+      "meaning_ko": "주시다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8cd46d00b7c015a8",
+      "level": "N4",
+      "surface": "郊外",
+      "reading_kana": "こうがい",
+      "meaning_ko": "교외",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_999820e48d7ba848",
+      "level": "N4",
+      "surface": "お嬢さん",
+      "reading_kana": "おじょうさん",
+      "meaning_ko": "딸(누군가, 공손)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6daba7f91aed2e31",
+      "level": "N4",
+      "surface": "地理",
+      "reading_kana": "ちり",
+      "meaning_ko": "지리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_231788f2e4be23bc",
+      "level": "N4",
+      "surface": "おっしゃる",
+      "reading_kana": "おっしゃる",
+      "meaning_ko": "말씀하시다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_05fd1eca6f1886bd",
+      "level": "N4",
+      "surface": "祝う",
+      "reading_kana": "いわう",
+      "meaning_ko": "축하하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ef8fe7df0ce0ca60",
+      "level": "N4",
+      "surface": "厚い",
+      "reading_kana": "あつい",
+      "meaning_ko": "두껍다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_04bbfe9d5df156d4",
+      "level": "N4",
+      "surface": "サンダル",
+      "reading_kana": "サンダル",
+      "meaning_ko": "샌들",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bc62d500b1c7560e",
+      "level": "N4",
+      "surface": "いじめる",
+      "reading_kana": "いじめる",
+      "meaning_ko": "괴롭히다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_393a2f780ea3a234",
+      "level": "N4",
+      "surface": "先々月",
+      "reading_kana": "せんせんげつ",
+      "meaning_ko": "지지난달",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e31aefb75328a9e0",
+      "level": "N4",
+      "surface": "冷える",
+      "reading_kana": "ひえる",
+      "meaning_ko": "차가워지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_efac32fc7e566446",
+      "level": "N4",
+      "surface": "先々週",
+      "reading_kana": "せんせんしゅう",
+      "meaning_ko": "지지난주",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2469bcc59515558e",
+      "level": "N4",
+      "surface": "気に入る",
+      "reading_kana": "きにいる",
+      "meaning_ko": "마음에 들다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_56bc469e9f329a49",
+      "level": "N4",
+      "surface": "叱る",
+      "reading_kana": "しかる",
+      "meaning_ko": "꾸짖다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b8e30b6ab1b08d47",
+      "level": "N3",
+      "surface": "日中",
+      "reading_kana": "にっちゅう",
+      "meaning_ko": "주간;낮",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_eca4f0ccde642c46",
+      "level": "N3",
+      "surface": "金",
+      "reading_kana": "きん",
+      "meaning_ko": "금; 돈",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_16b5e002c7a1d2f2",
+      "level": "N3",
+      "surface": "その内",
+      "reading_kana": "そのうち",
+      "meaning_ko": "머지않아",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_38bfd57fb5c37228",
+      "level": "N3",
+      "surface": "女子",
+      "reading_kana": "じょし",
+      "meaning_ko": "여자, 소녀, 여자아이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8661219da49b6cd7",
+      "level": "N3",
+      "surface": "内容",
+      "reading_kana": "ないよう",
+      "meaning_ko": "내용",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1833552e6b79b74b",
+      "level": "N3",
+      "surface": "販売",
+      "reading_kana": "はんばい",
+      "meaning_ko": "판매",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_699769f779e42b20",
+      "level": "N3",
+      "surface": "ネット",
+      "reading_kana": "ネット",
+      "meaning_ko": "네트, 그물, 헤어네트",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6367079e41ada72a",
+      "level": "N3",
+      "surface": "全",
+      "reading_kana": "ぜん",
+      "meaning_ko": "전부, 전체",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dd6cfb328dbd2400",
+      "level": "N3",
+      "surface": "せい",
+      "reading_kana": "せい",
+      "meaning_ko": "원인, 이유, 잘못, 결함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_155335c07d28c16f",
+      "level": "N3",
+      "surface": "いつでも",
+      "reading_kana": "いつでも",
+      "meaning_ko": "언제든지(에서), 항상",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6819bf5a3467352a",
+      "level": "N3",
+      "surface": "人生",
+      "reading_kana": "じんせい",
+      "meaning_ko": "인생, 삶",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2e22b9e812873fab",
+      "level": "N3",
+      "surface": "際",
+      "reading_kana": "さい",
+      "meaning_ko": "때, 경우, 상황",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e6e34cd099dad65c",
+      "level": "N3",
+      "surface": "率",
+      "reading_kana": "りつ",
+      "meaning_ko": "비율",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_06e7e51d003ac3e4",
+      "level": "N3",
+      "surface": "街",
+      "reading_kana": "まち",
+      "meaning_ko": "번화가, 거리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cf049fe43ba71d8c",
+      "level": "N3",
+      "surface": "希望",
+      "reading_kana": "きぼう",
+      "meaning_ko": "희망",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f81eaded98deb034",
+      "level": "N3",
+      "surface": "環境",
+      "reading_kana": "かんきょう",
+      "meaning_ko": "환경",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2042955fbd7ed6b5",
+      "level": "N3",
+      "surface": "話し中",
+      "reading_kana": "はなしちゅう",
+      "meaning_ko": "통화 중",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bd181301cc7c5324",
+      "level": "N3",
+      "surface": "酒",
+      "reading_kana": "さけ",
+      "meaning_ko": "술, 사케",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7e59da7fcdde90bc",
+      "level": "N3",
+      "surface": "被害",
+      "reading_kana": "ひがい",
+      "meaning_ko": "피해",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e0b4071a2a37d8ed",
+      "level": "N3",
+      "surface": "選挙",
+      "reading_kana": "せんきょ",
+      "meaning_ko": "선거",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_066f479d049724ea",
+      "level": "N3",
+      "surface": "一秒",
+      "reading_kana": "いちびょう",
+      "meaning_ko": "1초",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_9e5e37d7e879c72a",
+      "level": "N3",
+      "surface": "グループ",
+      "reading_kana": "グループ",
+      "meaning_ko": "그룹, 집단",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2ffd011aa9bc9035",
+      "level": "N3",
+      "surface": "どっち",
+      "reading_kana": "どっち",
+      "meaning_ko": "어느 쪽",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_30fede19350e0b02",
+      "level": "N3",
+      "surface": "空",
+      "reading_kana": "から",
+      "meaning_ko": "(내용물이 없이 속이) 빔, 아무것도 없음",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a65c7291dbeb05a4",
+      "level": "N3",
+      "surface": "友人",
+      "reading_kana": "ゆうじん",
+      "meaning_ko": "친구, 벗",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dd98e683daac860a",
+      "level": "N3",
+      "surface": "地球",
+      "reading_kana": "ちきゅう",
+      "meaning_ko": "지구",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_53eb0fa053f5596f",
+      "level": "N3",
+      "surface": "対策",
+      "reading_kana": "たいさく",
+      "meaning_ko": "대책",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c98ce7216b90f91a",
+      "level": "N3",
+      "surface": "価格",
+      "reading_kana": "かかく",
+      "meaning_ko": "가격, 가치",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bd045e85d104f61f",
+      "level": "N3",
+      "surface": "消費",
+      "reading_kana": "しょうひ",
+      "meaning_ko": "소비",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_41251cda052c6ddc",
+      "level": "N3",
+      "surface": "大量",
+      "reading_kana": "たいりょう",
+      "meaning_ko": "대량",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_6e686d3e4ecd6a66",
+      "level": "N3",
+      "surface": "旅",
+      "reading_kana": "たび",
+      "meaning_ko": "여행",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_83fc519a9c83ad68",
+      "level": "N3",
+      "surface": "選択",
+      "reading_kana": "せんたく",
+      "meaning_ko": "선택",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9cb8fc3afd4e0e4a",
+      "level": "N3",
+      "surface": "男子",
+      "reading_kana": "だんし",
+      "meaning_ko": "남자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9f2c10d7c3b936d0",
+      "level": "N3",
+      "surface": "通信",
+      "reading_kana": "つうしん",
+      "meaning_ko": "통신",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c6d42cc06f655014",
+      "level": "N3",
+      "surface": "土",
+      "reading_kana": "つち",
+      "meaning_ko": "흙",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7b4b7d9964deb0b8",
+      "level": "N3",
+      "surface": "広告",
+      "reading_kana": "こうこく",
+      "meaning_ko": "광고",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2fc9098d18ea8dc0",
+      "level": "N3",
+      "surface": "常に",
+      "reading_kana": "つねに",
+      "meaning_ko": "항상,언제나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d87ce01dca506bbe",
+      "level": "N3",
+      "surface": "市場",
+      "reading_kana": "いちば",
+      "meaning_ko": "시장",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8df0fff24f94cc63",
+      "level": "N3",
+      "surface": "電車代",
+      "reading_kana": "でんしゃだい",
+      "meaning_ko": "전철 요금",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1bfd2b2fef93d27e",
+      "level": "N3",
+      "surface": "既に",
+      "reading_kana": "すでに",
+      "meaning_ko": "이미(같은 로서)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_44f5a21a231cf355",
+      "level": "N3",
+      "surface": "いつか",
+      "reading_kana": "いつか",
+      "meaning_ko": "언젠가; 어느 날",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a3a1ab15d2a2b883",
+      "level": "N3",
+      "surface": "土地",
+      "reading_kana": "とち",
+      "meaning_ko": "토지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ff6947b43cf49ea2",
+      "level": "N3",
+      "surface": "対",
+      "reading_kana": "つい",
+      "meaning_ko": "쌍, 짝",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e5ce533224407e64",
+      "level": "N3",
+      "surface": "患者",
+      "reading_kana": "かんじゃ",
+      "meaning_ko": "환자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b516e6af3b2c8f08",
+      "level": "N3",
+      "surface": "まさか",
+      "reading_kana": "まさか",
+      "meaning_ko": "설마",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_be5e4c2d95cee2c1",
+      "level": "N3",
+      "surface": "完了",
+      "reading_kana": "かんりょう",
+      "meaning_ko": "완료",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ca067fb7d90fea51",
+      "level": "N3",
+      "surface": "実現",
+      "reading_kana": "じつげん",
+      "meaning_ko": "실현",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cad3ec2be5f5bde2",
+      "level": "N3",
+      "surface": "会員",
+      "reading_kana": "かいいん",
+      "meaning_ko": "구성원, 회원",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_345b257e320eb063",
+      "level": "N3",
+      "surface": "ダム",
+      "reading_kana": "ダム",
+      "meaning_ko": "댐",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_729f291cb71c2dcc",
+      "level": "N3",
+      "surface": "ミス",
+      "reading_kana": "ミス",
+      "meaning_ko": "실수, 미스",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_93470228cf879755",
+      "level": "N3",
+      "surface": "辛い",
+      "reading_kana": "つらい",
+      "meaning_ko": "괴롭다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e98d7dfff88428e8",
+      "level": "N3",
+      "surface": "住民",
+      "reading_kana": "じゅうみん",
+      "meaning_ko": "주민",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4af9f6c0aa9f9f51",
+      "level": "N3",
+      "surface": "祭り",
+      "reading_kana": "まつり",
+      "meaning_ko": "제사, 축제;잔치, 京都의 賀茂 신사의 제사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dfe07e16401ea765",
+      "level": "N3",
+      "surface": "正確",
+      "reading_kana": "せいかく",
+      "meaning_ko": "정확한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_817f58d5b7a591e1",
+      "level": "N3",
+      "surface": "美人",
+      "reading_kana": "びじん",
+      "meaning_ko": "미인, 옛 중국에서, 재덕을 갖춘 군주",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c469ca5f6997c7d7",
+      "level": "N3",
+      "surface": "関心",
+      "reading_kana": "かんしん",
+      "meaning_ko": "관심",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c41eee18ef321c5f",
+      "level": "N3",
+      "surface": "働き",
+      "reading_kana": "はたらき",
+      "meaning_ko": "움직여서 일·구실을 함;작동, 활동;회전, 작용;기능",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a660e6568a3e669d",
+      "level": "N3",
+      "surface": "喜び",
+      "reading_kana": "よろこび",
+      "meaning_ko": "기쁨",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4ebf08d635858a62",
+      "level": "N3",
+      "surface": "永遠",
+      "reading_kana": "えいえん",
+      "meaning_ko": "영원, 영구, 불멸",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ff7c53048622060b",
+      "level": "N3",
+      "surface": "味方",
+      "reading_kana": "みかた",
+      "meaning_ko": "아군, 지지자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8d1fe04531c739e0",
+      "level": "N3",
+      "surface": "就職",
+      "reading_kana": "しゅうしょく",
+      "meaning_ko": "취직",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_43832edeed9e8d99",
+      "level": "N3",
+      "surface": "奥",
+      "reading_kana": "おく",
+      "meaning_ko": "안쪽, 내부, 안쪽 부분",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3d222fef5a12ef13",
+      "level": "N3",
+      "surface": "勇気",
+      "reading_kana": "ゆうき",
+      "meaning_ko": "용기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e42ff9a33ffea453",
+      "level": "N3",
+      "surface": "平気",
+      "reading_kana": "へいき",
+      "meaning_ko": "태연함, 아무렇지 않음",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b15ad8401a227b7e",
+      "level": "N3",
+      "surface": "書類",
+      "reading_kana": "しょるい",
+      "meaning_ko": "서류, 문서",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_09d6b72c92cc2716",
+      "level": "N3",
+      "surface": "現金",
+      "reading_kana": "げんきん",
+      "meaning_ko": "현금",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cd9ef42ceb9ad142",
+      "level": "N3",
+      "surface": "底",
+      "reading_kana": "そこ",
+      "meaning_ko": "바닥",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a9c35cc31c89b310",
+      "level": "N3",
+      "surface": "英国",
+      "reading_kana": "えいこく",
+      "meaning_ko": "영국",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_876ce9a1dd2dbf62",
+      "level": "N3",
+      "surface": "岩",
+      "reading_kana": "いわ",
+      "meaning_ko": "바위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ac9b6a2bbb782578",
+      "level": "N3",
+      "surface": "常識",
+      "reading_kana": "じょうしき",
+      "meaning_ko": "상식",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_11029cfda3c417c2",
+      "level": "N3",
+      "surface": "発達",
+      "reading_kana": "はったつ",
+      "meaning_ko": "발달",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3ed6307dd0dc024f",
+      "level": "N3",
+      "surface": "部品",
+      "reading_kana": "ぶひん",
+      "meaning_ko": "부품",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b6a43f57f6d6ba38",
+      "level": "N3",
+      "surface": "方面",
+      "reading_kana": "ほうめん",
+      "meaning_ko": "방면, 분야",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a5246d86b2c0f33",
+      "level": "N3",
+      "surface": "残業",
+      "reading_kana": "ざんぎょう",
+      "meaning_ko": "잔업",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_cd94ea8ce1292469",
+      "level": "N3",
+      "surface": "およそ",
+      "reading_kana": "およそ",
+      "meaning_ko": "대략, 대체로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ad199ec93837f88c",
+      "level": "N3",
+      "surface": "皿",
+      "reading_kana": "さら",
+      "meaning_ko": "접시",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bae790c2f19f1f82",
+      "level": "N3",
+      "surface": "トレーニング",
+      "reading_kana": "トレーニング",
+      "meaning_ko": "트레이닝;훈련;연습",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_260436ffc158f4b2",
+      "level": "N3",
+      "surface": "用途",
+      "reading_kana": "ようと",
+      "meaning_ko": "용도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8c83a0eadc0c4e3d",
+      "level": "N3",
+      "surface": "取れる",
+      "reading_kana": "とれる",
+      "meaning_ko": "떨어지다;빠지다, 취할 수 있다, 해석되다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e827f2cbbdfecbdf",
+      "level": "N3",
+      "surface": "交際",
+      "reading_kana": "こうさい",
+      "meaning_ko": "교제",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_99b30f0a1c898b11",
+      "level": "N3",
+      "surface": "もったいない",
+      "reading_kana": "もったいない",
+      "meaning_ko": "아깝다, 과분하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c85ec6d656e08145",
+      "level": "N3",
+      "surface": "故郷",
+      "reading_kana": "こきょう",
+      "meaning_ko": "고향",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6dd31bd87ca4777f",
+      "level": "N3",
+      "surface": "休暇",
+      "reading_kana": "きゅうか",
+      "meaning_ko": "휴가",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fda3d35a526eb704",
+      "level": "N3",
+      "surface": "座席",
+      "reading_kana": "ざせき",
+      "meaning_ko": "좌석",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e048452d050d9201",
+      "level": "N3",
+      "surface": "石油",
+      "reading_kana": "せきゆ",
+      "meaning_ko": "석유",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3d01f1458f83af8d",
+      "level": "N3",
+      "surface": "羨ましい",
+      "reading_kana": "うらやましい",
+      "meaning_ko": "부럽다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_64b66d55227bd248",
+      "level": "N3",
+      "surface": "ストップ",
+      "reading_kana": "ストップ",
+      "meaning_ko": "스톱, 정지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b5c8f8f43bf4f711",
+      "level": "N3",
+      "surface": "乗客",
+      "reading_kana": "じょうきゃく",
+      "meaning_ko": "승객",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_512c961eb62a41e9",
+      "level": "N3",
+      "surface": "煙",
+      "reading_kana": "けむり",
+      "meaning_ko": "연기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_656c401cc69460e4",
+      "level": "N3",
+      "surface": "売れる",
+      "reading_kana": "うれる",
+      "meaning_ko": "팔리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bf30f1583d89c4b0",
+      "level": "N3",
+      "surface": "宿泊",
+      "reading_kana": "しゅくはく",
+      "meaning_ko": "숙박",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f81f372d17987480",
+      "level": "N3",
+      "surface": "消防",
+      "reading_kana": "しょうぼう",
+      "meaning_ko": "소방",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_488258c2323a5ce5",
+      "level": "N3",
+      "surface": "支店",
+      "reading_kana": "してん",
+      "meaning_ko": "지점, 지사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_65ac73e021bc97c0",
+      "level": "N3",
+      "surface": "縮小",
+      "reading_kana": "しゅくしょう",
+      "meaning_ko": "축소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bfb66de43d6df143",
+      "level": "N3",
+      "surface": "支払う",
+      "reading_kana": "しはらう",
+      "meaning_ko": "지불하다;치르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0e9cab5ccd7e7e49",
+      "level": "N3",
+      "surface": "工学",
+      "reading_kana": "こうがく",
+      "meaning_ko": "공학",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5444ad9790d180e8",
+      "level": "N3",
+      "surface": "いい加減",
+      "reading_kana": "いいかげん",
+      "meaning_ko": "적당함, 무책임함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7f8ba58bb4b898e8",
+      "level": "N3",
+      "surface": "自動的",
+      "reading_kana": "じどうてき",
+      "meaning_ko": "자동적임",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b978baf68d3eeddd",
+      "level": "N3",
+      "surface": "一斉",
+      "reading_kana": "いっせい",
+      "meaning_ko": "일제히",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2f256f75a63c5742",
+      "level": "N3",
+      "surface": "四季",
+      "reading_kana": "しき",
+      "meaning_ko": "사계절",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_71ad608226cb407e",
+      "level": "N3",
+      "surface": "拍手",
+      "reading_kana": "はくしゅ",
+      "meaning_ko": "박수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f2360b01eb7def77",
+      "level": "N3",
+      "surface": "遂に",
+      "reading_kana": "ついに",
+      "meaning_ko": "마침내",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f0f96d3189ba7c95",
+      "level": "N3",
+      "surface": "隅",
+      "reading_kana": "すみ",
+      "meaning_ko": "모서리, 구석",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a60660cfd2ee094a",
+      "level": "N3",
+      "surface": "国語",
+      "reading_kana": "こくご",
+      "meaning_ko": "국어",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b5be233796f7dd76",
+      "level": "N3",
+      "surface": "まとめる",
+      "reading_kana": "まとめる",
+      "meaning_ko": "정리하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e180a0bc44877374",
+      "level": "N3",
+      "surface": "中旬",
+      "reading_kana": "ちゅうじゅん",
+      "meaning_ko": "중순",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cb99bdc6be468a11",
+      "level": "N3",
+      "surface": "うがい",
+      "reading_kana": "うがい",
+      "meaning_ko": "가글, 양치질",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9a63e40ea88a885c",
+      "level": "N3",
+      "surface": "暫く",
+      "reading_kana": "しばらく",
+      "meaning_ko": "잠시",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b040677423d52014",
+      "level": "N3",
+      "surface": "満員",
+      "reading_kana": "まんいん",
+      "meaning_ko": "만원",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d8b3e84d92486874",
+      "level": "N3",
+      "surface": "湿度",
+      "reading_kana": "しつど",
+      "meaning_ko": "습도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_847eb8c2c66cca90",
+      "level": "N3",
+      "surface": "あれこれ",
+      "reading_kana": "あれこれ",
+      "meaning_ko": "이것저것",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5087ca0f2f02704e",
+      "level": "N3",
+      "surface": "握る",
+      "reading_kana": "にぎる",
+      "meaning_ko": "(손에꽉)쥐다; 움켜쥐다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a27acf0180265ee0",
+      "level": "N3",
+      "surface": "南北",
+      "reading_kana": "なんぼく",
+      "meaning_ko": "남북",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fc3c337216a2bfbc",
+      "level": "N3",
+      "surface": "破る",
+      "reading_kana": "やぶる",
+      "meaning_ko": "깨다,찢다,어기다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fce7ea98384bf63a",
+      "level": "N3",
+      "surface": "溜め",
+      "reading_kana": "ため",
+      "meaning_ko": "모아 둠;그 장소, 江戸 시대에 병든 죄수를 수용하던 감옥",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b9599de28963836c",
+      "level": "N3",
+      "surface": "詩人",
+      "reading_kana": "しじん",
+      "meaning_ko": "시인",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_14b7a7565fa9e8f4",
+      "level": "N3",
+      "surface": "度々",
+      "reading_kana": "たびたび",
+      "meaning_ko": "자주, 여러 번",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e795e940037dda8d",
+      "level": "N3",
+      "surface": "食器",
+      "reading_kana": "しょっき",
+      "meaning_ko": "식기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b4b5fbd14fb214b4",
+      "level": "N3",
+      "surface": "明後日",
+      "reading_kana": "みょうごにち",
+      "meaning_ko": "모레",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_93507c9aecd20af4",
+      "level": "N3",
+      "surface": "物価",
+      "reading_kana": "ぶっか",
+      "meaning_ko": "물가",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f57799e4893770c3",
+      "level": "N3",
+      "surface": "火傷",
+      "reading_kana": "やけど",
+      "meaning_ko": "화상",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_78e76c898770f844",
+      "level": "N3",
+      "surface": "上る",
+      "reading_kana": "のぼる",
+      "meaning_ko": "오르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a2ca14c5418e955f",
+      "level": "N3",
+      "surface": "掴む",
+      "reading_kana": "つかむ",
+      "meaning_ko": "움켜쥐다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_12ed136adb62b130",
+      "level": "N3",
+      "surface": "両側",
+      "reading_kana": "りょうがわ",
+      "meaning_ko": "양쪽, 양측",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1954b22e948706ba",
+      "level": "N3",
+      "surface": "配る",
+      "reading_kana": "くばる",
+      "meaning_ko": "나눠주다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e7f479187f36afac",
+      "level": "N3",
+      "surface": "測る",
+      "reading_kana": "はかる",
+      "meaning_ko": "(길이,높이,속도등을)측정하다; 재다, 측정하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fe90c06cc5136491",
+      "level": "N3",
+      "surface": "ぶつける",
+      "reading_kana": "ぶつける",
+      "meaning_ko": "부딪다, 들이받다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_7dbf258739ff034a",
+      "level": "N3",
+      "surface": "かゆい",
+      "reading_kana": "かゆい",
+      "meaning_ko": "가렵다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ee206212d9b2a50d",
+      "level": "N3",
+      "surface": "頼もしい",
+      "reading_kana": "たのもしい",
+      "meaning_ko": "든든하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c33169a9a372be32",
+      "level": "N3",
+      "surface": "食後",
+      "reading_kana": "しょくご",
+      "meaning_ko": "식후",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f372d394a0a4c4e1",
+      "level": "N3",
+      "surface": "現す",
+      "reading_kana": "あらわす",
+      "meaning_ko": "보여주다, 나타나다, 드러내다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5907660844c2b516",
+      "level": "N3",
+      "surface": "汚す",
+      "reading_kana": "よごす",
+      "meaning_ko": "더럽히다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8141a07617372b89",
+      "level": "N3",
+      "surface": "大腿",
+      "reading_kana": "だいたい",
+      "meaning_ko": "대퇴;넓적다리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_eba671649a932b5a",
+      "level": "N3",
+      "surface": "利口",
+      "reading_kana": "りこう",
+      "meaning_ko": "영리한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4c354cb8ef216dc4",
+      "level": "N3",
+      "surface": "空き地",
+      "reading_kana": "あきち",
+      "meaning_ko": "공터, 빈터",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7e3ddba1d47dfc1f",
+      "level": "N3",
+      "surface": "見送る",
+      "reading_kana": "みおくる",
+      "meaning_ko": "배웅하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_465fe84232149662",
+      "level": "N3",
+      "surface": "税込み",
+      "reading_kana": "ぜいこみ",
+      "meaning_ko": "세금을 포함한 액수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c12c4efe43384aa2",
+      "level": "N3",
+      "surface": "茶色い",
+      "reading_kana": "ちゃいろい",
+      "meaning_ko": "갈색의",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fc603d292698586c",
+      "level": "N3",
+      "surface": "かむ",
+      "reading_kana": "かむ",
+      "meaning_ko": "코를 풀다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a819a4776c13596c",
+      "level": "N3",
+      "surface": "いらいら",
+      "reading_kana": "いらいら",
+      "meaning_ko": "초조함, 짜증",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_949c210aa0e199be",
+      "level": "N3",
+      "surface": "明ける",
+      "reading_kana": "あける",
+      "meaning_ko": "날이 새다, 끝나다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d7332e5b51597d3e",
+      "level": "N3",
+      "surface": "目上",
+      "reading_kana": "めうえ",
+      "meaning_ko": "윗사람, 손윗사람",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6ff1ea3a8327e6bd",
+      "level": "N3",
+      "surface": "あくび",
+      "reading_kana": "あくび",
+      "meaning_ko": "하품",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bf7d5c4f25bd15e8",
+      "level": "N3",
+      "surface": "こぼす",
+      "reading_kana": "こぼす",
+      "meaning_ko": "쏟다, 엎지르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a61620b169657c43",
+      "level": "N3",
+      "surface": "剥く",
+      "reading_kana": "むく",
+      "meaning_ko": "(껍질을) 벗기다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_d0c5de51a55d62d4",
+      "level": "N3",
+      "surface": "不断",
+      "reading_kana": "ふだん",
+      "meaning_ko": "항상;평상시;평소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1c2ded63174fe839",
+      "level": "N3",
+      "surface": "小包",
+      "reading_kana": "こづつみ",
+      "meaning_ko": "소포, 꾸러미",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8518c3195cf69801",
+      "level": "N3",
+      "surface": "書留",
+      "reading_kana": "かきとめ",
+      "meaning_ko": "등기 우편",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dd23ab623b85f108",
+      "level": "N3",
+      "surface": "出迎える",
+      "reading_kana": "でむかえる",
+      "meaning_ko": "만나다, 인사하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7da89b0ae3f818ac",
+      "level": "N3",
+      "surface": "もうしわけない",
+      "reading_kana": "もうしわけない",
+      "meaning_ko": "변명할 여지가 없다;미안하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4abddafb7881f1bb",
+      "level": "N3",
+      "surface": "いっきに",
+      "reading_kana": "いっきに",
+      "meaning_ko": "단숨에;일거에",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f9780db0237f4603",
+      "level": "N3",
+      "surface": "どうじに",
+      "reading_kana": "どうじに",
+      "meaning_ko": "동시에, 한꺼번에;일시에, 바로 그때에",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_406c6e23203539b1",
+      "level": "N3",
+      "surface": "ふやす",
+      "reading_kana": "ふやす",
+      "meaning_ko": "늘리다, 불리다;증식시키다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_17f948120f29942a",
+      "level": "N3",
+      "surface": "代る",
+      "reading_kana": "かわる",
+      "meaning_ko": "대신하다, 교대하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1acadab0e96ab9d7",
+      "level": "N3",
+      "surface": "くたびれる",
+      "reading_kana": "くたびれる",
+      "meaning_ko": "지치다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4e51e8951d15d3dc",
+      "level": "N3",
+      "surface": "いっぱんに",
+      "reading_kana": "いっぱんに",
+      "meaning_ko": "대체로;일반적으로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_81c9dc74c01669b1",
+      "level": "N2",
+      "surface": "上",
+      "reading_kana": "じょう",
+      "meaning_ko": "위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cd21637b9647fa3c",
+      "level": "N2",
+      "surface": "上",
+      "reading_kana": "うわ",
+      "meaning_ko": "위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_918c3022ec6cc0f1",
+      "level": "N2",
+      "surface": "下",
+      "reading_kana": "げ",
+      "meaning_ko": "아래",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dfb409211ee33e05",
+      "level": "N2",
+      "surface": "下",
+      "reading_kana": "しも",
+      "meaning_ko": "아래",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5c01d31526099a31",
+      "level": "N2",
+      "surface": "元",
+      "reading_kana": "もと",
+      "meaning_ko": "근원; 이전, 전(前)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7087b27273d496b5",
+      "level": "N2",
+      "surface": "絶対",
+      "reading_kana": "ぜったい",
+      "meaning_ko": "절대로,꼭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7be7b280d00ddd2e",
+      "level": "N2",
+      "surface": "その頃",
+      "reading_kana": "そのころ",
+      "meaning_ko": "그 무렵, 그때",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5c74df304f5bb6ef",
+      "level": "N2",
+      "surface": "夜",
+      "reading_kana": "よ",
+      "meaning_ko": "밤",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2903ad5dfafa9ef5",
+      "level": "N2",
+      "surface": "そう言えば",
+      "reading_kana": "そういえば",
+      "meaning_ko": "그러고 보니, 말하자면",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c6900e0ec3be2de7",
+      "level": "N2",
+      "surface": "一般",
+      "reading_kana": "いっぱん",
+      "meaning_ko": "일반적인",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7af4c6f5925e6489",
+      "level": "N2",
+      "surface": "いつまでも",
+      "reading_kana": "いつまでも",
+      "meaning_ko": "언제까지나, 영원히",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8348344251cc1290",
+      "level": "N2",
+      "surface": "軍",
+      "reading_kana": "ぐん",
+      "meaning_ko": "군, 군대",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_97c3e5fdafc473b5",
+      "level": "N2",
+      "surface": "敵",
+      "reading_kana": "てき",
+      "meaning_ko": "적",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_17c56e9002d05e61",
+      "level": "N2",
+      "surface": "限り",
+      "reading_kana": "かぎり",
+      "meaning_ko": "한, 한도; ~하는 한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aee488186f66c2a2",
+      "level": "N2",
+      "surface": "白",
+      "reading_kana": "しろ",
+      "meaning_ko": "흰색, 하양",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6e28f342151c94e8",
+      "level": "N2",
+      "surface": "面",
+      "reading_kana": "めん",
+      "meaning_ko": "얼굴, 표면, 면",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a190e772e12a363a",
+      "level": "N2",
+      "surface": "流れ",
+      "reading_kana": "ながれ",
+      "meaning_ko": "흐름",
+      "category": "기존 유지"
     },
     {
       "word_id": "w_4948be9f9aed94b0",
@@ -253,11 +2713,931 @@
       "category": "기존 유지"
     },
     {
-      "word_id": "w_061c9a2227408a77",
+      "word_id": "w_61a4f08497dfdf71",
       "level": "N2",
-      "surface": "かたかな",
-      "reading_kana": "かたかな",
-      "meaning_ko": "가타카나",
+      "surface": "組織",
+      "reading_kana": "そしき",
+      "meaning_ko": "조직",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0fdee89d4ad3a5cd",
+      "level": "N2",
+      "surface": "しかも",
+      "reading_kana": "しかも",
+      "meaning_ko": "게다가, 더욱이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a3e9dc2961c9ba24",
+      "level": "N2",
+      "surface": "事実",
+      "reading_kana": "じじつ",
+      "meaning_ko": "사실, 진실, 현실",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_76fa724c51a7330f",
+      "level": "N2",
+      "surface": "実施",
+      "reading_kana": "じっし",
+      "meaning_ko": "실시, 시행",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_38c39e1bf0cdc97c",
+      "level": "N2",
+      "surface": "監督",
+      "reading_kana": "かんとく",
+      "meaning_ko": "감독",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_97fd38bc63ce46e6",
+      "level": "N2",
+      "surface": "方向",
+      "reading_kana": "ほうこう",
+      "meaning_ko": "방향",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ee8feeec8a1af066",
+      "level": "N2",
+      "surface": "これら",
+      "reading_kana": "これら",
+      "meaning_ko": "이것들",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cbaa90d9cde4ed8e",
+      "level": "N2",
+      "surface": "別々",
+      "reading_kana": "べつべつ",
+      "meaning_ko": "따로따로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_93d81f41564b0400",
+      "level": "N2",
+      "surface": "新た",
+      "reading_kana": "あらた",
+      "meaning_ko": "새로운, 신선한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c83f98ab01349fbc",
+      "level": "N2",
+      "surface": "処理",
+      "reading_kana": "しょり",
+      "meaning_ko": "처리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ff1cb7abea5c169d",
+      "level": "N2",
+      "surface": "いずれ",
+      "reading_kana": "いずれ",
+      "meaning_ko": "어느 것; 머지않아",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f761a641dc383df1",
+      "level": "N2",
+      "surface": "罪",
+      "reading_kana": "つみ",
+      "meaning_ko": "죄",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_45ab19ce71cbb933",
+      "level": "N2",
+      "surface": "あるいは",
+      "reading_kana": "あるいは",
+      "meaning_ko": "또는, 아마",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_43862bf95fbf02dd",
+      "level": "N2",
+      "surface": "身体",
+      "reading_kana": "しんたい",
+      "meaning_ko": "몸",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8fdcc4961a0171a0",
+      "level": "N2",
+      "surface": "スター",
+      "reading_kana": "スター",
+      "meaning_ko": "별",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ca920ef451a01aa8",
+      "level": "N2",
+      "surface": "さて",
+      "reading_kana": "さて",
+      "meaning_ko": "그런데, 자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4023d92b9a5c4baa",
+      "level": "N2",
+      "surface": "回復",
+      "reading_kana": "かいふく",
+      "meaning_ko": "회복, 복구",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a36d1a7420e62662",
+      "level": "N2",
+      "surface": "ステージ",
+      "reading_kana": "ステージ",
+      "meaning_ko": "스테이지, 무대",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_946f396d0893894e",
+      "level": "N2",
+      "surface": "異常",
+      "reading_kana": "いじょう",
+      "meaning_ko": "이상, 비정상",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_82154f69404ef3b3",
+      "level": "N2",
+      "surface": "更に",
+      "reading_kana": "さらに",
+      "meaning_ko": "더욱, 게다가",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_eb16b05f0fdc7144",
+      "level": "N2",
+      "surface": "構成",
+      "reading_kana": "こうせい",
+      "meaning_ko": "구성",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d33bc9d542950232",
+      "level": "N2",
+      "surface": "人類",
+      "reading_kana": "じんるい",
+      "meaning_ko": "인류",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_af3901b562523664",
+      "level": "N2",
+      "surface": "信用",
+      "reading_kana": "しんよう",
+      "meaning_ko": "신용, 신뢰",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0786b0efd583cdb2",
+      "level": "N2",
+      "surface": "まるで",
+      "reading_kana": "まるで",
+      "meaning_ko": "마치, 꼭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b67e9f01ecf28a70",
+      "level": "N2",
+      "surface": "首相",
+      "reading_kana": "しゅしょう",
+      "meaning_ko": "수상, 총리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ff046eb535486a13",
+      "level": "N2",
+      "surface": "世紀",
+      "reading_kana": "せいき",
+      "meaning_ko": "세기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fc1ef79be6cfc1d4",
+      "level": "N2",
+      "surface": "実",
+      "reading_kana": "み",
+      "meaning_ko": "열매, 실제, 결실",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e8b92dff533c31b0",
+      "level": "N2",
+      "surface": "肌",
+      "reading_kana": "はだ",
+      "meaning_ko": "피부",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_9fa827c41de0987b",
+      "level": "N2",
+      "surface": "質",
+      "reading_kana": "しつ",
+      "meaning_ko": "질, 품질",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c3e04c937bcd7643",
+      "level": "N2",
+      "surface": "生命",
+      "reading_kana": "せいめい",
+      "meaning_ko": "생명, 삶",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_332b2501172d4da8",
+      "level": "N2",
+      "surface": "単位",
+      "reading_kana": "たんい",
+      "meaning_ko": "단위, 학점",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0e981b675d9187b1",
+      "level": "N2",
+      "surface": "増加",
+      "reading_kana": "ぞうか",
+      "meaning_ko": "증가",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5e0fcab3f0d081a2",
+      "level": "N2",
+      "surface": "書籍",
+      "reading_kana": "しょせき",
+      "meaning_ko": "서적, 책",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e53741dee87d1235",
+      "level": "N2",
+      "surface": "悪魔",
+      "reading_kana": "あくま",
+      "meaning_ko": "악마",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b244afc15234ffcb",
+      "level": "N2",
+      "surface": "程",
+      "reading_kana": "ほど",
+      "meaning_ko": "정도, 만큼",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_84b185d190b086ff",
+      "level": "N2",
+      "surface": "発行",
+      "reading_kana": "はっこう",
+      "meaning_ko": "발행",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_c7a422ab60dc14eb",
+      "level": "N2",
+      "surface": "職",
+      "reading_kana": "しょく",
+      "meaning_ko": "고용",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_554c0ea216ecc414",
+      "level": "N2",
+      "surface": "影",
+      "reading_kana": "かげ",
+      "meaning_ko": "그림자, 비친 형상",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a1ba8a79fd44c4b7",
+      "level": "N2",
+      "surface": "恐怖",
+      "reading_kana": "きょうふ",
+      "meaning_ko": "두려움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d61624d3ed6a7a85",
+      "level": "N2",
+      "surface": "解散",
+      "reading_kana": "かいさん",
+      "meaning_ko": "해산",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_efe2a9d05bef8682",
+      "level": "N2",
+      "surface": "方針",
+      "reading_kana": "ほうしん",
+      "meaning_ko": "방침",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0513d7c7e92231c6",
+      "level": "N2",
+      "surface": "いわゆる",
+      "reading_kana": "いわゆる",
+      "meaning_ko": "이른바, 소위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8abfd2bb2953f1cf",
+      "level": "N2",
+      "surface": "解消",
+      "reading_kana": "かいしょう",
+      "meaning_ko": "해소",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a28378d63f77e2a2",
+      "level": "N2",
+      "surface": "変換",
+      "reading_kana": "へんかん",
+      "meaning_ko": "변환",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_304d495231ce46a4",
+      "level": "N2",
+      "surface": "意思",
+      "reading_kana": "いし",
+      "meaning_ko": "의도, 목적",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_565d5ed0218863fe",
+      "level": "N2",
+      "surface": "相互",
+      "reading_kana": "そうご",
+      "meaning_ko": "상호의",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e1a658a7002ab27f",
+      "level": "N2",
+      "surface": "刀",
+      "reading_kana": "かたな",
+      "meaning_ko": "검",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ca4087c7119f45b7",
+      "level": "N2",
+      "surface": "項目",
+      "reading_kana": "こうもく",
+      "meaning_ko": "항목",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_68b2b28244f5b063",
+      "level": "N2",
+      "surface": "やや",
+      "reading_kana": "やや",
+      "meaning_ko": "약간, 다소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d7667ac0ce31a6f0",
+      "level": "N2",
+      "surface": "思考",
+      "reading_kana": "しこう",
+      "meaning_ko": "생각",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ae7c649b01299fea",
+      "level": "N2",
+      "surface": "競技",
+      "reading_kana": "きょうぎ",
+      "meaning_ko": "경기, 시합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_84ebf670f5baf34e",
+      "level": "N2",
+      "surface": "コレクション",
+      "reading_kana": "コレクション",
+      "meaning_ko": "컬렉션, 수집",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8cab62ce1744b927",
+      "level": "N2",
+      "surface": "対立",
+      "reading_kana": "たいりつ",
+      "meaning_ko": "대립",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6d65f573426d6306",
+      "level": "N2",
+      "surface": "引用",
+      "reading_kana": "いんよう",
+      "meaning_ko": "인용",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9bbf7800b045571e",
+      "level": "N2",
+      "surface": "通知",
+      "reading_kana": "つうち",
+      "meaning_ko": "통지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_157443e88683e1c9",
+      "level": "N2",
+      "surface": "関わる",
+      "reading_kana": "かかわる",
+      "meaning_ko": "관련되다,관여하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_de834a2f25042951",
+      "level": "N2",
+      "surface": "翼",
+      "reading_kana": "つばさ",
+      "meaning_ko": "날개",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7adc49967d627444",
+      "level": "N2",
+      "surface": "侵入",
+      "reading_kana": "しんにゅう",
+      "meaning_ko": "침입",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b5f39330d57b8eeb",
+      "level": "N2",
+      "surface": "信仰",
+      "reading_kana": "しんこう",
+      "meaning_ko": "신앙(종교적인), 믿음",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_20ea0e1c7d1c4ce3",
+      "level": "N2",
+      "surface": "桁",
+      "reading_kana": "けた",
+      "meaning_ko": "자릿수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_78325dbdfa5e2da6",
+      "level": "N2",
+      "surface": "組合",
+      "reading_kana": "くみあい",
+      "meaning_ko": "협회, 연관, 연합, 조합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_08831dedef62a3f7",
+      "level": "N2",
+      "surface": "汁",
+      "reading_kana": "しる",
+      "meaning_ko": "즙, 국물",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fed055728d831788",
+      "level": "N2",
+      "surface": "純粋",
+      "reading_kana": "じゅんすい",
+      "meaning_ko": "순수한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b14c5f7eb90054ee",
+      "level": "N2",
+      "surface": "不幸",
+      "reading_kana": "ふこう",
+      "meaning_ko": "불행",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d3a58aebb4ab933c",
+      "level": "N2",
+      "surface": "深刻",
+      "reading_kana": "しんこく",
+      "meaning_ko": "심각한, 진지한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d16eddc3944c223d",
+      "level": "N2",
+      "surface": "豪華",
+      "reading_kana": "ごうか",
+      "meaning_ko": "호화로움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_946ea69fd5cfd9ec",
+      "level": "N2",
+      "surface": "いよいよ",
+      "reading_kana": "いよいよ",
+      "meaning_ko": "마침내, 드디어",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dd2e5667291d8b49",
+      "level": "N2",
+      "surface": "もしかして",
+      "reading_kana": "もしかして",
+      "meaning_ko": "아마, 어쩌면",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1e6961ce3411cb4b",
+      "level": "N2",
+      "surface": "農業",
+      "reading_kana": "のうぎょう",
+      "meaning_ko": "농업",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_83b5460f8df7ce6b",
+      "level": "N2",
+      "surface": "反映",
+      "reading_kana": "はんえい",
+      "meaning_ko": "반영",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bfb980ab8575a940",
+      "level": "N2",
+      "surface": "宿",
+      "reading_kana": "やど",
+      "meaning_ko": "여관, 숙박",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5cec55130734fb81",
+      "level": "N2",
+      "surface": "手間",
+      "reading_kana": "てま",
+      "meaning_ko": "수고",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_8ce7129fab26d810",
+      "level": "N2",
+      "surface": "文明",
+      "reading_kana": "ぶんめい",
+      "meaning_ko": "문명",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f8af1abd32dbfe9d",
+      "level": "N2",
+      "surface": "酸素",
+      "reading_kana": "さんそ",
+      "meaning_ko": "산소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bdfe938ef5539252",
+      "level": "N2",
+      "surface": "皮膚",
+      "reading_kana": "ひふ",
+      "meaning_ko": "피부",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e817f861b7eb79b7",
+      "level": "N2",
+      "surface": "応用",
+      "reading_kana": "おうよう",
+      "meaning_ko": "응용",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_46a151be6d522ea0",
+      "level": "N2",
+      "surface": "永久",
+      "reading_kana": "えいきゅう",
+      "meaning_ko": "영원, 영구, 불멸",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4c934f2120b1a7b8",
+      "level": "N2",
+      "surface": "胃",
+      "reading_kana": "い",
+      "meaning_ko": "위(장기)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a14f4fb1bf8c167",
+      "level": "N2",
+      "surface": "軍隊",
+      "reading_kana": "ぐんたい",
+      "meaning_ko": "군대, 병력",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3c648280458c6258",
+      "level": "N2",
+      "surface": "あくまで",
+      "reading_kana": "あくまで",
+      "meaning_ko": "어디까지나, 끝까지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_db9032d584009b9f",
+      "level": "N2",
+      "surface": "布",
+      "reading_kana": "ぬの",
+      "meaning_ko": "천",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_35b4fa923a9c1473",
+      "level": "N2",
+      "surface": "癌",
+      "reading_kana": "がん",
+      "meaning_ko": "암",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fadcbec286367d67",
+      "level": "N2",
+      "surface": "署名",
+      "reading_kana": "しょめい",
+      "meaning_ko": "서명",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1efbbd0a483ff9d0",
+      "level": "N2",
+      "surface": "警告",
+      "reading_kana": "けいこく",
+      "meaning_ko": "경고",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e54a70b56626a03a",
+      "level": "N2",
+      "surface": "もしも",
+      "reading_kana": "もしも",
+      "meaning_ko": "만약",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2f7be60f47f4f39e",
+      "level": "N2",
+      "surface": "国籍",
+      "reading_kana": "こくせき",
+      "meaning_ko": "국적",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5ed01d7a88c40360",
+      "level": "N2",
+      "surface": "慎重",
+      "reading_kana": "しんちょう",
+      "meaning_ko": "신중함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_721dd563bfb9228e",
+      "level": "N2",
+      "surface": "礼",
+      "reading_kana": "れい",
+      "meaning_ko": "예의, 감사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cd408b0b451d9102",
+      "level": "N2",
+      "surface": "粒",
+      "reading_kana": "つぶ",
+      "meaning_ko": "알갱이, 낟알",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_94c0adef044f3154",
+      "level": "N2",
+      "surface": "失う",
+      "reading_kana": "うしなう",
+      "meaning_ko": "잃어버리다,놓치다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bb0e4760b8f1abb5",
+      "level": "N2",
+      "surface": "やがて",
+      "reading_kana": "やがて",
+      "meaning_ko": "이윽고, 머지않아",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_56402bace5da76b9",
+      "level": "N2",
+      "surface": "一種",
+      "reading_kana": "いっしゅ",
+      "meaning_ko": "일종, 한 종류",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_07e4ad7c90c9f270",
+      "level": "N2",
+      "surface": "光景",
+      "reading_kana": "こうけい",
+      "meaning_ko": "광경, 정경",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5ad84e6efba38e04",
+      "level": "N2",
+      "surface": "穏やか",
+      "reading_kana": "おだやか",
+      "meaning_ko": "온화함, 평온함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fdb9df7731c17106",
+      "level": "N2",
+      "surface": "推薦",
+      "reading_kana": "すいせん",
+      "meaning_ko": "추천",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4c1661c06daf7f7a",
+      "level": "N2",
+      "surface": "恐らく",
+      "reading_kana": "おそらく",
+      "meaning_ko": "아마",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_27a721e78687b340",
+      "level": "N2",
+      "surface": "順調",
+      "reading_kana": "じゅんちょう",
+      "meaning_ko": "순조로움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1f9c536db0872b3c",
+      "level": "N2",
+      "surface": "滝",
+      "reading_kana": "たき",
+      "meaning_ko": "폭포",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_32843a7515d283bd",
+      "level": "N2",
+      "surface": "公平",
+      "reading_kana": "こうへい",
+      "meaning_ko": "공평함, 공정함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_80d1fde9c12ec7bb",
+      "level": "N2",
+      "surface": "活発",
+      "reading_kana": "かっぱつ",
+      "meaning_ko": "활발",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_28a0a4b3ffaf3efe",
+      "level": "N2",
+      "surface": "回す",
+      "reading_kana": "まわす",
+      "meaning_ko": "돌리다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_664972e7c1fa3bf3",
+      "level": "N2",
+      "surface": "芝居",
+      "reading_kana": "しばい",
+      "meaning_ko": "연극, 연기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_51b95d78d41ec7ac",
+      "level": "N2",
+      "surface": "陰",
+      "reading_kana": "かげ",
+      "meaning_ko": "그늘, 보이지 않는 이면",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d401fb56e34edd02",
+      "level": "N2",
+      "surface": "先頭",
+      "reading_kana": "せんとう",
+      "meaning_ko": "선두, 맨 앞",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d227708f454fd822",
+      "level": "N2",
+      "surface": "響き",
+      "reading_kana": "ひびき",
+      "meaning_ko": "울림, 여운",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f7bfafb5f809a124",
+      "level": "N2",
+      "surface": "傑作",
+      "reading_kana": "けっさく",
+      "meaning_ko": "걸작",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_21ccbff21988f702",
+      "level": "N2",
+      "surface": "殻",
+      "reading_kana": "から",
+      "meaning_ko": "껍데기, 껍질",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9f5d305308f04941",
+      "level": "N2",
+      "surface": "一流",
+      "reading_kana": "いちりゅう",
+      "meaning_ko": "일류",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_58176a063983c6e1",
+      "level": "N2",
+      "surface": "都心",
+      "reading_kana": "としん",
+      "meaning_ko": "도심",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b9dfaa030a7cffff",
+      "level": "N2",
+      "surface": "仮定",
+      "reading_kana": "かてい",
+      "meaning_ko": "가정, 전제",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_de46662f2a1c5c26",
+      "level": "N2",
+      "surface": "出世",
+      "reading_kana": "しゅっせ",
+      "meaning_ko": "출세",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9424ad8f5a008305",
+      "level": "N2",
+      "surface": "退屈",
+      "reading_kana": "たいくつ",
+      "meaning_ko": "지루함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2f921837b379349c",
+      "level": "N2",
+      "surface": "互い",
+      "reading_kana": "たがい",
+      "meaning_ko": "서로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bc4e8e2c9bcbaef7",
+      "level": "N2",
+      "surface": "卑怯",
+      "reading_kana": "ひきょう",
+      "meaning_ko": "비겁함, 비열함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dd9e841a5617210f",
+      "level": "N2",
+      "surface": "失望",
+      "reading_kana": "しつぼう",
+      "meaning_ko": "실망, 절망",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_089d30f4097e7fb0",
+      "level": "N2",
+      "surface": "電流",
+      "reading_kana": "でんりゅう",
+      "meaning_ko": "전류",
       "category": "기존 유지"
     },
     {
@@ -269,11 +3649,379 @@
       "category": "기존 유지"
     },
     {
+      "word_id": "w_f139e0d7de451723",
+      "level": "N2",
+      "surface": "解答",
+      "reading_kana": "かいとう",
+      "meaning_ko": "해답",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_36671521a2ef775b",
+      "level": "N2",
+      "surface": "愉快",
+      "reading_kana": "ゆかい",
+      "meaning_ko": "유쾌함, 즐거움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bae098e6bbe74e8f",
+      "level": "N2",
+      "surface": "的確",
+      "reading_kana": "てきかく",
+      "meaning_ko": "정확한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d6d9b20dd65a6320",
+      "level": "N2",
+      "surface": "紙幣",
+      "reading_kana": "しへい",
+      "meaning_ko": "지폐",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_353125e13035dad2",
+      "level": "N2",
+      "surface": "向ける",
+      "reading_kana": "むける",
+      "meaning_ko": "향하게 하다, 돌리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3482cf4b6eccd4f4",
+      "level": "N2",
+      "surface": "謙虚",
+      "reading_kana": "けんきょ",
+      "meaning_ko": "겸손, 겸양",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f961b13aeb97fb65",
+      "level": "N2",
+      "surface": "祖先",
+      "reading_kana": "そせん",
+      "meaning_ko": "조상, 선조",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d0a75379a71718d7",
+      "level": "N2",
+      "surface": "半径",
+      "reading_kana": "はんけい",
+      "meaning_ko": "반지름, 반경",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d3f17036d33858fe",
+      "level": "N2",
+      "surface": "摩擦",
+      "reading_kana": "まさつ",
+      "meaning_ko": "마찰",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1e9f921233a4335f",
+      "level": "N2",
+      "surface": "無沙汰",
+      "reading_kana": "ぶさた",
+      "meaning_ko": "소식이 없음, 연락이 뜸함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c5438a2dab2c8feb",
+      "level": "N2",
+      "surface": "ずるい",
+      "reading_kana": "ずるい",
+      "meaning_ko": "교활하다, 치사하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aadadaa037cbec37",
+      "level": "N2",
+      "surface": "文脈",
+      "reading_kana": "ぶんみゃく",
+      "meaning_ko": "문맥",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c3a132674797ae46",
+      "level": "N2",
+      "surface": "目安",
+      "reading_kana": "めやす",
+      "meaning_ko": "(1) 목표 (2) 기준",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6ca1354f895002f3",
+      "level": "N2",
+      "surface": "酔っ払い",
+      "reading_kana": "よっぱらい",
+      "meaning_ko": "술 취한 사람",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a89d7543de8ec945",
+      "level": "N2",
+      "surface": "原油",
+      "reading_kana": "げんゆ",
+      "meaning_ko": "원유",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9ecd6d2a06e93c3c",
+      "level": "N2",
+      "surface": "注ぐ",
+      "reading_kana": "つぐ",
+      "meaning_ko": "붓다, 따르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b9111f44a6cece15",
+      "level": "N2",
+      "surface": "しゃべる",
+      "reading_kana": "しゃべる",
+      "meaning_ko": "말하다, 수다 떨다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_12939f589a0b61a0",
+      "level": "N2",
+      "surface": "芝生",
+      "reading_kana": "しばふ",
+      "meaning_ko": "잔디밭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_990cb75070dc4b99",
+      "level": "N2",
+      "surface": "垂直",
+      "reading_kana": "すいちょく",
+      "meaning_ko": "수직",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a1021aa0cfda591b",
+      "level": "N2",
+      "surface": "劣る",
+      "reading_kana": "おとる",
+      "meaning_ko": "열등하다,뒤떨어지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4cc56aad06b9042e",
+      "level": "N2",
+      "surface": "攻める",
+      "reading_kana": "せめる",
+      "meaning_ko": "공격하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3e3b911293ac6f59",
+      "level": "N2",
+      "surface": "おおよそ",
+      "reading_kana": "おおよそ",
+      "meaning_ko": "대략, 관한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7f446e56ccf4f51c",
+      "level": "N2",
+      "surface": "懸命",
+      "reading_kana": "けんめい",
+      "meaning_ko": "열심임, 필사적임",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d20456aa5e0912bc",
+      "level": "N2",
+      "surface": "雇う",
+      "reading_kana": "やとう",
+      "meaning_ko": "고용하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e4c9461baa503259",
+      "level": "N2",
+      "surface": "目覚まし",
+      "reading_kana": "めざまし",
+      "meaning_ko": "자명종, 알람",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f0a36233a8257efe",
+      "level": "N2",
+      "surface": "黒字",
+      "reading_kana": "くろじ",
+      "meaning_ko": "흑자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_09240cecff085cb3",
+      "level": "N2",
+      "surface": "裏切る",
+      "reading_kana": "うらぎる",
+      "meaning_ko": "배반하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a5d4c58d6109165f",
+      "level": "N2",
+      "surface": "踏切",
+      "reading_kana": "ふみきり",
+      "meaning_ko": "건널목; (도약의) 발구르기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_490c8ee9a9d36b98",
+      "level": "N2",
+      "surface": "修士",
+      "reading_kana": "しゅうし",
+      "meaning_ko": "석사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fbd76b713b13039a",
+      "level": "N2",
+      "surface": "湿気",
+      "reading_kana": "しっき",
+      "meaning_ko": "수분, 습도, 습기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3376541ac6deeaa1",
+      "level": "N2",
+      "surface": "仮名",
+      "reading_kana": "かな",
+      "meaning_ko": "가나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d1b5e8dd16233996",
+      "level": "N2",
+      "surface": "誓う",
+      "reading_kana": "ちかう",
+      "meaning_ko": "맹세하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d4fa467591d76372",
+      "level": "N2",
+      "surface": "脅かす",
+      "reading_kana": "おどかす",
+      "meaning_ko": "위협하다, 강요하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2f7318457b9f7446",
+      "level": "N2",
+      "surface": "ピストル",
+      "reading_kana": "ピストル",
+      "meaning_ko": "권총, 피스톨",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4dbe5a61e64d2816",
+      "level": "N2",
+      "surface": "手洗い",
+      "reading_kana": "てあらい",
+      "meaning_ko": "화장실",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a9fb9a643e41d9f",
+      "level": "N2",
+      "surface": "逆らう",
+      "reading_kana": "さからう",
+      "meaning_ko": "거스르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_615da3adb56a4017",
+      "level": "N2",
+      "surface": "解ける",
+      "reading_kana": "とける",
+      "meaning_ko": "(문제가)풀리다,해결되다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b634948494be7e44",
+      "level": "N2",
+      "surface": "斬る",
+      "reading_kana": "きる",
+      "meaning_ko": "(칼로) 베다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d74b79630f0b2aad",
+      "level": "N2",
+      "surface": "分量",
+      "reading_kana": "ぶんりょう",
+      "meaning_ko": "분량",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_54b907b4edcebc12",
+      "level": "N2",
+      "surface": "逆さ",
+      "reading_kana": "さかさ",
+      "meaning_ko": "거꾸로, 반대",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ea6c29e756462e49",
+      "level": "N2",
+      "surface": "父母",
+      "reading_kana": "ふぼ",
+      "meaning_ko": "아버지 어머니, 부모",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_df68abded50e5667",
+      "level": "N2",
+      "surface": "看病",
+      "reading_kana": "かんびょう",
+      "meaning_ko": "간병",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_007680925f9898a2",
+      "level": "N2",
+      "surface": "火口",
+      "reading_kana": "かこう",
+      "meaning_ko": "분화구",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cc1a7419426c2c4a",
+      "level": "N2",
+      "surface": "四角い",
+      "reading_kana": "しかくい",
+      "meaning_ko": "네모나다",
+      "category": "기존 유지"
+    },
+    {
       "word_id": "w_901d2f293b5d66be",
       "level": "N2",
       "surface": "組合せ",
       "reading_kana": "くみあわせ",
       "meaning_ko": "조합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d0d3f900576edd1c",
+      "level": "N2",
+      "surface": "優れる",
+      "reading_kana": "すぐれる",
+      "meaning_ko": "우수하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c5eee0af43aa0714",
+      "level": "N2",
+      "surface": "定規",
+      "reading_kana": "じょうぎ",
+      "meaning_ko": "자(제도용)",
       "category": "기존 유지"
     },
     {
@@ -285,6 +4033,62 @@
       "category": "기존 유지"
     },
     {
+      "word_id": "w_c0fa2c9662d17f0b",
+      "level": "N2",
+      "surface": "特長",
+      "reading_kana": "とくちょう",
+      "meaning_ko": "특히 뛰어난 장점",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b550b37b661afe05",
+      "level": "N2",
+      "surface": "吊る",
+      "reading_kana": "つる",
+      "meaning_ko": "매달다, 걸다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3b4756b9ec416347",
+      "level": "N2",
+      "surface": "謙遜",
+      "reading_kana": "けんそん",
+      "meaning_ko": "겸양, 겸손",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_85d94fbe16f89348",
+      "level": "N2",
+      "surface": "縫う",
+      "reading_kana": "ぬう",
+      "meaning_ko": "꿰매다, 바느질하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_43c420f6bdcd573b",
+      "level": "N2",
+      "surface": "堪える",
+      "reading_kana": "こらえる",
+      "meaning_ko": "견디다, 참다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3f7be39781ba3513",
+      "level": "N2",
+      "surface": "通ずる",
+      "reading_kana": "つうずる",
+      "meaning_ko": "통하다, 이어지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b69f8cd19581f34a",
+      "level": "N2",
+      "surface": "始終",
+      "reading_kana": "しじゅう",
+      "meaning_ko": "항상, 끊임없이",
+      "category": "기존 유지"
+    },
+    {
       "word_id": "w_d2505f7e95557e03",
       "level": "N2",
       "surface": "打合せ",
@@ -293,11 +4097,67 @@
       "category": "기존 유지"
     },
     {
-      "word_id": "w_a66198a344df39a0",
+      "word_id": "w_1550e1c34be164e4",
       "level": "N2",
-      "surface": "引算",
-      "reading_kana": "ひきざん",
-      "meaning_ko": "뺄셈",
+      "surface": "判子",
+      "reading_kana": "はんこ",
+      "meaning_ko": "도장",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a718136730aa2c54",
+      "level": "N2",
+      "surface": "煉瓦",
+      "reading_kana": "れんが",
+      "meaning_ko": "벽돌",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cc99714ece4e3402",
+      "level": "N2",
+      "surface": "実る",
+      "reading_kana": "みのる",
+      "meaning_ko": "열매를 맺다, 결실하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5a7bd88c0a5719a2",
+      "level": "N2",
+      "surface": "苦心",
+      "reading_kana": "くしん",
+      "meaning_ko": "고심, 애씀",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a1af5d3d26a5e7b2",
+      "level": "N2",
+      "surface": "換える",
+      "reading_kana": "かえる",
+      "meaning_ko": "동등한 것으로 교환하다, 환전하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c4d45c1153b13074",
+      "level": "N2",
+      "surface": "真似る",
+      "reading_kana": "まねる",
+      "meaning_ko": "흉내 내다, 모방하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_992a6e9147e43979",
+      "level": "N2",
+      "surface": "随筆",
+      "reading_kana": "ずいひつ",
+      "meaning_ko": "수필, 에세이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f1fcc99d67415f95",
+      "level": "N2",
+      "surface": "羨む",
+      "reading_kana": "うらやむ",
+      "meaning_ko": "부러워하다",
       "category": "기존 유지"
     },
     {
@@ -309,11 +4169,171 @@
       "category": "기존 유지"
     },
     {
+      "word_id": "w_8e5fc40297a3d335",
+      "level": "N2",
+      "surface": "速力",
+      "reading_kana": "そくりょく",
+      "meaning_ko": "속도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a66198a344df39a0",
+      "level": "N2",
+      "surface": "引き算",
+      "reading_kana": "ひきざん",
+      "meaning_ko": "뺄셈",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_75780c2794106632",
+      "level": "N2",
+      "surface": "騒々しい",
+      "reading_kana": "そうぞうしい",
+      "meaning_ko": "시끄럽다,떠들썩하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e81883cba896b19f",
+      "level": "N2",
+      "surface": "小数",
+      "reading_kana": "しょうすう",
+      "meaning_ko": "소수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_65ce4b6319520a16",
+      "level": "N2",
+      "surface": "長短",
+      "reading_kana": "ちょうたん",
+      "meaning_ko": "길이, 긴 짧은",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_94e5e900e99061d0",
+      "level": "N2",
+      "surface": "生け花",
+      "reading_kana": "いけばな",
+      "meaning_ko": "꽃꽂이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_740c00b0639ea524",
+      "level": "N2",
+      "surface": "しゃっくり",
+      "reading_kana": "しゃっくり",
+      "meaning_ko": "딸꾹질",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_831c5e9a87f0c027",
+      "level": "N2",
+      "surface": "下線",
+      "reading_kana": "かせん",
+      "meaning_ko": "밑줄",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1fb1432fdae5690a",
+      "level": "N2",
+      "surface": "点く",
+      "reading_kana": "つく",
+      "meaning_ko": "켜지다, 불이 붙다; (전기가) 켜지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_55a2bff59971f4fb",
+      "level": "N2",
+      "surface": "漢和",
+      "reading_kana": "かんわ",
+      "meaning_ko": "한일(한자-일본어)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a88976287b450da4",
+      "level": "N2",
+      "surface": "反る",
+      "reading_kana": "かえる",
+      "meaning_ko": "휘다, 뒤틀리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_590d55e05e5f7b6c",
+      "level": "N2",
+      "surface": "躓く",
+      "reading_kana": "つまずく",
+      "meaning_ko": "발이 걸려 넘어지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e1858aa5a7439d43",
+      "level": "N2",
+      "surface": "順々",
+      "reading_kana": "じゅんじゅん",
+      "meaning_ko": "차례차례, 순서대로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f49cc52552a99478",
+      "level": "N2",
+      "surface": "仮名遣い",
+      "reading_kana": "かなづかい",
+      "meaning_ko": "가나 표기법",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_308680a8ffac242b",
+      "level": "N2",
+      "surface": "ぴたり",
+      "reading_kana": "ぴたり",
+      "meaning_ko": "딱, 꼭 맞게",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b1c2aa5444f0f1c7",
+      "level": "N2",
+      "surface": "くるむ",
+      "reading_kana": "くるむ",
+      "meaning_ko": "싸다, 감싸다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_76a0eb1e41436ab7",
+      "level": "N2",
+      "surface": "平らげる",
+      "reading_kana": "たいらげる",
+      "meaning_ko": "다 먹어 치우다, 평정하다",
+      "category": "PDF 신규"
+    },
+    {
       "word_id": "w_7dbaaf931093de54",
       "level": "N2",
       "surface": "銘々",
       "reading_kana": "めいめい",
       "meaning_ko": "각자, 각각",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_837681aeccee5dd7",
+      "level": "N2",
+      "surface": "寒帯",
+      "reading_kana": "かんたい",
+      "meaning_ko": "한대",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_560fcad7938d0b0c",
+      "level": "N2",
+      "surface": "つねる",
+      "reading_kana": "つねる",
+      "meaning_ko": "꼬집다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4c88110f6a425af8",
+      "level": "N2",
+      "surface": "あぶる",
+      "reading_kana": "あぶる",
+      "meaning_ko": "태우다, 그슬리다, 굽다, 볶다",
       "category": "기존 유지"
     },
     {
@@ -325,14 +4345,6 @@
       "category": "기존 유지"
     },
     {
-      "word_id": "w_e4c9461baa503259",
-      "level": "N2",
-      "surface": "目覚し",
-      "reading_kana": "めざまし",
-      "meaning_ko": "자명종, 알람",
-      "category": "기존 유지"
-    },
-    {
       "word_id": "w_c04ce01d6f5db784",
       "level": "N2",
       "surface": "ダイヤグラム",
@@ -341,172 +4353,2340 @@
       "category": "기존 유지"
     },
     {
-      "word_id": "w_8421448456160faa",
+      "word_id": "w_463b73e9be94bc29",
+      "level": "N2",
+      "surface": "萎む",
+      "reading_kana": "しぼむ",
+      "meaning_ko": "시들다, 쪼그라들다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8fceccfb0b0413c3",
       "level": "N1",
-      "surface": "今までになく新しい",
-      "reading_kana": "いままでになくあたらしい",
-      "meaning_ko": "지금까지 없이 새로운",
+      "surface": "何なり",
+      "reading_kana": "なんなり",
+      "meaning_ko": "무엇이든",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cc78ebd8b2b6037f",
+      "level": "N1",
+      "surface": "大らかな",
+      "reading_kana": "おおらかな",
+      "meaning_ko": "대범한",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_b81a9762ee45b4ca",
+      "word_id": "w_261f4b9b11e4087d",
       "level": "N1",
-      "surface": "不安なところ",
-      "reading_kana": "ふあんなところ",
-      "meaning_ko": "불안한 점",
+      "surface": "件",
+      "reading_kana": "けん",
+      "meaning_ko": "건, 사항",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_62ca309fa490e070",
+      "level": "N1",
+      "surface": "おいて",
+      "reading_kana": "おいて",
+      "meaning_ko": "~에 있어서, ~에서",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1739219b9edbbe14",
+      "level": "N1",
+      "surface": "まとめ",
+      "reading_kana": "まとめ",
+      "meaning_ko": "정리, 종합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a5967031d1f5a72a",
+      "level": "N1",
+      "surface": "ポイント",
+      "reading_kana": "ポイント",
+      "meaning_ko": "포인트, 점",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d6176e972e31403c",
+      "level": "N1",
+      "surface": "保護",
+      "reading_kana": "ほご",
+      "meaning_ko": "보호",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_09817d6743813802",
+      "word_id": "w_fcad766eecf8a252",
       "level": "N1",
-      "surface": "他と比べて特によい",
-      "reading_kana": "ほかとくらべてとくによい",
-      "meaning_ko": "다른 것과 비교하여 특히 좋다",
-      "category": "PDF 신규"
+      "surface": "詳細",
+      "reading_kana": "しょうさい",
+      "meaning_ko": "상세",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_680e978c049c2d7a",
+      "word_id": "w_7ea20007b10fcf12",
       "level": "N1",
-      "surface": "大体同じだ",
-      "reading_kana": "だいたいおなじだ",
-      "meaning_ko": "대체로 같다",
-      "category": "PDF 신규"
+      "surface": "作り",
+      "reading_kana": "つくり",
+      "meaning_ko": "만듦, 제작 방식; 구조",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_b74b3f90a0e2ef4d",
+      "word_id": "w_8e3cd551ef6f1b87",
       "level": "N1",
-      "surface": "怒ったような顔をする",
-      "reading_kana": "おこったようなかおをする",
-      "meaning_ko": "화가 난 듯한 얼굴을 하다",
-      "category": "PDF 신규"
+      "surface": "器",
+      "reading_kana": "うつわ",
+      "meaning_ko": "그릇",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_71ae1cd1bef418a4",
+      "word_id": "w_84a0c4c5c15256e3",
       "level": "N1",
-      "surface": "ロスする",
-      "reading_kana": "ロスする",
-      "meaning_ko": "헛되이 쓰다",
-      "category": "PDF 신규"
+      "surface": "無駄",
+      "reading_kana": "むだ",
+      "meaning_ko": "헛됨, 낭비",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_9d5a34da95f2f027",
+      "word_id": "w_d1b2f5e0607db40a",
       "level": "N1",
-      "surface": "詳しく丁寧に",
-      "reading_kana": "くわしくていねいに",
-      "meaning_ko": "자세하고 꼼꼼하게",
-      "category": "PDF 신규"
+      "surface": "掲載",
+      "reading_kana": "けいさい",
+      "meaning_ko": "게재",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_73cded3df40c0ac2",
+      "word_id": "w_73c19cef3eb31afc",
       "level": "N1",
-      "surface": "一度に大勢来る",
-      "reading_kana": "いちどにおおぜいくる",
-      "meaning_ko": "한꺼번에 많이 몰려들다",
-      "category": "PDF 신규"
+      "surface": "導入",
+      "reading_kana": "どうにゅう",
+      "meaning_ko": "도입",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_96879858cc1acc3a",
+      "word_id": "w_8c833afbe284fa11",
       "level": "N1",
-      "surface": "便利で役に立つ",
-      "reading_kana": "べんりでやくにたつ",
-      "meaning_ko": "편리해서 쓸모가 있다",
-      "category": "PDF 신규"
+      "surface": "天",
+      "reading_kana": "てん",
+      "meaning_ko": "하늘, 천국",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_6fe42c797390a279",
+      "word_id": "w_ec04d6fa6e64036f",
       "level": "N1",
-      "surface": "意外につまらない",
-      "reading_kana": "いがいにつまらない",
-      "meaning_ko": "의외로 시시하다",
-      "category": "PDF 신규"
+      "surface": "頂き",
+      "reading_kana": "いただき",
+      "meaning_ko": "이기는 일, 무단 도용",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_56a1039c8162e796",
+      "word_id": "w_e596b084e6eb9cf6",
       "level": "N1",
-      "surface": "細かく丁寧に",
-      "reading_kana": "こまかくていねいに",
-      "meaning_ko": "섬세하고 정성껏",
-      "category": "PDF 신규"
+      "surface": "タイム",
+      "reading_kana": "タイム",
+      "meaning_ko": "시간, 때",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_5dfbd4797c0ee663",
+      "word_id": "w_f1048c84e4c6ddcb",
       "level": "N1",
-      "surface": "熱心に取り組む",
-      "reading_kana": "ねっしんにとりくむ",
-      "meaning_ko": "열심히 몰두하다",
-      "category": "PDF 신규"
+      "surface": "悪",
+      "reading_kana": "あく",
+      "meaning_ko": "악",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_83e779f20086d7c7",
+      "word_id": "w_dfcae20b38b4ffcf",
       "level": "N1",
-      "surface": "簡素だ",
-      "reading_kana": "かんそだ",
-      "meaning_ko": "간소하다",
-      "category": "PDF 신규"
+      "surface": "魂",
+      "reading_kana": "たましい",
+      "meaning_ko": "영혼",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_3884d5cbe10b1a2d",
+      "word_id": "w_c56f799a1d41599e",
       "level": "N1",
-      "surface": "曇っていて暗い",
-      "reading_kana": "くもっていてくらい",
-      "meaning_ko": "흐리고 어둡다",
-      "category": "PDF 신규"
+      "surface": "ルール",
+      "reading_kana": "ルール",
+      "meaning_ko": "룰, 규칙, 자",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_2a2702f1f74ccfdc",
+      "word_id": "w_3b4224a4660d1da3",
       "level": "N1",
-      "surface": "手足まとい",
-      "reading_kana": "てあしまとい",
-      "meaning_ko": "방해, 훼방, 걸림돌",
-      "category": "PDF 신규"
+      "surface": "政策",
+      "reading_kana": "せいさく",
+      "meaning_ko": "정책",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_4cc19e15e367d9bf",
+      "word_id": "w_df20da25c79e74b0",
       "level": "N1",
-      "surface": "つかの間の",
-      "reading_kana": "つかのまの",
-      "meaning_ko": "짧은, 잠깐 동안의",
-      "category": "PDF 신규"
+      "surface": "獣",
+      "reading_kana": "けだもの",
+      "meaning_ko": "짐승, 야수",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_912da0fe9257c8dc",
+      "word_id": "w_abbb0d75fda64d06",
       "level": "N1",
-      "surface": "どんよりした天気だ",
-      "reading_kana": "どんよりしたてんきだ",
-      "meaning_ko": "우중충한 날씨다",
-      "category": "PDF 신규"
+      "surface": "もしくは",
+      "reading_kana": "もしくは",
+      "meaning_ko": "또는, 그렇지 않으면",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_70d376775b49e19c",
+      "word_id": "w_ed8aae9d747d05eb",
       "level": "N1",
-      "surface": "裏づけ",
-      "reading_kana": "うらづけ",
-      "meaning_ko": "뒷받침, 증거",
-      "category": "PDF 신규"
+      "surface": "ベスト",
+      "reading_kana": "ベスト",
+      "meaning_ko": "최고, 가장 좋은",
+      "category": "기존 유지"
     },
     {
-      "word_id": "w_9c28ebc71a102542",
+      "word_id": "w_d31bf4bf0503b277",
       "level": "N1",
-      "surface": "非常に素晴らしいとほめる",
-      "reading_kana": "ひじょうにすばらしいとほめる",
-      "meaning_ko": "매우 훌륭하다고 칭찬하다",
-      "category": "PDF 신규"
+      "surface": "伝説",
+      "reading_kana": "でんせつ",
+      "meaning_ko": "전설",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f697536ea7782442",
+      "level": "N1",
+      "surface": "慣れ",
+      "reading_kana": "なれ",
+      "meaning_ko": "익숙함, 버릇",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a8b9fc35622cafd",
+      "level": "N1",
+      "surface": "かつて",
+      "reading_kana": "かつて",
+      "meaning_ko": "한 번, 전",
+      "category": "기존 유지"
     },
     {
       "word_id": "w_628691a446bfd8e5",
       "level": "N1",
-      "surface": "じゃまする",
+      "surface": "邪魔する",
       "reading_kana": "じゃまする",
       "meaning_ko": "방해하다, 훼방 놓다",
       "category": "PDF 신규"
     },
     {
-      "word_id": "w_548067bd0dc1e719",
+      "word_id": "w_3cf0e4c9fa08b8de",
       "level": "N1",
-      "surface": "返事をしぶっている",
-      "reading_kana": "へんじをしぶっている",
-      "meaning_ko": "대답하기를 꺼리다, 주저하다",
+      "surface": "額",
+      "reading_kana": "がく",
+      "meaning_ko": "금액; 액자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c14a80974b96c924",
+      "level": "N1",
+      "surface": "公",
+      "reading_kana": "おおやけ",
+      "meaning_ko": "공(公), 공적임",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a634c297cfa679d5",
+      "level": "N1",
+      "surface": "流し",
+      "reading_kana": "ながし",
+      "meaning_ko": "싱크대, 개수대",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9da2e123dfafec2a",
+      "level": "N1",
+      "surface": "驚き",
+      "reading_kana": "おどろき",
+      "meaning_ko": "놀라움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d2520d0fb5cd0789",
+      "level": "N1",
+      "surface": "運命",
+      "reading_kana": "うんめい",
+      "meaning_ko": "운명",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5d5651c7cda77899",
+      "level": "N1",
+      "surface": "源",
+      "reading_kana": "みなもと",
+      "meaning_ko": "근원, 원천",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_82e5e160001eb4f6",
+      "level": "N1",
+      "surface": "扉",
+      "reading_kana": "とびら",
+      "meaning_ko": "문, 문짝",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_554c28124edda631",
+      "level": "N1",
+      "surface": "悩み",
+      "reading_kana": "なやみ",
+      "meaning_ko": "고민, 고뇌",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7d2dc2d277bc090f",
+      "level": "N1",
+      "surface": "把握",
+      "reading_kana": "はあく",
+      "meaning_ko": "파악",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e95c54bc071c4506",
+      "level": "N1",
+      "surface": "風俗",
+      "reading_kana": "ふうぞく",
+      "meaning_ko": "풍속",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_45c375e94f7656fe",
+      "level": "N1",
+      "surface": "勢力",
+      "reading_kana": "せいりょく",
+      "meaning_ko": "세력",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d10439ce737d3db9",
+      "level": "N1",
+      "surface": "大幅",
+      "reading_kana": "おおはば",
+      "meaning_ko": "대폭, 큰 폭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e0a437157871a7d1",
+      "level": "N1",
+      "surface": "閉鎖",
+      "reading_kana": "へいさ",
+      "meaning_ko": "폐쇄",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_45ce928fd48f6bb5",
+      "level": "N1",
+      "surface": "拡散",
+      "reading_kana": "かくさん",
+      "meaning_ko": "확산",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b98563c83919ac09",
+      "level": "N1",
+      "surface": "逆転",
+      "reading_kana": "ぎゃくてん",
+      "meaning_ko": "역전",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9e8acb6258c3a894",
+      "level": "N1",
+      "surface": "乙",
+      "reading_kana": "おつ",
+      "meaning_ko": "을, 둘째",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6ad1f4e202e57ef9",
+      "level": "N1",
+      "surface": "主演",
+      "reading_kana": "しゅえん",
+      "meaning_ko": "주연",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_21dd11caaa9c3389",
+      "level": "N1",
+      "surface": "事項",
+      "reading_kana": "じこう",
+      "meaning_ko": "사항, 항목",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e8838443a374451a",
+      "level": "N1",
+      "surface": "警戒",
+      "reading_kana": "けいかい",
+      "meaning_ko": "경계",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8a2ad47b70efabde",
+      "level": "N1",
+      "surface": "原則",
+      "reading_kana": "げんそく",
+      "meaning_ko": "원칙, 일반 규칙",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7631fcb7cc1b6dff",
+      "level": "N1",
+      "surface": "合意",
+      "reading_kana": "ごうい",
+      "meaning_ko": "합의",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aa4d76b169602e1e",
+      "level": "N1",
+      "surface": "関与",
+      "reading_kana": "かんよ",
+      "meaning_ko": "관여",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a758e3786f37f911",
+      "level": "N1",
+      "surface": "加入",
+      "reading_kana": "かにゅう",
+      "meaning_ko": "가입",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ce70656918f80907",
+      "level": "N1",
+      "surface": "いい加減に",
+      "reading_kana": "いいかげんに",
+      "meaning_ko": "대충",
       "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_60f0df77a7c73dbf",
+      "level": "N1",
+      "surface": "無効",
+      "reading_kana": "むこう",
+      "meaning_ko": "무효",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ece3fbaf654b9a73",
+      "level": "N1",
+      "surface": "何より",
+      "reading_kana": "なにより",
+      "meaning_ko": "무엇보다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ff6f5d47acd78352",
+      "level": "N1",
+      "surface": "止める",
+      "reading_kana": "とどめる",
+      "meaning_ko": "끝나다, 끝내다, 멈추다, 그치다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fa131223d290a13b",
+      "level": "N1",
+      "surface": "切り替え",
+      "reading_kana": "きりかえ",
+      "meaning_ko": "전환, 교체",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_10284144fa6f8fa9",
+      "level": "N1",
+      "surface": "提示",
+      "reading_kana": "ていじ",
+      "meaning_ko": "제시",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_adf721446e795271",
+      "level": "N1",
+      "surface": "いかに",
+      "reading_kana": "いかに",
+      "meaning_ko": "어떻게, 얼마나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c13cfcc3d42bae6a",
+      "level": "N1",
+      "surface": "刃",
+      "reading_kana": "は",
+      "meaning_ko": "칼날, 날",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_64dfcc4f12aada1c",
+      "level": "N1",
+      "surface": "要因",
+      "reading_kana": "よういん",
+      "meaning_ko": "주요 요인, 원인",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2d9827cc0a03a024",
+      "level": "N1",
+      "surface": "ペア",
+      "reading_kana": "ペア",
+      "meaning_ko": "쌍, 페어",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7c46a6f6431772cc",
+      "level": "N1",
+      "surface": "到達",
+      "reading_kana": "とうたつ",
+      "meaning_ko": "도착",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8fad3869170794a3",
+      "level": "N1",
+      "surface": "ポジション",
+      "reading_kana": "ポジション",
+      "meaning_ko": "위치, 직위",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cbb543268703906e",
+      "level": "N1",
+      "surface": "ポーズ",
+      "reading_kana": "ポーズ",
+      "meaning_ko": "포즈; 일시정지",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e99a3d245db86373",
+      "level": "N1",
+      "surface": "最中",
+      "reading_kana": "さなか",
+      "meaning_ko": "~의 한가운데, 한가운데",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e4296f4107742e4b",
+      "level": "N1",
+      "surface": "頻繁",
+      "reading_kana": "ひんぱん",
+      "meaning_ko": "빈번함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3bbc70297217f43c",
+      "level": "N1",
+      "surface": "得点",
+      "reading_kana": "とくてん",
+      "meaning_ko": "득점, 점수",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9a395510e537f626",
+      "level": "N1",
+      "surface": "放射",
+      "reading_kana": "ほうしゃ",
+      "meaning_ko": "방사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_25dc46a0c87b3106",
+      "level": "N1",
+      "surface": "自主",
+      "reading_kana": "じしゅ",
+      "meaning_ko": "자율",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_79707d3c49949938",
+      "level": "N1",
+      "surface": "まして",
+      "reading_kana": "まして",
+      "meaning_ko": "하물며, 더구나",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2aec0f55185205c2",
+      "level": "N1",
+      "surface": "人格",
+      "reading_kana": "じんかく",
+      "meaning_ko": "인격, 성격",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_74f7e87454f7a2e7",
+      "level": "N1",
+      "surface": "勘弁",
+      "reading_kana": "かんべん",
+      "meaning_ko": "용서, 봐줌",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_feb8a6959fbed24d",
+      "level": "N1",
+      "surface": "法案",
+      "reading_kana": "ほうあん",
+      "meaning_ko": "법안",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_438b4e3738285666",
+      "level": "N1",
+      "surface": "改良",
+      "reading_kana": "かいりょう",
+      "meaning_ko": "개선, 개혁",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a78b92fcce84b74c",
+      "level": "N1",
+      "surface": "神話",
+      "reading_kana": "しんわ",
+      "meaning_ko": "신화",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2119dd3cac2a55fa",
+      "level": "N1",
+      "surface": "救い",
+      "reading_kana": "すくい",
+      "meaning_ko": "구원; 도움",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_47f0de68cb63d845",
+      "level": "N1",
+      "surface": "敗北",
+      "reading_kana": "はいぼく",
+      "meaning_ko": "패배",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_901f77d9d5da56ba",
+      "level": "N1",
+      "surface": "軌道",
+      "reading_kana": "きどう",
+      "meaning_ko": "궤도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a2229cae37a5ea49",
+      "level": "N1",
+      "surface": "大衆",
+      "reading_kana": "たいしゅう",
+      "meaning_ko": "대중",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b7f37f0b0a8a7c3a",
+      "level": "N1",
+      "surface": "循環",
+      "reading_kana": "じゅんかん",
+      "meaning_ko": "순환",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ec9e607fc8bac604",
+      "level": "N1",
+      "surface": "欲深い",
+      "reading_kana": "よくふかい",
+      "meaning_ko": "욕심 많다, 탐욕스럽다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_82a8a19743899089",
+      "level": "N1",
+      "surface": "内緒",
+      "reading_kana": "ないしょ",
+      "meaning_ko": "비밀",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_261a31967386799c",
+      "level": "N1",
+      "surface": "救済",
+      "reading_kana": "きゅうさい",
+      "meaning_ko": "구제",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cf3403f54f35fc2a",
+      "level": "N1",
+      "surface": "身近",
+      "reading_kana": "みぢか",
+      "meaning_ko": "가까움; 친근함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bdc17fa0eb47ede4",
+      "level": "N1",
+      "surface": "適応",
+      "reading_kana": "てきおう",
+      "meaning_ko": "적응",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7afeef330fc15b64",
+      "level": "N1",
+      "surface": "中断",
+      "reading_kana": "ちゅうだん",
+      "meaning_ko": "중단",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_187ac653f45445ca",
+      "level": "N1",
+      "surface": "偽物",
+      "reading_kana": "にせもの",
+      "meaning_ko": "가짜, 모조품",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7a938494b57487ba",
+      "level": "N1",
+      "surface": "対話",
+      "reading_kana": "たいわ",
+      "meaning_ko": "대화",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dc9def9080ab25bb",
+      "level": "N1",
+      "surface": "干渉",
+      "reading_kana": "かんしょう",
+      "meaning_ko": "간섭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b44f480ca7aab826",
+      "level": "N1",
+      "surface": "意向",
+      "reading_kana": "いこう",
+      "meaning_ko": "의향, 의도",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_761f14d952676452",
+      "level": "N1",
+      "surface": "戦力",
+      "reading_kana": "せんりょく",
+      "meaning_ko": "전력",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_403a2b956d0a226d",
+      "level": "N1",
+      "surface": "潮",
+      "reading_kana": "しお",
+      "meaning_ko": "조수, 밀물 썰물",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_057776e0e75563f7",
+      "level": "N1",
+      "surface": "傷付く",
+      "reading_kana": "きずつく",
+      "meaning_ko": "상처받다, 다치다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cf8ca12b18f7c25c",
+      "level": "N1",
+      "surface": "分裂",
+      "reading_kana": "ぶんれつ",
+      "meaning_ko": "분열",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ae70c9f3987fc920",
+      "level": "N1",
+      "surface": "ハードル",
+      "reading_kana": "ハードル",
+      "meaning_ko": "허들, 장애물",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_ef464edeb0e0b963",
+      "level": "N1",
+      "surface": "一括",
+      "reading_kana": "いっかつ",
+      "meaning_ko": "모두 함께",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2a768ef5dc0abdb7",
+      "level": "N1",
+      "surface": "タンパク質",
+      "reading_kana": "たんぱくしつ",
+      "meaning_ko": "단백질",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a38cf5c75dcec358",
+      "level": "N1",
+      "surface": "チェンジ",
+      "reading_kana": "チェンジ",
+      "meaning_ko": "체인지, 교체",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bdc8ea0e85d8bb6b",
+      "level": "N1",
+      "surface": "潜入",
+      "reading_kana": "せんにゅう",
+      "meaning_ko": "잠입",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9d47209b0cfa3586",
+      "level": "N1",
+      "surface": "秩序",
+      "reading_kana": "ちつじょ",
+      "meaning_ko": "질서",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e8daa12da79cf049",
+      "level": "N1",
+      "surface": "手当",
+      "reading_kana": "てあて",
+      "meaning_ko": "수당; 처치, 치료",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_07b3929512d229c4",
+      "level": "N1",
+      "surface": "来場",
+      "reading_kana": "らいじょう",
+      "meaning_ko": "(행사장에) 옴, 참석",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c7a2b0e5ff4b6e30",
+      "level": "N1",
+      "surface": "爽やかだ",
+      "reading_kana": "さわやかだ",
+      "meaning_ko": "상쾌하다, 산뜻하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_d3797d8c5a619371",
+      "level": "N1",
+      "surface": "結合",
+      "reading_kana": "けつごう",
+      "meaning_ko": "결합",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dfb61c53e9141aa6",
+      "level": "N1",
+      "surface": "アプローチ",
+      "reading_kana": "アプローチ",
+      "meaning_ko": "접근, 어프로치",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_939aa72a47ad3ceb",
+      "level": "N1",
+      "surface": "ふさわしい",
+      "reading_kana": "ふさわしい",
+      "meaning_ko": "어울리다, 적합하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_eb45aef721aa44a5",
+      "level": "N1",
+      "surface": "占領",
+      "reading_kana": "せんりょう",
+      "meaning_ko": "점령",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5d7a9d090c61dd89",
+      "level": "N1",
+      "surface": "人民",
+      "reading_kana": "じんみん",
+      "meaning_ko": "인민",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1380616a4a83aca5",
+      "level": "N1",
+      "surface": "合唱",
+      "reading_kana": "がっしょう",
+      "meaning_ko": "합창",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bcc508128b2b031b",
+      "level": "N1",
+      "surface": "意欲",
+      "reading_kana": "いよく",
+      "meaning_ko": "의욕",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a691689e7604b569",
+      "level": "N1",
+      "surface": "きっちり",
+      "reading_kana": "きっちり",
+      "meaning_ko": "정확히, 단단히",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_012a3956391c7abf",
+      "level": "N1",
+      "surface": "揃い",
+      "reading_kana": "そろい",
+      "meaning_ko": "갖춰짐, 한 벌",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1a549e7eef1574a3",
+      "level": "N1",
+      "surface": "動向",
+      "reading_kana": "どうこう",
+      "meaning_ko": "동향",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0448ba5ff37549ec",
+      "level": "N1",
+      "surface": "牧師",
+      "reading_kana": "ぼくし",
+      "meaning_ko": "목사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a4a16cdd90bcef18",
+      "level": "N1",
+      "surface": "誠実",
+      "reading_kana": "せいじつ",
+      "meaning_ko": "성실",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e620643324cad3ba",
+      "level": "N1",
+      "surface": "点検",
+      "reading_kana": "てんけん",
+      "meaning_ko": "검사, 점검, 시험, 확인하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fb4934c89048adc0",
+      "level": "N1",
+      "surface": "著名",
+      "reading_kana": "ちょめい",
+      "meaning_ko": "저명함, 유명함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_951746f7e1a78e82",
+      "level": "N1",
+      "surface": "世論",
+      "reading_kana": "せろん",
+      "meaning_ko": "여론",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_df40eb9087b51ff0",
+      "level": "N1",
+      "surface": "世論",
+      "reading_kana": "よろん",
+      "meaning_ko": "여론",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a0aa509058c2107f",
+      "level": "N1",
+      "surface": "壮大",
+      "reading_kana": "そうだい",
+      "meaning_ko": "웅장함, 장대함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_dc5c65175e51fda2",
+      "level": "N1",
+      "surface": "出生",
+      "reading_kana": "しゅっせい",
+      "meaning_ko": "출생",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3a00e4e99b5969c2",
+      "level": "N1",
+      "surface": "区画",
+      "reading_kana": "くかく",
+      "meaning_ko": "구획",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2026b6b32990426e",
+      "level": "N1",
+      "surface": "定食",
+      "reading_kana": "ていしょく",
+      "meaning_ko": "정식(定食)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_30e8d0be8f689047",
+      "level": "N1",
+      "surface": "無言",
+      "reading_kana": "むごん",
+      "meaning_ko": "무언, 침묵",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9ded52127611be05",
+      "level": "N1",
+      "surface": "ライス",
+      "reading_kana": "ライス",
+      "meaning_ko": "밥, 라이스",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_832f7650808f7bdf",
+      "level": "N1",
+      "surface": "参議院",
+      "reading_kana": "さんぎいん",
+      "meaning_ko": "참의원",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_77a9e1ec6c651702",
+      "level": "N1",
+      "surface": "不調",
+      "reading_kana": "ふちょう",
+      "meaning_ko": "부진, 컨디션 난조",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a05d5c98b69beed",
+      "level": "N1",
+      "surface": "有益",
+      "reading_kana": "ゆうえき",
+      "meaning_ko": "유익",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b904e336b1dfe11f",
+      "level": "N1",
+      "surface": "武力",
+      "reading_kana": "ぶりょく",
+      "meaning_ko": "무력",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_52019f7d0cd6186e",
+      "level": "N1",
+      "surface": "概ね",
+      "reading_kana": "おおむね",
+      "meaning_ko": "대체로, 대강",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_862152d331038cdb",
+      "level": "N1",
+      "surface": "些細な",
+      "reading_kana": "ささいな",
+      "meaning_ko": "사소한",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_b8c4ef09992a5ee5",
+      "level": "N1",
+      "surface": "家計",
+      "reading_kana": "かけい",
+      "meaning_ko": "가계",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_78625cf777310f79",
+      "level": "N1",
+      "surface": "精密",
+      "reading_kana": "せいみつ",
+      "meaning_ko": "정밀함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6ed74d9ae056d361",
+      "level": "N1",
+      "surface": "補足",
+      "reading_kana": "ほそく",
+      "meaning_ko": "보충, 보완",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_afffd3debfe297c0",
+      "level": "N1",
+      "surface": "セクション",
+      "reading_kana": "セクション",
+      "meaning_ko": "부분, 구역",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8d691c6743afec92",
+      "level": "N1",
+      "surface": "嗜好",
+      "reading_kana": "しこう",
+      "meaning_ko": "맛, 호감, 취향",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c73145fc9684b446",
+      "level": "N1",
+      "surface": "レイアウト",
+      "reading_kana": "レイアウト",
+      "meaning_ko": "레이아웃",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_3481ee8d26e6a38e",
+      "level": "N1",
+      "surface": "時折",
+      "reading_kana": "ときおり",
+      "meaning_ko": "가끔",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_caa241d87648dec7",
+      "level": "N1",
+      "surface": "規範",
+      "reading_kana": "きはん",
+      "meaning_ko": "규범",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1ef4822a952c095f",
+      "level": "N1",
+      "surface": "早急",
+      "reading_kana": "そうきゅう",
+      "meaning_ko": "긴급한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fde1cf586d8156ad",
+      "level": "N1",
+      "surface": "観覧",
+      "reading_kana": "かんらん",
+      "meaning_ko": "관람",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d6fcc4d9c768c61a",
+      "level": "N1",
+      "surface": "ありのまま",
+      "reading_kana": "ありのまま",
+      "meaning_ko": "있는 그대로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_60863c261b92a307",
+      "level": "N1",
+      "surface": "満月",
+      "reading_kana": "まんげつ",
+      "meaning_ko": "보름달",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0d2e035038fd2112",
+      "level": "N1",
+      "surface": "仕える",
+      "reading_kana": "つかえる",
+      "meaning_ko": "섬기다, 모시다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_746d61e272b8cc2f",
+      "level": "N1",
+      "surface": "樹木",
+      "reading_kana": "じゅもく",
+      "meaning_ko": "수목(큰나무)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_955f496f0673fc78",
+      "level": "N1",
+      "surface": "粋",
+      "reading_kana": "すい",
+      "meaning_ko": "정수; 세련됨, 멋",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f90dd87cee0db62b",
+      "level": "N1",
+      "surface": "首輪",
+      "reading_kana": "くびわ",
+      "meaning_ko": "목걸이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f5c412b586dc076e",
+      "level": "N1",
+      "surface": "昼飯",
+      "reading_kana": "ひるめし",
+      "meaning_ko": "점심밥",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5b7fd1bea9bcb1f8",
+      "level": "N1",
+      "surface": "歩み",
+      "reading_kana": "あゆみ",
+      "meaning_ko": "걸음; 발자취",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4b6c5f6b362085b4",
+      "level": "N1",
+      "surface": "胴",
+      "reading_kana": "どう",
+      "meaning_ko": "몸통, 동체",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_91c6df1ecc084985",
+      "level": "N1",
+      "surface": "医院",
+      "reading_kana": "いいん",
+      "meaning_ko": "의원, 병원",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a2ca8933cc0dd519",
+      "level": "N1",
+      "surface": "君主",
+      "reading_kana": "くんしゅ",
+      "meaning_ko": "군주",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0d28835187d6eee7",
+      "level": "N1",
+      "surface": "街頭",
+      "reading_kana": "がいとう",
+      "meaning_ko": "가두, 길거리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1f45eb00e24b3e52",
+      "level": "N1",
+      "surface": "後援",
+      "reading_kana": "こうえん",
+      "meaning_ko": "후원",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_2dccc1a101f78c42",
+      "level": "N1",
+      "surface": "静止",
+      "reading_kana": "せいし",
+      "meaning_ko": "정지, 멈춰 있음",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a3537166f0f4ae34",
+      "level": "N1",
+      "surface": "なおさら",
+      "reading_kana": "なおさら",
+      "meaning_ko": "더욱더, 한층",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a4f5956737afa7f1",
+      "level": "N1",
+      "surface": "タイムリー",
+      "reading_kana": "タイムリー",
+      "meaning_ko": "적시, 시기적절",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aa132fab9dcd35ac",
+      "level": "N1",
+      "surface": "跡地",
+      "reading_kana": "あとち",
+      "meaning_ko": "철거부지,철거후공터",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_18904ffc4733404c",
+      "level": "N1",
+      "surface": "取り扱う",
+      "reading_kana": "とりあつかう",
+      "meaning_ko": "취급하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b0f4bce3104bf1ab",
+      "level": "N1",
+      "surface": "私物",
+      "reading_kana": "しぶつ",
+      "meaning_ko": "사물(私物), 개인 물품",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6ab2d0dd61671815",
+      "level": "N1",
+      "surface": "タイマー",
+      "reading_kana": "タイマー",
+      "meaning_ko": "타이머",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9092ea68f72469c1",
+      "level": "N1",
+      "surface": "多忙",
+      "reading_kana": "たぼう",
+      "meaning_ko": "바쁜",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c5e51aed47831b05",
+      "level": "N1",
+      "surface": "宿命",
+      "reading_kana": "しゅくめい",
+      "meaning_ko": "숙명",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e8f558ead6bebcd3",
+      "level": "N1",
+      "surface": "茎",
+      "reading_kana": "くき",
+      "meaning_ko": "줄기",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9ee9519d3d6e7bd7",
+      "level": "N1",
+      "surface": "慣習",
+      "reading_kana": "かんしゅう",
+      "meaning_ko": "관습",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9e55eb5c7f99fe7e",
+      "level": "N1",
+      "surface": "質疑",
+      "reading_kana": "しつぎ",
+      "meaning_ko": "질문",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_742cd942953ffea7",
+      "level": "N1",
+      "surface": "叶える",
+      "reading_kana": "かなえる",
+      "meaning_ko": "(소원을) 이루어 주다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_58223d6e37dec2ed",
+      "level": "N1",
+      "surface": "束縛",
+      "reading_kana": "そくばく",
+      "meaning_ko": "속박",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_41a731451248d09c",
+      "level": "N1",
+      "surface": "蜂蜜",
+      "reading_kana": "はちみつ",
+      "meaning_ko": "꿀",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f60f7b55eba0baba",
+      "level": "N1",
+      "surface": "見逃す",
+      "reading_kana": "みのがす",
+      "meaning_ko": "놓치다, 못 보고 지나치다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7ea1acd07319c07b",
+      "level": "N1",
+      "surface": "滅ぼす",
+      "reading_kana": "ほろぼす",
+      "meaning_ko": "파괴하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0fd551cc4c3b764e",
+      "level": "N1",
+      "surface": "舐める",
+      "reading_kana": "なめる",
+      "meaning_ko": "핥다; 깔보다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_33a0503a775f913b",
+      "level": "N1",
+      "surface": "主題",
+      "reading_kana": "しゅだい",
+      "meaning_ko": "주제",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2266502a4f3421c5",
+      "level": "N1",
+      "surface": "境遇",
+      "reading_kana": "きょうぐう",
+      "meaning_ko": "처지, 환경",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a431987b55d0e484",
+      "level": "N1",
+      "surface": "外相",
+      "reading_kana": "がいしょう",
+      "meaning_ko": "외무장관, 외상",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9ba5cbd4b3f88eaf",
+      "level": "N1",
+      "surface": "等級",
+      "reading_kana": "とうきゅう",
+      "meaning_ko": "등급",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ad972bb9cdd76f87",
+      "level": "N1",
+      "surface": "見積もり",
+      "reading_kana": "みつもり",
+      "meaning_ko": "견적",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_65606b73cdf4a0cf",
+      "level": "N1",
+      "surface": "貨幣",
+      "reading_kana": "かへい",
+      "meaning_ko": "화폐",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e1145cd44757f7f5",
+      "level": "N1",
+      "surface": "勇敢",
+      "reading_kana": "ゆうかん",
+      "meaning_ko": "용감함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3fb79a05ecdeb8e2",
+      "level": "N1",
+      "surface": "勇敢に",
+      "reading_kana": "ゆうかんに",
+      "meaning_ko": "용감하게",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_1d699c2a8756a1c8",
+      "level": "N1",
+      "surface": "強硬",
+      "reading_kana": "きょうこう",
+      "meaning_ko": "강경함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8d440df94f874e3d",
+      "level": "N1",
+      "surface": "新入生",
+      "reading_kana": "しんにゅうせい",
+      "meaning_ko": "신입생",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5fb23e40323c5963",
+      "level": "N1",
+      "surface": "生死",
+      "reading_kana": "せいし",
+      "meaning_ko": "생사",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_eba9581d78f14e32",
+      "level": "N1",
+      "surface": "堤防",
+      "reading_kana": "ていぼう",
+      "meaning_ko": "제방, 둑",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_21dc3cb4f88ffbf3",
+      "level": "N1",
+      "surface": "舗装",
+      "reading_kana": "ほそう",
+      "meaning_ko": "포장(도로)",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_63c68701b9f2b26c",
+      "level": "N1",
+      "surface": "露骨",
+      "reading_kana": "ろこつ",
+      "meaning_ko": "노골적임",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_99e906af14f1bfca",
+      "level": "N1",
+      "surface": "着目",
+      "reading_kana": "ちゃくもく",
+      "meaning_ko": "착안, 주목",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ce400948a4bd2903",
+      "level": "N1",
+      "surface": "税務署",
+      "reading_kana": "ぜいむしょ",
+      "meaning_ko": "세무서",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5e43e0cb458f8a0d",
+      "level": "N1",
+      "surface": "船舶",
+      "reading_kana": "せんぱく",
+      "meaning_ko": "배",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_68f04444965e780c",
+      "level": "N1",
+      "surface": "藁",
+      "reading_kana": "わら",
+      "meaning_ko": "짚",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_43f82e716a8f1a33",
+      "level": "N1",
+      "surface": "製法",
+      "reading_kana": "せいほう",
+      "meaning_ko": "제법, 만드는 법",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f6a5dec8e420f557",
+      "level": "N1",
+      "surface": "世辞",
+      "reading_kana": "せじ",
+      "meaning_ko": "아첨, 빈말",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_297abfe50b158c32",
+      "level": "N1",
+      "surface": "区切り",
+      "reading_kana": "くぎり",
+      "meaning_ko": "단락, 매듭",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4d7acd386cf44adf",
+      "level": "N1",
+      "surface": "危害",
+      "reading_kana": "きがい",
+      "meaning_ko": "위해, 해",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e662da8e9deb3398",
+      "level": "N1",
+      "surface": "所定",
+      "reading_kana": "しょてい",
+      "meaning_ko": "소정의, 정해진",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9e880a7b23f69c39",
+      "level": "N1",
+      "surface": "無論",
+      "reading_kana": "むろん",
+      "meaning_ko": "물론",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_75205a17731b4a26",
+      "level": "N1",
+      "surface": "切実",
+      "reading_kana": "せつじつ",
+      "meaning_ko": "절실함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4590fbf50ef6f9fe",
+      "level": "N1",
+      "surface": "密集",
+      "reading_kana": "みっしゅう",
+      "meaning_ko": "밀집",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9bbd560585f647bf",
+      "level": "N1",
+      "surface": "格段",
+      "reading_kana": "かくだん",
+      "meaning_ko": "현격함,차이가큼",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_cdbd72d7aa724c5d",
+      "level": "N1",
+      "surface": "偏り",
+      "reading_kana": "かたより",
+      "meaning_ko": "치우침, 편향",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_d68f81e25ebc16a6",
+      "level": "N1",
+      "surface": "天地",
+      "reading_kana": "てんち",
+      "meaning_ko": "천지, 하늘과 땅",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7242f9295eb55a17",
+      "level": "N1",
+      "surface": "役場",
+      "reading_kana": "やくば",
+      "meaning_ko": "관청, 사무소",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_69e2159df1fe1017",
+      "level": "N1",
+      "surface": "組み合わせる",
+      "reading_kana": "くみあわせる",
+      "meaning_ko": "조합하다, 짜 맞추다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d987b1d8bd0c3c4e",
+      "level": "N1",
+      "surface": "養う",
+      "reading_kana": "やしなう",
+      "meaning_ko": "기르다,양육하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_65741a2d9cd1b73b",
+      "level": "N1",
+      "surface": "構える",
+      "reading_kana": "かまえる",
+      "meaning_ko": "(자세를) 취하다; (집·가게를) 차리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_effc91aeacccca08",
+      "level": "N1",
+      "surface": "生計",
+      "reading_kana": "せいけい",
+      "meaning_ko": "생활, 생계",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_64743e419fe04f91",
+      "level": "N1",
+      "surface": "手本",
+      "reading_kana": "てほん",
+      "meaning_ko": "본보기, 모범",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d44e9dee9505bfdc",
+      "level": "N1",
+      "surface": "責務",
+      "reading_kana": "せきむ",
+      "meaning_ko": "의무",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_4b443a5d13ad2b4c",
+      "level": "N1",
+      "surface": "喜劇",
+      "reading_kana": "きげき",
+      "meaning_ko": "희극, 코미디",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f63f959c0ec9f805",
+      "level": "N1",
+      "surface": "消息",
+      "reading_kana": "しょうそく",
+      "meaning_ko": "소식, 동정",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7aceeb2bd1d9b5fd",
+      "level": "N1",
+      "surface": "究明",
+      "reading_kana": "きゅうめい",
+      "meaning_ko": "규명,밝혀냄",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_3bd2b2abe2a89189",
+      "level": "N1",
+      "surface": "窮屈",
+      "reading_kana": "きゅうくつ",
+      "meaning_ko": "갑갑함, 거북함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_f25835b153fd2a07",
+      "level": "N1",
+      "surface": "解ける",
+      "reading_kana": "ほどける",
+      "meaning_ko": "(매듭,끈)이풀리다; (매듭, 끈이) 풀리다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ce3e837e54a698f8",
+      "level": "N1",
+      "surface": "延べ",
+      "reading_kana": "のべ",
+      "meaning_ko": "연인원, 총계, 연장",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0e696b95974c3504",
+      "level": "N1",
+      "surface": "踏襲",
+      "reading_kana": "とうしゅう",
+      "meaning_ko": "답습",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_76e1e2b8c3c1ac4a",
+      "level": "N1",
+      "surface": "伴奏",
+      "reading_kana": "ばんそう",
+      "meaning_ko": "반주",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_bec47400cd9df368",
+      "level": "N1",
+      "surface": "明瞭",
+      "reading_kana": "めいりょう",
+      "meaning_ko": "명료함, 분명함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_694197d696105e21",
+      "level": "N1",
+      "surface": "短気",
+      "reading_kana": "たんき",
+      "meaning_ko": "급한 성미, 성급함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8619d8e46998e20e",
+      "level": "N1",
+      "surface": "だるい",
+      "reading_kana": "だるい",
+      "meaning_ko": "나른하다, 노곤하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a018889fd8c6dab3",
+      "level": "N1",
+      "surface": "最早",
+      "reading_kana": "もはや",
+      "meaning_ko": "이미, 벌써",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_da1e3d3738f4241e",
+      "level": "N1",
+      "surface": "使用人",
+      "reading_kana": "しようにん",
+      "meaning_ko": "직원, 하인, 공무원",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_af28a5619819809b",
+      "level": "N1",
+      "surface": "風土",
+      "reading_kana": "ふうど",
+      "meaning_ko": "풍토",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_957c15a482f8f1d6",
+      "level": "N1",
+      "surface": "軽快",
+      "reading_kana": "けいかい",
+      "meaning_ko": "경쾌함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0e77500820c5c9b9",
+      "level": "N1",
+      "surface": "染める",
+      "reading_kana": "そめる",
+      "meaning_ko": "물들이다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_75252b005a217653",
+      "level": "N1",
+      "surface": "辛抱",
+      "reading_kana": "しんぼう",
+      "meaning_ko": "인내",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_500edf63c3635728",
+      "level": "N1",
+      "surface": "アワー",
+      "reading_kana": "アワー",
+      "meaning_ko": "시간",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a53cb0b0b149d943",
+      "level": "N1",
+      "surface": "優美",
+      "reading_kana": "ゆうび",
+      "meaning_ko": "우아함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ed2a4c274e00e2cf",
+      "level": "N1",
+      "surface": "まとまり",
+      "reading_kana": "まとまり",
+      "meaning_ko": "정리됨, 통일성, 짜임새",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_aac844efa1eda5ec",
+      "level": "N1",
+      "surface": "ワット",
+      "reading_kana": "ワット",
+      "meaning_ko": "와트",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_690a4fa3e51077a6",
+      "level": "N1",
+      "surface": "清々しい",
+      "reading_kana": "すがすがしい",
+      "meaning_ko": "상쾌하다, 시원하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2a2702f1f74ccfdc",
+      "level": "N1",
+      "surface": "足手まとい",
+      "reading_kana": "あしでまとい",
+      "meaning_ko": "방해, 훼방, 걸림돌",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_5ab85d7ac7d33bf8",
+      "level": "N1",
+      "surface": "格別",
+      "reading_kana": "かくべつ",
+      "meaning_ko": "각별함, 특별함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e54da1633aab4538",
+      "level": "N1",
+      "surface": "熱湯",
+      "reading_kana": "ねっとう",
+      "meaning_ko": "끓는 물, 열탕",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_edc09f2da4cbefb9",
+      "level": "N1",
+      "surface": "弾力",
+      "reading_kana": "だんりょく",
+      "meaning_ko": "탄력",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_23ce4ea144f00b0e",
+      "level": "N1",
+      "surface": "慣例",
+      "reading_kana": "かんれい",
+      "meaning_ko": "관례",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_fac30bc019ff0119",
+      "level": "N1",
+      "surface": "腿",
+      "reading_kana": "もも",
+      "meaning_ko": "허벅지, 넓적다리",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ac51cb4ffd9656c5",
+      "level": "N1",
+      "surface": "軍備",
+      "reading_kana": "ぐんび",
+      "meaning_ko": "군비",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_58320aa77025e364",
+      "level": "N1",
+      "surface": "励む",
+      "reading_kana": "はげむ",
+      "meaning_ko": "힘쓰다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_9b381d3ac91fbe47",
+      "level": "N1",
+      "surface": "丘陵",
+      "reading_kana": "きゅうりょう",
+      "meaning_ko": "구릉,언덕",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_cb71de767a5e76d3",
+      "level": "N1",
+      "surface": "従属",
+      "reading_kana": "じゅうぞく",
+      "meaning_ko": "종속",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_be6c610da5c1ab8d",
+      "level": "N1",
+      "surface": "互角",
+      "reading_kana": "ごかく",
+      "meaning_ko": "호각,백중세",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_1715b578802aa5e8",
+      "level": "N1",
+      "surface": "億劫だ",
+      "reading_kana": "おっくうだ",
+      "meaning_ko": "귀찮다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_2aa26c83fc7cbe5c",
+      "level": "N1",
+      "surface": "手際",
+      "reading_kana": "てぎわ",
+      "meaning_ko": "일처리솜씨,수완",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b294a10dbb183efa",
+      "level": "N1",
+      "surface": "目下",
+      "reading_kana": "もっか",
+      "meaning_ko": "목하, 현재",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_14d8ad09a1ce1c8d",
+      "level": "N1",
+      "surface": "英字",
+      "reading_kana": "えいじ",
+      "meaning_ko": "영자(英字), 영문자",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6b7e7558849cf59c",
+      "level": "N1",
+      "surface": "海運",
+      "reading_kana": "かいうん",
+      "meaning_ko": "해운",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_08149ad39d83534d",
+      "level": "N1",
+      "surface": "咄嗟に",
+      "reading_kana": "とっさに",
+      "meaning_ko": "순간적으로",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_6a239da0e00a33a0",
+      "level": "N1",
+      "surface": "一様",
+      "reading_kana": "いちよう",
+      "meaning_ko": "한결같음, 똑같음",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a5a10027ead73ad9",
+      "level": "N1",
+      "surface": "焚き火",
+      "reading_kana": "たきび",
+      "meaning_ko": "모닥불",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_c57913792276298c",
+      "level": "N1",
+      "surface": "練る",
+      "reading_kana": "ねる",
+      "meaning_ko": "반죽하다, (계획, 문장을) 다듬다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_60fdfd50b368a133",
+      "level": "N1",
+      "surface": "脚色",
+      "reading_kana": "きゃくしょく",
+      "meaning_ko": "각색",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_cc7e713c46e8ee0b",
+      "level": "N1",
+      "surface": "疎かに",
+      "reading_kana": "おろそかに",
+      "meaning_ko": "소홀하게",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e1224f159d5c953d",
+      "level": "N1",
+      "surface": "拘る",
+      "reading_kana": "こだわる",
+      "meaning_ko": "집착하다,세세하게신경을쓰다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_443c071edfd389f9",
+      "level": "N1",
+      "surface": "拝啓",
+      "reading_kana": "はいけい",
+      "meaning_ko": "삼가 아룁니다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e31b34e21fc7db42",
+      "level": "N1",
+      "surface": "倹約",
+      "reading_kana": "けんやく",
+      "meaning_ko": "검약, 절약",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ef7c2b36a078abcb",
+      "level": "N1",
+      "surface": "取っ手",
+      "reading_kana": "とって",
+      "meaning_ko": "손잡이",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_87719fa65c93c9d4",
+      "level": "N1",
+      "surface": "ひしひしと",
+      "reading_kana": "ひしひしと",
+      "meaning_ko": "절실히, 절절히(강하게 느끼는 모양)",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_f5f19f69e53af0ce",
+      "level": "N1",
+      "surface": "催す",
+      "reading_kana": "もよおす",
+      "meaning_ko": "개최하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_e4e05a9889537531",
+      "level": "N1",
+      "surface": "面する",
+      "reading_kana": "めんする",
+      "meaning_ko": "마주하다, 접하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_2d2834f101feaba2",
+      "level": "N1",
+      "surface": "老衰",
+      "reading_kana": "ろうすい",
+      "meaning_ko": "노쇠",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3875cd9260023e61",
+      "level": "N1",
+      "surface": "折り返す",
+      "reading_kana": "おりかえす",
+      "meaning_ko": "접어 되돌리다, 되접다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_8dc15742d3e128af",
+      "level": "N1",
+      "surface": "炬燵",
+      "reading_kana": "こたつ",
+      "meaning_ko": "코타츠",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7693c24a3ae3f600",
+      "level": "N1",
+      "surface": "分母",
+      "reading_kana": "ぶんぼ",
+      "meaning_ko": "분모",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_15250f716c78bbf5",
+      "level": "N1",
+      "surface": "やり遂げる",
+      "reading_kana": "やりとげる",
+      "meaning_ko": "달성하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7d61c3056e13c0f3",
+      "level": "N1",
+      "surface": "縁談",
+      "reading_kana": "えんだん",
+      "meaning_ko": "혼담",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_bd75aa731f4df5da",
+      "level": "N1",
+      "surface": "題する",
+      "reading_kana": "だいする",
+      "meaning_ko": "제목을 붙이다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_7b77229d7578e77d",
+      "level": "N1",
+      "surface": "そっぽ",
+      "reading_kana": "そっぽ",
+      "meaning_ko": "외면, 딴 쪽",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_d71a8c96af7a8cb2",
+      "level": "N1",
+      "surface": "灌漑",
+      "reading_kana": "かんがい",
+      "meaning_ko": "관개",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_3ed43a6a0116d395",
+      "level": "N1",
+      "surface": "かさばる",
+      "reading_kana": "かさばる",
+      "meaning_ko": "부피가 커지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_107011573571e52d",
+      "level": "N1",
+      "surface": "克明",
+      "reading_kana": "こくめい",
+      "meaning_ko": "극명한,매우세밀한",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e1947d121eacb34e",
+      "level": "N1",
+      "surface": "俄",
+      "reading_kana": "にわか",
+      "meaning_ko": "갑작스러운, 뜻밖의",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_75fe6fbac6e7ce8b",
+      "level": "N1",
+      "surface": "貶される",
+      "reading_kana": "けなされる",
+      "meaning_ko": "비난을 받다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_09cdf9a8f3634a76",
+      "level": "N1",
+      "surface": "快い",
+      "reading_kana": "こころよい",
+      "meaning_ko": "기분좋다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ac2312063a365246",
+      "level": "N1",
+      "surface": "有耶無耶に",
+      "reading_kana": "うやむやに",
+      "meaning_ko": "흐지부지하게, 애매하게",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_e680ce9adf7c863a",
+      "level": "N1",
+      "surface": "気掛かり",
+      "reading_kana": "きがかり",
+      "meaning_ko": "걱정, 근심",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a4092744f57bc1a2",
+      "level": "N1",
+      "surface": "かぶれる",
+      "reading_kana": "かぶれる",
+      "meaning_ko": "영향을 받다, 피부가 짓무르다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_76936c9c142f0a2c",
+      "level": "N1",
+      "surface": "焦げ茶",
+      "reading_kana": "こげちゃ",
+      "meaning_ko": "짙은 갈색",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_216be17021a4cb21",
+      "level": "N1",
+      "surface": "疎らだ",
+      "reading_kana": "まばらだ",
+      "meaning_ko": "드문드문 있다, 듬성듬성하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_cad5672ec93eca6c",
+      "level": "N1",
+      "surface": "夥しい",
+      "reading_kana": "おびただしい",
+      "meaning_ko": "엄청나다, 수량이 매우 많다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_ffa6380de41f7285",
+      "level": "N1",
+      "surface": "重々しい",
+      "reading_kana": "おもおもしい",
+      "meaning_ko": "엄숙하다,위엄이있다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_709b7a3d0384863d",
+      "level": "N1",
+      "surface": "危ぶむ",
+      "reading_kana": "あやぶむ",
+      "meaning_ko": "불안해하다, 위험하게 생각하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_581a28544054818a",
+      "level": "N1",
+      "surface": "摩る",
+      "reading_kana": "さする",
+      "meaning_ko": "문지르다, 쓰다듬다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_b8c80d155447f46a",
+      "level": "N1",
+      "surface": "真ん丸い",
+      "reading_kana": "まんまるい",
+      "meaning_ko": "둥글디둥글다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_58e7dc3697f3b7ef",
+      "level": "N1",
+      "surface": "へりくだる",
+      "reading_kana": "へりくだる",
+      "meaning_ko": "겸손하게 굴다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_a6b82112020af822",
+      "level": "N1",
+      "surface": "ふんだん",
+      "reading_kana": "ふんだん",
+      "meaning_ko": "풍부함, 넉넉함",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_5d1e65f806f17484",
+      "level": "N1",
+      "surface": "かみ合う",
+      "reading_kana": "かみあう",
+      "meaning_ko": "(내용, 의견, 생각 등이)맞다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_95eff4982a9ae779",
+      "level": "N1",
+      "surface": "拗れる",
+      "reading_kana": "こじれる",
+      "meaning_ko": "(1) (병 등이)도지다 (2) (일, 이야기, 문제 등이)꼬이다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_8fa803c957f558d8",
+      "level": "N1",
+      "surface": "商う",
+      "reading_kana": "あきなう",
+      "meaning_ko": "장사하다",
+      "category": "PDF 신규"
+    },
+    {
+      "word_id": "w_a7243fc40025826a",
+      "level": "N1",
+      "surface": "似通う",
+      "reading_kana": "にかよう",
+      "meaning_ko": "서로 닮다, 비슷하다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_1d13264e7f8e8113",
+      "level": "N1",
+      "surface": "湿気る",
+      "reading_kana": "しける",
+      "meaning_ko": "습기를 머금다, 축축해지다",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_0787d4f6eb05df72",
+      "level": "N1",
+      "surface": "澄む",
+      "reading_kana": "すむ",
+      "meaning_ko": "분명한, 맑은(날씨), 되다 투명한",
+      "category": "기존 유지"
+    },
+    {
+      "word_id": "w_537486932462a5df",
+      "level": "N1",
+      "surface": "しなびる",
+      "reading_kana": "しなびる",
+      "meaning_ko": "시들다, 쪼그라들다",
+      "category": "기존 유지"
     }
   ]
 }

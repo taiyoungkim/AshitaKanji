@@ -1,0 +1,488 @@
+{
+  "generated_at": "2026-08-18T05:52:49.093687+00:00",
+  "purpose": "Deterministic triage only; risk scores are not semantic correctness judgments.",
+  "inputs": {
+    "db": "assets/jlpt.db",
+    "qa": "data/track-a/kanji_qa_work.csv"
+  },
+  "output": "data/track-a/kanji_semantic_review_queue.csv",
+  "included_status": "auto",
+  "excluded_statuses": [
+    "verified",
+    "needs_review",
+    "rejected"
+  ],
+  "total_queued": 1794,
+  "priority_counts": {
+    "P0": 90,
+    "P1": 868,
+    "P2": 63,
+    "P3": 773
+  },
+  "signal_counts": {
+    "copied_linked_word_gloss": 684,
+    "single_compound_evidence": 345,
+    "narrow_ko_vs_english": 114,
+    "context_parentheses": 45,
+    "register_or_domain_note": 10,
+    "grammar_or_enumeration_markup": 6
+  },
+  "thresholds": {
+    "P0": ">=55",
+    "P1": "30-54",
+    "P2": "1-29",
+    "P3": "0"
+  },
+  "top_candidates": [
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "孝",
+      "meanings_ko": "[\"효도\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:孝行=효도"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "宥",
+      "meanings_ko": "[\"달래다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:宥める=달래다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "宴",
+      "meanings_ko": "[\"연회\", \"잔치\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:宴会=연회, 잔치"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "寂",
+      "meanings_ko": "[\"쓸쓸하다\", \"외롭다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:寂しい=쓸쓸하다,외롭다; 쓸쓸하다, 외롭다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "尋",
+      "meanings_ko": "[\"묻다\", \"질문하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:尋ねる=묻다, 질문하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "尖",
+      "meanings_ko": "[\"뾰족해지다\", \"날카로워지다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:尖る=뾰족해지다, 날카로워지다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "尤",
+      "meanings_ko": "[\"지당함\", \"당연함\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:尤も=지당함, 당연함"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "庇",
+      "meanings_ko": "[\"감싸다\", \"비호하다\", \"두둔하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:庇う=감싸다,비호하다; 두둔하다, 비호하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "徐",
+      "meanings_ko": "[\"서서히\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:徐々に=서서히"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "悠",
+      "meanings_ko": "[\"유유히\", \"여유롭게\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:悠々=유유히, 여유롭게"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "悲",
+      "meanings_ko": "[\"슬프다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:悲しい=슬프다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "愉",
+      "meanings_ko": "[\"즐거움\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:愉快=유쾌함, 즐거움"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "懲",
+      "meanings_ko": "[\"혼나다\", \"넌더리나다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:懲りる=혼나다, 넌더리나다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "拵",
+      "meanings_ko": "[\"만들다\", \"제조하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:拵える=만들다, 제조하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "挑",
+      "meanings_ko": "[\"도전하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:挑む=도전하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "捗",
+      "meanings_ko": "[\"진척되다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:捗る=진척되다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "捧",
+      "meanings_ko": "[\"바치다\", \"받들다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:捧げる=바치다, 받들다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "撫",
+      "meanings_ko": "[\"쓰다듬다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:撫でる=쓰다듬다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "暑",
+      "meanings_ko": "[\"덥다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:暑い=덥다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "暫",
+      "meanings_ko": "[\"잠시\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:暫く=잠시"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "朽",
+      "meanings_ko": "[\"썩다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:朽ちる=썩다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "椅",
+      "meanings_ko": "[\"의자\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N5:椅子=의자"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "楕",
+      "meanings_ko": "[\"타원\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:楕円=타원"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "殆",
+      "meanings_ko": "[\"대부분\", \"거의\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:殆ど=대부분, 거의"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "殴",
+      "meanings_ko": "[\"때리다\", \"치다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:殴る=때리다, 치다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "毟",
+      "meanings_ko": "[\"쥐어뜯다\", \"잡아 뽑다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:毟る=쥐어뜯다, 잡아 뽑다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "泣",
+      "meanings_ko": "[\"울다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:泣く=울다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "湧",
+      "meanings_ko": "[\"솟아나다\", \"생겨나다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:湧く=솟아나다, 생겨나다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "溢",
+      "meanings_ko": "[\"넘쳐나다\", \"흔하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:溢れる=넘쳐나다,흔하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "溺",
+      "meanings_ko": "[\"물에 빠지다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:溺れる=물에 빠지다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "滲",
+      "meanings_ko": "[\"번지다\", \"스미다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:滲む=번지다, 스미다; 번지다, 스며들다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "滴",
+      "meanings_ko": "[\"물방울\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:水滴=물방울"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "漂",
+      "meanings_ko": "[\"떠돌다\", \"감돌다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:漂う=떠돌다,감돌다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "漬",
+      "meanings_ko": "[\"담그다\", \"적시다\", \"절이다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:漬ける=담그다, 적시다, 절이다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "濁",
+      "meanings_ko": "[\"흐려지다\", \"탁해지다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:濁る=흐려지다, 탁해지다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "濡",
+      "meanings_ko": "[\"젖다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:濡れる=젖다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "炒",
+      "meanings_ko": "[\"재료를 불에 볶다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:炒る=재료를 불에 볶다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "煌",
+      "meanings_ko": "[\"환하게\", \"밝게\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:煌々と=환하게, 밝게"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "煎",
+      "meanings_ko": "[\"콩·차 등을 볶다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:煎る=콩·차 등을 볶다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "煮",
+      "meanings_ko": "[\"끓다\", \"끓이다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:煮る=끓다, 끓이다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "犠",
+      "meanings_ko": "[\"희생\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:犠牲=희생"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "狂",
+      "meanings_ko": "[\"미치다\", \"어긋나다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N3:狂う=미치다, 어긋나다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "狭",
+      "meanings_ko": "[\"좁히다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:狭める=좁히다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "珍",
+      "meanings_ko": "[\"흔치않다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:珍しい=흔치않다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "痢",
+      "meanings_ko": "[\"설사\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:下痢=설사"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "痩",
+      "meanings_ko": "[\"살이 빠지다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N4:痩せる=살이 빠지다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "眩",
+      "meanings_ko": "[\"눈부시다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:眩しい=눈부시다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "眺",
+      "meanings_ko": "[\"바라보다\", \"조망하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:眺める=바라보다,조망하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "睨",
+      "meanings_ko": "[\"노려보다\", \"주시하다\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N2:睨む=노려보다, 주시하다"
+    },
+    {
+      "priority": "P0",
+      "risk_score": 56,
+      "literal": "瞭",
+      "meanings_ko": "[\"분명함\"]",
+      "signals": "single_compound_evidence;copied_linked_word_gloss",
+      "linked_word_count": 1,
+      "linked_examples": "N1:明瞭=명료함, 분명함"
+    }
+  ]
+}

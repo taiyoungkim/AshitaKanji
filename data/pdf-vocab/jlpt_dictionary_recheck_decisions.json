@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-18T00:00:00+09:00",
+  "pass": "jmdict-recheck",
+  "basis": "JMdict_e (.cache/JMdict_e.gz) 1:1 headword comparison over assets/jlpt.db",
+  "editorial_policy": "Rewritten example sentences are original AshitaKanji text; external dictionaries were used only to validate usage.",
+  "decisions": [
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "reason": "okurigana-missing",
+      "evidence": "JMdict has 平ら/たいら (1506930) and 平らげる/たいらげる; 平 alone is never read たいら. The attached example (すしを三人前平げる, '먹어 치우다') belongs to 平らげる, not to '평평하다', which is already covered by w_4864cdd403be8cb0 (N3 平ら).",
+      "word": {
+        "surface": "平らげる",
+        "reading_kana": "たいらげる",
+        "furigana": "たいらげる",
+        "meaning_ko": "다 먹어 치우다, 평정하다",
+        "part_of_speech": "verb"
+      },
+      "example": {
+        "jp": "彼は寿司を三人前平らげた。",
+        "ko": "그는 초밥을 3인분 다 먹어 치웠다.",
+        "query": "平らげる"
+      }
+    },
+    {
+      "id": "w_b5be233796f7dd76",
+      "reason": "rare-kanji-form",
+      "evidence": "JMdict 1440930 marks 纏める as a rarely used kanji form (rK); the standard modern spelling is まとめる.",
+      "word": {
+        "surface": "まとめる",
+        "reading_kana": "まとめる",
+        "furigana": "まとめる",
+        "meaning_ko": "정리하다"
+      },
+      "example": {
+        "jp": "複数の資料を一つにまとめる。",
+        "ko": "여러 자료를 하나로 정리하다.",
+        "query": "まとめる"
+      }
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "reason": "rare-kanji-form",
+      "evidence": "JMdict 1577980 marks 居る as a rarely used kanji form (rK) for いる; an N5 card should carry the kana spelling.",
+      "word": {
+        "surface": "いる",
+        "reading_kana": "いる",
+        "furigana": "いる",
+        "meaning_ko": "있다"
+      },
+      "example": {
+        "jp": "教室には学生が三人いる。",
+        "ko": "교실에는 학생이 세 명 있다.",
+        "query": "いる"
+      }
+    }
+  ]
+}

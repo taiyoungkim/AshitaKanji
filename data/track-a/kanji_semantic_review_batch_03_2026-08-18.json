@@ -1,0 +1,47 @@
+{
+  "reviewed_at": "2026-08-18",
+  "batch_id": "03",
+  "scope": "P0 semantic review queue, batch 03 (next 20)",
+  "basis": [
+    "data/track-a/kanji_semantic_review_queue.csv",
+    "data/track-a/kanji_qa_work.csv meanings_en/onyomi/kunyomi (KANJIDIC2)",
+    "active word_kanji examples in assets/jlpt.db",
+    "漢字ペディア one-character definitions"
+  ],
+  "secondary_references": {
+    "求": "https://www.kanjipedia.jp/kanji/0001381400",
+    "着": "https://www.kanjipedia.jp/kanji/0004715800",
+    "受": "https://www.kanjipedia.jp/kanji/0003079100/",
+    "掛": "https://www.kanjipedia.jp/kanji/0000940800",
+    "消": "https://www.kanjipedia.jp/kanji/0003379400",
+    "採": "https://www.kanjipedia.jp/kanji/0002507700",
+    "散": "https://www.kanjipedia.jp/kanji/0002659900",
+    "但": "https://www.kanjipedia.jp/kanji/0004552400"
+  },
+  "policy": {
+    "qa_status": "needs_review",
+    "reason": "AI-assisted semantic correction requires final human confirmation before verified"
+  },
+  "decisions": [
+    {"literal":"求","old":["구하다(요구)"],"new":["구하다","요구하다","바라다"],"reason":"괄호를 제거하고 seek/request/want 의미군을 분리"},
+    {"literal":"着","old":["(옷을) 입다"],"new":["입다","붙다","도착하다"],"reason":"의복 문맥에 한정된 뜻에 adhere/arrive 의미군을 복원"},
+    {"literal":"臭","old":["(고약한) 냄새가 나다"],"new":["냄새","냄새나다","수상하다"],"reason":"괄호식 수식을 제거하고 odor/stink/suspicious 의미를 반영"},
+    {"literal":"受","old":["받다","(시험을) 치르다"],"new":["받다","받아들이다","겪다"],"reason":"시험 문맥을 제거하고 receive/accept/undergo 의미군을 복원"},
+    {"literal":"吹","old":["(바람이) 불다"],"new":["불다","내뿜다"],"reason":"바람 문맥을 제거하고 blow/emit 의미를 반영"},
+    {"literal":"掛","old":["(시간·비용이) 들다","걸리다"],"new":["걸다","걸리다","매달다","관계되다"],"reason":"시간·비용 문맥에 한정된 뜻에 hang/suspend/concern 의미군을 복원"},
+    {"literal":"縛","old":["(끈으로)묶다"],"new":["묶다","속박하다"],"reason":"도구 문맥을 제거하고 bind/restrain 의미를 반영"},
+    {"literal":"消","old":["끄다","지우다","(불을) 끄다"],"new":["사라지다","없애다","끄다","취소하다"],"reason":"중복과 불 문맥을 제거하고 disappear/remove/cancel 의미군을 복원"},
+    {"literal":"覚","old":["기억","자신(自信)"],"new":["기억하다","외우다","깨닫다","깨다"],"reason":"覚え의 자신감 문맥을 제거하고 remember/learn/awake 의미군을 복원"},
+    {"literal":"高","old":["비싸다","높다","(키가) 크다"],"new":["높다","비싸다","크다"],"reason":"괄호를 제거하고 high/expensive/tall 의미를 간결하게 정리"},
+    {"literal":"演","old":["연기하다","(역을) 맡다"],"new":["공연하다","연기하다","상연하다"],"reason":"배역 문맥을 제거하고 performance/act/stage 의미군을 반영"},
+    {"literal":"経","old":["(시간이)흐르다","경과하다"],"new":["지나다","경과하다","경전","날실"],"reason":"시간 문맥에 한정된 뜻에 sutra/warp 의미를 복원"},
+    {"literal":"捕","old":["가지다","잡다","잡다(물고기)"],"new":["붙잡다","포획하다"],"reason":"오염된 ‘가지다’와 물고기 문맥을 제거하고 catch/capture로 정리"},
+    {"literal":"採","old":["채택하다","(열매를) 따다"],"new":["따다","채취하다","채택하다"],"reason":"열매 문맥을 제거하고 take/gather/select 의미군을 반영"},
+    {"literal":"散","old":["(꽃이) 지다","흩어지다"],"new":["흩어지다","흩뜨리다","낭비하다"],"reason":"꽃 문맥을 제거하고 scatter/disperse/squander 의미군을 복원"},
+    {"literal":"構","old":["(자세를) 취하다","(집·가게를) 차리다"],"new":["구조","세우다","자세를 취하다"],"reason":"괄호식 사례를 일반화하고 structure/build/posture 의미군을 반영"},
+    {"literal":"且","old":["또한","동시에"],"new":["또한","게다가"],"reason":"moreover/also/furthermore의 접속 의미로 정리"},
+    {"literal":"云","old":["운운","등등"],"new":["말하다"],"reason":"云々의 전체 단어 뜻이 복사된 오류를 say 기본 의미로 교체"},
+    {"literal":"但","old":["다만","단"],"new":["다만","그러나"],"reason":"however/but 및 조건·예외 보충 의미를 반영"},
+    {"literal":"傍","old":["곁","한편"],"new":["곁","옆","한편"],"reason":"side/nearby/while 의미군을 반영"}
+  ]
+}

@@ -1,0 +1,657 @@
+{
+  "generated_at": "2026-08-18T05:44:01.162609+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 106,
+  "jobs": 106,
+  "preexisting": 0,
+  "planned": 106,
+  "created": 106,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_09e23b6f9018545a",
+      "kind": "example",
+      "text": "早急に緊急会議を開くように。",
+      "file": "assets/audio/examples/w_09e23b6f9018545a.mp3"
+    },
+    {
+      "id": "w_150dcbd2b6dcb160",
+      "kind": "example",
+      "text": "ロープウェイに乗せて送ります。",
+      "file": "assets/audio/examples/w_150dcbd2b6dcb160.mp3"
+    },
+    {
+      "id": "w_1ef4822a952c095f",
+      "kind": "example",
+      "text": "早急に緊急会議を開くように。",
+      "file": "assets/audio/examples/w_1ef4822a952c095f.mp3"
+    },
+    {
+      "id": "w_0ae46927d8834581",
+      "kind": "example",
+      "text": "スンギュはちょっとどう？応急室に運ばれたんだって？",
+      "file": "assets/audio/examples/w_0ae46927d8834581.mp3"
+    },
+    {
+      "id": "w_0c26cac896c6bac7",
+      "kind": "example",
+      "text": "最近のような天気にはお肌に水分を頻繁に補給しなければなりません。",
+      "file": "assets/audio/examples/w_0c26cac896c6bac7.mp3"
+    },
+    {
+      "id": "w_07538960d746fa8e",
+      "kind": "example",
+      "text": "うん、ドライバーがブレーキ踏もうとしたのにミスしてアクセルペダルを踏んだらしい。",
+      "file": "assets/audio/examples/w_07538960d746fa8e.mp3"
+    },
+    {
+      "id": "w_32aa9133403521c6",
+      "kind": "example",
+      "text": "この会社は、原則として兼業が禁じられています。",
+      "file": "assets/audio/examples/w_32aa9133403521c6.mp3"
+    },
+    {
+      "id": "w_27a3e7cf4b5f70f5",
+      "kind": "example",
+      "text": "だったら、ジャケットの肩の部分にパッドを敷いてみてください。",
+      "file": "assets/audio/examples/w_27a3e7cf4b5f70f5.mp3"
+    },
+    {
+      "id": "w_433b9769a3ecbeef",
+      "kind": "example",
+      "text": "水をちょっとあげないとね。ホースを蛇口につないでくれる？",
+      "file": "assets/audio/examples/w_433b9769a3ecbeef.mp3"
+    },
+    {
+      "id": "w_48a942088c2a3c4f",
+      "kind": "example",
+      "text": "すみません、監督。セリフを度忘れしてしまいました。",
+      "file": "assets/audio/examples/w_48a942088c2a3c4f.mp3"
+    },
+    {
+      "id": "w_44435dfc11169488",
+      "kind": "example",
+      "text": "討論しようとする人々が悪口と誹謗をするなんて、ちょっとあっけない。",
+      "file": "assets/audio/examples/w_44435dfc11169488.mp3"
+    },
+    {
+      "id": "w_3b834d36cb9e4d5a",
+      "kind": "example",
+      "text": "国を心配する憂国の情から、政治を志すようになりました。",
+      "file": "assets/audio/examples/w_3b834d36cb9e4d5a.mp3"
+    },
+    {
+      "id": "w_48bf32a7bfb7243b",
+      "kind": "example",
+      "text": "遅くとも明日の夕方までには出してください。",
+      "file": "assets/audio/examples/w_48bf32a7bfb7243b.mp3"
+    },
+    {
+      "id": "w_50c79dbb941aed3a",
+      "kind": "example",
+      "text": "寝る時はかけて寝ますが、思わず布団を蹴飛ばす寝癖があります。",
+      "file": "assets/audio/examples/w_50c79dbb941aed3a.mp3"
+    },
+    {
+      "id": "w_53f5a11a43999634",
+      "kind": "example",
+      "text": "傷みやすい食べ物の取り扱いに格別の注意が必要です。",
+      "file": "assets/audio/examples/w_53f5a11a43999634.mp3"
+    },
+    {
+      "id": "w_57f97ee9e78b95de",
+      "kind": "example",
+      "text": "どうしていつも私が嘘つき扱いされるのか分からない。",
+      "file": "assets/audio/examples/w_57f97ee9e78b95de.mp3"
+    },
+    {
+      "id": "w_5bba410a9f58c9b9",
+      "kind": "example",
+      "text": "わあ！不労所得の収入が私の月給よりも多いね。",
+      "file": "assets/audio/examples/w_5bba410a9f58c9b9.mp3"
+    },
+    {
+      "id": "w_641852edd60b94a9",
+      "kind": "example",
+      "text": "あなたは運転をすごくゆっくりするじゃない。",
+      "file": "assets/audio/examples/w_641852edd60b94a9.mp3"
+    },
+    {
+      "id": "w_67e9a28d0777853f",
+      "kind": "example",
+      "text": "はい。戸締まりをちゃんとします。",
+      "file": "assets/audio/examples/w_67e9a28d0777853f.mp3"
+    },
+    {
+      "id": "w_701a68ca74b0015f",
+      "kind": "example",
+      "text": "いつも国のことが最優先なので家庭でのことには疎かな方です。",
+      "file": "assets/audio/examples/w_701a68ca74b0015f.mp3"
+    },
+    {
+      "id": "w_6489ff76776dc7e1",
+      "kind": "example",
+      "text": "はい。今年、各種映画祭で受賞した賞だけでも数々です。",
+      "file": "assets/audio/examples/w_6489ff76776dc7e1.mp3"
+    },
+    {
+      "id": "w_70835bbbaf6be418",
+      "kind": "example",
+      "text": "家ではわけのわからない陰気が流れ出てくるようじゃない？",
+      "file": "assets/audio/examples/w_70835bbbaf6be418.mp3"
+    },
+    {
+      "id": "w_71b91b4b7ded7920",
+      "kind": "example",
+      "text": "印鑑を持ってきませんでした。",
+      "file": "assets/audio/examples/w_71b91b4b7ded7920.mp3"
+    },
+    {
+      "id": "w_6803e7402a3d2c0a",
+      "kind": "example",
+      "text": "従来の商品に比べて高いですが、価格を下げにくいというところが難点だと思います。",
+      "file": "assets/audio/examples/w_6803e7402a3d2c0a.mp3"
+    },
+    {
+      "id": "w_75fe6fbac6e7ce8b",
+      "kind": "example",
+      "text": "これだから海外に行って私たちが一緒にけなされるのよ。",
+      "file": "assets/audio/examples/w_75fe6fbac6e7ce8b.mp3"
+    },
+    {
+      "id": "w_7b2595df10469505",
+      "kind": "example",
+      "text": "わが軍の戦車数が相対的に不足しています。",
+      "file": "assets/audio/examples/w_7b2595df10469505.mp3"
+    },
+    {
+      "id": "w_7b8922533fb71c49",
+      "kind": "example",
+      "text": "君、英語の聞き取りテストはうまくいった？",
+      "file": "assets/audio/examples/w_7b8922533fb71c49.mp3"
+    },
+    {
+      "id": "w_824169b48644bb9e",
+      "kind": "example",
+      "text": "妻の粘り強い説得に負けてしまいました。",
+      "file": "assets/audio/examples/w_824169b48644bb9e.mp3"
+    },
+    {
+      "id": "w_860e76f83693f071",
+      "kind": "example",
+      "text": "自分も知らないうちに下着に大便がつきます。",
+      "file": "assets/audio/examples/w_860e76f83693f071.mp3"
+    },
+    {
+      "id": "w_80be339f5cb11529",
+      "kind": "example",
+      "text": "はい、なるべくブランクを作らないでください。",
+      "file": "assets/audio/examples/w_80be339f5cb11529.mp3"
+    },
+    {
+      "id": "w_ab39420ffd96523f",
+      "kind": "example",
+      "text": "特殊な香辛料が入っています。",
+      "file": "assets/audio/examples/w_ab39420ffd96523f.mp3"
+    },
+    {
+      "id": "w_8fceccfb0b0413c3",
+      "kind": "example",
+      "text": "もちろんです。なんなりと仰せつけください。",
+      "file": "assets/audio/examples/w_8fceccfb0b0413c3.mp3"
+    },
+    {
+      "id": "w_af5b68f93b7fad6a",
+      "kind": "example",
+      "text": "主任を任されて、肩が重いです。",
+      "file": "assets/audio/examples/w_af5b68f93b7fad6a.mp3"
+    },
+    {
+      "id": "w_b3664c9b7bb5d5f2",
+      "kind": "example",
+      "text": "煙たいにおいもするようだ。",
+      "file": "assets/audio/examples/w_b3664c9b7bb5d5f2.mp3"
+    },
+    {
+      "id": "w_8f663cdca32cc0a4",
+      "kind": "example",
+      "text": "どれどれ。これくらい直すのは、私には掌を返すように簡単だ。",
+      "file": "assets/audio/examples/w_8f663cdca32cc0a4.mp3"
+    },
+    {
+      "id": "w_87dc0f0b335d2713",
+      "kind": "example",
+      "text": "いいえ、お客様。その値段は定価であり、そこで20％セールをした価格で販売しています。",
+      "file": "assets/audio/examples/w_87dc0f0b335d2713.mp3"
+    },
+    {
+      "id": "w_c530d263e6c6b918",
+      "kind": "example",
+      "text": "うん。口がうずうずするけど、我慢してみる。",
+      "file": "assets/audio/examples/w_c530d263e6c6b918.mp3"
+    },
+    {
+      "id": "w_bd3290eca50bee3f",
+      "kind": "example",
+      "text": "はい、何とかあちこちから資金をやりくりして、やっと工面しました。",
+      "file": "assets/audio/examples/w_bd3290eca50bee3f.mp3"
+    },
+    {
+      "id": "w_c9d787ba0d89b7cd",
+      "kind": "example",
+      "text": "はい、中風で寝たきりになったキムおじいさんの家へ往診に来ました。",
+      "file": "assets/audio/examples/w_c9d787ba0d89b7cd.mp3"
+    },
+    {
+      "id": "w_c99b250de4d4b4d7",
+      "kind": "example",
+      "text": "結婚は慎重に考えて決定すべき問題なのに、少し性急なようだ。",
+      "file": "assets/audio/examples/w_c99b250de4d4b4d7.mp3"
+    },
+    {
+      "id": "w_ca953bed102a78e0",
+      "kind": "example",
+      "text": "それでも成功した人々を見て刺激を受けるほうがはるかに役立つと思うますが。",
+      "file": "assets/audio/examples/w_ca953bed102a78e0.mp3"
+    },
+    {
+      "id": "w_cb662bdf8a95d98e",
+      "kind": "example",
+      "text": "私は徳がないので極楽で往生するのは難しいようです。",
+      "file": "assets/audio/examples/w_cb662bdf8a95d98e.mp3"
+    },
+    {
+      "id": "w_d3242fdeadefff0c",
+      "kind": "example",
+      "text": "分かった。私が誓約書でも書いてあげる。",
+      "file": "assets/audio/examples/w_d3242fdeadefff0c.mp3"
+    },
+    {
+      "id": "w_d06f4fb273f350f4",
+      "kind": "example",
+      "text": "今享受しているものを全部捨てて、ただの匹夫として生きられると思う？",
+      "file": "assets/audio/examples/w_d06f4fb273f350f4.mp3"
+    },
+    {
+      "id": "w_d6a47632d886cffc",
+      "kind": "example",
+      "text": "皮の加工が間違ったせいかもしれません。取り替えいたします。",
+      "file": "assets/audio/examples/w_d6a47632d886cffc.mp3"
+    },
+    {
+      "id": "w_daa479903a2ed757",
+      "kind": "example",
+      "text": "包丁を研ぐ時になったようです。",
+      "file": "assets/audio/examples/w_daa479903a2ed757.mp3"
+    },
+    {
+      "id": "w_db7a3a325baa8205",
+      "kind": "example",
+      "text": "うん。ミンチョルとジヨンが出会って恋するようになる内容だ。",
+      "file": "assets/audio/examples/w_db7a3a325baa8205.mp3"
+    },
+    {
+      "id": "w_dcd1405aac0b7b9f",
+      "kind": "example",
+      "text": "しばらくは育児にだけに専念したいからです。",
+      "file": "assets/audio/examples/w_dcd1405aac0b7b9f.mp3"
+    },
+    {
+      "id": "w_e775d9071d2a3a55",
+      "kind": "example",
+      "text": "叫びすぎて喉が痛くなったんだ。",
+      "file": "assets/audio/examples/w_e775d9071d2a3a55.mp3"
+    },
+    {
+      "id": "w_e2438e51c00bb53d",
+      "kind": "example",
+      "text": "うん。でもご飯を食べない代わりにチョコレートをご飯よりたくさん食べていてナンセンスのほかにない。",
+      "file": "assets/audio/examples/w_e2438e51c00bb53d.mp3"
+    },
+    {
+      "id": "w_fa2eac1d4106f99a",
+      "kind": "example",
+      "text": "あそこの道場で剣道の練習をする音のようだ。",
+      "file": "assets/audio/examples/w_fa2eac1d4106f99a.mp3"
+    },
+    {
+      "id": "w_12f5d73fd4230ee4",
+      "kind": "example",
+      "text": "６つの正方形になります。",
+      "file": "assets/audio/examples/w_12f5d73fd4230ee4.mp3"
+    },
+    {
+      "id": "w_01f119facf6e9d97",
+      "kind": "example",
+      "text": "伯父さん、お母さんが幼い頃はどうでしたか。",
+      "file": "assets/audio/examples/w_01f119facf6e9d97.mp3"
+    },
+    {
+      "id": "w_f6b0774190c5b447",
+      "kind": "example",
+      "text": "心強い後ろ盾があるようです。",
+      "file": "assets/audio/examples/w_f6b0774190c5b447.mp3"
+    },
+    {
+      "id": "w_ffe60e200721352c",
+      "kind": "example",
+      "text": "ジスはたまにストレートに言うから気分を害することがあるよ。",
+      "file": "assets/audio/examples/w_ffe60e200721352c.mp3"
+    },
+    {
+      "id": "w_eda7532232b661ef",
+      "kind": "example",
+      "text": "1945年、わが国はついに植民地から解放されました。",
+      "file": "assets/audio/examples/w_eda7532232b661ef.mp3"
+    },
+    {
+      "id": "w_1471aa8114e77f9f",
+      "kind": "example",
+      "text": "どうかした？何で溜息を吐いているの？",
+      "file": "assets/audio/examples/w_1471aa8114e77f9f.mp3"
+    },
+    {
+      "id": "w_1cc5575c4d1ea6e8",
+      "kind": "example",
+      "text": "公衆無線インターネットがありますので自由に使ってください。",
+      "file": "assets/audio/examples/w_1cc5575c4d1ea6e8.mp3"
+    },
+    {
+      "id": "w_16d4b8043ccddd54",
+      "kind": "example",
+      "text": "テニスコートを通り過ぎる時にボールが当たったんだ。",
+      "file": "assets/audio/examples/w_16d4b8043ccddd54.mp3"
+    },
+    {
+      "id": "w_23b918ab85d1f8ae",
+      "kind": "example",
+      "text": "地盤が丈夫ではないので建物を建てると地面が崩れる恐れがあります。",
+      "file": "assets/audio/examples/w_23b918ab85d1f8ae.mp3"
+    },
+    {
+      "id": "w_24a323997a9c1464",
+      "kind": "example",
+      "text": "まだ3月上旬だから、若菜摘みに行くにはちょっと早い。",
+      "file": "assets/audio/examples/w_24a323997a9c1464.mp3"
+    },
+    {
+      "id": "w_2903ad5dfafa9ef5",
+      "kind": "example",
+      "text": "古くなったからかな。そういえば弾力が感じられない。",
+      "file": "assets/audio/examples/w_2903ad5dfafa9ef5.mp3"
+    },
+    {
+      "id": "w_295d47ac323c9139",
+      "kind": "example",
+      "text": "全て日本語に変えたんですね。ご苦労さまでした。",
+      "file": "assets/audio/examples/w_295d47ac323c9139.mp3"
+    },
+    {
+      "id": "w_302957a5eb4aa619",
+      "kind": "example",
+      "text": "船が航海している方向は、緯度と経度を見ればわかります。",
+      "file": "assets/audio/examples/w_302957a5eb4aa619.mp3"
+    },
+    {
+      "id": "w_5c91c9030e80a0f2",
+      "kind": "example",
+      "text": "そうです。そのため韓国と交易する国も多くなりました。",
+      "file": "assets/audio/examples/w_5c91c9030e80a0f2.mp3"
+    },
+    {
+      "id": "w_56677fa9c9e5770f",
+      "kind": "example",
+      "text": "中古車は売買する前に、必ず事故歴を確認しなければならないよ。",
+      "file": "assets/audio/examples/w_56677fa9c9e5770f.mp3"
+    },
+    {
+      "id": "w_626f64111904cbe0",
+      "kind": "example",
+      "text": "はい、全般的な内容が私の主張と一脈相通じるようでした。",
+      "file": "assets/audio/examples/w_626f64111904cbe0.mp3"
+    },
+    {
+      "id": "w_6a90a5c50dd135be",
+      "kind": "example",
+      "text": "短期的に表れる現象なので、ご安心ください。",
+      "file": "assets/audio/examples/w_6a90a5c50dd135be.mp3"
+    },
+    {
+      "id": "w_5ccd774e1051377f",
+      "kind": "example",
+      "text": "当塾は少数定員制で運営しており、一クラスの人数が6人を超えません。",
+      "file": "assets/audio/examples/w_5ccd774e1051377f.mp3"
+    },
+    {
+      "id": "w_76888fa930968791",
+      "kind": "example",
+      "text": "何をぶつぶつ言うんだ？",
+      "file": "assets/audio/examples/w_76888fa930968791.mp3"
+    },
+    {
+      "id": "w_781b744ff9b2998d",
+      "kind": "example",
+      "text": "海外でビルディングを建設する仕事をしています。",
+      "file": "assets/audio/examples/w_781b744ff9b2998d.mp3"
+    },
+    {
+      "id": "w_7d3e23cc3be0aacc",
+      "kind": "example",
+      "text": "あの議員は、論旨から脱線した話しばかりしきりにするね。",
+      "file": "assets/audio/examples/w_7d3e23cc3be0aacc.mp3"
+    },
+    {
+      "id": "w_88c2161baa29b75f",
+      "kind": "example",
+      "text": "お坊さん、僧侶になろうと、お坊さんを訪ねてまいりました。",
+      "file": "assets/audio/examples/w_88c2161baa29b75f.mp3"
+    },
+    {
+      "id": "w_9462c592fc28b4a7",
+      "kind": "example",
+      "text": "見た？あの女の人が私に少し笑いをこぼしていった。",
+      "file": "assets/audio/examples/w_9462c592fc28b4a7.mp3"
+    },
+    {
+      "id": "w_98ef0c87ce249536",
+      "kind": "example",
+      "text": "のろのろ答えないで、さっさと言ってもらえない？",
+      "file": "assets/audio/examples/w_98ef0c87ce249536.mp3"
+    },
+    {
+      "id": "w_9ea346dbfdc4c768",
+      "kind": "example",
+      "text": "祖母と祖父から叔母、外叔、叔母など、家族全員が一緒に行くんだ。",
+      "file": "assets/audio/examples/w_9ea346dbfdc4c768.mp3"
+    },
+    {
+      "id": "w_a430acefffcd0bfe",
+      "kind": "example",
+      "text": "小父さん、急ぎの用なので、もっと早く行って下さい。",
+      "file": "assets/audio/examples/w_a430acefffcd0bfe.mp3"
+    },
+    {
+      "id": "w_a1a771e92d694b1e",
+      "kind": "example",
+      "text": "それは君の誤解だよ。余計な迷信だ。",
+      "file": "assets/audio/examples/w_a1a771e92d694b1e.mp3"
+    },
+    {
+      "id": "w_a48bcd854a68df94",
+      "kind": "example",
+      "text": "公害による環境汚染を減らすことができ、税制優遇も受けられます。",
+      "file": "assets/audio/examples/w_a48bcd854a68df94.mp3"
+    },
+    {
+      "id": "w_cc1a7419426c2c4a",
+      "kind": "example",
+      "text": "窓が四角じゃなくて丸いね。",
+      "file": "assets/audio/examples/w_cc1a7419426c2c4a.mp3"
+    },
+    {
+      "id": "w_afe0b130cc4ed3c3",
+      "kind": "example",
+      "text": "天然じゃなくて人造で作った服なんだ。",
+      "file": "assets/audio/examples/w_afe0b130cc4ed3c3.mp3"
+    },
+    {
+      "id": "w_ce285518225afb6d",
+      "kind": "example",
+      "text": "認印を押しても構いません。",
+      "file": "assets/audio/examples/w_ce285518225afb6d.mp3"
+    },
+    {
+      "id": "w_d3d2b10204204a0d",
+      "kind": "example",
+      "text": "遊園地の入口にずらりと並んでいるあの車をちょっと見て。",
+      "file": "assets/audio/examples/w_d3d2b10204204a0d.mp3"
+    },
+    {
+      "id": "w_d36360bc88c65d29",
+      "kind": "example",
+      "text": "何で至るところに兵隊が配置されているんだ？",
+      "file": "assets/audio/examples/w_d36360bc88c65d29.mp3"
+    },
+    {
+      "id": "w_d66201884ced4538",
+      "kind": "example",
+      "text": "コンセントにプラグがあまりにも挿され過ぎています。",
+      "file": "assets/audio/examples/w_d66201884ced4538.mp3"
+    },
+    {
+      "id": "w_dc9e68a1700899e0",
+      "kind": "example",
+      "text": "先程入れましたが、温度をもっとあげますね。",
+      "file": "assets/audio/examples/w_dc9e68a1700899e0.mp3"
+    },
+    {
+      "id": "w_de42b53ac78fd7b6",
+      "kind": "example",
+      "text": "オンラインで百科事典を利用したことある？",
+      "file": "assets/audio/examples/w_de42b53ac78fd7b6.mp3"
+    },
+    {
+      "id": "w_df31d418cc0b41ae",
+      "kind": "example",
+      "text": "キム記者の質問はとても鋭いですね。",
+      "file": "assets/audio/examples/w_df31d418cc0b41ae.mp3"
+    },
+    {
+      "id": "w_dff1a1570059dc3c",
+      "kind": "example",
+      "text": "町の会館に立てられているアーチ見た？",
+      "file": "assets/audio/examples/w_dff1a1570059dc3c.mp3"
+    },
+    {
+      "id": "w_fb4cccb6a2d8a5d6",
+      "kind": "example",
+      "text": "お手伝いさんを雇うのはどう？",
+      "file": "assets/audio/examples/w_fb4cccb6a2d8a5d6.mp3"
+    },
+    {
+      "id": "w_efea8d64c87236ab",
+      "kind": "example",
+      "text": "かなり遅れましたよね。ラッシュアワーで渋滞していて立ち往生していました。",
+      "file": "assets/audio/examples/w_efea8d64c87236ab.mp3"
+    },
+    {
+      "id": "w_16e5391cf5819f4f",
+      "kind": "example",
+      "text": "袋の裏側に穴があって、そこから漏れている。",
+      "file": "assets/audio/examples/w_16e5391cf5819f4f.mp3"
+    },
+    {
+      "id": "w_2469bcc59515558e",
+      "kind": "example",
+      "text": "子供が新しい服を気に入っているようです。",
+      "file": "assets/audio/examples/w_2469bcc59515558e.mp3"
+    },
+    {
+      "id": "w_062802327bbd983b",
+      "kind": "example",
+      "text": "左腕に腕章をつけた選手がキャプテンです。",
+      "file": "assets/audio/examples/w_062802327bbd983b.mp3"
+    },
+    {
+      "id": "w_3641979f0bd2de45",
+      "kind": "example",
+      "text": "パソコン・システムで生産施設の各部を管理・統制しています。",
+      "file": "assets/audio/examples/w_3641979f0bd2de45.mp3"
+    },
+    {
+      "id": "w_42e866c37406b5ad",
+      "kind": "example",
+      "text": "うちのサークルのメンバーはお互い気がよく合うんだ。",
+      "file": "assets/audio/examples/w_42e866c37406b5ad.mp3"
+    },
+    {
+      "id": "w_3d3ebf43e5e3e709",
+      "kind": "example",
+      "text": "私のアドバイスを無視しないでください。",
+      "file": "assets/audio/examples/w_3d3ebf43e5e3e709.mp3"
+    },
+    {
+      "id": "w_82154f69404ef3b3",
+      "kind": "example",
+      "text": "私もそれが気になります。しかも、非常に昔に作られた作品であるときにはさらに驚かされますね。",
+      "file": "assets/audio/examples/w_82154f69404ef3b3.mp3"
+    },
+    {
+      "id": "w_85539308d155e6d1",
+      "kind": "example",
+      "text": "うん。今日はA局の番組がABC放送局で中継放送されるよ。",
+      "file": "assets/audio/examples/w_85539308d155e6d1.mp3"
+    },
+    {
+      "id": "w_82c6a586ddfa931f",
+      "kind": "example",
+      "text": "先生、こんにちは。先日お送りいたしました電子メールに対する返信をいだだいておりませんので、お電話いたしました。",
+      "file": "assets/audio/examples/w_82c6a586ddfa931f.mp3"
+    },
+    {
+      "id": "w_bd712479a72069fd",
+      "kind": "example",
+      "text": "ご主人は会社員です。",
+      "file": "assets/audio/examples/w_bd712479a72069fd.mp3"
+    },
+    {
+      "id": "w_a78d96d6d5f872cb",
+      "kind": "example",
+      "text": "ここの申込書を書いてください。",
+      "file": "assets/audio/examples/w_a78d96d6d5f872cb.mp3"
+    },
+    {
+      "id": "w_b8e95fc32384cfa5",
+      "kind": "example",
+      "text": "レストランを予約してください。",
+      "file": "assets/audio/examples/w_b8e95fc32384cfa5.mp3"
+    },
+    {
+      "id": "w_c664ee879081d5a8",
+      "kind": "example",
+      "text": "うわあ、空の月を見て。本当に大きくて丸い!",
+      "file": "assets/audio/examples/w_c664ee879081d5a8.mp3"
+    },
+    {
+      "id": "w_fc7adcb9e20962f9",
+      "kind": "example",
+      "text": "分からない。さっきから何が不満なのか文句ばかり言っている。",
+      "file": "assets/audio/examples/w_fc7adcb9e20962f9.mp3"
+    },
+    {
+      "id": "w_b872479d7bbca66e",
+      "kind": "example",
+      "text": "高校の時、初めて演劇を見て、演技への渇望を抱くようになったと思います。",
+      "file": "assets/audio/examples/w_b872479d7bbca66e.mp3"
+    }
+  ],
+  "elapsed_seconds": 11.238,
+  "dry_run": false
+}

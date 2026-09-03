@@ -1,56 +1,51 @@
-// 과거 점수 분포 곡선 — 순수 계산만 담는다.
+// 과거 점수 분포 히스토그램 — 순수 계산만 담는다.
 //
-// 표본이 적어 히스토그램은 울퉁불퉁하다. Gaussian KDE 로 부드럽게 만들되
-// 밀도는 0–1 로 정규화해서 y 축에 절대 의미를 두지 않는다(비교용 형태만 본다).
+// 최종 화면(16)은 부드러운 곡선이 아니라 막대다. 표본을 그대로 세고,
+// 높이는 최빈 구간 대비 비율로만 준다(y 축에 절대 의미를 두지 않는다).
 
-/** x 축 샘플 간격. 0–100 을 2.5 로 나누면 41개 점이 나온다. */
-export const SAMPLE_STEP = 2.5;
-export const SAMPLE_COUNT = 41;
-
-/** Gaussian kernel 폭. 점수 표본이 적어 12 정도가 형태를 유지한다. */
-export const KDE_BANDWIDTH = 12;
+/** 0–100 을 10 구간으로 나눈다. 최종 화면의 막대 수와 같다. */
+export const HISTOGRAM_BINS = 10;
 
 /** 차트 기하 — 화면이 이 값을 그대로 쓴다. */
 export const CHART_HEIGHT = 150;
-export const PLOT_TOP = 20;
-export const PLOT_BOTTOM = 132;
-export const PLOT_INSET_X = 8;
+/** "나" 라벨과 점이 앉을 자리. 막대는 이 아래에서만 자란다. */
+export const MARKER_HEADROOM = 26;
 
-export interface DensityPoint {
-  /** 0–100 점수. */
-  x: number;
-  /** 0–1 정규화 밀도. */
-  density: number;
-}
-
-/** 한 지점의 원시 밀도 — 모든 표본의 Gaussian 기여 합. */
-export function rawDensityAt(x: number, samples: readonly number[]): number {
-  let sum = 0;
-  for (const score of samples) {
-    const z = (x - score) / KDE_BANDWIDTH;
-    sum += Math.exp(-0.5 * z * z);
-  }
-  return sum;
+export interface ScoreBin {
+  /** 구간 하한(포함). */
+  from: number;
+  /** 구간 상한(마지막 구간만 포함). */
+  to: number;
+  count: number;
+  /** 최빈 구간 대비 0–1 높이. 표본이 없으면 0. */
+  ratio: number;
 }
 
 /**
- * 0–100 구간의 정규화된 밀도 곡선.
- * 표본이 비어 있으면 모든 밀도가 0인 평평한 선을 돌려준다(NaN 을 만들지 않는다).
+ * 점수(0–100)가 속한 구간 인덱스. 100 은 마지막 구간에 넣는다 —
+ * 그러지 않으면 만점이 차트 밖으로 떨어진다.
  */
-export function buildDensityCurve(samples: readonly number[]): DensityPoint[] {
-  const raw: number[] = [];
-  let max = 0;
-  for (let i = 0; i < SAMPLE_COUNT; i += 1) {
-    const x = i * SAMPLE_STEP;
-    const d = rawDensityAt(x, samples);
-    raw.push(d);
-    if (d > max) max = d;
-  }
+export function binIndexFor(score: number): number {
+  const clamped = Math.min(100, Math.max(0, score));
+  return Math.min(HISTOGRAM_BINS - 1, Math.floor((clamped / 100) * HISTOGRAM_BINS));
+}
 
-  return raw.map((d, i) => ({
-    x: i * SAMPLE_STEP,
+/** 표본을 구간별로 센 히스토그램. 표본이 비어도 구간 수는 항상 같다. */
+export function buildScoreHistogram(samples: readonly number[]): ScoreBin[] {
+  const width = 100 / HISTOGRAM_BINS;
+  const counts = new Array<number>(HISTOGRAM_BINS).fill(0);
+  for (const score of samples) {
+    const index = binIndexFor(score);
+    counts[index] = (counts[index] ?? 0) + 1;
+  }
+  const max = Math.max(...counts, 0);
+
+  return counts.map((count, i) => ({
+    from: i * width,
+    to: (i + 1) * width,
+    count,
     // max 가 0 이면 표본이 없다는 뜻 — 나누지 않는다.
-    density: max > 0 ? d / max : 0,
+    ratio: max > 0 ? count / max : 0,
   }));
 }
 
@@ -68,34 +63,4 @@ export function percentileAmong(current: number, samples: readonly number[]): nu
   if (samples.length === 0) return 0;
   const lower = samples.filter((s) => s < current).length;
   return (100 * lower) / samples.length;
-}
-
-/** 점수(0–100)를 차트 폭 안의 x 좌표로. */
-export function scoreToX(score: number, width: number): number {
-  const usable = Math.max(0, width - PLOT_INSET_X * 2);
-  const clamped = Math.min(100, Math.max(0, score));
-  return PLOT_INSET_X + (clamped / 100) * usable;
-}
-
-/** 정규화 밀도(0–1)를 차트 y 좌표로. 밀도가 높을수록 위로 간다. */
-export function densityToY(density: number): number {
-  const clamped = Math.min(1, Math.max(0, density));
-  return PLOT_BOTTOM - clamped * (PLOT_BOTTOM - PLOT_TOP);
-}
-
-/**
- * 마커 y 는 곡선과 같은 KDE 를 다시 태워서 구한다.
- * 별도 근사를 쓰면 마커가 선에서 떠 보인다.
- */
-export function markerDensity(current: number, samples: readonly number[]): number {
-  // 곡선과 **같은 기준**으로 나눠야 마커가 선 위에 앉는다.
-  // 표본 위치의 최대로 나누면 표본이 그리드(2.5 간격) 사이에 있을 때 기준이 어긋나
-  // 마커가 곡선에서 떠 보인다.
-  let gridMax = 0;
-  for (let i = 0; i < SAMPLE_COUNT; i += 1) {
-    const d = rawDensityAt(i * SAMPLE_STEP, samples);
-    if (d > gridMax) gridMax = d;
-  }
-  if (gridMax <= 0) return 0;
-  return Math.min(1, rawDensityAt(current, samples) / gridMax);
 }

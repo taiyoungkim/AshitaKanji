@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-09-01T14:03:45.473035+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7027,
+  "selected_rows": 2,
+  "jobs": 4,
+  "preexisting": 0,
+  "planned": 4,
+  "created": 4,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_1c28467b52572134",
+      "kind": "word",
+      "text": "いまだ",
+      "file": "assets/audio/words/w_1c28467b52572134.mp3"
+    },
+    {
+      "id": "w_858471f4df92a8af",
+      "kind": "word",
+      "text": "まだ",
+      "file": "assets/audio/words/w_858471f4df92a8af.mp3"
+    },
+    {
+      "id": "w_858471f4df92a8af",
+      "kind": "example",
+      "text": "宿題はまだ終わっていない。",
+      "file": "assets/audio/examples/w_858471f4df92a8af.mp3"
+    },
+    {
+      "id": "w_1c28467b52572134",
+      "kind": "example",
+      "text": "原因はいまだ解明されていない。",
+      "file": "assets/audio/examples/w_1c28467b52572134.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.614,
+  "dry_run": false
+}

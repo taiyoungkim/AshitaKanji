@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-17T15:22:56.028001+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 1,
+  "jobs": 1,
+  "preexisting": 0,
+  "planned": 1,
+  "created": 1,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "kind": "word",
+      "text": "たいらげる",
+      "file": "assets/audio/words/w_76a0eb1e41436ab7.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.468,
+  "dry_run": false
+}

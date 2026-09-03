@@ -1,28 +1,32 @@
 # Vocabulary asset backlog
 
-Last audited: 2026-08-10 (Asia/Seoul)
+Last audited: 2026-08-21 (Asia/Seoul)
+
+Full change log for the な-adjective collapse, dictionary recheck, successor
+remount, and TTS follow-up: [`VOCAB_CHANGELOG_2026-08-18.md`](./VOCAB_CHANGELOG_2026-08-18.md).
+Machine-readable TTS job list: `data/pdf-vocab/tts_followup_2026-08-18.json`.
 
 ## Completed
 
-- Final vocabulary DB: 6,638 / 6,638 active, verified words
-- PDF frequency core: 2,699 / 2,699 included
-- Word TTS: 6,638 / 6,638 available and mapped
+- Final vocabulary DB: 7,027 / 7,027 active, verified words
+- In-scope PDF frequency core: 2,360 / 2,360 included
+- Word TTS: 7,027 / 7,027 available (MP3 + Ogg/Opus)
 - Word TTS voice: `ja-JP-NanamiNeural`, rate `+0%`
-- Example text: 6,638 / 6,638 available (NAVER cleared 6,502 + self-authored 136)
-- Example TTS: 6,638 / 6,638 available, mapped, and `ffprobe` validated
+- Example text: 7,027 / 7,027 available (NAVER cleared 6,207 + self-authored 820)
 - Example TTS voice: `ja-JP-NanamiNeural`, rate `+0%`
 
 ## Remaining content work
 
-1. Review the 1,560-row NAVER priority example queue (duplicates, weak meaning-token
-   matches, low scores, or non-direct target-form matches).
-2. Review the 136 self-authored examples currently marked `auto`.
-3. Human-review the 1,877 kanji QA rows currently marked `auto`.
+1. Continue human review of the kanji QA queue tracked in `kanji_qa_work.csv`.
 
 ## Remaining asset/release work
 
-- Remove or archive 1,411 word MP3s whose IDs are not in the final vocabulary.
-- Remove or archive 237 example MP3s whose IDs are not in the final example set.
+- 2026-08-20 feedback pass rebuilt active maps to 7,050 / 7,050
+  (word + example, MP3 + Ogg/Opus).
+- Remove or archive 1,418 word MP3s whose IDs are not in the final vocabulary
+  (includes the 49 dropped な-forms).
+- Remove or archive 419 example MP3s whose IDs are not in the final example set
+  (includes the 49 dropped な-forms).
 - Decide how pre-generated audio is delivered to remote builds. `assets/audio/`
   and `src/lib/audio/audioMap.gen.ts` are currently gitignored and there is no
   remote-build generation hook.

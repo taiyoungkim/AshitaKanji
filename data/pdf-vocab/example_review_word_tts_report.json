@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-20T01:03:56.565424+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 1,
+  "jobs": 1,
+  "preexisting": 0,
+  "planned": 1,
+  "created": 1,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_7f8ba58bb4b898e8",
+      "kind": "word",
+      "text": "じどうてき",
+      "file": "assets/audio/words/w_7f8ba58bb4b898e8.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.36,
+  "dry_run": false
+}

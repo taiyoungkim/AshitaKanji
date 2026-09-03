@@ -1,0 +1,36 @@
+{
+  "reviewed_at": "2026-08-18",
+  "batch_id": "02",
+  "scope": "P0 semantic review queue, batch 02 (next 20)",
+  "basis": [
+    "data/track-a/kanji_semantic_review_queue.csv",
+    "data/track-a/kanji_qa_work.csv meanings_en/onyomi/kunyomi (KANJIDIC2)",
+    "active word_kanji examples in assets/jlpt.db"
+  ],
+  "policy": {
+    "qa_status": "needs_review",
+    "reason": "AI-assisted semantic correction requires final human confirmation before verified"
+  },
+  "decisions": [
+    {"literal":"安","old":["(값이) 싸다"],"new":["편안하다","안정되다","싸다"],"reason":"安い의 가격 문맥에 한정된 뜻에 relax/quiet/peaceful 의미군을 복원"},
+    {"literal":"治","old":["(병이) 낫다"],"new":["다스리다","낫다","고치다","진정시키다"],"reason":"치유 문맥에 한정된 뜻에 rule/subdue/cure 의미군을 복원"},
+    {"literal":"倉","old":["창고"],"new":["창고"],"reason":"warehouse/storehouse 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"奪","old":["빼앗다"],"new":["빼앗다"],"reason":"rob/take by force 의미와 일치하여 기존 뜻 유지"},
+    {"literal":"悉","old":["전부"],"new":["모두","전부","다하다"],"reason":"all/completely와 尽くす 계열의 exhaust 의미를 함께 반영"},
+    {"literal":"慰","old":["위로하다"],"new":["위로하다","달래다"],"reason":"comfort/console 의미를 자연스러운 한국어 동사로 정리"},
+    {"literal":"拾","old":["줍다"],"new":["줍다","모으다"],"reason":"pick up/gather 의미군을 반영"},
+    {"literal":"掴","old":["움켜쥐다"],"new":["붙잡다","움켜쥐다"],"reason":"catch/seize/grasp 의미군을 반영"},
+    {"literal":"諭","old":["잘 타이르다"],"new":["타이르다","훈계하다"],"reason":"불필요한 정도 부사를 제거하고 admonish/rebuke 의미를 보완"},
+    {"literal":"謎","old":["수수께끼"],"new":["수수께끼","불가사의"],"reason":"riddle/enigma 의미군을 반영"},
+    {"literal":"輝","old":["빛나다"],"new":["빛나다","반짝이다"],"reason":"shine/sparkle/gleam 의미군을 반영"},
+    {"literal":"鋭","old":["예리하다"],"new":["날카롭다","예리하다"],"reason":"sharp/pointed 의미군을 반영"},
+    {"literal":"編","old":["(스웨터를)짜다"],"new":["엮다","짜다","편집하다"],"reason":"스웨터 문맥을 제거하고 knit/braid/editing 의미군을 복원"},
+    {"literal":"入","old":["들어가(오)다"],"new":["들어가다","넣다"],"reason":"축약 괄호를 풀고 enter/insert의 자동사·타동사 의미를 분리"},
+    {"literal":"済","old":["끝나다(해결)"],"new":["끝나다","마치다","해결하다"],"reason":"괄호 문맥을 제거하고 finish/settle 의미군을 반영"},
+    {"literal":"生","old":["(열매가) 열리다"],"new":["삶","태어나다","살다","생기다"],"reason":"한 활용 문맥에 잘못 한정된 뜻을 life/birth 기본 의미군으로 교체"},
+    {"literal":"匹","old":["짝","작은 동물을 세는 단위"],"new":["짝","마리"],"reason":"정확한 뜻을 유지하면서 앱 카드용 간결한 표현으로 정리"},
+    {"literal":"召","old":["드시다/입으시다(높임말)"],"new":["부르다","드시다","입으시다"],"reason":"슬래시·괄호를 제거하고 call 의미를 복원"},
+    {"literal":"暮","old":["(날이) 저물다"],"new":["저물다","살아가다","생활"],"reason":"날씨 문맥을 제거하고 twilight/make a living 의미군을 반영"},
+    {"literal":"枚","old":["장","얇은 것 세는 단위"],"new":["장","얇고 평평한 것을 세는 단위"],"reason":"기존 뜻을 유지하면서 counter의 적용 범위를 명확히 정리"}
+  ]
+}

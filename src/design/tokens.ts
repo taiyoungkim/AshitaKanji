@@ -2,8 +2,8 @@
 // Source of truth: ~/dev/Onikan/DESIGN.md + handoff/README.md
 //
 // 규칙 요약:
-// - orange(primary)는 화면당 단 하나의 주요 액션에만. 탭바 활성 틴트는 예외.
-// - lime(secondary)은 보상 획득 순간에만 (체크 배지, 방금 채워진 진행 칸 페이드).
+// - 주요 액션은 ink 채움 + onInk 라벨. orange(primary)는 브랜드·상태 강조에만 쓴다.
+// - lime(secondary)은 진척·완료 순간에만 쓴다.
 // - mute는 잠김·플레이스홀더 전용 — 일반 캡션에 쓰지 않는다.
 // - 그라데이션·텍스트 그림자·카드 안 카드 금지. 그림자는 카드 Level 1 하나뿐.
 // - 영수증만 radius 4 — "종이" 신호 전용.
@@ -41,9 +41,11 @@ export interface ThemeColors {
   /** 일러스트 배킹 타일 — 라이트·다크 공통 고정. */
   plate: string;
   shadow: string;
-  /** 화면당 단 하나의 주요 액션. */
+  /** 브랜드·상태 강조 orange. 주요 액션은 ink 를 사용한다. */
   primary: string;
-  /** primary 버튼의 누름 상태. */
+  /** orange 상태 뱃지 배경. 다크에서는 면이 아니라 톤만 남긴다. */
+  primarySoft: string;
+  /** orange 강조 면의 누름 상태. */
   primaryPressed: string;
   /**
    * 주황 primary 면 위의 글자·아이콘.
@@ -57,8 +59,10 @@ export interface ThemeColors {
   tabActive: string;
   /** ink 버튼의 누름 상태. */
   inkPressed: string;
-  /** 보상 순간 전용 lime. */
+  /** 진척·완료 전용 lime. */
   secondary: string;
+  /** 완료 뱃지·완료 카드 배경. */
+  secondarySoft: string;
   onSecondary: string;
   link: string;
   /** 탐색 맥락 진행바 채움 (결과 화면만 ink 사용). */
@@ -68,6 +72,9 @@ export interface ThemeColors {
   danger: string;
   info: string;
 }
+
+/** today-review / review-hub HTML `--page`. 다크는 softer 를 쓴다. */
+export const HTML_FLOW_PAGE = '#F4F2EF';
 
 export const lightColors: ThemeColors = {
   ink: grey.g15,
@@ -79,13 +86,15 @@ export const lightColors: ThemeColors = {
   pressed: grey.g90,
   plate: grey.g96,
   shadow: 'rgba(0,0,0,0.05)',
-  primary: '#EA580C',
-  primaryPressed: '#C2410C',
+  primary: '#EF5112',
+  primarySoft: '#FCE8DE',
+  primaryPressed: '#D2460E',
   onPrimary: '#FFFFFF',
   onInk: grey.g98,
   tabActive: '#C2410C',
   inkPressed: grey.g10,
   secondary: '#A3E635',
+  secondarySoft: '#EAF6DD',
   onSecondary: grey.g15,
   link: '#C2410C',
   barFill: grey.g50,
@@ -107,12 +116,14 @@ export const darkColors: ThemeColors = {
   plate: grey.g96, // 다크에서도 고정 — 검정 선화 일러스트 보호
   shadow: 'rgba(0,0,0,0.4)',
   primary: '#F97316',
+  primarySoft: '#3A2216',
   primaryPressed: '#FB923C',
   onPrimary: grey.g15,
   onInk: grey.g15,
   tabActive: '#EA580C',
   inkPressed: '#FFFFFF',
   secondary: '#A3E635',
+  secondarySoft: '#26301A',
   onSecondary: grey.g15,
   link: '#F97316',
   barFill: grey.g50,
@@ -238,7 +249,15 @@ export const motion = {
   limeFadeMs: 1200,
   limeFadeDelayMs: 300,
   dimInMs: 200,
-  printOutMs: 900,
+  /** 결과 영수증 확인: fill 완료 뒤 자동 이동. */
+  buttonAutoFillMs: 2000,
+  /** 온보딩 안내: 시각 진행 표시만 하며 자동 이동하지 않는다. */
+  guideFillMs: 2000,
+  /** 온보딩 재료 획득: 시각 진행 표시만 하며 자동 이동하지 않는다. */
+  studyCompleteFillMs: 1800,
+  confettiBurstMs: 2400,
+  receiptPrintDelayMs: 60,
+  receiptPrintMs: 1350,
 } as const;
 
 /**
@@ -264,7 +283,7 @@ export function makeButtons(c: ThemeColors) {
       paddingHorizontal: spacing.xl,
       alignItems: 'center' as const,
       justifyContent: 'center' as const,
-      backgroundColor: c.primary,
+      backgroundColor: c.ink,
     },
     /** surface 필, ink 텍스트. */
     secondary: {

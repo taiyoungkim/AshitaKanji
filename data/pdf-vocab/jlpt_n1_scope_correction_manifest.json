@@ -1,0 +1,225 @@
+{
+  "generated_at": "2026-08-18T14:03:20.880103+00:00",
+  "policy": {
+    "pass_n1_included_sections": [
+      "한자 읽기",
+      "문맥 규정"
+    ],
+    "pass_n1_excluded_sections": [
+      "유의어",
+      "용법"
+    ]
+  },
+  "counts": {
+    "pdf_source_rows_excluded": 522,
+    "pdf_core_before": 2699,
+    "pdf_core_after": 2360,
+    "release_words": 6638,
+    "preserved_or_remapped_words": 6173,
+    "restored_supplements": 465,
+    "seeded_examples": 6173,
+    "collected_examples": 449,
+    "no_example_candidates_replaced": 16,
+    "pass_n1_excluded_only_rows_replaced": 8
+  },
+  "merge_stats": {
+    "shared_quality_overlay": 6170,
+    "restored": 465,
+    "successor_collision_kept_old": 36,
+    "successor": 3
+  },
+  "quality_swaps": [
+    {
+      "removed_id": "w_72e1cb4ba34fc820",
+      "removed_surface": "べんきょうがしたい",
+      "added_id": "w_7ed84a7c01d905d4",
+      "added_surface": "今年",
+      "level": "N5",
+      "replacement_retire_score": -65
+    },
+    {
+      "removed_id": "w_661368cc7fe5e352",
+      "removed_surface": "ひまでした",
+      "added_id": "w_7db678ed78c2c659",
+      "added_surface": "昨日",
+      "level": "N5",
+      "replacement_retire_score": -65
+    },
+    {
+      "removed_id": "w_1dc2a01d84d091eb",
+      "removed_surface": "しんぶんをよむ",
+      "added_id": "w_1c59e13dadce6f6b",
+      "added_surface": "絵",
+      "level": "N5",
+      "replacement_retire_score": -65
+    },
+    {
+      "removed_id": "w_c1395761ef105cb2",
+      "removed_surface": "やせましたね",
+      "added_id": "w_8794ea0733093080",
+      "added_surface": "びっくりする",
+      "level": "N4",
+      "replacement_retire_score": 3
+    },
+    {
+      "removed_id": "w_7d52aa26e8ea1bff",
+      "removed_surface": "あやまりました",
+      "added_id": "w_2f22a51db540eabf",
+      "added_surface": "アジア",
+      "level": "N4",
+      "replacement_retire_score": 3
+    },
+    {
+      "removed_id": "w_d6f29ee958d55c51",
+      "removed_surface": "前と同じで",
+      "added_id": "w_f47a259578800227",
+      "added_surface": "親友",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_a71c1720e2b5e259",
+      "removed_surface": "後の別の日にやる",
+      "added_id": "w_f97189ac58417d0b",
+      "added_surface": "印",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_de989302383b6361",
+      "removed_surface": "本当ではないと思う",
+      "added_id": "w_9c02e2c234a205df",
+      "added_surface": "決まり",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_18c8394a587d12b2",
+      "removed_surface": "残念だと思う",
+      "added_id": "w_0caf84e642264d6a",
+      "added_surface": "泉",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_4b8b74ca3e33a730",
+      "removed_surface": "娘の息子",
+      "added_id": "w_326aea9cf6cffa08",
+      "added_surface": "キャンプ",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_5d1903868c9f2e19",
+      "removed_surface": "多すぎて残る",
+      "added_id": "w_d3a58aebb4ab933c",
+      "added_surface": "深刻",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_053241823c023c93",
+      "removed_surface": "急いだようすで",
+      "added_id": "w_111d2464a080f298",
+      "added_surface": "癖",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_9a24bef9d9066779",
+      "removed_surface": "だれにも話さない",
+      "added_id": "w_d16eddc3944c223d",
+      "added_surface": "豪華",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_34cbcd4491dcafdb",
+      "removed_surface": "ないしょにする",
+      "added_id": "w_8794b1f76744af5d",
+      "added_surface": "汚染",
+      "level": "N3",
+      "replacement_retire_score": -14
+    },
+    {
+      "removed_id": "w_ddb970983277fbac",
+      "removed_surface": "躾",
+      "added_id": "w_fac3d8bca8a39cc2",
+      "added_surface": "食い違う",
+      "level": "N1",
+      "replacement_retire_score": -2
+    },
+    {
+      "removed_id": "w_18d02f0b4996faee",
+      "removed_surface": "準急",
+      "added_id": "w_74f7e87454f7a2e7",
+      "added_surface": "勘弁",
+      "level": "N1",
+      "replacement_retire_score": -1
+    },
+    {
+      "removed_id": "w_11f44b191e516e20",
+      "removed_surface": "リスク",
+      "added_id": "w_871701ef4118a88f",
+      "added_surface": "折衷",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_19da5c1e81c17a2b",
+      "removed_surface": "経緯",
+      "added_id": "w_8cbecda005e65fb1",
+      "added_surface": "お袋",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_4a9ade7c35cb2e1c",
+      "removed_surface": "克明に",
+      "added_id": "w_91f0d29d4488ce58",
+      "added_surface": "傷付ける",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_5f17979c49bed7c4",
+      "removed_surface": "クレーム",
+      "added_id": "w_27ea49ce54c03299",
+      "added_surface": "水気",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_6082f998d6e8518e",
+      "removed_surface": "発散",
+      "added_id": "w_f889521b53ba61cd",
+      "added_surface": "閉口",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_8883080375d6fc63",
+      "removed_surface": "抱負",
+      "added_id": "w_ccbf1de13dfa8cfe",
+      "added_surface": "徐行",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_c2f2731ceb3bad23",
+      "removed_surface": "歴然としている",
+      "added_id": "w_475ed81fb0fca7ed",
+      "added_surface": "揺さぶる",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    },
+    {
+      "removed_id": "w_d61e38acb4bac891",
+      "removed_surface": "まちまち",
+      "added_id": "w_f8f401f47c14479b",
+      "added_surface": "葬る",
+      "level": "N1",
+      "reason": "exclude pass_n1 유의어·용법-only row"
+    }
+  ]
+}

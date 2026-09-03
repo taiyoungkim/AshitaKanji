@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-10T16:18:58.421Z",
-  "active_words": 6638,
-  "final_examples": 6638,
+  "generated_at": "2026-09-01T14:08:31.967Z",
+  "active_words": 7027,
+  "final_examples": 7027,
   "coverage_percent": 100,
-  "naver_cleared_examples": 6502,
-  "self_authored_examples": 136,
+  "naver_cleared_examples": 6207,
+  "self_authored_examples": 820,
   "self_authored_by_level": {
-    "N5": 25,
-    "N4": 9,
-    "N3": 28,
-    "N2": 23,
-    "N1": 51
+    "N5": 69,
+    "N4": 86,
+    "N3": 150,
+    "N2": 229,
+    "N1": 286
   },
-  "exact_surface_containment_passed": 128,
-  "inflected_or_variant_surface_examples": 8,
+  "exact_surface_containment_passed": 820,
+  "inflected_or_variant_surface_examples": 0,
   "reference_audit": {
     "scope": "legacy self-authored reference set; phrase-review rows carry per-row source_url/qa_note",
     "target_count": 53,
@@ -22,11 +22,12 @@
     "request_errors": 0
   },
   "qa_status_counts": {
-    "auto": 6638
+    "verified": 697,
+    "auto": 6330
   },
   "permission_status_counts": {
-    "cleared": 6502,
-    "self": 136
+    "self": 820,
+    "cleared": 6207
   },
   "outputs": {
     "self_authored_csv": "data/pdf-vocab/self_authored_examples_qa_work.csv",

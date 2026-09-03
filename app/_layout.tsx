@@ -11,16 +11,18 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import { setAudioModeAsync } from 'expo-audio';
 import { queryClient } from '~/lib/queryClient';
-import { RootErrorBoundary } from '~/lib/errorBoundary';
+import { ErrorFallback, RootErrorBoundary } from '~/lib/errorBoundary';
 import { initAds } from '~/lib/ads/interstitialManager';
 import { getDatabase } from '~/db/open';
 import { ToastProvider } from '~/components/Toast';
 import { typography, type ThemeColors } from '~/design/tokens';
 import { ThemeProvider, useTheme, useThemedStyles } from '~/design/theme';
+import { isVisualCaptureEnabled } from '~/visual/captureFixtures';
 
 export default function RootLayout(): React.ReactNode {
   const [dbReady, setDbReady] = useState(false);
   const [dbError, setDbError] = useState<Error | null>(null);
+  const [dbAttempt, setDbAttempt] = useState(0);
 
   // Pretendard JP — 위계를 굵기로 만드는 서체라 weight 별 패밀리를 각각 로드한다.
   // 일본어 자형이 필요한 학습 카드 때문에 plain 판이 아니라 JP 판을 쓴다.
@@ -41,11 +43,15 @@ export default function RootLayout(): React.ReactNode {
 
   // 광고 SDK 초기화 (iOS ATT 동의 → AdMob init). 실패해도 앱 동작 무영향.
   useEffect(() => {
+    // Deterministic capture must never block on a platform permission dialog.
+    if (isVisualCaptureEnabled()) return;
     void initAds();
   }, []);
 
   useEffect(() => {
     let cancelled = false;
+    setDbReady(false);
+    setDbError(null);
     getDatabase()
       .then(() => {
         if (!cancelled) setDbReady(true);
@@ -56,12 +62,7 @@ export default function RootLayout(): React.ReactNode {
     return () => {
       cancelled = true;
     };
-  }, []);
-
-  if (dbError) {
-    // DB 초기화 실패 — 에러 바운더리로 전달
-    throw dbError;
-  }
+  }, [dbAttempt]);
 
   // 폰트 로드 실패는 치명적이지 않다 — 시스템 폰트로 떨어뜨리고 계속 간다.
   useEffect(() => {
@@ -69,6 +70,18 @@ export default function RootLayout(): React.ReactNode {
   }, [fontError]);
 
   const ready = dbReady && (fontsLoaded || fontError != null);
+
+  if (dbError) {
+    return (
+      <ThemeProvider>
+        <ThemedStatusBar />
+        <ErrorFallback
+          message="학습 데이터를 열지 못했어요. 다시 시도해 주세요."
+          onReset={() => setDbAttempt((n) => n + 1)}
+        />
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider>
@@ -127,23 +140,24 @@ function RootStack(): React.ReactNode {
       <Stack.Screen name="intro" options={{ headerShown: false }} />
       <Stack.Screen name="tutorial" options={{ headerShown: false }} />
       <Stack.Screen name="study" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
-      <Stack.Screen name="done" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
+      <Stack.Screen
+        name="done"
+        options={{ headerShown: false, presentation: 'fullScreenModal', gestureEnabled: false }}
+      />
       <Stack.Screen
         name="scan"
         options={{ headerShown: true, title: '빠른 훑기', headerBackTitle: '뒤로' }}
       />
-      <Stack.Screen
-        name="reading"
-        options={{ headerShown: true, title: '회독', headerBackTitle: '뒤로' }}
-      />
+      <Stack.Screen name="reading" options={{ headerShown: false }} />
       <Stack.Screen
         name="reading-study"
         options={{ headerShown: false, presentation: 'fullScreenModal' }}
       />
       <Stack.Screen
         name="weakness"
-        options={{ headerShown: true, title: '약점 복습', headerBackTitle: '뒤로' }}
+        options={{ headerShown: false, presentation: 'fullScreenModal' }}
       />
+      <Stack.Screen name="today-words" options={{ headerShown: false }} />
       {/* 단어 상세는 바텀시트 패턴이다 (COMPONENTS.md 11c).
           헤더는 화면이 직접 그린다 — 좌 44 닫기 + 가운데 "단어 상세". */}
       <Stack.Screen
@@ -178,6 +192,9 @@ function RootStack(): React.ReactNode {
         name="about"
         options={{ headerShown: true, title: '앱 정보', headerBackTitle: '뒤로' }}
       />
+      <Stack.Screen name="settings-learning" options={{ headerShown: false }} />
+      <Stack.Screen name="settings-pronunciation" options={{ headerShown: false }} />
+      <Stack.Screen name="settings-backup" options={{ headerShown: false }} />
     </Stack>
   );
 }

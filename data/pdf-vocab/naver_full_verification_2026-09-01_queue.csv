@@ -1,0 +1,5 @@
+﻿id,level,surface,reading_kana,meaning_ko,severity,queue,accepted_reason,issues,catalog_status,catalog_level,catalog_pron,catalog_entry,search_status,search_level,search_entry,jmdict_issue,jmdict_detail,example_source,example_contain_basis,example_jp,spelling_note,naver_means,source_url
+w_3e5c61e8a0dce5c9,N4,仕方ない,しかたない,어쩔 수 없다,queue,catalog-absent,,naver-level-missing,naver_level_missing,,,,,,,,,self,surface,今さら後悔しても仕方ない。,,,https://ja.dict.naver.com/#/search?query=%E4%BB%95%E6%96%B9%E3%81%AA%E3%81%84
+w_08ce685bcb19f6e1,N2,後,ご,"뒤, 나중",queue,homograph,,level-ambiguous,manual_review,N2,尻·臀·後,しり,match,N2,後,,,naver,surface,後から来て前に出る,,궁둥이;엉덩이;뒤;뒤쪽;끝;끝 부분,https://ja.dict.naver.com/#/search?query=%E5%BE%8C
+w_14e067fde838f088,N2,課,か,"과, 부서",queue,catalog-absent-search-match,,naver-level-missing,naver_level_missing,,,,match,N2,課,,,naver,surface,初授業だから教科書の1課から順番に沿って勉強しましょう。,,,https://ja.dict.naver.com/#/search?query=%E8%AA%B2
+w_9ee9519d3d6e7bd7,N1,慣習,かんしゅう,관습,queue,catalog-absent,,naver-level-missing,naver_level_missing,,,,,,,,,self,surface,土地の慣習に従う。,,,https://ja.dict.naver.com/#/search?query=%E6%85%A3%E7%BF%92

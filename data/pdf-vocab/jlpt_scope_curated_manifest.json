@@ -1,0 +1,4322 @@
+{
+  "generated_at": "2026-08-18T14:49:49.637078+00:00",
+  "policy": {
+    "pdf_scope": "Only kanji-reading, kanji-writing, context, and MKT POS word-list sections are app vocabulary.",
+    "excluded": "All pass-book synonym and usage sections remain in source audit only.",
+    "replacement": "Verified same-level Kaggle rows with exact novel JMdict identities."
+  },
+  "summary": {
+    "scope_rows_removed": 246,
+    "na_duplicates_removed": 32,
+    "replacement_words": 278,
+    "replacement_by_level": {
+      "N5": 17,
+      "N4": 5,
+      "N3": 47,
+      "N1": 209
+    },
+    "confirmed_corrections": 5,
+    "pdf_level_corrections": 1,
+    "word_count": 6638,
+    "unique_ids": 6638,
+    "unique_pairs": 6638,
+    "same_reading_same_meaning_duplicate_groups": 0,
+    "level_counts": {
+      "N5": 339,
+      "N4": 600,
+      "N3": 1499,
+      "N2": 1700,
+      "N1": 2500
+    },
+    "missing_examples": 0,
+    "included_pdf_core": 2174,
+    "missing_pdf_core": 0
+  },
+  "removed_scope_rows": [
+    {
+      "id": "w_000b1574854c2e77",
+      "level": "N3",
+      "surface": "変な",
+      "reading_kana": "へんな",
+      "meaning_ko": "이상한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_00d4464d8556265c",
+      "level": "N3",
+      "surface": "共通点",
+      "reading_kana": "きょうつうてん",
+      "meaning_ko": "공통점",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_02120114862d3c4a",
+      "level": "N3",
+      "surface": "好きだ",
+      "reading_kana": "すきだ",
+      "meaning_ko": "좋아하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_02fc9927cbd61342",
+      "level": "N1",
+      "surface": "じっくりと",
+      "reading_kana": "じっくりと",
+      "meaning_ko": "정성껏, 곰곰이",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_033a69f2ab942271",
+      "level": "N1",
+      "surface": "尺度",
+      "reading_kana": "しゃくど",
+      "meaning_ko": "척도, 기준",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_03d5c73ae1fae891",
+      "level": "N3",
+      "surface": "少なくなる",
+      "reading_kana": "すくなくなる",
+      "meaning_ko": "적어지다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_0465760f8e83cea2",
+      "level": "N3",
+      "surface": "おかしな",
+      "reading_kana": "おかしな",
+      "meaning_ko": "이상한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_04b0da0f7a8c4f26",
+      "level": "N1",
+      "surface": "異例の",
+      "reading_kana": "いれいの",
+      "meaning_ko": "이례인",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_05be6be7e376b26a",
+      "level": "N1",
+      "surface": "じっと見る",
+      "reading_kana": "じっとみる",
+      "meaning_ko": "가만히 보다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_073640eb99b4da20",
+      "level": "N3",
+      "surface": "配達する",
+      "reading_kana": "はいたつする",
+      "meaning_ko": "배달하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_08cdbe4932bb3c07",
+      "level": "N3",
+      "surface": "チャンス",
+      "reading_kana": "チャンス",
+      "meaning_ko": "기회, 찬스",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_095ed617a1f2ddc6",
+      "level": "N5",
+      "surface": "頂きます",
+      "reading_kana": "いただきます",
+      "meaning_ko": "잘 먹겠습니다.",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_09d7f617e7219bc2",
+      "level": "N1",
+      "surface": "自然に",
+      "reading_kana": "しぜんに",
+      "meaning_ko": "자연히",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_0b99d6f77afb720d",
+      "level": "N1",
+      "surface": "シンプルだ",
+      "reading_kana": "シンプルだ",
+      "meaning_ko": "심플하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_0c4ec839ef14374d",
+      "level": "N1",
+      "surface": "用意する",
+      "reading_kana": "よういする",
+      "meaning_ko": "준비하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_0efedda966e38fa5",
+      "level": "N1",
+      "surface": "端的に",
+      "reading_kana": "たんてきに",
+      "meaning_ko": "단적으로",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_123b00c50a0e4b79",
+      "level": "N3",
+      "surface": "横断禁止",
+      "reading_kana": "おうだんきんし",
+      "meaning_ko": "횡단 금지",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_131376fb21d33923",
+      "level": "N1",
+      "surface": "辛抱する",
+      "reading_kana": "しんぼうする",
+      "meaning_ko": "참다, 견디다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_13bc238458510c40",
+      "level": "N1",
+      "surface": "勘違いする",
+      "reading_kana": "かんちがいする",
+      "meaning_ko": "착각하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1504c6ff8f399896",
+      "level": "N1",
+      "surface": "格段に",
+      "reading_kana": "かくだんに",
+      "meaning_ko": "현격하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1557e553aea269a3",
+      "level": "N3",
+      "surface": "勿論",
+      "reading_kana": "もちろん",
+      "meaning_ko": "물론",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_1618754120249d8b",
+      "level": "N1",
+      "surface": "閉口する",
+      "reading_kana": "へいこうする",
+      "meaning_ko": "난처하다, 기막히다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_168aa37b37891a31",
+      "level": "N1",
+      "surface": "撤回する",
+      "reading_kana": "てっかいする",
+      "meaning_ko": "철회하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_191333b61c6cba84",
+      "level": "N1",
+      "surface": "すぐには",
+      "reading_kana": "すぐには",
+      "meaning_ko": "바로는, 당장에는",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1a189b6da834835e",
+      "level": "N1",
+      "surface": "大幅に",
+      "reading_kana": "おおはばに",
+      "meaning_ko": "대폭적으로",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1b09935e0ceb6288",
+      "level": "N1",
+      "surface": "しがみつく",
+      "reading_kana": "しがみつく",
+      "meaning_ko": "매달리다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1b3618fa8b4b0486",
+      "level": "N1",
+      "surface": "口出し",
+      "reading_kana": "くちだし",
+      "meaning_ko": "간섭, 참견",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1bed16b9edbd2743",
+      "level": "N1",
+      "surface": "手痛い",
+      "reading_kana": "ていたい",
+      "meaning_ko": "(비판, 타격, 손해, 실수 등) 심하다, 뼈아프다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1c65e7049d9bf4ea",
+      "level": "N1",
+      "surface": "拍子",
+      "reading_kana": "ひょうし",
+      "meaning_ko": "박자",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1e03a40ecdb791f9",
+      "level": "N1",
+      "surface": "スポット",
+      "reading_kana": "スポット",
+      "meaning_ko": "스폿, 장소",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_1e28735db8b26c61",
+      "level": "N3",
+      "surface": "黙って",
+      "reading_kana": "だまって",
+      "meaning_ko": "아무 말 없이",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_227150053fcfd676",
+      "level": "N1",
+      "surface": "押収",
+      "reading_kana": "おうしゅう",
+      "meaning_ko": "압수",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_244f3dff10ae65d4",
+      "level": "N1",
+      "surface": "風潮",
+      "reading_kana": "ふうちょう",
+      "meaning_ko": "풍조",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_276643b8b7bc3674",
+      "level": "N1",
+      "surface": "手分けする",
+      "reading_kana": "てわけする",
+      "meaning_ko": "분담하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_27f8bdaa786a7642",
+      "level": "N3",
+      "surface": "少しずつ",
+      "reading_kana": "すこしずつ",
+      "meaning_ko": "조금씩",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_28ab53ea12303357",
+      "level": "N1",
+      "surface": "やつれる",
+      "reading_kana": "やつれる",
+      "meaning_ko": "여위다, 수척해지다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_291c8cccd3b11be4",
+      "level": "N1",
+      "surface": "くじける",
+      "reading_kana": "くじける",
+      "meaning_ko": "꺾이다, 굴하다, 좌절하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_2a02d91ea5c3fe03",
+      "level": "N5",
+      "surface": "郵便局",
+      "reading_kana": "ゆうびんきょく",
+      "meaning_ko": "우체국",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_2b5100427db5f484",
+      "level": "N1",
+      "surface": "不慮の",
+      "reading_kana": "ふりょの",
+      "meaning_ko": "뜻밖의, 예상 밖의, 불의의",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_2d700cb91a20c395",
+      "level": "N1",
+      "surface": "何度も",
+      "reading_kana": "なんども",
+      "meaning_ko": "몇 번이고",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_2d98b61954342b91",
+      "level": "N3",
+      "surface": "翌年",
+      "reading_kana": "よくとし",
+      "meaning_ko": "이듬해",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_2eac668e75cd3277",
+      "level": "N1",
+      "surface": "抜群だ",
+      "reading_kana": "ばつぐんだ",
+      "meaning_ko": "발군이다, 뛰어나다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_2eb5abe49ec61420",
+      "level": "N1",
+      "surface": "交錯",
+      "reading_kana": "こうさく",
+      "meaning_ko": "뒤섞여 엇갈림, 교차",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_301dc468017fd65f",
+      "level": "N1",
+      "surface": "重要な",
+      "reading_kana": "じゅうような",
+      "meaning_ko": "중요한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_308bfaa6344ebab1",
+      "level": "N1",
+      "surface": "エレガントな",
+      "reading_kana": "エレガントな",
+      "meaning_ko": "우아한, 고상한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_31141f538d260d85",
+      "level": "N5",
+      "surface": "つまらない",
+      "reading_kana": "つまらない",
+      "meaning_ko": "시시하다",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_32043d25e28fb561",
+      "level": "N1",
+      "surface": "わずかに",
+      "reading_kana": "わずかに",
+      "meaning_ko": "아주 조금",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_32612a89b52bb564",
+      "level": "N1",
+      "surface": "入念に",
+      "reading_kana": "にゅうねんに",
+      "meaning_ko": "꼼꼼하게, 정성들여",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_336acc19e23dffd9",
+      "level": "N3",
+      "surface": "指示",
+      "reading_kana": "しじ",
+      "meaning_ko": "지시",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_33745c45474f45be",
+      "level": "N1",
+      "surface": "うなだれる",
+      "reading_kana": "うなだれる",
+      "meaning_ko": "머리를 숙이다. 고개를 떨구다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_34c7b578bcbd18fd",
+      "level": "N1",
+      "surface": "スライスする",
+      "reading_kana": "スライスする",
+      "meaning_ko": "얇게 썰다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_36e68594c223ca15",
+      "level": "N3",
+      "surface": "やり直す",
+      "reading_kana": "やりなおす",
+      "meaning_ko": "다시 하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_3759f3c20989a136",
+      "level": "N5",
+      "surface": "お休みなさい",
+      "reading_kana": "おやすみなさい",
+      "meaning_ko": "안녕히 주무세요",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_37b74c7aab719e5e",
+      "level": "N1",
+      "surface": "詳細に",
+      "reading_kana": "しょうさいに",
+      "meaning_ko": "상세하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_37d1cb626e016e6f",
+      "level": "N3",
+      "surface": "指導する",
+      "reading_kana": "しどうする",
+      "meaning_ko": "지도하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_3850f53c9864fb42",
+      "level": "N5",
+      "surface": "ボールペン",
+      "reading_kana": "ボールペン",
+      "meaning_ko": "볼펜",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_3bad9ebc88431a36",
+      "level": "N1",
+      "surface": "解約",
+      "reading_kana": "かいやく",
+      "meaning_ko": "해약",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_3ce4c77f325afe15",
+      "level": "N1",
+      "surface": "調達する",
+      "reading_kana": "ちょうたつする",
+      "meaning_ko": "조달하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_3ef3013e7a8e4116",
+      "level": "N3",
+      "surface": "全ての",
+      "reading_kana": "すべての",
+      "meaning_ko": "모든",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_3f0352fdd33c8b6b",
+      "level": "N1",
+      "surface": "どうしようもない",
+      "reading_kana": "どうしようもない",
+      "meaning_ko": "어쩔 방법이 없다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_3f2f2cdaa3f27f93",
+      "level": "N1",
+      "surface": "心配する",
+      "reading_kana": "しんぱいする",
+      "meaning_ko": "걱정하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_3f5f8950779c095c",
+      "level": "N5",
+      "surface": "洗濯する",
+      "reading_kana": "せんたくする",
+      "meaning_ko": "세탁하다",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_3fdaa6891b7e7156",
+      "level": "N1",
+      "surface": "言い訳する",
+      "reading_kana": "いいわけする",
+      "meaning_ko": "변명하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_413251e0a4bd1046",
+      "level": "N1",
+      "surface": "なつく",
+      "reading_kana": "なつく",
+      "meaning_ko": "친해져서 따르다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_44328544e7a3b011",
+      "level": "N5",
+      "surface": "何故",
+      "reading_kana": "なぜ",
+      "meaning_ko": "왜",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_44435dfc11169488",
+      "level": "N1",
+      "surface": "あっけない",
+      "reading_kana": "あっけない",
+      "meaning_ko": "어이없다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_44d8acdd80afd633",
+      "level": "N1",
+      "surface": "結末",
+      "reading_kana": "けつまつ",
+      "meaning_ko": "결말",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_478ca372d6f55c92",
+      "level": "N1",
+      "surface": "ダメージ",
+      "reading_kana": "ダメージ",
+      "meaning_ko": "대미지, 타격",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_47a2d12e723a1fa8",
+      "level": "N1",
+      "surface": "撤回",
+      "reading_kana": "てっかい",
+      "meaning_ko": "철회",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_4845600465ed917d",
+      "level": "N4",
+      "surface": "頂く",
+      "reading_kana": "いただく",
+      "meaning_ko": "받다(겸양어)",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_49d4a04f0684a107",
+      "level": "N5",
+      "surface": "下手",
+      "reading_kana": "へた",
+      "meaning_ko": "서툼, 못함",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_4bbf6c601aada981",
+      "level": "N3",
+      "surface": "注文する",
+      "reading_kana": "ちゅうもんする",
+      "meaning_ko": "주문하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_4cc19e15e367d9bf",
+      "level": "N1",
+      "surface": "つかの間の",
+      "reading_kana": "つかのまの",
+      "meaning_ko": "짧은, 잠깐 동안의",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_4d0365e1fed93f09",
+      "level": "N1",
+      "surface": "誘致",
+      "reading_kana": "ゆうち",
+      "meaning_ko": "유치",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_4dd0a16ccf0be360",
+      "level": "N5",
+      "surface": "不味い",
+      "reading_kana": "まずい",
+      "meaning_ko": "맛없다",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_4f32ce1823141eda",
+      "level": "N1",
+      "surface": "上品な",
+      "reading_kana": "じょうひんな",
+      "meaning_ko": "고상한, 품위 있는",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_51851bac6f71450f",
+      "level": "N1",
+      "surface": "痛烈",
+      "reading_kana": "つうれつ",
+      "meaning_ko": "통렬, 호됨",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_549f9aad5033ae65",
+      "level": "N1",
+      "surface": "ありきたりの",
+      "reading_kana": "ありきたりの",
+      "meaning_ko": "흔한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_54f7b169d940b986",
+      "level": "N1",
+      "surface": "ばてる",
+      "reading_kana": "ばてる",
+      "meaning_ko": "지치다, 녹초가 되다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_56e1184dc92322c0",
+      "level": "N1",
+      "surface": "事前に",
+      "reading_kana": "じぜんに",
+      "meaning_ko": "사전에",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_58798cab44284f6d",
+      "level": "N1",
+      "surface": "加味する",
+      "reading_kana": "かみする",
+      "meaning_ko": "가미하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_58ebca3b2291ffb6",
+      "level": "N5",
+      "surface": "石鹸",
+      "reading_kana": "せっけん",
+      "meaning_ko": "비누",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_5a4fe8b292ba7a25",
+      "level": "N1",
+      "surface": "熱中する",
+      "reading_kana": "ねっちゅうする",
+      "meaning_ko": "열중하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_5ab0f0941a04c315",
+      "level": "N1",
+      "surface": "紛糾する",
+      "reading_kana": "ふんきゅうする",
+      "meaning_ko": "분규하다, 분규를 겪다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_5bfd7d5f0bb9e5f0",
+      "level": "N1",
+      "surface": "絶賛する",
+      "reading_kana": "ぜっさんする",
+      "meaning_ko": "절찬하다, 극구 칭찬하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_5d0330f11dd14ee9",
+      "level": "N1",
+      "surface": "無駄にする",
+      "reading_kana": "むだにする",
+      "meaning_ko": "낭비하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_5d1ccbbbf2fa8b13",
+      "level": "N3",
+      "surface": "心配だ",
+      "reading_kana": "しんぱいだ",
+      "meaning_ko": "걱정이 되다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_5dbb6ffd4db86074",
+      "level": "N1",
+      "surface": "大げさ",
+      "reading_kana": "おおげさ",
+      "meaning_ko": "과장, 호들갑",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_5f95c1c7ae440f44",
+      "level": "N1",
+      "surface": "懸念する",
+      "reading_kana": "けねんする",
+      "meaning_ko": "걱정하다, 우려하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_60e868919babc5a0",
+      "level": "N1",
+      "surface": "温和な",
+      "reading_kana": "おんわな",
+      "meaning_ko": "온화한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_61285acb88807a54",
+      "level": "N1",
+      "surface": "回想する",
+      "reading_kana": "かいそうする",
+      "meaning_ko": "회상하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_62b886c401fcec37",
+      "level": "N1",
+      "surface": "奮闘する",
+      "reading_kana": "ふんとうする",
+      "meaning_ko": "분투하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_62cc45e0adfe3713",
+      "level": "N1",
+      "surface": "うろたえる",
+      "reading_kana": "うろたえる",
+      "meaning_ko": "허둥거리다, 당황하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_631508c773ea6385",
+      "level": "N1",
+      "surface": "断念する",
+      "reading_kana": "だんねんする",
+      "meaning_ko": "단념하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_641852edd60b94a9",
+      "level": "N1",
+      "surface": "ゆっくりする",
+      "reading_kana": "ゆっくりする",
+      "meaning_ko": "편하게 쉬다, 느긋이 시간을 보내다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_64273f22846e27af",
+      "level": "N1",
+      "surface": "てきぱきと",
+      "reading_kana": "てきぱきと",
+      "meaning_ko": "일을 솜씨 좋게 처리하는 모습. 척척",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_64d1fd1365d78128",
+      "level": "N3",
+      "surface": "わかりやすい",
+      "reading_kana": "わかりやすい",
+      "meaning_ko": "알기 쉽다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_6577940e5e5f2813",
+      "level": "N3",
+      "surface": "延期する",
+      "reading_kana": "えんきする",
+      "meaning_ko": "연기하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_66bc36545a1de11d",
+      "level": "N3",
+      "surface": "全部",
+      "reading_kana": "ぜんぶ",
+      "meaning_ko": "전부",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_66d40f465d774a1b",
+      "level": "N1",
+      "surface": "できる限り",
+      "reading_kana": "できるかぎり",
+      "meaning_ko": "가능한 한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_674b0660706c495b",
+      "level": "N1",
+      "surface": "抱え込む",
+      "reading_kana": "かかえこむ",
+      "meaning_ko": "끌어안다, 떠맡다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_69dcdef2c2fd0fc4",
+      "level": "N1",
+      "surface": "断じて",
+      "reading_kana": "だんじて",
+      "meaning_ko": "결코, 절대 (~하지 않다)",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_69fdd0ed49d51bd8",
+      "level": "N1",
+      "surface": "完成する",
+      "reading_kana": "かんせいする",
+      "meaning_ko": "완성되다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_6cb99412a6ae1115",
+      "level": "N1",
+      "surface": "ルーズな",
+      "reading_kana": "ルーズな",
+      "meaning_ko": "느슨한, 단정치 못한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_6dfc2daef0d4cdea",
+      "level": "N1",
+      "surface": "コンパクトな",
+      "reading_kana": "コンパクトな",
+      "meaning_ko": "콤팩트한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_6e41549e5b443d35",
+      "level": "N1",
+      "surface": "コンスタント",
+      "reading_kana": "コンスタント",
+      "meaning_ko": "일정한 모양",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_6ea8c8dbd447c1ac",
+      "level": "N4",
+      "surface": "お陰様で",
+      "reading_kana": "おかげさまで",
+      "meaning_ko": "덕분에",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_714c5770d0dd6498",
+      "level": "N1",
+      "surface": "故意に",
+      "reading_kana": "こいに",
+      "meaning_ko": "고의로",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_71ae1cd1bef418a4",
+      "level": "N1",
+      "surface": "ロスする",
+      "reading_kana": "ロスする",
+      "meaning_ko": "헛되이 쓰다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_73141af406519510",
+      "level": "N1",
+      "surface": "広大な",
+      "reading_kana": "こうだいな",
+      "meaning_ko": "광대한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_749e92c77b3f04a5",
+      "level": "N1",
+      "surface": "ぎこちない",
+      "reading_kana": "ぎこちない",
+      "meaning_ko": "어색하다, 부자연스럽다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_7557af20a59b43f4",
+      "level": "N1",
+      "surface": "進呈する",
+      "reading_kana": "しんていする",
+      "meaning_ko": "진정하다, 물건을 자진해서 드리다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_75d74e5761f3a62a",
+      "level": "N1",
+      "surface": "中止する",
+      "reading_kana": "ちゅうしする",
+      "meaning_ko": "중지하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_75e6de69c398c013",
+      "level": "N3",
+      "surface": "楽な",
+      "reading_kana": "らくな",
+      "meaning_ko": "편한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_77b60fa3233208f6",
+      "level": "N1",
+      "surface": "照会する",
+      "reading_kana": "しょうかいする",
+      "meaning_ko": "조회하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_78b5a51abfe898c7",
+      "level": "N1",
+      "surface": "一人一人に",
+      "reading_kana": "ひとりひとりに",
+      "meaning_ko": "한 사람 한 사람에게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_78f9cf5a22b016f3",
+      "level": "N3",
+      "surface": "暗記する",
+      "reading_kana": "あんきする",
+      "meaning_ko": "암기하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_791d10aec524f918",
+      "level": "N1",
+      "surface": "これまでの",
+      "reading_kana": "これまでの",
+      "meaning_ko": "지금까지의",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_79ee1e3d5f5fb345",
+      "level": "N1",
+      "surface": "出荷",
+      "reading_kana": "しゅっか",
+      "meaning_ko": "출하",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_7a477584efa937ee",
+      "level": "N3",
+      "surface": "大きさ",
+      "reading_kana": "おおきさ",
+      "meaning_ko": "크기",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_7bac97755a76cb8d",
+      "level": "N1",
+      "surface": "以前から",
+      "reading_kana": "いぜんから",
+      "meaning_ko": "이전부터",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_7be0da7ae0c0dfbd",
+      "level": "N5",
+      "surface": "出掛ける",
+      "reading_kana": "でかける",
+      "meaning_ko": "외출하다",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_7c161edd74ce787c",
+      "level": "N1",
+      "surface": "委託する",
+      "reading_kana": "いたくする",
+      "meaning_ko": "위탁하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_80be339f5cb11529",
+      "level": "N1",
+      "surface": "ブランク",
+      "reading_kana": "ブランク",
+      "meaning_ko": "블랭크, 공백",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_82dfb47bb4105f0d",
+      "level": "N1",
+      "surface": "調達",
+      "reading_kana": "ちょうたつ",
+      "meaning_ko": "조달",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_82efffce3d2c635a",
+      "level": "N4",
+      "surface": "退院する",
+      "reading_kana": "たいいんする",
+      "meaning_ko": "퇴원하다",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_83e779f20086d7c7",
+      "level": "N1",
+      "surface": "簡素だ",
+      "reading_kana": "かんそだ",
+      "meaning_ko": "간소하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_842c01324c0f7575",
+      "level": "N1",
+      "surface": "あどけない",
+      "reading_kana": "あどけない",
+      "meaning_ko": "천진난만하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8619d8e46998e20e",
+      "level": "N3",
+      "surface": "怠い",
+      "reading_kana": "だるい",
+      "meaning_ko": "나른하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_87fc1208f969d237",
+      "level": "N1",
+      "surface": "満喫する",
+      "reading_kana": "まんきつする",
+      "meaning_ko": "만끽하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_88296ccb84b021fc",
+      "level": "N1",
+      "surface": "明白に",
+      "reading_kana": "めいはくに",
+      "meaning_ko": "명백하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8a00e1c7e19032e4",
+      "level": "N1",
+      "surface": "失敗する",
+      "reading_kana": "しっぱいする",
+      "meaning_ko": "실패하다, 실수하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8a137a1521f504a7",
+      "level": "N1",
+      "surface": "円滑だ",
+      "reading_kana": "えんかつだ",
+      "meaning_ko": "원활하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8b06e46106ba7fd7",
+      "level": "N1",
+      "surface": "計画する",
+      "reading_kana": "けいかくする",
+      "meaning_ko": "계획하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8c11c6053c371f31",
+      "level": "N1",
+      "surface": "出馬する",
+      "reading_kana": "しゅつばする",
+      "meaning_ko": "출마하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8c1be227d6d3b54b",
+      "level": "N1",
+      "surface": "脈絡",
+      "reading_kana": "みゃくらく",
+      "meaning_ko": "맥락, 연관, 관련",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_8f05915c2cc091b5",
+      "level": "N1",
+      "surface": "密かに",
+      "reading_kana": "ひそかに",
+      "meaning_ko": "은밀하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_901a3275a5a22df0",
+      "level": "N4",
+      "surface": "ゆっくりと",
+      "reading_kana": "ゆっくりと",
+      "meaning_ko": "천천히",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_950bfdb77150e285",
+      "level": "N5",
+      "surface": "有名だ",
+      "reading_kana": "ゆうめいだ",
+      "meaning_ko": "유명하다",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_95b6685e75276fb8",
+      "level": "N1",
+      "surface": "妨害する",
+      "reading_kana": "ぼうがいする",
+      "meaning_ko": "방해하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_960c1c35c15bf113",
+      "level": "N1",
+      "surface": "混乱する",
+      "reading_kana": "こんらんする",
+      "meaning_ko": "혼란스럽다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_966aa830c947e24f",
+      "level": "N3",
+      "surface": "やり方",
+      "reading_kana": "やりかた",
+      "meaning_ko": "방식",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_9676730e73fd8206",
+      "level": "N1",
+      "surface": "辞任",
+      "reading_kana": "じにん",
+      "meaning_ko": "사임",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_973e6723bb85a420",
+      "level": "N1",
+      "surface": "プライド",
+      "reading_kana": "プライド",
+      "meaning_ko": "프라이드",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_97890b178cdd48da",
+      "level": "N1",
+      "surface": "没頭する",
+      "reading_kana": "ぼっとうする",
+      "meaning_ko": "몰두하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_97f721182a3b5485",
+      "level": "N1",
+      "surface": "エキスパート",
+      "reading_kana": "エキスパート",
+      "meaning_ko": "전문가",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_998d26b0adcefe8e",
+      "level": "N1",
+      "surface": "問い詰める",
+      "reading_kana": "といつめる",
+      "meaning_ko": "캐묻다, 추궁하다, 따지다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_99ec408f9d0c6b58",
+      "level": "N1",
+      "surface": "競い合う",
+      "reading_kana": "きそいあう",
+      "meaning_ko": "경합하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9a01535c950b83c8",
+      "level": "N1",
+      "surface": "凝視する",
+      "reading_kana": "ぎょうしする",
+      "meaning_ko": "응시하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9a183311c49a9eac",
+      "level": "N1",
+      "surface": "弁解する",
+      "reading_kana": "べんかいする",
+      "meaning_ko": "변명하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9a1c5d80f261282d",
+      "level": "N1",
+      "surface": "請け負う",
+      "reading_kana": "うけおう",
+      "meaning_ko": "청부 맡다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9c532c04ac32630c",
+      "level": "N1",
+      "surface": "メカニズム",
+      "reading_kana": "メカニズム",
+      "meaning_ko": "메커니즘",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9c95b12510a0d9c0",
+      "level": "N1",
+      "surface": "スケール",
+      "reading_kana": "スケール",
+      "meaning_ko": "스케일",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_9cf9bcef38ca4a32",
+      "level": "N3",
+      "surface": "行き先",
+      "reading_kana": "ゆきさき",
+      "meaning_ko": "목적지, 행선지",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_9fe6caea913f7f48",
+      "level": "N1",
+      "surface": "解明",
+      "reading_kana": "かいめい",
+      "meaning_ko": "해명",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a046f85e2ae2b662",
+      "level": "N1",
+      "surface": "そそる",
+      "reading_kana": "そそる",
+      "meaning_ko": "(어떤 행동, 감정 등을)자아내다, 돋우다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a35cd2db341c651f",
+      "level": "N1",
+      "surface": "寡黙な",
+      "reading_kana": "かもくな",
+      "meaning_ko": "과묵한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a5655026e5d9c693",
+      "level": "N1",
+      "surface": "互角だ",
+      "reading_kana": "ごかくだ",
+      "meaning_ko": "호각이다, 백중세다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a5d67cbecc557d68",
+      "level": "N3",
+      "surface": "回収する",
+      "reading_kana": "かいしゅうする",
+      "meaning_ko": "회수하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_a6d0d7928dd822e5",
+      "level": "N3",
+      "surface": "大変だ",
+      "reading_kana": "たいへんだ",
+      "meaning_ko": "큰일이다, 힘들다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_a7f08ec1a5de65c4",
+      "level": "N1",
+      "surface": "露骨に",
+      "reading_kana": "ろこつに",
+      "meaning_ko": "노골적으로",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a81611c81fdf3371",
+      "level": "N1",
+      "surface": "安堵する",
+      "reading_kana": "あんどする",
+      "meaning_ko": "안도하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_a9841b379e175833",
+      "level": "N1",
+      "surface": "ぞんざいな",
+      "reading_kana": "ぞんざいな",
+      "meaning_ko": "거친, 난폭한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ab0690fd530b7382",
+      "level": "N1",
+      "surface": "リタイア",
+      "reading_kana": "リタイア",
+      "meaning_ko": "(1) 기권 (2) 퇴직, 퇴직",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ac456aabecc4320d",
+      "level": "N1",
+      "surface": "根こそぎ",
+      "reading_kana": "ねこそぎ",
+      "meaning_ko": "전부, 모조리, 몽땅",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ac646a516b74de04",
+      "level": "N1",
+      "surface": "爽やかな",
+      "reading_kana": "さわやかな",
+      "meaning_ko": "상쾌한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ae771b4fd6bc8a90",
+      "level": "N4",
+      "surface": "駄目",
+      "reading_kana": "だめ",
+      "meaning_ko": "안 됨, 불가능함",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_b17b2545216b564f",
+      "level": "N3",
+      "surface": "通勤する",
+      "reading_kana": "つうきんする",
+      "meaning_ko": "통근하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_b3a06c413ed87652",
+      "level": "N1",
+      "surface": "小さな",
+      "reading_kana": "ちいさな",
+      "meaning_ko": "작은",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b3e79cad937e13ec",
+      "level": "N1",
+      "surface": "粘り強く",
+      "reading_kana": "ねばりづよく",
+      "meaning_ko": "끈기 있게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b43f716839af8c30",
+      "level": "N3",
+      "surface": "整理する",
+      "reading_kana": "せいりする",
+      "meaning_ko": "정리하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_b5230a80bd127c1c",
+      "level": "N1",
+      "surface": "めいめいに",
+      "reading_kana": "めいめいに",
+      "meaning_ko": "각각에게, 각자에게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b65ff6a21421beac",
+      "level": "N1",
+      "surface": "基調",
+      "reading_kana": "きちょう",
+      "meaning_ko": "(1) 그림(장식 등에서 중심이 되는 색상) (2) 사상(작품, 행동 등의 바닥에 있는 기본 사고)",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b68c525cd9cc35bf",
+      "level": "N1",
+      "surface": "落胆する",
+      "reading_kana": "らくたんする",
+      "meaning_ko": "낙담하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b72cf16b0e20bf56",
+      "level": "N1",
+      "surface": "厄介な",
+      "reading_kana": "やっかいな",
+      "meaning_ko": "귀찮은",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b77b8bce2e1f685d",
+      "level": "N1",
+      "surface": "ずれ込む",
+      "reading_kana": "ずれこむ",
+      "meaning_ko": "늦춰지다, 미루어지다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b82d7d0d2eeafbd8",
+      "level": "N1",
+      "surface": "ありきたり",
+      "reading_kana": "ありきたり",
+      "meaning_ko": "흔함, 평범함",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b8bca88a48498fac",
+      "level": "N1",
+      "surface": "デマ",
+      "reading_kana": "デマ",
+      "meaning_ko": "헛소문, 유언비어, 가짜 뉴스",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_b8ef1a18a4e02ae4",
+      "level": "N3",
+      "surface": "短気な",
+      "reading_kana": "たんきな",
+      "meaning_ko": "성급한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_b9111f44a6cece15",
+      "level": "N3",
+      "surface": "喋る",
+      "reading_kana": "しゃべる",
+      "meaning_ko": "말하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_bab0ffe338a6a2cf",
+      "level": "N1",
+      "surface": "面倒な",
+      "reading_kana": "めんどうな",
+      "meaning_ko": "귀찮은",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_bb82ebdcacdf5f3e",
+      "level": "N3",
+      "surface": "簡単な",
+      "reading_kana": "かんたんな",
+      "meaning_ko": "간단한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_bf7c38014590b36a",
+      "level": "N1",
+      "surface": "錯覚する",
+      "reading_kana": "さっかくする",
+      "meaning_ko": "착각하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_bfed9fb20af1ae89",
+      "level": "N1",
+      "surface": "手厚い",
+      "reading_kana": "てあつい",
+      "meaning_ko": "극진하다, 융숭하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c167bbb1ac8b7d38",
+      "level": "N1",
+      "surface": "工面する",
+      "reading_kana": "くめんする",
+      "meaning_ko": "(돈을)마련하다, 준비하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c49ac1d98fc9194e",
+      "level": "N1",
+      "surface": "自由な",
+      "reading_kana": "じゆうな",
+      "meaning_ko": "자유로운",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c60f42a2ec5dc528",
+      "level": "N1",
+      "surface": "お手上げだ",
+      "reading_kana": "おてあげだ",
+      "meaning_ko": "두 손 들었다, 속수무책이다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c6a86db3bc0a0cb7",
+      "level": "N1",
+      "surface": "作動",
+      "reading_kana": "さどう",
+      "meaning_ko": "작동",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c96ba7d2455202aa",
+      "level": "N1",
+      "surface": "かねがね",
+      "reading_kana": "かねがね",
+      "meaning_ko": "전부터",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_c9cd5c937b625308",
+      "level": "N1",
+      "surface": "手腕",
+      "reading_kana": "しゅわん",
+      "meaning_ko": "수완",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ca1c520d25a84601",
+      "level": "N3",
+      "surface": "なだらかな",
+      "reading_kana": "なだらかな",
+      "meaning_ko": "완만한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_cbb8e3b9a558d072",
+      "level": "N1",
+      "surface": "重宝する",
+      "reading_kana": "ちょうほうする",
+      "meaning_ko": "애용하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_cc3f7386c1f7a054",
+      "level": "N1",
+      "surface": "率直に",
+      "reading_kana": "そっちょくに",
+      "meaning_ko": "솔직하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_cce1b7628e267db8",
+      "level": "N1",
+      "surface": "仰天する",
+      "reading_kana": "ぎょうてんする",
+      "meaning_ko": "경악하다, 몹시 놀라다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d0117f3a4752c705",
+      "level": "N3",
+      "surface": "協力する",
+      "reading_kana": "きょうりょくする",
+      "meaning_ko": "협력하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_d06e9c88436610a1",
+      "level": "N1",
+      "surface": "絶大",
+      "reading_kana": "ぜつだい",
+      "meaning_ko": "절대, 아주 큼",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d07cea24a5a27e75",
+      "level": "N1",
+      "surface": "むっとする",
+      "reading_kana": "むっとする",
+      "meaning_ko": "부루퉁해지다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d0e8d8915d3987a4",
+      "level": "N1",
+      "surface": "気ままな",
+      "reading_kana": "きままな",
+      "meaning_ko": "제 마음대로인",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d1fdf43fc66ffdf1",
+      "level": "N1",
+      "surface": "丹念に",
+      "reading_kana": "たんねんに",
+      "meaning_ko": "정성껏, 꼼꼼하게",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d248c9c77adbc413",
+      "level": "N1",
+      "surface": "つぶさに",
+      "reading_kana": "つぶさに",
+      "meaning_ko": "(1) 자세하게, 상세하게 (2) 빠짐없이, 모두",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d470c6e8ff9c7565",
+      "level": "N1",
+      "surface": "拮抗する",
+      "reading_kana": "きっこうする",
+      "meaning_ko": "팽팽하다, 우열을 가릴 수 없다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d52ff963c6009270",
+      "level": "N1",
+      "surface": "拠点",
+      "reading_kana": "きょてん",
+      "meaning_ko": "거점",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d54a7a3ae4c812e2",
+      "level": "N1",
+      "surface": "不審な",
+      "reading_kana": "ふしんな",
+      "meaning_ko": "수상한, 의심스러운, 미심쩍은",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d6b2109f213be8f3",
+      "level": "N1",
+      "surface": "耐えがたい",
+      "reading_kana": "たえがたい",
+      "meaning_ko": "견디기 힘들다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d7575c20069e840f",
+      "level": "N1",
+      "surface": "底力",
+      "reading_kana": "そこぢから",
+      "meaning_ko": "저력",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d8a0ad165c123102",
+      "level": "N1",
+      "surface": "悉く",
+      "reading_kana": "ことごとく",
+      "meaning_ko": "전부",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_d974b25fdd54f54d",
+      "level": "N3",
+      "surface": "正直な",
+      "reading_kana": "しょうじきな",
+      "meaning_ko": "정직한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_daf00d12d09fb24d",
+      "level": "N1",
+      "surface": "小型の",
+      "reading_kana": "こがたの",
+      "meaning_ko": "소형인",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_dba8fad4ae9dcab9",
+      "level": "N1",
+      "surface": "出来るだけ",
+      "reading_kana": "できるだけ",
+      "meaning_ko": "가능한 한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_dc1da41634680ef3",
+      "level": "N1",
+      "surface": "分担する",
+      "reading_kana": "ぶんたんする",
+      "meaning_ko": "분담하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_dc3906550d4c187f",
+      "level": "N4",
+      "surface": "間違えやすい",
+      "reading_kana": "まちがえやすい",
+      "meaning_ko": "틀리기 쉽다",
+      "source": "pdf:pass_n4"
+    },
+    {
+      "id": "w_dc9a475966f7d870",
+      "level": "N5",
+      "surface": "おばさん",
+      "reading_kana": "おばさん",
+      "meaning_ko": "이모",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_dcd1405aac0b7b9f",
+      "level": "N1",
+      "surface": "しばらくは",
+      "reading_kana": "しばらくは",
+      "meaning_ko": "당분간은, 한동안은",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_de109ade477aaf3c",
+      "level": "N5",
+      "surface": "賑やか",
+      "reading_kana": "にぎやか",
+      "meaning_ko": "번화함, 떠들썩함",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_defd9d02b12711f7",
+      "level": "N1",
+      "surface": "殺到する",
+      "reading_kana": "さっとうする",
+      "meaning_ko": "쇄도하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_df04da4d46a3e91a",
+      "level": "N1",
+      "surface": "手立て",
+      "reading_kana": "てだて",
+      "meaning_ko": "방법, 수단",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_df1bfd58f854e04a",
+      "level": "N1",
+      "surface": "不注意な",
+      "reading_kana": "ふちゅういな",
+      "meaning_ko": "부주의한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e23d372c3e4deb0c",
+      "level": "N1",
+      "surface": "資質",
+      "reading_kana": "ししつ",
+      "meaning_ko": "자질",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e297167e239ff6ac",
+      "level": "N5",
+      "surface": "冷蔵庫",
+      "reading_kana": "れいぞうこ",
+      "meaning_ko": "냉장고",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_e482bb6df361710b",
+      "level": "N1",
+      "surface": "雑な",
+      "reading_kana": "ざつな",
+      "meaning_ko": "거친, 조잡한, 함부로 하는",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e4f32f242a4239cc",
+      "level": "N1",
+      "surface": "ありありと",
+      "reading_kana": "ありありと",
+      "meaning_ko": "똑똑히, 뚜렷이",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e5eab12a5a4bfcd7",
+      "level": "N1",
+      "surface": "打開する",
+      "reading_kana": "だかいする",
+      "meaning_ko": "타개하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e611fedefddd59dc",
+      "level": "N1",
+      "surface": "従来の",
+      "reading_kana": "じゅうらいの",
+      "meaning_ko": "종래의",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e78ab477532d60af",
+      "level": "N1",
+      "surface": "緊密",
+      "reading_kana": "きんみつ",
+      "meaning_ko": "긴밀",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e7ff19cf3beb91b0",
+      "level": "N1",
+      "surface": "バックアップ",
+      "reading_kana": "バックアップ",
+      "meaning_ko": "백업, 지원",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e9a573a3b86611ec",
+      "level": "N1",
+      "surface": "ひたむき",
+      "reading_kana": "ひたむき",
+      "meaning_ko": "한 가지 일에 전념함, 한결같음, 오로지",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_e9d71ca2f36c44d4",
+      "level": "N3",
+      "surface": "キッチン",
+      "reading_kana": "キッチン",
+      "meaning_ko": "키친",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_ea2f4a9b9e70973f",
+      "level": "N1",
+      "surface": "均等",
+      "reading_kana": "きんとう",
+      "meaning_ko": "균등",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ea5012248fe96f6b",
+      "level": "N1",
+      "surface": "平凡な",
+      "reading_kana": "へいぼんな",
+      "meaning_ko": "평범한",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_eb7d7b61172580a8",
+      "level": "N1",
+      "surface": "心配",
+      "reading_kana": "しんぱい",
+      "meaning_ko": "걱정, 근심",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_eb9618d6f8de7316",
+      "level": "N1",
+      "surface": "急がせる",
+      "reading_kana": "いそがせる",
+      "meaning_ko": "서두르게 하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_eb9cafec6db797de",
+      "level": "N1",
+      "surface": "シビアな",
+      "reading_kana": "シビアな",
+      "meaning_ko": "엄격한, 어려운",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_ec6774d9666b7b7a",
+      "level": "N1",
+      "surface": "巧みだ",
+      "reading_kana": "たくみだ",
+      "meaning_ko": "정교하다, 능숙하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_edb7e1b79e4daf75",
+      "level": "N1",
+      "surface": "やせ衰える",
+      "reading_kana": "やせおとろえる",
+      "meaning_ko": "야위어 쇠약해지다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_efb54ef830c572ca",
+      "level": "N1",
+      "surface": "風当たり",
+      "reading_kana": "かぜあたり",
+      "meaning_ko": "비난",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_f062a0ba192d3ffa",
+      "level": "N1",
+      "surface": "無造作に",
+      "reading_kana": "むぞうさに",
+      "meaning_ko": "대수롭지 않게, 아무렇게나",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_f0cae4a0d9fe4ddc",
+      "level": "N3",
+      "surface": "勉強する",
+      "reading_kana": "べんきょうする",
+      "meaning_ko": "공부하다",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_f2cac506608d8950",
+      "level": "N5",
+      "surface": "午前中",
+      "reading_kana": "ごぜんちゅう",
+      "meaning_ko": "오전 내내",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_f641945e8d6571c0",
+      "level": "N3",
+      "surface": "慌てて",
+      "reading_kana": "あわてて",
+      "meaning_ko": "허둥대며, 황급하게",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_f678e281fd21f449",
+      "level": "N1",
+      "surface": "競争する",
+      "reading_kana": "きょうそうする",
+      "meaning_ko": "경쟁하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_f87234f9e810d6e2",
+      "level": "N3",
+      "surface": "新鮮な",
+      "reading_kana": "しんせんな",
+      "meaning_ko": "신선한",
+      "source": "pdf:pass_n3"
+    },
+    {
+      "id": "w_f87cc244ad3bfd01",
+      "level": "N1",
+      "surface": "完了する",
+      "reading_kana": "かんりょうする",
+      "meaning_ko": "완료하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_fa61bffad222fcce",
+      "level": "N1",
+      "surface": "ほっとする",
+      "reading_kana": "ほっとする",
+      "meaning_ko": "안심하다",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_fa6b47c71710631a",
+      "level": "N1",
+      "surface": "補填",
+      "reading_kana": "ほてん",
+      "meaning_ko": "보전(손실, 적자 등 부족한 부분을 채움)",
+      "source": "pdf:pass_n1"
+    },
+    {
+      "id": "w_fa949ea235fc38a2",
+      "level": "N5",
+      "surface": "家内",
+      "reading_kana": "かない",
+      "meaning_ko": "아내",
+      "source": "pdf:pass_n5"
+    },
+    {
+      "id": "w_ffe60e200721352c",
+      "level": "N1",
+      "surface": "ストレートに",
+      "reading_kana": "ストレートに",
+      "meaning_ko": "직설적으로",
+      "source": "pdf:pass_n1"
+    }
+  ],
+  "na_successors": {
+    "w_7ca85bc496068dbe": "w_587d525e8f77f2d2",
+    "w_320b20758465eaab": "w_b5599a01177fd473",
+    "w_db12548e061b2984": "w_faa46b37d82cb05b",
+    "w_91e8c336d4454520": "w_d97131dc7962498d",
+    "w_af636a8ea92685e6": "w_4841355112710c1b",
+    "w_26fac85886352f47": "w_7e0c6be7f423b50c",
+    "w_cf1b9cac4cfa5b11": "w_e4296f4107742e4b",
+    "w_9a4c51456e181491": "w_54b21b1779cfcd95",
+    "w_ea4b80af3a66574a": "w_5ad84e6efba38e04",
+    "w_7ee026819936d200": "w_c1d96f9e53c5c773",
+    "w_c611f279483773aa": "w_24f8546b661f5549",
+    "w_91a5257706871c06": "w_22f86d20301b437a",
+    "w_e96a4348b607e140": "w_cdd36c8e21d95a50",
+    "w_dcba09ffec07b2c7": "w_3621bac29aa78e5c",
+    "w_a66dc33c3a266722": "w_a0aa509058c2107f",
+    "w_ed80884584f8d49a": "w_36671521a2ef775b",
+    "w_1d1a7c01fa6cc5a5": "w_bae098e6bbe74e8f",
+    "w_25a00f622feabbb6": "w_2bd9770e75820794",
+    "w_cdf59d5d45ec6788": "w_2c3f3b5d1f0e15fa",
+    "w_45fe662268e74b5b": "w_04c77a5abf4b153b",
+    "w_de9d280bc0f5ffd0": "w_3a2cd77463547262",
+    "w_4476ef403fc31c8c": "w_b09bb82225265582",
+    "w_1e8523b1348f484c": "w_7fe2da31377a78fd",
+    "w_10160ec0acada6d8": "w_7f42cd1407c111d4",
+    "w_f8a428e8789afd63": "w_1d699c2a8756a1c8",
+    "w_c8117f9cc606f700": "w_63c68701b9f2b26c",
+    "w_bb53443248b60ab7": "w_ff5bb644bea31e23",
+    "w_9f1686ef32612a2e": "w_f470be1926d64588",
+    "w_0cc62d6d12dd65cc": "w_58bf419c971e3a94",
+    "w_7e8f27d159af76ef": "w_ae5ee65174d10084",
+    "w_de183face04cafac": "w_a3f5e6e7275bce2f",
+    "w_4560f2d32a7f56d8": "w_ca0b14e6bd05ab95"
+  },
+  "backfills": [
+    {
+      "id": "w_9061acd53d01a8dc",
+      "level": "N5",
+      "surface": "いかが",
+      "reading_kana": "いかが",
+      "meaning_ko": "어떻습니까, 어떠한가",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f4580c5e0b48b27f",
+      "level": "N5",
+      "surface": "カップ",
+      "reading_kana": "カップ",
+      "meaning_ko": "컵",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_60b60d2ca06f38d7",
+      "level": "N5",
+      "surface": "クラス",
+      "reading_kana": "クラス",
+      "meaning_ko": "수업, 계급",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f4fc0bb30156e102",
+      "level": "N5",
+      "surface": "コーヒー",
+      "reading_kana": "コーヒー",
+      "meaning_ko": "커피",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2e32da28a51f6d33",
+      "level": "N5",
+      "surface": "カレー",
+      "reading_kana": "カレー",
+      "meaning_ko": "카레",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_5ff89213fed134bb",
+      "level": "N5",
+      "surface": "さあ",
+      "reading_kana": "さあ",
+      "meaning_ko": "자, 글쎄",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_203b5947e6026f67",
+      "level": "N5",
+      "surface": "あそこ",
+      "reading_kana": "あそこ",
+      "meaning_ko": "저기, 저곳",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1bb41e64364f894d",
+      "level": "N5",
+      "surface": "うるさい",
+      "reading_kana": "うるさい",
+      "meaning_ko": "시끄러운, 성가신",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3983c56b3b7d2146",
+      "level": "N5",
+      "surface": "コート",
+      "reading_kana": "コート",
+      "meaning_ko": "코트",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ed745035bb5a9fa0",
+      "level": "N5",
+      "surface": "カレンダー",
+      "reading_kana": "カレンダー",
+      "meaning_ko": "달력",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_52ef4188ae3fa48d",
+      "level": "N5",
+      "surface": "グラム",
+      "reading_kana": "グラム",
+      "meaning_ko": "그램",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c3195d36320b966d",
+      "level": "N5",
+      "surface": "コップ",
+      "reading_kana": "コップ",
+      "meaning_ko": "컵, 유리컵",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ffdf97143b69bbdf",
+      "level": "N5",
+      "surface": "あちら",
+      "reading_kana": "あちら",
+      "meaning_ko": "저쪽",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_995e51189081f755",
+      "level": "N5",
+      "surface": "かばん",
+      "reading_kana": "かばん",
+      "meaning_ko": "가방, 바구니",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7f9a8043eb6590ca",
+      "level": "N5",
+      "surface": "キロメートル",
+      "reading_kana": "キロメートル",
+      "meaning_ko": "킬로(약어, 킬로미터)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1fa82cbf3bd87313",
+      "level": "N5",
+      "surface": "おじいさん",
+      "reading_kana": "おじいさん",
+      "meaning_ko": "할아버지",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c6124d2bf6828b06",
+      "level": "N5",
+      "surface": "おばあさん",
+      "reading_kana": "おばあさん",
+      "meaning_ko": "할머니",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1557e553aea269a3",
+      "level": "N4",
+      "surface": "もちろん",
+      "reading_kana": "もちろん",
+      "meaning_ko": "물론",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_54ca74d64604579c",
+      "level": "N4",
+      "surface": "おいでになる",
+      "reading_kana": "おいでになる",
+      "meaning_ko": "계시다, 오시다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ae771b4fd6bc8a90",
+      "level": "N4",
+      "surface": "だめ",
+      "reading_kana": "だめ",
+      "meaning_ko": "쓸모없는, 좋지 않음, 가망 없는",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_dba8fad4ae9dcab9",
+      "level": "N4",
+      "surface": "できるだけ",
+      "reading_kana": "できるだけ",
+      "meaning_ko": "가능하다면, 가능한 한 많이",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c574304948c39b5e",
+      "level": "N4",
+      "surface": "ファックス",
+      "reading_kana": "ファックス",
+      "meaning_ko": "팩스",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_95d7bcec7e65c8e0",
+      "level": "N3",
+      "surface": "おめでとう",
+      "reading_kana": "おめでとう",
+      "meaning_ko": "축하합니다, 경사",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_92eb50477a0ece80",
+      "level": "N3",
+      "surface": "ごめんなさい",
+      "reading_kana": "ごめんなさい",
+      "meaning_ko": "미안합니다, 실례합니다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_465e1dc0b70ccc7d",
+      "level": "N3",
+      "surface": "こんにちは",
+      "reading_kana": "こんにちは",
+      "meaning_ko": "안녕하세요",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2cffe27c37de77ad",
+      "level": "N3",
+      "surface": "アウト",
+      "reading_kana": "アウト",
+      "meaning_ko": "아웃, 밖",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_cb99bdc6be468a11",
+      "level": "N3",
+      "surface": "うがい",
+      "reading_kana": "うがい",
+      "meaning_ko": "가글, 양치질",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_60a3f114cea727ed",
+      "level": "N3",
+      "surface": "居眠り",
+      "reading_kana": "いねむり",
+      "meaning_ko": "졸음, 졸기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_20b53e93c8341117",
+      "level": "N3",
+      "surface": "ざっと",
+      "reading_kana": "ざっと",
+      "meaning_ko": "대략, 대충",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ad3291b74df870f2",
+      "level": "N3",
+      "surface": "咥える",
+      "reading_kana": "くわえる",
+      "meaning_ko": "입에 물다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6f524b03a4b9e59f",
+      "level": "N3",
+      "surface": "黒板",
+      "reading_kana": "こくばん",
+      "meaning_ko": "칠판",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_de1f57615df8a04b",
+      "level": "N3",
+      "surface": "隠れる",
+      "reading_kana": "かくれる",
+      "meaning_ko": "숨다, 가려지다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8dc5e508d14ff10e",
+      "level": "N3",
+      "surface": "胡椒",
+      "reading_kana": "こしょう",
+      "meaning_ko": "후추",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d03ca2302a067932",
+      "level": "N3",
+      "surface": "済ませる",
+      "reading_kana": "すませる",
+      "meaning_ko": "끝내다, 마치다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1926f7032260e4dd",
+      "level": "N3",
+      "surface": "明かり",
+      "reading_kana": "あかり",
+      "meaning_ko": "불빛, 빛",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2be090e750700206",
+      "level": "N3",
+      "surface": "あいにく",
+      "reading_kana": "あいにく",
+      "meaning_ko": "공교롭게도, 유감스럽게도",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7dbf258739ff034a",
+      "level": "N3",
+      "surface": "かゆい",
+      "reading_kana": "かゆい",
+      "meaning_ko": "가렵다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_30ccaa0f8014c7d4",
+      "level": "N3",
+      "surface": "訓",
+      "reading_kana": "くん",
+      "meaning_ko": "훈독",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_72a04a5001a1e85f",
+      "level": "N3",
+      "surface": "ずれる",
+      "reading_kana": "ずれる",
+      "meaning_ko": "어긋나다, 빗나가다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d93fb3fc001ad884",
+      "level": "N3",
+      "surface": "教わる",
+      "reading_kana": "おそわる",
+      "meaning_ko": "배우다, 가르침을 받다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2efe5d573760555c",
+      "level": "N3",
+      "surface": "訳す",
+      "reading_kana": "やくす",
+      "meaning_ko": "번역하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_051e61d56c947f64",
+      "level": "N3",
+      "surface": "けち",
+      "reading_kana": "けち",
+      "meaning_ko": "인색함, 구두쇠",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_a819a4776c13596c",
+      "level": "N3",
+      "surface": "いらいら",
+      "reading_kana": "いらいら",
+      "meaning_ko": "초조함, 짜증",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_de05e8614dcecdb5",
+      "level": "N3",
+      "surface": "滅多に",
+      "reading_kana": "めったに",
+      "meaning_ko": "좀처럼~않다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d7332e5b51597d3e",
+      "level": "N3",
+      "surface": "目上",
+      "reading_kana": "めうえ",
+      "meaning_ko": "윗사람, 손윗사람",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1c2ded63174fe839",
+      "level": "N3",
+      "surface": "小包",
+      "reading_kana": "こづつみ",
+      "meaning_ko": "소포, 꾸러미",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c8bb7abc970431b9",
+      "level": "N3",
+      "surface": "満ちる",
+      "reading_kana": "みちる",
+      "meaning_ko": "가득 차다, 성숙하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e5ec8b55574e3beb",
+      "level": "N3",
+      "surface": "蒸す",
+      "reading_kana": "むす",
+      "meaning_ko": "찌다, 무덥다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bdc0a5d733d22e0e",
+      "level": "N3",
+      "surface": "刈る",
+      "reading_kana": "かる",
+      "meaning_ko": "베다, 깎다, 수확하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_073adca1c5d13d71",
+      "level": "N3",
+      "surface": "渇く",
+      "reading_kana": "かわく",
+      "meaning_ko": "목마르다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_db4ada3a43693b59",
+      "level": "N3",
+      "surface": "関する",
+      "reading_kana": "かんする",
+      "meaning_ko": "관계되다, 관련되다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_a88976287b450da4",
+      "level": "N3",
+      "surface": "反る",
+      "reading_kana": "かえる",
+      "meaning_ko": "휘다, 뒤틀리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_27be111bcb85e67a",
+      "level": "N3",
+      "surface": "卸す",
+      "reading_kana": "おろす",
+      "meaning_ko": "도매하다, 갈다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_17f948120f29942a",
+      "level": "N3",
+      "surface": "代る",
+      "reading_kana": "かわる",
+      "meaning_ko": "대신하다, 교대하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_cd21637b9647fa3c",
+      "level": "N3",
+      "surface": "上",
+      "reading_kana": "うわ",
+      "meaning_ko": "위",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c41c1b47224d5c11",
+      "level": "N3",
+      "surface": "ありがとう",
+      "reading_kana": "ありがとう",
+      "meaning_ko": "고맙습니다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_918c3022ec6cc0f1",
+      "level": "N3",
+      "surface": "下",
+      "reading_kana": "げ",
+      "meaning_ko": "아래",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_dfb409211ee33e05",
+      "level": "N3",
+      "surface": "下",
+      "reading_kana": "しも",
+      "meaning_ko": "아래",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ad199ec93837f88c",
+      "level": "N3",
+      "surface": "皿",
+      "reading_kana": "さら",
+      "meaning_ko": "접시",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4c934f2120b1a7b8",
+      "level": "N3",
+      "surface": "胃",
+      "reading_kana": "い",
+      "meaning_ko": "위(장기)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bf30f1583d89c4b0",
+      "level": "N3",
+      "surface": "宿泊",
+      "reading_kana": "しゅくはく",
+      "meaning_ko": "숙박",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_664972e7c1fa3bf3",
+      "level": "N3",
+      "surface": "芝居",
+      "reading_kana": "しばい",
+      "meaning_ko": "연극, 연기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_488258c2323a5ce5",
+      "level": "N3",
+      "surface": "支店",
+      "reading_kana": "してん",
+      "meaning_ko": "지점, 지사",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2f256f75a63c5742",
+      "level": "N3",
+      "surface": "四季",
+      "reading_kana": "しき",
+      "meaning_ko": "사계절",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_dd9e841a5617210f",
+      "level": "N3",
+      "surface": "失望",
+      "reading_kana": "しつぼう",
+      "meaning_ko": "실망, 절망",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d8b3e84d92486874",
+      "level": "N3",
+      "surface": "湿度",
+      "reading_kana": "しつど",
+      "meaning_ko": "습도",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b9599de28963836c",
+      "level": "N3",
+      "surface": "詩人",
+      "reading_kana": "しじん",
+      "meaning_ko": "시인",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b9111f44a6cece15",
+      "level": "N3",
+      "surface": "しゃべる",
+      "reading_kana": "しゃべる",
+      "meaning_ko": "말하다, 수다 떨다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_12939f589a0b61a0",
+      "level": "N3",
+      "surface": "芝生",
+      "reading_kana": "しばふ",
+      "meaning_ko": "잔디밭",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_955f496f0673fc78",
+      "level": "N1",
+      "surface": "粋",
+      "reading_kana": "すい",
+      "meaning_ko": "정수; 세련됨, 멋",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c1db72f774e3728e",
+      "level": "N1",
+      "surface": "失調",
+      "reading_kana": "しっちょう",
+      "meaning_ko": "실조, 불균형",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8d440df94f874e3d",
+      "level": "N1",
+      "surface": "新入生",
+      "reading_kana": "しんにゅうせい",
+      "meaning_ko": "신입생",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f6a5dec8e420f557",
+      "level": "N1",
+      "surface": "世辞",
+      "reading_kana": "せじ",
+      "meaning_ko": "아첨, 빈말",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b2f224e6ebd0cbdf",
+      "level": "N1",
+      "surface": "おむつ",
+      "reading_kana": "おむつ",
+      "meaning_ko": "기저귀",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_329523c22c66774b",
+      "level": "N1",
+      "surface": "いびき",
+      "reading_kana": "いびき",
+      "meaning_ko": "코골이",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e4ee164283413155",
+      "level": "N1",
+      "surface": "とろける",
+      "reading_kana": "とろける",
+      "meaning_ko": "녹다, 황홀해지다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0694273a3d520ccc",
+      "level": "N1",
+      "surface": "ごまかす",
+      "reading_kana": "ごまかす",
+      "meaning_ko": "속이다, 얼버무리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4460609f7c26505d",
+      "level": "N1",
+      "surface": "不景気",
+      "reading_kana": "ふけいき",
+      "meaning_ko": "불경기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1d45a5dca81a74c2",
+      "level": "N1",
+      "surface": "初版",
+      "reading_kana": "しょはん",
+      "meaning_ko": "초판",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_96becb49b475a7d1",
+      "level": "N1",
+      "surface": "発芽",
+      "reading_kana": "はつが",
+      "meaning_ko": "발아",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3d7f246d9cee3297",
+      "level": "N1",
+      "surface": "着工",
+      "reading_kana": "ちゃっこう",
+      "meaning_ko": "착공",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_039cdc51bd6d8bd3",
+      "level": "N1",
+      "surface": "見苦しい",
+      "reading_kana": "みぐるしい",
+      "meaning_ko": "보기 흉하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1eca1c67dff0980f",
+      "level": "N1",
+      "surface": "樹立",
+      "reading_kana": "じゅりつ",
+      "meaning_ko": "수립",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_83d7e9a89b603bbb",
+      "level": "N1",
+      "surface": "おんぶ",
+      "reading_kana": "おんぶ",
+      "meaning_ko": "업기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_53d13b7d0baf4f7c",
+      "level": "N1",
+      "surface": "ブザー",
+      "reading_kana": "ブザー",
+      "meaning_ko": "버저",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_561aa313d6caeaf1",
+      "level": "N1",
+      "surface": "中和",
+      "reading_kana": "ちゅうわ",
+      "meaning_ko": "중화",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_303e927f2052e96a",
+      "level": "N1",
+      "surface": "がっちり",
+      "reading_kana": "がっちり",
+      "meaning_ko": "단단히, 다부지게",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b2a3b09ad2a0ada9",
+      "level": "N1",
+      "surface": "レントゲン",
+      "reading_kana": "レントゲン",
+      "meaning_ko": "엑스레이",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_fb7fe4c6a4a25b84",
+      "level": "N1",
+      "surface": "保温",
+      "reading_kana": "ほおん",
+      "meaning_ko": "보온",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8b127c987e2412c1",
+      "level": "N1",
+      "surface": "指差す",
+      "reading_kana": "ゆびさす",
+      "meaning_ko": "가리키다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ef69d226c0ff5071",
+      "level": "N1",
+      "surface": "ダンプ",
+      "reading_kana": "ダンプ",
+      "meaning_ko": "덤프 트럭",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4fcd672fe0131c49",
+      "level": "N1",
+      "surface": "不吉",
+      "reading_kana": "ふきつ",
+      "meaning_ko": "불길함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3fcbffb7f6ee577c",
+      "level": "N1",
+      "surface": "整列",
+      "reading_kana": "せいれつ",
+      "meaning_ko": "정렬",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7259ebed7e8b12f2",
+      "level": "N1",
+      "surface": "未開",
+      "reading_kana": "みかい",
+      "meaning_ko": "미개",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_74949f1db4a3a892",
+      "level": "N1",
+      "surface": "カムバック",
+      "reading_kana": "カムバック",
+      "meaning_ko": "컴백",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bda08ed7ad64810f",
+      "level": "N1",
+      "surface": "乱す",
+      "reading_kana": "みだす",
+      "meaning_ko": "어지럽히다, 흐트러뜨리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_cbfd172f317c969e",
+      "level": "N1",
+      "surface": "豊作",
+      "reading_kana": "ほうさく",
+      "meaning_ko": "풍작",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_89572880b51639eb",
+      "level": "N1",
+      "surface": "ジャンパー",
+      "reading_kana": "ジャンパー",
+      "meaning_ko": "점퍼",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f53a7deac1bb2b7b",
+      "level": "N1",
+      "surface": "盲点",
+      "reading_kana": "もうてん",
+      "meaning_ko": "맹점",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_37410a2c3fe378d8",
+      "level": "N1",
+      "surface": "真心",
+      "reading_kana": "まごころ",
+      "meaning_ko": "진심, 정성",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ed49f1a238a0b345",
+      "level": "N1",
+      "surface": "防火",
+      "reading_kana": "ぼうか",
+      "meaning_ko": "방화, 화재 예방",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_904cfeab89219814",
+      "level": "N1",
+      "surface": "しなやか",
+      "reading_kana": "しなやか",
+      "meaning_ko": "유연함, 나긋나긋함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0d9e4ae0324cde4f",
+      "level": "N1",
+      "surface": "学士",
+      "reading_kana": "がくし",
+      "meaning_ko": "학사",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_48434db8ebe195e3",
+      "level": "N1",
+      "surface": "禁じる",
+      "reading_kana": "きんじる",
+      "meaning_ko": "금하다, 금지하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2f551203846ddcc2",
+      "level": "N1",
+      "surface": "デモンストレーション",
+      "reading_kana": "デモンストレーション",
+      "meaning_ko": "시위, 데모, 시연",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4ee4c1f82fd80d23",
+      "level": "N1",
+      "surface": "立ち寄る",
+      "reading_kana": "たちよる",
+      "meaning_ko": "들르다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_736b78e32bde5211",
+      "level": "N1",
+      "surface": "化ける",
+      "reading_kana": "ばける",
+      "meaning_ko": "둔갑하다, 변하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_52a2392ec6f56422",
+      "level": "N1",
+      "surface": "気兼ね",
+      "reading_kana": "きがね",
+      "meaning_ko": "사양, 거리낌",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ce94554fe76bd18c",
+      "level": "N1",
+      "surface": "甘える",
+      "reading_kana": "あまえる",
+      "meaning_ko": "응석부리다, 의지하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2cf691cf183ad9c9",
+      "level": "N1",
+      "surface": "シック",
+      "reading_kana": "シック",
+      "meaning_ko": "세련됨, 시크함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_60c180b80cc072ba",
+      "level": "N1",
+      "surface": "岩石",
+      "reading_kana": "がんせき",
+      "meaning_ko": "바위, 암석",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ae635112ff7a8f7b",
+      "level": "N1",
+      "surface": "白状",
+      "reading_kana": "はくじょう",
+      "meaning_ko": "자백",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_117206f59982bdc8",
+      "level": "N1",
+      "surface": "耳鼻科",
+      "reading_kana": "じびか",
+      "meaning_ko": "이비인후과",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_52eb36eab96676c6",
+      "level": "N1",
+      "surface": "議案",
+      "reading_kana": "ぎあん",
+      "meaning_ko": "의안",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_5853740d16b4b407",
+      "level": "N1",
+      "surface": "勤め先",
+      "reading_kana": "つとめさき",
+      "meaning_ko": "근무처",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2510258ff83a03f2",
+      "level": "N1",
+      "surface": "見渡す",
+      "reading_kana": "みわたす",
+      "meaning_ko": "바라보다, 둘러보다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_42f309bdace0f794",
+      "level": "N1",
+      "surface": "ストロボ",
+      "reading_kana": "ストロボ",
+      "meaning_ko": "스트로보",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_409e38e96ec7712e",
+      "level": "N1",
+      "surface": "連なる",
+      "reading_kana": "つらなる",
+      "meaning_ko": "늘어서다, 이어지다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4ffb857bc8cff280",
+      "level": "N1",
+      "surface": "分業",
+      "reading_kana": "ぶんぎょう",
+      "meaning_ko": "분업",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f5a20baa3b0a3ea7",
+      "level": "N1",
+      "surface": "全盛",
+      "reading_kana": "ぜんせい",
+      "meaning_ko": "전성",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e8d5d1492c47ef5f",
+      "level": "N1",
+      "surface": "社宅",
+      "reading_kana": "しゃたく",
+      "meaning_ko": "사택",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_60fdfd50b368a133",
+      "level": "N1",
+      "surface": "脚色",
+      "reading_kana": "きゃくしょく",
+      "meaning_ko": "각색",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b39e01ca61885092",
+      "level": "N1",
+      "surface": "ずるずる",
+      "reading_kana": "ずるずる",
+      "meaning_ko": "질질, 줄줄",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_868dd8f818c0b138",
+      "level": "N1",
+      "surface": "共学",
+      "reading_kana": "きょうがく",
+      "meaning_ko": "남녀공학",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_74626cb2d678c7da",
+      "level": "N1",
+      "surface": "民宿",
+      "reading_kana": "みんしゅく",
+      "meaning_ko": "민박",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_38d94ea01ef13ce1",
+      "level": "N1",
+      "surface": "賭",
+      "reading_kana": "かけ",
+      "meaning_ko": "내기, 도박",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6f6291c512a7bd9c",
+      "level": "N1",
+      "surface": "前途",
+      "reading_kana": "ぜんと",
+      "meaning_ko": "앞날, 장래",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4a1f83a3a2f69125",
+      "level": "N1",
+      "surface": "十字路",
+      "reading_kana": "じゅうじろ",
+      "meaning_ko": "십자로, 교차로",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1cb3c24ea6527cfa",
+      "level": "N1",
+      "surface": "先天的",
+      "reading_kana": "せんてんてき",
+      "meaning_ko": "선천적",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3ab509c6a1e02b28",
+      "level": "N1",
+      "surface": "渡り鳥",
+      "reading_kana": "わたりどり",
+      "meaning_ko": "철새",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8e8e619883455076",
+      "level": "N1",
+      "surface": "橋渡し",
+      "reading_kana": "はしわたし",
+      "meaning_ko": "중개, 가교",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_594aaafa80f4b28a",
+      "level": "N1",
+      "surface": "下調べ",
+      "reading_kana": "したしらべ",
+      "meaning_ko": "사전 조사",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_5dbfbc1d6e28d829",
+      "level": "N1",
+      "surface": "身の上",
+      "reading_kana": "みのうえ",
+      "meaning_ko": "신상, 처지",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e4e05a9889537531",
+      "level": "N1",
+      "surface": "面する",
+      "reading_kana": "めんする",
+      "meaning_ko": "마주하다, 접하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ad8454d8b7b89e27",
+      "level": "N1",
+      "surface": "にきび",
+      "reading_kana": "にきび",
+      "meaning_ko": "여드름",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d0f6e5a0439f46dd",
+      "level": "N1",
+      "surface": "束ねる",
+      "reading_kana": "たばねる",
+      "meaning_ko": "묶다, 다스리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_efe85f3246a13482",
+      "level": "N1",
+      "surface": "歪む",
+      "reading_kana": "ゆがむ",
+      "meaning_ko": "일그러지다, 뒤틀리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_be035463f7a68af0",
+      "level": "N1",
+      "surface": "つかの間",
+      "reading_kana": "つかのま",
+      "meaning_ko": "잠깐, 순간",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_cf6e5403a48aae9c",
+      "level": "N1",
+      "surface": "中腹",
+      "reading_kana": "ちゅうふく",
+      "meaning_ko": "산중턱",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_fe232373db8fd318",
+      "level": "N1",
+      "surface": "欺く",
+      "reading_kana": "あざむく",
+      "meaning_ko": "속이다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2d2834f101feaba2",
+      "level": "N1",
+      "surface": "老衰",
+      "reading_kana": "ろうすい",
+      "meaning_ko": "노쇠",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_5101399164b8609d",
+      "level": "N1",
+      "surface": "休学",
+      "reading_kana": "きゅうがく",
+      "meaning_ko": "휴학",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d7cc90918debafeb",
+      "level": "N1",
+      "surface": "とかく",
+      "reading_kana": "とかく",
+      "meaning_ko": "이래저래, 아무튼",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_334c23b7fc181a8b",
+      "level": "N1",
+      "surface": "全快",
+      "reading_kana": "ぜんかい",
+      "meaning_ko": "완쾌",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0968a3e2189db9bd",
+      "level": "N1",
+      "surface": "振り出し",
+      "reading_kana": "ふりだし",
+      "meaning_ko": "출발점, 처음",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4ab8fddb51501156",
+      "level": "N1",
+      "surface": "鉄棒",
+      "reading_kana": "てつぼう",
+      "meaning_ko": "철봉, 쇠막대",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7693c24a3ae3f600",
+      "level": "N1",
+      "surface": "分母",
+      "reading_kana": "ぶんぼ",
+      "meaning_ko": "분모",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_78527b9c49a89cb7",
+      "level": "N1",
+      "surface": "身振り",
+      "reading_kana": "みぶり",
+      "meaning_ko": "몸짓",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c453e759b4056a60",
+      "level": "N1",
+      "surface": "専修",
+      "reading_kana": "せんしゅう",
+      "meaning_ko": "전공, 전수",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0a2dbc5713663d21",
+      "level": "N1",
+      "surface": "脱する",
+      "reading_kana": "だっする",
+      "meaning_ko": "벗어나다, 탈출하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0fc26a137f6ee5f6",
+      "level": "N1",
+      "surface": "物好き",
+      "reading_kana": "ものずき",
+      "meaning_ko": "호기심, 별난 취미",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bd75aa731f4df5da",
+      "level": "N1",
+      "surface": "題する",
+      "reading_kana": "だいする",
+      "meaning_ko": "제목을 붙이다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ae9f0fe4cacdf332",
+      "level": "N1",
+      "surface": "漢語",
+      "reading_kana": "かんご",
+      "meaning_ko": "한어, 한자어",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_27c43d84f52c14e7",
+      "level": "N1",
+      "surface": "郷愁",
+      "reading_kana": "きょうしゅう",
+      "meaning_ko": "향수, 그리움",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_44df893bc2c36040",
+      "level": "N1",
+      "surface": "踏まえる",
+      "reading_kana": "ふまえる",
+      "meaning_ko": "근거로 하다, 바탕으로 삼다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d71a8c96af7a8cb2",
+      "level": "N1",
+      "surface": "灌漑",
+      "reading_kana": "かんがい",
+      "meaning_ko": "관개",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6e71f536abfacdec",
+      "level": "N1",
+      "surface": "親しむ",
+      "reading_kana": "したしむ",
+      "meaning_ko": "친숙해지다, 가까이하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_801a4ef078453053",
+      "level": "N1",
+      "surface": "無闇に",
+      "reading_kana": "むやみに",
+      "meaning_ko": "함부로, 마구",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_17f0f7e5b8a97bb2",
+      "level": "N1",
+      "surface": "縮まる",
+      "reading_kana": "ちぢまる",
+      "meaning_ko": "줄어들다, 수축되다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_25d79c8180503b46",
+      "level": "N1",
+      "surface": "淑やか",
+      "reading_kana": "しとやか",
+      "meaning_ko": "얌전함, 정숙함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4231572eea930be1",
+      "level": "N1",
+      "surface": "紡績",
+      "reading_kana": "ぼうせき",
+      "meaning_ko": "방적",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6bd4411a881b3eb1",
+      "level": "N1",
+      "surface": "おおげさ",
+      "reading_kana": "おおげさ",
+      "meaning_ko": "과장됨, 호들갑",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_854e32c64d79b629",
+      "level": "N1",
+      "surface": "おどおど",
+      "reading_kana": "おどおど",
+      "meaning_ko": "어쩔 줄 몰라 하는 모양",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_451bf26dd3bcf2e0",
+      "level": "N1",
+      "surface": "とぼける",
+      "reading_kana": "とぼける",
+      "meaning_ko": "시치미 떼다, 모르는 척하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_dadb6a6af0c8c1e7",
+      "level": "N1",
+      "surface": "げっそり",
+      "reading_kana": "げっそり",
+      "meaning_ko": "홀쭉해짐, 기운이 빠짐",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_30df0c1b9dff70f7",
+      "level": "N1",
+      "surface": "トランジスター",
+      "reading_kana": "トランジスター",
+      "meaning_ko": "트랜지스터",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_9b601d59fbe8d65d",
+      "level": "N1",
+      "surface": "とがめる",
+      "reading_kana": "とがめる",
+      "meaning_ko": "나무라다, 책망하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d09018af99e4bb60",
+      "level": "N1",
+      "surface": "うつむく",
+      "reading_kana": "うつむく",
+      "meaning_ko": "고개를 숙이다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_48a942088c2a3c4f",
+      "level": "N1",
+      "surface": "度忘れ",
+      "reading_kana": "どわすれ",
+      "meaning_ko": "깜빡 잊음",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f087c05295412417",
+      "level": "N1",
+      "surface": "いやに",
+      "reading_kana": "いやに",
+      "meaning_ko": "몹시, 이상하게",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2640d4011edf7e2c",
+      "level": "N1",
+      "surface": "とぎれる",
+      "reading_kana": "とぎれる",
+      "meaning_ko": "끊기다, 중단되다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1bbdac2276d06c29",
+      "level": "N1",
+      "surface": "受持ち",
+      "reading_kana": "うけもち",
+      "meaning_ko": "담당",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_aea6e104360336b5",
+      "level": "N1",
+      "surface": "植わる",
+      "reading_kana": "うわる",
+      "meaning_ko": "심어져 있다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_59f80d4dc5e14879",
+      "level": "N1",
+      "surface": "とんだ",
+      "reading_kana": "とんだ",
+      "meaning_ko": "엄청난, 뜻밖의",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ec9e607fc8bac604",
+      "level": "N1",
+      "surface": "欲深い",
+      "reading_kana": "よくふかい",
+      "meaning_ko": "욕심 많다, 탐욕스럽다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e8b4e8eb9ffea033",
+      "level": "N1",
+      "surface": "しかしながら",
+      "reading_kana": "しかしながら",
+      "meaning_ko": "아무리 ~해도, 그러나, 그럼에도 불구하고",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_42155d89616e9893",
+      "level": "N1",
+      "surface": "なんだかんだ",
+      "reading_kana": "なんだかんだ",
+      "meaning_ko": "이러쿵저러쿵, 이것저것",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_07b3929512d229c4",
+      "level": "N1",
+      "surface": "来場",
+      "reading_kana": "らいじょう",
+      "meaning_ko": "(행사장에) 옴, 참석",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_012a3956391c7abf",
+      "level": "N1",
+      "surface": "揃い",
+      "reading_kana": "そろい",
+      "meaning_ko": "갖춰짐, 한 벌",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_dc26375ace00a7ae",
+      "level": "N1",
+      "surface": "のどか",
+      "reading_kana": "のどか",
+      "meaning_ko": "차분한, 조용한",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2026b6b32990426e",
+      "level": "N1",
+      "surface": "定食",
+      "reading_kana": "ていしょく",
+      "meaning_ko": "정식(定食)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_fde1cf586d8156ad",
+      "level": "N1",
+      "surface": "観覧",
+      "reading_kana": "かんらん",
+      "meaning_ko": "관람",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_261b2a973023f573",
+      "level": "N1",
+      "surface": "さほど",
+      "reading_kana": "さほど",
+      "meaning_ko": "그다지, 그리 (~않다)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1e3f18b11c856182",
+      "level": "N1",
+      "surface": "いやらしい",
+      "reading_kana": "いやらしい",
+      "meaning_ko": "외설적인, 품위 없는",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0d2e035038fd2112",
+      "level": "N1",
+      "surface": "仕える",
+      "reading_kana": "つかえる",
+      "meaning_ko": "섬기다, 모시다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f90dd87cee0db62b",
+      "level": "N1",
+      "surface": "首輪",
+      "reading_kana": "くびわ",
+      "meaning_ko": "목걸이",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f5c412b586dc076e",
+      "level": "N1",
+      "surface": "昼飯",
+      "reading_kana": "ひるめし",
+      "meaning_ko": "점심밥",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b0f4bce3104bf1ab",
+      "level": "N1",
+      "surface": "私物",
+      "reading_kana": "しぶつ",
+      "meaning_ko": "사물(私物), 개인 물품",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d8a0ad165c123102",
+      "level": "N1",
+      "surface": "ことごとく",
+      "reading_kana": "ことごとく",
+      "meaning_ko": "완전히",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7ea1acd07319c07b",
+      "level": "N1",
+      "surface": "滅ぼす",
+      "reading_kana": "ほろぼす",
+      "meaning_ko": "파괴하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_9ba5cbd4b3f88eaf",
+      "level": "N1",
+      "surface": "等級",
+      "reading_kana": "とうきゅう",
+      "meaning_ko": "등급",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d2caf0c32bdd7abd",
+      "level": "N1",
+      "surface": "レンタカー",
+      "reading_kana": "レンタカー",
+      "meaning_ko": "렌터카",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ce400948a4bd2903",
+      "level": "N1",
+      "surface": "税務署",
+      "reading_kana": "ぜいむしょ",
+      "meaning_ko": "세무서",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_297abfe50b158c32",
+      "level": "N1",
+      "surface": "区切り",
+      "reading_kana": "くぎり",
+      "meaning_ko": "단락, 매듭",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4d7acd386cf44adf",
+      "level": "N1",
+      "surface": "危害",
+      "reading_kana": "きがい",
+      "meaning_ko": "위해, 해",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e662da8e9deb3398",
+      "level": "N1",
+      "surface": "所定",
+      "reading_kana": "しょてい",
+      "meaning_ko": "소정의, 정해진",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_9e880a7b23f69c39",
+      "level": "N1",
+      "surface": "無論",
+      "reading_kana": "むろん",
+      "meaning_ko": "물론",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_75205a17731b4a26",
+      "level": "N1",
+      "surface": "切実",
+      "reading_kana": "せつじつ",
+      "meaning_ko": "절실함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d68f81e25ebc16a6",
+      "level": "N1",
+      "surface": "天地",
+      "reading_kana": "てんち",
+      "meaning_ko": "천지, 하늘과 땅",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_7242f9295eb55a17",
+      "level": "N1",
+      "surface": "役場",
+      "reading_kana": "やくば",
+      "meaning_ko": "관청, 사무소",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_69e2159df1fe1017",
+      "level": "N1",
+      "surface": "組み合わせる",
+      "reading_kana": "くみあわせる",
+      "meaning_ko": "조합하다, 짜 맞추다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_68853538127f0977",
+      "level": "N1",
+      "surface": "斑",
+      "reading_kana": "むら",
+      "meaning_ko": "얼룩, 고르지 못함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_65741a2d9cd1b73b",
+      "level": "N1",
+      "surface": "構える",
+      "reading_kana": "かまえる",
+      "meaning_ko": "(자세를) 취하다; (집·가게를) 차리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_effc91aeacccca08",
+      "level": "N1",
+      "surface": "生計",
+      "reading_kana": "せいけい",
+      "meaning_ko": "생활, 생계",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f7b7f5d841f3ee1c",
+      "level": "N1",
+      "surface": "ストロー",
+      "reading_kana": "ストロー",
+      "meaning_ko": "짚",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_70936bbd6932607d",
+      "level": "N1",
+      "surface": "不意",
+      "reading_kana": "ふい",
+      "meaning_ko": "갑작스러움, 불시",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_03687ec131de14f9",
+      "level": "N1",
+      "surface": "並列",
+      "reading_kana": "へいれつ",
+      "meaning_ko": "병렬",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_64743e419fe04f91",
+      "level": "N1",
+      "surface": "手本",
+      "reading_kana": "てほん",
+      "meaning_ko": "본보기, 모범",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_a660433863f67375",
+      "level": "N1",
+      "surface": "議事堂",
+      "reading_kana": "ぎじどう",
+      "meaning_ko": "의사당",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d44e9dee9505bfdc",
+      "level": "N1",
+      "surface": "責務",
+      "reading_kana": "せきむ",
+      "meaning_ko": "의무",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4a2704218cfe13af",
+      "level": "N1",
+      "surface": "保養",
+      "reading_kana": "ほよう",
+      "meaning_ko": "보양, 휴양",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_92d9523033611e3a",
+      "level": "N1",
+      "surface": "くっきり",
+      "reading_kana": "くっきり",
+      "meaning_ko": "뚜렷하게, 명확히",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6e0a10172950a4d4",
+      "level": "N1",
+      "surface": "不振",
+      "reading_kana": "ふしん",
+      "meaning_ko": "침체",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_4b443a5d13ad2b4c",
+      "level": "N1",
+      "surface": "喜劇",
+      "reading_kana": "きげき",
+      "meaning_ko": "희극, 코미디",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f63f959c0ec9f805",
+      "level": "N1",
+      "surface": "消息",
+      "reading_kana": "しょうそく",
+      "meaning_ko": "소식, 동정",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3bd2b2abe2a89189",
+      "level": "N1",
+      "surface": "窮屈",
+      "reading_kana": "きゅうくつ",
+      "meaning_ko": "갑갑함, 거북함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bc3abd3710fc04af",
+      "level": "N1",
+      "surface": "共鳴",
+      "reading_kana": "きょうめい",
+      "meaning_ko": "공명; 공감",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_74f4b03d86a9823b",
+      "level": "N1",
+      "surface": "無礼",
+      "reading_kana": "ぶれい",
+      "meaning_ko": "무례한",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_78fd576a6ab3227d",
+      "level": "N1",
+      "surface": "転居",
+      "reading_kana": "てんきょ",
+      "meaning_ko": "이사, 거처 옮김",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_32bf60568e15559d",
+      "level": "N1",
+      "surface": "スチーム",
+      "reading_kana": "スチーム",
+      "meaning_ko": "증기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6460533518658af9",
+      "level": "N1",
+      "surface": "晴天",
+      "reading_kana": "せいてん",
+      "meaning_ko": "맑은 날씨, 청천",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ee5860c38d319c6c",
+      "level": "N1",
+      "surface": "漏らす",
+      "reading_kana": "もらす",
+      "meaning_ko": "흘리다, 누설하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b9c641f6b95aab47",
+      "level": "N1",
+      "surface": "さっと",
+      "reading_kana": "さっと",
+      "meaning_ko": "갑자기",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_fc4d257ad262c238",
+      "level": "N1",
+      "surface": "壷",
+      "reading_kana": "つぼ",
+      "meaning_ko": "항아리, 단지",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_bcce1a49a9bd524d",
+      "level": "N1",
+      "surface": "軽率",
+      "reading_kana": "けいそつ",
+      "meaning_ko": "경솔함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_3cc074c9d25ffad5",
+      "level": "N1",
+      "surface": "効き目",
+      "reading_kana": "ききめ",
+      "meaning_ko": "효과, 영향, 효능",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_36d95d84c3b6f948",
+      "level": "N1",
+      "surface": "短大",
+      "reading_kana": "たんだい",
+      "meaning_ko": "단기대학, 전문대",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_694197d696105e21",
+      "level": "N1",
+      "surface": "短気",
+      "reading_kana": "たんき",
+      "meaning_ko": "급한 성미, 성급함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_df60e1135524e494",
+      "level": "N1",
+      "surface": "おだてる",
+      "reading_kana": "おだてる",
+      "meaning_ko": "아첨하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8619d8e46998e20e",
+      "level": "N1",
+      "surface": "だるい",
+      "reading_kana": "だるい",
+      "meaning_ko": "나른하다, 노곤하다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_741dda77aa010333",
+      "level": "N1",
+      "surface": "スポーツカー",
+      "reading_kana": "スポーツカー",
+      "meaning_ko": "스포츠 차",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_62f3791be386083c",
+      "level": "N1",
+      "surface": "セレモニー",
+      "reading_kana": "セレモニー",
+      "meaning_ko": "의식, 행사",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ccc6fca5d20f754a",
+      "level": "N1",
+      "surface": "固める",
+      "reading_kana": "かためる",
+      "meaning_ko": "굳어지다, 얼다, 얼리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b4ee8499a1eb6ef3",
+      "level": "N1",
+      "surface": "ミセス",
+      "reading_kana": "ミセス",
+      "meaning_ko": "~씨, 선생",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_f10d56d8651e9bba",
+      "level": "N1",
+      "surface": "丸々",
+      "reading_kana": "まるまる",
+      "meaning_ko": "완전히",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_da1e3d3738f4241e",
+      "level": "N1",
+      "surface": "使用人",
+      "reading_kana": "しようにん",
+      "meaning_ko": "직원, 하인, 공무원",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_fc7c17b89ddc8307",
+      "level": "N1",
+      "surface": "没落",
+      "reading_kana": "ぼつらく",
+      "meaning_ko": "몰락",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_af28a5619819809b",
+      "level": "N1",
+      "surface": "風土",
+      "reading_kana": "ふうど",
+      "meaning_ko": "풍토",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b7bf1c8690f8d313",
+      "level": "N1",
+      "surface": "不評",
+      "reading_kana": "ふひょう",
+      "meaning_ko": "악평, 평이 나쁨",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_49ddbdd21810208d",
+      "level": "N1",
+      "surface": "終日",
+      "reading_kana": "しゅうじつ",
+      "meaning_ko": "종일, 하루 종일",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_83460d4f1892199d",
+      "level": "N1",
+      "surface": "貧弱",
+      "reading_kana": "ひんじゃく",
+      "meaning_ko": "빈약함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_957c15a482f8f1d6",
+      "level": "N1",
+      "surface": "軽快",
+      "reading_kana": "けいかい",
+      "meaning_ko": "경쾌함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6783c10e869b0a42",
+      "level": "N1",
+      "surface": "邸宅",
+      "reading_kana": "ていたく",
+      "meaning_ko": "저택",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b853a9ba762cd577",
+      "level": "N1",
+      "surface": "勤労",
+      "reading_kana": "きんろう",
+      "meaning_ko": "근로",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_c1b14e74eb219424",
+      "level": "N1",
+      "surface": "増進",
+      "reading_kana": "ぞうしん",
+      "meaning_ko": "증진",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_436ea4adc4583b0c",
+      "level": "N1",
+      "surface": "論議",
+      "reading_kana": "ろんぎ",
+      "meaning_ko": "논의",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_421ac61489eec84b",
+      "level": "N1",
+      "surface": "ちらっと",
+      "reading_kana": "ちらっと",
+      "meaning_ko": "에서 흘끗 봄, 우연히",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0c1ac570ab390bf3",
+      "level": "N1",
+      "surface": "地主",
+      "reading_kana": "じぬし",
+      "meaning_ko": "지주, 땅 주인",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8ac4fda759a52dc2",
+      "level": "N1",
+      "surface": "子息",
+      "reading_kana": "しそく",
+      "meaning_ko": "아들(존대)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_773a443e6950d9ba",
+      "level": "N1",
+      "surface": "暴風",
+      "reading_kana": "ぼうふう",
+      "meaning_ko": "폭풍, 폭풍우",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_6c9af09d30c0e6bc",
+      "level": "N1",
+      "surface": "法学",
+      "reading_kana": "ほうがく",
+      "meaning_ko": "법학",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_cd415efa702763f7",
+      "level": "N1",
+      "surface": "観衆",
+      "reading_kana": "かんしゅう",
+      "meaning_ko": "관중",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_500edf63c3635728",
+      "level": "N1",
+      "surface": "アワー",
+      "reading_kana": "アワー",
+      "meaning_ko": "시간",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_b55ea7d669adae14",
+      "level": "N1",
+      "surface": "傾ける",
+      "reading_kana": "かたむける",
+      "meaning_ko": "기울다, 구부리다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_404500ea6960f5d2",
+      "level": "N1",
+      "surface": "幹線",
+      "reading_kana": "かんせん",
+      "meaning_ko": "간선",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8a262069c3cc71cd",
+      "level": "N1",
+      "surface": "教習",
+      "reading_kana": "きょうしゅう",
+      "meaning_ko": "교습",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_47aaf0ca27b40baa",
+      "level": "N1",
+      "surface": "本館",
+      "reading_kana": "ほんかん",
+      "meaning_ko": "주요한 건물",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_a18c96ad4694ca31",
+      "level": "N1",
+      "surface": "詫び",
+      "reading_kana": "わび",
+      "meaning_ko": "사과, 사죄",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2c57f88c8af969f2",
+      "level": "N1",
+      "surface": "議決",
+      "reading_kana": "ぎけつ",
+      "meaning_ko": "의결",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_edb035ccb5afe706",
+      "level": "N1",
+      "surface": "譲歩",
+      "reading_kana": "じょうほ",
+      "meaning_ko": "타협",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2b3cc53a0b22ad3b",
+      "level": "N1",
+      "surface": "勤勉",
+      "reading_kana": "きんべん",
+      "meaning_ko": "근면",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d959e50fd73c68bc",
+      "level": "N1",
+      "surface": "寄贈",
+      "reading_kana": "きぞう",
+      "meaning_ko": "기부, 발표, 제시",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_2309cb4d86d37a12",
+      "level": "N1",
+      "surface": "扶養",
+      "reading_kana": "ふよう",
+      "meaning_ko": "부양",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_69c58600218eaba8",
+      "level": "N1",
+      "surface": "方策",
+      "reading_kana": "ほうさく",
+      "meaning_ko": "방책, 대책",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d86ec5dbfd8e00db",
+      "level": "N1",
+      "surface": "滞納",
+      "reading_kana": "たいのう",
+      "meaning_ko": "체납",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_8c606ba89f9e5e75",
+      "level": "N1",
+      "surface": "着席",
+      "reading_kana": "ちゃくせき",
+      "meaning_ko": "착석",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_d1535d6d4c22a3a7",
+      "level": "N1",
+      "surface": "茶の間",
+      "reading_kana": "ちゃのま",
+      "meaning_ko": "(일본식) 거실, 다실",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0c5742679b0cb098",
+      "level": "N1",
+      "surface": "健やか",
+      "reading_kana": "すこやか",
+      "meaning_ko": "건강함, 튼튼함",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e5529619877ac41b",
+      "level": "N1",
+      "surface": "元来",
+      "reading_kana": "がんらい",
+      "meaning_ko": "본래, 원래",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e9879a62aa327390",
+      "level": "N1",
+      "surface": "発育",
+      "reading_kana": "はついく",
+      "meaning_ko": "발육, 성장",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_0082c502590cf8a9",
+      "level": "N1",
+      "surface": "三味線",
+      "reading_kana": "しゃみせん",
+      "meaning_ko": "샤미센(일본 현악기)",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ac51cb4ffd9656c5",
+      "level": "N1",
+      "surface": "軍備",
+      "reading_kana": "ぐんび",
+      "meaning_ko": "군비",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_ef70395b91040ca3",
+      "level": "N1",
+      "surface": "群がる",
+      "reading_kana": "むらがる",
+      "meaning_ko": "떼지어 모이다, 무리 짓다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e7c29b6898ae9a7d",
+      "level": "N1",
+      "surface": "怠慢",
+      "reading_kana": "たいまん",
+      "meaning_ko": "태만",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_e9adb478aeae368f",
+      "level": "N1",
+      "surface": "祝賀",
+      "reading_kana": "しゅくが",
+      "meaning_ko": "축하",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_5ae440548476d253",
+      "level": "N1",
+      "surface": "田園",
+      "reading_kana": "でんえん",
+      "meaning_ko": "전원, 시골",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_1acc9dd872e06a4d",
+      "level": "N1",
+      "surface": "病む",
+      "reading_kana": "やむ",
+      "meaning_ko": "병들다, 앓다",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    },
+    {
+      "id": "w_77072cf78322487c",
+      "level": "N1",
+      "surface": "信任",
+      "reading_kana": "しんにん",
+      "meaning_ko": "신임",
+      "source": "kaggle:robinpourtaud/jlpt-words-by-level"
+    }
+  ],
+  "confirmed_corrections": [
+    {
+      "id": "w_90b4dd79bc0d9463",
+      "before": {
+        "meaning_ko": "금새"
+      },
+      "after": {
+        "meaning_ko": "곧바로, 즉시"
+      }
+    },
+    {
+      "id": "w_717479e0869c099f",
+      "before": {
+        "meaning_ko": "따라잡다 (감정,요구를)억제하다,"
+      },
+      "after": {
+        "meaning_ko": "따라잡다"
+      }
+    },
+    {
+      "id": "w_8f43b180efb6a864",
+      "before": {
+        "part_of_speech": "adjective"
+      },
+      "after": {
+        "part_of_speech": "noun"
+      }
+    },
+    {
+      "id": "w_2042955fbd7ed6b5",
+      "before": {
+        "part_of_speech": "adjective"
+      },
+      "after": {
+        "part_of_speech": "noun"
+      }
+    },
+    {
+      "id": "w_c804e191ffa9046c",
+      "before": {
+        "part_of_speech": "adverb"
+      },
+      "after": {
+        "part_of_speech": "adjective"
+      }
+    }
+  ],
+  "pdf_level_corrections": [
+    {
+      "id": "w_64d7f2701ad55caf",
+      "surface": "明るい",
+      "before": "N3",
+      "after": "N4"
+    }
+  ],
+  "missing_example_ids": [],
+  "missing_core": []
+}

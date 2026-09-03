@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-08-21T12:44:56.797507+09:00",
+  "word_count": 7026,
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "source_sha256": "7f76daef380816fb48a37b6ffb48a20aba71eb77f2d08f58c3868cf1592cc558",
+  "catalog_fetched_at": "2026-08-20T15:48:03+0900",
+  "passed": true,
+  "failure_count": 0,
+  "queue_count": 0,
+  "accepted_count": 802,
+  "accepted_manifest": "/Users/tyoung/AshitaKanji/data/pdf-vocab/naver_audit_accepted_queue.json",
+  "catalog_status": {
+    "manual_review": 26,
+    "match": 6226,
+    "naver_level_missing": 767,
+    "mismatch": 7
+  },
+  "search_status": {
+    "manual_review": 32,
+    "match": 366,
+    "search_unmatched": 90,
+    "search_no_jlpt": 359
+  },
+  "jmdict_issues": {
+    "derived-form": 45,
+    "surface-not-in-jmdict": 5,
+    "kana-not-in-jmdict": 8
+  },
+  "example_sources": {
+    "naver": 6209,
+    "self": 817
+  },
+  "example_containment": {
+    "surface": 7023,
+    "alt_form": 3
+  },
+  "issue_counts": {
+    "level-ambiguous": 26,
+    "naver-level-missing": 767,
+    "naver-search-unmatched": 90,
+    "spelling-surface-not-in-jmdict": 5,
+    "spelling-kana-not-in-jmdict": 8,
+    "level-mismatch": 7,
+    "catalog-mismatch-search-match": 1
+  },
+  "failure_issue_counts": {},
+  "queue_counts": {},
+  "accepted_counts": {
+    "homograph": 26,
+    "suru-compound": 49,
+    "counter": 7,
+    "search-unmatched": 42,
+    "no-jlpt-badge": 341,
+    "catalog-absent-search-match": 306,
+    "spelling": 1,
+    "catalog-mismatch-unconfirmed": 7,
+    "catalog-absent": 23
+  },
+  "rows_with_issues": 0,
+  "rows_accepted": 802,
+  "audio_map": {
+    "ios_word": 7026,
+    "ios_example": 7026,
+    "android_word": 7026,
+    "android_example": 7026
+  },
+  "method": "Every active word is compared to NAVER's official JLPT catalog by written form + reading. Unmatched/ambiguous/mismatched rows are live-searched in NAVER Japanese Dictionary. Fail only on confirmed level mismatch, missing/broken example, missing TTS, or DB mismatch. Catalog-absent する-forms, counters, homographs, unconfirmed catalog mismatches, and JMdict derived-form flags are a review queue, not a release failure. Accepted queue IDs in naver_audit_accepted_queue.json stay out of the open queue unless they become a release failure or move into a human-review bucket.",
+  "confirmed_mismatches": [],
+  "failure_preview": [],
+  "queue_preview": []
+}

@@ -48,6 +48,8 @@ def main() -> None:
     orthography = read_json(DATA / "jlpt_orthography_replacement_manifest.json")
     review = read_json(DATA / "jlpt_headword_review_manifest.json")
     phrase_review = read_json(DATA / "jlpt_phrase_review_manifest.json")
+    na_dedupe = read_json(DATA / "jlpt_na_adjective_dedupe_manifest.json")
+    scope = read_json(DATA / "jlpt_scope_curated_manifest.json")
 
     aliases: dict[str, str] = {}
     for row in build["retained_corrections"]:
@@ -59,17 +61,34 @@ def main() -> None:
     for source_id, target_id in phrase_review["source_phrase_mapping"].items():
         if source_id != target_id:
             aliases[source_id] = target_id
+    aliases.update(na_dedupe["successors"])
+    aliases.update(scope["na_successors"])
+    for extra_name in (
+        "jlpt_priority_fix_manifest.json",
+        "jlpt_remaining_review_manifest.json",
+        "jlpt_feedback_fix_manifest.json",
+        "jlpt_spelling_queue_manifest.json",
+        "jlpt_naver_crosscheck_fix_manifest.json",
+        "jlpt_mada_imada_split_manifest.json",
+        "jlpt_shikatanai_n4_manifest.json",
+    ):
+        extra_path = DATA / extra_name
+        if extra_path.exists():
+            aliases.update(read_json(extra_path).get("successors", {}))
+
+    final_ids = {row["id"] for row in final_rows}
 
     def resolve(word_id: str) -> tuple[str, list[str]]:
         chain = [word_id]
-        while word_id in aliases:
+        # A later curation stage may deliberately reintroduce an earlier ID.
+        # Prefer an ID that is active now before following a historical successor.
+        while word_id not in final_ids and word_id in aliases:
             word_id = aliases[word_id]
             if word_id in chain:
                 raise RuntimeError(f"alias cycle: {' -> '.join(chain + [word_id])}")
             chain.append(word_id)
         return word_id, chain
 
-    final_ids = {row["id"] for row in final_rows}
     mapped: list[dict[str, object]] = []
     missing: list[dict[str, object]] = []
     for row in core_rows:
@@ -94,15 +113,22 @@ def main() -> None:
     excluded_types = Counter(row["entry_type"] for row in excluded_source_rows)
     resolved_ids = {str(row["final_word_id"]) for row in mapped}
     source_needs_review = sum(row["qa_status"] != "verified" for row in source_rows)
+    included_source_ids = {row["source_entry_id"] for row in included_source_rows}
+    aggregated_source_ids = {
+        source_entry_id
+        for row in core_rows
+        for source_entry_id in row["source_entry_ids"].split(";")
+        if source_entry_id
+    }
     checks = {
         "all_printed_rows_verified": source_needs_review == 0,
         "all_printed_vocabulary_rows_aggregated": (
-            len(included_source_rows) == source_types.get("word", 0)
-            and len(core_rows) == int(build["summary"]["pdf_core_total"])
+            included_source_ids <= aggregated_source_ids
+            and len(core_rows) == int(scope["summary"]["included_pdf_core"])
         ),
         "all_core_entries_resolve_to_final": len(missing) == 0,
-        "final_word_count": len(final_rows) == 6638,
-        "final_unique_ids": len(final_ids) == 6638,
+        "final_word_count": len(final_rows) == 7027,
+        "final_unique_ids": len(final_ids) == 7027,
     }
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

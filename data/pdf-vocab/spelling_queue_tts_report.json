@@ -1,0 +1,309 @@
+{
+  "generated_at": "2026-08-21T00:55:10.949433+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7026,
+  "selected_rows": 25,
+  "jobs": 50,
+  "preexisting": 2,
+  "planned": 48,
+  "created": 48,
+  "skipped": 2,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_d1b4e1dd2eaea03a",
+      "kind": "word",
+      "text": "さわやか",
+      "file": "assets/audio/words/w_d1b4e1dd2eaea03a.mp3"
+    },
+    {
+      "id": "w_0a3e308b218bc214",
+      "kind": "word",
+      "text": "おおらか",
+      "file": "assets/audio/words/w_0a3e308b218bc214.mp3"
+    },
+    {
+      "id": "w_2eb416150973f88d",
+      "kind": "word",
+      "text": "じょじょ",
+      "file": "assets/audio/words/w_2eb416150973f88d.mp3"
+    },
+    {
+      "id": "w_fa51706c048bb954",
+      "kind": "word",
+      "text": "ちゅうじつ",
+      "file": "assets/audio/words/w_fa51706c048bb954.mp3"
+    },
+    {
+      "id": "w_eecc0929f62999d6",
+      "kind": "word",
+      "text": "おでかけ",
+      "file": "assets/audio/words/w_eecc0929f62999d6.mp3"
+    },
+    {
+      "id": "w_83a1a233497a6a27",
+      "kind": "word",
+      "text": "ささい",
+      "file": "assets/audio/words/w_83a1a233497a6a27.mp3"
+    },
+    {
+      "id": "w_951afcffc2798e47",
+      "kind": "word",
+      "text": "いっきょ",
+      "file": "assets/audio/words/w_951afcffc2798e47.mp3"
+    },
+    {
+      "id": "w_4df51fa3dcfed32d",
+      "kind": "word",
+      "text": "おうせい",
+      "file": "assets/audio/words/w_4df51fa3dcfed32d.mp3"
+    },
+    {
+      "id": "w_dc968a405309bb20",
+      "kind": "word",
+      "text": "はなやか",
+      "file": "assets/audio/words/w_dc968a405309bb20.mp3"
+    },
+    {
+      "id": "w_d56204ae722b4b30",
+      "kind": "word",
+      "text": "ごうかい",
+      "file": "assets/audio/words/w_d56204ae722b4b30.mp3"
+    },
+    {
+      "id": "w_453a651e8bd0ed54",
+      "kind": "word",
+      "text": "せいりょくてき",
+      "file": "assets/audio/words/w_453a651e8bd0ed54.mp3"
+    },
+    {
+      "id": "w_7ede81f0f2544245",
+      "kind": "word",
+      "text": "いかん",
+      "file": "assets/audio/words/w_7ede81f0f2544245.mp3"
+    },
+    {
+      "id": "w_253d6fd37766266d",
+      "kind": "word",
+      "text": "おっくう",
+      "file": "assets/audio/words/w_253d6fd37766266d.mp3"
+    },
+    {
+      "id": "w_2305ca44b5049a16",
+      "kind": "word",
+      "text": "にょじつ",
+      "file": "assets/audio/words/w_2305ca44b5049a16.mp3"
+    },
+    {
+      "id": "w_f900d3041a0c73b6",
+      "kind": "word",
+      "text": "ほんぽう",
+      "file": "assets/audio/words/w_f900d3041a0c73b6.mp3"
+    },
+    {
+      "id": "w_560e1f4a183fad1d",
+      "kind": "word",
+      "text": "ひしひし",
+      "file": "assets/audio/words/w_560e1f4a183fad1d.mp3"
+    },
+    {
+      "id": "w_b944223a52d313a5",
+      "kind": "word",
+      "text": "たかくてき",
+      "file": "assets/audio/words/w_b944223a52d313a5.mp3"
+    },
+    {
+      "id": "w_d21273e09a47a3a6",
+      "kind": "word",
+      "text": "ずっしり",
+      "file": "assets/audio/words/w_d21273e09a47a3a6.mp3"
+    },
+    {
+      "id": "w_d8fb15145a9e623e",
+      "kind": "word",
+      "text": "けなす",
+      "file": "assets/audio/words/w_d8fb15145a9e623e.mp3"
+    },
+    {
+      "id": "w_c2571abcaf5ce378",
+      "kind": "word",
+      "text": "れきぜん",
+      "file": "assets/audio/words/w_c2571abcaf5ce378.mp3"
+    },
+    {
+      "id": "w_545a88c322c4486a",
+      "kind": "word",
+      "text": "まばら",
+      "file": "assets/audio/words/w_545a88c322c4486a.mp3"
+    },
+    {
+      "id": "w_afb78f5d4ab6ca30",
+      "kind": "word",
+      "text": "こうこう",
+      "file": "assets/audio/words/w_afb78f5d4ab6ca30.mp3"
+    },
+    {
+      "id": "w_5ef5b3d11ace52b7",
+      "kind": "word",
+      "text": "うやむや",
+      "file": "assets/audio/words/w_5ef5b3d11ace52b7.mp3"
+    },
+    {
+      "id": "w_fdb8587ac0d4a801",
+      "kind": "word",
+      "text": "せかせか",
+      "file": "assets/audio/words/w_fdb8587ac0d4a801.mp3"
+    },
+    {
+      "id": "w_eecc0929f62999d6",
+      "kind": "example",
+      "text": "一家がお揃いでお出掛けになる",
+      "file": "assets/audio/examples/w_eecc0929f62999d6.mp3"
+    },
+    {
+      "id": "w_2eb416150973f88d",
+      "kind": "example",
+      "text": "最近、ハンドキャリーの需要が徐々に増え始めている",
+      "file": "assets/audio/examples/w_2eb416150973f88d.mp3"
+    },
+    {
+      "id": "w_0a3e308b218bc214",
+      "kind": "example",
+      "text": "大らかな性格の人だ。",
+      "file": "assets/audio/examples/w_0a3e308b218bc214.mp3"
+    },
+    {
+      "id": "w_d1b4e1dd2eaea03a",
+      "kind": "example",
+      "text": "朝の風が爽やかだ。",
+      "file": "assets/audio/examples/w_d1b4e1dd2eaea03a.mp3"
+    },
+    {
+      "id": "w_fa51706c048bb954",
+      "kind": "example",
+      "text": "いいつけを忠実に守る",
+      "file": "assets/audio/examples/w_fa51706c048bb954.mp3"
+    },
+    {
+      "id": "w_83a1a233497a6a27",
+      "kind": "example",
+      "text": "些細なことで怒らない。",
+      "file": "assets/audio/examples/w_83a1a233497a6a27.mp3"
+    },
+    {
+      "id": "w_dc968a405309bb20",
+      "kind": "example",
+      "text": "華やかなアクセサリーで身繕いをする.",
+      "file": "assets/audio/examples/w_dc968a405309bb20.mp3"
+    },
+    {
+      "id": "w_951afcffc2798e47",
+      "kind": "example",
+      "text": "対話の質が一挙に変わり，ダイナミックな様相を帯びてくる",
+      "file": "assets/audio/examples/w_951afcffc2798e47.mp3"
+    },
+    {
+      "id": "w_4df51fa3dcfed32d",
+      "kind": "example",
+      "text": "食欲が旺盛だ。",
+      "file": "assets/audio/examples/w_4df51fa3dcfed32d.mp3"
+    },
+    {
+      "id": "w_453a651e8bd0ed54",
+      "kind": "example",
+      "text": "様様なＮＧＯやＮＰＯで精力的に活動するネットワーカーの姿に触れるにつれ，目から鱗が落ちてゆく思いがした",
+      "file": "assets/audio/examples/w_453a651e8bd0ed54.mp3"
+    },
+    {
+      "id": "w_d56204ae722b4b30",
+      "kind": "example",
+      "text": "豪快に笑い飛ばす.",
+      "file": "assets/audio/examples/w_d56204ae722b4b30.mp3"
+    },
+    {
+      "id": "w_7ede81f0f2544245",
+      "kind": "example",
+      "text": "遺憾に存じます",
+      "file": "assets/audio/examples/w_7ede81f0f2544245.mp3"
+    },
+    {
+      "id": "w_253d6fd37766266d",
+      "kind": "example",
+      "text": "億劫だと言う。",
+      "file": "assets/audio/examples/w_253d6fd37766266d.mp3"
+    },
+    {
+      "id": "w_b944223a52d313a5",
+      "kind": "example",
+      "text": "うちの会社では今回の事業を多角的な視点で見直すことにした。",
+      "file": "assets/audio/examples/w_b944223a52d313a5.mp3"
+    },
+    {
+      "id": "w_f900d3041a0c73b6",
+      "kind": "example",
+      "text": "ときどき、私は若者の過剰に奔放な態度に戸惑いを感じることがある。",
+      "file": "assets/audio/examples/w_f900d3041a0c73b6.mp3"
+    },
+    {
+      "id": "w_2305ca44b5049a16",
+      "kind": "example",
+      "text": "戦争の悲惨さが如実に描かれている.",
+      "file": "assets/audio/examples/w_2305ca44b5049a16.mp3"
+    },
+    {
+      "id": "w_560e1f4a183fad1d",
+      "kind": "example",
+      "text": "責任をひしひしと感じる。",
+      "file": "assets/audio/examples/w_560e1f4a183fad1d.mp3"
+    },
+    {
+      "id": "w_d21273e09a47a3a6",
+      "kind": "example",
+      "text": "ずっしりとした鉄の塊。",
+      "file": "assets/audio/examples/w_d21273e09a47a3a6.mp3"
+    },
+    {
+      "id": "w_d8fb15145a9e623e",
+      "kind": "example",
+      "text": "人前で貶される。",
+      "file": "assets/audio/examples/w_d8fb15145a9e623e.mp3"
+    },
+    {
+      "id": "w_545a88c322c4486a",
+      "kind": "example",
+      "text": "疎らだと言う。",
+      "file": "assets/audio/examples/w_545a88c322c4486a.mp3"
+    },
+    {
+      "id": "w_5ef5b3d11ace52b7",
+      "kind": "example",
+      "text": "有耶無耶にと言う。",
+      "file": "assets/audio/examples/w_5ef5b3d11ace52b7.mp3"
+    },
+    {
+      "id": "w_c2571abcaf5ce378",
+      "kind": "example",
+      "text": "絞殺の跡が歴然と残っている.",
+      "file": "assets/audio/examples/w_c2571abcaf5ce378.mp3"
+    },
+    {
+      "id": "w_fdb8587ac0d4a801",
+      "kind": "example",
+      "text": "せかせかと行動する",
+      "file": "assets/audio/examples/w_fdb8587ac0d4a801.mp3"
+    },
+    {
+      "id": "w_afb78f5d4ab6ca30",
+      "kind": "example",
+      "text": "店の看板が街中を煌々と照らした。",
+      "file": "assets/audio/examples/w_afb78f5d4ab6ca30.mp3"
+    }
+  ],
+  "elapsed_seconds": 3.444,
+  "dry_run": false
+}

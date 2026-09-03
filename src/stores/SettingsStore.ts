@@ -36,7 +36,7 @@ interface SettingsState {
   selectedLevels: JlptLevel[]; // 학습 대상 레벨 (다중, 최소 1).
   dailyNewLimit: number; // 5-50.
   ttsEnabled: boolean;
-  ttsSpeed: number; // 0.5-1.0.
+  ttsSpeed: number; // 0.5-1.5.
   /** 학습 카드에서 뜻을 처음 공개할 때 단어 음성을 자동 재생한다. */
   autoPlayWordTtsOnReveal: boolean;
   /** 고강도(>30) 경고를 이미 확인했는지 — SessionConfig.highIntensityAcknowledged 로 전달. */

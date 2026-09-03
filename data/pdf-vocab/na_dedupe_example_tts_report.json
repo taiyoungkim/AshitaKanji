@@ -1,0 +1,255 @@
+{
+  "generated_at": "2026-08-18T02:29:42.037298+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 39,
+  "jobs": 39,
+  "preexisting": 0,
+  "planned": 39,
+  "created": 39,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_0d2e035038fd2112",
+      "kind": "example",
+      "text": "神社に仕える仕事をしている。",
+      "file": "assets/audio/examples/w_0d2e035038fd2112.mp3"
+    },
+    {
+      "id": "w_3bd2b2abe2a89189",
+      "kind": "example",
+      "text": "その服は窮屈で着にくい。",
+      "file": "assets/audio/examples/w_3bd2b2abe2a89189.mp3"
+    },
+    {
+      "id": "w_297abfe50b158c32",
+      "kind": "example",
+      "text": "仕事に区切りを付けたい。",
+      "file": "assets/audio/examples/w_297abfe50b158c32.mp3"
+    },
+    {
+      "id": "w_07b3929512d229c4",
+      "kind": "example",
+      "text": "コンサートへの来場者が増えた。",
+      "file": "assets/audio/examples/w_07b3929512d229c4.mp3"
+    },
+    {
+      "id": "w_2026b6b32990426e",
+      "kind": "example",
+      "text": "食堂で定食を注文した。",
+      "file": "assets/audio/examples/w_2026b6b32990426e.mp3"
+    },
+    {
+      "id": "w_012a3956391c7abf",
+      "kind": "example",
+      "text": "揃いの制服を着ている。",
+      "file": "assets/audio/examples/w_012a3956391c7abf.mp3"
+    },
+    {
+      "id": "w_4b443a5d13ad2b4c",
+      "kind": "example",
+      "text": "面白い喜劇を見た。",
+      "file": "assets/audio/examples/w_4b443a5d13ad2b4c.mp3"
+    },
+    {
+      "id": "w_65741a2d9cd1b73b",
+      "kind": "example",
+      "text": "店を構える場所を探している。",
+      "file": "assets/audio/examples/w_65741a2d9cd1b73b.mp3"
+    },
+    {
+      "id": "w_4d7acd386cf44adf",
+      "kind": "example",
+      "text": "その薬品は体に危害を及ぼす。",
+      "file": "assets/audio/examples/w_4d7acd386cf44adf.mp3"
+    },
+    {
+      "id": "w_69e2159df1fe1017",
+      "kind": "example",
+      "text": "色を組み合わせるのが難しい。",
+      "file": "assets/audio/examples/w_69e2159df1fe1017.mp3"
+    },
+    {
+      "id": "w_64743e419fe04f91",
+      "kind": "example",
+      "text": "先輩の仕事を手本にする。",
+      "file": "assets/audio/examples/w_64743e419fe04f91.mp3"
+    },
+    {
+      "id": "w_7242f9295eb55a17",
+      "kind": "example",
+      "text": "村の役場で手続きをした。",
+      "file": "assets/audio/examples/w_7242f9295eb55a17.mp3"
+    },
+    {
+      "id": "w_7ea1acd07319c07b",
+      "kind": "example",
+      "text": "帝国は隣国を滅ぼす計画を立てた。",
+      "file": "assets/audio/examples/w_7ea1acd07319c07b.mp3"
+    },
+    {
+      "id": "w_73be56cf8562b4e2",
+      "kind": "example",
+      "text": "体裁を気にしすぎない。",
+      "file": "assets/audio/examples/w_73be56cf8562b4e2.mp3"
+    },
+    {
+      "id": "w_75205a17731b4a26",
+      "kind": "example",
+      "text": "今が切実な問題だ。",
+      "file": "assets/audio/examples/w_75205a17731b4a26.mp3"
+    },
+    {
+      "id": "w_8d440df94f874e3d",
+      "kind": "example",
+      "text": "新入生向けの案内がある。",
+      "file": "assets/audio/examples/w_8d440df94f874e3d.mp3"
+    },
+    {
+      "id": "w_9ba5cbd4b3f88eaf",
+      "kind": "example",
+      "text": "選手は等級ごとに分かれる。",
+      "file": "assets/audio/examples/w_9ba5cbd4b3f88eaf.mp3"
+    },
+    {
+      "id": "w_955f496f0673fc78",
+      "kind": "example",
+      "text": "彼の生き方には粋がある。",
+      "file": "assets/audio/examples/w_955f496f0673fc78.mp3"
+    },
+    {
+      "id": "w_9e880a7b23f69c39",
+      "kind": "example",
+      "text": "無論、反対はしない。",
+      "file": "assets/audio/examples/w_9e880a7b23f69c39.mp3"
+    },
+    {
+      "id": "w_b0f4bce3104bf1ab",
+      "kind": "example",
+      "text": "机の上に私物を置かないでください。",
+      "file": "assets/audio/examples/w_b0f4bce3104bf1ab.mp3"
+    },
+    {
+      "id": "w_d68f81e25ebc16a6",
+      "kind": "example",
+      "text": "天地がひっくり返るようだった。",
+      "file": "assets/audio/examples/w_d68f81e25ebc16a6.mp3"
+    },
+    {
+      "id": "w_ce400948a4bd2903",
+      "kind": "example",
+      "text": "税務署に書類を提出した。",
+      "file": "assets/audio/examples/w_ce400948a4bd2903.mp3"
+    },
+    {
+      "id": "w_ec9e607fc8bac604",
+      "kind": "example",
+      "text": "欲深い人だと思われた。",
+      "file": "assets/audio/examples/w_ec9e607fc8bac604.mp3"
+    },
+    {
+      "id": "w_effc91aeacccca08",
+      "kind": "example",
+      "text": "執筆で生計を立てている。",
+      "file": "assets/audio/examples/w_effc91aeacccca08.mp3"
+    },
+    {
+      "id": "w_f5c412b586dc076e",
+      "kind": "example",
+      "text": "駅前で昼飯を済ませた。",
+      "file": "assets/audio/examples/w_f5c412b586dc076e.mp3"
+    },
+    {
+      "id": "w_f63f959c0ec9f805",
+      "kind": "example",
+      "text": "彼の消息が分からない。",
+      "file": "assets/audio/examples/w_f63f959c0ec9f805.mp3"
+    },
+    {
+      "id": "w_f90dd87cee0db62b",
+      "kind": "example",
+      "text": "犬に新しい首輪を付けた。",
+      "file": "assets/audio/examples/w_f90dd87cee0db62b.mp3"
+    },
+    {
+      "id": "w_f6a5dec8e420f557",
+      "kind": "example",
+      "text": "ただの世辞だと思った。",
+      "file": "assets/audio/examples/w_f6a5dec8e420f557.mp3"
+    },
+    {
+      "id": "w_fde1cf586d8156ad",
+      "kind": "example",
+      "text": "展覧会の観覧券を買った。",
+      "file": "assets/audio/examples/w_fde1cf586d8156ad.mp3"
+    },
+    {
+      "id": "w_4c934f2120b1a7b8",
+      "kind": "example",
+      "text": "食べ過ぎて胃が痛い。",
+      "file": "assets/audio/examples/w_4c934f2120b1a7b8.mp3"
+    },
+    {
+      "id": "w_2f256f75a63c5742",
+      "kind": "example",
+      "text": "日本には四季があります。",
+      "file": "assets/audio/examples/w_2f256f75a63c5742.mp3"
+    },
+    {
+      "id": "w_12939f589a0b61a0",
+      "kind": "example",
+      "text": "公園の芝生に座った。",
+      "file": "assets/audio/examples/w_12939f589a0b61a0.mp3"
+    },
+    {
+      "id": "w_ad199ec93837f88c",
+      "kind": "example",
+      "text": "割れた皿を捨てました。",
+      "file": "assets/audio/examples/w_ad199ec93837f88c.mp3"
+    },
+    {
+      "id": "w_488258c2323a5ce5",
+      "kind": "example",
+      "text": "銀行の支店は駅の前です。",
+      "file": "assets/audio/examples/w_488258c2323a5ce5.mp3"
+    },
+    {
+      "id": "w_664972e7c1fa3bf3",
+      "kind": "example",
+      "text": "週末に芝居を見に行く。",
+      "file": "assets/audio/examples/w_664972e7c1fa3bf3.mp3"
+    },
+    {
+      "id": "w_b9599de28963836c",
+      "kind": "example",
+      "text": "彼は有名な詩人です。",
+      "file": "assets/audio/examples/w_b9599de28963836c.mp3"
+    },
+    {
+      "id": "w_d8b3e84d92486874",
+      "kind": "example",
+      "text": "今日は湿度が高いです。",
+      "file": "assets/audio/examples/w_d8b3e84d92486874.mp3"
+    },
+    {
+      "id": "w_bf30f1583d89c4b0",
+      "kind": "example",
+      "text": "ホテルに一泊宿泊した。",
+      "file": "assets/audio/examples/w_bf30f1583d89c4b0.mp3"
+    },
+    {
+      "id": "w_dd9e841a5617210f",
+      "kind": "example",
+      "text": "試験の結果に失望した。",
+      "file": "assets/audio/examples/w_dd9e841a5617210f.mp3"
+    }
+  ],
+  "elapsed_seconds": 3.978,
+  "dry_run": false
+}

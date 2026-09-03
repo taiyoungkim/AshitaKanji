@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-01T23:33:29+0900",
+  "source": "data/pdf-vocab/jlpt_final_wordlist.csv",
+  "source_sha256": "3c79fb2dc64fbc8c8f11054dbfb9824d661856cd2299a6d5559c1933f526598c",
+  "naver_api": "https://ja.dict.naver.com/api/jako/getJLPTList",
+  "source_mode": "catalog",
+  "word_count": 7027,
+  "unique_queries": 6969,
+  "status_counts": {
+    "exact_match": 5034,
+    "manual_review": 1228,
+    "naver_level_missing": 765
+  },
+  "mismatch_transitions": {},
+  "naver_catalog_level_counts": {
+    "N1": 3246,
+    "N2": 2648,
+    "N3": 1546,
+    "N4": 1037,
+    "N5": 744
+  },
+  "method": "Load every entry displayed in NAVER Japanese Dictionary's JLPT N1-N5 catalog; select one entry only when written form, reading, part of speech, and Korean meaning align; compare NAVER's displayed level with the app level. Multiple-entry, ambiguous, and unmatched cases are not auto-classified. This is the app's reference catalog, not an official JLPT vocabulary list.",
+  "output": "data/pdf-vocab/naver_jlpt_level_audit_2026-09-01_post_rebalance.csv",
+  "mismatch_output": "data/pdf-vocab/naver_jlpt_level_audit_2026-09-01_post_rebalance_mismatches.csv",
+  "review_output": "data/pdf-vocab/naver_jlpt_level_audit_2026-09-01_post_rebalance_review.csv"
+}

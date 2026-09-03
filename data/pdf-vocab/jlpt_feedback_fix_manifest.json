@@ -1,0 +1,2424 @@
+{
+  "generated_at": "2026-08-20T04:29:05.523011+00:00",
+  "word_count": 7050,
+  "level_counts": {
+    "N5": 400,
+    "N4": 735,
+    "N3": 1499,
+    "N2": 1909,
+    "N1": 2507
+  },
+  "successors": {
+    "w_9ae6757294f044b5": "w_322183b8b0fa5b40",
+    "w_a7f61dd68b46c6ee": "w_59f80d4dc5e14879",
+    "w_b22a6ac9a6be784c": "w_75de41fe96c1c937"
+  },
+  "level_moves": {
+    "w_a7aa783483eb1022": "N4",
+    "w_946af014ad2b6ee1": "N2",
+    "w_a65dc597ed6e7ba0": "N3",
+    "w_2e1c725abcc5c203": "N5",
+    "w_9965df3c9edf91a3": "N5",
+    "w_06c3d7fabba14770": "N3",
+    "w_16b5e002c7a1d2f2": "N2",
+    "w_2e22b9e812873fab": "N2",
+    "w_e6e34cd099dad65c": "N2",
+    "w_a8eeca9225026b13": "N2",
+    "w_d627e3baa1fd6350": "N2",
+    "w_58ae1bd95dca9642": "N2",
+    "w_c81f4bf131afb227": "N2",
+    "w_f3e20b58b318fe06": "N2",
+    "w_8260701b3bb8776f": "N2",
+    "w_14e067fde838f088": "N2",
+    "w_6642cbf9235eb71d": "N1",
+    "w_fa227e48ff825a7e": "N1",
+    "w_a0d434edcd9759ad": "N2",
+    "w_b397fc5e0430c55b": "N1",
+    "w_991b3f178bb17c4b": "N5",
+    "w_1926f7032260e4dd": "N2",
+    "w_2ccccc5ce470df89": "N2",
+    "w_de05e8614dcecdb5": "N2",
+    "w_a61620b169657c43": "N2",
+    "w_4265c3f9772eff26": "N4",
+    "w_c9624a11c7f3b950": "N2",
+    "w_3f46b28da139c16c": "N2",
+    "w_d6eed39e186a071d": "N2",
+    "w_17f948120f29942a": "N2",
+    "w_4fd11cf4f5345777": "N4",
+    "w_3ee09f596d4c7b39": "N1",
+    "w_272e0931b59a9581": "N3",
+    "w_ffefb3b5ec05aab1": "N4",
+    "w_56afecb4ab165d9c": "N3",
+    "w_69051b86844ecf4a": "N3",
+    "w_2cb1c7848a99643f": "N3",
+    "w_fbd02e3a324e16c5": "N4",
+    "w_dcf81ee7c767ed7f": "N3",
+    "w_d1b4e9d1855d96a8": "N1",
+    "w_c83fe07fb32b63ab": "N3",
+    "w_713aaa51e13cbeed": "N4",
+    "w_0dc203c1fa44a8dd": "N3",
+    "w_fe5aa65deefa4fd4": "N1",
+    "w_eeecb96d165064d7": "N3",
+    "w_51492880f4ff54fb": "N1",
+    "w_368c112172721eda": "N3",
+    "w_81096075fb7901d9": "N3",
+    "w_927239de110ba25e": "N3",
+    "w_bedd038e5370599e": "N1",
+    "w_107bd50a48d02b70": "N3",
+    "w_a430acefffcd0bfe": "N5",
+    "w_e4c9461baa503259": "N3",
+    "w_188378c15d9c641d": "N4",
+    "w_01f119facf6e9d97": "N5",
+    "w_a55e9120cc78ffa5": "N3",
+    "w_fb5cbbf9ac77e220": "N5",
+    "w_dd0669298f0d3f54": "N3",
+    "w_9e7fe6cba58b9d20": "N3",
+    "w_68ee24050b7e44cf": "N1",
+    "w_6b4d60a6eb54e06f": "N3",
+    "w_1c1342a535c8057b": "N1",
+    "w_c206a8fc4ff2a0e5": "N4",
+    "w_45f7f8d1891332c0": "N3",
+    "w_881a9059caa55f11": "N3",
+    "w_f948982919ee8a7a": "N1",
+    "w_56e22b4b34e6b4e6": "N3",
+    "w_a029f97e41adcce1": "N3",
+    "w_6ba0372f290b6408": "N3",
+    "w_d9e121c9f74a30b8": "N3",
+    "w_19ab8c60598cee59": "N1",
+    "w_09d31b5d3e96cc64": "N4",
+    "w_c482266ac0be4b91": "N3",
+    "w_70d444f0b75ce53c": "N1",
+    "w_cdddc6fbf00c4cf5": "N3",
+    "w_be45bc6bb7ee0f57": "N1",
+    "w_97a3b823f67674e9": "N4",
+    "w_a66198a344df39a0": "N3",
+    "w_98ff2ee683f77e8d": "N1",
+    "w_a1262f0a18c41630": "N3",
+    "w_6be80965290001db": "N1",
+    "w_5ca2ac72fa6c8d99": "N3",
+    "w_5135dd81e7fcc848": "N3",
+    "w_40a6caa2efc2a517": "N3",
+    "w_9375044e7571e8e4": "N1",
+    "w_9ab22525169e4b3d": "N2",
+    "w_826d95074900597b": "N2",
+    "w_3f031ca942fa7e3c": "N3",
+    "w_7b8922533fb71c49": "N4",
+    "w_12e16fe783211043": "N2",
+    "w_0ea31b98d247240b": "N2",
+    "w_6e2910d8d4a26c4c": "N3",
+    "w_26dddb87b1e72021": "N2"
+  },
+  "addition_ids": [
+    "w_b6759dff8d53492a",
+    "w_c2af7770c84545bd",
+    "w_2ebcf0920b4f9808",
+    "w_06fbc4f4058c0110",
+    "w_927a3983b160576b",
+    "w_4a137926b2287cfd",
+    "w_f25fa022cc5852d2",
+    "w_113afe5c67c7d699",
+    "w_e631b1b46ee503a7",
+    "w_64d4b0caee1c09bd",
+    "w_1934fc0b098bed0b",
+    "w_e7268c08398f5c21",
+    "w_ec90d7994c511851",
+    "w_6fd423e6d1c6a4ae",
+    "w_9dc2325d8683044e",
+    "w_3843ee4af423301d",
+    "w_d9200f1a3e734b15",
+    "w_6a6e331edd9cf1e0",
+    "w_f9ad8893fe4738c0",
+    "w_97a4b4b110d91439",
+    "w_6de4c1af6340b81d",
+    "w_4f74e9af3f4010e5",
+    "w_6acebe28608188e7",
+    "w_ab6a046befd0d3fc",
+    "w_e6a69e3b92f4266a",
+    "w_189963d9b879daaa",
+    "w_32dbafd16a4e2c77",
+    "w_a409937488a8e0ca",
+    "w_c64636298cdcedd1",
+    "w_15a9c02e279288fa",
+    "w_539fc5bf88b962e2",
+    "w_b58cfba6196a9d55",
+    "w_f39dee7d81642910",
+    "w_86896d02782ae305",
+    "w_9165bb6ac0c4b889",
+    "w_ef77069a51fbad84",
+    "w_fcfcfef3d180e141",
+    "w_c3a1a3ac675f214e",
+    "w_b46e2bcfa7d96251",
+    "w_c9ac923933659337",
+    "w_9939e1efe60f95f6",
+    "w_234b99b141cfd9a7",
+    "w_a0ffef4281eed56e",
+    "w_e5e9bebce58793fe",
+    "w_5a31cdbb0a49beed",
+    "w_518f5d6a41328c85",
+    "w_7829ba606d939d4f",
+    "w_8f8cb620e9cc2ad9",
+    "w_dbef418eb517f5ee",
+    "w_e71ff358a5a5b2cf",
+    "w_4bfd82f1eb510072",
+    "w_5032f9664a74398e",
+    "w_6db6dd90c68d20b7",
+    "w_d495b3ee9377bc36",
+    "w_08923ac6c2b95253",
+    "w_79d375ad544ecc0d",
+    "w_9b03235c5b4d027e",
+    "w_78021f3ebd19aa5a",
+    "w_e2cb3cddc979a9ac",
+    "w_6543785f3fd2fb49",
+    "w_3b01ac207403f37d",
+    "w_3e389172af03c7be",
+    "w_dbe6c7f2bdb34a15",
+    "w_db4fca2913e14855",
+    "w_dec55e956faf43b2",
+    "w_70249e2ee07af709",
+    "w_322a08f35b4fc8b2",
+    "w_64be9a4f4460e1b5",
+    "w_41b2fd82135a94ad",
+    "w_d617575c4b5aa129",
+    "w_c5eb0c79a85d68d5",
+    "w_069b6847fe6b8089",
+    "w_cfc4edffed67fa1b",
+    "w_144336dcd0d84690",
+    "w_7c5049b1b5f6d642",
+    "w_55e83c7e5a6bea6a",
+    "w_06bb7a4aad5e15e2",
+    "w_646c0525514699e0",
+    "w_e8c38e653ce2eabb",
+    "w_7cafc14ce18cf1a5",
+    "w_3e2608d07255f10c",
+    "w_ba2e6fc1ecffb05a",
+    "w_a1d8a73cc5506787",
+    "w_762d9de9ee125760",
+    "w_83b7127753e8a7aa",
+    "w_d129be83027447d1",
+    "w_be14f0c48a9b8b41",
+    "w_54e3c0502c73d7e9",
+    "w_f43d2cc32a5fa5be"
+  ],
+  "addition_preview": [
+    {
+      "id": "w_b6759dff8d53492a",
+      "level": "N3",
+      "surface": "箸",
+      "reading_kana": "はし",
+      "meaning_ko": "젓가락"
+    },
+    {
+      "id": "w_c2af7770c84545bd",
+      "level": "N3",
+      "surface": "虎",
+      "reading_kana": "とら",
+      "meaning_ko": "호랑이"
+    },
+    {
+      "id": "w_2ebcf0920b4f9808",
+      "level": "N3",
+      "surface": "毒",
+      "reading_kana": "どく",
+      "meaning_ko": "독, 독극물"
+    },
+    {
+      "id": "w_06fbc4f4058c0110",
+      "level": "N3",
+      "surface": "泥",
+      "reading_kana": "どろ",
+      "meaning_ko": "진흙"
+    },
+    {
+      "id": "w_927a3983b160576b",
+      "level": "N3",
+      "surface": "腹",
+      "reading_kana": "はら",
+      "meaning_ko": "배, 복부"
+    },
+    {
+      "id": "w_4a137926b2287cfd",
+      "level": "N3",
+      "surface": "針",
+      "reading_kana": "はり",
+      "meaning_ko": "바늘"
+    },
+    {
+      "id": "w_f25fa022cc5852d2",
+      "level": "N3",
+      "surface": "紐",
+      "reading_kana": "ひも",
+      "meaning_ko": "끈"
+    },
+    {
+      "id": "w_113afe5c67c7d699",
+      "level": "N3",
+      "surface": "埃",
+      "reading_kana": "ほこり",
+      "meaning_ko": "먼지"
+    },
+    {
+      "id": "w_e631b1b46ee503a7",
+      "level": "N3",
+      "surface": "筆",
+      "reading_kana": "ふで",
+      "meaning_ko": "붓"
+    },
+    {
+      "id": "w_64d4b0caee1c09bd",
+      "level": "N3",
+      "surface": "柱",
+      "reading_kana": "はしら",
+      "meaning_ko": "기둥"
+    },
+    {
+      "id": "w_1934fc0b098bed0b",
+      "level": "N3",
+      "surface": "畑",
+      "reading_kana": "はたけ",
+      "meaning_ko": "밭"
+    },
+    {
+      "id": "w_e7268c08398f5c21",
+      "level": "N3",
+      "surface": "鶏",
+      "reading_kana": "にわとり",
+      "meaning_ko": "닭"
+    },
+    {
+      "id": "w_ec90d7994c511851",
+      "level": "N3",
+      "surface": "鼠",
+      "reading_kana": "ねずみ",
+      "meaning_ko": "쥐"
+    },
+    {
+      "id": "w_6fd423e6d1c6a4ae",
+      "level": "N3",
+      "surface": "種",
+      "reading_kana": "たね",
+      "meaning_ko": "씨, 종자"
+    },
+    {
+      "id": "w_9dc2325d8683044e",
+      "level": "N3",
+      "surface": "微笑む",
+      "reading_kana": "ほほえむ",
+      "meaning_ko": "미소 짓다"
+    },
+    {
+      "id": "w_3843ee4af423301d",
+      "level": "N3",
+      "surface": "人々",
+      "reading_kana": "ひとびと",
+      "meaning_ko": "사람들"
+    },
+    {
+      "id": "w_d9200f1a3e734b15",
+      "level": "N3",
+      "surface": "宛先",
+      "reading_kana": "あてさき",
+      "meaning_ko": "수신인, 받는 주소"
+    },
+    {
+      "id": "w_6a6e331edd9cf1e0",
+      "level": "N3",
+      "surface": "自由席",
+      "reading_kana": "じゆうせき",
+      "meaning_ko": "자유석"
+    },
+    {
+      "id": "w_f9ad8893fe4738c0",
+      "level": "N3",
+      "surface": "始発駅",
+      "reading_kana": "しはつえき",
+      "meaning_ko": "시발역"
+    },
+    {
+      "id": "w_97a4b4b110d91439",
+      "level": "N3",
+      "surface": "味見",
+      "reading_kana": "あじみ",
+      "meaning_ko": "맛보기"
+    },
+    {
+      "id": "w_6de4c1af6340b81d",
+      "level": "N3",
+      "surface": "くしゃみ",
+      "reading_kana": "くしゃみ",
+      "meaning_ko": "재채기"
+    },
+    {
+      "id": "w_4f74e9af3f4010e5",
+      "level": "N3",
+      "surface": "やる気",
+      "reading_kana": "やるき",
+      "meaning_ko": "의욕"
+    },
+    {
+      "id": "w_6acebe28608188e7",
+      "level": "N3",
+      "surface": "なだらか",
+      "reading_kana": "なだらか",
+      "meaning_ko": "완만한"
+    },
+    {
+      "id": "w_ab6a046befd0d3fc",
+      "level": "N3",
+      "surface": "我慢強い",
+      "reading_kana": "がまんづよい",
+      "meaning_ko": "참을성이 많다"
+    },
+    {
+      "id": "w_e6a69e3b92f4266a",
+      "level": "N3",
+      "surface": "いつの間にか",
+      "reading_kana": "いつのまにか",
+      "meaning_ko": "어느새"
+    },
+    {
+      "id": "w_189963d9b879daaa",
+      "level": "N2",
+      "surface": "日本",
+      "reading_kana": "にほん",
+      "meaning_ko": "일본"
+    },
+    {
+      "id": "w_32dbafd16a4e2c77",
+      "level": "N2",
+      "surface": "チーム",
+      "reading_kana": "チーム",
+      "meaning_ko": "팀"
+    },
+    {
+      "id": "w_a409937488a8e0ca",
+      "level": "N2",
+      "surface": "最大",
+      "reading_kana": "さいだい",
+      "meaning_ko": "최대"
+    },
+    {
+      "id": "w_c64636298cdcedd1",
+      "level": "N2",
+      "surface": "何でも",
+      "reading_kana": "なんでも",
+      "meaning_ko": "무엇이든"
+    },
+    {
+      "id": "w_15a9c02e279288fa",
+      "level": "N2",
+      "surface": "第一",
+      "reading_kana": "だいいち",
+      "meaning_ko": "제일, 첫째"
+    },
+    {
+      "id": "w_539fc5bf88b962e2",
+      "level": "N2",
+      "surface": "投票",
+      "reading_kana": "とうひょう",
+      "meaning_ko": "투표"
+    },
+    {
+      "id": "w_b58cfba6196a9d55",
+      "level": "N2",
+      "surface": "犯罪",
+      "reading_kana": "はんざい",
+      "meaning_ko": "범죄"
+    },
+    {
+      "id": "w_f39dee7d81642910",
+      "level": "N2",
+      "surface": "円高",
+      "reading_kana": "えんだか",
+      "meaning_ko": "엔고, 엔화 강세"
+    },
+    {
+      "id": "w_86896d02782ae305",
+      "level": "N2",
+      "surface": "円安",
+      "reading_kana": "えんやす",
+      "meaning_ko": "엔저, 엔화 약세"
+    },
+    {
+      "id": "w_9165bb6ac0c4b889",
+      "level": "N2",
+      "surface": "納得",
+      "reading_kana": "なっとく",
+      "meaning_ko": "납득"
+    },
+    {
+      "id": "w_ef77069a51fbad84",
+      "level": "N2",
+      "surface": "同僚",
+      "reading_kana": "どうりょう",
+      "meaning_ko": "동료"
+    },
+    {
+      "id": "w_fcfcfef3d180e141",
+      "level": "N2",
+      "surface": "結婚式",
+      "reading_kana": "けっこんしき",
+      "meaning_ko": "결혼식"
+    },
+    {
+      "id": "w_c3a1a3ac675f214e",
+      "level": "N2",
+      "surface": "社員",
+      "reading_kana": "しゃいん",
+      "meaning_ko": "사원, 회사원"
+    },
+    {
+      "id": "w_b46e2bcfa7d96251",
+      "level": "N2",
+      "surface": "居酒屋",
+      "reading_kana": "いざかや",
+      "meaning_ko": "이자카야, 선술집"
+    },
+    {
+      "id": "w_c9ac923933659337",
+      "level": "N2",
+      "surface": "遺産",
+      "reading_kana": "いさん",
+      "meaning_ko": "유산"
+    },
+    {
+      "id": "w_9939e1efe60f95f6",
+      "level": "N2",
+      "surface": "衣服",
+      "reading_kana": "いふく",
+      "meaning_ko": "의복, 옷"
+    },
+    {
+      "id": "w_234b99b141cfd9a7",
+      "level": "N2",
+      "surface": "一家",
+      "reading_kana": "いっか",
+      "meaning_ko": "일가, 한 가족"
+    },
+    {
+      "id": "w_a0ffef4281eed56e",
+      "level": "N2",
+      "surface": "誤り",
+      "reading_kana": "あやまり",
+      "meaning_ko": "잘못, 실수"
+    },
+    {
+      "id": "w_e5e9bebce58793fe",
+      "level": "N2",
+      "surface": "当てる",
+      "reading_kana": "あてる",
+      "meaning_ko": "맞히다, 대다"
+    },
+    {
+      "id": "w_5a31cdbb0a49beed",
+      "level": "N2",
+      "surface": "青空",
+      "reading_kana": "あおぞら",
+      "meaning_ko": "푸른 하늘"
+    },
+    {
+      "id": "w_518f5d6a41328c85",
+      "level": "N2",
+      "surface": "生み出す",
+      "reading_kana": "うみだす",
+      "meaning_ko": "만들어 내다"
+    },
+    {
+      "id": "w_7829ba606d939d4f",
+      "level": "N2",
+      "surface": "演説",
+      "reading_kana": "えんぜつ",
+      "meaning_ko": "연설"
+    },
+    {
+      "id": "w_8f8cb620e9cc2ad9",
+      "level": "N2",
+      "surface": "大型",
+      "reading_kana": "おおがた",
+      "meaning_ko": "대형"
+    },
+    {
+      "id": "w_dbef418eb517f5ee",
+      "level": "N2",
+      "surface": "お昼",
+      "reading_kana": "おひる",
+      "meaning_ko": "점심, 낮"
+    },
+    {
+      "id": "w_e71ff358a5a5b2cf",
+      "level": "N2",
+      "surface": "飼い主",
+      "reading_kana": "かいぬし",
+      "meaning_ko": "주인, 기르는 사람"
+    },
+    {
+      "id": "w_4bfd82f1eb510072",
+      "level": "N2",
+      "surface": "各国",
+      "reading_kana": "かっこく",
+      "meaning_ko": "각국"
+    },
+    {
+      "id": "w_5032f9664a74398e",
+      "level": "N2",
+      "surface": "外見",
+      "reading_kana": "がいけん",
+      "meaning_ko": "외견, 겉모습"
+    },
+    {
+      "id": "w_6db6dd90c68d20b7",
+      "level": "N2",
+      "surface": "奇妙",
+      "reading_kana": "きみょう",
+      "meaning_ko": "기묘한, 이상한"
+    },
+    {
+      "id": "w_d495b3ee9377bc36",
+      "level": "N2",
+      "surface": "急激",
+      "reading_kana": "きゅうげき",
+      "meaning_ko": "급격한"
+    },
+    {
+      "id": "w_08923ac6c2b95253",
+      "level": "N2",
+      "surface": "救助",
+      "reading_kana": "きゅうじょ",
+      "meaning_ko": "구조"
+    },
+    {
+      "id": "w_79d375ad544ecc0d",
+      "level": "N2",
+      "surface": "教員",
+      "reading_kana": "きょういん",
+      "meaning_ko": "교원, 교사"
+    },
+    {
+      "id": "w_9b03235c5b4d027e",
+      "level": "N2",
+      "surface": "金銭",
+      "reading_kana": "きんせん",
+      "meaning_ko": "금전, 돈"
+    },
+    {
+      "id": "w_78021f3ebd19aa5a",
+      "level": "N2",
+      "surface": "苦痛",
+      "reading_kana": "くつう",
+      "meaning_ko": "고통"
+    },
+    {
+      "id": "w_e2cb3cddc979a9ac",
+      "level": "N2",
+      "surface": "研究所",
+      "reading_kana": "けんきゅうじょ",
+      "meaning_ko": "연구소"
+    },
+    {
+      "id": "w_6543785f3fd2fb49",
+      "level": "N2",
+      "surface": "芸能人",
+      "reading_kana": "げいのうじん",
+      "meaning_ko": "연예인"
+    },
+    {
+      "id": "w_3b01ac207403f37d",
+      "level": "N2",
+      "surface": "原子力",
+      "reading_kana": "げんしりょく",
+      "meaning_ko": "원자력"
+    },
+    {
+      "id": "w_3e389172af03c7be",
+      "level": "N2",
+      "surface": "好奇心",
+      "reading_kana": "こうきしん",
+      "meaning_ko": "호기심"
+    },
+    {
+      "id": "w_dbe6c7f2bdb34a15",
+      "level": "N2",
+      "surface": "小型",
+      "reading_kana": "こがた",
+      "meaning_ko": "소형"
+    },
+    {
+      "id": "w_db4fca2913e14855",
+      "level": "N2",
+      "surface": "克服",
+      "reading_kana": "こくふく",
+      "meaning_ko": "극복"
+    },
+    {
+      "id": "w_dec55e956faf43b2",
+      "level": "N2",
+      "surface": "国旗",
+      "reading_kana": "こっき",
+      "meaning_ko": "국기"
+    },
+    {
+      "id": "w_70249e2ee07af709",
+      "level": "N2",
+      "surface": "強盗",
+      "reading_kana": "ごうとう",
+      "meaning_ko": "강도"
+    },
+    {
+      "id": "w_322a08f35b4fc8b2",
+      "level": "N2",
+      "surface": "合理的",
+      "reading_kana": "ごうりてき",
+      "meaning_ko": "합리적인"
+    },
+    {
+      "id": "w_64be9a4f4460e1b5",
+      "level": "N2",
+      "surface": "視聴者",
+      "reading_kana": "しちょうしゃ",
+      "meaning_ko": "시청자"
+    },
+    {
+      "id": "w_41b2fd82135a94ad",
+      "level": "N2",
+      "surface": "市長",
+      "reading_kana": "しちょう",
+      "meaning_ko": "시장"
+    },
+    {
+      "id": "w_d617575c4b5aa129",
+      "level": "N2",
+      "surface": "尻尾",
+      "reading_kana": "しっぽ",
+      "meaning_ko": "꼬리"
+    },
+    {
+      "id": "w_c5eb0c79a85d68d5",
+      "level": "N2",
+      "surface": "奨学金",
+      "reading_kana": "しょうがくきん",
+      "meaning_ko": "장학금"
+    },
+    {
+      "id": "w_069b6847fe6b8089",
+      "level": "N2",
+      "surface": "承知",
+      "reading_kana": "しょうち",
+      "meaning_ko": "承知, 승낙"
+    },
+    {
+      "id": "w_cfc4edffed67fa1b",
+      "level": "N2",
+      "surface": "賞味期限",
+      "reading_kana": "しょうみきげん",
+      "meaning_ko": "유통 기한"
+    },
+    {
+      "id": "w_144336dcd0d84690",
+      "level": "N2",
+      "surface": "省略",
+      "reading_kana": "しょうりゃく",
+      "meaning_ko": "생략"
+    },
+    {
+      "id": "w_7c5049b1b5f6d642",
+      "level": "N2",
+      "surface": "充電",
+      "reading_kana": "じゅうでん",
+      "meaning_ko": "충전"
+    },
+    {
+      "id": "w_55e83c7e5a6bea6a",
+      "level": "N2",
+      "surface": "上達",
+      "reading_kana": "じょうたつ",
+      "meaning_ko": "향상, 늘다"
+    },
+    {
+      "id": "w_06bb7a4aad5e15e2",
+      "level": "N2",
+      "surface": "戦後",
+      "reading_kana": "せんご",
+      "meaning_ko": "전후"
+    },
+    {
+      "id": "w_646c0525514699e0",
+      "level": "N2",
+      "surface": "担任",
+      "reading_kana": "たんにん",
+      "meaning_ko": "담임"
+    },
+    {
+      "id": "w_e8c38e653ce2eabb",
+      "level": "N2",
+      "surface": "男女",
+      "reading_kana": "だんじょ",
+      "meaning_ko": "남녀"
+    },
+    {
+      "id": "w_7cafc14ce18cf1a5",
+      "level": "N2",
+      "surface": "店長",
+      "reading_kana": "てんちょう",
+      "meaning_ko": "점장"
+    },
+    {
+      "id": "w_3e2608d07255f10c",
+      "level": "N2",
+      "surface": "電子",
+      "reading_kana": "でんし",
+      "meaning_ko": "전자"
+    },
+    {
+      "id": "w_ba2e6fc1ecffb05a",
+      "level": "N2",
+      "surface": "同時",
+      "reading_kana": "どうじ",
+      "meaning_ko": "동시"
+    },
+    {
+      "id": "w_a1d8a73cc5506787",
+      "level": "N2",
+      "surface": "独特",
+      "reading_kana": "どくとく",
+      "meaning_ko": "독특한"
+    },
+    {
+      "id": "w_762d9de9ee125760",
+      "level": "N2",
+      "surface": "納税",
+      "reading_kana": "のうぜい",
+      "meaning_ko": "납세"
+    },
+    {
+      "id": "w_83b7127753e8a7aa",
+      "level": "N2",
+      "surface": "爆発",
+      "reading_kana": "ばくはつ",
+      "meaning_ko": "폭발"
+    },
+    {
+      "id": "w_d129be83027447d1",
+      "level": "N2",
+      "surface": "必死",
+      "reading_kana": "ひっし",
+      "meaning_ko": "필사적"
+    },
+    {
+      "id": "w_be14f0c48a9b8b41",
+      "level": "N2",
+      "surface": "平等",
+      "reading_kana": "びょうどう",
+      "meaning_ko": "평등"
+    },
+    {
+      "id": "w_54e3c0502c73d7e9",
+      "level": "N2",
+      "surface": "分野",
+      "reading_kana": "ぶんや",
+      "meaning_ko": "분야"
+    },
+    {
+      "id": "w_f43d2cc32a5fa5be",
+      "level": "N2",
+      "surface": "防災",
+      "reading_kana": "ぼうさい",
+      "meaning_ko": "방재"
+    }
+  ],
+  "missing_addition_examples": [],
+  "self_replaced_example_ids": [
+    "w_30fede19350e0b02",
+    "w_322183b8b0fa5b40",
+    "w_59f80d4dc5e14879",
+    "w_93470228cf879755",
+    "w_cd21637b9647fa3c",
+    "w_ce70656918f80907",
+    "w_df40eb9087b51ff0",
+    "w_dfb409211ee33e05",
+    "w_f25835b153fd2a07",
+    "w_fe75e712d18b48f2",
+    "w_ff6f5d47acd78352"
+  ],
+  "changes": [
+    {
+      "kind": "headword",
+      "id": "w_322183b8b0fa5b40",
+      "level": "N1",
+      "surface": "頑な",
+      "reading_kana": "かたくな",
+      "old_id": "w_9ae6757294f044b5",
+      "new_id": "w_322183b8b0fa5b40"
+    },
+    {
+      "kind": "headword",
+      "id": "w_59f80d4dc5e14879",
+      "level": "N1",
+      "surface": "とんだ",
+      "reading_kana": "とんだ",
+      "old_id": "w_a7f61dd68b46c6ee",
+      "new_id": "w_59f80d4dc5e14879"
+    },
+    {
+      "kind": "merge-drop",
+      "id": "w_b22a6ac9a6be784c",
+      "level": "N5",
+      "surface": "大き",
+      "reading_kana": "おおき",
+      "successor": "w_75de41fe96c1c937"
+    },
+    {
+      "kind": "meaning",
+      "id": "w_5f8d9c8b49934159",
+      "level": "N1",
+      "surface": "無謀",
+      "reading_kana": "むぼう",
+      "after": "무모한"
+    },
+    {
+      "kind": "meaning",
+      "id": "w_107011573571e52d",
+      "level": "N1",
+      "surface": "克明",
+      "reading_kana": "こくめい",
+      "after": "상세한, 꼼꼼한"
+    },
+    {
+      "kind": "example",
+      "id": "w_ce70656918f80907",
+      "level": "N1",
+      "surface": "いい加減に",
+      "reading_kana": "いいかげんに",
+      "example_jp": "いい加減にしてください。"
+    },
+    {
+      "kind": "example",
+      "id": "w_f25835b153fd2a07",
+      "level": "N1",
+      "surface": "解ける",
+      "reading_kana": "ほどける",
+      "example_jp": "靴ひもが解ける。"
+    },
+    {
+      "kind": "example",
+      "id": "w_93470228cf879755",
+      "level": "N3",
+      "surface": "辛い",
+      "reading_kana": "つらい",
+      "example_jp": "別れが辛い。"
+    },
+    {
+      "kind": "example",
+      "id": "w_fe75e712d18b48f2",
+      "level": "N4",
+      "surface": "止める",
+      "reading_kana": "とめる",
+      "example_jp": "車を止める。"
+    },
+    {
+      "kind": "example",
+      "id": "w_ff6f5d47acd78352",
+      "level": "N1",
+      "surface": "止める",
+      "reading_kana": "とどめる",
+      "example_jp": "被害を最小限に止める。"
+    },
+    {
+      "kind": "example",
+      "id": "w_30fede19350e0b02",
+      "level": "N3",
+      "surface": "空",
+      "reading_kana": "から",
+      "example_jp": "箱の中が空だ。"
+    },
+    {
+      "kind": "example",
+      "id": "w_cd21637b9647fa3c",
+      "level": "N2",
+      "surface": "上",
+      "reading_kana": "うわ",
+      "example_jp": "上の空で話を聞く。"
+    },
+    {
+      "kind": "example",
+      "id": "w_dfb409211ee33e05",
+      "level": "N2",
+      "surface": "下",
+      "reading_kana": "しも",
+      "example_jp": "川の下に村がある。"
+    },
+    {
+      "kind": "example",
+      "id": "w_df40eb9087b51ff0",
+      "level": "N1",
+      "surface": "世論",
+      "reading_kana": "よろん",
+      "example_jp": "世論が分かれる。"
+    },
+    {
+      "kind": "level",
+      "id": "w_a7aa783483eb1022",
+      "level": "N4",
+      "surface": "曇り",
+      "reading_kana": "くもり",
+      "before": "N5",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_946af014ad2b6ee1",
+      "level": "N2",
+      "surface": "ご馳走様",
+      "reading_kana": "ごちそうさま",
+      "before": "N5",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_a65dc597ed6e7ba0",
+      "level": "N3",
+      "surface": "行う",
+      "reading_kana": "おこなう",
+      "before": "N4",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_2e1c725abcc5c203",
+      "level": "N5",
+      "surface": "終わる",
+      "reading_kana": "おわる",
+      "before": "N4",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_9965df3c9edf91a3",
+      "level": "N5",
+      "surface": "始まる",
+      "reading_kana": "はじまる",
+      "before": "N4",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_06c3d7fabba14770",
+      "level": "N3",
+      "surface": "お土産",
+      "reading_kana": "おみやげ",
+      "before": "N4",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_16b5e002c7a1d2f2",
+      "level": "N2",
+      "surface": "その内",
+      "reading_kana": "そのうち",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_2e22b9e812873fab",
+      "level": "N2",
+      "surface": "際",
+      "reading_kana": "さい",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_e6e34cd099dad65c",
+      "level": "N2",
+      "surface": "率",
+      "reading_kana": "りつ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_a8eeca9225026b13",
+      "level": "N2",
+      "surface": "お代わり",
+      "reading_kana": "おかわり",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_d627e3baa1fd6350",
+      "level": "N2",
+      "surface": "無事",
+      "reading_kana": "ぶじ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_58ae1bd95dca9642",
+      "level": "N2",
+      "surface": "現れ",
+      "reading_kana": "あらわれ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_c81f4bf131afb227",
+      "level": "N2",
+      "surface": "章",
+      "reading_kana": "しょう",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_f3e20b58b318fe06",
+      "level": "N2",
+      "surface": "具体的",
+      "reading_kana": "ぐたいてき",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_8260701b3bb8776f",
+      "level": "N2",
+      "surface": "当たる",
+      "reading_kana": "あたる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_14e067fde838f088",
+      "level": "N2",
+      "surface": "課",
+      "reading_kana": "か",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_6642cbf9235eb71d",
+      "level": "N1",
+      "surface": "受け入れる",
+      "reading_kana": "うけいれる",
+      "before": "N3",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_fa227e48ff825a7e",
+      "level": "N1",
+      "surface": "申し込み",
+      "reading_kana": "もうしこみ",
+      "before": "N3",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_a0d434edcd9759ad",
+      "level": "N2",
+      "surface": "清潔",
+      "reading_kana": "せいけつ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_b397fc5e0430c55b",
+      "level": "N1",
+      "surface": "繋ぐ",
+      "reading_kana": "つなぐ",
+      "before": "N3",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_991b3f178bb17c4b",
+      "level": "N5",
+      "surface": "曲がる",
+      "reading_kana": "まがる",
+      "before": "N3",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_1926f7032260e4dd",
+      "level": "N2",
+      "surface": "明かり",
+      "reading_kana": "あかり",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_2ccccc5ce470df89",
+      "level": "N2",
+      "surface": "組み立てる",
+      "reading_kana": "くみたてる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_de05e8614dcecdb5",
+      "level": "N2",
+      "surface": "滅多に",
+      "reading_kana": "めったに",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_a61620b169657c43",
+      "level": "N2",
+      "surface": "剥く",
+      "reading_kana": "むく",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_4265c3f9772eff26",
+      "level": "N4",
+      "surface": "積もる",
+      "reading_kana": "つもる",
+      "before": "N3",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_c9624a11c7f3b950",
+      "level": "N2",
+      "surface": "尤も",
+      "reading_kana": "もっとも",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_3f46b28da139c16c",
+      "level": "N2",
+      "surface": "売り切れる",
+      "reading_kana": "うりきれる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_d6eed39e186a071d",
+      "level": "N2",
+      "surface": "待ち合わせる",
+      "reading_kana": "まちあわせる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_17f948120f29942a",
+      "level": "N2",
+      "surface": "代る",
+      "reading_kana": "かわる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_4fd11cf4f5345777",
+      "level": "N4",
+      "surface": "お大事に",
+      "reading_kana": "おだいじに",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_3ee09f596d4c7b39",
+      "level": "N1",
+      "surface": "郡",
+      "reading_kana": "ぐん",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_272e0931b59a9581",
+      "level": "N3",
+      "surface": "申し訳ない",
+      "reading_kana": "もうしわけない",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_ffefb3b5ec05aab1",
+      "level": "N4",
+      "surface": "増える",
+      "reading_kana": "ふえる",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_56afecb4ab165d9c",
+      "level": "N3",
+      "surface": "知り合い",
+      "reading_kana": "しりあい",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_69051b86844ecf4a",
+      "level": "N3",
+      "surface": "問い合わせ",
+      "reading_kana": "といあわせ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_2cb1c7848a99643f",
+      "level": "N3",
+      "surface": "引っ越し",
+      "reading_kana": "ひっこし",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_fbd02e3a324e16c5",
+      "level": "N4",
+      "surface": "乗り換え",
+      "reading_kana": "のりかえ",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_dcf81ee7c767ed7f",
+      "level": "N3",
+      "surface": "売り上げ",
+      "reading_kana": "うりあげ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_d1b4e9d1855d96a8",
+      "level": "N1",
+      "surface": "塊",
+      "reading_kana": "かたまり",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_c83fe07fb32b63ab",
+      "level": "N3",
+      "surface": "話し合い",
+      "reading_kana": "はなしあい",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_713aaa51e13cbeed",
+      "level": "N4",
+      "surface": "叔父",
+      "reading_kana": "おじ",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_0dc203c1fa44a8dd",
+      "level": "N3",
+      "surface": "売り切れ",
+      "reading_kana": "うりきれ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_fe5aa65deefa4fd4",
+      "level": "N1",
+      "surface": "振り返る",
+      "reading_kana": "ふりかえる",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_eeecb96d165064d7",
+      "level": "N3",
+      "surface": "住まい",
+      "reading_kana": "すまい",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_51492880f4ff54fb",
+      "level": "N1",
+      "surface": "取り組む",
+      "reading_kana": "とりくむ",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_368c112172721eda",
+      "level": "N3",
+      "surface": "分かれる",
+      "reading_kana": "わかれる",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_81096075fb7901d9",
+      "level": "N3",
+      "surface": "引き出す",
+      "reading_kana": "ひきだす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_927239de110ba25e",
+      "level": "N3",
+      "surface": "有難い",
+      "reading_kana": "ありがたい",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_bedd038e5370599e",
+      "level": "N1",
+      "surface": "取り除く",
+      "reading_kana": "とりのぞく",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_107bd50a48d02b70",
+      "level": "N3",
+      "surface": "取り出す",
+      "reading_kana": "とりだす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_a430acefffcd0bfe",
+      "level": "N5",
+      "surface": "小父さん",
+      "reading_kana": "おじさん",
+      "before": "N2",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_e4c9461baa503259",
+      "level": "N3",
+      "surface": "目覚まし",
+      "reading_kana": "めざまし",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_188378c15d9c641d",
+      "level": "N4",
+      "surface": "伯父",
+      "reading_kana": "おじ",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_01f119facf6e9d97",
+      "level": "N5",
+      "surface": "伯父さん",
+      "reading_kana": "おじさん",
+      "before": "N2",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_a55e9120cc78ffa5",
+      "level": "N3",
+      "surface": "言い出す",
+      "reading_kana": "いいだす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_fb5cbbf9ac77e220",
+      "level": "N5",
+      "surface": "賑やか",
+      "reading_kana": "にぎやか",
+      "before": "N2",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_dd0669298f0d3f54",
+      "level": "N3",
+      "surface": "呼び出す",
+      "reading_kana": "よびだす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_9e7fe6cba58b9d20",
+      "level": "N3",
+      "surface": "貸し出し",
+      "reading_kana": "かしだし",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_68ee24050b7e44cf",
+      "level": "N1",
+      "surface": "追い込む",
+      "reading_kana": "おいこむ",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_6b4d60a6eb54e06f",
+      "level": "N3",
+      "surface": "飛び込む",
+      "reading_kana": "とびこむ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_1c1342a535c8057b",
+      "level": "N1",
+      "surface": "押さえる",
+      "reading_kana": "おさえる",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_c206a8fc4ff2a0e5",
+      "level": "N4",
+      "surface": "申し上げる",
+      "reading_kana": "もうしあげる",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_45f7f8d1891332c0",
+      "level": "N3",
+      "surface": "出来上がる",
+      "reading_kana": "できあがる",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_881a9059caa55f11",
+      "level": "N3",
+      "surface": "預かる",
+      "reading_kana": "あずかる",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_f948982919ee8a7a",
+      "level": "N1",
+      "surface": "打ち明ける",
+      "reading_kana": "うちあける",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_56e22b4b34e6b4e6",
+      "level": "N3",
+      "surface": "浮かべる",
+      "reading_kana": "うかべる",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_a029f97e41adcce1",
+      "level": "N3",
+      "surface": "時間割",
+      "reading_kana": "じかんわり",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_6ba0372f290b6408",
+      "level": "N3",
+      "surface": "立ち止まる",
+      "reading_kana": "たちどまる",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_d9e121c9f74a30b8",
+      "level": "N3",
+      "surface": "日当たり",
+      "reading_kana": "ひあたり",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_19ab8c60598cee59",
+      "level": "N1",
+      "surface": "割り込む",
+      "reading_kana": "わりこむ",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_09d31b5d3e96cc64",
+      "level": "N4",
+      "surface": "落し物",
+      "reading_kana": "おとしもの",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_c482266ac0be4b91",
+      "level": "N3",
+      "surface": "掛け算",
+      "reading_kana": "かけざん",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_70d444f0b75ce53c",
+      "level": "N1",
+      "surface": "受け持つ",
+      "reading_kana": "うけもつ",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_cdddc6fbf00c4cf5",
+      "level": "N3",
+      "surface": "振り込む",
+      "reading_kana": "ふりこむ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_be45bc6bb7ee0f57",
+      "level": "N1",
+      "surface": "問い合わせる",
+      "reading_kana": "といあわせる",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_97a3b823f67674e9",
+      "level": "N4",
+      "surface": "差し上げる",
+      "reading_kana": "さしあげる",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_a66198a344df39a0",
+      "level": "N3",
+      "surface": "引き算",
+      "reading_kana": "ひきざん",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_98ff2ee683f77e8d",
+      "level": "N1",
+      "surface": "差し引き",
+      "reading_kana": "さしひき",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_a1262f0a18c41630",
+      "level": "N3",
+      "surface": "追い越す",
+      "reading_kana": "おいこす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_6be80965290001db",
+      "level": "N1",
+      "surface": "大ざっぱ",
+      "reading_kana": "おおざっぱ",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_5ca2ac72fa6c8d99",
+      "level": "N3",
+      "surface": "瓶詰",
+      "reading_kana": "びんづめ",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_5135dd81e7fcc848",
+      "level": "N3",
+      "surface": "払い戻す",
+      "reading_kana": "はらいもどす",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_40a6caa2efc2a517",
+      "level": "N3",
+      "surface": "乗り越し",
+      "reading_kana": "のりこし",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_9375044e7571e8e4",
+      "level": "N1",
+      "surface": "呼び止める",
+      "reading_kana": "よびとめる",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_9ab22525169e4b3d",
+      "level": "N2",
+      "surface": "何となく",
+      "reading_kana": "なんとなく",
+      "before": "N1",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_826d95074900597b",
+      "level": "N2",
+      "surface": "心当たり",
+      "reading_kana": "こころあたり",
+      "before": "N1",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_3f031ca942fa7e3c",
+      "level": "N3",
+      "surface": "待ち合わせ",
+      "reading_kana": "まちあわせ",
+      "before": "N1",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_7b8922533fb71c49",
+      "level": "N4",
+      "surface": "聞き取り",
+      "reading_kana": "ききとり",
+      "before": "N1",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_12e16fe783211043",
+      "level": "N2",
+      "surface": "堅実",
+      "reading_kana": "けんじつ",
+      "before": "N1",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_0ea31b98d247240b",
+      "level": "N2",
+      "surface": "剥がす",
+      "reading_kana": "はがす",
+      "before": "N1",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_6e2910d8d4a26c4c",
+      "level": "N3",
+      "surface": "仕上がる",
+      "reading_kana": "しあがる",
+      "before": "N1",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_26dddb87b1e72021",
+      "level": "N2",
+      "surface": "差し引く",
+      "reading_kana": "さしひく",
+      "before": "N1",
+      "after": "N2"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_b6759dff8d53492a",
+      "level": "N3",
+      "surface": "箸",
+      "reading_kana": "はし"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_c2af7770c84545bd",
+      "level": "N3",
+      "surface": "虎",
+      "reading_kana": "とら"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_2ebcf0920b4f9808",
+      "level": "N3",
+      "surface": "毒",
+      "reading_kana": "どく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_06fbc4f4058c0110",
+      "level": "N3",
+      "surface": "泥",
+      "reading_kana": "どろ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_927a3983b160576b",
+      "level": "N3",
+      "surface": "腹",
+      "reading_kana": "はら"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_4a137926b2287cfd",
+      "level": "N3",
+      "surface": "針",
+      "reading_kana": "はり"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_f25fa022cc5852d2",
+      "level": "N3",
+      "surface": "紐",
+      "reading_kana": "ひも"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_113afe5c67c7d699",
+      "level": "N3",
+      "surface": "埃",
+      "reading_kana": "ほこり"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e631b1b46ee503a7",
+      "level": "N3",
+      "surface": "筆",
+      "reading_kana": "ふで"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_64d4b0caee1c09bd",
+      "level": "N3",
+      "surface": "柱",
+      "reading_kana": "はしら"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_1934fc0b098bed0b",
+      "level": "N3",
+      "surface": "畑",
+      "reading_kana": "はたけ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e7268c08398f5c21",
+      "level": "N3",
+      "surface": "鶏",
+      "reading_kana": "にわとり"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_ec90d7994c511851",
+      "level": "N3",
+      "surface": "鼠",
+      "reading_kana": "ねずみ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6fd423e6d1c6a4ae",
+      "level": "N3",
+      "surface": "種",
+      "reading_kana": "たね"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_9dc2325d8683044e",
+      "level": "N3",
+      "surface": "微笑む",
+      "reading_kana": "ほほえむ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_3843ee4af423301d",
+      "level": "N3",
+      "surface": "人々",
+      "reading_kana": "ひとびと"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_d9200f1a3e734b15",
+      "level": "N3",
+      "surface": "宛先",
+      "reading_kana": "あてさき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6a6e331edd9cf1e0",
+      "level": "N3",
+      "surface": "自由席",
+      "reading_kana": "じゆうせき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_f9ad8893fe4738c0",
+      "level": "N3",
+      "surface": "始発駅",
+      "reading_kana": "しはつえき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_97a4b4b110d91439",
+      "level": "N3",
+      "surface": "味見",
+      "reading_kana": "あじみ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6de4c1af6340b81d",
+      "level": "N3",
+      "surface": "くしゃみ",
+      "reading_kana": "くしゃみ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_4f74e9af3f4010e5",
+      "level": "N3",
+      "surface": "やる気",
+      "reading_kana": "やるき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6acebe28608188e7",
+      "level": "N3",
+      "surface": "なだらか",
+      "reading_kana": "なだらか"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_ab6a046befd0d3fc",
+      "level": "N3",
+      "surface": "我慢強い",
+      "reading_kana": "がまんづよい"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e6a69e3b92f4266a",
+      "level": "N3",
+      "surface": "いつの間にか",
+      "reading_kana": "いつのまにか"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_189963d9b879daaa",
+      "level": "N2",
+      "surface": "日本",
+      "reading_kana": "にほん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_32dbafd16a4e2c77",
+      "level": "N2",
+      "surface": "チーム",
+      "reading_kana": "チーム"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_a409937488a8e0ca",
+      "level": "N2",
+      "surface": "最大",
+      "reading_kana": "さいだい"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_c64636298cdcedd1",
+      "level": "N2",
+      "surface": "何でも",
+      "reading_kana": "なんでも"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_15a9c02e279288fa",
+      "level": "N2",
+      "surface": "第一",
+      "reading_kana": "だいいち"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_539fc5bf88b962e2",
+      "level": "N2",
+      "surface": "投票",
+      "reading_kana": "とうひょう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_b58cfba6196a9d55",
+      "level": "N2",
+      "surface": "犯罪",
+      "reading_kana": "はんざい"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_f39dee7d81642910",
+      "level": "N2",
+      "surface": "円高",
+      "reading_kana": "えんだか"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_86896d02782ae305",
+      "level": "N2",
+      "surface": "円安",
+      "reading_kana": "えんやす"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_9165bb6ac0c4b889",
+      "level": "N2",
+      "surface": "納得",
+      "reading_kana": "なっとく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_ef77069a51fbad84",
+      "level": "N2",
+      "surface": "同僚",
+      "reading_kana": "どうりょう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_fcfcfef3d180e141",
+      "level": "N2",
+      "surface": "結婚式",
+      "reading_kana": "けっこんしき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_c3a1a3ac675f214e",
+      "level": "N2",
+      "surface": "社員",
+      "reading_kana": "しゃいん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_b46e2bcfa7d96251",
+      "level": "N2",
+      "surface": "居酒屋",
+      "reading_kana": "いざかや"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_c9ac923933659337",
+      "level": "N2",
+      "surface": "遺産",
+      "reading_kana": "いさん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_9939e1efe60f95f6",
+      "level": "N2",
+      "surface": "衣服",
+      "reading_kana": "いふく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_234b99b141cfd9a7",
+      "level": "N2",
+      "surface": "一家",
+      "reading_kana": "いっか"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_a0ffef4281eed56e",
+      "level": "N2",
+      "surface": "誤り",
+      "reading_kana": "あやまり"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e5e9bebce58793fe",
+      "level": "N2",
+      "surface": "当てる",
+      "reading_kana": "あてる"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_5a31cdbb0a49beed",
+      "level": "N2",
+      "surface": "青空",
+      "reading_kana": "あおぞら"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_518f5d6a41328c85",
+      "level": "N2",
+      "surface": "生み出す",
+      "reading_kana": "うみだす"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_7829ba606d939d4f",
+      "level": "N2",
+      "surface": "演説",
+      "reading_kana": "えんぜつ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_8f8cb620e9cc2ad9",
+      "level": "N2",
+      "surface": "大型",
+      "reading_kana": "おおがた"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_dbef418eb517f5ee",
+      "level": "N2",
+      "surface": "お昼",
+      "reading_kana": "おひる"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e71ff358a5a5b2cf",
+      "level": "N2",
+      "surface": "飼い主",
+      "reading_kana": "かいぬし"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_4bfd82f1eb510072",
+      "level": "N2",
+      "surface": "各国",
+      "reading_kana": "かっこく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_5032f9664a74398e",
+      "level": "N2",
+      "surface": "外見",
+      "reading_kana": "がいけん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6db6dd90c68d20b7",
+      "level": "N2",
+      "surface": "奇妙",
+      "reading_kana": "きみょう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_d495b3ee9377bc36",
+      "level": "N2",
+      "surface": "急激",
+      "reading_kana": "きゅうげき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_08923ac6c2b95253",
+      "level": "N2",
+      "surface": "救助",
+      "reading_kana": "きゅうじょ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_79d375ad544ecc0d",
+      "level": "N2",
+      "surface": "教員",
+      "reading_kana": "きょういん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_9b03235c5b4d027e",
+      "level": "N2",
+      "surface": "金銭",
+      "reading_kana": "きんせん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_78021f3ebd19aa5a",
+      "level": "N2",
+      "surface": "苦痛",
+      "reading_kana": "くつう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e2cb3cddc979a9ac",
+      "level": "N2",
+      "surface": "研究所",
+      "reading_kana": "けんきゅうじょ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_6543785f3fd2fb49",
+      "level": "N2",
+      "surface": "芸能人",
+      "reading_kana": "げいのうじん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_3b01ac207403f37d",
+      "level": "N2",
+      "surface": "原子力",
+      "reading_kana": "げんしりょく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_3e389172af03c7be",
+      "level": "N2",
+      "surface": "好奇心",
+      "reading_kana": "こうきしん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_dbe6c7f2bdb34a15",
+      "level": "N2",
+      "surface": "小型",
+      "reading_kana": "こがた"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_db4fca2913e14855",
+      "level": "N2",
+      "surface": "克服",
+      "reading_kana": "こくふく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_dec55e956faf43b2",
+      "level": "N2",
+      "surface": "国旗",
+      "reading_kana": "こっき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_70249e2ee07af709",
+      "level": "N2",
+      "surface": "強盗",
+      "reading_kana": "ごうとう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_322a08f35b4fc8b2",
+      "level": "N2",
+      "surface": "合理的",
+      "reading_kana": "ごうりてき"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_64be9a4f4460e1b5",
+      "level": "N2",
+      "surface": "視聴者",
+      "reading_kana": "しちょうしゃ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_41b2fd82135a94ad",
+      "level": "N2",
+      "surface": "市長",
+      "reading_kana": "しちょう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_d617575c4b5aa129",
+      "level": "N2",
+      "surface": "尻尾",
+      "reading_kana": "しっぽ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_c5eb0c79a85d68d5",
+      "level": "N2",
+      "surface": "奨学金",
+      "reading_kana": "しょうがくきん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_069b6847fe6b8089",
+      "level": "N2",
+      "surface": "承知",
+      "reading_kana": "しょうち"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_cfc4edffed67fa1b",
+      "level": "N2",
+      "surface": "賞味期限",
+      "reading_kana": "しょうみきげん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_144336dcd0d84690",
+      "level": "N2",
+      "surface": "省略",
+      "reading_kana": "しょうりゃく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_7c5049b1b5f6d642",
+      "level": "N2",
+      "surface": "充電",
+      "reading_kana": "じゅうでん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_55e83c7e5a6bea6a",
+      "level": "N2",
+      "surface": "上達",
+      "reading_kana": "じょうたつ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_06bb7a4aad5e15e2",
+      "level": "N2",
+      "surface": "戦後",
+      "reading_kana": "せんご"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_646c0525514699e0",
+      "level": "N2",
+      "surface": "担任",
+      "reading_kana": "たんにん"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_e8c38e653ce2eabb",
+      "level": "N2",
+      "surface": "男女",
+      "reading_kana": "だんじょ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_7cafc14ce18cf1a5",
+      "level": "N2",
+      "surface": "店長",
+      "reading_kana": "てんちょう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_3e2608d07255f10c",
+      "level": "N2",
+      "surface": "電子",
+      "reading_kana": "でんし"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_ba2e6fc1ecffb05a",
+      "level": "N2",
+      "surface": "同時",
+      "reading_kana": "どうじ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_a1d8a73cc5506787",
+      "level": "N2",
+      "surface": "独特",
+      "reading_kana": "どくとく"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_762d9de9ee125760",
+      "level": "N2",
+      "surface": "納税",
+      "reading_kana": "のうぜい"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_83b7127753e8a7aa",
+      "level": "N2",
+      "surface": "爆発",
+      "reading_kana": "ばくはつ"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_d129be83027447d1",
+      "level": "N2",
+      "surface": "必死",
+      "reading_kana": "ひっし"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_be14f0c48a9b8b41",
+      "level": "N2",
+      "surface": "平等",
+      "reading_kana": "びょうどう"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_54e3c0502c73d7e9",
+      "level": "N2",
+      "surface": "分野",
+      "reading_kana": "ぶんや"
+    },
+    {
+      "kind": "backfill",
+      "id": "w_f43d2cc32a5fa5be",
+      "level": "N2",
+      "surface": "防災",
+      "reading_kana": "ぼうさい"
+    }
+  ],
+  "deficits": {
+    "N5": 0,
+    "N4": 0,
+    "N3": 25,
+    "N2": 64,
+    "N1": 0
+  }
+}

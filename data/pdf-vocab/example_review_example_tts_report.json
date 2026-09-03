@@ -1,0 +1,1119 @@
+{
+  "generated_at": "2026-08-20T01:04:14.487322+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 183,
+  "jobs": 183,
+  "preexisting": 0,
+  "planned": 183,
+  "created": 183,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_0fd551cc4c3b764e",
+      "kind": "example",
+      "text": "猫がミルクを舐める。",
+      "file": "assets/audio/examples/w_0fd551cc4c3b764e.mp3"
+    },
+    {
+      "id": "w_25dc46a0c87b3106",
+      "kind": "example",
+      "text": "生徒が自主的に掃除する。",
+      "file": "assets/audio/examples/w_25dc46a0c87b3106.mp3"
+    },
+    {
+      "id": "w_1739219b9edbbe14",
+      "kind": "example",
+      "text": "今日の授業のまとめをする。",
+      "file": "assets/audio/examples/w_1739219b9edbbe14.mp3"
+    },
+    {
+      "id": "w_187ac653f45445ca",
+      "kind": "example",
+      "text": "これは偽物の時計だ。",
+      "file": "assets/audio/examples/w_187ac653f45445ca.mp3"
+    },
+    {
+      "id": "w_0e77500820c5c9b9",
+      "kind": "example",
+      "text": "髪を黒く染める。",
+      "file": "assets/audio/examples/w_0e77500820c5c9b9.mp3"
+    },
+    {
+      "id": "w_1d13264e7f8e8113",
+      "kind": "example",
+      "text": "梅雨で部屋が湿気る。",
+      "file": "assets/audio/examples/w_1d13264e7f8e8113.mp3"
+    },
+    {
+      "id": "w_3875cd9260023e61",
+      "kind": "example",
+      "text": "手紙の端を折り返す。",
+      "file": "assets/audio/examples/w_3875cd9260023e61.mp3"
+    },
+    {
+      "id": "w_2aec0f55185205c2",
+      "kind": "example",
+      "text": "人の人格を尊重する。",
+      "file": "assets/audio/examples/w_2aec0f55185205c2.mp3"
+    },
+    {
+      "id": "w_3ed43a6a0116d395",
+      "kind": "example",
+      "text": "冬服はかさばる。",
+      "file": "assets/audio/examples/w_3ed43a6a0116d395.mp3"
+    },
+    {
+      "id": "w_3fb79a05ecdeb8e2",
+      "kind": "example",
+      "text": "彼女は勇敢に意見を述べた。",
+      "file": "assets/audio/examples/w_3fb79a05ecdeb8e2.mp3"
+    },
+    {
+      "id": "w_41a731451248d09c",
+      "kind": "example",
+      "text": "パンに蜂蜜をかける。",
+      "file": "assets/audio/examples/w_41a731451248d09c.mp3"
+    },
+    {
+      "id": "w_2d9827cc0a03a024",
+      "kind": "example",
+      "text": "二人はダンスのペアだ。",
+      "file": "assets/audio/examples/w_2d9827cc0a03a024.mp3"
+    },
+    {
+      "id": "w_500edf63c3635728",
+      "kind": "example",
+      "text": "ラッシュアワーを避ける。",
+      "file": "assets/audio/examples/w_500edf63c3635728.mp3"
+    },
+    {
+      "id": "w_52019f7d0cd6186e",
+      "kind": "example",
+      "text": "結果は概ね予想どおりだった。",
+      "file": "assets/audio/examples/w_52019f7d0cd6186e.mp3"
+    },
+    {
+      "id": "w_438b4e3738285666",
+      "kind": "example",
+      "text": "製品を改良する。",
+      "file": "assets/audio/examples/w_438b4e3738285666.mp3"
+    },
+    {
+      "id": "w_58e7dc3697f3b7ef",
+      "kind": "example",
+      "text": "目上の人にへりくだる。",
+      "file": "assets/audio/examples/w_58e7dc3697f3b7ef.mp3"
+    },
+    {
+      "id": "w_537486932462a5df",
+      "kind": "example",
+      "text": "冷蔵庫の野菜がしなびる。",
+      "file": "assets/audio/examples/w_537486932462a5df.mp3"
+    },
+    {
+      "id": "w_5d1e65f806f17484",
+      "kind": "example",
+      "text": "二人の意見がかみ合う。",
+      "file": "assets/audio/examples/w_5d1e65f806f17484.mp3"
+    },
+    {
+      "id": "w_62ca309fa490e070",
+      "kind": "example",
+      "text": "会議は東京において開かれた。",
+      "file": "assets/audio/examples/w_62ca309fa490e070.mp3"
+    },
+    {
+      "id": "w_5d5651c7cda77899",
+      "kind": "example",
+      "text": "川の源を訪ねる。",
+      "file": "assets/audio/examples/w_5d5651c7cda77899.mp3"
+    },
+    {
+      "id": "w_690a4fa3e51077a6",
+      "kind": "example",
+      "text": "朝の空気が清々しい。",
+      "file": "assets/audio/examples/w_690a4fa3e51077a6.mp3"
+    },
+    {
+      "id": "w_68f04444965e780c",
+      "kind": "example",
+      "text": "藁で靴を作る。",
+      "file": "assets/audio/examples/w_68f04444965e780c.mp3"
+    },
+    {
+      "id": "w_6ab2d0dd61671815",
+      "kind": "example",
+      "text": "タイマーを十分にセットする。",
+      "file": "assets/audio/examples/w_6ab2d0dd61671815.mp3"
+    },
+    {
+      "id": "w_742cd942953ffea7",
+      "kind": "example",
+      "text": "長年の夢を叶える。",
+      "file": "assets/audio/examples/w_742cd942953ffea7.mp3"
+    },
+    {
+      "id": "w_746d61e272b8cc2f",
+      "kind": "example",
+      "text": "公園の樹木を守る。",
+      "file": "assets/audio/examples/w_746d61e272b8cc2f.mp3"
+    },
+    {
+      "id": "w_7b77229d7578e77d",
+      "kind": "example",
+      "text": "彼はそっぽを向いた。",
+      "file": "assets/audio/examples/w_7b77229d7578e77d.mp3"
+    },
+    {
+      "id": "w_75252b005a217653",
+      "kind": "example",
+      "text": "もう少し辛抱する。",
+      "file": "assets/audio/examples/w_75252b005a217653.mp3"
+    },
+    {
+      "id": "w_7c46a6f6431772cc",
+      "kind": "example",
+      "text": "山頂に到達した。",
+      "file": "assets/audio/examples/w_7c46a6f6431772cc.mp3"
+    },
+    {
+      "id": "w_84a0c4c5c15256e3",
+      "kind": "example",
+      "text": "時間を無駄にしない。",
+      "file": "assets/audio/examples/w_84a0c4c5c15256e3.mp3"
+    },
+    {
+      "id": "w_8619d8e46998e20e",
+      "kind": "example",
+      "text": "朝から体がだるい。",
+      "file": "assets/audio/examples/w_8619d8e46998e20e.mp3"
+    },
+    {
+      "id": "w_87719fa65c93c9d4",
+      "kind": "example",
+      "text": "責任をひしひしと感じる。",
+      "file": "assets/audio/examples/w_87719fa65c93c9d4.mp3"
+    },
+    {
+      "id": "w_8c833afbe284fa11",
+      "kind": "example",
+      "text": "晴れた日は天が青い。",
+      "file": "assets/audio/examples/w_8c833afbe284fa11.mp3"
+    },
+    {
+      "id": "w_8fad3869170794a3",
+      "kind": "example",
+      "text": "新しいポジションに就く。",
+      "file": "assets/audio/examples/w_8fad3869170794a3.mp3"
+    },
+    {
+      "id": "w_9092ea68f72469c1",
+      "kind": "example",
+      "text": "今月は多忙だ。",
+      "file": "assets/audio/examples/w_9092ea68f72469c1.mp3"
+    },
+    {
+      "id": "w_9ee9519d3d6e7bd7",
+      "kind": "example",
+      "text": "土地の慣習に従う。",
+      "file": "assets/audio/examples/w_9ee9519d3d6e7bd7.mp3"
+    },
+    {
+      "id": "w_a2ca8933cc0dd519",
+      "kind": "example",
+      "text": "昔の君主の話を読む。",
+      "file": "assets/audio/examples/w_a2ca8933cc0dd519.mp3"
+    },
+    {
+      "id": "w_a38cf5c75dcec358",
+      "kind": "example",
+      "text": "選手をチェンジする。",
+      "file": "assets/audio/examples/w_a38cf5c75dcec358.mp3"
+    },
+    {
+      "id": "w_a4092744f57bc1a2",
+      "kind": "example",
+      "text": "漆にかぶれる。",
+      "file": "assets/audio/examples/w_a4092744f57bc1a2.mp3"
+    },
+    {
+      "id": "w_a4f5956737afa7f1",
+      "kind": "example",
+      "text": "タイムリーな助言だった。",
+      "file": "assets/audio/examples/w_a4f5956737afa7f1.mp3"
+    },
+    {
+      "id": "w_a691689e7604b569",
+      "kind": "example",
+      "text": "ふたをきっちり閉める。",
+      "file": "assets/audio/examples/w_a691689e7604b569.mp3"
+    },
+    {
+      "id": "w_a5967031d1f5a72a",
+      "kind": "example",
+      "text": "説明のポイントをメモする。",
+      "file": "assets/audio/examples/w_a5967031d1f5a72a.mp3"
+    },
+    {
+      "id": "w_a7243fc40025826a",
+      "kind": "example",
+      "text": "二人の意見はよく似通う。",
+      "file": "assets/audio/examples/w_a7243fc40025826a.mp3"
+    },
+    {
+      "id": "w_ae70c9f3987fc920",
+      "kind": "example",
+      "text": "高いハードルを越える。",
+      "file": "assets/audio/examples/w_ae70c9f3987fc920.mp3"
+    },
+    {
+      "id": "w_afffd3debfe297c0",
+      "kind": "example",
+      "text": "本のこのセクションを読む。",
+      "file": "assets/audio/examples/w_afffd3debfe297c0.mp3"
+    },
+    {
+      "id": "w_b8c80d155447f46a",
+      "kind": "example",
+      "text": "真ん丸い月が出ている。",
+      "file": "assets/audio/examples/w_b8c80d155447f46a.mp3"
+    },
+    {
+      "id": "w_c56f799a1d41599e",
+      "kind": "example",
+      "text": "試合のルールを確認する。",
+      "file": "assets/audio/examples/w_c56f799a1d41599e.mp3"
+    },
+    {
+      "id": "w_bec47400cd9df368",
+      "kind": "example",
+      "text": "説明が明瞭だ。",
+      "file": "assets/audio/examples/w_bec47400cd9df368.mp3"
+    },
+    {
+      "id": "w_c73145fc9684b446",
+      "kind": "example",
+      "text": "新聞のレイアウトを変える。",
+      "file": "assets/audio/examples/w_c73145fc9684b446.mp3"
+    },
+    {
+      "id": "w_cbb543268703906e",
+      "kind": "example",
+      "text": "写真のためにポーズをとる。",
+      "file": "assets/audio/examples/w_cbb543268703906e.mp3"
+    },
+    {
+      "id": "w_cdbd72d7aa724c5d",
+      "kind": "example",
+      "text": "意見に偏りがある。",
+      "file": "assets/audio/examples/w_cdbd72d7aa724c5d.mp3"
+    },
+    {
+      "id": "w_e596b084e6eb9cf6",
+      "kind": "example",
+      "text": "タイムを計る。",
+      "file": "assets/audio/examples/w_e596b084e6eb9cf6.mp3"
+    },
+    {
+      "id": "w_e680ce9adf7c863a",
+      "kind": "example",
+      "text": "子供の将来が気掛かりだ。",
+      "file": "assets/audio/examples/w_e680ce9adf7c863a.mp3"
+    },
+    {
+      "id": "w_dfb61c53e9141aa6",
+      "kind": "example",
+      "text": "問題へのアプローチを変える。",
+      "file": "assets/audio/examples/w_dfb61c53e9141aa6.mp3"
+    },
+    {
+      "id": "w_dfcae20b38b4ffcf",
+      "kind": "example",
+      "text": "物語に魂がこもっている。",
+      "file": "assets/audio/examples/w_dfcae20b38b4ffcf.mp3"
+    },
+    {
+      "id": "w_e1145cd44757f7f5",
+      "kind": "example",
+      "text": "勇敢な決断だった。",
+      "file": "assets/audio/examples/w_e1145cd44757f7f5.mp3"
+    },
+    {
+      "id": "w_da1e3d3738f4241e",
+      "kind": "example",
+      "text": "店の使用人が客を案内する。",
+      "file": "assets/audio/examples/w_da1e3d3738f4241e.mp3"
+    },
+    {
+      "id": "w_ed2a4c274e00e2cf",
+      "kind": "example",
+      "text": "文章にまとまりがない。",
+      "file": "assets/audio/examples/w_ed2a4c274e00e2cf.mp3"
+    },
+    {
+      "id": "w_f5f19f69e53af0ce",
+      "kind": "example",
+      "text": "来月展覧会を催す。",
+      "file": "assets/audio/examples/w_f5f19f69e53af0ce.mp3"
+    },
+    {
+      "id": "w_ed8aae9d747d05eb",
+      "kind": "example",
+      "text": "ベストを尽くす。",
+      "file": "assets/audio/examples/w_ed8aae9d747d05eb.mp3"
+    },
+    {
+      "id": "w_fa131223d290a13b",
+      "kind": "example",
+      "text": "話題の切り替えが早い。",
+      "file": "assets/audio/examples/w_fa131223d290a13b.mp3"
+    },
+    {
+      "id": "w_f697536ea7782442",
+      "kind": "example",
+      "text": "新しい仕事に慣れが必要だ。",
+      "file": "assets/audio/examples/w_f697536ea7782442.mp3"
+    },
+    {
+      "id": "w_fac30bc019ff0119",
+      "kind": "example",
+      "text": "転んで腿を打った。",
+      "file": "assets/audio/examples/w_fac30bc019ff0119.mp3"
+    },
+    {
+      "id": "w_ffa6380de41f7285",
+      "kind": "example",
+      "text": "重々しい雰囲気になった。",
+      "file": "assets/audio/examples/w_ffa6380de41f7285.mp3"
+    },
+    {
+      "id": "w_09240cecff085cb3",
+      "kind": "example",
+      "text": "親友を裏切る。",
+      "file": "assets/audio/examples/w_09240cecff085cb3.mp3"
+    },
+    {
+      "id": "w_2f7318457b9f7446",
+      "kind": "example",
+      "text": "警官がピストルを構えた。",
+      "file": "assets/audio/examples/w_2f7318457b9f7446.mp3"
+    },
+    {
+      "id": "w_304d495231ce46a4",
+      "kind": "example",
+      "text": "本人の意思を確認する。",
+      "file": "assets/audio/examples/w_304d495231ce46a4.mp3"
+    },
+    {
+      "id": "w_308680a8ffac242b",
+      "kind": "example",
+      "text": "予想がぴたりと当たった。",
+      "file": "assets/audio/examples/w_308680a8ffac242b.mp3"
+    },
+    {
+      "id": "w_3482cf4b6eccd4f4",
+      "kind": "example",
+      "text": "謙虚な態度で話を聞く。",
+      "file": "assets/audio/examples/w_3482cf4b6eccd4f4.mp3"
+    },
+    {
+      "id": "w_36671521a2ef775b",
+      "kind": "example",
+      "text": "愉快な話を聞いた。",
+      "file": "assets/audio/examples/w_36671521a2ef775b.mp3"
+    },
+    {
+      "id": "w_353125e13035dad2",
+      "kind": "example",
+      "text": "顔を窓のほうへ向ける。",
+      "file": "assets/audio/examples/w_353125e13035dad2.mp3"
+    },
+    {
+      "id": "w_3e3b911293ac6f59",
+      "kind": "example",
+      "text": "おおよそ一時間かかります。",
+      "file": "assets/audio/examples/w_3e3b911293ac6f59.mp3"
+    },
+    {
+      "id": "w_3c648280458c6258",
+      "kind": "example",
+      "text": "これはあくまで予想です。",
+      "file": "assets/audio/examples/w_3c648280458c6258.mp3"
+    },
+    {
+      "id": "w_3b4756b9ec416347",
+      "kind": "example",
+      "text": "彼はいつも謙遜する。",
+      "file": "assets/audio/examples/w_3b4756b9ec416347.mp3"
+    },
+    {
+      "id": "w_4023d92b9a5c4baa",
+      "kind": "example",
+      "text": "病気から回復した。",
+      "file": "assets/audio/examples/w_4023d92b9a5c4baa.mp3"
+    },
+    {
+      "id": "w_43862bf95fbf02dd",
+      "kind": "example",
+      "text": "身体を大切にする。",
+      "file": "assets/audio/examples/w_43862bf95fbf02dd.mp3"
+    },
+    {
+      "id": "w_4c88110f6a425af8",
+      "kind": "example",
+      "text": "魚を火であぶる。",
+      "file": "assets/audio/examples/w_4c88110f6a425af8.mp3"
+    },
+    {
+      "id": "w_43c420f6bdcd573b",
+      "kind": "example",
+      "text": "痛みにじっと堪える。",
+      "file": "assets/audio/examples/w_43c420f6bdcd573b.mp3"
+    },
+    {
+      "id": "w_4cc56aad06b9042e",
+      "kind": "example",
+      "text": "前から攻める。",
+      "file": "assets/audio/examples/w_4cc56aad06b9042e.mp3"
+    },
+    {
+      "id": "w_560fcad7938d0b0c",
+      "kind": "example",
+      "text": "弟の腕をつねる。",
+      "file": "assets/audio/examples/w_560fcad7938d0b0c.mp3"
+    },
+    {
+      "id": "w_5c01d31526099a31",
+      "kind": "example",
+      "text": "元の場所に戻す。",
+      "file": "assets/audio/examples/w_5c01d31526099a31.mp3"
+    },
+    {
+      "id": "w_590d55e05e5f7b6c",
+      "kind": "example",
+      "text": "暗い道で石に躓く。",
+      "file": "assets/audio/examples/w_590d55e05e5f7b6c.mp3"
+    },
+    {
+      "id": "w_56402bace5da76b9",
+      "kind": "example",
+      "text": "これは一種の習慣だ。",
+      "file": "assets/audio/examples/w_56402bace5da76b9.mp3"
+    },
+    {
+      "id": "w_5ed01d7a88c40360",
+      "kind": "example",
+      "text": "慎重に話を進める。",
+      "file": "assets/audio/examples/w_5ed01d7a88c40360.mp3"
+    },
+    {
+      "id": "w_615da3adb56a4017",
+      "kind": "example",
+      "text": "この問題はすぐ解ける。",
+      "file": "assets/audio/examples/w_615da3adb56a4017.mp3"
+    },
+    {
+      "id": "w_6a9fb9a643e41d9f",
+      "kind": "example",
+      "text": "親の意見に逆らう。",
+      "file": "assets/audio/examples/w_6a9fb9a643e41d9f.mp3"
+    },
+    {
+      "id": "w_6ca1354f895002f3",
+      "kind": "example",
+      "text": "夜の電車に酔っ払いが乗ってきた。",
+      "file": "assets/audio/examples/w_6ca1354f895002f3.mp3"
+    },
+    {
+      "id": "w_6e28f342151c94e8",
+      "kind": "example",
+      "text": "問題の面を変えて考える。",
+      "file": "assets/audio/examples/w_6e28f342151c94e8.mp3"
+    },
+    {
+      "id": "w_740c00b0639ea524",
+      "kind": "example",
+      "text": "食事のあとしゃっくりが出た。",
+      "file": "assets/audio/examples/w_740c00b0639ea524.mp3"
+    },
+    {
+      "id": "w_75780c2794106632",
+      "kind": "example",
+      "text": "騒々しい通りを歩く。",
+      "file": "assets/audio/examples/w_75780c2794106632.mp3"
+    },
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "kind": "example",
+      "text": "大盛りのラーメンを平らげる。",
+      "file": "assets/audio/examples/w_76a0eb1e41436ab7.mp3"
+    },
+    {
+      "id": "w_84ebf670f5baf34e",
+      "kind": "example",
+      "text": "切手のコレクションを見せてくれた。",
+      "file": "assets/audio/examples/w_84ebf670f5baf34e.mp3"
+    },
+    {
+      "id": "w_9424ad8f5a008305",
+      "kind": "example",
+      "text": "授業が退屈だ。",
+      "file": "assets/audio/examples/w_9424ad8f5a008305.mp3"
+    },
+    {
+      "id": "w_a1ba8a79fd44c4b7",
+      "kind": "example",
+      "text": "暗闇への恐怖がある。",
+      "file": "assets/audio/examples/w_a1ba8a79fd44c4b7.mp3"
+    },
+    {
+      "id": "w_a36d1a7420e62662",
+      "kind": "example",
+      "text": "歌手はステージに上がった。",
+      "file": "assets/audio/examples/w_a36d1a7420e62662.mp3"
+    },
+    {
+      "id": "w_a3e9dc2961c9ba24",
+      "kind": "example",
+      "text": "事実をそのまま伝える。",
+      "file": "assets/audio/examples/w_a3e9dc2961c9ba24.mp3"
+    },
+    {
+      "id": "w_a5d4c58d6109165f",
+      "kind": "example",
+      "text": "踏切で電車を待った。",
+      "file": "assets/audio/examples/w_a5d4c58d6109165f.mp3"
+    },
+    {
+      "id": "w_a718136730aa2c54",
+      "kind": "example",
+      "text": "煉瓦の家が並んでいる。",
+      "file": "assets/audio/examples/w_a718136730aa2c54.mp3"
+    },
+    {
+      "id": "w_ae7c649b01299fea",
+      "kind": "example",
+      "text": "新しい競技に挑戦する。",
+      "file": "assets/audio/examples/w_ae7c649b01299fea.mp3"
+    },
+    {
+      "id": "w_b1c2aa5444f0f1c7",
+      "kind": "example",
+      "text": "赤ちゃんを毛布でくるむ。",
+      "file": "assets/audio/examples/w_b1c2aa5444f0f1c7.mp3"
+    },
+    {
+      "id": "w_b5f39330d57b8eeb",
+      "kind": "example",
+      "text": "自分の信仰を大切にする。",
+      "file": "assets/audio/examples/w_b5f39330d57b8eeb.mp3"
+    },
+    {
+      "id": "w_c4d45c1153b13074",
+      "kind": "example",
+      "text": "先生の発音を真似る。",
+      "file": "assets/audio/examples/w_c4d45c1153b13074.mp3"
+    },
+    {
+      "id": "w_b9111f44a6cece15",
+      "kind": "example",
+      "text": "隣の人としゃべる。",
+      "file": "assets/audio/examples/w_b9111f44a6cece15.mp3"
+    },
+    {
+      "id": "w_bae098e6bbe74e8f",
+      "kind": "example",
+      "text": "的確な判断をする。",
+      "file": "assets/audio/examples/w_bae098e6bbe74e8f.mp3"
+    },
+    {
+      "id": "w_c3a132674797ae46",
+      "kind": "example",
+      "text": "完成の目安は来週だ。",
+      "file": "assets/audio/examples/w_c3a132674797ae46.mp3"
+    },
+    {
+      "id": "w_bc4e8e2c9bcbaef7",
+      "kind": "example",
+      "text": "陰で悪口を言うのは卑怯だ。",
+      "file": "assets/audio/examples/w_bc4e8e2c9bcbaef7.mp3"
+    },
+    {
+      "id": "w_c0fa2c9662d17f0b",
+      "kind": "example",
+      "text": "この製品の特長を説明する。",
+      "file": "assets/audio/examples/w_c0fa2c9662d17f0b.mp3"
+    },
+    {
+      "id": "w_cc1a7419426c2c4a",
+      "kind": "example",
+      "text": "四角い箱を開ける。",
+      "file": "assets/audio/examples/w_cc1a7419426c2c4a.mp3"
+    },
+    {
+      "id": "w_cc99714ece4e3402",
+      "kind": "example",
+      "text": "秋になって稲が実る。",
+      "file": "assets/audio/examples/w_cc99714ece4e3402.mp3"
+    },
+    {
+      "id": "w_d20456aa5e0912bc",
+      "kind": "example",
+      "text": "店が新しい店員を雇う。",
+      "file": "assets/audio/examples/w_d20456aa5e0912bc.mp3"
+    },
+    {
+      "id": "w_c5438a2dab2c8feb",
+      "kind": "example",
+      "text": "順番を抜かすのはずるい。",
+      "file": "assets/audio/examples/w_c5438a2dab2c8feb.mp3"
+    },
+    {
+      "id": "w_d401fb56e34edd02",
+      "kind": "example",
+      "text": "列の先頭に立つ。",
+      "file": "assets/audio/examples/w_d401fb56e34edd02.mp3"
+    },
+    {
+      "id": "w_de834a2f25042951",
+      "kind": "example",
+      "text": "鳥が翼を広げる。",
+      "file": "assets/audio/examples/w_de834a2f25042951.mp3"
+    },
+    {
+      "id": "w_1acadab0e96ab9d7",
+      "kind": "example",
+      "text": "一日歩いてくたびれる。",
+      "file": "assets/audio/examples/w_1acadab0e96ab9d7.mp3"
+    },
+    {
+      "id": "w_17f948120f29942a",
+      "kind": "example",
+      "text": "今夜は父に代る。",
+      "file": "assets/audio/examples/w_17f948120f29942a.mp3"
+    },
+    {
+      "id": "w_e1858aa5a7439d43",
+      "kind": "example",
+      "text": "順々に名前を呼ばれた。",
+      "file": "assets/audio/examples/w_e1858aa5a7439d43.mp3"
+    },
+    {
+      "id": "w_2fc9098d18ea8dc0",
+      "kind": "example",
+      "text": "彼は常に時間を守る。",
+      "file": "assets/audio/examples/w_2fc9098d18ea8dc0.mp3"
+    },
+    {
+      "id": "w_2e22b9e812873fab",
+      "kind": "example",
+      "text": "出発の際に連絡します。",
+      "file": "assets/audio/examples/w_2e22b9e812873fab.mp3"
+    },
+    {
+      "id": "w_38bfd57fb5c37228",
+      "kind": "example",
+      "text": "女子学生が増えている。",
+      "file": "assets/audio/examples/w_38bfd57fb5c37228.mp3"
+    },
+    {
+      "id": "w_4abddafb7881f1bb",
+      "kind": "example",
+      "text": "宿題をいっきに終わらせた。",
+      "file": "assets/audio/examples/w_4abddafb7881f1bb.mp3"
+    },
+    {
+      "id": "w_406c6e23203539b1",
+      "kind": "example",
+      "text": "少しずつ貯金をふやす。",
+      "file": "assets/audio/examples/w_406c6e23203539b1.mp3"
+    },
+    {
+      "id": "w_4e51e8951d15d3dc",
+      "kind": "example",
+      "text": "いっぱんに日本人は魚が好きだ。",
+      "file": "assets/audio/examples/w_4e51e8951d15d3dc.mp3"
+    },
+    {
+      "id": "w_465fe84232149662",
+      "kind": "example",
+      "text": "税込みで三千円です。",
+      "file": "assets/audio/examples/w_465fe84232149662.mp3"
+    },
+    {
+      "id": "w_5087ca0f2f02704e",
+      "kind": "example",
+      "text": "ハンドルをしっかり握る。",
+      "file": "assets/audio/examples/w_5087ca0f2f02704e.mp3"
+    },
+    {
+      "id": "w_4ebf08d635858a62",
+      "kind": "example",
+      "text": "永遠の友情を誓う。",
+      "file": "assets/audio/examples/w_4ebf08d635858a62.mp3"
+    },
+    {
+      "id": "w_6367079e41ada72a",
+      "kind": "example",
+      "text": "全員が集まった。",
+      "file": "assets/audio/examples/w_6367079e41ada72a.mp3"
+    },
+    {
+      "id": "w_5907660844c2b516",
+      "kind": "example",
+      "text": "白い服を汚す。",
+      "file": "assets/audio/examples/w_5907660844c2b516.mp3"
+    },
+    {
+      "id": "w_5444ad9790d180e8",
+      "kind": "example",
+      "text": "いい加減な返事はやめてほしい。",
+      "file": "assets/audio/examples/w_5444ad9790d180e8.mp3"
+    },
+    {
+      "id": "w_6819bf5a3467352a",
+      "kind": "example",
+      "text": "人生は一度きりだ。",
+      "file": "assets/audio/examples/w_6819bf5a3467352a.mp3"
+    },
+    {
+      "id": "w_64b66d55227bd248",
+      "kind": "example",
+      "text": "ここでストップしよう。",
+      "file": "assets/audio/examples/w_64b66d55227bd248.mp3"
+    },
+    {
+      "id": "w_699769f779e42b20",
+      "kind": "example",
+      "text": "ボールがネットに当たった。",
+      "file": "assets/audio/examples/w_699769f779e42b20.mp3"
+    },
+    {
+      "id": "w_729f291cb71c2dcc",
+      "kind": "example",
+      "text": "小さなミスをやり直す。",
+      "file": "assets/audio/examples/w_729f291cb71c2dcc.mp3"
+    },
+    {
+      "id": "w_7da89b0ae3f818ac",
+      "kind": "example",
+      "text": "遅くなってもうしわけない。",
+      "file": "assets/audio/examples/w_7da89b0ae3f818ac.mp3"
+    },
+    {
+      "id": "w_7e3ddba1d47dfc1f",
+      "kind": "example",
+      "text": "駅まで友人を見送る。",
+      "file": "assets/audio/examples/w_7e3ddba1d47dfc1f.mp3"
+    },
+    {
+      "id": "w_7dbf258739ff034a",
+      "kind": "example",
+      "text": "虫に刺されてかゆい。",
+      "file": "assets/audio/examples/w_7dbf258739ff034a.mp3"
+    },
+    {
+      "id": "w_7f8ba58bb4b898e8",
+      "kind": "example",
+      "text": "ドアが自動的に閉まる。",
+      "file": "assets/audio/examples/w_7f8ba58bb4b898e8.mp3"
+    },
+    {
+      "id": "w_8141a07617372b89",
+      "kind": "example",
+      "text": "転んで大腿を打った。",
+      "file": "assets/audio/examples/w_8141a07617372b89.mp3"
+    },
+    {
+      "id": "w_a2ca14c5418e955f",
+      "kind": "example",
+      "text": "チャンスを掴む。",
+      "file": "assets/audio/examples/w_a2ca14c5418e955f.mp3"
+    },
+    {
+      "id": "w_949c210aa0e199be",
+      "kind": "example",
+      "text": "夜が明ける。",
+      "file": "assets/audio/examples/w_949c210aa0e199be.mp3"
+    },
+    {
+      "id": "w_9e5e37d7e879c72a",
+      "kind": "example",
+      "text": "四人のグループで発表する。",
+      "file": "assets/audio/examples/w_9e5e37d7e879c72a.mp3"
+    },
+    {
+      "id": "w_a61620b169657c43",
+      "kind": "example",
+      "text": "りんごの皮を剥く。",
+      "file": "assets/audio/examples/w_a61620b169657c43.mp3"
+    },
+    {
+      "id": "w_a65c7291dbeb05a4",
+      "kind": "example",
+      "text": "大学時代の友人に会う。",
+      "file": "assets/audio/examples/w_a65c7291dbeb05a4.mp3"
+    },
+    {
+      "id": "w_a819a4776c13596c",
+      "kind": "example",
+      "text": "待ち時間が長くていらいらする。",
+      "file": "assets/audio/examples/w_a819a4776c13596c.mp3"
+    },
+    {
+      "id": "w_bae790c2f19f1f82",
+      "kind": "example",
+      "text": "毎日トレーニングを続ける。",
+      "file": "assets/audio/examples/w_bae790c2f19f1f82.mp3"
+    },
+    {
+      "id": "w_bf7d5c4f25bd15e8",
+      "kind": "example",
+      "text": "コーヒーをテーブルにこぼす。",
+      "file": "assets/audio/examples/w_bf7d5c4f25bd15e8.mp3"
+    },
+    {
+      "id": "w_bfb66de43d6df143",
+      "kind": "example",
+      "text": "料金を現金で支払う。",
+      "file": "assets/audio/examples/w_bfb66de43d6df143.mp3"
+    },
+    {
+      "id": "w_c98ce7216b90f91a",
+      "kind": "example",
+      "text": "価格が上がっている。",
+      "file": "assets/audio/examples/w_c98ce7216b90f91a.mp3"
+    },
+    {
+      "id": "w_cb99bdc6be468a11",
+      "kind": "example",
+      "text": "うがいをしてから寝る。",
+      "file": "assets/audio/examples/w_cb99bdc6be468a11.mp3"
+    },
+    {
+      "id": "w_d0c5de51a55d62d4",
+      "kind": "example",
+      "text": "不断の努力が実を結ぶ。",
+      "file": "assets/audio/examples/w_d0c5de51a55d62d4.mp3"
+    },
+    {
+      "id": "w_dd6cfb328dbd2400",
+      "kind": "example",
+      "text": "失敗は自分のせいだ。",
+      "file": "assets/audio/examples/w_dd6cfb328dbd2400.mp3"
+    },
+    {
+      "id": "w_e6e34cd099dad65c",
+      "kind": "example",
+      "text": "合格率が上がった。",
+      "file": "assets/audio/examples/w_e6e34cd099dad65c.mp3"
+    },
+    {
+      "id": "w_fe90c06cc5136491",
+      "kind": "example",
+      "text": "車を電柱にぶつける。",
+      "file": "assets/audio/examples/w_fe90c06cc5136491.mp3"
+    },
+    {
+      "id": "w_f372d394a0a4c4e1",
+      "kind": "example",
+      "text": "本音を現す。",
+      "file": "assets/audio/examples/w_f372d394a0a4c4e1.mp3"
+    },
+    {
+      "id": "w_ee206212d9b2a50d",
+      "kind": "example",
+      "text": "彼の返事は頼もしい。",
+      "file": "assets/audio/examples/w_ee206212d9b2a50d.mp3"
+    },
+    {
+      "id": "w_05fd1eca6f1886bd",
+      "kind": "example",
+      "text": "家族で誕生日を祝う。",
+      "file": "assets/audio/examples/w_05fd1eca6f1886bd.mp3"
+    },
+    {
+      "id": "w_16a8437b706000b6",
+      "kind": "example",
+      "text": "荷物を部屋まで運ぶ。",
+      "file": "assets/audio/examples/w_16a8437b706000b6.mp3"
+    },
+    {
+      "id": "w_f9780db0237f4603",
+      "kind": "example",
+      "text": "二人がどうじに話し始めた。",
+      "file": "assets/audio/examples/w_f9780db0237f4603.mp3"
+    },
+    {
+      "id": "w_231788f2e4be23bc",
+      "kind": "example",
+      "text": "先生はそうおっしゃる。",
+      "file": "assets/audio/examples/w_231788f2e4be23bc.mp3"
+    },
+    {
+      "id": "w_25cb652a0907a58a",
+      "kind": "example",
+      "text": "夏はプールで泳ぐ。",
+      "file": "assets/audio/examples/w_25cb652a0907a58a.mp3"
+    },
+    {
+      "id": "w_56bc469e9f329a49",
+      "kind": "example",
+      "text": "先生が生徒を叱る。",
+      "file": "assets/audio/examples/w_56bc469e9f329a49.mp3"
+    },
+    {
+      "id": "w_17ea17f7f7fd6d2b",
+      "kind": "example",
+      "text": "木の葉が静かに落ちる。",
+      "file": "assets/audio/examples/w_17ea17f7f7fd6d2b.mp3"
+    },
+    {
+      "id": "w_50f24aa0feb95de6",
+      "kind": "example",
+      "text": "一度の失敗であきらめない。",
+      "file": "assets/audio/examples/w_50f24aa0feb95de6.mp3"
+    },
+    {
+      "id": "w_66c87676a778f34f",
+      "kind": "example",
+      "text": "おや、もうこんな時間だ。",
+      "file": "assets/audio/examples/w_66c87676a778f34f.mp3"
+    },
+    {
+      "id": "w_672fe2093b0dc0ac",
+      "kind": "example",
+      "text": "その情報は確かだ。",
+      "file": "assets/audio/examples/w_672fe2093b0dc0ac.mp3"
+    },
+    {
+      "id": "w_7d7f86172ab0383f",
+      "kind": "example",
+      "text": "よく考える時間を取る。",
+      "file": "assets/audio/examples/w_7d7f86172ab0383f.mp3"
+    },
+    {
+      "id": "w_82d2d40c223c0fc0",
+      "kind": "example",
+      "text": "この問題は中々難しい。",
+      "file": "assets/audio/examples/w_82d2d40c223c0fc0.mp3"
+    },
+    {
+      "id": "w_8aa654b726b3973b",
+      "kind": "example",
+      "text": "おもちゃを箱にしまう。",
+      "file": "assets/audio/examples/w_8aa654b726b3973b.mp3"
+    },
+    {
+      "id": "w_98601c5f9fe56540",
+      "kind": "example",
+      "text": "この料理はうまい。",
+      "file": "assets/audio/examples/w_98601c5f9fe56540.mp3"
+    },
+    {
+      "id": "w_926081e6aef5ddde",
+      "kind": "example",
+      "text": "先生が資料をくださる。",
+      "file": "assets/audio/examples/w_926081e6aef5ddde.mp3"
+    },
+    {
+      "id": "w_e3ac48305532880a",
+      "kind": "example",
+      "text": "その道は夜は危険だ。",
+      "file": "assets/audio/examples/w_e3ac48305532880a.mp3"
+    },
+    {
+      "id": "w_e31aefb75328a9e0",
+      "kind": "example",
+      "text": "夜になって空気が冷える。",
+      "file": "assets/audio/examples/w_e31aefb75328a9e0.mp3"
+    },
+    {
+      "id": "w_9e65776bfd50eecb",
+      "kind": "example",
+      "text": "一週間内に返事をください。",
+      "file": "assets/audio/examples/w_9e65776bfd50eecb.mp3"
+    },
+    {
+      "id": "w_bc62d500b1c7560e",
+      "kind": "example",
+      "text": "人をいじめるのはよくない。",
+      "file": "assets/audio/examples/w_bc62d500b1c7560e.mp3"
+    },
+    {
+      "id": "w_ae771b4fd6bc8a90",
+      "kind": "example",
+      "text": "この計画はだめだ。",
+      "file": "assets/audio/examples/w_ae771b4fd6bc8a90.mp3"
+    },
+    {
+      "id": "w_a129ca6eab781b62",
+      "kind": "example",
+      "text": "心を込めて手紙を書く。",
+      "file": "assets/audio/examples/w_a129ca6eab781b62.mp3"
+    },
+    {
+      "id": "w_f3ad58fce513b0df",
+      "kind": "example",
+      "text": "駅の手前で降りる。",
+      "file": "assets/audio/examples/w_f3ad58fce513b0df.mp3"
+    },
+    {
+      "id": "w_55a89ec42223f73e",
+      "kind": "example",
+      "text": "今日は天気がいい。",
+      "file": "assets/audio/examples/w_55a89ec42223f73e.mp3"
+    },
+    {
+      "id": "w_831749e2e88001b5",
+      "kind": "example",
+      "text": "川で魚を釣る。",
+      "file": "assets/audio/examples/w_831749e2e88001b5.mp3"
+    },
+    {
+      "id": "w_232fd4c69bca3059",
+      "kind": "example",
+      "text": "雨が降ってきたので傘をさす。",
+      "file": "assets/audio/examples/w_232fd4c69bca3059.mp3"
+    },
+    {
+      "id": "w_8d526aa1c09b62a2",
+      "kind": "example",
+      "text": "友達と話すのは楽しい。",
+      "file": "assets/audio/examples/w_8d526aa1c09b62a2.mp3"
+    },
+    {
+      "id": "w_9f4bac962871acc8",
+      "kind": "example",
+      "text": "隣のおじさんが親切です。",
+      "file": "assets/audio/examples/w_9f4bac962871acc8.mp3"
+    },
+    {
+      "id": "w_df6f8bed5b534092",
+      "kind": "example",
+      "text": "自転車がにだい並んでいる。",
+      "file": "assets/audio/examples/w_df6f8bed5b534092.mp3"
+    },
+    {
+      "id": "w_b44959bb47bfe991",
+      "kind": "example",
+      "text": "駅に大勢の人が集まっている。",
+      "file": "assets/audio/examples/w_b44959bb47bfe991.mp3"
+    },
+    {
+      "id": "w_e1f8cbd438805e5e",
+      "kind": "example",
+      "text": "天気がだんだん暖かくなってきた。",
+      "file": "assets/audio/examples/w_e1f8cbd438805e5e.mp3"
+    }
+  ],
+  "elapsed_seconds": 17.771,
+  "dry_run": false
+}

@@ -1,0 +1,1081 @@
+{
+  "source": {
+    "publisher": "국립국어원",
+    "title": "유니코드 표준을 고려한 점자·점형 체계",
+    "section": "표 6 강희부수",
+    "published": "2016",
+    "url": "https://korean.go.kr/common/download.do?file_path=reportData&c_file_name=e9fe80f1-5305-4873-b6a2-b34c01017a1b_2.pdf"
+  },
+  "radicals": [
+    {
+      "number": 1,
+      "radical": "一",
+      "name_ko": "한 일"
+    },
+    {
+      "number": 2,
+      "radical": "丨",
+      "name_ko": "뚫을 곤"
+    },
+    {
+      "number": 3,
+      "radical": "丶",
+      "name_ko": "점 주"
+    },
+    {
+      "number": 4,
+      "radical": "丿",
+      "name_ko": "삐침 별"
+    },
+    {
+      "number": 5,
+      "radical": "乙",
+      "name_ko": "새 을"
+    },
+    {
+      "number": 6,
+      "radical": "亅",
+      "name_ko": "갈고리 궐"
+    },
+    {
+      "number": 7,
+      "radical": "二",
+      "name_ko": "두 이"
+    },
+    {
+      "number": 8,
+      "radical": "亠",
+      "name_ko": "돼지해머리 두"
+    },
+    {
+      "number": 9,
+      "radical": "人",
+      "name_ko": "사람 인"
+    },
+    {
+      "number": 10,
+      "radical": "儿",
+      "name_ko": "어진사람 인"
+    },
+    {
+      "number": 11,
+      "radical": "入",
+      "name_ko": "들 입"
+    },
+    {
+      "number": 12,
+      "radical": "八",
+      "name_ko": "여덟 팔"
+    },
+    {
+      "number": 13,
+      "radical": "冂",
+      "name_ko": "멀 경"
+    },
+    {
+      "number": 14,
+      "radical": "冖",
+      "name_ko": "민갓머리 멱"
+    },
+    {
+      "number": 15,
+      "radical": "冫",
+      "name_ko": "이 수"
+    },
+    {
+      "number": 16,
+      "radical": "几",
+      "name_ko": "안석 궤"
+    },
+    {
+      "number": 17,
+      "radical": "凵",
+      "name_ko": "위터진입 구"
+    },
+    {
+      "number": 18,
+      "radical": "刀",
+      "name_ko": "칼 도"
+    },
+    {
+      "number": 19,
+      "radical": "力",
+      "name_ko": "힘 력"
+    },
+    {
+      "number": 20,
+      "radical": "勹",
+      "name_ko": "쌀 포"
+    },
+    {
+      "number": 21,
+      "radical": "匕",
+      "name_ko": "비수 비"
+    },
+    {
+      "number": 22,
+      "radical": "匚",
+      "name_ko": "터진입구 방"
+    },
+    {
+      "number": 23,
+      "radical": "匸",
+      "name_ko": "감출 혜"
+    },
+    {
+      "number": 24,
+      "radical": "十",
+      "name_ko": "열 십"
+    },
+    {
+      "number": 25,
+      "radical": "卜",
+      "name_ko": "점 복"
+    },
+    {
+      "number": 26,
+      "radical": "卩",
+      "name_ko": "병부 절"
+    },
+    {
+      "number": 27,
+      "radical": "厂",
+      "name_ko": "기슭 엄"
+    },
+    {
+      "number": 28,
+      "radical": "厶",
+      "name_ko": "사사 사"
+    },
+    {
+      "number": 29,
+      "radical": "又",
+      "name_ko": "또 우"
+    },
+    {
+      "number": 30,
+      "radical": "口",
+      "name_ko": "입 구"
+    },
+    {
+      "number": 31,
+      "radical": "囗",
+      "name_ko": "큰입구 국"
+    },
+    {
+      "number": 32,
+      "radical": "土",
+      "name_ko": "흙 토"
+    },
+    {
+      "number": 33,
+      "radical": "士",
+      "name_ko": "선비 사"
+    },
+    {
+      "number": 34,
+      "radical": "夂",
+      "name_ko": "뒤져올 치"
+    },
+    {
+      "number": 35,
+      "radical": "夊",
+      "name_ko": "천천히걸을 쇠"
+    },
+    {
+      "number": 36,
+      "radical": "夕",
+      "name_ko": "저녁 석"
+    },
+    {
+      "number": 37,
+      "radical": "大",
+      "name_ko": "큰 대"
+    },
+    {
+      "number": 38,
+      "radical": "女",
+      "name_ko": "계집 녀"
+    },
+    {
+      "number": 39,
+      "radical": "子",
+      "name_ko": "아들 자"
+    },
+    {
+      "number": 40,
+      "radical": "宀",
+      "name_ko": "갓머리 면"
+    },
+    {
+      "number": 41,
+      "radical": "寸",
+      "name_ko": "마디 촌"
+    },
+    {
+      "number": 42,
+      "radical": "小",
+      "name_ko": "작을 소"
+    },
+    {
+      "number": 43,
+      "radical": "尢",
+      "name_ko": "절름발이 왕"
+    },
+    {
+      "number": 44,
+      "radical": "尸",
+      "name_ko": "주검 시"
+    },
+    {
+      "number": 45,
+      "radical": "屮",
+      "name_ko": "풀 철"
+    },
+    {
+      "number": 46,
+      "radical": "山",
+      "name_ko": "뫼 산"
+    },
+    {
+      "number": 47,
+      "radical": "巛",
+      "name_ko": "개미허리 천"
+    },
+    {
+      "number": 48,
+      "radical": "工",
+      "name_ko": "장인 공"
+    },
+    {
+      "number": 49,
+      "radical": "己",
+      "name_ko": "몸 기"
+    },
+    {
+      "number": 50,
+      "radical": "巾",
+      "name_ko": "수건 건"
+    },
+    {
+      "number": 51,
+      "radical": "干",
+      "name_ko": "방패 간"
+    },
+    {
+      "number": 52,
+      "radical": "幺",
+      "name_ko": "작을 요"
+    },
+    {
+      "number": 53,
+      "radical": "广",
+      "name_ko": "엄호 엄"
+    },
+    {
+      "number": 54,
+      "radical": "廴",
+      "name_ko": "민책받침 인"
+    },
+    {
+      "number": 55,
+      "radical": "廾",
+      "name_ko": "밑스물입 공"
+    },
+    {
+      "number": 56,
+      "radical": "弋",
+      "name_ko": "주살 익"
+    },
+    {
+      "number": 57,
+      "radical": "弓",
+      "name_ko": "활 궁"
+    },
+    {
+      "number": 58,
+      "radical": "彐",
+      "name_ko": "터진가로 왈"
+    },
+    {
+      "number": 59,
+      "radical": "彡",
+      "name_ko": "터럭 삼"
+    },
+    {
+      "number": 60,
+      "radical": "彳",
+      "name_ko": "두인변 척"
+    },
+    {
+      "number": 61,
+      "radical": "心",
+      "name_ko": "마음 심"
+    },
+    {
+      "number": 62,
+      "radical": "戈",
+      "name_ko": "창 과"
+    },
+    {
+      "number": 63,
+      "radical": "戶",
+      "name_ko": "지게 호"
+    },
+    {
+      "number": 64,
+      "radical": "手",
+      "name_ko": "손 수"
+    },
+    {
+      "number": 65,
+      "radical": "支",
+      "name_ko": "지탱할 지"
+    },
+    {
+      "number": 66,
+      "radical": "攴",
+      "name_ko": "둥글월 문"
+    },
+    {
+      "number": 67,
+      "radical": "文",
+      "name_ko": "글월 문"
+    },
+    {
+      "number": 68,
+      "radical": "斗",
+      "name_ko": "말 두"
+    },
+    {
+      "number": 69,
+      "radical": "斤",
+      "name_ko": "날 근"
+    },
+    {
+      "number": 70,
+      "radical": "方",
+      "name_ko": "모 방"
+    },
+    {
+      "number": 71,
+      "radical": "无",
+      "name_ko": "이미기 무"
+    },
+    {
+      "number": 72,
+      "radical": "日",
+      "name_ko": "날 일"
+    },
+    {
+      "number": 73,
+      "radical": "曰",
+      "name_ko": "가로 왈"
+    },
+    {
+      "number": 74,
+      "radical": "月",
+      "name_ko": "달 월"
+    },
+    {
+      "number": 75,
+      "radical": "木",
+      "name_ko": "나무 목"
+    },
+    {
+      "number": 76,
+      "radical": "欠",
+      "name_ko": "하품 흠"
+    },
+    {
+      "number": 77,
+      "radical": "止",
+      "name_ko": "그칠 지"
+    },
+    {
+      "number": 78,
+      "radical": "歹",
+      "name_ko": "죽을 사"
+    },
+    {
+      "number": 79,
+      "radical": "殳",
+      "name_ko": "갖은둥글월 문"
+    },
+    {
+      "number": 80,
+      "radical": "毋",
+      "name_ko": "말 무"
+    },
+    {
+      "number": 81,
+      "radical": "比",
+      "name_ko": "견줄 비"
+    },
+    {
+      "number": 82,
+      "radical": "毛",
+      "name_ko": "터럭 모"
+    },
+    {
+      "number": 83,
+      "radical": "氏",
+      "name_ko": "각씨 씨"
+    },
+    {
+      "number": 84,
+      "radical": "气",
+      "name_ko": "기운 기"
+    },
+    {
+      "number": 85,
+      "radical": "水",
+      "name_ko": "물 수"
+    },
+    {
+      "number": 86,
+      "radical": "火",
+      "name_ko": "불 화"
+    },
+    {
+      "number": 87,
+      "radical": "爪",
+      "name_ko": "손톱 조"
+    },
+    {
+      "number": 88,
+      "radical": "父",
+      "name_ko": "아비 부"
+    },
+    {
+      "number": 89,
+      "radical": "爻",
+      "name_ko": "점괘 효"
+    },
+    {
+      "number": 90,
+      "radical": "爿",
+      "name_ko": "장수 장"
+    },
+    {
+      "number": 91,
+      "radical": "片",
+      "name_ko": "조각 편"
+    },
+    {
+      "number": 92,
+      "radical": "牙",
+      "name_ko": "어금니 아"
+    },
+    {
+      "number": 93,
+      "radical": "牛",
+      "name_ko": "소 우"
+    },
+    {
+      "number": 94,
+      "radical": "犬",
+      "name_ko": "개 견"
+    },
+    {
+      "number": 95,
+      "radical": "玄",
+      "name_ko": "검을 현"
+    },
+    {
+      "number": 96,
+      "radical": "玉",
+      "name_ko": "구슬 옥"
+    },
+    {
+      "number": 97,
+      "radical": "瓜",
+      "name_ko": "오이 과"
+    },
+    {
+      "number": 98,
+      "radical": "瓦",
+      "name_ko": "기와 와"
+    },
+    {
+      "number": 99,
+      "radical": "甘",
+      "name_ko": "달 감"
+    },
+    {
+      "number": 100,
+      "radical": "生",
+      "name_ko": "날 생"
+    },
+    {
+      "number": 101,
+      "radical": "用",
+      "name_ko": "쓸 용"
+    },
+    {
+      "number": 102,
+      "radical": "田",
+      "name_ko": "밭 전"
+    },
+    {
+      "number": 103,
+      "radical": "疋",
+      "name_ko": "필 필"
+    },
+    {
+      "number": 104,
+      "radical": "疒",
+      "name_ko": "병질안 역"
+    },
+    {
+      "number": 105,
+      "radical": "癶",
+      "name_ko": "필 발"
+    },
+    {
+      "number": 106,
+      "radical": "白",
+      "name_ko": "흰 백"
+    },
+    {
+      "number": 107,
+      "radical": "皮",
+      "name_ko": "가죽 피"
+    },
+    {
+      "number": 108,
+      "radical": "皿",
+      "name_ko": "그릇 명"
+    },
+    {
+      "number": 109,
+      "radical": "目",
+      "name_ko": "눈 목"
+    },
+    {
+      "number": 110,
+      "radical": "矛",
+      "name_ko": "창 모"
+    },
+    {
+      "number": 111,
+      "radical": "矢",
+      "name_ko": "화살 시"
+    },
+    {
+      "number": 112,
+      "radical": "石",
+      "name_ko": "돌 석"
+    },
+    {
+      "number": 113,
+      "radical": "示",
+      "name_ko": "보일 시"
+    },
+    {
+      "number": 114,
+      "radical": "禸",
+      "name_ko": "발자국 유"
+    },
+    {
+      "number": 115,
+      "radical": "禾",
+      "name_ko": "벼 화"
+    },
+    {
+      "number": 116,
+      "radical": "穴",
+      "name_ko": "구멍 혈"
+    },
+    {
+      "number": 117,
+      "radical": "立",
+      "name_ko": "설 립"
+    },
+    {
+      "number": 118,
+      "radical": "竹",
+      "name_ko": "대 죽"
+    },
+    {
+      "number": 119,
+      "radical": "米",
+      "name_ko": "쌀 미"
+    },
+    {
+      "number": 120,
+      "radical": "糸",
+      "name_ko": "실 사"
+    },
+    {
+      "number": 121,
+      "radical": "缶",
+      "name_ko": "장군 부"
+    },
+    {
+      "number": 122,
+      "radical": "网",
+      "name_ko": "그물 망"
+    },
+    {
+      "number": 123,
+      "radical": "羊",
+      "name_ko": "양 양"
+    },
+    {
+      "number": 124,
+      "radical": "羽",
+      "name_ko": "깃 우"
+    },
+    {
+      "number": 125,
+      "radical": "老",
+      "name_ko": "늙을 로"
+    },
+    {
+      "number": 126,
+      "radical": "而",
+      "name_ko": "말이을 이"
+    },
+    {
+      "number": 127,
+      "radical": "耒",
+      "name_ko": "쟁기 뢰"
+    },
+    {
+      "number": 128,
+      "radical": "耳",
+      "name_ko": "귀 이"
+    },
+    {
+      "number": 129,
+      "radical": "聿",
+      "name_ko": "오직 율"
+    },
+    {
+      "number": 130,
+      "radical": "肉",
+      "name_ko": "고기 육"
+    },
+    {
+      "number": 131,
+      "radical": "臣",
+      "name_ko": "신하 신"
+    },
+    {
+      "number": 132,
+      "radical": "自",
+      "name_ko": "스스로 자"
+    },
+    {
+      "number": 133,
+      "radical": "至",
+      "name_ko": "이를 지"
+    },
+    {
+      "number": 134,
+      "radical": "臼",
+      "name_ko": "절구 구"
+    },
+    {
+      "number": 135,
+      "radical": "舌",
+      "name_ko": "혀 설"
+    },
+    {
+      "number": 136,
+      "radical": "舛",
+      "name_ko": "어길 천"
+    },
+    {
+      "number": 137,
+      "radical": "舟",
+      "name_ko": "배 주"
+    },
+    {
+      "number": 138,
+      "radical": "艮",
+      "name_ko": "머무를 간"
+    },
+    {
+      "number": 139,
+      "radical": "色",
+      "name_ko": "빛 색"
+    },
+    {
+      "number": 140,
+      "radical": "艸",
+      "name_ko": "풀 초"
+    },
+    {
+      "number": 141,
+      "radical": "虍",
+      "name_ko": "범 호"
+    },
+    {
+      "number": 142,
+      "radical": "虫",
+      "name_ko": "벌레 충"
+    },
+    {
+      "number": 143,
+      "radical": "血",
+      "name_ko": "피 혈"
+    },
+    {
+      "number": 144,
+      "radical": "行",
+      "name_ko": "다닐 행"
+    },
+    {
+      "number": 145,
+      "radical": "衣",
+      "name_ko": "옷 의"
+    },
+    {
+      "number": 146,
+      "radical": "襾",
+      "name_ko": "덮을 아"
+    },
+    {
+      "number": 147,
+      "radical": "見",
+      "name_ko": "볼 견"
+    },
+    {
+      "number": 148,
+      "radical": "角",
+      "name_ko": "뿔 각"
+    },
+    {
+      "number": 149,
+      "radical": "言",
+      "name_ko": "말씀 언"
+    },
+    {
+      "number": 150,
+      "radical": "谷",
+      "name_ko": "골 곡"
+    },
+    {
+      "number": 151,
+      "radical": "豆",
+      "name_ko": "콩 두"
+    },
+    {
+      "number": 152,
+      "radical": "豕",
+      "name_ko": "돼지 시"
+    },
+    {
+      "number": 153,
+      "radical": "豸",
+      "name_ko": "갖은돼지 시"
+    },
+    {
+      "number": 154,
+      "radical": "貝",
+      "name_ko": "조개 패"
+    },
+    {
+      "number": 155,
+      "radical": "赤",
+      "name_ko": "붉을 적"
+    },
+    {
+      "number": 156,
+      "radical": "走",
+      "name_ko": "달아날 주"
+    },
+    {
+      "number": 157,
+      "radical": "足",
+      "name_ko": "발 족"
+    },
+    {
+      "number": 158,
+      "radical": "身",
+      "name_ko": "몸 신"
+    },
+    {
+      "number": 159,
+      "radical": "車",
+      "name_ko": "수레 거"
+    },
+    {
+      "number": 160,
+      "radical": "辛",
+      "name_ko": "매울 신"
+    },
+    {
+      "number": 161,
+      "radical": "辰",
+      "name_ko": "별 진"
+    },
+    {
+      "number": 162,
+      "radical": "辵",
+      "name_ko": "책받침 착"
+    },
+    {
+      "number": 163,
+      "radical": "邑",
+      "name_ko": "고을 읍"
+    },
+    {
+      "number": 164,
+      "radical": "酉",
+      "name_ko": "닭 유"
+    },
+    {
+      "number": 165,
+      "radical": "釆",
+      "name_ko": "분별할 채"
+    },
+    {
+      "number": 166,
+      "radical": "里",
+      "name_ko": "마을 리"
+    },
+    {
+      "number": 167,
+      "radical": "金",
+      "name_ko": "쇠 금"
+    },
+    {
+      "number": 168,
+      "radical": "長",
+      "name_ko": "길 장"
+    },
+    {
+      "number": 169,
+      "radical": "門",
+      "name_ko": "문 문"
+    },
+    {
+      "number": 170,
+      "radical": "阜",
+      "name_ko": "언덕 부"
+    },
+    {
+      "number": 171,
+      "radical": "隶",
+      "name_ko": "미칠 이"
+    },
+    {
+      "number": 172,
+      "radical": "隹",
+      "name_ko": "새 추"
+    },
+    {
+      "number": 173,
+      "radical": "雨",
+      "name_ko": "비 우"
+    },
+    {
+      "number": 174,
+      "radical": "青",
+      "name_ko": "푸를 청"
+    },
+    {
+      "number": 175,
+      "radical": "非",
+      "name_ko": "아닐 비"
+    },
+    {
+      "number": 176,
+      "radical": "面",
+      "name_ko": "낯 면"
+    },
+    {
+      "number": 177,
+      "radical": "革",
+      "name_ko": "가죽 혁"
+    },
+    {
+      "number": 178,
+      "radical": "韋",
+      "name_ko": "가죽 위"
+    },
+    {
+      "number": 179,
+      "radical": "韭",
+      "name_ko": "부추 구"
+    },
+    {
+      "number": 180,
+      "radical": "音",
+      "name_ko": "소리 음"
+    },
+    {
+      "number": 181,
+      "radical": "頁",
+      "name_ko": "머리 혈"
+    },
+    {
+      "number": 182,
+      "radical": "風",
+      "name_ko": "바람 풍"
+    },
+    {
+      "number": 183,
+      "radical": "飛",
+      "name_ko": "날 비"
+    },
+    {
+      "number": 184,
+      "radical": "食",
+      "name_ko": "밥 식"
+    },
+    {
+      "number": 185,
+      "radical": "首",
+      "name_ko": "머리 수"
+    },
+    {
+      "number": 186,
+      "radical": "香",
+      "name_ko": "향기 향"
+    },
+    {
+      "number": 187,
+      "radical": "馬",
+      "name_ko": "말 마"
+    },
+    {
+      "number": 188,
+      "radical": "骨",
+      "name_ko": "뼈 골"
+    },
+    {
+      "number": 189,
+      "radical": "高",
+      "name_ko": "높을 고"
+    },
+    {
+      "number": 190,
+      "radical": "髟",
+      "name_ko": "터럭발 표"
+    },
+    {
+      "number": 191,
+      "radical": "鬥",
+      "name_ko": "싸울 투"
+    },
+    {
+      "number": 192,
+      "radical": "鬯",
+      "name_ko": "술 창"
+    },
+    {
+      "number": 193,
+      "radical": "鬲",
+      "name_ko": "솥 력"
+    },
+    {
+      "number": 194,
+      "radical": "鬼",
+      "name_ko": "귀신 귀"
+    },
+    {
+      "number": 195,
+      "radical": "魚",
+      "name_ko": "고기 어"
+    },
+    {
+      "number": 196,
+      "radical": "鳥",
+      "name_ko": "새 조"
+    },
+    {
+      "number": 197,
+      "radical": "鹵",
+      "name_ko": "소금밭 로"
+    },
+    {
+      "number": 198,
+      "radical": "鹿",
+      "name_ko": "사슴 록"
+    },
+    {
+      "number": 199,
+      "radical": "麥",
+      "name_ko": "보리 맥"
+    },
+    {
+      "number": 200,
+      "radical": "麻",
+      "name_ko": "삼 마"
+    },
+    {
+      "number": 201,
+      "radical": "黃",
+      "name_ko": "누를 황"
+    },
+    {
+      "number": 202,
+      "radical": "黍",
+      "name_ko": "기장 서"
+    },
+    {
+      "number": 203,
+      "radical": "黑",
+      "name_ko": "검을 흑"
+    },
+    {
+      "number": 204,
+      "radical": "黹",
+      "name_ko": "바느질할 치"
+    },
+    {
+      "number": 205,
+      "radical": "黽",
+      "name_ko": "맹꽁이 맹"
+    },
+    {
+      "number": 206,
+      "radical": "鼎",
+      "name_ko": "솥 정"
+    },
+    {
+      "number": 207,
+      "radical": "鼓",
+      "name_ko": "북 고"
+    },
+    {
+      "number": 208,
+      "radical": "鼠",
+      "name_ko": "쥐 서"
+    },
+    {
+      "number": 209,
+      "radical": "鼻",
+      "name_ko": "코 비"
+    },
+    {
+      "number": 210,
+      "radical": "齊",
+      "name_ko": "가지런할 제"
+    },
+    {
+      "number": 211,
+      "radical": "齒",
+      "name_ko": "이 치"
+    },
+    {
+      "number": 212,
+      "radical": "龍",
+      "name_ko": "용 룡"
+    },
+    {
+      "number": 213,
+      "radical": "龜",
+      "name_ko": "거북 귀(구)"
+    },
+    {
+      "number": 214,
+      "radical": "龠",
+      "name_ko": "피리 약"
+    }
+  ]
+}

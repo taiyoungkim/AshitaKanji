@@ -1,0 +1,375 @@
+{
+  "generated_at": "2026-08-21T09:33:32.198179+09:00",
+  "word_count": 7050,
+  "level_counts": {
+    "N5": 399,
+    "N4": 743,
+    "N3": 1492,
+    "N2": 1910,
+    "N1": 2506
+  },
+  "moves": [
+    {
+      "id": "w_25d246fcafff391e",
+      "surface": "お手洗い",
+      "reading_kana": "おてあらい",
+      "before": "N5",
+      "after": "N4",
+      "meaning_ko": "화장실"
+    },
+    {
+      "id": "w_a4116bf6cc58ca05",
+      "surface": "氏",
+      "reading_kana": "し",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "성씨, 씨"
+    },
+    {
+      "id": "w_92eb50477a0ece80",
+      "surface": "ごめんなさい",
+      "reading_kana": "ごめんなさい",
+      "before": "N3",
+      "after": "N5",
+      "meaning_ko": "미안합니다, 실례합니다"
+    },
+    {
+      "id": "w_631cf27db2365483",
+      "surface": "降りる",
+      "reading_kana": "おりる",
+      "before": "N3",
+      "after": "N5",
+      "meaning_ko": "내리다"
+    },
+    {
+      "id": "w_452bc6078da69d6b",
+      "surface": "苦",
+      "reading_kana": "く",
+      "before": "N3",
+      "after": "N1",
+      "meaning_ko": "고생, 괴로움"
+    },
+    {
+      "id": "w_d728d1f32a31b6f6",
+      "surface": "遭う",
+      "reading_kana": "あう",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "마주치다, 당하다"
+    },
+    {
+      "id": "w_47d515589fa58fd2",
+      "surface": "お待たせしました",
+      "reading_kana": "おまたせしました",
+      "before": "N2",
+      "after": "N4",
+      "meaning_ko": "기다리게 해서 미안합니다"
+    },
+    {
+      "id": "w_54c71aa5ccbde2f4",
+      "surface": "行ってらっしゃい",
+      "reading_kana": "いってらっしゃい",
+      "before": "N2",
+      "after": "N4",
+      "meaning_ko": "잘 다녀오세요, 또 봐요"
+    },
+    {
+      "id": "w_e19bb44678c7262b",
+      "surface": "非常に",
+      "reading_kana": "ひじょうに",
+      "before": "N1",
+      "after": "N4",
+      "meaning_ko": "매우, 몹시"
+    },
+    {
+      "id": "w_ea9d5a7abc96492d",
+      "surface": "非",
+      "reading_kana": "ひ",
+      "before": "N1",
+      "after": "N3",
+      "meaning_ko": "비, 잘못, 부정"
+    },
+    {
+      "id": "w_37ce577d9573c9b7",
+      "surface": "方",
+      "reading_kana": "かた",
+      "before": "N5",
+      "after": "N4",
+      "meaning_ko": "분, 방향, 방법"
+    },
+    {
+      "id": "w_1f3b58708b016b7f",
+      "surface": "そば",
+      "reading_kana": "そば",
+      "before": "N5",
+      "after": "N4",
+      "meaning_ko": "옆, 곁"
+    },
+    {
+      "id": "w_232fd4c69bca3059",
+      "surface": "さす",
+      "reading_kana": "さす",
+      "before": "N5",
+      "after": "N4",
+      "meaning_ko": "(우산을) 쓰다, 받다"
+    },
+    {
+      "id": "w_25b648bf778c94cd",
+      "surface": "する",
+      "reading_kana": "する",
+      "before": "N3",
+      "after": "N5",
+      "meaning_ko": "하다"
+    },
+    {
+      "id": "w_44f5a21a231cf355",
+      "surface": "いつか",
+      "reading_kana": "いつか",
+      "before": "N3",
+      "after": "N4",
+      "meaning_ko": "언젠가; 어느 날"
+    },
+    {
+      "id": "w_f372d394a0a4c4e1",
+      "surface": "現す",
+      "reading_kana": "あらわす",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "보여주다, 나타나다, 드러내다"
+    }
+  ],
+  "kept": [
+    {
+      "id": "w_ac4a28f37332b6a0",
+      "level": "N4",
+      "surface": "止まる",
+      "reading_kana": "とまる",
+      "reason": "catalog N2 is とどまる; live exact とまる is N4 like the app."
+    },
+    {
+      "id": "w_52b71369ec5db591",
+      "level": "N4",
+      "surface": "漬ける",
+      "reading_kana": "つける",
+      "reason": "live has both N3 and N2 for 漬ける/つける; not unique."
+    },
+    {
+      "id": "w_a85e91e780f1675c",
+      "level": "N3",
+      "surface": "主",
+      "reading_kana": "おも",
+      "reason": "catalog N1 is しゅ/ぬし; おも has no unique live badge."
+    },
+    {
+      "id": "w_bd181301cc7c5324",
+      "level": "N3",
+      "surface": "酒",
+      "reading_kana": "さけ",
+      "reason": "live さけ has no unique JLPT badge; catalog N2 is homograph-prone."
+    },
+    {
+      "id": "w_08fb3f57661da121",
+      "level": "N3",
+      "surface": "硬い",
+      "reading_kana": "かたい",
+      "reason": "live lists N4 堅い·硬い·固い and N2 硬い for かたい."
+    },
+    {
+      "id": "w_80d1fde9c12ec7bb",
+      "level": "N2",
+      "surface": "活発",
+      "reading_kana": "かっぱつ",
+      "reason": "live did not exact-match 活発/かっぱつ; catalog N1 unconfirmed."
+    },
+    {
+      "id": "w_9a69e415985ac07b",
+      "level": "N2",
+      "surface": "柔らかい",
+      "reading_kana": "やわらかい",
+      "reason": "live lists both N4 and N2 for やわらかい."
+    },
+    {
+      "id": "w_33687b5b97477220",
+      "level": "N2",
+      "surface": "一昨日",
+      "reading_kana": "いっさくじつ",
+      "reason": "N5 badge is おととい, not this いっさくじつ reading."
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "level": "N5",
+      "surface": "いる",
+      "reading_kana": "いる",
+      "reason": "N5 居る matches 있다; N2 is 煎る."
+    },
+    {
+      "id": "w_1da8dde639dcee40",
+      "level": "N5",
+      "surface": "でも",
+      "reading_kana": "でも",
+      "reason": "live exact でも is N5."
+    },
+    {
+      "id": "w_901e9473e86b14cd",
+      "level": "N5",
+      "surface": "また",
+      "reading_kana": "また",
+      "reason": "N5 又 is 또; N1 is 股."
+    },
+    {
+      "id": "w_98e68681f275b2c8",
+      "level": "N5",
+      "surface": "ここ",
+      "reading_kana": "ここ",
+      "reason": "N5 此処 is 여기; N1 is 個個."
+    },
+    {
+      "id": "w_d631fd55fbc45d65",
+      "level": "N5",
+      "surface": "大変",
+      "reading_kana": "たいへん",
+      "reason": "live has an N5 大変 entry for this card."
+    },
+    {
+      "id": "w_27f194a34e98e0b0",
+      "level": "N4",
+      "surface": "ゲーム",
+      "reading_kana": "ゲーム",
+      "reason": "live has both N4 and N2 ゲーム."
+    },
+    {
+      "id": "w_e12f8a407f734e3c",
+      "level": "N4",
+      "surface": "一杯",
+      "reading_kana": "いっぱい",
+      "reason": "live has N4 and N5 一杯; app sense matches N4."
+    },
+    {
+      "id": "w_98601c5f9fe56540",
+      "level": "N4",
+      "surface": "うまい",
+      "reading_kana": "うまい",
+      "reason": "N4 旨い covers this card; N2 is 上手い only."
+    },
+    {
+      "id": "w_98c5ecbe9b1af8f0",
+      "level": "N4",
+      "surface": "ひげ",
+      "reading_kana": "ひげ",
+      "reason": "N4 髭 is 수염; N3 is 卑下."
+    },
+    {
+      "id": "w_66c87676a778f34f",
+      "level": "N4",
+      "surface": "おや",
+      "reading_kana": "おや",
+      "reason": "N4 おや is the interjection; N2 is 親."
+    },
+    {
+      "id": "w_7bbc01295f752849",
+      "level": "N4",
+      "surface": "ごみ",
+      "reading_kana": "ごみ",
+      "reason": "N4 塵 is 쓰레기; N3 is 五味."
+    },
+    {
+      "id": "w_8510568b02e96bd2",
+      "level": "N4",
+      "surface": "空く",
+      "reading_kana": "すく",
+      "reason": "live exact 空く/すく is N4."
+    },
+    {
+      "id": "w_dd6cfb328dbd2400",
+      "level": "N3",
+      "surface": "せい",
+      "reading_kana": "せい",
+      "reason": "せい=탓 has no unique badge; N4 背 is the wrong sense."
+    },
+    {
+      "id": "w_d2920b329afac048",
+      "level": "N3",
+      "surface": "当然",
+      "reading_kana": "とうぜん",
+      "reason": "live has both N2 and N3 当然."
+    },
+    {
+      "id": "w_422094ff0a79b584",
+      "level": "N3",
+      "surface": "付く",
+      "reading_kana": "つく",
+      "reason": "live has both N4 and N2 付く."
+    },
+    {
+      "id": "w_fc603d292698586c",
+      "level": "N3",
+      "surface": "かむ",
+      "reading_kana": "かむ",
+      "reason": "N3 擤む is 코를 풀다; N4 is 噛む."
+    },
+    {
+      "id": "w_e8527e876dc06d94",
+      "level": "N2",
+      "surface": "音",
+      "reading_kana": "おん",
+      "reason": "live exact 音/おん is N2."
+    },
+    {
+      "id": "w_c9624a11c7f3b950",
+      "level": "N2",
+      "surface": "尤も",
+      "reading_kana": "もっとも",
+      "reason": "live exact 尤も is N2."
+    },
+    {
+      "id": "w_4e62d76c327ed8cd",
+      "level": "N1",
+      "surface": "ファン",
+      "reading_kana": "ファン",
+      "reason": "live exact ファン is N1."
+    },
+    {
+      "id": "w_3fdb6246f1e9c47f",
+      "level": "N1",
+      "surface": "只",
+      "reading_kana": "ただ",
+      "reason": "live has an N1 只 entry for 공짜."
+    },
+    {
+      "id": "w_3dd265dc10e79033",
+      "level": "N1",
+      "surface": "カンニング",
+      "reading_kana": "カンニング",
+      "reason": "live has both N3 and N1 カンニング."
+    },
+    {
+      "id": "w_df7a287483888d5b",
+      "level": "N3",
+      "surface": "表す",
+      "reading_kana": "あらわす",
+      "reason": "live exact 表(わ)す/あらわす is N3."
+    },
+    {
+      "id": "w_d59a9029ddc91532",
+      "level": "N2",
+      "surface": "碁",
+      "reading_kana": "ご",
+      "reason": "live exact 碁/ご is N2."
+    },
+    {
+      "id": "w_412d7a3479a4f8a3",
+      "level": "N5",
+      "surface": "二匹",
+      "reading_kana": "にひき",
+      "reason": "counter compound; JMdict has no 二匹 lemma."
+    },
+    {
+      "id": "w_4ef84fcf2ec9cfeb",
+      "level": "N2",
+      "surface": "一昨年",
+      "reading_kana": "いっさくねん",
+      "reason": "N5 badge is おととし, not this いっさくねん reading."
+    }
+  ],
+  "policy": "Move only when NAVER live search has an exact surface+reading JLPT badge that matches this card's sense. Homographs and unconfirmed catalog mismatches stay at the app level and are accepted."
+}

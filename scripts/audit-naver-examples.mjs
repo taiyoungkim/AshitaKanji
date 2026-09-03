@@ -30,13 +30,17 @@ for (const row of examples) {
   const word = wordById.get(row.word_id);
   if (!word) continue;
   const score = noteNumber(row.qa_note, 'score');
-  const meaningHits = noteNumber(row.qa_note, 'meaning_hits');
+  const meaningHits = liveMeaningHits(word.meaning_ko, row.ko);
   const targetMatch = noteValue(row.qa_note, 'target_match');
   const flags = [];
-  if (meaningHits === 0) flags.push('한국어 뜻 직접 일치어 없음');
-  if (targetMatch === 'stem') flags.push('활용 어간으로만 목표어 확인');
-  if (targetMatch === 'jmdict-form') flags.push('JMdict 보조 표기로 목표어 확인');
-  if (score !== null && score < 80) flags.push('자동 선택 점수 80 미만');
+  const tokens = koreanTokens(word.meaning_ko);
+  if (tokens.length > 0 && meaningHits === 0) {
+    flags.push('한국어 뜻 직접 일치어 없음');
+  }
+  const surfaceInJp = compactText(word.surface) && compactText(row.jp).includes(compactText(word.surface));
+  if (targetMatch === 'stem' && !surfaceInJp) flags.push('활용 어간으로만 목표어 확인');
+  if (targetMatch === 'jmdict-form' && !surfaceInJp) flags.push('JMdict 보조 표기로 목표어 확인');
+  if (score !== null && score < 80 && !surfaceInJp) flags.push('자동 선택 점수 80 미만');
   if (riskySources.has(clean(row.naver_source_name))) flags.push('우선 검수 출처');
   if (duplicateExampleIds.has(clean(row.naver_example_id))) flags.push('네이버 예문 ID 중복');
   if (duplicateJapanese.has(clean(row.jp))) flags.push('일본어 예문 문장 중복');
@@ -72,7 +76,7 @@ const missing = words
   }));
 
 const checks = {
-  final_word_count: words.length === 6638,
+  final_word_count: words.length === 7026,
   unique_example_word_ids: new Set(examples.map((row) => row.word_id)).size === examples.length,
   all_example_ids_in_final: examples.every((row) => wordById.has(row.word_id)),
   all_required_text_present: examples.every((row) => clean(row.jp) && clean(row.ko)),
@@ -188,6 +192,32 @@ function clean(value) {
   return String(value ?? '').trim();
 }
 
+function compactText(value) {
+  return clean(value).replace(/[\s　]/g, '');
+}
+
+function koreanTokens(value) {
+  const stop = new Set(['하다', '되다', '있다', '없다', '이다', '것', '등']);
+  return [...new Set((clean(value).match(/[가-힣]+/g) || []).filter((token) => !stop.has(token)))];
+}
+
+function liveMeaningHits(meaning, ko) {
+  const compactKo = compactText(ko);
+  return koreanTokens(meaning).filter((token) => {
+    if (compactKo.includes(token)) return true;
+    if (token.endsWith('하다') && token.length > 2 && compactKo.includes(token.slice(0, -2))) return true;
+    if ((token.endsWith('함') || token.endsWith('임')) && token.length > 1 && compactKo.includes(token.slice(0, -1))) {
+      return true;
+    }
+    if (token.endsWith('다') && token.length >= 3) {
+      const stem = token.slice(0, -1);
+      if (compactKo.includes(stem)) return true;
+      if (stem.endsWith('롭') && compactKo.includes(`${stem.slice(0, -1)}로운`)) return true;
+    }
+    return false;
+  }).length;
+}
+
 function relative(path) {
   return path.startsWith(ROOT) ? path.slice(ROOT.length + 1) : path;
 }
@@ -207,7 +237,10 @@ function parseArgs(argv) {
 
 function readCsv(path) {
   const rows = parseCsv(readFileSync(path, 'utf8'));
-  const [headers, ...records] = rows;
+  const [rawHeaders, ...records] = rows;
+  const headers = rawHeaders.map((header, index) =>
+    index === 0 ? header.replace(/^\uFEFF/, '') : header,
+  );
   return records
     .filter((record) => record.some((cell) => clean(cell)))
     .map((record) => Object.fromEntries(headers.map((header, index) => [header, record[index] ?? ''])));

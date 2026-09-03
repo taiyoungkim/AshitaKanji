@@ -21,6 +21,7 @@ interface SessionRow {
   done_review: number;
   done_scan: number;
   again_count: number;
+  source_session_id: number | null;
 }
 
 function rowToSession(r: SessionRow): SessionRecord {
@@ -37,6 +38,7 @@ function rowToSession(r: SessionRow): SessionRecord {
     done_review: r.done_review,
     done_scan: r.done_scan,
     again_count: r.again_count,
+    source_session_id: r.source_session_id,
   };
 }
 
@@ -53,6 +55,7 @@ const UPDATABLE: (keyof SessionRecord)[] = [
   'done_review',
   'done_scan',
   'again_count',
+  'source_session_id',
 ];
 
 export class SqliteSessionRepo implements SessionRepo {
@@ -62,8 +65,8 @@ export class SqliteSessionRepo implements SessionRepo {
     const res = await this.db.runAsync(
       `INSERT INTO session
         (mode, started_at, ended_at, ended_reason, planned_new, planned_review,
-         planned_scan, done_new, done_review, done_scan, again_count)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         planned_scan, done_new, done_review, done_scan, again_count, source_session_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         rec.mode,
         rec.started_at,
@@ -76,6 +79,7 @@ export class SqliteSessionRepo implements SessionRepo {
         rec.done_review,
         rec.done_scan,
         rec.again_count,
+        rec.source_session_id ?? null,
       ],
     );
     return res.lastInsertRowId;

@@ -1,6 +1,18 @@
 // 결과 화면 보상 카드 문구.
 // 오버라인·제목·한 줄 설명. 영문 라벨은 한국어로 (핸드오프 화면 3).
 
+import type { OnigiriIngredientReward, OnigiriProgressSnapshot } from '~/features/onigiri/progress';
+
+/** 세션 번호가 없으면 지난 보상을 축하하지 않는다. */
+export function findRewardForSession(
+  progress: OnigiriProgressSnapshot | null,
+  sessionId: number | null,
+): OnigiriIngredientReward | null {
+  const reward = progress?.lastReward ?? null;
+  if (!reward || sessionId === null) return null;
+  return reward.sessionId === sessionId ? reward : null;
+}
+
 export interface DoneRewardPresentation {
   overline: string;
   title: string;

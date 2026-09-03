@@ -67,6 +67,24 @@ describe('start — queue build', () => {
     expect(s.mainQueue).toHaveLength(3);
   });
 
+  it('keeps an N1-only queue exclusive to words first classified as N1', async () => {
+    cardRepo.seed([
+      word('n1-a', 'N1'),
+      word('n5-a', 'N5'),
+      word('n4-a', 'N4'),
+      word('n2-a', 'N2'),
+      word('n1-b', 'N1'),
+    ]);
+
+    const s = await engine.start(
+      { ...cfg, levels: ['N1'], dailyNewLimit: 10 },
+      NOW,
+    );
+
+    expect(s.mainQueue.map((card) => card.word.id)).toEqual(['n1-a', 'n1-b']);
+    expect(s.mainQueue.every((card) => card.word.level === 'N1')).toBe(true);
+  });
+
   it('does not queue deprecated review cards', async () => {
     cardRepo.seed([{ ...word('old-pattern'), surface: '～区', deprecated: 1 }]);
     await userCardRepo.upsert({

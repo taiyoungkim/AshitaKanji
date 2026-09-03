@@ -1,0 +1,4 @@
+﻿id,app_level,naver_level,status,surface,reading_kana,naver_entry,naver_reading,naver_frequency_add,naver_entry_id,match_basis,candidate_levels,source_url,checked_at,note
+w_9a69e415985ac07b,N2,N4,confirmed_mismatch,柔らかい,やわらかい,柔らかい,やわらかい,JLPT 4,fbe40bdf1eab46d9b53b27b185982c74,surface+reading,N4,https://ja.dict.naver.com/#/search?query=%E6%9F%94%E3%82%89%E3%81%8B%E3%81%84,2026-09-01T23:32:54+0900,
+w_d2920b329afac048,N3,N2,confirmed_mismatch,当然,とうぜん,当然,とうぜん,JLPT 2,b2c00f43e65a466a8afdf096b41d05b9,surface+reading,N2,https://ja.dict.naver.com/#/search?query=%E5%BD%93%E7%84%B6,2026-09-01T23:32:54+0900,
+w_08fb3f57661da121,N4,N2,confirmed_mismatch,硬い,かたい,硬い,かたい,JLPT 2,9d63d6c58a39488b9fd962ae4d0199c5,surface+reading,N2,https://ja.dict.naver.com/#/search?query=%E7%A1%AC%E3%81%84,2026-09-01T23:32:54+0900,

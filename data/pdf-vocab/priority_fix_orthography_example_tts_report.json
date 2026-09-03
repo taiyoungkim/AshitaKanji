@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-19T14:00:41.704139+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 6,
+  "jobs": 6,
+  "preexisting": 0,
+  "planned": 6,
+  "created": 6,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_2ffd011aa9bc9035",
+      "kind": "example",
+      "text": "どっちの道に行きますか。",
+      "file": "assets/audio/examples/w_2ffd011aa9bc9035.mp3"
+    },
+    {
+      "id": "w_fc603d292698586c",
+      "kind": "example",
+      "text": "ハンカチで鼻をかむ。",
+      "file": "assets/audio/examples/w_fc603d292698586c.mp3"
+    },
+    {
+      "id": "w_b516e6af3b2c8f08",
+      "kind": "example",
+      "text": "まさか彼が来るとは思わなかった。",
+      "file": "assets/audio/examples/w_b516e6af3b2c8f08.mp3"
+    },
+    {
+      "id": "w_4c354cb8ef216dc4",
+      "kind": "example",
+      "text": "空き地に雑草が生えている。",
+      "file": "assets/audio/examples/w_4c354cb8ef216dc4.mp3"
+    },
+    {
+      "id": "w_847eb8c2c66cca90",
+      "kind": "example",
+      "text": "あれこれ考えても答えが出ない。",
+      "file": "assets/audio/examples/w_847eb8c2c66cca90.mp3"
+    },
+    {
+      "id": "w_6ff1ea3a8327e6bd",
+      "kind": "example",
+      "text": "大きなあくびをした。",
+      "file": "assets/audio/examples/w_6ff1ea3a8327e6bd.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.693,
+  "dry_run": false
+}

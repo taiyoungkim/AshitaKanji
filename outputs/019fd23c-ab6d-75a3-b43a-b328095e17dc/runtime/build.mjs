@@ -1,1 +1,0 @@
-/Users/tyoung/AshitaKanji/scripts/export-vocab-replacement-xlsx.mjs

@@ -7,6 +7,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
+import { useBottomInset } from '~/hooks/useScreenInsets';
 import { useIsTablet } from '~/lib/device';
 import { KanjiTraceCanvas } from './KanjiTraceCanvas';
 import { PracticePad } from './PracticePad';
@@ -25,6 +26,7 @@ export default function KanjiTraceScreen(): React.ReactNode {
     mode?: string;
   }>();
   const isTablet = useIsTablet();
+  const bottomInset = useBottomInset();
   const { width, height } = useWindowDimensions();
   const [mode, setMode] = useState<Mode>(modeParam === 'practice' ? 'practice' : 'trace');
   // 그리는 동안 스크롤을 꺼서 세로 획이 화면 스크롤로 새지 않게 한다.
@@ -53,7 +55,10 @@ export default function KanjiTraceScreen(): React.ReactNode {
       : '가이드 칸을 따라 쓴 뒤, 아래 빈 연습장에 자유롭게 반복해 보세요';
 
   return (
-    <ScrollView contentContainerStyle={styles.content} scrollEnabled={scrollEnabled}>
+    <ScrollView
+      contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomInset }]}
+      scrollEnabled={scrollEnabled}
+    >
       <View style={styles.head}>
         <Text style={styles.literal}>{char}</Text>
         {gloss ? <Text style={styles.gloss} numberOfLines={2}>{gloss}</Text> : null}

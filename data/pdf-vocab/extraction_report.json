@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T13:55:32.543898+00:00",
+  "generated_at": "2026-08-18T14:33:53.999227+00:00",
   "sources": [
     {
       "source_id": "mkt_n1",
@@ -229,7 +229,7 @@
     "source_verified": 3863,
     "source_needs_review": 0,
     "master_entries": 2926,
-    "app_entries": 2699,
+    "app_entries": 2174,
     "master_verified": 2926,
     "master_needs_review": 0,
     "entry_types": {
@@ -239,14 +239,15 @@
       "sentence": 168
     },
     "match_status": {
-      "exact": 1983,
-      "new": 1843,
-      "surface_only": 37
+      "exact": 3298,
+      "new": 562,
+      "surface_only": 3
     },
     "text_crosscheck": {
       "1": 3783,
       "0": 80
     },
-    "manual_corrections": 12
+    "manual_corrections": 12,
+    "source_scope_excluded": 1025
   }
 }

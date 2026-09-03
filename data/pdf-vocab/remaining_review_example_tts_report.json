@@ -1,0 +1,2781 @@
+{
+  "generated_at": "2026-08-20T02:06:52.967868+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 460,
+  "jobs": 460,
+  "preexisting": 0,
+  "planned": 460,
+  "created": 460,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_08149ad39d83534d",
+      "kind": "example",
+      "text": "咄嗟に説明する。",
+      "file": "assets/audio/examples/w_08149ad39d83534d.mp3"
+    },
+    {
+      "id": "w_09cdf9a8f3634a76",
+      "kind": "example",
+      "text": "とても快い。",
+      "file": "assets/audio/examples/w_09cdf9a8f3634a76.mp3"
+    },
+    {
+      "id": "w_0448ba5ff37549ec",
+      "kind": "example",
+      "text": "牧師について話す。",
+      "file": "assets/audio/examples/w_0448ba5ff37549ec.mp3"
+    },
+    {
+      "id": "w_0d28835187d6eee7",
+      "kind": "example",
+      "text": "街頭について話す。",
+      "file": "assets/audio/examples/w_0d28835187d6eee7.mp3"
+    },
+    {
+      "id": "w_057776e0e75563f7",
+      "kind": "example",
+      "text": "落ち着いて傷付く。",
+      "file": "assets/audio/examples/w_057776e0e75563f7.mp3"
+    },
+    {
+      "id": "w_0787d4f6eb05df72",
+      "kind": "example",
+      "text": "落ち着いて澄む。",
+      "file": "assets/audio/examples/w_0787d4f6eb05df72.mp3"
+    },
+    {
+      "id": "w_0e696b95974c3504",
+      "kind": "example",
+      "text": "踏襲について話す。",
+      "file": "assets/audio/examples/w_0e696b95974c3504.mp3"
+    },
+    {
+      "id": "w_15250f716c78bbf5",
+      "kind": "example",
+      "text": "受け持った仕事をやり遂げる。",
+      "file": "assets/audio/examples/w_15250f716c78bbf5.mp3"
+    },
+    {
+      "id": "w_1715b578802aa5e8",
+      "kind": "example",
+      "text": "億劫だと言う。",
+      "file": "assets/audio/examples/w_1715b578802aa5e8.mp3"
+    },
+    {
+      "id": "w_1380616a4a83aca5",
+      "kind": "example",
+      "text": "合唱について話す。",
+      "file": "assets/audio/examples/w_1380616a4a83aca5.mp3"
+    },
+    {
+      "id": "w_14d8ad09a1ce1c8d",
+      "kind": "example",
+      "text": "英字新聞を読む。",
+      "file": "assets/audio/examples/w_14d8ad09a1ce1c8d.mp3"
+    },
+    {
+      "id": "w_107011573571e52d",
+      "kind": "example",
+      "text": "事故の様子を克明に記録する。",
+      "file": "assets/audio/examples/w_107011573571e52d.mp3"
+    },
+    {
+      "id": "w_18904ffc4733404c",
+      "kind": "example",
+      "text": "落ち着いて取り扱う。",
+      "file": "assets/audio/examples/w_18904ffc4733404c.mp3"
+    },
+    {
+      "id": "w_1ef4822a952c095f",
+      "kind": "example",
+      "text": "早急に返事をください。",
+      "file": "assets/audio/examples/w_1ef4822a952c095f.mp3"
+    },
+    {
+      "id": "w_261f4b9b11e4087d",
+      "kind": "example",
+      "text": "件について話す。",
+      "file": "assets/audio/examples/w_261f4b9b11e4087d.mp3"
+    },
+    {
+      "id": "w_23ce4ea144f00b0e",
+      "kind": "example",
+      "text": "慣例について話す。",
+      "file": "assets/audio/examples/w_23ce4ea144f00b0e.mp3"
+    },
+    {
+      "id": "w_1f45eb00e24b3e52",
+      "kind": "example",
+      "text": "後援について話す。",
+      "file": "assets/audio/examples/w_1f45eb00e24b3e52.mp3"
+    },
+    {
+      "id": "w_216be17021a4cb21",
+      "kind": "example",
+      "text": "疎らだと言う。",
+      "file": "assets/audio/examples/w_216be17021a4cb21.mp3"
+    },
+    {
+      "id": "w_2aa26c83fc7cbe5c",
+      "kind": "example",
+      "text": "手際について話す。",
+      "file": "assets/audio/examples/w_2aa26c83fc7cbe5c.mp3"
+    },
+    {
+      "id": "w_2d2834f101feaba2",
+      "kind": "example",
+      "text": "老衰について話す。",
+      "file": "assets/audio/examples/w_2d2834f101feaba2.mp3"
+    },
+    {
+      "id": "w_3b4224a4660d1da3",
+      "kind": "example",
+      "text": "政策について話す。",
+      "file": "assets/audio/examples/w_3b4224a4660d1da3.mp3"
+    },
+    {
+      "id": "w_2dccc1a101f78c42",
+      "kind": "example",
+      "text": "静止について話す。",
+      "file": "assets/audio/examples/w_2dccc1a101f78c42.mp3"
+    },
+    {
+      "id": "w_3481ee8d26e6a38e",
+      "kind": "example",
+      "text": "時折説明する。",
+      "file": "assets/audio/examples/w_3481ee8d26e6a38e.mp3"
+    },
+    {
+      "id": "w_30e8d0be8f689047",
+      "kind": "example",
+      "text": "無言について話す。",
+      "file": "assets/audio/examples/w_30e8d0be8f689047.mp3"
+    },
+    {
+      "id": "w_3cf0e4c9fa08b8de",
+      "kind": "example",
+      "text": "額について話す。",
+      "file": "assets/audio/examples/w_3cf0e4c9fa08b8de.mp3"
+    },
+    {
+      "id": "w_3bbc70297217f43c",
+      "kind": "example",
+      "text": "得点について話す。",
+      "file": "assets/audio/examples/w_3bbc70297217f43c.mp3"
+    },
+    {
+      "id": "w_403a2b956d0a226d",
+      "kind": "example",
+      "text": "潮について話す。",
+      "file": "assets/audio/examples/w_403a2b956d0a226d.mp3"
+    },
+    {
+      "id": "w_4590fbf50ef6f9fe",
+      "kind": "example",
+      "text": "密集について話す。",
+      "file": "assets/audio/examples/w_4590fbf50ef6f9fe.mp3"
+    },
+    {
+      "id": "w_45ce928fd48f6bb5",
+      "kind": "example",
+      "text": "拡散について話す。",
+      "file": "assets/audio/examples/w_45ce928fd48f6bb5.mp3"
+    },
+    {
+      "id": "w_443c071edfd389f9",
+      "kind": "example",
+      "text": "手紙を拝啓で書き始める。",
+      "file": "assets/audio/examples/w_443c071edfd389f9.mp3"
+    },
+    {
+      "id": "w_47f0de68cb63d845",
+      "kind": "example",
+      "text": "敗北について話す。",
+      "file": "assets/audio/examples/w_47f0de68cb63d845.mp3"
+    },
+    {
+      "id": "w_554c28124edda631",
+      "kind": "example",
+      "text": "悩みについて話す。",
+      "file": "assets/audio/examples/w_554c28124edda631.mp3"
+    },
+    {
+      "id": "w_5ab85d7ac7d33bf8",
+      "kind": "example",
+      "text": "これは格別だ。",
+      "file": "assets/audio/examples/w_5ab85d7ac7d33bf8.mp3"
+    },
+    {
+      "id": "w_58223d6e37dec2ed",
+      "kind": "example",
+      "text": "束縛について話す。",
+      "file": "assets/audio/examples/w_58223d6e37dec2ed.mp3"
+    },
+    {
+      "id": "w_58320aa77025e364",
+      "kind": "example",
+      "text": "落ち着いて励む。",
+      "file": "assets/audio/examples/w_58320aa77025e364.mp3"
+    },
+    {
+      "id": "w_5d7a9d090c61dd89",
+      "kind": "example",
+      "text": "人民について話す。",
+      "file": "assets/audio/examples/w_5d7a9d090c61dd89.mp3"
+    },
+    {
+      "id": "w_60f0df77a7c73dbf",
+      "kind": "example",
+      "text": "これは無効だ。",
+      "file": "assets/audio/examples/w_60f0df77a7c73dbf.mp3"
+    },
+    {
+      "id": "w_64dfcc4f12aada1c",
+      "kind": "example",
+      "text": "失敗の要因を探す。",
+      "file": "assets/audio/examples/w_64dfcc4f12aada1c.mp3"
+    },
+    {
+      "id": "w_60863c261b92a307",
+      "kind": "example",
+      "text": "満月について話す。",
+      "file": "assets/audio/examples/w_60863c261b92a307.mp3"
+    },
+    {
+      "id": "w_60fdfd50b368a133",
+      "kind": "example",
+      "text": "脚色について話す。",
+      "file": "assets/audio/examples/w_60fdfd50b368a133.mp3"
+    },
+    {
+      "id": "w_694197d696105e21",
+      "kind": "example",
+      "text": "短気について話す。",
+      "file": "assets/audio/examples/w_694197d696105e21.mp3"
+    },
+    {
+      "id": "w_6a05d5c98b69beed",
+      "kind": "example",
+      "text": "これは有益だ。",
+      "file": "assets/audio/examples/w_6a05d5c98b69beed.mp3"
+    },
+    {
+      "id": "w_6a239da0e00a33a0",
+      "kind": "example",
+      "text": "これは一様だ。",
+      "file": "assets/audio/examples/w_6a239da0e00a33a0.mp3"
+    },
+    {
+      "id": "w_6ad1f4e202e57ef9",
+      "kind": "example",
+      "text": "主演について話す。",
+      "file": "assets/audio/examples/w_6ad1f4e202e57ef9.mp3"
+    },
+    {
+      "id": "w_6b7e7558849cf59c",
+      "kind": "example",
+      "text": "海運会社で働く。",
+      "file": "assets/audio/examples/w_6b7e7558849cf59c.mp3"
+    },
+    {
+      "id": "w_6ed74d9ae056d361",
+      "kind": "example",
+      "text": "補足について話す。",
+      "file": "assets/audio/examples/w_6ed74d9ae056d361.mp3"
+    },
+    {
+      "id": "w_709b7a3d0384863d",
+      "kind": "example",
+      "text": "落ち着いて危ぶむ。",
+      "file": "assets/audio/examples/w_709b7a3d0384863d.mp3"
+    },
+    {
+      "id": "w_73c19cef3eb31afc",
+      "kind": "example",
+      "text": "導入について話す。",
+      "file": "assets/audio/examples/w_73c19cef3eb31afc.mp3"
+    },
+    {
+      "id": "w_75fe6fbac6e7ce8b",
+      "kind": "example",
+      "text": "人前で貶される。",
+      "file": "assets/audio/examples/w_75fe6fbac6e7ce8b.mp3"
+    },
+    {
+      "id": "w_761f14d952676452",
+      "kind": "example",
+      "text": "戦力について話す。",
+      "file": "assets/audio/examples/w_761f14d952676452.mp3"
+    },
+    {
+      "id": "w_76e1e2b8c3c1ac4a",
+      "kind": "example",
+      "text": "落ち着いて伴奏。",
+      "file": "assets/audio/examples/w_76e1e2b8c3c1ac4a.mp3"
+    },
+    {
+      "id": "w_76936c9c142f0a2c",
+      "kind": "example",
+      "text": "焦げ茶の靴を履く。",
+      "file": "assets/audio/examples/w_76936c9c142f0a2c.mp3"
+    },
+    {
+      "id": "w_7631fcb7cc1b6dff",
+      "kind": "example",
+      "text": "合意について話す。",
+      "file": "assets/audio/examples/w_7631fcb7cc1b6dff.mp3"
+    },
+    {
+      "id": "w_7a938494b57487ba",
+      "kind": "example",
+      "text": "対話について話す。",
+      "file": "assets/audio/examples/w_7a938494b57487ba.mp3"
+    },
+    {
+      "id": "w_7693c24a3ae3f600",
+      "kind": "example",
+      "text": "分母について話す。",
+      "file": "assets/audio/examples/w_7693c24a3ae3f600.mp3"
+    },
+    {
+      "id": "w_78625cf777310f79",
+      "kind": "example",
+      "text": "これは精密だ。",
+      "file": "assets/audio/examples/w_78625cf777310f79.mp3"
+    },
+    {
+      "id": "w_7aceeb2bd1d9b5fd",
+      "kind": "example",
+      "text": "究明について話す。",
+      "file": "assets/audio/examples/w_7aceeb2bd1d9b5fd.mp3"
+    },
+    {
+      "id": "w_7d61c3056e13c0f3",
+      "kind": "example",
+      "text": "縁談について話す。",
+      "file": "assets/audio/examples/w_7d61c3056e13c0f3.mp3"
+    },
+    {
+      "id": "w_7d2dc2d277bc090f",
+      "kind": "example",
+      "text": "把握について話す。",
+      "file": "assets/audio/examples/w_7d2dc2d277bc090f.mp3"
+    },
+    {
+      "id": "w_7ea20007b10fcf12",
+      "kind": "example",
+      "text": "作りについて話す。",
+      "file": "assets/audio/examples/w_7ea20007b10fcf12.mp3"
+    },
+    {
+      "id": "w_82e5e160001eb4f6",
+      "kind": "example",
+      "text": "扉について話す。",
+      "file": "assets/audio/examples/w_82e5e160001eb4f6.mp3"
+    },
+    {
+      "id": "w_832f7650808f7bdf",
+      "kind": "example",
+      "text": "参議院について話す。",
+      "file": "assets/audio/examples/w_832f7650808f7bdf.mp3"
+    },
+    {
+      "id": "w_862152d331038cdb",
+      "kind": "example",
+      "text": "些細なことで怒らない。",
+      "file": "assets/audio/examples/w_862152d331038cdb.mp3"
+    },
+    {
+      "id": "w_8a2ad47b70efabde",
+      "kind": "example",
+      "text": "原則について話す。",
+      "file": "assets/audio/examples/w_8a2ad47b70efabde.mp3"
+    },
+    {
+      "id": "w_8fa803c957f558d8",
+      "kind": "example",
+      "text": "落ち着いて商う。",
+      "file": "assets/audio/examples/w_8fa803c957f558d8.mp3"
+    },
+    {
+      "id": "w_8e3cd551ef6f1b87",
+      "kind": "example",
+      "text": "器について話す。",
+      "file": "assets/audio/examples/w_8e3cd551ef6f1b87.mp3"
+    },
+    {
+      "id": "w_8dc15742d3e128af",
+      "kind": "example",
+      "text": "炬燵について話す。",
+      "file": "assets/audio/examples/w_8dc15742d3e128af.mp3"
+    },
+    {
+      "id": "w_8d691c6743afec92",
+      "kind": "example",
+      "text": "嗜好について話す。",
+      "file": "assets/audio/examples/w_8d691c6743afec92.mp3"
+    },
+    {
+      "id": "w_901f77d9d5da56ba",
+      "kind": "example",
+      "text": "軌道について話す。",
+      "file": "assets/audio/examples/w_901f77d9d5da56ba.mp3"
+    },
+    {
+      "id": "w_8fceccfb0b0413c3",
+      "kind": "example",
+      "text": "何なりと聞いてください。",
+      "file": "assets/audio/examples/w_8fceccfb0b0413c3.mp3"
+    },
+    {
+      "id": "w_957c15a482f8f1d6",
+      "kind": "example",
+      "text": "これは軽快だ。",
+      "file": "assets/audio/examples/w_957c15a482f8f1d6.mp3"
+    },
+    {
+      "id": "w_951746f7e1a78e82",
+      "kind": "example",
+      "text": "世論について話す。",
+      "file": "assets/audio/examples/w_951746f7e1a78e82.mp3"
+    },
+    {
+      "id": "w_95eff4982a9ae779",
+      "kind": "example",
+      "text": "落ち着いて拗れる。",
+      "file": "assets/audio/examples/w_95eff4982a9ae779.mp3"
+    },
+    {
+      "id": "w_9a395510e537f626",
+      "kind": "example",
+      "text": "放射について話す。",
+      "file": "assets/audio/examples/w_9a395510e537f626.mp3"
+    },
+    {
+      "id": "w_9b381d3ac91fbe47",
+      "kind": "example",
+      "text": "丘陵について話す。",
+      "file": "assets/audio/examples/w_9b381d3ac91fbe47.mp3"
+    },
+    {
+      "id": "w_9d47209b0cfa3586",
+      "kind": "example",
+      "text": "秩序について話す。",
+      "file": "assets/audio/examples/w_9d47209b0cfa3586.mp3"
+    },
+    {
+      "id": "w_9da2e123dfafec2a",
+      "kind": "example",
+      "text": "驚きについて話す。",
+      "file": "assets/audio/examples/w_9da2e123dfafec2a.mp3"
+    },
+    {
+      "id": "w_9ded52127611be05",
+      "kind": "example",
+      "text": "ライスについて話す。",
+      "file": "assets/audio/examples/w_9ded52127611be05.mp3"
+    },
+    {
+      "id": "w_9e55eb5c7f99fe7e",
+      "kind": "example",
+      "text": "質疑の時間を設ける。",
+      "file": "assets/audio/examples/w_9e55eb5c7f99fe7e.mp3"
+    },
+    {
+      "id": "w_9bbd560585f647bf",
+      "kind": "example",
+      "text": "実力が格段に上がった。",
+      "file": "assets/audio/examples/w_9bbd560585f647bf.mp3"
+    },
+    {
+      "id": "w_9e8acb6258c3a894",
+      "kind": "example",
+      "text": "乙について話す。",
+      "file": "assets/audio/examples/w_9e8acb6258c3a894.mp3"
+    },
+    {
+      "id": "w_a0aa509058c2107f",
+      "kind": "example",
+      "text": "これは壮大だ。",
+      "file": "assets/audio/examples/w_a0aa509058c2107f.mp3"
+    },
+    {
+      "id": "w_a431987b55d0e484",
+      "kind": "example",
+      "text": "外相について話す。",
+      "file": "assets/audio/examples/w_a431987b55d0e484.mp3"
+    },
+    {
+      "id": "w_a018889fd8c6dab3",
+      "kind": "example",
+      "text": "最早説明する。",
+      "file": "assets/audio/examples/w_a018889fd8c6dab3.mp3"
+    },
+    {
+      "id": "w_a2229cae37a5ea49",
+      "kind": "example",
+      "text": "大衆について話す。",
+      "file": "assets/audio/examples/w_a2229cae37a5ea49.mp3"
+    },
+    {
+      "id": "w_a4a16cdd90bcef18",
+      "kind": "example",
+      "text": "これは誠実だ。",
+      "file": "assets/audio/examples/w_a4a16cdd90bcef18.mp3"
+    },
+    {
+      "id": "w_a5a10027ead73ad9",
+      "kind": "example",
+      "text": "焚き火について話す。",
+      "file": "assets/audio/examples/w_a5a10027ead73ad9.mp3"
+    },
+    {
+      "id": "w_a634c297cfa679d5",
+      "kind": "example",
+      "text": "流しについて話す。",
+      "file": "assets/audio/examples/w_a634c297cfa679d5.mp3"
+    },
+    {
+      "id": "w_a53cb0b0b149d943",
+      "kind": "example",
+      "text": "これは優美だ。",
+      "file": "assets/audio/examples/w_a53cb0b0b149d943.mp3"
+    },
+    {
+      "id": "w_a6b82112020af822",
+      "kind": "example",
+      "text": "材料をふんだんに使う。",
+      "file": "assets/audio/examples/w_a6b82112020af822.mp3"
+    },
+    {
+      "id": "w_a758e3786f37f911",
+      "kind": "example",
+      "text": "加入について話す。",
+      "file": "assets/audio/examples/w_a758e3786f37f911.mp3"
+    },
+    {
+      "id": "w_a78b92fcce84b74c",
+      "kind": "example",
+      "text": "神話について話す。",
+      "file": "assets/audio/examples/w_a78b92fcce84b74c.mp3"
+    },
+    {
+      "id": "w_ac2312063a365246",
+      "kind": "example",
+      "text": "有耶無耶にと言う。",
+      "file": "assets/audio/examples/w_ac2312063a365246.mp3"
+    },
+    {
+      "id": "w_aac844efa1eda5ec",
+      "kind": "example",
+      "text": "ワットについて話す。",
+      "file": "assets/audio/examples/w_aac844efa1eda5ec.mp3"
+    },
+    {
+      "id": "w_aa132fab9dcd35ac",
+      "kind": "example",
+      "text": "工場の跡地に公園ができた。",
+      "file": "assets/audio/examples/w_aa132fab9dcd35ac.mp3"
+    },
+    {
+      "id": "w_ac51cb4ffd9656c5",
+      "kind": "example",
+      "text": "軍備について話す。",
+      "file": "assets/audio/examples/w_ac51cb4ffd9656c5.mp3"
+    },
+    {
+      "id": "w_af28a5619819809b",
+      "kind": "example",
+      "text": "風土について話す。",
+      "file": "assets/audio/examples/w_af28a5619819809b.mp3"
+    },
+    {
+      "id": "w_b294a10dbb183efa",
+      "kind": "example",
+      "text": "目下について話す。",
+      "file": "assets/audio/examples/w_b294a10dbb183efa.mp3"
+    },
+    {
+      "id": "w_b7f37f0b0a8a7c3a",
+      "kind": "example",
+      "text": "循環について話す。",
+      "file": "assets/audio/examples/w_b7f37f0b0a8a7c3a.mp3"
+    },
+    {
+      "id": "w_b8c4ef09992a5ee5",
+      "kind": "example",
+      "text": "家計について話す。",
+      "file": "assets/audio/examples/w_b8c4ef09992a5ee5.mp3"
+    },
+    {
+      "id": "w_c13cfcc3d42bae6a",
+      "kind": "example",
+      "text": "刃について話す。",
+      "file": "assets/audio/examples/w_c13cfcc3d42bae6a.mp3"
+    },
+    {
+      "id": "w_be6c610da5c1ab8d",
+      "kind": "example",
+      "text": "互角について話す。",
+      "file": "assets/audio/examples/w_be6c610da5c1ab8d.mp3"
+    },
+    {
+      "id": "w_c14a80974b96c924",
+      "kind": "example",
+      "text": "これは公だ。",
+      "file": "assets/audio/examples/w_c14a80974b96c924.mp3"
+    },
+    {
+      "id": "w_bd75aa731f4df5da",
+      "kind": "example",
+      "text": "落ち着いて題する。",
+      "file": "assets/audio/examples/w_bd75aa731f4df5da.mp3"
+    },
+    {
+      "id": "w_bdc17fa0eb47ede4",
+      "kind": "example",
+      "text": "適応について話す。",
+      "file": "assets/audio/examples/w_bdc17fa0eb47ede4.mp3"
+    },
+    {
+      "id": "w_bcc508128b2b031b",
+      "kind": "example",
+      "text": "意欲について話す。",
+      "file": "assets/audio/examples/w_bcc508128b2b031b.mp3"
+    },
+    {
+      "id": "w_c57913792276298c",
+      "kind": "example",
+      "text": "落ち着いて練る。",
+      "file": "assets/audio/examples/w_c57913792276298c.mp3"
+    },
+    {
+      "id": "w_c5e51aed47831b05",
+      "kind": "example",
+      "text": "宿命について話す。",
+      "file": "assets/audio/examples/w_c5e51aed47831b05.mp3"
+    },
+    {
+      "id": "w_cad5672ec93eca6c",
+      "kind": "example",
+      "text": "とても夥しい。",
+      "file": "assets/audio/examples/w_cad5672ec93eca6c.mp3"
+    },
+    {
+      "id": "w_c7a2b0e5ff4b6e30",
+      "kind": "example",
+      "text": "朝の風が爽やかだ。",
+      "file": "assets/audio/examples/w_c7a2b0e5ff4b6e30.mp3"
+    },
+    {
+      "id": "w_cb71de767a5e76d3",
+      "kind": "example",
+      "text": "従属について話す。",
+      "file": "assets/audio/examples/w_cb71de767a5e76d3.mp3"
+    },
+    {
+      "id": "w_cc78ebd8b2b6037f",
+      "kind": "example",
+      "text": "大らかな性格の人だ。",
+      "file": "assets/audio/examples/w_cc78ebd8b2b6037f.mp3"
+    },
+    {
+      "id": "w_cc7e713c46e8ee0b",
+      "kind": "example",
+      "text": "勉強を疎かにする。",
+      "file": "assets/audio/examples/w_cc7e713c46e8ee0b.mp3"
+    },
+    {
+      "id": "w_d10439ce737d3db9",
+      "kind": "example",
+      "text": "これは大幅だ。",
+      "file": "assets/audio/examples/w_d10439ce737d3db9.mp3"
+    },
+    {
+      "id": "w_ce3e837e54a698f8",
+      "kind": "example",
+      "text": "延べについて話す。",
+      "file": "assets/audio/examples/w_ce3e837e54a698f8.mp3"
+    },
+    {
+      "id": "w_ce70656918f80907",
+      "kind": "example",
+      "text": "いい加減ににしてください。",
+      "file": "assets/audio/examples/w_ce70656918f80907.mp3"
+    },
+    {
+      "id": "w_d1b2f5e0607db40a",
+      "kind": "example",
+      "text": "掲載について話す。",
+      "file": "assets/audio/examples/w_d1b2f5e0607db40a.mp3"
+    },
+    {
+      "id": "w_d2520d0fb5cd0789",
+      "kind": "example",
+      "text": "運命について話す。",
+      "file": "assets/audio/examples/w_d2520d0fb5cd0789.mp3"
+    },
+    {
+      "id": "w_d44e9dee9505bfdc",
+      "kind": "example",
+      "text": "責務について話す。",
+      "file": "assets/audio/examples/w_d44e9dee9505bfdc.mp3"
+    },
+    {
+      "id": "w_d31bf4bf0503b277",
+      "kind": "example",
+      "text": "伝説について話す。",
+      "file": "assets/audio/examples/w_d31bf4bf0503b277.mp3"
+    },
+    {
+      "id": "w_d6176e972e31403c",
+      "kind": "example",
+      "text": "落ち着いて保護。",
+      "file": "assets/audio/examples/w_d6176e972e31403c.mp3"
+    },
+    {
+      "id": "w_d71a8c96af7a8cb2",
+      "kind": "example",
+      "text": "灌漑について話す。",
+      "file": "assets/audio/examples/w_d71a8c96af7a8cb2.mp3"
+    },
+    {
+      "id": "w_d3797d8c5a619371",
+      "kind": "example",
+      "text": "結合について話す。",
+      "file": "assets/audio/examples/w_d3797d8c5a619371.mp3"
+    },
+    {
+      "id": "w_d987b1d8bd0c3c4e",
+      "kind": "example",
+      "text": "落ち着いて養う。",
+      "file": "assets/audio/examples/w_d987b1d8bd0c3c4e.mp3"
+    },
+    {
+      "id": "w_dc9def9080ab25bb",
+      "kind": "example",
+      "text": "干渉について話す。",
+      "file": "assets/audio/examples/w_dc9def9080ab25bb.mp3"
+    },
+    {
+      "id": "w_df20da25c79e74b0",
+      "kind": "example",
+      "text": "獣について話す。",
+      "file": "assets/audio/examples/w_df20da25c79e74b0.mp3"
+    },
+    {
+      "id": "w_e0a437157871a7d1",
+      "kind": "example",
+      "text": "閉鎖について話す。",
+      "file": "assets/audio/examples/w_e0a437157871a7d1.mp3"
+    },
+    {
+      "id": "w_dc5c65175e51fda2",
+      "kind": "example",
+      "text": "出生について話す。",
+      "file": "assets/audio/examples/w_dc5c65175e51fda2.mp3"
+    },
+    {
+      "id": "w_df40eb9087b51ff0",
+      "kind": "example",
+      "text": "世論を例にして話す。",
+      "file": "assets/audio/examples/w_df40eb9087b51ff0.mp3"
+    },
+    {
+      "id": "w_e1224f159d5c953d",
+      "kind": "example",
+      "text": "落ち着いて拘る。",
+      "file": "assets/audio/examples/w_e1224f159d5c953d.mp3"
+    },
+    {
+      "id": "w_e1947d121eacb34e",
+      "kind": "example",
+      "text": "これは俄だ。",
+      "file": "assets/audio/examples/w_e1947d121eacb34e.mp3"
+    },
+    {
+      "id": "w_e31b34e21fc7db42",
+      "kind": "example",
+      "text": "倹約について話す。",
+      "file": "assets/audio/examples/w_e31b34e21fc7db42.mp3"
+    },
+    {
+      "id": "w_e4296f4107742e4b",
+      "kind": "example",
+      "text": "これは頻繁だ。",
+      "file": "assets/audio/examples/w_e4296f4107742e4b.mp3"
+    },
+    {
+      "id": "w_e4e05a9889537531",
+      "kind": "example",
+      "text": "落ち着いて面する。",
+      "file": "assets/audio/examples/w_e4e05a9889537531.mp3"
+    },
+    {
+      "id": "w_e54da1633aab4538",
+      "kind": "example",
+      "text": "熱湯について話す。",
+      "file": "assets/audio/examples/w_e54da1633aab4538.mp3"
+    },
+    {
+      "id": "w_e620643324cad3ba",
+      "kind": "example",
+      "text": "点検について話す。",
+      "file": "assets/audio/examples/w_e620643324cad3ba.mp3"
+    },
+    {
+      "id": "w_e662da8e9deb3398",
+      "kind": "example",
+      "text": "これは所定だ。",
+      "file": "assets/audio/examples/w_e662da8e9deb3398.mp3"
+    },
+    {
+      "id": "w_e99a3d245db86373",
+      "kind": "example",
+      "text": "最中について話す。",
+      "file": "assets/audio/examples/w_e99a3d245db86373.mp3"
+    },
+    {
+      "id": "w_ec04d6fa6e64036f",
+      "kind": "example",
+      "text": "頂きについて話す。",
+      "file": "assets/audio/examples/w_ec04d6fa6e64036f.mp3"
+    },
+    {
+      "id": "w_e8838443a374451a",
+      "kind": "example",
+      "text": "警戒について話す。",
+      "file": "assets/audio/examples/w_e8838443a374451a.mp3"
+    },
+    {
+      "id": "w_e8f558ead6bebcd3",
+      "kind": "example",
+      "text": "茎について話す。",
+      "file": "assets/audio/examples/w_e8f558ead6bebcd3.mp3"
+    },
+    {
+      "id": "w_eb45aef721aa44a5",
+      "kind": "example",
+      "text": "占領について話す。",
+      "file": "assets/audio/examples/w_eb45aef721aa44a5.mp3"
+    },
+    {
+      "id": "w_ece3fbaf654b9a73",
+      "kind": "example",
+      "text": "家族の健康が何よりだ。",
+      "file": "assets/audio/examples/w_ece3fbaf654b9a73.mp3"
+    },
+    {
+      "id": "w_edc09f2da4cbefb9",
+      "kind": "example",
+      "text": "弾力について話す。",
+      "file": "assets/audio/examples/w_edc09f2da4cbefb9.mp3"
+    },
+    {
+      "id": "w_ef7c2b36a078abcb",
+      "kind": "example",
+      "text": "取っ手について話す。",
+      "file": "assets/audio/examples/w_ef7c2b36a078abcb.mp3"
+    },
+    {
+      "id": "w_ef464edeb0e0b963",
+      "kind": "example",
+      "text": "一括について話す。",
+      "file": "assets/audio/examples/w_ef464edeb0e0b963.mp3"
+    },
+    {
+      "id": "w_f25835b153fd2a07",
+      "kind": "example",
+      "text": "解けるを例にして話す。",
+      "file": "assets/audio/examples/w_f25835b153fd2a07.mp3"
+    },
+    {
+      "id": "w_f1048c84e4c6ddcb",
+      "kind": "example",
+      "text": "悪について話す。",
+      "file": "assets/audio/examples/w_f1048c84e4c6ddcb.mp3"
+    },
+    {
+      "id": "w_fb4934c89048adc0",
+      "kind": "example",
+      "text": "これは著名だ。",
+      "file": "assets/audio/examples/w_fb4934c89048adc0.mp3"
+    },
+    {
+      "id": "w_fcad766eecf8a252",
+      "kind": "example",
+      "text": "詳細について話す。",
+      "file": "assets/audio/examples/w_fcad766eecf8a252.mp3"
+    },
+    {
+      "id": "w_ff6f5d47acd78352",
+      "kind": "example",
+      "text": "止めるを例にして話す。",
+      "file": "assets/audio/examples/w_ff6f5d47acd78352.mp3"
+    },
+    {
+      "id": "w_08831dedef62a3f7",
+      "kind": "example",
+      "text": "汁について話す。",
+      "file": "assets/audio/examples/w_08831dedef62a3f7.mp3"
+    },
+    {
+      "id": "w_feb8a6959fbed24d",
+      "kind": "example",
+      "text": "法案について話す。",
+      "file": "assets/audio/examples/w_feb8a6959fbed24d.mp3"
+    },
+    {
+      "id": "w_089d30f4097e7fb0",
+      "kind": "example",
+      "text": "電流について話す。",
+      "file": "assets/audio/examples/w_089d30f4097e7fb0.mp3"
+    },
+    {
+      "id": "w_1550e1c34be164e4",
+      "kind": "example",
+      "text": "判子について話す。",
+      "file": "assets/audio/examples/w_1550e1c34be164e4.mp3"
+    },
+    {
+      "id": "w_0e981b675d9187b1",
+      "kind": "example",
+      "text": "増加について話す。",
+      "file": "assets/audio/examples/w_0e981b675d9187b1.mp3"
+    },
+    {
+      "id": "w_1e6961ce3411cb4b",
+      "kind": "example",
+      "text": "農業について話す。",
+      "file": "assets/audio/examples/w_1e6961ce3411cb4b.mp3"
+    },
+    {
+      "id": "w_17c56e9002d05e61",
+      "kind": "example",
+      "text": "限りについて話す。",
+      "file": "assets/audio/examples/w_17c56e9002d05e61.mp3"
+    },
+    {
+      "id": "w_1f9c536db0872b3c",
+      "kind": "example",
+      "text": "滝について話す。",
+      "file": "assets/audio/examples/w_1f9c536db0872b3c.mp3"
+    },
+    {
+      "id": "w_1efbbd0a483ff9d0",
+      "kind": "example",
+      "text": "警告について話す。",
+      "file": "assets/audio/examples/w_1efbbd0a483ff9d0.mp3"
+    },
+    {
+      "id": "w_20ea0e1c7d1c4ce3",
+      "kind": "example",
+      "text": "桁について話す。",
+      "file": "assets/audio/examples/w_20ea0e1c7d1c4ce3.mp3"
+    },
+    {
+      "id": "w_21ccbff21988f702",
+      "kind": "example",
+      "text": "殻について話す。",
+      "file": "assets/audio/examples/w_21ccbff21988f702.mp3"
+    },
+    {
+      "id": "w_2903ad5dfafa9ef5",
+      "kind": "example",
+      "text": "そう言えば昨日会いました。",
+      "file": "assets/audio/examples/w_2903ad5dfafa9ef5.mp3"
+    },
+    {
+      "id": "w_332b2501172d4da8",
+      "kind": "example",
+      "text": "単位について話す。",
+      "file": "assets/audio/examples/w_332b2501172d4da8.mp3"
+    },
+    {
+      "id": "w_2f7be60f47f4f39e",
+      "kind": "example",
+      "text": "国籍について話す。",
+      "file": "assets/audio/examples/w_2f7be60f47f4f39e.mp3"
+    },
+    {
+      "id": "w_2f921837b379349c",
+      "kind": "example",
+      "text": "互いについて話す。",
+      "file": "assets/audio/examples/w_2f921837b379349c.mp3"
+    },
+    {
+      "id": "w_3376541ac6deeaa1",
+      "kind": "example",
+      "text": "正しい仮名を覚える。",
+      "file": "assets/audio/examples/w_3376541ac6deeaa1.mp3"
+    },
+    {
+      "id": "w_35b4fa923a9c1473",
+      "kind": "example",
+      "text": "癌について話す。",
+      "file": "assets/audio/examples/w_35b4fa923a9c1473.mp3"
+    },
+    {
+      "id": "w_38c39e1bf0cdc97c",
+      "kind": "example",
+      "text": "監督について話す。",
+      "file": "assets/audio/examples/w_38c39e1bf0cdc97c.mp3"
+    },
+    {
+      "id": "w_463b73e9be94bc29",
+      "kind": "example",
+      "text": "花が萎む。",
+      "file": "assets/audio/examples/w_463b73e9be94bc29.mp3"
+    },
+    {
+      "id": "w_46a151be6d522ea0",
+      "kind": "example",
+      "text": "永久に忘れない。",
+      "file": "assets/audio/examples/w_46a151be6d522ea0.mp3"
+    },
+    {
+      "id": "w_4dbe5a61e64d2816",
+      "kind": "example",
+      "text": "手洗いについて話す。",
+      "file": "assets/audio/examples/w_4dbe5a61e64d2816.mp3"
+    },
+    {
+      "id": "w_51b95d78d41ec7ac",
+      "kind": "example",
+      "text": "陰について話す。",
+      "file": "assets/audio/examples/w_51b95d78d41ec7ac.mp3"
+    },
+    {
+      "id": "w_554c0ea216ecc414",
+      "kind": "example",
+      "text": "影について話す。",
+      "file": "assets/audio/examples/w_554c0ea216ecc414.mp3"
+    },
+    {
+      "id": "w_55a2bff59971f4fb",
+      "kind": "example",
+      "text": "漢和辞典で調べる。",
+      "file": "assets/audio/examples/w_55a2bff59971f4fb.mp3"
+    },
+    {
+      "id": "w_565d5ed0218863fe",
+      "kind": "example",
+      "text": "相互について話す。",
+      "file": "assets/audio/examples/w_565d5ed0218863fe.mp3"
+    },
+    {
+      "id": "w_58176a063983c6e1",
+      "kind": "example",
+      "text": "都心について話す。",
+      "file": "assets/audio/examples/w_58176a063983c6e1.mp3"
+    },
+    {
+      "id": "w_5a7bd88c0a5719a2",
+      "kind": "example",
+      "text": "苦心について話す。",
+      "file": "assets/audio/examples/w_5a7bd88c0a5719a2.mp3"
+    },
+    {
+      "id": "w_5c74df304f5bb6ef",
+      "kind": "example",
+      "text": "夜について話す。",
+      "file": "assets/audio/examples/w_5c74df304f5bb6ef.mp3"
+    },
+    {
+      "id": "w_61a4f08497dfdf71",
+      "kind": "example",
+      "text": "組織について話す。",
+      "file": "assets/audio/examples/w_61a4f08497dfdf71.mp3"
+    },
+    {
+      "id": "w_5e0fcab3f0d081a2",
+      "kind": "example",
+      "text": "書籍について話す。",
+      "file": "assets/audio/examples/w_5e0fcab3f0d081a2.mp3"
+    },
+    {
+      "id": "w_5cec55130734fb81",
+      "kind": "example",
+      "text": "手間について話す。",
+      "file": "assets/audio/examples/w_5cec55130734fb81.mp3"
+    },
+    {
+      "id": "w_65ce4b6319520a16",
+      "kind": "example",
+      "text": "長短について話す。",
+      "file": "assets/audio/examples/w_65ce4b6319520a16.mp3"
+    },
+    {
+      "id": "w_6a14f4fb1bf8c167",
+      "kind": "example",
+      "text": "軍隊について話す。",
+      "file": "assets/audio/examples/w_6a14f4fb1bf8c167.mp3"
+    },
+    {
+      "id": "w_6d65f573426d6306",
+      "kind": "example",
+      "text": "引用について話す。",
+      "file": "assets/audio/examples/w_6d65f573426d6306.mp3"
+    },
+    {
+      "id": "w_721dd563bfb9228e",
+      "kind": "example",
+      "text": "礼について話す。",
+      "file": "assets/audio/examples/w_721dd563bfb9228e.mp3"
+    },
+    {
+      "id": "w_76fa724c51a7330f",
+      "kind": "example",
+      "text": "実施について話す。",
+      "file": "assets/audio/examples/w_76fa724c51a7330f.mp3"
+    },
+    {
+      "id": "w_7087b27273d496b5",
+      "kind": "example",
+      "text": "絶対説明する。",
+      "file": "assets/audio/examples/w_7087b27273d496b5.mp3"
+    },
+    {
+      "id": "w_78325dbdfa5e2da6",
+      "kind": "example",
+      "text": "組合に加入する。",
+      "file": "assets/audio/examples/w_78325dbdfa5e2da6.mp3"
+    },
+    {
+      "id": "w_7adc49967d627444",
+      "kind": "example",
+      "text": "侵入について話す。",
+      "file": "assets/audio/examples/w_7adc49967d627444.mp3"
+    },
+    {
+      "id": "w_7be7b280d00ddd2e",
+      "kind": "example",
+      "text": "その頃は学生だった。",
+      "file": "assets/audio/examples/w_7be7b280d00ddd2e.mp3"
+    },
+    {
+      "id": "w_7f446e56ccf4f51c",
+      "kind": "example",
+      "text": "懸命に働く。",
+      "file": "assets/audio/examples/w_7f446e56ccf4f51c.mp3"
+    },
+    {
+      "id": "w_80d1fde9c12ec7bb",
+      "kind": "example",
+      "text": "活発について話す。",
+      "file": "assets/audio/examples/w_80d1fde9c12ec7bb.mp3"
+    },
+    {
+      "id": "w_81c9dc74c01669b1",
+      "kind": "example",
+      "text": "その上を使う。",
+      "file": "assets/audio/examples/w_81c9dc74c01669b1.mp3"
+    },
+    {
+      "id": "w_82154f69404ef3b3",
+      "kind": "example",
+      "text": "更に詳しく説明する。",
+      "file": "assets/audio/examples/w_82154f69404ef3b3.mp3"
+    },
+    {
+      "id": "w_831c5e9a87f0c027",
+      "kind": "example",
+      "text": "下線について話す。",
+      "file": "assets/audio/examples/w_831c5e9a87f0c027.mp3"
+    },
+    {
+      "id": "w_8348344251cc1290",
+      "kind": "example",
+      "text": "軍について話す。",
+      "file": "assets/audio/examples/w_8348344251cc1290.mp3"
+    },
+    {
+      "id": "w_837681aeccee5dd7",
+      "kind": "example",
+      "text": "寒帯に住む動物もいる。",
+      "file": "assets/audio/examples/w_837681aeccee5dd7.mp3"
+    },
+    {
+      "id": "w_84b185d190b086ff",
+      "kind": "example",
+      "text": "発行について話す。",
+      "file": "assets/audio/examples/w_84b185d190b086ff.mp3"
+    },
+    {
+      "id": "w_83b5460f8df7ce6b",
+      "kind": "example",
+      "text": "反映について話す。",
+      "file": "assets/audio/examples/w_83b5460f8df7ce6b.mp3"
+    },
+    {
+      "id": "w_85d94fbe16f89348",
+      "kind": "example",
+      "text": "落ち着いて縫う。",
+      "file": "assets/audio/examples/w_85d94fbe16f89348.mp3"
+    },
+    {
+      "id": "w_8cab62ce1744b927",
+      "kind": "example",
+      "text": "対立について話す。",
+      "file": "assets/audio/examples/w_8cab62ce1744b927.mp3"
+    },
+    {
+      "id": "w_8fdcc4961a0171a0",
+      "kind": "example",
+      "text": "スターについて話す。",
+      "file": "assets/audio/examples/w_8fdcc4961a0171a0.mp3"
+    },
+    {
+      "id": "w_8e5fc40297a3d335",
+      "kind": "example",
+      "text": "速力について話す。",
+      "file": "assets/audio/examples/w_8e5fc40297a3d335.mp3"
+    },
+    {
+      "id": "w_8ce7129fab26d810",
+      "kind": "example",
+      "text": "文明について話す。",
+      "file": "assets/audio/examples/w_8ce7129fab26d810.mp3"
+    },
+    {
+      "id": "w_8abfd2bb2953f1cf",
+      "kind": "example",
+      "text": "解消について話す。",
+      "file": "assets/audio/examples/w_8abfd2bb2953f1cf.mp3"
+    },
+    {
+      "id": "w_946f396d0893894e",
+      "kind": "example",
+      "text": "これは異常だ。",
+      "file": "assets/audio/examples/w_946f396d0893894e.mp3"
+    },
+    {
+      "id": "w_93d81f41564b0400",
+      "kind": "example",
+      "text": "新たな挑戦を始める。",
+      "file": "assets/audio/examples/w_93d81f41564b0400.mp3"
+    },
+    {
+      "id": "w_918c3022ec6cc0f1",
+      "kind": "example",
+      "text": "下について話す。",
+      "file": "assets/audio/examples/w_918c3022ec6cc0f1.mp3"
+    },
+    {
+      "id": "w_94c0adef044f3154",
+      "kind": "example",
+      "text": "落ち着いて失う。",
+      "file": "assets/audio/examples/w_94c0adef044f3154.mp3"
+    },
+    {
+      "id": "w_94e5e900e99061d0",
+      "kind": "example",
+      "text": "生け花について話す。",
+      "file": "assets/audio/examples/w_94e5e900e99061d0.mp3"
+    },
+    {
+      "id": "w_97c3e5fdafc473b5",
+      "kind": "example",
+      "text": "敵について話す。",
+      "file": "assets/audio/examples/w_97c3e5fdafc473b5.mp3"
+    },
+    {
+      "id": "w_97fd38bc63ce46e6",
+      "kind": "example",
+      "text": "方向について話す。",
+      "file": "assets/audio/examples/w_97fd38bc63ce46e6.mp3"
+    },
+    {
+      "id": "w_992a6e9147e43979",
+      "kind": "example",
+      "text": "随筆について話す。",
+      "file": "assets/audio/examples/w_992a6e9147e43979.mp3"
+    },
+    {
+      "id": "w_9bbf7800b045571e",
+      "kind": "example",
+      "text": "通知について話す。",
+      "file": "assets/audio/examples/w_9bbf7800b045571e.mp3"
+    },
+    {
+      "id": "w_9ecd6d2a06e93c3c",
+      "kind": "example",
+      "text": "落ち着いて注ぐ。",
+      "file": "assets/audio/examples/w_9ecd6d2a06e93c3c.mp3"
+    },
+    {
+      "id": "w_9f5d305308f04941",
+      "kind": "example",
+      "text": "これは一流だ。",
+      "file": "assets/audio/examples/w_9f5d305308f04941.mp3"
+    },
+    {
+      "id": "w_990cb75070dc4b99",
+      "kind": "example",
+      "text": "これは垂直だ。",
+      "file": "assets/audio/examples/w_990cb75070dc4b99.mp3"
+    },
+    {
+      "id": "w_a1021aa0cfda591b",
+      "kind": "example",
+      "text": "落ち着いて劣る。",
+      "file": "assets/audio/examples/w_a1021aa0cfda591b.mp3"
+    },
+    {
+      "id": "w_a1af5d3d26a5e7b2",
+      "kind": "example",
+      "text": "落ち着いて換える。",
+      "file": "assets/audio/examples/w_a1af5d3d26a5e7b2.mp3"
+    },
+    {
+      "id": "w_9fa827c41de0987b",
+      "kind": "example",
+      "text": "質について話す。",
+      "file": "assets/audio/examples/w_9fa827c41de0987b.mp3"
+    },
+    {
+      "id": "w_a88976287b450da4",
+      "kind": "example",
+      "text": "落ち着いて反る。",
+      "file": "assets/audio/examples/w_a88976287b450da4.mp3"
+    },
+    {
+      "id": "w_a190e772e12a363a",
+      "kind": "example",
+      "text": "流れについて話す。",
+      "file": "assets/audio/examples/w_a190e772e12a363a.mp3"
+    },
+    {
+      "id": "w_a28378d63f77e2a2",
+      "kind": "example",
+      "text": "変換について話す。",
+      "file": "assets/audio/examples/w_a28378d63f77e2a2.mp3"
+    },
+    {
+      "id": "w_aadadaa037cbec37",
+      "kind": "example",
+      "text": "文脈について話す。",
+      "file": "assets/audio/examples/w_aadadaa037cbec37.mp3"
+    },
+    {
+      "id": "w_a89d7543de8ec945",
+      "kind": "example",
+      "text": "原油について話す。",
+      "file": "assets/audio/examples/w_a89d7543de8ec945.mp3"
+    },
+    {
+      "id": "w_b14c5f7eb90054ee",
+      "kind": "example",
+      "text": "不幸について話す。",
+      "file": "assets/audio/examples/w_b14c5f7eb90054ee.mp3"
+    },
+    {
+      "id": "w_af3901b562523664",
+      "kind": "example",
+      "text": "信用について話す。",
+      "file": "assets/audio/examples/w_af3901b562523664.mp3"
+    },
+    {
+      "id": "w_b244afc15234ffcb",
+      "kind": "example",
+      "text": "程について話す。",
+      "file": "assets/audio/examples/w_b244afc15234ffcb.mp3"
+    },
+    {
+      "id": "w_b550b37b661afe05",
+      "kind": "example",
+      "text": "落ち着いて吊る。",
+      "file": "assets/audio/examples/w_b550b37b661afe05.mp3"
+    },
+    {
+      "id": "w_b634948494be7e44",
+      "kind": "example",
+      "text": "落ち着いて斬る。",
+      "file": "assets/audio/examples/w_b634948494be7e44.mp3"
+    },
+    {
+      "id": "w_b67e9f01ecf28a70",
+      "kind": "example",
+      "text": "首相について話す。",
+      "file": "assets/audio/examples/w_b67e9f01ecf28a70.mp3"
+    },
+    {
+      "id": "w_b69f8cd19581f34a",
+      "kind": "example",
+      "text": "始終説明する。",
+      "file": "assets/audio/examples/w_b69f8cd19581f34a.mp3"
+    },
+    {
+      "id": "w_bfb980ab8575a940",
+      "kind": "example",
+      "text": "宿について話す。",
+      "file": "assets/audio/examples/w_bfb980ab8575a940.mp3"
+    },
+    {
+      "id": "w_b9dfaa030a7cffff",
+      "kind": "example",
+      "text": "仮定について話す。",
+      "file": "assets/audio/examples/w_b9dfaa030a7cffff.mp3"
+    },
+    {
+      "id": "w_bdfe938ef5539252",
+      "kind": "example",
+      "text": "皮膚について話す。",
+      "file": "assets/audio/examples/w_bdfe938ef5539252.mp3"
+    },
+    {
+      "id": "w_c3e04c937bcd7643",
+      "kind": "example",
+      "text": "生命について話す。",
+      "file": "assets/audio/examples/w_c3e04c937bcd7643.mp3"
+    },
+    {
+      "id": "w_c5eee0af43aa0714",
+      "kind": "example",
+      "text": "定規について話す。",
+      "file": "assets/audio/examples/w_c5eee0af43aa0714.mp3"
+    },
+    {
+      "id": "w_c7a422ab60dc14eb",
+      "kind": "example",
+      "text": "職について話す。",
+      "file": "assets/audio/examples/w_c7a422ab60dc14eb.mp3"
+    },
+    {
+      "id": "w_c6900e0ec3be2de7",
+      "kind": "example",
+      "text": "これは一般だ。",
+      "file": "assets/audio/examples/w_c6900e0ec3be2de7.mp3"
+    },
+    {
+      "id": "w_ca4087c7119f45b7",
+      "kind": "example",
+      "text": "項目について話す。",
+      "file": "assets/audio/examples/w_ca4087c7119f45b7.mp3"
+    },
+    {
+      "id": "w_c83f98ab01349fbc",
+      "kind": "example",
+      "text": "処理について話す。",
+      "file": "assets/audio/examples/w_c83f98ab01349fbc.mp3"
+    },
+    {
+      "id": "w_cbaa90d9cde4ed8e",
+      "kind": "example",
+      "text": "別々説明する。",
+      "file": "assets/audio/examples/w_cbaa90d9cde4ed8e.mp3"
+    },
+    {
+      "id": "w_cd21637b9647fa3c",
+      "kind": "example",
+      "text": "上を例にして話す。",
+      "file": "assets/audio/examples/w_cd21637b9647fa3c.mp3"
+    },
+    {
+      "id": "w_d16eddc3944c223d",
+      "kind": "example",
+      "text": "これは豪華だ。",
+      "file": "assets/audio/examples/w_d16eddc3944c223d.mp3"
+    },
+    {
+      "id": "w_d0a75379a71718d7",
+      "kind": "example",
+      "text": "半径について話す。",
+      "file": "assets/audio/examples/w_d0a75379a71718d7.mp3"
+    },
+    {
+      "id": "w_d0d3f900576edd1c",
+      "kind": "example",
+      "text": "落ち着いて優れる。",
+      "file": "assets/audio/examples/w_d0d3f900576edd1c.mp3"
+    },
+    {
+      "id": "w_cd408b0b451d9102",
+      "kind": "example",
+      "text": "粒について話す。",
+      "file": "assets/audio/examples/w_cd408b0b451d9102.mp3"
+    },
+    {
+      "id": "w_d33bc9d542950232",
+      "kind": "example",
+      "text": "人類について話す。",
+      "file": "assets/audio/examples/w_d33bc9d542950232.mp3"
+    },
+    {
+      "id": "w_d227708f454fd822",
+      "kind": "example",
+      "text": "響きについて話す。",
+      "file": "assets/audio/examples/w_d227708f454fd822.mp3"
+    },
+    {
+      "id": "w_d3a58aebb4ab933c",
+      "kind": "example",
+      "text": "これは深刻だ。",
+      "file": "assets/audio/examples/w_d3a58aebb4ab933c.mp3"
+    },
+    {
+      "id": "w_d3f17036d33858fe",
+      "kind": "example",
+      "text": "摩擦について話す。",
+      "file": "assets/audio/examples/w_d3f17036d33858fe.mp3"
+    },
+    {
+      "id": "w_d6d9b20dd65a6320",
+      "kind": "example",
+      "text": "紙幣について話す。",
+      "file": "assets/audio/examples/w_d6d9b20dd65a6320.mp3"
+    },
+    {
+      "id": "w_d4fa467591d76372",
+      "kind": "example",
+      "text": "落ち着いて脅かす。",
+      "file": "assets/audio/examples/w_d4fa467591d76372.mp3"
+    },
+    {
+      "id": "w_d74b79630f0b2aad",
+      "kind": "example",
+      "text": "分量について話す。",
+      "file": "assets/audio/examples/w_d74b79630f0b2aad.mp3"
+    },
+    {
+      "id": "w_d61624d3ed6a7a85",
+      "kind": "example",
+      "text": "解散について話す。",
+      "file": "assets/audio/examples/w_d61624d3ed6a7a85.mp3"
+    },
+    {
+      "id": "w_d7667ac0ce31a6f0",
+      "kind": "example",
+      "text": "思考について話す。",
+      "file": "assets/audio/examples/w_d7667ac0ce31a6f0.mp3"
+    },
+    {
+      "id": "w_db9032d584009b9f",
+      "kind": "example",
+      "text": "布について話す。",
+      "file": "assets/audio/examples/w_db9032d584009b9f.mp3"
+    },
+    {
+      "id": "w_dfb409211ee33e05",
+      "kind": "example",
+      "text": "下を例にして話す。",
+      "file": "assets/audio/examples/w_dfb409211ee33e05.mp3"
+    },
+    {
+      "id": "w_de46662f2a1c5c26",
+      "kind": "example",
+      "text": "出世について話す。",
+      "file": "assets/audio/examples/w_de46662f2a1c5c26.mp3"
+    },
+    {
+      "id": "w_df68abded50e5667",
+      "kind": "example",
+      "text": "看病について話す。",
+      "file": "assets/audio/examples/w_df68abded50e5667.mp3"
+    },
+    {
+      "id": "w_e1a658a7002ab27f",
+      "kind": "example",
+      "text": "刀について話す。",
+      "file": "assets/audio/examples/w_e1a658a7002ab27f.mp3"
+    },
+    {
+      "id": "w_e53741dee87d1235",
+      "kind": "example",
+      "text": "悪魔について話す。",
+      "file": "assets/audio/examples/w_e53741dee87d1235.mp3"
+    },
+    {
+      "id": "w_e8b92dff533c31b0",
+      "kind": "example",
+      "text": "肌について話す。",
+      "file": "assets/audio/examples/w_e8b92dff533c31b0.mp3"
+    },
+    {
+      "id": "w_ea6c29e756462e49",
+      "kind": "example",
+      "text": "父母について話す。",
+      "file": "assets/audio/examples/w_ea6c29e756462e49.mp3"
+    },
+    {
+      "id": "w_e81883cba896b19f",
+      "kind": "example",
+      "text": "小数を計算する。",
+      "file": "assets/audio/examples/w_e81883cba896b19f.mp3"
+    },
+    {
+      "id": "w_e817f861b7eb79b7",
+      "kind": "example",
+      "text": "応用について話す。",
+      "file": "assets/audio/examples/w_e817f861b7eb79b7.mp3"
+    },
+    {
+      "id": "w_eb16b05f0fdc7144",
+      "kind": "example",
+      "text": "構成について話す。",
+      "file": "assets/audio/examples/w_eb16b05f0fdc7144.mp3"
+    },
+    {
+      "id": "w_efe2a9d05bef8682",
+      "kind": "example",
+      "text": "方針について話す。",
+      "file": "assets/audio/examples/w_efe2a9d05bef8682.mp3"
+    },
+    {
+      "id": "w_f49cc52552a99478",
+      "kind": "example",
+      "text": "現代の仮名遣いを学ぶ。",
+      "file": "assets/audio/examples/w_f49cc52552a99478.mp3"
+    },
+    {
+      "id": "w_f761a641dc383df1",
+      "kind": "example",
+      "text": "罪について話す。",
+      "file": "assets/audio/examples/w_f761a641dc383df1.mp3"
+    },
+    {
+      "id": "w_f0a36233a8257efe",
+      "kind": "example",
+      "text": "黒字について話す。",
+      "file": "assets/audio/examples/w_f0a36233a8257efe.mp3"
+    },
+    {
+      "id": "w_f139e0d7de451723",
+      "kind": "example",
+      "text": "解答について話す。",
+      "file": "assets/audio/examples/w_f139e0d7de451723.mp3"
+    },
+    {
+      "id": "w_f7bfafb5f809a124",
+      "kind": "example",
+      "text": "傑作について話す。",
+      "file": "assets/audio/examples/w_f7bfafb5f809a124.mp3"
+    },
+    {
+      "id": "w_f8af1abd32dbfe9d",
+      "kind": "example",
+      "text": "酸素について話す。",
+      "file": "assets/audio/examples/w_f8af1abd32dbfe9d.mp3"
+    },
+    {
+      "id": "w_f961b13aeb97fb65",
+      "kind": "example",
+      "text": "祖先について話す。",
+      "file": "assets/audio/examples/w_f961b13aeb97fb65.mp3"
+    },
+    {
+      "id": "w_fadcbec286367d67",
+      "kind": "example",
+      "text": "署名について話す。",
+      "file": "assets/audio/examples/w_fadcbec286367d67.mp3"
+    },
+    {
+      "id": "w_fc1ef79be6cfc1d4",
+      "kind": "example",
+      "text": "実について話す。",
+      "file": "assets/audio/examples/w_fc1ef79be6cfc1d4.mp3"
+    },
+    {
+      "id": "w_fbd76b713b13039a",
+      "kind": "example",
+      "text": "湿気について話す。",
+      "file": "assets/audio/examples/w_fbd76b713b13039a.mp3"
+    },
+    {
+      "id": "w_fdb9df7731c17106",
+      "kind": "example",
+      "text": "推薦について話す。",
+      "file": "assets/audio/examples/w_fdb9df7731c17106.mp3"
+    },
+    {
+      "id": "w_fed055728d831788",
+      "kind": "example",
+      "text": "これは純粋だ。",
+      "file": "assets/audio/examples/w_fed055728d831788.mp3"
+    },
+    {
+      "id": "w_066f479d049724ea",
+      "kind": "example",
+      "text": "一秒について話す。",
+      "file": "assets/audio/examples/w_066f479d049724ea.mp3"
+    },
+    {
+      "id": "w_ff046eb535486a13",
+      "kind": "example",
+      "text": "世紀について話す。",
+      "file": "assets/audio/examples/w_ff046eb535486a13.mp3"
+    },
+    {
+      "id": "w_09d6b72c92cc2716",
+      "kind": "example",
+      "text": "現金について話す。",
+      "file": "assets/audio/examples/w_09d6b72c92cc2716.mp3"
+    },
+    {
+      "id": "w_0e9cab5ccd7e7e49",
+      "kind": "example",
+      "text": "大学で工学を専攻する。",
+      "file": "assets/audio/examples/w_0e9cab5ccd7e7e49.mp3"
+    },
+    {
+      "id": "w_11029cfda3c417c2",
+      "kind": "example",
+      "text": "発達について話す。",
+      "file": "assets/audio/examples/w_11029cfda3c417c2.mp3"
+    },
+    {
+      "id": "w_12ed136adb62b130",
+      "kind": "example",
+      "text": "両側について話す。",
+      "file": "assets/audio/examples/w_12ed136adb62b130.mp3"
+    },
+    {
+      "id": "w_14b7a7565fa9e8f4",
+      "kind": "example",
+      "text": "度々同じミスをする。",
+      "file": "assets/audio/examples/w_14b7a7565fa9e8f4.mp3"
+    },
+    {
+      "id": "w_16b5e002c7a1d2f2",
+      "kind": "example",
+      "text": "その内また連絡します。",
+      "file": "assets/audio/examples/w_16b5e002c7a1d2f2.mp3"
+    },
+    {
+      "id": "w_1833552e6b79b74b",
+      "kind": "example",
+      "text": "販売について話す。",
+      "file": "assets/audio/examples/w_1833552e6b79b74b.mp3"
+    },
+    {
+      "id": "w_1954b22e948706ba",
+      "kind": "example",
+      "text": "落ち着いて配る。",
+      "file": "assets/audio/examples/w_1954b22e948706ba.mp3"
+    },
+    {
+      "id": "w_1bfd2b2fef93d27e",
+      "kind": "example",
+      "text": "既に出発した。",
+      "file": "assets/audio/examples/w_1bfd2b2fef93d27e.mp3"
+    },
+    {
+      "id": "w_260436ffc158f4b2",
+      "kind": "example",
+      "text": "用途について話す。",
+      "file": "assets/audio/examples/w_260436ffc158f4b2.mp3"
+    },
+    {
+      "id": "w_345b257e320eb063",
+      "kind": "example",
+      "text": "ダムについて話す。",
+      "file": "assets/audio/examples/w_345b257e320eb063.mp3"
+    },
+    {
+      "id": "w_30fede19350e0b02",
+      "kind": "example",
+      "text": "空を例にして話す。",
+      "file": "assets/audio/examples/w_30fede19350e0b02.mp3"
+    },
+    {
+      "id": "w_3d222fef5a12ef13",
+      "kind": "example",
+      "text": "勇気について話す。",
+      "file": "assets/audio/examples/w_3d222fef5a12ef13.mp3"
+    },
+    {
+      "id": "w_3ed6307dd0dc024f",
+      "kind": "example",
+      "text": "部品について話す。",
+      "file": "assets/audio/examples/w_3ed6307dd0dc024f.mp3"
+    },
+    {
+      "id": "w_41251cda052c6ddc",
+      "kind": "example",
+      "text": "これは大量だ。",
+      "file": "assets/audio/examples/w_41251cda052c6ddc.mp3"
+    },
+    {
+      "id": "w_43832edeed9e8d99",
+      "kind": "example",
+      "text": "奥について話す。",
+      "file": "assets/audio/examples/w_43832edeed9e8d99.mp3"
+    },
+    {
+      "id": "w_1c2ded63174fe839",
+      "kind": "example",
+      "text": "小包について話す。",
+      "file": "assets/audio/examples/w_1c2ded63174fe839.mp3"
+    },
+    {
+      "id": "w_6e686d3e4ecd6a66",
+      "kind": "example",
+      "text": "旅について話す。",
+      "file": "assets/audio/examples/w_6e686d3e4ecd6a66.mp3"
+    },
+    {
+      "id": "w_53eb0fa053f5596f",
+      "kind": "example",
+      "text": "対策について話す。",
+      "file": "assets/audio/examples/w_53eb0fa053f5596f.mp3"
+    },
+    {
+      "id": "w_512c961eb62a41e9",
+      "kind": "example",
+      "text": "煙について話す。",
+      "file": "assets/audio/examples/w_512c961eb62a41e9.mp3"
+    },
+    {
+      "id": "w_4af9f6c0aa9f9f51",
+      "kind": "example",
+      "text": "祭りについて話す。",
+      "file": "assets/audio/examples/w_4af9f6c0aa9f9f51.mp3"
+    },
+    {
+      "id": "w_65ac73e021bc97c0",
+      "kind": "example",
+      "text": "縮小について話す。",
+      "file": "assets/audio/examples/w_65ac73e021bc97c0.mp3"
+    },
+    {
+      "id": "w_6a5246d86b2c0f33",
+      "kind": "example",
+      "text": "落ち着いて残業。",
+      "file": "assets/audio/examples/w_6a5246d86b2c0f33.mp3"
+    },
+    {
+      "id": "w_78e76c898770f844",
+      "kind": "example",
+      "text": "階段を上る。",
+      "file": "assets/audio/examples/w_78e76c898770f844.mp3"
+    },
+    {
+      "id": "w_7e59da7fcdde90bc",
+      "kind": "example",
+      "text": "被害について話す。",
+      "file": "assets/audio/examples/w_7e59da7fcdde90bc.mp3"
+    },
+    {
+      "id": "w_7b4b7d9964deb0b8",
+      "kind": "example",
+      "text": "広告について話す。",
+      "file": "assets/audio/examples/w_7b4b7d9964deb0b8.mp3"
+    },
+    {
+      "id": "w_817f58d5b7a591e1",
+      "kind": "example",
+      "text": "美人について話す。",
+      "file": "assets/audio/examples/w_817f58d5b7a591e1.mp3"
+    },
+    {
+      "id": "w_71ad608226cb407e",
+      "kind": "example",
+      "text": "拍手について話す。",
+      "file": "assets/audio/examples/w_71ad608226cb407e.mp3"
+    },
+    {
+      "id": "w_83fc519a9c83ad68",
+      "kind": "example",
+      "text": "選択について話す。",
+      "file": "assets/audio/examples/w_83fc519a9c83ad68.mp3"
+    },
+    {
+      "id": "w_8518c3195cf69801",
+      "kind": "example",
+      "text": "書留について話す。",
+      "file": "assets/audio/examples/w_8518c3195cf69801.mp3"
+    },
+    {
+      "id": "w_8661219da49b6cd7",
+      "kind": "example",
+      "text": "内容について話す。",
+      "file": "assets/audio/examples/w_8661219da49b6cd7.mp3"
+    },
+    {
+      "id": "w_876ce9a1dd2dbf62",
+      "kind": "example",
+      "text": "岩について話す。",
+      "file": "assets/audio/examples/w_876ce9a1dd2dbf62.mp3"
+    },
+    {
+      "id": "w_8d1fe04531c739e0",
+      "kind": "example",
+      "text": "就職について話す。",
+      "file": "assets/audio/examples/w_8d1fe04531c739e0.mp3"
+    },
+    {
+      "id": "w_93470228cf879755",
+      "kind": "example",
+      "text": "辛いを例にして話す。",
+      "file": "assets/audio/examples/w_93470228cf879755.mp3"
+    },
+    {
+      "id": "w_8c83a0eadc0c4e3d",
+      "kind": "example",
+      "text": "落ち着いて取れる。",
+      "file": "assets/audio/examples/w_8c83a0eadc0c4e3d.mp3"
+    },
+    {
+      "id": "w_93507c9aecd20af4",
+      "kind": "example",
+      "text": "物価について話す。",
+      "file": "assets/audio/examples/w_93507c9aecd20af4.mp3"
+    },
+    {
+      "id": "w_9a63e40ea88a885c",
+      "kind": "example",
+      "text": "暫く待ってください。",
+      "file": "assets/audio/examples/w_9a63e40ea88a885c.mp3"
+    },
+    {
+      "id": "w_9f2c10d7c3b936d0",
+      "kind": "example",
+      "text": "通信について話す。",
+      "file": "assets/audio/examples/w_9f2c10d7c3b936d0.mp3"
+    },
+    {
+      "id": "w_a3a1ab15d2a2b883",
+      "kind": "example",
+      "text": "土地について話す。",
+      "file": "assets/audio/examples/w_a3a1ab15d2a2b883.mp3"
+    },
+    {
+      "id": "w_9cb8fc3afd4e0e4a",
+      "kind": "example",
+      "text": "男子について話す。",
+      "file": "assets/audio/examples/w_9cb8fc3afd4e0e4a.mp3"
+    },
+    {
+      "id": "w_a27acf0180265ee0",
+      "kind": "example",
+      "text": "南北について話す。",
+      "file": "assets/audio/examples/w_a27acf0180265ee0.mp3"
+    },
+    {
+      "id": "w_a660e6568a3e669d",
+      "kind": "example",
+      "text": "喜びについて話す。",
+      "file": "assets/audio/examples/w_a660e6568a3e669d.mp3"
+    },
+    {
+      "id": "w_a60660cfd2ee094a",
+      "kind": "example",
+      "text": "国語について話す。",
+      "file": "assets/audio/examples/w_a60660cfd2ee094a.mp3"
+    },
+    {
+      "id": "w_a9c35cc31c89b310",
+      "kind": "example",
+      "text": "英国について話す。",
+      "file": "assets/audio/examples/w_a9c35cc31c89b310.mp3"
+    },
+    {
+      "id": "w_b040677423d52014",
+      "kind": "example",
+      "text": "満員について話す。",
+      "file": "assets/audio/examples/w_b040677423d52014.mp3"
+    },
+    {
+      "id": "w_ac9b6a2bbb782578",
+      "kind": "example",
+      "text": "常識について話す。",
+      "file": "assets/audio/examples/w_ac9b6a2bbb782578.mp3"
+    },
+    {
+      "id": "w_b15ad8401a227b7e",
+      "kind": "example",
+      "text": "書類について話す。",
+      "file": "assets/audio/examples/w_b15ad8401a227b7e.mp3"
+    },
+    {
+      "id": "w_b4b5fbd14fb214b4",
+      "kind": "example",
+      "text": "明後日について話す。",
+      "file": "assets/audio/examples/w_b4b5fbd14fb214b4.mp3"
+    },
+    {
+      "id": "w_b6a43f57f6d6ba38",
+      "kind": "example",
+      "text": "方面について話す。",
+      "file": "assets/audio/examples/w_b6a43f57f6d6ba38.mp3"
+    },
+    {
+      "id": "w_b8e30b6ab1b08d47",
+      "kind": "example",
+      "text": "日中について話す。",
+      "file": "assets/audio/examples/w_b8e30b6ab1b08d47.mp3"
+    },
+    {
+      "id": "w_bd181301cc7c5324",
+      "kind": "example",
+      "text": "酒について話す。",
+      "file": "assets/audio/examples/w_bd181301cc7c5324.mp3"
+    },
+    {
+      "id": "w_bd045e85d104f61f",
+      "kind": "example",
+      "text": "消費について話す。",
+      "file": "assets/audio/examples/w_bd045e85d104f61f.mp3"
+    },
+    {
+      "id": "w_b978baf68d3eeddd",
+      "kind": "example",
+      "text": "一斉説明する。",
+      "file": "assets/audio/examples/w_b978baf68d3eeddd.mp3"
+    },
+    {
+      "id": "w_be5e4c2d95cee2c1",
+      "kind": "example",
+      "text": "完了について話す。",
+      "file": "assets/audio/examples/w_be5e4c2d95cee2c1.mp3"
+    },
+    {
+      "id": "w_c41eee18ef321c5f",
+      "kind": "example",
+      "text": "働きについて話す。",
+      "file": "assets/audio/examples/w_c41eee18ef321c5f.mp3"
+    },
+    {
+      "id": "w_c33169a9a372be32",
+      "kind": "example",
+      "text": "食後について話す。",
+      "file": "assets/audio/examples/w_c33169a9a372be32.mp3"
+    },
+    {
+      "id": "w_c469ca5f6997c7d7",
+      "kind": "example",
+      "text": "関心について話す。",
+      "file": "assets/audio/examples/w_c469ca5f6997c7d7.mp3"
+    },
+    {
+      "id": "w_c6d42cc06f655014",
+      "kind": "example",
+      "text": "土について話す。",
+      "file": "assets/audio/examples/w_c6d42cc06f655014.mp3"
+    },
+    {
+      "id": "w_c85ec6d656e08145",
+      "kind": "example",
+      "text": "故郷について話す。",
+      "file": "assets/audio/examples/w_c85ec6d656e08145.mp3"
+    },
+    {
+      "id": "w_ca067fb7d90fea51",
+      "kind": "example",
+      "text": "実現について話す。",
+      "file": "assets/audio/examples/w_ca067fb7d90fea51.mp3"
+    },
+    {
+      "id": "w_cd9ef42ceb9ad142",
+      "kind": "example",
+      "text": "底について話す。",
+      "file": "assets/audio/examples/w_cd9ef42ceb9ad142.mp3"
+    },
+    {
+      "id": "w_cad3ec2be5f5bde2",
+      "kind": "example",
+      "text": "会員について話す。",
+      "file": "assets/audio/examples/w_cad3ec2be5f5bde2.mp3"
+    },
+    {
+      "id": "w_cf049fe43ba71d8c",
+      "kind": "example",
+      "text": "希望について話す。",
+      "file": "assets/audio/examples/w_cf049fe43ba71d8c.mp3"
+    },
+    {
+      "id": "w_d7332e5b51597d3e",
+      "kind": "example",
+      "text": "目上について話す。",
+      "file": "assets/audio/examples/w_d7332e5b51597d3e.mp3"
+    },
+    {
+      "id": "w_d87ce01dca506bbe",
+      "kind": "example",
+      "text": "市場について話す。",
+      "file": "assets/audio/examples/w_d87ce01dca506bbe.mp3"
+    },
+    {
+      "id": "w_dd23ab623b85f108",
+      "kind": "example",
+      "text": "落ち着いて出迎える。",
+      "file": "assets/audio/examples/w_dd23ab623b85f108.mp3"
+    },
+    {
+      "id": "w_dd98e683daac860a",
+      "kind": "example",
+      "text": "地球について話す。",
+      "file": "assets/audio/examples/w_dd98e683daac860a.mp3"
+    },
+    {
+      "id": "w_e180a0bc44877374",
+      "kind": "example",
+      "text": "中旬について話す。",
+      "file": "assets/audio/examples/w_e180a0bc44877374.mp3"
+    },
+    {
+      "id": "w_e5ce533224407e64",
+      "kind": "example",
+      "text": "患者について話す。",
+      "file": "assets/audio/examples/w_e5ce533224407e64.mp3"
+    },
+    {
+      "id": "w_e0b4071a2a37d8ed",
+      "kind": "example",
+      "text": "選挙について話す。",
+      "file": "assets/audio/examples/w_e0b4071a2a37d8ed.mp3"
+    },
+    {
+      "id": "w_dfe07e16401ea765",
+      "kind": "example",
+      "text": "これは正確だ。",
+      "file": "assets/audio/examples/w_dfe07e16401ea765.mp3"
+    },
+    {
+      "id": "w_e048452d050d9201",
+      "kind": "example",
+      "text": "石油について話す。",
+      "file": "assets/audio/examples/w_e048452d050d9201.mp3"
+    },
+    {
+      "id": "w_e42ff9a33ffea453",
+      "kind": "example",
+      "text": "少しくらい平気だ。",
+      "file": "assets/audio/examples/w_e42ff9a33ffea453.mp3"
+    },
+    {
+      "id": "w_e7f479187f36afac",
+      "kind": "example",
+      "text": "落ち着いて測る。",
+      "file": "assets/audio/examples/w_e7f479187f36afac.mp3"
+    },
+    {
+      "id": "w_e795e940037dda8d",
+      "kind": "example",
+      "text": "食器について話す。",
+      "file": "assets/audio/examples/w_e795e940037dda8d.mp3"
+    },
+    {
+      "id": "w_eba671649a932b5a",
+      "kind": "example",
+      "text": "これは利口だ。",
+      "file": "assets/audio/examples/w_eba671649a932b5a.mp3"
+    },
+    {
+      "id": "w_e98d7dfff88428e8",
+      "kind": "example",
+      "text": "住民について話す。",
+      "file": "assets/audio/examples/w_e98d7dfff88428e8.mp3"
+    },
+    {
+      "id": "w_e827f2cbbdfecbdf",
+      "kind": "example",
+      "text": "交際について話す。",
+      "file": "assets/audio/examples/w_e827f2cbbdfecbdf.mp3"
+    },
+    {
+      "id": "w_eca4f0ccde642c46",
+      "kind": "example",
+      "text": "金について話す。",
+      "file": "assets/audio/examples/w_eca4f0ccde642c46.mp3"
+    },
+    {
+      "id": "w_f0f96d3189ba7c95",
+      "kind": "example",
+      "text": "隅について話す。",
+      "file": "assets/audio/examples/w_f0f96d3189ba7c95.mp3"
+    },
+    {
+      "id": "w_f2360b01eb7def77",
+      "kind": "example",
+      "text": "遂に完成した。",
+      "file": "assets/audio/examples/w_f2360b01eb7def77.mp3"
+    },
+    {
+      "id": "w_f57799e4893770c3",
+      "kind": "example",
+      "text": "火傷について話す。",
+      "file": "assets/audio/examples/w_f57799e4893770c3.mp3"
+    },
+    {
+      "id": "w_f81eaded98deb034",
+      "kind": "example",
+      "text": "環境について話す。",
+      "file": "assets/audio/examples/w_f81eaded98deb034.mp3"
+    },
+    {
+      "id": "w_fc3c337216a2bfbc",
+      "kind": "example",
+      "text": "落ち着いて破る。",
+      "file": "assets/audio/examples/w_fc3c337216a2bfbc.mp3"
+    },
+    {
+      "id": "w_fce7ea98384bf63a",
+      "kind": "example",
+      "text": "溜めについて話す。",
+      "file": "assets/audio/examples/w_fce7ea98384bf63a.mp3"
+    },
+    {
+      "id": "w_f81f372d17987480",
+      "kind": "example",
+      "text": "消防について話す。",
+      "file": "assets/audio/examples/w_f81f372d17987480.mp3"
+    },
+    {
+      "id": "w_ff6947b43cf49ea2",
+      "kind": "example",
+      "text": "対について話す。",
+      "file": "assets/audio/examples/w_ff6947b43cf49ea2.mp3"
+    },
+    {
+      "id": "w_ff7c53048622060b",
+      "kind": "example",
+      "text": "味方について話す。",
+      "file": "assets/audio/examples/w_ff7c53048622060b.mp3"
+    },
+    {
+      "id": "w_013e176627a827e0",
+      "kind": "example",
+      "text": "とても凄い。",
+      "file": "assets/audio/examples/w_013e176627a827e0.mp3"
+    },
+    {
+      "id": "w_00016e229a19b84b",
+      "kind": "example",
+      "text": "力について話す。",
+      "file": "assets/audio/examples/w_00016e229a19b84b.mp3"
+    },
+    {
+      "id": "w_04bbfe9d5df156d4",
+      "kind": "example",
+      "text": "サンダルについて話す。",
+      "file": "assets/audio/examples/w_04bbfe9d5df156d4.mp3"
+    },
+    {
+      "id": "w_172254f545edb835",
+      "kind": "example",
+      "text": "産業について話す。",
+      "file": "assets/audio/examples/w_172254f545edb835.mp3"
+    },
+    {
+      "id": "w_1c0ffef8df7c7e42",
+      "kind": "example",
+      "text": "小学校について話す。",
+      "file": "assets/audio/examples/w_1c0ffef8df7c7e42.mp3"
+    },
+    {
+      "id": "w_26b1c6419970fa60",
+      "kind": "example",
+      "text": "早く説明する。",
+      "file": "assets/audio/examples/w_26b1c6419970fa60.mp3"
+    },
+    {
+      "id": "w_29549f663bb73d32",
+      "kind": "example",
+      "text": "これは自動だ。",
+      "file": "assets/audio/examples/w_29549f663bb73d32.mp3"
+    },
+    {
+      "id": "w_2469bcc59515558e",
+      "kind": "example",
+      "text": "この服を気に入る。",
+      "file": "assets/audio/examples/w_2469bcc59515558e.mp3"
+    },
+    {
+      "id": "w_2afc4f4102d1bf3f",
+      "kind": "example",
+      "text": "友達と喧嘩した。",
+      "file": "assets/audio/examples/w_2afc4f4102d1bf3f.mp3"
+    },
+    {
+      "id": "w_328b3a4907a4cb55",
+      "kind": "example",
+      "text": "電車又はバスで行きます。",
+      "file": "assets/audio/examples/w_328b3a4907a4cb55.mp3"
+    },
+    {
+      "id": "w_318b933aa9deca08",
+      "kind": "example",
+      "text": "落ち着いて取る。",
+      "file": "assets/audio/examples/w_318b933aa9deca08.mp3"
+    },
+    {
+      "id": "w_38856be7d8a54293",
+      "kind": "example",
+      "text": "新しい辞書が欲しい。",
+      "file": "assets/audio/examples/w_38856be7d8a54293.mp3"
+    },
+    {
+      "id": "w_392f5e6a2191934f",
+      "kind": "example",
+      "text": "落ち着いて通る。",
+      "file": "assets/audio/examples/w_392f5e6a2191934f.mp3"
+    },
+    {
+      "id": "w_3adbb5bf09e4b321",
+      "kind": "example",
+      "text": "落ち着いて届く。",
+      "file": "assets/audio/examples/w_3adbb5bf09e4b321.mp3"
+    },
+    {
+      "id": "w_4414661a2b5d631d",
+      "kind": "example",
+      "text": "贈り物について話す。",
+      "file": "assets/audio/examples/w_4414661a2b5d631d.mp3"
+    },
+    {
+      "id": "w_5216c11371678f7c",
+      "kind": "example",
+      "text": "文書について話す。",
+      "file": "assets/audio/examples/w_5216c11371678f7c.mp3"
+    },
+    {
+      "id": "w_529c42c85aa82b35",
+      "kind": "example",
+      "text": "落ち着いて運動。",
+      "file": "assets/audio/examples/w_529c42c85aa82b35.mp3"
+    },
+    {
+      "id": "w_64fa0e7b2bfbed44",
+      "kind": "example",
+      "text": "安全について話す。",
+      "file": "assets/audio/examples/w_64fa0e7b2bfbed44.mp3"
+    },
+    {
+      "id": "w_6d3287e138b0ac0c",
+      "kind": "example",
+      "text": "以内について話す。",
+      "file": "assets/audio/examples/w_6d3287e138b0ac0c.mp3"
+    },
+    {
+      "id": "w_6daba7f91aed2e31",
+      "kind": "example",
+      "text": "地理について話す。",
+      "file": "assets/audio/examples/w_6daba7f91aed2e31.mp3"
+    },
+    {
+      "id": "w_73250ecefaf912d8",
+      "kind": "example",
+      "text": "計画について話す。",
+      "file": "assets/audio/examples/w_73250ecefaf912d8.mp3"
+    },
+    {
+      "id": "w_733d47f14cb535a0",
+      "kind": "example",
+      "text": "事について話す。",
+      "file": "assets/audio/examples/w_733d47f14cb535a0.mp3"
+    },
+    {
+      "id": "w_8850b3a80af81e01",
+      "kind": "example",
+      "text": "予定について話す。",
+      "file": "assets/audio/examples/w_8850b3a80af81e01.mp3"
+    },
+    {
+      "id": "w_88b3a30600dd8600",
+      "kind": "example",
+      "text": "顎について話す。",
+      "file": "assets/audio/examples/w_88b3a30600dd8600.mp3"
+    },
+    {
+      "id": "w_8a39016e9b870ca8",
+      "kind": "example",
+      "text": "血について話す。",
+      "file": "assets/audio/examples/w_8a39016e9b870ca8.mp3"
+    },
+    {
+      "id": "w_8cd46d00b7c015a8",
+      "kind": "example",
+      "text": "郊外について話す。",
+      "file": "assets/audio/examples/w_8cd46d00b7c015a8.mp3"
+    },
+    {
+      "id": "w_916bc0f753534707",
+      "kind": "example",
+      "text": "落ち着いて開く。",
+      "file": "assets/audio/examples/w_916bc0f753534707.mp3"
+    },
+    {
+      "id": "w_999820e48d7ba848",
+      "kind": "example",
+      "text": "お嬢さんを紹介します。",
+      "file": "assets/audio/examples/w_999820e48d7ba848.mp3"
+    },
+    {
+      "id": "w_92515fbd8be28da0",
+      "kind": "example",
+      "text": "橋について話す。",
+      "file": "assets/audio/examples/w_92515fbd8be28da0.mp3"
+    },
+    {
+      "id": "w_a65dc597ed6e7ba0",
+      "kind": "example",
+      "text": "落ち着いて行う。",
+      "file": "assets/audio/examples/w_a65dc597ed6e7ba0.mp3"
+    },
+    {
+      "id": "w_a8147229995301d5",
+      "kind": "example",
+      "text": "落ち着いて合う。",
+      "file": "assets/audio/examples/w_a8147229995301d5.mp3"
+    },
+    {
+      "id": "w_9dc889bbbcb824da",
+      "kind": "example",
+      "text": "殆ど終わった。",
+      "file": "assets/audio/examples/w_9dc889bbbcb824da.mp3"
+    },
+    {
+      "id": "w_b4d23f4f4fb20992",
+      "kind": "example",
+      "text": "ベルについて話す。",
+      "file": "assets/audio/examples/w_b4d23f4f4fb20992.mp3"
+    },
+    {
+      "id": "w_a29706ddbe6add74",
+      "kind": "example",
+      "text": "港について話す。",
+      "file": "assets/audio/examples/w_a29706ddbe6add74.mp3"
+    },
+    {
+      "id": "w_b47d6fe4e0d8b6b3",
+      "kind": "example",
+      "text": "左について話す。",
+      "file": "assets/audio/examples/w_b47d6fe4e0d8b6b3.mp3"
+    },
+    {
+      "id": "w_c64315d4b97b6060",
+      "kind": "example",
+      "text": "島について話す。",
+      "file": "assets/audio/examples/w_c64315d4b97b6060.mp3"
+    },
+    {
+      "id": "w_d8fc42ae9943b970",
+      "kind": "example",
+      "text": "田舎について話す。",
+      "file": "assets/audio/examples/w_d8fc42ae9943b970.mp3"
+    },
+    {
+      "id": "w_c6da63b3adc73b9c",
+      "kind": "example",
+      "text": "気分について話す。",
+      "file": "assets/audio/examples/w_c6da63b3adc73b9c.mp3"
+    },
+    {
+      "id": "w_d98d809b8fca7f44",
+      "kind": "example",
+      "text": "値段について話す。",
+      "file": "assets/audio/examples/w_d98d809b8fca7f44.mp3"
+    },
+    {
+      "id": "w_da1fc48e9a617b67",
+      "kind": "example",
+      "text": "規則について話す。",
+      "file": "assets/audio/examples/w_da1fc48e9a617b67.mp3"
+    },
+    {
+      "id": "w_e5149e3df7b27eb5",
+      "kind": "example",
+      "text": "壁について話す。",
+      "file": "assets/audio/examples/w_e5149e3df7b27eb5.mp3"
+    },
+    {
+      "id": "w_e5782e3d2ce38351",
+      "kind": "example",
+      "text": "用事について話す。",
+      "file": "assets/audio/examples/w_e5782e3d2ce38351.mp3"
+    },
+    {
+      "id": "w_ec76d4bc377ba475",
+      "kind": "example",
+      "text": "熱について話す。",
+      "file": "assets/audio/examples/w_ec76d4bc377ba475.mp3"
+    },
+    {
+      "id": "w_e79c8ba878e30a15",
+      "kind": "example",
+      "text": "工場について話す。",
+      "file": "assets/audio/examples/w_e79c8ba878e30a15.mp3"
+    },
+    {
+      "id": "w_e5a71b733bb0d80c",
+      "kind": "example",
+      "text": "経験について話す。",
+      "file": "assets/audio/examples/w_e5a71b733bb0d80c.mp3"
+    },
+    {
+      "id": "w_ef8fe7df0ce0ca60",
+      "kind": "example",
+      "text": "とても厚い。",
+      "file": "assets/audio/examples/w_ef8fe7df0ce0ca60.mp3"
+    },
+    {
+      "id": "w_f0a58113830dd425",
+      "kind": "example",
+      "text": "彼について話す。",
+      "file": "assets/audio/examples/w_f0a58113830dd425.mp3"
+    },
+    {
+      "id": "w_fe75e712d18b48f2",
+      "kind": "example",
+      "text": "止めるを例にして話す。",
+      "file": "assets/audio/examples/w_fe75e712d18b48f2.mp3"
+    },
+    {
+      "id": "w_f5b1f7107c0f562a",
+      "kind": "example",
+      "text": "営業について話す。",
+      "file": "assets/audio/examples/w_f5b1f7107c0f562a.mp3"
+    },
+    {
+      "id": "w_fc15014ae9465b42",
+      "kind": "example",
+      "text": "落ち着いて止める。",
+      "file": "assets/audio/examples/w_fc15014ae9465b42.mp3"
+    },
+    {
+      "id": "w_f85fa063af3bde85",
+      "kind": "example",
+      "text": "線について話す。",
+      "file": "assets/audio/examples/w_f85fa063af3bde85.mp3"
+    },
+    {
+      "id": "w_01fbc4d975317826",
+      "kind": "example",
+      "text": "歌について話す。",
+      "file": "assets/audio/examples/w_01fbc4d975317826.mp3"
+    },
+    {
+      "id": "w_0e66d1e196b285b8",
+      "kind": "example",
+      "text": "魚について話す。",
+      "file": "assets/audio/examples/w_0e66d1e196b285b8.mp3"
+    },
+    {
+      "id": "w_1a590a2722d8602f",
+      "kind": "example",
+      "text": "駅について話す。",
+      "file": "assets/audio/examples/w_1a590a2722d8602f.mp3"
+    },
+    {
+      "id": "w_1cd9d956ac65ad3e",
+      "kind": "example",
+      "text": "これは色々だ。",
+      "file": "assets/audio/examples/w_1cd9d956ac65ad3e.mp3"
+    },
+    {
+      "id": "w_1c59e13dadce6f6b",
+      "kind": "example",
+      "text": "絵について話す。",
+      "file": "assets/audio/examples/w_1c59e13dadce6f6b.mp3"
+    },
+    {
+      "id": "w_262ab17a9d5f3f78",
+      "kind": "example",
+      "text": "大丈夫です。心配いりません。",
+      "file": "assets/audio/examples/w_262ab17a9d5f3f78.mp3"
+    },
+    {
+      "id": "w_29fd13f6f877956f",
+      "kind": "example",
+      "text": "台所について話す。",
+      "file": "assets/audio/examples/w_29fd13f6f877956f.mp3"
+    },
+    {
+      "id": "w_58075cd1141bf75e",
+      "kind": "example",
+      "text": "これは角だ。",
+      "file": "assets/audio/examples/w_58075cd1141bf75e.mp3"
+    },
+    {
+      "id": "w_35b6d26ef3b6e9a4",
+      "kind": "example",
+      "text": "店にお客が沢山来る。",
+      "file": "assets/audio/examples/w_35b6d26ef3b6e9a4.mp3"
+    },
+    {
+      "id": "w_48fbd408a115f905",
+      "kind": "example",
+      "text": "雨について話す。",
+      "file": "assets/audio/examples/w_48fbd408a115f905.mp3"
+    },
+    {
+      "id": "w_3c9e0c4d130ffe55",
+      "kind": "example",
+      "text": "結果が気に掛かる。",
+      "file": "assets/audio/examples/w_3c9e0c4d130ffe55.mp3"
+    },
+    {
+      "id": "w_5877b188cb058939",
+      "kind": "example",
+      "text": "千円について話す。",
+      "file": "assets/audio/examples/w_5877b188cb058939.mp3"
+    },
+    {
+      "id": "w_776f8a3599870bb9",
+      "kind": "example",
+      "text": "落ち着いて見る。",
+      "file": "assets/audio/examples/w_776f8a3599870bb9.mp3"
+    },
+    {
+      "id": "w_705444c4af714dc3",
+      "kind": "example",
+      "text": "部屋について話す。",
+      "file": "assets/audio/examples/w_705444c4af714dc3.mp3"
+    },
+    {
+      "id": "w_67a0aa7719932f47",
+      "kind": "example",
+      "text": "家族について話す。",
+      "file": "assets/audio/examples/w_67a0aa7719932f47.mp3"
+    },
+    {
+      "id": "w_73af8c94eaaf7836",
+      "kind": "example",
+      "text": "異郷での生活は辛い。",
+      "file": "assets/audio/examples/w_73af8c94eaaf7836.mp3"
+    },
+    {
+      "id": "w_7a18f1c9b04f4038",
+      "kind": "example",
+      "text": "外について話す。",
+      "file": "assets/audio/examples/w_7a18f1c9b04f4038.mp3"
+    },
+    {
+      "id": "w_946af014ad2b6ee1",
+      "kind": "example",
+      "text": "ご馳走様でした。",
+      "file": "assets/audio/examples/w_946af014ad2b6ee1.mp3"
+    },
+    {
+      "id": "w_7c2fb518a9047447",
+      "kind": "example",
+      "text": "一昨年の春に引っ越した。",
+      "file": "assets/audio/examples/w_7c2fb518a9047447.mp3"
+    },
+    {
+      "id": "w_8eb8b9611ad0e755",
+      "kind": "example",
+      "text": "洋服について話す。",
+      "file": "assets/audio/examples/w_8eb8b9611ad0e755.mp3"
+    },
+    {
+      "id": "w_a6b4b27691fedbcb",
+      "kind": "example",
+      "text": "明日について話す。",
+      "file": "assets/audio/examples/w_a6b4b27691fedbcb.mp3"
+    },
+    {
+      "id": "w_9d121ba8f42b39e0",
+      "kind": "example",
+      "text": "学校について話す。",
+      "file": "assets/audio/examples/w_9d121ba8f42b39e0.mp3"
+    },
+    {
+      "id": "w_901e9473e86b14cd",
+      "kind": "example",
+      "text": "またについて話す。",
+      "file": "assets/audio/examples/w_901e9473e86b14cd.mp3"
+    },
+    {
+      "id": "w_accc231b1738056c",
+      "kind": "example",
+      "text": "果物について話す。",
+      "file": "assets/audio/examples/w_accc231b1738056c.mp3"
+    },
+    {
+      "id": "w_acd3c9b31394526d",
+      "kind": "example",
+      "text": "塩について話す。",
+      "file": "assets/audio/examples/w_acd3c9b31394526d.mp3"
+    },
+    {
+      "id": "w_aef420c79bbeb170",
+      "kind": "example",
+      "text": "暇について話す。",
+      "file": "assets/audio/examples/w_aef420c79bbeb170.mp3"
+    },
+    {
+      "id": "w_b93e781c9cc5aca8",
+      "kind": "example",
+      "text": "紙について話す。",
+      "file": "assets/audio/examples/w_b93e781c9cc5aca8.mp3"
+    },
+    {
+      "id": "w_c1704a9998ae7783",
+      "kind": "example",
+      "text": "弟について話す。",
+      "file": "assets/audio/examples/w_c1704a9998ae7783.mp3"
+    },
+    {
+      "id": "w_d8dcbb01e7e6526f",
+      "kind": "example",
+      "text": "どう致しまして。",
+      "file": "assets/audio/examples/w_d8dcbb01e7e6526f.mp3"
+    },
+    {
+      "id": "w_d4c2e0e758843e78",
+      "kind": "example",
+      "text": "落ち着いて作る。",
+      "file": "assets/audio/examples/w_d4c2e0e758843e78.mp3"
+    },
+    {
+      "id": "w_d60ba2009ed6ef90",
+      "kind": "example",
+      "text": "落ち着いて咲く。",
+      "file": "assets/audio/examples/w_d60ba2009ed6ef90.mp3"
+    },
+    {
+      "id": "w_f238004dca80f8bb",
+      "kind": "example",
+      "text": "空について話す。",
+      "file": "assets/audio/examples/w_f238004dca80f8bb.mp3"
+    },
+    {
+      "id": "w_ea6f68c218e562a7",
+      "kind": "example",
+      "text": "お腹について話す。",
+      "file": "assets/audio/examples/w_ea6f68c218e562a7.mp3"
+    },
+    {
+      "id": "w_c88186a84ee8ef98",
+      "kind": "example",
+      "text": "この道を真っ直ぐ行ってください。",
+      "file": "assets/audio/examples/w_c88186a84ee8ef98.mp3"
+    },
+    {
+      "id": "w_f633b5d4edaf65e3",
+      "kind": "example",
+      "text": "交番について話す。",
+      "file": "assets/audio/examples/w_f633b5d4edaf65e3.mp3"
+    },
+    {
+      "id": "w_f4580c5e0b48b27f",
+      "kind": "example",
+      "text": "カップについて話す。",
+      "file": "assets/audio/examples/w_f4580c5e0b48b27f.mp3"
+    },
+    {
+      "id": "w_fda788e47b26a124",
+      "kind": "example",
+      "text": "色について話す。",
+      "file": "assets/audio/examples/w_fda788e47b26a124.mp3"
+    },
+    {
+      "id": "w_f9afbe72e023b2b4",
+      "kind": "example",
+      "text": "上について話す。",
+      "file": "assets/audio/examples/w_f9afbe72e023b2b4.mp3"
+    }
+  ],
+  "elapsed_seconds": 43.62,
+  "dry_run": false
+}

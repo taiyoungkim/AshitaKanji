@@ -59,7 +59,6 @@ export default function CollectionScreen(): React.ReactNode {
   useFocusEffect(
     useCallback(() => {
       let alive = true;
-      setSnapshot(null);
       void buildOnigiriProgressService()
         .then((svc) => svc.getSnapshot())
         .then((next) => {
@@ -129,7 +128,7 @@ export default function CollectionScreen(): React.ReactNode {
                   gap={6}
                 />
               </View>
-              {/* 도감에도 주요 행동이 하나 있다 — 화면의 유일한 오렌지. */}
+              {/* 도감에도 주요 행동이 하나 있다 — 화면의 유일한 잉크 버튼. */}
               <Button
                 label="이어서"
                 onPress={() => router.push('/study')}

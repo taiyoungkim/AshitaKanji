@@ -1,0 +1,287 @@
+{
+  "designCommit": "fa259e772c05efaa884b97cc822f89c0d6ad62a2",
+  "threshold": 0.035,
+  "generatedAt": "2026-09-02T16:37:54.611Z",
+  "results": [
+    {
+      "platform": "ios",
+      "fixture": "01-home-study-before",
+      "status": "fail",
+      "pixelRatio": 0.124079,
+      "perceptualLumaMae": 0.10153
+    },
+    {
+      "platform": "ios",
+      "fixture": "02-study-front",
+      "status": "fail",
+      "pixelRatio": 0.081398,
+      "perceptualLumaMae": 0.079472
+    },
+    {
+      "platform": "ios",
+      "fixture": "03-study-reveal",
+      "status": "fail",
+      "pixelRatio": 0.06629,
+      "perceptualLumaMae": 0.074237
+    },
+    {
+      "platform": "ios",
+      "fixture": "04-study-word-detail",
+      "status": "fail",
+      "pixelRatio": 0.092961,
+      "perceptualLumaMae": 0.067954
+    },
+    {
+      "platform": "ios",
+      "fixture": "05-study-result",
+      "status": "fail",
+      "pixelRatio": 0.108795,
+      "perceptualLumaMae": 0.085519
+    },
+    {
+      "platform": "ios",
+      "fixture": "06-onigiri-complete",
+      "status": "fail",
+      "pixelRatio": 0.124766,
+      "perceptualLumaMae": 0.138414
+    },
+    {
+      "platform": "ios",
+      "fixture": "07-receipt",
+      "status": "fail",
+      "pixelRatio": 0.120252,
+      "perceptualLumaMae": 0.124626
+    },
+    {
+      "platform": "ios",
+      "fixture": "08-home-review-done",
+      "status": "fail",
+      "pixelRatio": 0.117964,
+      "perceptualLumaMae": 0.092479
+    },
+    {
+      "platform": "ios",
+      "fixture": "09-home-no-review",
+      "status": "fail",
+      "pixelRatio": 0.154256,
+      "perceptualLumaMae": 0.120274
+    },
+    {
+      "platform": "ios",
+      "fixture": "10-home-all-done",
+      "status": "fail",
+      "pixelRatio": 0.11077,
+      "perceptualLumaMae": 0.089854
+    },
+    {
+      "platform": "ios",
+      "fixture": "11-review-hub",
+      "status": "fail",
+      "pixelRatio": 0.101094,
+      "perceptualLumaMae": 0.079477
+    },
+    {
+      "platform": "ios",
+      "fixture": "12-review-hub-filter",
+      "status": "pass",
+      "pixelRatio": 0.029624,
+      "perceptualLumaMae": 0.045137
+    },
+    {
+      "platform": "ios",
+      "fixture": "13-menu-list",
+      "status": "pass",
+      "pixelRatio": 0.027655,
+      "perceptualLumaMae": 0.034101
+    },
+    {
+      "platform": "ios",
+      "fixture": "14-menu-grid",
+      "status": "fail",
+      "pixelRatio": 0.039485,
+      "perceptualLumaMae": 0.041512
+    },
+    {
+      "platform": "ios",
+      "fixture": "15-recipe-detail",
+      "status": "fail",
+      "pixelRatio": 0.090731,
+      "perceptualLumaMae": 0.088294
+    },
+    {
+      "platform": "ios",
+      "fixture": "16-stats",
+      "status": "fail",
+      "pixelRatio": 0.066834,
+      "perceptualLumaMae": 0.052602
+    },
+    {
+      "platform": "ios",
+      "fixture": "17-settings",
+      "status": "pass",
+      "pixelRatio": 0.015947,
+      "perceptualLumaMae": 0.021627
+    },
+    {
+      "platform": "ios",
+      "fixture": "18-settings-learning",
+      "status": "pass",
+      "pixelRatio": 0.031823,
+      "perceptualLumaMae": 0.041075
+    },
+    {
+      "platform": "ios",
+      "fixture": "19-settings-pronun",
+      "status": "pass",
+      "pixelRatio": 0.027713,
+      "perceptualLumaMae": 0.040798
+    },
+    {
+      "platform": "ios",
+      "fixture": "20-settings-backup",
+      "status": "pass",
+      "pixelRatio": 0.028776,
+      "perceptualLumaMae": 0.037229
+    },
+    {
+      "platform": "android",
+      "fixture": "01-home-study-before",
+      "status": "fail",
+      "pixelRatio": 0.146531,
+      "perceptualLumaMae": 0.126115
+    },
+    {
+      "platform": "android",
+      "fixture": "02-study-front",
+      "status": "fail",
+      "pixelRatio": 0.03858,
+      "perceptualLumaMae": 0.040623
+    },
+    {
+      "platform": "android",
+      "fixture": "03-study-reveal",
+      "status": "fail",
+      "pixelRatio": 0.04575,
+      "perceptualLumaMae": 0.054852
+    },
+    {
+      "platform": "android",
+      "fixture": "04-study-word-detail",
+      "status": "fail",
+      "pixelRatio": 0.09246,
+      "perceptualLumaMae": 0.06582
+    },
+    {
+      "platform": "android",
+      "fixture": "05-study-result",
+      "status": "fail",
+      "pixelRatio": 0.069525,
+      "perceptualLumaMae": 0.067388
+    },
+    {
+      "platform": "android",
+      "fixture": "06-onigiri-complete",
+      "status": "fail",
+      "pixelRatio": 0.07634,
+      "perceptualLumaMae": 0.100603
+    },
+    {
+      "platform": "android",
+      "fixture": "07-receipt",
+      "status": "fail",
+      "pixelRatio": 0.130705,
+      "perceptualLumaMae": 0.134558
+    },
+    {
+      "platform": "android",
+      "fixture": "08-home-review-done",
+      "status": "fail",
+      "pixelRatio": 0.146907,
+      "perceptualLumaMae": 0.11725
+    },
+    {
+      "platform": "android",
+      "fixture": "09-home-no-review",
+      "status": "fail",
+      "pixelRatio": 0.12328,
+      "perceptualLumaMae": 0.079913
+    },
+    {
+      "platform": "android",
+      "fixture": "10-home-all-done",
+      "status": "fail",
+      "pixelRatio": 0.110952,
+      "perceptualLumaMae": 0.080314
+    },
+    {
+      "platform": "android",
+      "fixture": "11-review-hub",
+      "status": "fail",
+      "pixelRatio": 0.117943,
+      "perceptualLumaMae": 0.110402
+    },
+    {
+      "platform": "android",
+      "fixture": "12-review-hub-filter",
+      "status": "fail",
+      "pixelRatio": 0.130086,
+      "perceptualLumaMae": 0.09648
+    },
+    {
+      "platform": "android",
+      "fixture": "13-menu-list",
+      "status": "fail",
+      "pixelRatio": 0.03711,
+      "perceptualLumaMae": 0.046318
+    },
+    {
+      "platform": "android",
+      "fixture": "14-menu-grid",
+      "status": "fail",
+      "pixelRatio": 0.0525,
+      "perceptualLumaMae": 0.058045
+    },
+    {
+      "platform": "android",
+      "fixture": "15-recipe-detail",
+      "status": "fail",
+      "pixelRatio": 0.055156,
+      "perceptualLumaMae": 0.061942
+    },
+    {
+      "platform": "android",
+      "fixture": "16-stats",
+      "status": "fail",
+      "pixelRatio": 0.05381,
+      "perceptualLumaMae": 0.04723
+    },
+    {
+      "platform": "android",
+      "fixture": "17-settings",
+      "status": "pass",
+      "pixelRatio": 0.018371,
+      "perceptualLumaMae": 0.029995
+    },
+    {
+      "platform": "android",
+      "fixture": "18-settings-learning",
+      "status": "fail",
+      "pixelRatio": 0.03505,
+      "perceptualLumaMae": 0.047383
+    },
+    {
+      "platform": "android",
+      "fixture": "19-settings-pronun",
+      "status": "pass",
+      "pixelRatio": 0.027704,
+      "perceptualLumaMae": 0.043403
+    },
+    {
+      "platform": "android",
+      "fixture": "20-settings-backup",
+      "status": "pass",
+      "pixelRatio": 0.026139,
+      "perceptualLumaMae": 0.036656
+    }
+  ]
+}

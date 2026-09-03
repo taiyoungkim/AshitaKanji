@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-01T23:08:24.206219+09:00",
+  "word_count": 7027,
+  "level_counts": {
+    "N5": 400,
+    "N4": 744,
+    "N3": 1491,
+    "N2": 1906,
+    "N1": 2486
+  },
+  "successors": {
+    "w_00b6d9661826f4ca": "w_3e5c61e8a0dce5c9"
+  },
+  "rewritten": [
+    {
+      "old_id": "w_00b6d9661826f4ca",
+      "new_id": "w_3e5c61e8a0dce5c9",
+      "from": "仕方なく",
+      "to": "仕方ない",
+      "before_level": "N1",
+      "after_level": "N4",
+      "meaning_ko": "어쩔 수 없다"
+    }
+  ],
+  "policy": "NAVER JLPT badge is on 仕方ない N4. 仕方なく is the adverbial form and has no separate badge. 仕方がない stays N2."
+}

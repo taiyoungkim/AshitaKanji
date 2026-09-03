@@ -48,6 +48,9 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
   dataEmpty: false,
 
   async startSession(config) {
+    const leftover = get();
+    // 진행 중 세션은 유지. 완료 후 남은 engine/summary 는 다음 학습을 막지 않는다.
+    if (leftover.engine && !leftover.summary) return;
     set({ busy: true });
     const engine = await buildSessionEngine();
     const state = await engine.start(config, Date.now());
@@ -94,17 +97,20 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
   },
 
   async endSession(reason = 'completed') {
-    const { engine } = get();
+    const { engine, summary } = get();
+    if (summary) return summary;
     if (!engine) throw new Error('no active session');
-    const summary = await engine.end(reason, Date.now());
-    set({ summary, card: null, current: engine.snapshot() });
-    return summary;
+    const next = await engine.end(reason, Date.now());
+    set({ summary: next, card: null, current: engine.snapshot() });
+    return next;
   },
 
   async abandon() {
-    const { engine, summary } = get();
-    // 이미 정상 종료(summary 존재)했거나 세션이 없으면 기록 불필요.
-    if (engine && !summary) {
+    const { engine, summary, current } = get();
+    const reviewed = (current?.doneNew ?? 0) + (current?.doneReview ?? 0);
+    // 완료 저장 중이거나 이미 끝난 세션은 버리지 않는다.
+    if (summary || (current?.phase === 'done' && reviewed > 0)) return;
+    if (engine) {
       try {
         await engine.end('abandoned', Date.now());
       } catch {

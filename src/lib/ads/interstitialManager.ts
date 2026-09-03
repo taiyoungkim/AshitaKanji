@@ -1,10 +1,10 @@
-// 전면광고(Interstitial) 매니저 — 학습 세션 완료 → /done 전환점 전용.
+// 전면광고(Interstitial) 매니저 — 정규 학습·약점 복습·회독 완료 전환점 전용.
 // 원칙: 학습 도중 노출 0 (Duolingo 룰). 로드 실패/캡 미충족/모듈 부재 시
 // 무조건 통과(onDone 즉시 호출) — 광고가 학습 흐름을 막는 일 절대 없음.
 //
 // 사용처:
 // - app/_layout.tsx: initAds() — ATT 요청 + SDK 초기화 (1회)
-// - StudyScreen: preloadInterstitial() (세션 시작), showInterstitialIfEligible() (완료)
+// - 각 학습 화면: preloadInterstitial() (세션 시작), showInterstitialIfEligible() (완료)
 
 import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';

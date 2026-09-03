@@ -1,67 +1,81 @@
 # Privacy Policy
 
-Last updated: 2026-05-30
+Last updated: 2026-09-03
 
 This Privacy Policy applies to **오니칸 (오니기리 칸지)**.
 
 ## Summary
 
-오니칸 is designed as a local-first vocabulary learning app.
+오니칸 is a local-first vocabulary learning app.
 
-For the MVP release:
-- We do not collect personal data.
-- We do not send learning data to an external server.
-- We do not use advertising SDKs.
-- We do not use analytics or crash reporting SDKs.
-- Study progress, review logs, settings, and local statistics are stored only on your device.
+- Study progress, review logs, settings, and local statistics stay on your device. We do not operate a learning-data server.
+- After a regular study, weakness review, or reading session ends, the app may show a full-screen advertisement served by **Google AdMob**.
+- On iOS, the app asks for App Tracking Transparency (ATT) permission so AdMob can serve personalized ads if you allow tracking. If you decline, the app still works and ads can still appear as non-personalized ads.
+- We do not use a first-party analytics or crash-reporting SDK.
+- The app may check for Expo Updates (version metadata) when it launches.
 
 ## Data Stored On Your Device
 
-The app may store the following data locally on your device:
+The app stores the following data locally on your device:
 - Learned words and review progress
 - FSRS scheduling data
 - Review history
 - Study session statistics
-- App settings
-- User notes, if the note feature is enabled in a future version
+- App settings, including whether a tutorial was completed
+- Ad frequency-cap state (so we do not show ads too often)
 
-This data is stored in the app's local SQLite database and is not transmitted by the MVP app.
+This learning data is stored in the app's local SQLite database and local storage. We do not upload it to a server we operate. You can export a JSON backup from Settings; that file leaves the device only if you choose to share or save it.
 
-## Data Collection
+## Advertising
 
-The MVP version does not collect, share, sell, or transmit user data.
+The launch version shows **interstitial ads** after a completed regular study, weakness review, or reading session, not while cards are being graded.
 
-## Third-Party Services
+Ads are loaded and shown by **Google AdMob** (`react-native-google-mobile-ads`). AdMob may collect and process data such as:
+- Advertising identifiers (IDFA on iOS if you allow tracking; the advertising ID on Android)
+- IP address and coarse location derived from IP
+- Device type, OS version, language, and similar device signals
+- Ad interaction and diagnostic information needed to serve and measure ads
 
-The MVP version does not use third-party analytics, advertising, or crash-reporting services.
+오니칸 does not send your word list, meanings, review grades, or FSRS schedule to AdMob.
 
-Some dictionary example sentences from NAVER Japanese Dictionary may be bundled inside the app database. Viewing those bundled examples does not contact NAVER or any external server.
+Ad frequency inside the app is limited: new users get a short grace period, ads appear at most once every two completed sessions, at most three times per day, and not more often than once every ten minutes. If an ad fails to load, study completion is not blocked.
 
-If you tap an external dictionary link, the app opens NAVER Japanese Dictionary in your browser with the selected word or kanji as the search query. This request happens only after your explicit tap. NAVER may process the search query, IP address, browser/device information, and related access logs according to its own policies.
+Google's own policies apply to data AdMob collects. See [Google Privacy Policy](https://policies.google.com/privacy) and [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites).
 
-Future versions may add optional features such as analytics, cloud backup, or AI question support. If that happens, this Privacy Policy and the App Store / Google Play data declarations will be updated before those features are released.
+## App Tracking Transparency (iOS)
 
-## AI Features
+On iOS 14.5 and later, the app requests tracking permission before initializing the ads SDK. The system prompt uses this purpose:
 
-The MVP version does not include user-facing AI features.
+> 맞춤 광고 제공을 위해 추적 권한을 사용합니다.
 
-If AI question features are added in a future version, they will require clear user consent. AI requests may send the selected word and user question to a server and to an AI provider. AI answers may be inaccurate and should be checked against reliable dictionaries or learning materials.
+- Allow: AdMob may use the advertising identifier for personalized ads.
+- Don't Allow: the app continues to work. Ads may still appear, but they are requested as non-personalized ads.
+
+You can change this later in iOS Settings → Privacy & Security → Tracking.
+
+## Other Network Activity
+
+- **Expo Updates**: on launch the app may contact Expo's update service to check whether a newer JavaScript bundle is available. This check uses version metadata. It does not include your study progress.
+- **NAVER Japanese Dictionary**: bundled example sentences do not contact NAVER. If you tap an external dictionary link, the system browser opens a NAVER search for that word or kanji. NAVER may then process the query, IP address, and browser information under its own policy.
+- **Pre-generated word and example audio** is bundled with the app. Playing it does not require a network request.
+
+## Analytics and AI
+
+We do not use a first-party analytics SDK or crash reporter in this release.
+
+The app does not include user-facing AI features. If those are added later, this policy and the store data declarations will be updated first. AI answers can be inaccurate.
 
 ## Data Deletion
 
-You can delete app data by:
-- Using the in-app "Delete all learning data" option, if available
-- Deleting the app from your device
+You can remove locally stored learning data by deleting the app from your device. Export a backup from Settings first if you want to keep it.
 
-Deleting the app may remove locally stored learning data according to iOS or Android behavior.
+Advertising identifiers and ads data held by Google are governed by Google's tools and policies, not by an in-app delete control.
 
 ## Children
 
-The app is intended for general language learners. If a user is under 13, use should be supervised by a parent or guardian.
+The app is intended for general language learners and is **not directed to children under 13**. If a younger person uses it, a parent or guardian should supervise. Advertising is not child-directed.
 
 ## Contact
-
-For privacy questions, contact:
 
 Email: datin0214@gmail.com
 

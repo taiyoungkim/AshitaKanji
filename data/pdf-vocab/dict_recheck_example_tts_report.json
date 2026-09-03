@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-17T15:23:03.153966+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 3,
+  "jobs": 3,
+  "preexisting": 0,
+  "planned": 3,
+  "created": 3,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "kind": "example",
+      "text": "彼は寿司を三人前平らげた。",
+      "file": "assets/audio/examples/w_76a0eb1e41436ab7.mp3"
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "kind": "example",
+      "text": "教室には学生が三人いる。",
+      "file": "assets/audio/examples/w_a9ecc3b353d6e247.mp3"
+    },
+    {
+      "id": "w_b5be233796f7dd76",
+      "kind": "example",
+      "text": "複数の資料を一つにまとめる。",
+      "file": "assets/audio/examples/w_b5be233796f7dd76.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.643,
+  "dry_run": false
+}

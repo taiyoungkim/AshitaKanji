@@ -1,24 +1,24 @@
 {
   "path": "assets/jlpt.db",
-  "bytes": 7254016,
-  "total": 6638,
+  "bytes": 7618560,
+  "total": 7027,
   "deprecated": 0,
   "vocabularyExcluded": 0,
   "levels": {
-    "N5": 339,
-    "N4": 600,
-    "N3": 1499,
-    "N2": 1700,
-    "N1": 2500
+    "N5": 400,
+    "N4": 744,
+    "N3": 1490,
+    "N2": 1907,
+    "N1": 2486
   },
   "qa": {
-    "verified": 6638,
+    "verified": 7027,
     "auto": 0,
     "needs_review": 0,
     "rejected": 0
   },
   "activeQa": {
-    "verified": 6638,
+    "verified": 7027,
     "auto": 0,
     "needs_review": 0,
     "rejected": 0,
@@ -27,29 +27,30 @@
   "activeDuplicateGroups": 0,
   "activeDuplicateExtraRows": 0,
   "kanji": {
-    "total": 1877,
+    "total": 1908,
     "qa": {
-      "verified": 0,
-      "auto": 1877,
+      "verified": 85,
+      "auto": 1823,
       "needs_review": 0,
       "rejected": 0
     },
     "missingMeaningsKo": 0,
-    "wordLinks": 10331,
-    "kanjiBearingWords": 5997
+    "missingRadicalNamesKo": 0,
+    "wordLinks": 10875,
+    "kanjiBearingWords": 6271
   },
   "examples": {
-    "total": 6638,
-    "naver": 6502,
-    "naverCleared": 6502,
-    "self": 136,
-    "words": 6638
+    "total": 7027,
+    "naver": 6207,
+    "naverCleared": 6207,
+    "self": 820,
+    "words": 7027
   },
   "targets": {
-    "N5": 339,
-    "N4": 600,
-    "N3": 1499,
-    "N2": 1700,
-    "N1": 2500
+    "N5": 400,
+    "N4": 744,
+    "N3": 1490,
+    "N2": 1907,
+    "N1": 2486
   }
 }

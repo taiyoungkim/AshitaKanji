@@ -49,6 +49,17 @@ IL_SECTION_LABELS = {
     "용법": "용법",
 }
 
+# The pass books' latter "유의어" and "용법" pages contain supporting
+# paraphrases and usage expressions, not the headword lists used by the app.
+# Preserve those printed rows in the source audit, but do not promote them into
+# jlpt_app_vocab merely because they appear inside a JLPT book.
+APP_EXCLUDED_SECTIONS_BY_SOURCE = {
+    "pass_n1": {"유의어", "용법"},
+    "pass_n3": {"유의어", "용법"},
+    "pass_n4": {"유의어", "용법"},
+    "pass_n5": {"유의어", "용법"},
+}
+
 # A handful of MKT table cells deliberately place a multi-line gloss above or
 # below the numbered baseline.  Geometry alone cannot distinguish that layout
 # from the adjacent row, so these visually verified cells are kept here as an
@@ -774,6 +785,11 @@ def load_existing_words() -> tuple[dict[tuple[str, str], dict[str, str]], dict[s
 def attach_existing_matches(entries: list[dict[str, Any]]) -> None:
     exact, by_surface = load_existing_words()
     for entry in entries:
+        excluded_sections = APP_EXCLUDED_SECTIONS_BY_SOURCE.get(entry["source_id"], set())
+        excluded_by_scope = entry["section"] in excluded_sections
+        if excluded_by_scope:
+            entry["include_in_app"] = 0
+
         key = (entry["surface"], entry["reading_kana"])
         matched = exact.get(key)
         if matched:
@@ -803,6 +819,10 @@ def attach_existing_matches(entries: list[dict[str, Any]]) -> None:
                 notes.append("문자 좌표 검증 완료; 선형 텍스트 레이어 순서 불일치")
         if entry["entry_type"] != "word":
             notes.append(f"{entry['entry_type']} 항목: 원본 보존, 앱 기본 목록 제외")
+        if excluded_by_scope:
+            notes.append(
+                f"{entry['source_id']} {entry['section']} 구역: 원본 보존, 앱 단어 목록 제외"
+            )
         entry["qa_note"] = "; ".join([*blockers, *notes])
         entry["qa_status"] = "verified" if not blockers else "needs_review"
 
@@ -900,6 +920,17 @@ def validate_reports(entries: list[dict[str, Any]], reports: list[dict[str, Any]
         failures.append("one or more source entries have an empty reading")
     if any(not entry["meaning_ko"] for entry in entries):
         failures.append("one or more source entries have an empty Korean meaning")
+    leaked_scope_rows = [
+        entry["source_entry_id"]
+        for entry in entries
+        if entry["section"]
+        in APP_EXCLUDED_SECTIONS_BY_SOURCE.get(entry["source_id"], set())
+        and int(entry["include_in_app"]) != 0
+    ]
+    if leaked_scope_rows:
+        failures.append(
+            f"source-scope exclusions leaked into app candidates: {leaked_scope_rows[:10]}"
+        )
     return failures
 
 
@@ -970,6 +1001,11 @@ def main() -> None:
             "match_status": dict(Counter(row["match_status"] for row in entries)),
             "text_crosscheck": dict(Counter(str(row["text_crosscheck"]) for row in entries)),
             "manual_corrections": len(MKT_OVERRIDES) + len(PASS_OVERRIDES),
+            "source_scope_excluded": sum(
+                row["section"]
+                in APP_EXCLUDED_SECTIONS_BY_SOURCE.get(row["source_id"], set())
+                for row in entries
+            ),
         },
     }
     (OUT_DIR / "extraction_report.json").write_text(

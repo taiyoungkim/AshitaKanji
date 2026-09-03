@@ -7,7 +7,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconCheck } from '~/design/icons';
-import { ProgressSegments } from '~/components/ui/Surface';
+import { PlateTile, ProgressSegments } from '~/components/ui/Surface';
 
 export interface ReceiptRow {
   label: string;
@@ -22,7 +22,9 @@ interface Props {
   recipeName: string;
   ingredientCount: number;
   ingredientTotal: number;
-  footerNote: string;
+  /** 남은 재료 안내. 주면 개수·진행바 대신 이 문구를 쓴다(온보딩 연습 영수증). */
+  recipeNote?: string;
+  footerNote?: string;
   streakLabel: string | null;
 }
 
@@ -32,6 +34,7 @@ export function Receipt({
   recipeName,
   ingredientCount,
   ingredientTotal,
+  recipeNote,
   footerNote,
   streakLabel,
 }: Props): React.ReactNode {
@@ -64,24 +67,34 @@ export function Receipt({
 
       <View style={styles.sectionBreak} />
 
-      <View style={styles.recipeBlock}>
-        <View style={styles.recipeHead}>
-          <Text style={styles.recipeName}>{recipeName}</Text>
-          <Text style={styles.recipeCount}>
-            {ingredientCount} / {ingredientTotal}
-          </Text>
+      {recipeNote ? (
+        <View style={styles.recipeInset}>
+          <PlateTile size={40} locked cornerRadius={radius.tileSm} />
+          <View style={styles.recipeInsetCopy}>
+            <Text style={styles.recipeName}>{recipeName} 주먹밥</Text>
+            <Text style={styles.recipeCount}>{recipeNote}</Text>
+          </View>
         </View>
-        <ProgressSegments
-          total={ingredientTotal}
-          filled={ingredientCount}
-          height={6}
-          gap={6}
-          fill="ink"
-        />
-      </View>
+      ) : (
+        <View style={styles.recipeBlock}>
+          <View style={styles.recipeHead}>
+            <Text style={styles.recipeName}>{recipeName}</Text>
+            <Text style={styles.recipeCount}>
+              {ingredientCount} / {ingredientTotal}
+            </Text>
+          </View>
+          <ProgressSegments
+            total={ingredientTotal}
+            filled={ingredientCount}
+            height={6}
+            gap={6}
+            fill="ink"
+          />
+        </View>
+      )}
 
-      <Text style={styles.footerNote}>{footerNote}</Text>
-      {streakLabel && <Text style={styles.thanks}>THANK YOU · {streakLabel}</Text>}
+      {footerNote ? <Text style={styles.footerNote}>{footerNote}</Text> : null}
+      {streakLabel && <Text style={styles.thanks}>ありがとう · {streakLabel}</Text>}
     </View>
   );
 }
@@ -133,6 +146,15 @@ const makeStyles = (c: ThemeColors) =>
     },
 
     recipeBlock: { gap: spacing.sm },
+    recipeInset: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.md,
+      backgroundColor: c.softer,
+      borderRadius: radius.tileSm,
+      padding: spacing.md,
+    },
+    recipeInsetCopy: { flex: 1, gap: 2 },
     recipeHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
     recipeName: { fontFamily: font.semibold, fontSize: 14, lineHeight: 20, color: c.ink },
     recipeCount: { ...typography.receipt, color: c.body },

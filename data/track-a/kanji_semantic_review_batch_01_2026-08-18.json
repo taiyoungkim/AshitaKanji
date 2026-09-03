@@ -1,0 +1,36 @@
+{
+  "reviewed_at": "2026-08-18",
+  "batch_id": "01",
+  "scope": "P0 semantic review queue, batch 01 (top 20)",
+  "basis": [
+    "data/track-a/kanji_semantic_review_queue.csv",
+    "data/track-a/kanji_qa_work.csv meanings_en/onyomi/kunyomi (KANJIDIC2)",
+    "active word_kanji examples in assets/jlpt.db"
+  ],
+  "policy": {
+    "qa_status": "needs_review",
+    "reason": "AI-assisted semantic correction requires final human confirmation before verified"
+  },
+  "decisions": [
+    {"literal":"募","old":["<자동사> 점점 강해지다 <타동사> 모집하다"],"new":["모집하다","모으다","거세지다"],"reason":"품사 표식을 제거하고 recruit/gather/grow violent 의미군을 복원"},
+    {"literal":"賄","old":["(1) 식사를 제공하다 (2) 조달하다"],"new":["조달하다","공급하다","식사를 제공하다","뇌물을 주다"],"reason":"번호식 단어 풀이를 정리하고 supply/finance/bribe 의미를 보완"},
+    {"literal":"伺","old":["여쭙다","찾아뵙다(겸양어)"],"new":["여쭙다","찾아뵙다"],"reason":"핵심 의미는 유지하고 단어 수준의 괄호 주석을 제거"},
+    {"literal":"防","old":["막다","방지하다 <자동사>닿다"],"new":["막다","방어하다","지키다"],"reason":"무관한 자동사 조각을 제거하고 defend/protect 의미를 복원"},
+    {"literal":"酌","old":["(술을) 따르다"],"new":["술을 따르다","물을 뜨다"],"reason":"괄호를 제거하고 serving sake/draw water 의미를 반영"},
+    {"literal":"致","old":["하다(겸양어)"],"new":["이르게 하다","보내다","초래하다","다하다"],"reason":"致す 한 단어의 겸양 표현 대신 cause/send/exert 의미군을 복원"},
+    {"literal":"通","old":["~ 거리","~ 대로"],"new":["통하다","지나다","다니다"],"reason":"접미 표현으로 오염된 초안을 pass through/commute 기본 의미로 교체"},
+    {"literal":"頂","old":["받다(겸양어)"],"new":["꼭대기","받다","머리에 이다"],"reason":"頂く 한 단어에 치우친 뜻에 top/summit/place on head 의미를 복원"},
+    {"literal":"二","old":["2킬로미터"],"new":["둘"],"reason":"二キロ의 단어 뜻이 복사된 오류를 기본 수 의미로 교체"},
+    {"literal":"掬","old":["(액체 등을)뜨다"],"new":["손으로 뜨다"],"reason":"괄호식 문맥을 scoop up water with the hand의 간결한 뜻으로 정리"},
+    {"literal":"斬","old":["(칼로) 베다"],"new":["베다","참수하다"],"reason":"괄호를 제거하고 beheading 의미를 보완"},
+    {"literal":"漏","old":["새다(누수)"],"new":["새다","누설하다","빠뜨리다"],"reason":"누수 문맥에 한정된 뜻을 漏る/漏れる/漏らす 의미군으로 확장"},
+    {"literal":"絞","old":["(물기를)짜다","(범위를)줄이다"],"new":["짜다","조르다","좁히다"],"reason":"괄호식 문맥을 제거하고 wring/strangle/constrict 의미를 반영"},
+    {"literal":"余","old":["그다지 ~않은","잉여","남음"],"new":["남다","나머지","여분"],"reason":"문법 표현을 제거하고 surplus/remainder 기본 의미로 정리"},
+    {"literal":"向","old":["향하다","~로 가다"],"new":["향하다","마주하다"],"reason":"물결표 문맥을 제거하고 facing/confront 의미를 반영"},
+    {"literal":"申","old":["말씀드리다(겸양어)"],"new":["아뢰다","말씀드리다"],"reason":"괄호 주석을 제거하고 申す의 기본 의미를 간결하게 정리"},
+    {"literal":"限","old":["한","한도","~하는 한"],"new":["한계","제한하다"],"reason":"문법형 限り 풀이 대신 limit/restrict 기본 의미를 반영"},
+    {"literal":"覧","old":["보심(존경어)"],"new":["보다","살펴보다"],"reason":"ご覧 한 단어의 존경 표현 대신 see/perusal 기본 의미로 교체"},
+    {"literal":"乃","old":["~의","이에"],"new":["이에","곧","의"],"reason":"물결표를 제거하고 whereupon/accordingly/possessive particle 의미를 유지"},
+    {"literal":"出","old":["나가(오)다"],"new":["나가다","나오다","내다"],"reason":"축약 괄호를 풀고 go out/come out/put out 의미군을 분리"}
+  ]
+}

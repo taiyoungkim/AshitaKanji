@@ -100,7 +100,12 @@ export function useTTS(): UseTTS {
           if (speechRequestRef.current !== request || !enabledRef.current) return;
           void playWordAudio(kind, id, rateRef.current).then((ok) => {
             if (speechRequestRef.current !== request) return;
-            if (!ok) speak(fallbackText); // 사전 생성 오디오 없으면 expo-speech 폴백.
+            if (ok) {
+              // 번들 오디오 성공이면 시스템 TTS 실패 상태를 푼다. 재생 종료 콜백은 없다.
+              setStatus('idle');
+              return;
+            }
+            speak(fallbackText);
           });
         });
     },

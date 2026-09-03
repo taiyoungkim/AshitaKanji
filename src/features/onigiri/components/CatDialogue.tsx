@@ -6,6 +6,7 @@ import {
   Text,
   View,
   useWindowDimensions,
+  type ImageSourcePropType,
   type ImageStyle,
   type StyleProp,
   type ViewStyle,
@@ -23,6 +24,9 @@ interface Props {
   buttonLabel?: string;
   onContinue?: () => void;
   imageStyle?: StyleProp<ImageStyle>;
+  imageSource?: ImageSourcePropType;
+  imageAspectRatio?: number;
+  framed?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -33,6 +37,9 @@ export function CatDialogue({
   buttonLabel,
   onContinue,
   imageStyle,
+  imageSource,
+  imageAspectRatio,
+  framed = true,
   style,
 }: Props): React.ReactNode {
   const { height } = useWindowDimensions();
@@ -40,19 +47,24 @@ export function CatDialogue({
   // 화면 높이 28%로 고정 → 기기 무관 일정 크기. 세로 과대/버튼 가림 방지.
   const catHeight = Math.round(height * 0.28);
 
+  // 버튼이 있는 화면(01-start)은 CTA 를 화면 바닥에 붙이고 인사말은 가운데 둔다.
+  const pinned = Boolean(buttonLabel && onContinue);
+
   return (
     <View style={[styles.stage, style]}>
-      <View style={[styles.plate, { height: catHeight + 24 }]}>
+      {pinned ? <View style={styles.spacer} /> : null}
+      <View style={[styles.plate, !framed && styles.unframed, { height: catHeight + 24 }]}>
         <Image
-          source={catImages[pose]}
+          source={imageSource ?? catImages[pose]}
           resizeMode="contain"
-          style={[{ height: catHeight, aspectRatio: catAspectRatio(pose) }, imageStyle]}
+          style={[{ height: catHeight, aspectRatio: imageAspectRatio ?? catAspectRatio(pose) }, imageStyle]}
         />
       </View>
       <View style={styles.copy}>
         <Text style={styles.line}>{line}</Text>
         <Text style={styles.speaker}>— {speaker}</Text>
       </View>
+      {pinned ? <View style={styles.spacer} /> : null}
       {buttonLabel && onContinue && (
         <Button label={buttonLabel} onPress={onContinue} style={styles.button} />
       )}
@@ -78,6 +90,8 @@ const makeStyles = (c: ThemeColors) =>
       justifyContent: 'center',
       paddingHorizontal: spacing.lg,
     },
+    unframed: { backgroundColor: 'transparent', paddingHorizontal: 0 },
+    spacer: { flex: 1, minHeight: spacing.lg },
     copy: { alignItems: 'center' },
     line: { ...typography.reading, color: c.ink, textAlign: 'center' },
     speaker: { ...typography.body, color: c.body, marginTop: 6, textAlign: 'center' },

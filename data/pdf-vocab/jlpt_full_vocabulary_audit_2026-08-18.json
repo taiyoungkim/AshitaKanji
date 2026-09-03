@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-08-18",
+  "summary": {
+    "status": "PASS",
+    "scope": "all 6,638 release vocabulary rows",
+    "structural": {
+      "word_count": 6638,
+      "unique_ids": 6638,
+      "unique_surface_reading_pairs": 6638,
+      "blank_required_fields": 0,
+      "invalid_readings": 0,
+      "meanings_without_hangul": 0,
+      "example_count": 6638,
+      "unique_example_word_ids": 6638,
+      "missing_example_ids": 0,
+      "unknown_example_ids": 0,
+      "blank_examples": 0
+    },
+    "level_counts": {
+      "N5": 339,
+      "N4": 600,
+      "N3": 1499,
+      "N2": 1700,
+      "N1": 2500
+    },
+    "jmdict": {
+      "attention": {
+        "high": 285,
+        "medium": 328,
+        "none": 6025
+      },
+      "surface_class": {
+        "hiragana": 279,
+        "kanji": 4015,
+        "kanji-hiragana": 1953,
+        "kanji-katakana": 3,
+        "katakana": 384,
+        "mixed-kana": 4
+      },
+      "flags": {
+        "kana-has-kanji-variant": 180,
+        "mixed-has-more-kanji-variant": 139,
+        "non-jmdict-surface": 200,
+        "polite-or-phrase-form": 12,
+        "same-jmdict-entry-duplicate": 85
+      }
+    },
+    "issues_by_severity": {},
+    "unique_critical_word_ids": 0,
+    "issues_by_category": {},
+    "same_reading_same_meaning_duplicate_groups": 0,
+    "duplicate_groups_containing_level": {},
+    "rows_not_in_prior_headword_review": 372,
+    "new_rows_with_jmdict_attention": 81,
+    "easier_exact_pdf_level_conflicts": 0,
+    "pass_excluded_section_leaks": 0,
+    "limitations": [
+      "JLPT does not publish an official post-2010 vocabulary list; Kaggle-only level labels cannot be independently certified here.",
+      "Korean meanings were format-checked across all rows and compared with prior adjudication; only deterministic or manually confirmed semantic errors are failed.",
+      "JMdict non-exact rows include valid productive/inflected PDF forms and require policy review rather than automatic deletion."
+    ]
+  },
+  "duplicate_groups": [],
+  "easier_source_conflict_ids": [],
+  "pass_scope_leak_ids": [],
+  "issues": []
+}

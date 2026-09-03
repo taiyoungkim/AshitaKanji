@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-08-20T04:28:55.871Z",
+  "elapsed_sec": 59,
+  "processed": 89,
+  "target_rows": 89,
+  "misses": 1,
+  "items": [
+    {
+      "word_id": "w_6a6e331edd9cf1e0",
+      "surface": "自由席",
+      "reason": "no usable translated example"
+    }
+  ]
+}

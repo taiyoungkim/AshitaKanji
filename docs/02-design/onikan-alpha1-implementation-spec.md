@@ -1,5 +1,7 @@
 # Onikan 최신 디자인 → AshitaKanji 구현 스펙
 
+> **구버전 문서:** 아래 `a2379f2`는 당시 분석 기준이며 현재 시각 정본이 아니다. 이번 정합화 기준은 Onikan `fa259e7`과 `handoff/redesign-2026-08/final-screens/` 20종이다. 이 문서는 이전 결정의 추적용으로만 보존한다.
+
 > 대상 프로젝트: `/Users/tyoung/AshitaKanji`  
 > 디자인 기준 저장소: `/Users/tyoung/dev/onikan` (읽기 전용)  
 > 디자인 기준 커밋: `main@a2379f2`  
@@ -698,4 +700,3 @@ npx expo install expo-blur
 8. 디자인 저장소가 여전히 tracked diff 0인지 최종 확인
 
 이 순서는 의존성 순서일 뿐 기록·설정을 후순위 범위로 제외한다는 의미가 아니다. 네 작업 묶음 모두 이번 적용 범위다.
-

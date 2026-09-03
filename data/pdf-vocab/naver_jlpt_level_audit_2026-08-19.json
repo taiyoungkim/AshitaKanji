@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-08-19T00:31:52+0900",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "source_sha256": "d9e94f915cb463a19376f244ae62d061a727546e25a31541133fe23b87ddc9fe",
+  "naver_api": "https://ja.dict.naver.com/api/jako/getJLPTList",
+  "source_mode": "catalog",
+  "word_count": 6638,
+  "unique_queries": 6582,
+  "status_counts": {
+    "manual_review": 152,
+    "match": 4017,
+    "mismatch": 1601,
+    "naver_level_missing": 868
+  },
+  "mismatch_transitions": {
+    "N1->N2": 122,
+    "N1->N3": 51,
+    "N1->N4": 14,
+    "N1->N5": 2,
+    "N2->N1": 68,
+    "N2->N3": 364,
+    "N2->N4": 44,
+    "N2->N5": 1,
+    "N3->N1": 57,
+    "N3->N2": 551,
+    "N3->N4": 134,
+    "N3->N5": 28,
+    "N4->N1": 1,
+    "N4->N2": 10,
+    "N4->N3": 25,
+    "N4->N5": 76,
+    "N5->N2": 4,
+    "N5->N3": 1,
+    "N5->N4": 48
+  },
+  "naver_catalog_level_counts": {
+    "N1": 3246,
+    "N2": 2648,
+    "N3": 1546,
+    "N4": 1037,
+    "N5": 744
+  },
+  "method": "Load every entry in NAVER Japanese Dictionary's official JLPT N1-N5 lists; select entries matching both written form and reading; compare NAVER's level with the app level. Ambiguous and unmatched entries are not auto-classified.",
+  "output": "/Users/tyoung/AshitaKanji/data/pdf-vocab/naver_jlpt_level_audit_2026-08-19.csv",
+  "mismatch_output": "/Users/tyoung/AshitaKanji/data/pdf-vocab/naver_jlpt_level_audit_2026-08-19_mismatches.csv",
+  "review_output": "/Users/tyoung/AshitaKanji/data/pdf-vocab/naver_jlpt_level_audit_2026-08-19_review.csv"
+}

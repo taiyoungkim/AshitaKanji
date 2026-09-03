@@ -29,7 +29,7 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
         const options = descriptors[route.key]?.options;
         const label = typeof options?.title === 'string' ? options.title : route.name;
         const focused = state.index === index;
-        const tint = focused ? colors.tabActive : colors.body;
+        const tint = focused ? colors.primary : colors.mute;
         const renderIcon = ICONS[route.name];
 
         const onPress = () => {
@@ -57,7 +57,7 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
             accessibilityState={focused ? { selected: true } : {}}
             accessibilityLabel={label}
           >
-            {renderIcon?.({ color: tint, knobFill: colors.softer })}
+            {renderIcon?.({ color: tint, knobFill: colors.canvas })}
             <Text style={[styles.label, { color: tint }, focused && styles.labelActive]}>
               {label}
             </Text>
@@ -72,10 +72,10 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     bar: {
       flexDirection: 'row',
-      backgroundColor: c.softer,
-      borderTopWidth: StyleSheet.hairlineWidth,
-      borderTopColor: c.pressed,
-      paddingTop: spacing.sm,
+      backgroundColor: c.canvas,
+      borderTopWidth: 1,
+      borderTopColor: c.soft,
+      paddingTop: 8,
       paddingHorizontal: spacing.sm,
     },
     tab: {

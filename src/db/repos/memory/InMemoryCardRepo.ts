@@ -52,13 +52,13 @@ export class InMemoryCardRepo implements CardRepo {
     return pool.slice(0, limit);
   }
 
-  async findThroughChapter(level: JlptLevel, chapter: number): Promise<Word[]> {
+  async findChapter(level: JlptLevel, chapter: number): Promise<Word[]> {
     return this.words
       .filter(
         (w) =>
           w.level === level &&
           w.reading_chapter != null &&
-          w.reading_chapter <= chapter &&
+          w.reading_chapter === chapter &&
           w.deprecated === 0 &&
           w.qa_status === 'verified',
       )

@@ -1,13 +1,14 @@
 // Design Ref: §5.1 /about — 라이선스 + Example Sources + 앱 정보.
 // Plan SC(데이터 출처/Play 정책): 데이터셋·예문 라이선스 정직 표기.
-//   - 단어 데이터: PDF 최빈출 전량 포함 편집자 큐레이션 6,638개
-//   - 예문: 권리 확인된 NAVER 일본어사전 6,585개 + 자체 작성 53개
+//   - 단어 데이터: 범위 확정 PDF 핵심어 전량 포함 편집자 큐레이션 7,027개
+//   - 예문: 권리 확인된 NAVER 일본어사전 6,856개 + 자체 작성 171개
 //   - "빈도 상위"/"JLPT 전체" 표현 금지 → "핵심 선별" 사용.
 
 import Constants from 'expo-constants';
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
+import { useBottomInset } from '~/hooks/useScreenInsets';
 
 // 출시 표준 URL — bundleId(com.taiyoungkim.*)·site/·release-gate 와 동일 출처로 통일.
 // (이전 ktyoung153.github.io/ashitakanji 는 심사 링크 엇갈림 유발 → 폐기)
@@ -23,12 +24,12 @@ interface LicenseItem {
 const LICENSES: LicenseItem[] = [
   {
     title: '단어 데이터',
-    body: 'JLPT N5~N1 핵심 선별 6,638 단어. 제공된 최빈출 PDF의 어휘 2,699개를 모두 포함하고, 중복과 비어휘 패턴을 검수해 구성했습니다.',
+    body: 'JLPT N5~N1 핵심 선별 7,027 단어. 범위를 확정한 PDF 핵심어 2,360개를 모두 포함하고, 중복과 비어휘 패턴을 검수해 구성했습니다.',
     license: '편집 데이터',
   },
   {
     title: '예문 데이터',
-    body: '권리 확인된 NAVER 일본어사전 예문 6,585개와 AshitaKanji가 직접 작성·번역한 예문 53개를 사용합니다. 자체 예문은 외부 사전과 공개 코퍼스로 용법을 교차 확인했습니다.',
+    body: '권리 확인된 NAVER 일본어사전 예문 6,856개와 AshitaKanji가 직접 작성·번역한 예문 171개를 사용합니다. 자체 예문은 외부 사전과 공개 코퍼스로 용법을 교차 확인했습니다.',
     license: '혼합',
   },
   {
@@ -55,10 +56,14 @@ const LICENSES: LicenseItem[] = [
 
 export default function AboutScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const bottomInset = useBottomInset();
   const version = Constants.expoConfig?.version ?? '—';
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomInset }]}
+    >
       <Text style={styles.appName}>오니칸</Text>
       <Text style={styles.appKanji}>오니기리 칸지</Text>
       <Text style={styles.version}>버전 {version}</Text>
@@ -79,14 +84,22 @@ export default function AboutScreen(): React.ReactNode {
         ))}
       </Section>
 
+      <Section title="광고">
+        <Text style={styles.licenseBody}>
+          학습 세션이 끝나면 Google 광고(전면)가 나올 수 있습니다. 카드를 채점하는 중에는
+          광고를 띄우지 않습니다. iOS에서는 맞춤 광고를 위해 추적 권한을 물을 수 있고,
+          거부해도 학습은 그대로 됩니다.
+        </Text>
+      </Section>
+
       <Section title="개인정보 · 지원">
         <LinkRow label="개인정보 처리방침" onPress={() => void Linking.openURL(PRIVACY_URL)} />
         <LinkRow label="지원 · 문의" onPress={() => void Linking.openURL(SUPPORT_URL)} />
       </Section>
 
       <Text style={styles.privacyNote}>
-        학습 기록은 이 기기에만 저장되며, 자동으로 외부에 전송되지 않습니다. 백업은 설정에서
-        직접 내보낼 때만 생성됩니다.
+        학습 기록은 이 기기에만 저장됩니다. 백업은 설정에서 직접 내보낼 때만 생성됩니다.
+        광고와 앱 업데이트 확인은 Google·Expo가 기기 정보를 처리할 수 있습니다.
       </Text>
     </ScrollView>
   );

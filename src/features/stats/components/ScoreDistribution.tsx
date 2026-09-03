@@ -2,73 +2,120 @@
 //
 // 모집단 데이터가 없으므로 "전체 학습자의 N%" 같은 문구는 쓰지 않는다.
 // 비교 대상은 언제나 내 지난 기록이다.
+//
+// 막대는 아래→위 scaleY rise (onikan-interactions.html). 내 구간만 오렌지 + "나".
 
-import { useEffect, useRef, useState } from 'react';
-import { Animated, Easing, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
-import Svg, { Line, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
+import { useCallback, useRef } from 'react';
+import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
+import { useFocusEffect } from 'expo-router';
 import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
-import { useTheme, useThemedStyles } from '~/design/theme';
+import { useThemedStyles } from '~/design/theme';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
+import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
 import {
-  buildDensityCurve,
+  binIndexFor,
+  buildScoreHistogram,
   CHART_HEIGHT,
-  densityToY,
-  markerDensity,
-  PLOT_BOTTOM,
-  PLOT_TOP,
-  scoreToX,
+  MARKER_HEADROOM,
 } from '../recordChart';
 import type { PersonalComparison } from '../recordTypes';
 
-const AnimatedRect = Animated.createAnimatedComponent(Rect);
+/** 값이 0 인 구간도 자리를 잃지 않도록 남기는 최소 높이. */
+const MIN_BAR_HEIGHT = 6;
+const RISE_EASING = Easing.bezier(0.22, 1, 0.36, 1);
+const POP_EASING = Easing.bezier(0.34, 1.56, 0.64, 1);
 
 interface Props {
   comparison: PersonalComparison;
   currentPercent: number;
-  /** 화면의 유일한 오렌지. 카드 안에 두는 것이 디자인 계약이다. */
   cta: React.ReactNode;
 }
 
-export function ScoreDistribution({ comparison, currentPercent, cta }: Props): React.ReactNode {
-  const { colors } = useTheme();
+function DistributionBar({
+  height,
+  mine,
+  index,
+}: {
+  height: number;
+  mine: boolean;
+  index: number;
+}): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   const reducedMotion = useReducedMotion();
-  const [width, setWidth] = useState(0);
+  const rise = useRef(new Animated.Value(1)).current;
+  const label = useRef(new Animated.Value(1)).current;
 
-  const reveal = useRef(new Animated.Value(1)).current;
-  const marker = useRef(new Animated.Value(1)).current;
-
-  const ready = comparison.kind === 'ready';
-
-  useEffect(() => {
-    if (!ready || reducedMotion === null) return;
-    if (reducedMotion) {
-      reveal.setValue(1);
-      marker.setValue(1);
-      return;
-    }
-    reveal.setValue(0);
-    marker.setValue(0);
-    const animation = Animated.parallel([
-      Animated.timing(reveal, {
+  useFocusEffect(
+    useCallback(() => {
+      if (reducedMotion !== false) {
+        rise.setValue(1);
+        label.setValue(1);
+        return;
+      }
+      rise.setValue(0);
+      label.setValue(0);
+      const bar = Animated.timing(rise, {
         toValue: 1,
-        delay: 500,
-        duration: 700,
-        easing: Easing.out(Easing.cubic),
-        // SVG 속성 보간이라 네이티브 드라이버를 쓸 수 없다.
-        useNativeDriver: false,
-      }),
-      Animated.timing(marker, {
-        toValue: 1,
-        delay: 1100,
-        duration: 320,
-        easing: Easing.out(Easing.back(2)),
+        delay: 500 + index * 50,
+        duration: 500,
+        easing: RISE_EASING,
         useNativeDriver: true,
-      }),
-    ]);
-    animation.start();
-    return () => animation.stop();
-  }, [ready, reducedMotion, reveal, marker]);
+      });
+      const you = mine
+        ? Animated.timing(label, {
+            toValue: 1,
+            delay: 1150,
+            duration: 420,
+            easing: POP_EASING,
+            useNativeDriver: true,
+          })
+        : null;
+      bar.start();
+      you?.start();
+      return () => {
+        bar.stop();
+        you?.stop();
+      };
+    }, [index, label, mine, reducedMotion, rise]),
+  );
+
+  return (
+    <View style={styles.column}>
+      <View style={styles.barWrap}>
+        {mine ? (
+          <Animated.View
+            style={[
+              styles.marker,
+              {
+                opacity: label,
+                transform: [
+                  { translateY: label.interpolate({ inputRange: [0, 1], outputRange: [6, 0] }) },
+                  { scale: label.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) },
+                ],
+              },
+            ]}
+          >
+            <Text style={styles.markerLabel}>나</Text>
+          </Animated.View>
+        ) : null}
+        <Animated.View
+          style={[
+            styles.bar,
+            mine && styles.barMine,
+            {
+              height,
+              transformOrigin: 'bottom',
+              transform: [{ scaleY: rise }],
+            },
+          ]}
+        />
+      </View>
+    </View>
+  );
+}
+
+export function ScoreDistribution({ comparison, currentPercent, cta }: Props): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
 
   if (comparison.kind === 'insufficient') {
     return (
@@ -80,82 +127,29 @@ export function ScoreDistribution({ comparison, currentPercent, cta }: Props): R
     );
   }
 
-  const curve = buildDensityCurve(comparison.samples);
-  const path = curve
-    .map((p, i) => `${i === 0 ? 'M' : 'L'}${scoreToX(p.x, width)} ${densityToY(p.density)}`)
-    .join(' ');
-  const area = width > 0 ? `${path} L${scoreToX(100, width)} ${PLOT_BOTTOM} L${scoreToX(0, width)} ${PLOT_BOTTOM} Z` : '';
-
-  const meanX = scoreToX(comparison.mean, width);
-  const markerX = scoreToX(currentPercent, width);
-  const markerY = densityToY(markerDensity(currentPercent, comparison.samples));
+  const bins = buildScoreHistogram(comparison.samples);
+  const currentBin = binIndexFor(currentPercent);
+  const barSpace = CHART_HEIGHT - MARKER_HEADROOM;
+  const percentile = Math.round(comparison.percentile);
 
   return (
     <View style={styles.card}>
       <Text style={styles.title}>내 학습 점수 분포</Text>
       <Text style={styles.lead}>
-        지난 학습 기록의 {Math.round(comparison.percentile)}%보다 높아요
+        지난 학습 기록의{' '}
+        <AnimatedNumber value={percentile} delay={150} style={styles.lead} />
+        %보다 높아요
       </Text>
 
-      <View style={styles.chart} onLayout={(e: LayoutChangeEvent) => setWidth(e.nativeEvent.layout.width)}>
-        {width > 0 && (
-          <>
-            <Svg width={width} height={CHART_HEIGHT}>
-              <Defs>
-                <ClipPath id="reveal">
-                  {/* 곡선을 왼쪽부터 드러낸다. */}
-                  <AnimatedRect
-                    x={0}
-                    y={0}
-                    height={CHART_HEIGHT}
-                    width={reveal.interpolate({ inputRange: [0, 1], outputRange: [0, width] })}
-                  />
-                </ClipPath>
-              </Defs>
-              <G clipPath="url(#reveal)">
-                <Path d={area} fill={colors.soft} />
-                <Path
-                  d={path}
-                  stroke={colors.ink}
-                  strokeWidth={2}
-                  fill="none"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </G>
-              <Line
-                x1={meanX}
-                y1={PLOT_TOP}
-                x2={meanX}
-                y2={PLOT_BOTTOM}
-                stroke={colors.pressed}
-                strokeWidth={1}
-                strokeDasharray="4 4"
-                vectorEffect="non-scaling-stroke"
-              />
-            </Svg>
-
-            {/* '나' 마커는 SVG 밖의 원으로 그려 폰트·그림자를 그대로 쓴다. */}
-            <Animated.View
-              style={[
-                styles.marker,
-                {
-                  left: markerX - 5,
-                  top: markerY - 5,
-                  opacity: marker,
-                  transform: [{ scale: marker }],
-                },
-              ]}
-            />
-            <Animated.Text
-              style={[
-                styles.markerLabel,
-                { left: markerX - 10, top: markerY - 26, opacity: marker },
-              ]}
-            >
-              나
-            </Animated.Text>
-          </>
-        )}
+      <View style={styles.chart}>
+        {bins.map((bin, index) => (
+          <DistributionBar
+            key={bin.from}
+            index={index}
+            mine={index === currentBin}
+            height={Math.max(MIN_BAR_HEIGHT, bin.ratio * barSpace)}
+          />
+        ))}
       </View>
 
       <View style={styles.axis}>
@@ -180,23 +174,21 @@ const makeStyles = (c: ThemeColors) =>
     title: { ...typography.cta, color: c.ink },
     lead: { ...typography.caption, color: c.body },
     empty: { ...typography.body, color: c.body, paddingVertical: spacing.xl },
-    chart: { height: CHART_HEIGHT, position: 'relative' },
-    marker: {
-      position: 'absolute',
-      width: 10,
-      height: 10,
-      borderRadius: 5,
-      backgroundColor: c.primary,
+
+    chart: {
+      height: CHART_HEIGHT,
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      gap: 6,
+      paddingTop: MARKER_HEADROOM,
     },
-    markerLabel: {
-      position: 'absolute',
-      fontFamily: font.semibold,
-      fontSize: 12,
-      lineHeight: 16,
-      color: c.ink,
-      width: 20,
-      textAlign: 'center',
-    },
+    column: { flex: 1, justifyContent: 'flex-end' },
+    barWrap: { position: 'relative', width: '100%' },
+    bar: { width: '100%', borderRadius: 4, backgroundColor: c.soft },
+    barMine: { backgroundColor: c.primary },
+    marker: { position: 'absolute', left: 0, right: 0, top: -22, alignItems: 'center' },
+    markerLabel: { fontFamily: font.semibold, fontSize: 13, lineHeight: 16, color: c.primary },
+
     axis: { flexDirection: 'row', justifyContent: 'space-between' },
     axisLabel: { ...typography.caption, color: c.body },
     cta: { alignItems: 'center', marginTop: spacing.lg },

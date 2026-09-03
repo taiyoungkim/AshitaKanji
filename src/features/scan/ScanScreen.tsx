@@ -189,7 +189,12 @@ export default function ScanScreen(): React.ReactNode {
             <Text style={styles.kicker}>ADDED</Text>
             <Text style={styles.h1}>{promotedCount}개 복습 큐 추가</Text>
             <Text style={styles.dim}>학습 탭에서 이어서 외워보세요.</Text>
-            <Pressable style={styles.primaryBtn} onPress={() => router.back()}>
+            <Pressable
+              style={styles.primaryBtn}
+              onPress={() => router.back()}
+              accessibilityRole="button"
+              accessibilityLabel="닫기"
+            >
               <Text style={styles.primaryText}>닫기</Text>
             </Pressable>
           </View>
@@ -219,6 +224,9 @@ export default function ScanScreen(): React.ReactNode {
                     key={c.id}
                     style={[styles.candRow, on && styles.candRowOn]}
                     onPress={() => toggleSelect(c.id)}
+                    accessibilityRole="checkbox"
+                    accessibilityState={{ checked: on }}
+                    accessibilityLabel={`${c.surface} ${c.meaning_ko}`}
                   >
                     <Text style={styles.candCheck}>{on ? '☑' : '☐'}</Text>
                     <View style={styles.candText}>
@@ -232,6 +240,9 @@ export default function ScanScreen(): React.ReactNode {
                 style={[styles.primaryBtn, (promoting || selected.size === 0) && styles.btnOff]}
                 onPress={() => void promote()}
                 disabled={promoting || selected.size === 0}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: promoting || selected.size === 0 }}
+                accessibilityLabel={`${selected.size}개 복습 큐에 추가`}
               >
                 <Text style={styles.primaryText}>
                   {promoting ? '추가 중…' : `${selected.size}개 복습 큐에 추가`}
@@ -239,7 +250,12 @@ export default function ScanScreen(): React.ReactNode {
               </Pressable>
             </>
           )}
-          <Pressable style={styles.ghostBtn} onPress={() => router.back()}>
+          <Pressable
+            style={styles.ghostBtn}
+            onPress={() => router.back()}
+            accessibilityRole="button"
+            accessibilityLabel="나가기"
+          >
             <Text style={styles.ghostText}>나가기</Text>
           </Pressable>
         </ScrollView>

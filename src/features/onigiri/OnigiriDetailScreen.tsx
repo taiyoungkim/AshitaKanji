@@ -1,7 +1,7 @@
 // Design Ref: Onikan handoff 화면 5 — 레시피 상세 (`8a`).
 //
 // 막다른 화면을 만들지 않는다. 하단의 "오늘 학습 시작"이 다음 재료를 받는 유일한 방법으로
-// 곧장 이어진다 — 이 화면의 유일한 오렌지.
+// 곧장 이어진다 — 이 화면의 유일한 주요 액션(잉크).
 //
 // 잠긴 재료는 그림을 감춘다: 썸네일을 hairline 링 + "?" 로 통일하고 일러스트를 노출하지
 // 않는다. 무엇을 받게 되는지 그림으로 미리 보여주지 않고, 이름만 남겨 순서만 알려준다.
@@ -79,7 +79,7 @@ export default function OnigiriDetailScreen(): React.ReactNode {
         >
           <IconChevron size={24} color={colors.ink} direction="left" />
         </Pressable>
-        <Text style={styles.navTitle}>ONIGIRI</Text>
+        <Text style={styles.navTitle}>오니기리</Text>
         <View style={styles.navSpacer} />
       </View>
 
@@ -175,16 +175,13 @@ export default function OnigiriDetailScreen(): React.ReactNode {
 
             <View style={styles.spacer} />
 
-            {/* NEXT REWARD 를 카드에서 해제했다 — 회색 박스로 두면 카드 안 카드가 된다. */}
+            {/* 다음 보상은 카드도 썸네일도 없이 두 줄 텍스트다(final-screens 15). */}
             {nextIngredient && status !== 'completed' && (
               <View style={styles.nextRewardRow}>
-                <PlateTile size={52} cornerRadius={16} locked />
-                <View style={styles.nextRewardCopy}>
-                  <Overline>다음 보상</Overline>
-                  <Text style={styles.nextRewardLine}>
-                    {ingredientName(nextIngredient)} · 오늘 학습을 마치면
-                  </Text>
-                </View>
+                <Overline>다음 보상</Overline>
+                <Text style={styles.nextRewardLine}>
+                  {ingredientName(nextIngredient)} · 오늘 학습을 마치면
+                </Text>
               </View>
             )}
           </ScrollView>
@@ -285,8 +282,7 @@ const makeStyles = (c: ThemeColors) =>
 
     spacer: { flex: 1, minHeight: spacing.xxl },
 
-    nextRewardRow: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingBottom: layout.gutter },
-    nextRewardCopy: { flex: 1, gap: spacing.xs },
+    nextRewardRow: { gap: spacing.xs, paddingBottom: layout.gutter },
     nextRewardLine: { ...typography.cta, color: c.ink },
 
     cta: { paddingHorizontal: layout.gutter, paddingBottom: layout.gapGroup },

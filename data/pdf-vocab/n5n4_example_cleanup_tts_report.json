@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-08-18T02:31:58.074103+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 19,
+  "jobs": 19,
+  "preexisting": 0,
+  "planned": 19,
+  "created": 19,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_e431b1a6abf799bf",
+      "kind": "example",
+      "text": "お互い信じて支え合い、生きていくことを願います。",
+      "file": "assets/audio/examples/w_e431b1a6abf799bf.mp3"
+    },
+    {
+      "id": "w_be4b2b8277c1d5eb",
+      "kind": "example",
+      "text": "この料理は合わない材料がごちゃ混ぜになって変な味がする。",
+      "file": "assets/audio/examples/w_be4b2b8277c1d5eb.mp3"
+    },
+    {
+      "id": "w_867190723b874b1e",
+      "kind": "example",
+      "text": "さあ、お釣り、ここにございます。",
+      "file": "assets/audio/examples/w_867190723b874b1e.mp3"
+    },
+    {
+      "id": "w_e12f8a407f734e3c",
+      "kind": "example",
+      "text": "うん。私はごみで一杯になったゴミ箱から空にするね。",
+      "file": "assets/audio/examples/w_e12f8a407f734e3c.mp3"
+    },
+    {
+      "id": "w_08414fa5796dc2f4",
+      "kind": "example",
+      "text": "社長、実は一昨日、今日までに翻訳をしてほしいとのお願いがありました。",
+      "file": "assets/audio/examples/w_08414fa5796dc2f4.mp3"
+    },
+    {
+      "id": "w_1da8dde639dcee40",
+      "kind": "example",
+      "text": "でも勝手に使わせるようにはしないでください。",
+      "file": "assets/audio/examples/w_1da8dde639dcee40.mp3"
+    },
+    {
+      "id": "w_3759f3c20989a136",
+      "kind": "example",
+      "text": "おやすみなさいと言って寝てしまう。",
+      "file": "assets/audio/examples/w_3759f3c20989a136.mp3"
+    },
+    {
+      "id": "w_35b6d26ef3b6e9a4",
+      "kind": "example",
+      "text": "店にお客がたくさん来る。",
+      "file": "assets/audio/examples/w_35b6d26ef3b6e9a4.mp3"
+    },
+    {
+      "id": "w_44328544e7a3b011",
+      "kind": "example",
+      "text": "なぜしきりにしゃべり散らしているんだ。",
+      "file": "assets/audio/examples/w_44328544e7a3b011.mp3"
+    },
+    {
+      "id": "w_52ca205b3d7f3971",
+      "kind": "example",
+      "text": "キム元長官が今回の総選挙に出るのは事実だろうか。",
+      "file": "assets/audio/examples/w_52ca205b3d7f3971.mp3"
+    },
+    {
+      "id": "w_4fdd9f73dd3e62a1",
+      "kind": "example",
+      "text": "次のページの9ページを探してみてください。",
+      "file": "assets/audio/examples/w_4fdd9f73dd3e62a1.mp3"
+    },
+    {
+      "id": "w_5b637076c1aa0e76",
+      "kind": "example",
+      "text": "あなたのお兄さんはどこにいる？",
+      "file": "assets/audio/examples/w_5b637076c1aa0e76.mp3"
+    },
+    {
+      "id": "w_d2cfe93c2de12009",
+      "kind": "example",
+      "text": "今晩の夕食には何を作って食べる？",
+      "file": "assets/audio/examples/w_d2cfe93c2de12009.mp3"
+    },
+    {
+      "id": "w_946af014ad2b6ee1",
+      "kind": "example",
+      "text": "はい、ごちそうさまでした。",
+      "file": "assets/audio/examples/w_946af014ad2b6ee1.mp3"
+    },
+    {
+      "id": "w_69c992c9db76a823",
+      "kind": "example",
+      "text": "今日は伯父さんの家に挨拶に行ったから、明日は叔父さんの家に行こう。",
+      "file": "assets/audio/examples/w_69c992c9db76a823.mp3"
+    },
+    {
+      "id": "w_d317994d8c83fe94",
+      "kind": "example",
+      "text": "そうだね。傘をさすのが曖昧だね。",
+      "file": "assets/audio/examples/w_d317994d8c83fe94.mp3"
+    },
+    {
+      "id": "w_c8cb9889616e2de7",
+      "kind": "example",
+      "text": "もうすぐ日が暮れるから、あまり奥まった森の中まで入ってはいけない。",
+      "file": "assets/audio/examples/w_c8cb9889616e2de7.mp3"
+    },
+    {
+      "id": "w_b29a4071c1fdde80",
+      "kind": "example",
+      "text": "お母さん、寒くても、足首までくるスカートよりはミニスカートのほうが可愛いんですよ。",
+      "file": "assets/audio/examples/w_b29a4071c1fdde80.mp3"
+    },
+    {
+      "id": "w_df6f8bed5b534092",
+      "kind": "example",
+      "text": "自転車がにだいあります。",
+      "file": "assets/audio/examples/w_df6f8bed5b534092.mp3"
+    }
+  ],
+  "elapsed_seconds": 2.202,
+  "dry_run": false
+}

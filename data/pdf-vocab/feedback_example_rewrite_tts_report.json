@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-08-20T04:32:25.396134+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "examples",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7050,
+  "selected_rows": 9,
+  "jobs": 9,
+  "preexisting": 0,
+  "planned": 9,
+  "created": 9,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_ce70656918f80907",
+      "kind": "example",
+      "text": "いい加減にしてください。",
+      "file": "assets/audio/examples/w_ce70656918f80907.mp3"
+    },
+    {
+      "id": "w_fe75e712d18b48f2",
+      "kind": "example",
+      "text": "車を止める。",
+      "file": "assets/audio/examples/w_fe75e712d18b48f2.mp3"
+    },
+    {
+      "id": "w_dfb409211ee33e05",
+      "kind": "example",
+      "text": "川の下に村がある。",
+      "file": "assets/audio/examples/w_dfb409211ee33e05.mp3"
+    },
+    {
+      "id": "w_93470228cf879755",
+      "kind": "example",
+      "text": "別れが辛い。",
+      "file": "assets/audio/examples/w_93470228cf879755.mp3"
+    },
+    {
+      "id": "w_cd21637b9647fa3c",
+      "kind": "example",
+      "text": "上の空で話を聞く。",
+      "file": "assets/audio/examples/w_cd21637b9647fa3c.mp3"
+    },
+    {
+      "id": "w_30fede19350e0b02",
+      "kind": "example",
+      "text": "箱の中が空だ。",
+      "file": "assets/audio/examples/w_30fede19350e0b02.mp3"
+    },
+    {
+      "id": "w_ff6f5d47acd78352",
+      "kind": "example",
+      "text": "被害を最小限に止める。",
+      "file": "assets/audio/examples/w_ff6f5d47acd78352.mp3"
+    },
+    {
+      "id": "w_f25835b153fd2a07",
+      "kind": "example",
+      "text": "靴ひもが解ける。",
+      "file": "assets/audio/examples/w_f25835b153fd2a07.mp3"
+    },
+    {
+      "id": "w_df40eb9087b51ff0",
+      "kind": "example",
+      "text": "世論が分かれる。",
+      "file": "assets/audio/examples/w_df40eb9087b51ff0.mp3"
+    }
+  ],
+  "elapsed_seconds": 1.015,
+  "dry_run": false
+}

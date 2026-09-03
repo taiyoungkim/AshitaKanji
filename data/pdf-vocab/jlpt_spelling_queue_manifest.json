@@ -1,0 +1,731 @@
+{
+  "generated_at": "2026-08-21T09:54:14.751632+09:00",
+  "word_count": 7026,
+  "level_counts": {
+    "N5": 399,
+    "N4": 741,
+    "N3": 1489,
+    "N2": 1907,
+    "N1": 2490
+  },
+  "successors": {
+    "w_ba8a5ec7e21618b0": "w_672fe2093b0dc0ac",
+    "w_d864b851061da4e7": "w_ab29dc806d2eef26",
+    "w_aa7684a0c44271a6": "w_a0d434edcd9759ad",
+    "w_df2d3b2184646be9": "w_cbaa90d9cde4ed8e",
+    "w_3ab16e565cd75205": "w_7087b27273d496b5",
+    "w_163c875e106e915a": "w_b978baf68d3eeddd",
+    "w_ce70656918f80907": "w_5444ad9790d180e8",
+    "w_d6fdf33d0925e453": "w_e4296f4107742e4b",
+    "w_fb689f67f99328fc": "w_8be0e84ce471c919",
+    "w_5f7d2faf2ecc4e9c": "w_1c7becc3389625c1",
+    "w_a8bf8b6572c5b0e0": "w_7d93f4c3af459575",
+    "w_5a53c24529898048": "w_09e23b6f9018545a",
+    "w_c017d3fc119dd1f4": "w_7b2749efe31c4945",
+    "w_3fb79a05ecdeb8e2": "w_e1145cd44757f7f5",
+    "w_536582618395af85": "w_1d699c2a8756a1c8",
+    "w_9ed51c1051f2801b": "w_bcce1a49a9bd524d",
+    "w_cac05149650fb9c9": "w_957c15a482f8f1d6",
+    "w_cc7e713c46e8ee0b": "w_f33b1779542ae443",
+    "w_4a9ade7c35cb2e1c": "w_107011573571e52d",
+    "w_bd712479a72069fd": "w_68e188c84e5829fa",
+    "w_c5ab894cc1ca5bbb": "w_aee914c06af7aac3",
+    "w_c7847c394363e398": "w_98d55f56a15ab826",
+    "w_4d71c8e8bb9e8afa": "w_e84847a82950de49",
+    "w_c9278b57465a3ff2": "w_e1947d121eacb34e",
+    "w_cc78ebd8b2b6037f": "w_0a3e308b218bc214",
+    "w_b3165e303f5aabec": "w_dc968a405309bb20",
+    "w_99515685bc17411a": "w_4df51fa3dcfed32d",
+    "w_1715b578802aa5e8": "w_253d6fd37766266d",
+    "w_216be17021a4cb21": "w_545a88c322c4486a",
+    "w_862152d331038cdb": "w_83a1a233497a6a27",
+    "w_0a7f5d85e62adec6": "w_f900d3041a0c73b6",
+    "w_fab538791501b708": "w_b944223a52d313a5",
+    "w_23830e0970473c94": "w_453a651e8bd0ed54",
+    "w_c7a2b0e5ff4b6e30": "w_d1b4e1dd2eaea03a",
+    "w_706ae61e7198af9c": "w_6e41549e5b443d35",
+    "w_ac2312063a365246": "w_5ef5b3d11ace52b7",
+    "w_e69fbb37694a99ab": "w_afb78f5d4ab6ca30",
+    "w_acc5104c96bffa73": "w_c2571abcaf5ce378",
+    "w_87719fa65c93c9d4": "w_560e1f4a183fad1d",
+    "w_09df22599f2680a8": "w_d21273e09a47a3a6",
+    "w_8f12e829bd3a3c60": "w_fdb8587ac0d4a801",
+    "w_8f5e3ff7fef5ff0c": "w_fa51706c048bb954",
+    "w_c6e82c69a1c19ed3": "w_951afcffc2798e47",
+    "w_670155b659509b08": "w_d56204ae722b4b30",
+    "w_655894697104664d": "w_7ede81f0f2544245",
+    "w_ea661acf1c6cecb0": "w_2305ca44b5049a16",
+    "w_14d43505e1a91b15": "w_2eb416150973f88d",
+    "w_75fe6fbac6e7ce8b": "w_d8fb15145a9e623e",
+    "w_8559a98168a9de12": "w_eecc0929f62999d6"
+  },
+  "merged": [
+    {
+      "from_id": "w_ba8a5ec7e21618b0",
+      "to_id": "w_672fe2093b0dc0ac",
+      "from": "確かに",
+      "to": "確か",
+      "level": "N4"
+    },
+    {
+      "from_id": "w_d864b851061da4e7",
+      "to_id": "w_ab29dc806d2eef26",
+      "from": "代表的な",
+      "to": "代表的",
+      "level": "N3"
+    },
+    {
+      "from_id": "w_aa7684a0c44271a6",
+      "to_id": "w_a0d434edcd9759ad",
+      "from": "清潔な",
+      "to": "清潔",
+      "level": "N3"
+    },
+    {
+      "from_id": "w_df2d3b2184646be9",
+      "to_id": "w_cbaa90d9cde4ed8e",
+      "from": "別々に",
+      "to": "別々",
+      "level": "N3"
+    },
+    {
+      "from_id": "w_3ab16e565cd75205",
+      "to_id": "w_7087b27273d496b5",
+      "from": "絶対に",
+      "to": "絶対",
+      "level": "N2"
+    },
+    {
+      "from_id": "w_163c875e106e915a",
+      "to_id": "w_b978baf68d3eeddd",
+      "from": "一斉に",
+      "to": "一斉",
+      "level": "N2"
+    },
+    {
+      "from_id": "w_ce70656918f80907",
+      "to_id": "w_5444ad9790d180e8",
+      "from": "いい加減に",
+      "to": "いい加減",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_d6fdf33d0925e453",
+      "to_id": "w_e4296f4107742e4b",
+      "from": "頻繁に",
+      "to": "頻繁",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_fb689f67f99328fc",
+      "to_id": "w_8be0e84ce471c919",
+      "from": "曖昧に",
+      "to": "曖昧",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_5f7d2faf2ecc4e9c",
+      "to_id": "w_1c7becc3389625c1",
+      "from": "猛烈に",
+      "to": "猛烈",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_a8bf8b6572c5b0e0",
+      "to_id": "w_7d93f4c3af459575",
+      "from": "盛大に",
+      "to": "盛大",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_5a53c24529898048",
+      "to_id": "w_09e23b6f9018545a",
+      "from": "早急に",
+      "to": "早急",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_c017d3fc119dd1f4",
+      "to_id": "w_7b2749efe31c4945",
+      "from": "一律に",
+      "to": "一律",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_3fb79a05ecdeb8e2",
+      "to_id": "w_e1145cd44757f7f5",
+      "from": "勇敢に",
+      "to": "勇敢",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_536582618395af85",
+      "to_id": "w_1d699c2a8756a1c8",
+      "from": "強硬に",
+      "to": "強硬",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_9ed51c1051f2801b",
+      "to_id": "w_bcce1a49a9bd524d",
+      "from": "軽率な",
+      "to": "軽率",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_cac05149650fb9c9",
+      "to_id": "w_957c15a482f8f1d6",
+      "from": "軽快な",
+      "to": "軽快",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_cc7e713c46e8ee0b",
+      "to_id": "w_f33b1779542ae443",
+      "from": "疎かに",
+      "to": "疎か",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_4a9ade7c35cb2e1c",
+      "to_id": "w_107011573571e52d",
+      "from": "克明に",
+      "to": "克明",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_bd712479a72069fd",
+      "to_id": "w_68e188c84e5829fa",
+      "from": "ご主人",
+      "to": "主人",
+      "level": "N4"
+    },
+    {
+      "from_id": "w_c5ab894cc1ca5bbb",
+      "to_id": "w_aee914c06af7aac3",
+      "from": "思いっきり",
+      "to": "思い切り",
+      "level": "N2"
+    },
+    {
+      "from_id": "w_c7847c394363e398",
+      "to_id": "w_98d55f56a15ab826",
+      "from": "慕われる",
+      "to": "慕う",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_4d71c8e8bb9e8afa",
+      "to_id": "w_e84847a82950de49",
+      "from": "心地よく",
+      "to": "心地よい",
+      "level": "N1"
+    },
+    {
+      "from_id": "w_c9278b57465a3ff2",
+      "to_id": "w_e1947d121eacb34e",
+      "from": "俄には",
+      "to": "俄",
+      "level": "N1"
+    }
+  ],
+  "rewritten": [
+    {
+      "from": "大らかな",
+      "to": "大らか",
+      "old_id": "w_0a3e308b218bc214",
+      "new_id": "w_0a3e308b218bc214",
+      "level": "N1"
+    },
+    {
+      "from": "華やかな",
+      "to": "華やか",
+      "old_id": "w_dc968a405309bb20",
+      "new_id": "w_dc968a405309bb20",
+      "level": "N1"
+    },
+    {
+      "from": "旺盛だ",
+      "to": "旺盛",
+      "old_id": "w_4df51fa3dcfed32d",
+      "new_id": "w_4df51fa3dcfed32d",
+      "level": "N1"
+    },
+    {
+      "from": "億劫だ",
+      "to": "億劫",
+      "old_id": "w_253d6fd37766266d",
+      "new_id": "w_253d6fd37766266d",
+      "level": "N1"
+    },
+    {
+      "from": "疎らだ",
+      "to": "疎ら",
+      "old_id": "w_545a88c322c4486a",
+      "new_id": "w_545a88c322c4486a",
+      "level": "N1"
+    },
+    {
+      "from": "些細な",
+      "to": "些細",
+      "old_id": "w_83a1a233497a6a27",
+      "new_id": "w_83a1a233497a6a27",
+      "level": "N1"
+    },
+    {
+      "from": "奔放な",
+      "to": "奔放",
+      "old_id": "w_f900d3041a0c73b6",
+      "new_id": "w_f900d3041a0c73b6",
+      "level": "N1"
+    },
+    {
+      "from": "多角的な",
+      "to": "多角的",
+      "old_id": "w_b944223a52d313a5",
+      "new_id": "w_b944223a52d313a5",
+      "level": "N1"
+    },
+    {
+      "from": "精力的に",
+      "to": "精力的",
+      "old_id": "w_453a651e8bd0ed54",
+      "new_id": "w_453a651e8bd0ed54",
+      "level": "N1"
+    },
+    {
+      "from": "爽やかだ",
+      "to": "爽やか",
+      "old_id": "w_d1b4e1dd2eaea03a",
+      "new_id": "w_d1b4e1dd2eaea03a",
+      "level": "N1"
+    },
+    {
+      "from": "コンスタントに",
+      "to": "コンスタント",
+      "old_id": "w_6e41549e5b443d35",
+      "new_id": "w_6e41549e5b443d35",
+      "level": "N1"
+    },
+    {
+      "from": "有耶無耶に",
+      "to": "有耶無耶",
+      "old_id": "w_5ef5b3d11ace52b7",
+      "new_id": "w_5ef5b3d11ace52b7",
+      "level": "N1"
+    },
+    {
+      "from": "煌々と",
+      "to": "煌々",
+      "old_id": "w_afb78f5d4ab6ca30",
+      "new_id": "w_afb78f5d4ab6ca30",
+      "level": "N1"
+    },
+    {
+      "from": "歴然と",
+      "to": "歴然",
+      "old_id": "w_c2571abcaf5ce378",
+      "new_id": "w_c2571abcaf5ce378",
+      "level": "N1"
+    },
+    {
+      "from": "ひしひしと",
+      "to": "ひしひし",
+      "old_id": "w_560e1f4a183fad1d",
+      "new_id": "w_560e1f4a183fad1d",
+      "level": "N1"
+    },
+    {
+      "from": "ずっしりと",
+      "to": "ずっしり",
+      "old_id": "w_d21273e09a47a3a6",
+      "new_id": "w_d21273e09a47a3a6",
+      "level": "N1"
+    },
+    {
+      "from": "せかせかと",
+      "to": "せかせか",
+      "old_id": "w_fdb8587ac0d4a801",
+      "new_id": "w_fdb8587ac0d4a801",
+      "level": "N1"
+    },
+    {
+      "from": "忠実に",
+      "to": "忠実",
+      "old_id": "w_fa51706c048bb954",
+      "new_id": "w_fa51706c048bb954",
+      "level": "N1"
+    },
+    {
+      "from": "一挙に",
+      "to": "一挙",
+      "old_id": "w_951afcffc2798e47",
+      "new_id": "w_951afcffc2798e47",
+      "level": "N1"
+    },
+    {
+      "from": "豪快に",
+      "to": "豪快",
+      "old_id": "w_d56204ae722b4b30",
+      "new_id": "w_d56204ae722b4b30",
+      "level": "N1"
+    },
+    {
+      "from": "遺憾に",
+      "to": "遺憾",
+      "old_id": "w_7ede81f0f2544245",
+      "new_id": "w_7ede81f0f2544245",
+      "level": "N1"
+    },
+    {
+      "from": "如実に",
+      "to": "如実",
+      "old_id": "w_2305ca44b5049a16",
+      "new_id": "w_2305ca44b5049a16",
+      "level": "N1"
+    },
+    {
+      "from": "徐々に",
+      "to": "徐々",
+      "old_id": "w_2eb416150973f88d",
+      "new_id": "w_2eb416150973f88d",
+      "level": "N2"
+    },
+    {
+      "from": "貶される",
+      "to": "貶す",
+      "old_id": "w_d8fb15145a9e623e",
+      "new_id": "w_d8fb15145a9e623e",
+      "level": "N1"
+    },
+    {
+      "from": "お出掛け",
+      "to": "お出かけ",
+      "old_id": "w_eecc0929f62999d6",
+      "new_id": "w_eecc0929f62999d6",
+      "level": "N2"
+    }
+  ],
+  "kept": [
+    {
+      "id": "w_1cd9d956ac65ad3e",
+      "level": "N5",
+      "surface": "色々",
+      "reading_kana": "いろいろ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_d8dcbb01e7e6526f",
+      "level": "N5",
+      "surface": "どう致しまして",
+      "reading_kana": "どういたしまして",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_82d2d40c223c0fc0",
+      "level": "N4",
+      "surface": "中々",
+      "reading_kana": "なかなか",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_5b55a10a5d6814d6",
+      "level": "N4",
+      "surface": "日本製",
+      "reading_kana": "にほんせい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_dac2ed0ed0290865",
+      "level": "N3",
+      "surface": "一度に",
+      "reading_kana": "いちどに",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_124b8bc840f69c1e",
+      "level": "N3",
+      "surface": "我々",
+      "reading_kana": "われわれ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_3023fac95c244530",
+      "level": "N3",
+      "surface": "方々",
+      "reading_kana": "かたがた",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_f00c9d1b6516e4f2",
+      "level": "N3",
+      "surface": "次々",
+      "reading_kana": "つぎつぎ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_e6793fec12862789",
+      "level": "N3",
+      "surface": "少々",
+      "reading_kana": "しょうしょう",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_85fc5f056fd49807",
+      "level": "N3",
+      "surface": "落ち着く",
+      "reading_kana": "おちつく",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_becbe89dce937f34",
+      "level": "N2",
+      "surface": "行ってきます",
+      "reading_kana": "いってきます",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_213905929b42e976",
+      "level": "N2",
+      "surface": "始めに",
+      "reading_kana": "はじめに",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_7be7b280d00ddd2e",
+      "level": "N2",
+      "surface": "その頃",
+      "reading_kana": "そのころ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_f6461fe50fbc18a7",
+      "level": "N2",
+      "surface": "その他",
+      "reading_kana": "そのほか",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_4948be9f9aed94b0",
+      "level": "N2",
+      "surface": "何々",
+      "reading_kana": "なになに",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_cbaa90d9cde4ed8e",
+      "level": "N2",
+      "surface": "別々",
+      "reading_kana": "べつべつ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_39dd02a5b61887c0",
+      "level": "N2",
+      "surface": "様々",
+      "reading_kana": "さまざま",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_01c8260054b32da5",
+      "level": "N2",
+      "surface": "各々",
+      "reading_kana": "おのおの",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_b6692781d912a8ce",
+      "level": "N2",
+      "surface": "初めに",
+      "reading_kana": "はじめに",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_e504525a3bc6bc12",
+      "level": "N2",
+      "surface": "元々",
+      "reading_kana": "もともと",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_dbd3956009c2603f",
+      "level": "N2",
+      "surface": "繋がり",
+      "reading_kana": "つながり",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_26d7ff3366e29b42",
+      "level": "N2",
+      "surface": "割合に",
+      "reading_kana": "わりあいに",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_fe5026000bdbdfdf",
+      "level": "N2",
+      "surface": "続々",
+      "reading_kana": "ぞくぞく",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_ce285518225afb6d",
+      "level": "N2",
+      "surface": "構いません",
+      "reading_kana": "かまいません",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_b634948494be7e44",
+      "level": "N2",
+      "surface": "斬る",
+      "reading_kana": "きる",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_957e9ad1cc2a5cc6",
+      "level": "N2",
+      "surface": "着々",
+      "reading_kana": "ちゃくちゃく",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_6aeb9c1f5df61e28",
+      "level": "N2",
+      "surface": "ウェイトレス",
+      "reading_kana": "ウェイトレス",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_6dafd4f1d41998c0",
+      "level": "N2",
+      "surface": "転々",
+      "reading_kana": "てんてん",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_b846d60ec7ea8a3a",
+      "level": "N2",
+      "surface": "若々しい",
+      "reading_kana": "わかわかしい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_75780c2794106632",
+      "level": "N2",
+      "surface": "騒々しい",
+      "reading_kana": "そうぞうしい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_295d47ac323c9139",
+      "level": "N2",
+      "surface": "ご苦労さま",
+      "reading_kana": "ごくろうさま",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_e1858aa5a7439d43",
+      "level": "N2",
+      "surface": "順々",
+      "reading_kana": "じゅんじゅん",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_7dbaaf931093de54",
+      "level": "N2",
+      "surface": "銘々",
+      "reading_kana": "めいめい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_8fceccfb0b0413c3",
+      "level": "N1",
+      "surface": "何なり",
+      "reading_kana": "なんなり",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_e46e25b8f8c8a88c",
+      "level": "N1",
+      "surface": "にも関わらず",
+      "reading_kana": "にもかかわらず",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_9575469881a845d9",
+      "level": "N1",
+      "surface": "堂々",
+      "reading_kana": "どうどう",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_d3853ae5a233cdbf",
+      "level": "N1",
+      "surface": "幾つか",
+      "reading_kana": "いくつか",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_150dcbd2b6dcb160",
+      "level": "N1",
+      "surface": "ロープウェイ",
+      "reading_kana": "ロープウェイ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_2a2702f1f74ccfdc",
+      "level": "N1",
+      "surface": "足手まとい",
+      "reading_kana": "あしでまとい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_3129de0be21afd27",
+      "level": "N1",
+      "surface": "埋め込む",
+      "reading_kana": "うめこむ",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_e94ee9b4c7e51003",
+      "level": "N1",
+      "surface": "華々しい",
+      "reading_kana": "はなばなしい",
+      "reason": "modern-form-or-set-phrase"
+    },
+    {
+      "id": "w_ffa6380de41f7285",
+      "level": "N1",
+      "surface": "重々しい",
+      "reading_kana": "おもおもしい",
+      "reason": "modern-form-or-set-phrase"
+    }
+  ],
+  "dropped": [
+    "w_163c875e106e915a",
+    "w_3ab16e565cd75205",
+    "w_3fb79a05ecdeb8e2",
+    "w_4a9ade7c35cb2e1c",
+    "w_4d71c8e8bb9e8afa",
+    "w_536582618395af85",
+    "w_5a53c24529898048",
+    "w_5f7d2faf2ecc4e9c",
+    "w_9ed51c1051f2801b",
+    "w_a8bf8b6572c5b0e0",
+    "w_aa7684a0c44271a6",
+    "w_ba8a5ec7e21618b0",
+    "w_bd712479a72069fd",
+    "w_c017d3fc119dd1f4",
+    "w_c5ab894cc1ca5bbb",
+    "w_c7847c394363e398",
+    "w_c9278b57465a3ff2",
+    "w_cac05149650fb9c9",
+    "w_cc7e713c46e8ee0b",
+    "w_ce70656918f80907",
+    "w_d6fdf33d0925e453",
+    "w_d864b851061da4e7",
+    "w_df2d3b2184646be9",
+    "w_fb689f67f99328fc"
+  ]
+}

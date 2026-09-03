@@ -191,7 +191,7 @@ def main():
         source_counts[key] = source_counts.get(key, 0) + 1
 
     passed = (
-        len(expected) == 6638
+        len(expected) == 7026
         and len(probe_results) == len(expected)
         and not invalid
         and not part_files

@@ -19,8 +19,7 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import { initialWindowMetrics } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import {
   font,
   layout,
@@ -32,12 +31,16 @@ import {
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { Button } from '~/components/ui/Button';
+import { ButtonFillProgress } from '~/components/ui/ButtonFillProgress';
+import { StatTile } from '~/components/ui/StatTile';
 import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
 import { useToast } from '~/components/Toast';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { Receipt, type ReceiptRow } from '~/features/onigiri/components';
 import { ingredientImage, ingredientName } from '~/features/onigiri/ingredientAssets';
+import { recipeImage } from '~/features/onigiri/recipeAssets';
+import type { OnigiriImageKey } from '~/features/onigiri/types';
 import type {
   OnigiriIngredientReward,
   OnigiriProgressEntry,
@@ -45,6 +48,7 @@ import type {
 } from '~/features/onigiri/progress';
 import { remainingCaption } from '~/features/home/homePresentation';
 import { useSessionStore } from '~/stores/SessionStore';
+import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
 import { RewardBurst } from './components/RewardBurst';
@@ -54,28 +58,17 @@ import {
   REWARD_TIMELINE,
   PROGRESS_CELL_LIME_HOLD,
 } from './rewardMotion';
-import { buildDoneRewardPresentation } from './rewardPresentation';
+import { buildDoneRewardPresentation, findRewardForSession } from './rewardPresentation';
 import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCapture';
+import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
 // 디바이스 실제 inset 을 직접 사용한다.
-const TOP_INSET = initialWindowMetrics?.insets.top ?? 24;
-const BOTTOM_INSET = initialWindowMetrics?.insets.bottom ?? 0;
 
+// 영수증 날짜는 final-screens 07 기준 `2026. 8. 7` — 시각은 넣지 않는다.
 function formatReceiptDate(ms: number): string {
   const d = new Date(ms);
-  const p = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}.${p(d.getMonth() + 1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
-}
-
-function findRewardForSession(
-  progress: OnigiriProgressSnapshot | null,
-  sessionId: number | null,
-): OnigiriIngredientReward | null {
-  const reward = progress?.lastReward ?? null;
-  if (!reward) return null;
-  if (sessionId === null) return reward;
-  return reward.sessionId === sessionId ? reward : null;
+  return `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
 }
 
 function findDisplayEntry(
@@ -89,16 +82,21 @@ function findDisplayEntry(
 
 export default function DoneScreen(): React.ReactNode {
   const router = useRouter();
+  const navigation = useNavigation();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const screenInsets = useFullScreenInsets();
   const toast = useToast();
   const { height: windowHeight } = useWindowDimensions();
   const reducedMotion = useReducedMotion();
+  const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
+  const captureMode = isVisualCaptureEnabled() && uiFixture != null;
   const summary = useSessionStore((s) => s.summary);
   const resetSession = useSessionStore((s) => s.reset);
   const [progress, setProgress] = useState<OnigiriProgressSnapshot | null>(null);
   const [progressFailed, setProgressFailed] = useState(false);
-  const [receiptOpen, setReceiptOpen] = useState(false);
+  const [receiptOpen, setReceiptOpen] = useState(captureMode && uiFixture === '07-receipt');
+  const [craftedOpen, setCraftedOpen] = useState(captureMode && uiFixture === '06-onigiri-complete');
   const receiptRef = useRef<View>(null);
 
   // 접근성 설정 확인 전에도 결과가 보이도록 최종 상태에서 시작한다.
@@ -126,9 +124,16 @@ export default function DoneScreen(): React.ReactNode {
     };
   }, [summary?.sessionId]);
 
+  // 스와이프/뒤로가기로 빠져도 다음 /study 가 남은 summary 에 묶이지 않게 정리한다.
+  useEffect(() => {
+    return navigation.addListener('beforeRemove', () => {
+      useSessionStore.getState().reset();
+    });
+  }, [navigation]);
+
   const reward = findRewardForSession(progress, summary?.sessionId ?? null);
   const displayEntry = findDisplayEntry(progress, reward);
-  const dateMs = reward?.earnedAt ?? Date.now();
+  const dateMs = captureMode ? VISUAL_NOW_MS : (reward?.earnedAt ?? Date.now());
   const dateLabel = formatReceiptDate(dateMs);
   const newCount = summary?.newCount ?? 0;
   const againCount = summary?.againCount ?? 0;
@@ -143,7 +148,8 @@ export default function DoneScreen(): React.ReactNode {
   const presentation = buildDoneRewardPresentation({
     ingredientName: rewardLabel,
     onigiriName: recipeName,
-    crafted: reward?.crafted ?? false,
+    // 결과 영수증과 완성 축하는 별도 단계다. 첫 화면은 항상 획득한 재료를 설명한다.
+    crafted: false,
     allCollected,
     failed: progressFailed,
   });
@@ -216,7 +222,7 @@ export default function DoneScreen(): React.ReactNode {
   const receiptRows = useMemo<ReceiptRow[]>(
     () => [
       { label: '새로 배운 단어', value: newCount },
-      { label: '아직이라고 표시한 단어', value: againCount },
+      { label: '다시 배울 단어', value: againCount },
       { label: '받은 재료', value: rewardLabel, reward: true },
     ],
     [newCount, againCount, rewardLabel],
@@ -250,12 +256,18 @@ export default function DoneScreen(): React.ReactNode {
       }),
       Animated.timing(print, {
         toValue: 1,
-        duration: motion.printOutMs,
+        delay: motion.receiptPrintDelayMs,
+        duration: motion.receiptPrintMs,
         // 위에서 인쇄되어 내려오는 느낌.
-        easing: Easing.bezier(0.22, 0.61, 0.36, 1),
+        easing: Easing.bezier(0.5, 0, 0.25, 1),
         useNativeDriver: true,
       }),
     ]).start();
+  };
+
+  const advanceFromResult = () => {
+    if (reward?.crafted) setCraftedOpen(true);
+    else openReceipt();
   };
 
   const onSave = () => {
@@ -280,7 +292,7 @@ export default function DoneScreen(): React.ReactNode {
           'ONIGIRI SHOP',
           dateLabel,
           `새로 배운 단어 ${newCount}`,
-          `아직이라고 표시한 단어 ${againCount}`,
+          `다시 배울 단어 ${againCount}`,
           rewardLabel ? `받은 재료 ${rewardLabel}` : null,
           `${recipeName} ${ingredientCount}/${INGREDIENTS_PER_ONIGIRI}`,
         ]
@@ -293,16 +305,26 @@ export default function DoneScreen(): React.ReactNode {
   const loading = !progress && !progressFailed;
 
   return (
-    <View style={[styles.root, { paddingTop: TOP_INSET, paddingBottom: BOTTOM_INSET }]}>
+    <View style={[styles.root, { paddingTop: screenInsets.top, paddingBottom: screenInsets.bottom }]}>
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.body}
         showsVerticalScrollIndicator={false}
       >
-        <Overline>오늘의 학습</Overline>
-        <Text style={styles.title}>다 했어요</Text>
+        {craftedOpen ? (
+          <CraftedContent
+            recipeName={recipeName}
+            imageKey={displayEntry?.item.imageKey}
+            learned={newCount + (summary?.reviewCount ?? 0)}
+            durationSec={summary?.durationSec ?? 0}
+            streakDays={streakDays}
+          />
+        ) : (
+          <>
+            <Overline>오늘의 학습</Overline>
+            <Text style={styles.title}>다 했어요</Text>
 
-        {loading ? (
+            {loading ? (
           <View style={styles.loading}>
             <ActivityIndicator color={colors.body} />
           </View>
@@ -383,6 +405,8 @@ export default function DoneScreen(): React.ReactNode {
               {memorizedNote}
             </Animated.Text>
           </>
+            )}
+          </>
         )}
       </ScrollView>
 
@@ -399,7 +423,18 @@ export default function DoneScreen(): React.ReactNode {
             },
           ]}
         >
-          <Button label="영수증 받고 마치기" onPress={openReceipt} disabled={loading} />
+          {craftedOpen ? (
+            <Button label="영수증 받고 마치기" onPress={openReceipt} />
+          ) : loading ? (
+            <Button label="확인" onPress={() => undefined} disabled />
+          ) : (
+            <ButtonFillProgress
+              label="확인"
+              mode="autoAdvance"
+              onPress={advanceFromResult}
+              frozenProgress={captureMode ? 0.5 : undefined}
+            />
+          )}
         </Animated.View>
       )}
 
@@ -411,7 +446,7 @@ export default function DoneScreen(): React.ReactNode {
           </Pressable>
 
           <View
-            style={[styles.overlayContent, { paddingTop: TOP_INSET, paddingBottom: BOTTOM_INSET }]}
+            style={[styles.overlayContent, { paddingTop: screenInsets.top, paddingBottom: screenInsets.bottom }]}
             pointerEvents="box-none"
           >
             <Animated.View
@@ -459,6 +494,46 @@ export default function DoneScreen(): React.ReactNode {
           </View>
         </View>
       )}
+    </View>
+  );
+}
+
+function CraftedContent({
+  recipeName,
+  imageKey,
+  learned,
+  durationSec,
+  streakDays,
+}: {
+  recipeName: string;
+  imageKey?: OnigiriImageKey;
+  learned: number;
+  durationSec: number;
+  streakDays: number;
+}): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  return (
+    <View style={styles.crafted}>
+      <Overline style={styles.craftedOverline}>새 메뉴 완성</Overline>
+      <Text style={styles.craftedTitle}>새 주먹밥을 만들었어요.</Text>
+      {imageKey ? (
+        <View style={styles.craftedArt}>
+          <PlateTile
+            size={176}
+            cornerRadius={radius.card}
+            image={recipeImage(imageKey)}
+            imageSize={148}
+          />
+          <View style={styles.completeBadge}><Text style={styles.completeBadgeLabel}>완성</Text></View>
+        </View>
+      ) : null}
+      <Text style={styles.craftedName}>{recipeName}</Text>
+      <View style={styles.craftedMetrics}>
+        <StatTile value={learned} label="학습 단어" />
+        <StatTile value={Math.max(1, Math.round(durationSec / 60))} label="학습 시간(분)" />
+        <StatTile value={streakDays} label="단골 기록" />
+      </View>
+      <Text style={styles.ownerLine}>“오늘 것도 잘 만들었네.” · 사장님</Text>
     </View>
   );
 }
@@ -597,6 +672,24 @@ const makeStyles = (c: ThemeColors) =>
     summaryValue: { ...typography.cardTitle, color: c.ink, fontVariant: ['tabular-nums'] },
 
     memorized: { ...typography.body, color: c.body, marginTop: spacing.lg },
+
+    crafted: { flex: 1, alignItems: 'center', gap: spacing.lg },
+    craftedOverline: { color: c.primary },
+    craftedTitle: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
+    craftedArt: { position: 'relative', marginVertical: spacing.md },
+    completeBadge: {
+      position: 'absolute',
+      right: -8,
+      bottom: 8,
+      borderRadius: radius.pill,
+      backgroundColor: c.secondary,
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.sm,
+    },
+    completeBadgeLabel: { ...typography.captionStrong, color: c.onSecondary },
+    craftedName: { ...typography.meaning, color: c.ink, textAlign: 'center' },
+    craftedMetrics: { alignSelf: 'stretch', flexDirection: 'row', gap: spacing.sm },
+    ownerLine: { ...typography.body, color: c.body, textAlign: 'center' },
 
     cta: { paddingHorizontal: layout.gutter, paddingTop: layout.gutter, paddingBottom: layout.gapGroup },
 

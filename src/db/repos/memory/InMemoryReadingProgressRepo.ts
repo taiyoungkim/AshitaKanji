@@ -1,11 +1,11 @@
-// In-memory test double — 누적 회독. known 키 = `${word_id}\t${chapter}` (회차별 독립).
+// In-memory test double — 독립 챕터별 노출/숙련 상태.
 
 import type { JlptLevel, Word } from '~/types/Card';
 import type { ChapterStat } from '~/types/Reading';
-import type { ReadingProgressRepo } from '../ReadingProgressRepo';
+import type { ReadingProgressRepo, ReadingWordProgress } from '../ReadingProgressRepo';
 
 export class InMemoryReadingProgressRepo implements ReadingProgressRepo {
-  private known = new Map<string, boolean>(); // `${wordId}\t${chapter}` → known
+  private progress = new Map<string, ReadingWordProgress>();
 
   constructor(private words: Word[] = []) {}
 
@@ -13,26 +13,28 @@ export class InMemoryReadingProgressRepo implements ReadingProgressRepo {
     this.words = words;
   }
 
-  private cumulativeWords(level: JlptLevel, chapter: number): Word[] {
+  private chapterWords(level: JlptLevel, chapter: number): Word[] {
     return this.words.filter(
       (w) =>
         w.level === level &&
         w.deprecated === 0 &&
         w.reading_chapter != null &&
-        w.reading_chapter <= chapter,
+        w.reading_chapter === chapter,
     );
   }
 
-  async getChapterKnown(level: JlptLevel, chapter: number): Promise<Map<string, boolean>> {
-    const out = new Map<string, boolean>();
-    for (const w of this.cumulativeWords(level, chapter)) {
-      out.set(w.id, this.known.get(`${w.id}\t${chapter}`) ?? false);
+  async getChapterProgress(level: JlptLevel, chapter: number): Promise<Map<string, ReadingWordProgress>> {
+    const out = new Map<string, ReadingWordProgress>();
+    for (const w of this.chapterWords(level, chapter)) {
+      out.set(w.id, { ...(this.progress.get(`${w.id}\t${chapter}`) ?? { seen: false, known: false }) });
     }
     return out;
   }
 
-  async setKnown(wordId: string, chapter: number, known: boolean): Promise<void> {
-    this.known.set(`${wordId}\t${chapter}`, known);
+  async recordExposure(wordId: string, chapter: number, known: boolean): Promise<void> {
+    const key = `${wordId}\t${chapter}`;
+    const current = this.progress.get(key);
+    this.progress.set(key, { seen: true, known: Boolean(current?.known || known) });
   }
 
   async getLevelChapterStats(level: JlptLevel): Promise<ChapterStat[]> {
@@ -43,21 +45,24 @@ export class InMemoryReadingProgressRepo implements ReadingProgressRepo {
     }
     const chapters = [...blockCount.keys()].sort((a, b) => a - b);
     const stats: ChapterStat[] = [];
-    let cumulative = 0;
     for (const ch of chapters) {
-      cumulative += blockCount.get(ch) ?? 0;
+      let covered = 0;
       let known = 0;
-      for (const w of this.cumulativeWords(level, ch)) {
-        if (this.known.get(`${w.id}\t${ch}`)) known += 1;
+      for (const w of this.chapterWords(level, ch)) {
+        const item = this.progress.get(`${w.id}\t${ch}`);
+        if (item?.seen) covered += 1;
+        if (item?.known) known += 1;
       }
-      stats.push({ level, chapter: ch, total: cumulative, known });
+      stats.push({ level, chapter: ch, total: blockCount.get(ch) ?? 0, covered, known });
     }
     return stats;
   }
 
   async resetChapter(level: JlptLevel, chapter: number): Promise<void> {
-    for (const w of this.cumulativeWords(level, chapter)) {
-      this.known.delete(`${w.id}\t${chapter}`);
+    for (const w of this.chapterWords(level, chapter)) {
+      const key = `${w.id}\t${chapter}`;
+      const item = this.progress.get(key);
+      if (item) this.progress.set(key, { ...item, known: false });
     }
   }
 }

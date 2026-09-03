@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-18T14:49:51.197256+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 6638,
+  "jobs": 13276,
+  "preexisting": 13275,
+  "planned": 1,
+  "created": 1,
+  "skipped": 13275,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_dfb409211ee33e05",
+      "kind": "example",
+      "text": "平和の名の下に侵略を図る.",
+      "file": "assets/audio/examples/w_dfb409211ee33e05.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.562,
+  "dry_run": false
+}

@@ -5,7 +5,7 @@
 // 암시하지 않기 위해서다.
 
 import { useCallback, useRef, useState } from 'react';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import {
   ActivityIndicator,
   Animated,
@@ -24,29 +24,23 @@ import {
   type ThemeColors,
 } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import {
-  IconCheck,
-  IconFlame,
-  IconHistory,
-  IconList,
-  IconRepeat,
-  IconStudy,
-} from '~/design/icons';
+import { IconHistory, IconRepeat, IconStudy, IconTrendUp } from '~/design/icons';
 import { Button } from '~/components/ui/Button';
 import { AnimatedNumber } from '~/components/ui/AnimatedNumber';
 import { useToast } from '~/components/Toast';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { resolveStudyEntry } from '~/features/study/resolveStudyEntry';
+import { StreakStamps } from '~/features/home/components/StreakStamps';
+import { formatKoreanDate } from '~/features/home/homePresentation';
 import { buildRecordService } from './buildRecordService';
 import { ScoreDistribution } from './components/ScoreDistribution';
 import type { RecordSnapshot, RecordViewState } from './recordTypes';
+import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 
 /** 큰 제목이 인라인 제목으로 넘어가는 스크롤 구간. */
 const TITLE_SCRUB_PX = 48;
 const HAIRLINE_AT = 6;
-
-const WEEKDAY_LABELS = ['월', '화', '수', '목', '금', '토', '일'] as const;
 
 export default function StatsScreen(): React.ReactNode {
   const router = useRouter();
@@ -56,6 +50,8 @@ export default function StatsScreen(): React.ReactNode {
   const reducedMotion = useReducedMotion();
   const selectedLevels = useSettingsStore((s) => s.selectedLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
+  const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
+  const nowMs = isVisualCaptureEnabled() && uiFixture ? VISUAL_NOW_MS : Date.now();
 
   const [state, setState] = useState<RecordViewState>({ phase: 'loading' });
   const [starting, setStarting] = useState(false);
@@ -65,9 +61,8 @@ export default function StatsScreen(): React.ReactNode {
   useFocusEffect(
     useCallback(() => {
       let alive = true;
-      setState({ phase: 'loading' });
       void buildRecordService()
-        .then((svc) => svc.load(Date.now()))
+        .then((svc) => svc.load(nowMs))
         .then((snapshot) => {
           if (!alive) return;
           // latest 가 없으면 아직 완료한 학습이 없다는 뜻 — 오류가 아니다.
@@ -84,7 +79,7 @@ export default function StatsScreen(): React.ReactNode {
       return () => {
         alive = false;
       };
-    }, []),
+    }, [nowMs]),
   );
 
   const onStart = () => {
@@ -139,6 +134,14 @@ export default function StatsScreen(): React.ReactNode {
       >
         <Animated.Text
           style={[
+            styles.bigDate,
+            { opacity: t.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }) },
+          ]}
+        >
+          {formatKoreanDate(new Date(nowMs))}
+        </Animated.Text>
+        <Animated.Text
+          style={[
             styles.bigTitle,
             {
               opacity: t.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }),
@@ -190,14 +193,14 @@ function RecordBody({
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   const { colors } = useTheme();
-  const { latest, streakDays, week, totals, comparison } = snapshot;
+  const { latest, streakDays, totals, comparison } = snapshot;
 
   return (
     <View style={styles.stack}>
       <StaggerCard index={0} reducedMotion={reducedMotion}>
         <View style={styles.scoreCard}>
           <View style={styles.scoreIcon}>
-            <IconStudy size={24} color={colors.body} />
+            <IconTrendUp size={26} color={colors.secondary} />
           </View>
           {latest ? (
             <View style={styles.scoreMain}>
@@ -205,12 +208,12 @@ function RecordBody({
                 <AnimatedNumber
                   value={latest.correct}
                   suffix={`/${latest.total}`}
-                  delay={0}
+                  delay={150}
                   style={styles.compactScoreValue}
                 />
               </View>
               <Text style={styles.cardCaption}>
-                테스트 점수 ({formatRecordDate(latest.endedAt)})
+                테스트 점수 {formatRecordDate(latest.endedAt)}
               </Text>
             </View>
           ) : (
@@ -225,28 +228,12 @@ function RecordBody({
       <StaggerCard index={1} reducedMotion={reducedMotion}>
         <View style={styles.streakCard}>
           <View style={styles.streakTop}>
-            <View style={styles.streakTitleRow}>
-              <View style={styles.flameWrap}>
-                <IconFlame size={40} color={streakDays > 0 ? '#F9734E' : colors.pressed} />
-                {streakDays > 0 && <Text style={styles.flameNumber}>{streakDays}</Text>}
-              </View>
-              <View>
-                <Text style={styles.streakTitle}>연속 학습</Text>
-                <Text style={styles.streakCaption}>{streakDays}일째</Text>
-              </View>
-            </View>
+            <StreakCalendarMark days={streakDays} />
+            <Text style={styles.streakTitle}>단골 {streakDays}일차</Text>
           </View>
-          <View style={styles.weekRow}>
-            {week.map((day, i) => (
-              <WeekCell
-                key={day.date}
-                label={WEEKDAY_LABELS[day.weekday] ?? ''}
-                active={day.active}
-                index={i}
-                reducedMotion={reducedMotion}
-              />
-            ))}
-          </View>
+          <View style={styles.streakDivider} />
+          <StreakStamps days={streakDays} animate />
+          <Text style={styles.streakBenefit}>단골 혜택 · 다음 학습 재료 2배</Text>
         </View>
       </StaggerCard>
 
@@ -256,7 +243,7 @@ function RecordBody({
             <StatTile
               label="읽은 단어"
               value={totals.learnedWords}
-              icon={<IconList size={22} color={colors.body} />}
+              icon={<Text style={styles.kanaIcon}>あ</Text>}
             />
             <StatTile
               label="복습"
@@ -291,6 +278,20 @@ function RecordBody({
           cta
         )}
       </StaggerCard>
+    </View>
+  );
+}
+
+function StreakCalendarMark({ days }: { days: number }): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  return (
+    <View
+      style={styles.calendarMark}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+    >
+      <View style={styles.calendarBand} />
+      <Text style={styles.calendarDay}>{days}</Text>
     </View>
   );
 }
@@ -338,56 +339,6 @@ function StaggerCard({
   );
 }
 
-/** 활동한 날만 라임 체크가 팝한다 — 이 화면에서 라임은 여기에만 쓴다. */
-function WeekCell({
-  label,
-  active,
-  index,
-  reducedMotion,
-}: {
-  label: string;
-  active: boolean;
-  index: number;
-  reducedMotion: boolean;
-}): React.ReactNode {
-  const { colors } = useTheme();
-  const styles = useThemedStyles(makeStyles);
-  const pop = useRef(new Animated.Value(reducedMotion || !active ? 1 : 0)).current;
-
-  useFocusEffect(
-    useCallback(() => {
-      if (!active) return;
-      if (reducedMotion) {
-        pop.setValue(1);
-        return;
-      }
-      pop.setValue(0);
-      const animation = Animated.timing(pop, {
-        toValue: 1,
-        delay: 420 + index * 60,
-        duration: 260,
-        easing: Easing.out(Easing.back(2)),
-        useNativeDriver: true,
-      });
-      animation.start();
-      return () => animation.stop();
-    }, [active, index, reducedMotion, pop]),
-  );
-
-  return (
-    <View style={styles.weekCell}>
-      <Text style={styles.weekLabel}>{label}</Text>
-      <View style={[styles.weekDot, active && styles.weekDotActive]}>
-        {active && (
-          <Animated.View style={{ opacity: pop, transform: [{ scale: pop }] }}>
-            <IconCheck size={14} color={colors.onSecondary} />
-          </Animated.View>
-        )}
-      </View>
-    </View>
-  );
-}
-
 function StatTile({
   label,
   value,
@@ -401,7 +352,7 @@ function StatTile({
   return (
     <View style={styles.tile}>
       <View style={styles.tileIcon}>{icon}</View>
-      <AnimatedNumber value={value} delay={0} style={styles.tileValue} />
+      <AnimatedNumber value={value} delay={150} style={styles.tileValue} />
       <Text style={styles.tileLabel}>{label}</Text>
     </View>
   );
@@ -449,6 +400,7 @@ const makeStyles = (c: ThemeColors) =>
       paddingTop: 60,
       paddingBottom: spacing.huge,
     },
+    bigDate: { ...typography.caption, color: c.body, marginBottom: spacing.xs },
     bigTitle: { ...typography.screenTitle, color: c.ink, marginBottom: layout.gutter },
 
     center: { paddingVertical: spacing.huge, alignItems: 'center', gap: spacing.md },
@@ -466,14 +418,7 @@ const makeStyles = (c: ThemeColors) =>
       paddingHorizontal: spacing.lg,
       paddingVertical: 14,
     },
-    scoreIcon: {
-      width: 46,
-      height: 46,
-      borderRadius: radius.tileMd,
-      backgroundColor: c.soft,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    scoreIcon: { width: 46, height: 46, alignItems: 'center', justifyContent: 'center' },
     scoreMain: { flex: 1, gap: 2 },
     compactScoreRow: { flexDirection: 'row', alignItems: 'center' },
     compactScoreValue: { ...typography.listTitle, color: c.ink },
@@ -486,34 +431,25 @@ const makeStyles = (c: ThemeColors) =>
       paddingHorizontal: spacing.xl,
       paddingTop: 18,
       paddingBottom: spacing.xl,
+      gap: spacing.md,
     },
-    streakTop: { marginBottom: 18 },
-    streakTitleRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
-    flameWrap: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
-    flameNumber: {
-      position: 'absolute',
-      bottom: 4,
-      fontSize: 11,
-      lineHeight: 12,
-      fontFamily: typography.captionStrong.fontFamily,
-      color: '#3A1A0E',
-    },
+    streakTop: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
     streakTitle: { ...typography.cta, color: c.ink },
-    streakCaption: { ...typography.overline, color: c.body, textTransform: 'none', letterSpacing: 0.4 },
-
-    weekRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.xs },
-    weekCell: { alignItems: 'center', gap: spacing.sm, minWidth: 36 },
-    weekLabel: { ...typography.caption, color: c.body },
-    weekDot: {
-      width: 34,
-      height: 34,
-      borderRadius: radius.pill,
+    streakDivider: { borderTopWidth: 1, borderStyle: 'dashed', borderColor: c.pressed },
+    calendarMark: {
+      width: 22,
+      height: 22,
+      borderRadius: 6,
       borderWidth: 1.5,
-      borderColor: c.pressed,
+      borderColor: c.primary,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
+      paddingBottom: 1,
+      overflow: 'hidden',
     },
-    weekDotActive: { backgroundColor: c.secondary, borderColor: c.secondary },
+    calendarBand: { position: 'absolute', top: 0, left: 0, right: 0, height: 5, backgroundColor: c.primary },
+    calendarDay: { fontFamily: typography.captionStrong.fontFamily, fontSize: 11, lineHeight: 13, color: c.primary },
+    streakBenefit: { ...typography.caption, color: c.body },
 
     // 퍼센트 폭에 gap 을 더하면 부모를 넘겨 줄바꿈된다. 행을 명시하고 타일은 flex 로 나눈다.
     tileGrid: { gap: layout.gapTight },
@@ -531,5 +467,6 @@ const makeStyles = (c: ThemeColors) =>
     tileIcon: { position: 'absolute', right: 14, top: 14 },
     tileValue: { fontFamily: typography.resultTitle.fontFamily, fontSize: 28, lineHeight: 32, color: c.ink },
     tileLabel: { ...typography.caption, color: c.body, marginTop: spacing.xs },
+    kanaIcon: { ...typography.cardTitle, color: c.body },
 
   });

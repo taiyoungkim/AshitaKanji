@@ -1,5 +1,5 @@
 // Design Ref: §5.6 단어 상세 — surface/reading/뜻/예문/타입/별표기 + TTS.
-// 예문은 권리 확인된 외부 사전 출처 (출처 라벨 비표시). 학습데이터 외부 송신 없음(on-device).
+// 예문은 권리 확인된 외부 사전 출처 (출처 라벨 비표시). 학습 기록은 기기에만 저장.
 //
 // 데이터: getDatabase() → SqliteCardRepo.findById(id). 읽기 전용 (FSRS 상태 변경 없음).
 
@@ -9,15 +9,12 @@ import {
   ActivityIndicator,
   Linking,
   Modal,
-  Platform,
   Pressable,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import { initialWindowMetrics, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
 import { IconClose, IconSpeaker } from '~/design/icons';
@@ -31,6 +28,7 @@ import type { WordExample } from '~/types/WordExample';
 import { CARD_TYPE_LABEL_KO, posLabelKo, renderKanjiFace } from '~/lib/cardType';
 import { buildNaverJaDictSearchUrl } from '~/lib/kanji';
 import { useIsTablet } from '~/lib/device';
+import { useBottomInset, useSheetTopInset } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
 import { useToast } from '~/components/Toast';
 import { copyText } from '~/lib/clipboard';
@@ -73,20 +71,11 @@ export default function WordDetailScreen(): React.ReactNode {
   const [selectedKanji, setSelectedKanji] = useState<KanjiForWord | null>(null);
   const tts = useTTS();
   const toast = useToast();
-  const insets = useSafeAreaInsets();
-
-  // Android의 native-stack modal은 edge-to-edge 상태에서 top inset을 0으로
-  // 돌려주는 기기가 있다. 이 경우 상태바 높이를 보강해 닫기 버튼이 시스템
-  // 시계/아이콘과 겹치지 않게 한다. iOS page modal은 native sheet 자체가
-  // 상단 여백을 제공하므로 기존 11c 간격을 유지한다.
-  const modalTopInset =
-    Platform.OS === 'android'
-      ? Math.max(
-          insets.top,
-          initialWindowMetrics?.insets.top ?? 0,
-          StatusBar.currentHeight ?? 0,
-        )
-      : 0;
+  // Android native-stack modal 은 edge-to-edge 에서 top inset 을 0 으로 주는
+  // 기기가 있다 — 닫기 버튼이 시계·상태 아이콘에 깔리지 않게 보정한다.
+  // iOS page modal 은 네이티브 시트가 상단 여백을 주므로 0 (11c 간격 유지).
+  const modalTopInset = useSheetTopInset();
+  const bottomInset = useBottomInset();
 
   const copyAndToast = (text: string | null | undefined) => {
     void copyText(text).then((ok) => {
@@ -183,7 +172,10 @@ export default function WordDetailScreen(): React.ReactNode {
         <View style={styles.sheetHeaderSpacer} />
       </View>
 
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={[styles.content, { paddingBottom: spacing.xxl + bottomInset }]}
+      >
       {/* 헤드: 표기 + 읽기 + 발음 */}
       <View style={styles.head}>
         <View style={styles.levelBadge}>
@@ -205,9 +197,9 @@ export default function WordDetailScreen(): React.ReactNode {
         )}
         <View style={styles.headActions}>
           <Pressable
-            style={[styles.ttsBtn, tts.status === 'unsupported' && styles.ttsBtnOff]}
+            style={[styles.ttsBtn, !tts.enabled && styles.ttsBtnOff]}
             onPress={() => tts.speakAudio('word', w.id, w.reading_kana)}
-            disabled={!tts.enabled || tts.status === 'unsupported'}
+            disabled={!tts.enabled}
             accessibilityLabel="발음 듣기"
             accessibilityRole="button"
           >
@@ -278,10 +270,10 @@ export default function WordDetailScreen(): React.ReactNode {
                   </Text>
                   <Pressable
                     onPress={() => tts.speakAudio('example', example.word_id, example.jp)}
-                    disabled={!tts.enabled || tts.status === 'unsupported'}
+                    disabled={!tts.enabled}
                     style={[
                       styles.exampleTts,
-                      (!tts.enabled || tts.status === 'unsupported') && styles.exampleTtsOff,
+                      !tts.enabled && styles.exampleTtsOff,
                     ]}
                     accessibilityLabel="예문 발음 듣기"
                     accessibilityRole="button"
@@ -413,7 +405,12 @@ function KanjiDetailSheet({
   return (
     <Modal visible transparent animationType="slide" onRequestClose={onClose}>
       <View style={styles.sheetRoot}>
-        <Pressable style={styles.sheetBackdrop} onPress={onClose} accessibilityLabel="닫기" />
+        <Pressable
+          style={styles.sheetBackdrop}
+          onPress={onClose}
+          accessibilityRole="button"
+          accessibilityLabel="닫기"
+        />
         <View style={styles.sheet}>
           <View style={styles.sheetHandle} />
           <Text style={styles.sheetLiteral}>{item.literal}</Text>

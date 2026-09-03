@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-08-21T12:41:08.871059+09:00",
+  "word_count": 7026,
+  "level_counts": {
+    "N5": 399,
+    "N4": 743,
+    "N3": 1491,
+    "N2": 1906,
+    "N1": 2487
+  },
+  "moves": [
+    {
+      "id": "w_80d1fde9c12ec7bb",
+      "surface": "活発",
+      "reading_kana": "かっぱつ",
+      "before": "N2",
+      "after": "N1",
+      "meaning_ko": "활발"
+    },
+    {
+      "id": "w_124b8bc840f69c1e",
+      "surface": "我々",
+      "reading_kana": "われわれ",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "우리"
+    },
+    {
+      "id": "w_14b7a7565fa9e8f4",
+      "surface": "度々",
+      "reading_kana": "たびたび",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "자주, 여러 번"
+    },
+    {
+      "id": "w_cbaa90d9cde4ed8e",
+      "surface": "別々",
+      "reading_kana": "べつべつ",
+      "before": "N2",
+      "after": "N3",
+      "meaning_ko": "따로따로"
+    },
+    {
+      "id": "w_fe5026000bdbdfdf",
+      "surface": "続々",
+      "reading_kana": "ぞくぞく",
+      "before": "N2",
+      "after": "N3",
+      "meaning_ko": "속속,계속해서"
+    },
+    {
+      "id": "w_b846d60ec7ea8a3a",
+      "surface": "若々しい",
+      "reading_kana": "わかわかしい",
+      "before": "N2",
+      "after": "N3",
+      "meaning_ko": "아주젊다,생기발랄하다"
+    },
+    {
+      "id": "w_269ddebb94cfa099",
+      "surface": "図々しい",
+      "reading_kana": "ずうずうしい",
+      "before": "N2",
+      "after": "N3",
+      "meaning_ko": "뻔뻔한"
+    },
+    {
+      "id": "w_7e841837b10f6c95",
+      "surface": "長々",
+      "reading_kana": "ながなが",
+      "before": "N1",
+      "after": "N3",
+      "meaning_ko": "길게, 장황하게"
+    },
+    {
+      "id": "w_52b71369ec5db591",
+      "surface": "漬ける",
+      "reading_kana": "つける",
+      "before": "N4",
+      "after": "N3",
+      "meaning_ko": "담그다, 적시다, 절이다"
+    },
+    {
+      "id": "w_422094ff0a79b584",
+      "surface": "付く",
+      "reading_kana": "つく",
+      "before": "N3",
+      "after": "N4",
+      "meaning_ko": "붙다, 달리다"
+    },
+    {
+      "id": "w_3fdb6246f1e9c47f",
+      "surface": "只",
+      "reading_kana": "ただ",
+      "before": "N1",
+      "after": "N3",
+      "meaning_ko": "공짜, 무료"
+    },
+    {
+      "id": "w_dd6cfb328dbd2400",
+      "surface": "せい",
+      "reading_kana": "せい",
+      "before": "N3",
+      "after": "N2",
+      "meaning_ko": "원인, 이유, 잘못, 결함"
+    },
+    {
+      "id": "w_08fb3f57661da121",
+      "surface": "硬い",
+      "reading_kana": "かたい",
+      "before": "N3",
+      "after": "N4",
+      "meaning_ko": "물질이 딱딱하다; 표정이 굳다"
+    }
+  ],
+  "meaning_fixes": [
+    {
+      "id": "w_421ac61489eec84b",
+      "surface": "ちらっと",
+      "before": "에서 흘끗 봄, 우연히",
+      "after": "흘끗, 잠깐, 언뜻"
+    },
+    {
+      "id": "w_4e15782eca5e57f4",
+      "surface": "学習",
+      "before": "공부하다, 배우다",
+      "after": "학습, 배움"
+    }
+  ],
+  "reading_fixes": [
+    {
+      "old_id": "w_f6461fe50fbc18a7",
+      "new_id": "w_2ae90bd5eccd679e",
+      "surface": "その他",
+      "before": "そのほか",
+      "after": "そのた",
+      "reason": "표제어 その他의 사전 읽기는 そのた. そのほか는 其の外."
+    }
+  ],
+  "successors": {
+    "w_f6461fe50fbc18a7": "w_2ae90bd5eccd679e"
+  },
+  "dropped_from_accepted": [
+    "w_52b71369ec5db591",
+    "w_80d1fde9c12ec7bb"
+  ],
+  "policy": "Move when NAVER catalog or live search has a unique form+reading JLPT badge that matches this card's sense. Keep modern 々 surfaces. NAMEYN kanji tags are not word JLPT badges."
+}

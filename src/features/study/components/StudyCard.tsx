@@ -27,6 +27,12 @@ import { getCenteredPromptOffset } from '../studyCardMotion';
 
 const REVEALED_PROMPT_TOP = spacing.huge * 3;
 
+/** 음독이 실제로 유사한 카드에만 붙는다 — 항상 노출이 아니다. */
+export interface PhoneticHint {
+  left: string;
+  right: string;
+}
+
 interface Props {
   word: Word;
   revealed: boolean;
@@ -34,6 +40,7 @@ interface Props {
   onSpeak?: () => void;
   onSpeakExample?: () => void;
   onOpenDetail?: () => void;
+  phoneticHint?: PhoneticHint;
 }
 
 export function StudyCard({
@@ -43,6 +50,7 @@ export function StudyCard({
   onSpeak,
   onSpeakExample,
   onOpenDetail,
+  phoneticHint,
 }: Props): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
@@ -85,9 +93,11 @@ export function StudyCard({
       accessibilityLabel={revealed ? undefined : '탭해서 뜻 확인'}
     >
       <ScrollView
+        style={styles.scroll}
         onLayout={(event) => setViewportHeight(event.nativeEvent.layout.height)}
-        contentContainerStyle={styles.scrollBody}
+        contentContainerStyle={[styles.scrollBody, revealed && styles.revealedScrollBody]}
         showsVerticalScrollIndicator={false}
+        nestedScrollEnabled
         // 공개 전에는 스크롤이 카드 탭을 삼키지 않도록 잠근다.
         scrollEnabled={revealed}
       >
@@ -152,6 +162,19 @@ export function StudyCard({
           >
             <Text style={styles.meaning}>{word.meaning_ko}</Text>
 
+            {phoneticHint && (
+              <View style={styles.phonetic}>
+                <View style={styles.phoneticPill}>
+                  <Text style={styles.phoneticPillLabel}>발음이 유사한 단어</Text>
+                </View>
+                <View style={styles.phoneticRow}>
+                  <Text style={styles.phoneticWord}>{phoneticHint.left}</Text>
+                  <View style={styles.phoneticDivider} />
+                  <Text style={styles.phoneticWord}>{phoneticHint.right}</Text>
+                </View>
+              </View>
+            )}
+
             {word.example_jp && (
               <Pressable
                 style={styles.example}
@@ -160,6 +183,10 @@ export function StudyCard({
                 accessibilityRole={onSpeakExample ? 'button' : undefined}
                 accessibilityLabel={onSpeakExample ? '예문 발음 듣기' : undefined}
               >
+                <View style={styles.exampleLead}>
+                  <IconSpeaker size={14} color={colors.body} />
+                  <Text style={styles.exampleLeadLabel}>예문을 들어보세요</Text>
+                </View>
                 <Text style={styles.exampleJp}>{word.example_jp}</Text>
                 {word.example_ko && <Text style={styles.exampleKo}>{word.example_ko}</Text>}
               </Pressable>
@@ -169,6 +196,7 @@ export function StudyCard({
               <Pressable
                 onPress={onOpenDetail}
                 style={styles.detailBtn}
+                hitSlop={12}
                 accessibilityRole="button"
                 accessibilityLabel="단어 상세 보기"
               >
@@ -178,9 +206,7 @@ export function StudyCard({
           </Animated.View>
         ) : (
           <View style={styles.hint}>
-            <View style={styles.hintDot}>
-              <Text style={styles.hintMark}>?</Text>
-            </View>
+            <View style={styles.hintDot} />
             <Text style={styles.hintLabel}>탭해서 뜻 확인</Text>
           </View>
         )}
@@ -193,12 +219,16 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     card: {
       flex: 1,
+      // 부모의 남은 높이 안에서 반드시 축소되어야 긴 예문이 내부 스크롤을 사용한다.
+      // RN Android의 기본 min-height 동작을 그대로 두면 카드가 액션바를 밀어낸다.
+      minHeight: 0,
       backgroundColor: c.canvas,
       borderRadius: radius.card,
       marginHorizontal: layout.gutter,
       marginTop: spacing.lg,
       paddingTop: layout.gapTight,
     },
+    scroll: { flex: 1, minHeight: 0, alignSelf: 'stretch' },
     scrollBody: {
       flexGrow: 1,
       alignItems: 'center',
@@ -207,6 +237,13 @@ const makeStyles = (c: ThemeColors) =>
       paddingTop: REVEALED_PROMPT_TOP,
       paddingHorizontal: 24,
       paddingBottom: 24,
+    },
+    // 공개 상태는 유사 발음/예문이 추가되어도 전체 그룹을 기준으로 중앙 정렬한다.
+    // 콘텐츠가 viewport보다 길어지면 ScrollView가 자연스럽게 상단부터 스크롤한다.
+    revealedScrollBody: {
+      justifyContent: 'center',
+      paddingTop: 24,
+      paddingBottom: 32,
     },
     prompt: { alignItems: 'center' },
     word: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
@@ -238,27 +275,65 @@ const makeStyles = (c: ThemeColors) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
-    hintMark: { ...typography.bodyStrong, color: c.body },
     hintLabel: { ...typography.body, color: c.body },
 
     revealBlock: { alignSelf: 'stretch', alignItems: 'center', marginTop: 32 },
     meaning: { ...typography.meaning, color: c.ink, textAlign: 'center' },
-    example: {
+
+    // 발음 유사 카드는 뉴트럴(D-1) — 라임은 보상 전용이라 여기 쓰지 않는다.
+    phonetic: {
       alignSelf: 'stretch',
       marginTop: layout.gutter,
       backgroundColor: c.soft,
       borderRadius: radius.tile,
       paddingVertical: spacing.lg,
       paddingHorizontal: 18,
+      alignItems: 'center',
+      gap: spacing.md,
+    },
+    phoneticPill: {
+      backgroundColor: c.canvas,
+      borderRadius: radius.pill,
+      paddingHorizontal: spacing.md,
+      paddingVertical: 3,
+    },
+    phoneticPillLabel: { fontFamily: font.medium, fontSize: 11, lineHeight: 16, color: c.body },
+    phoneticRow: { alignSelf: 'stretch', flexDirection: 'row', alignItems: 'center' },
+    phoneticWord: { ...typography.reading, color: c.ink, flex: 1, textAlign: 'center' },
+    phoneticDivider: { width: 1, height: 20, backgroundColor: c.pressed },
+
+    example: {
+      alignSelf: 'stretch',
+      marginTop: layout.gutter,
+      backgroundColor: c.canvas,
+      borderWidth: 1,
+      borderColor: c.pressed,
+      borderRadius: radius.tile,
+      paddingVertical: spacing.lg,
+      paddingHorizontal: 18,
+      alignItems: 'center',
       gap: spacing.sm,
     },
-    exampleJp: { ...typography.example, color: c.ink },
-    exampleKo: { fontFamily: font.regular, fontSize: 14, lineHeight: 20, color: c.body },
+    exampleLead: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+    exampleLeadLabel: { fontFamily: font.regular, fontSize: 12, lineHeight: 16, color: c.body },
+    exampleJp: { ...typography.example, color: c.ink, textAlign: 'center' },
+    exampleKo: {
+      fontFamily: font.regular,
+      fontSize: 14,
+      lineHeight: 20,
+      color: c.body,
+      textAlign: 'center',
+    },
     detailBtn: {
-      minHeight: layout.touchTarget,
+      alignSelf: 'center',
       alignItems: 'center',
       justifyContent: 'center',
+      marginTop: spacing.sm,
       paddingHorizontal: spacing.lg,
+      paddingVertical: 7,
+      borderWidth: 1,
+      borderColor: c.pressed,
+      borderRadius: radius.pill,
     },
-    detailLabel: { fontFamily: font.semibold, fontSize: 14, lineHeight: 18, color: c.body },
+    detailLabel: { fontFamily: font.semibold, fontSize: 13, lineHeight: 18, color: c.body },
   });

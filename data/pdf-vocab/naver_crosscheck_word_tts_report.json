@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-21T03:42:14.447456+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7026,
+  "selected_rows": 1,
+  "jobs": 1,
+  "preexisting": 0,
+  "planned": 1,
+  "created": 1,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_2ae90bd5eccd679e",
+      "kind": "word",
+      "text": "そのた",
+      "file": "assets/audio/words/w_2ae90bd5eccd679e.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.442,
+  "dry_run": false
+}

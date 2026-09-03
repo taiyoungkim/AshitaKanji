@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-19T00:31:52+0900",
+  "source": "data/pdf-vocab/naver_jlpt_level_audit_2026-08-19_mismatches.csv",
+  "source_sha256": "0ff9b6ff2cb14aadf2c52d3a9f0a30c74ba6e12eec2c73deeedc41b6ac88fed0",
+  "naver_api": "https://ja.dict.naver.com/api3/jako/search",
+  "source_mode": "search",
+  "word_count": 1601,
+  "unique_queries": 1593,
+  "status_counts": {
+    "manual_review": 7,
+    "mismatch": 1594
+  },
+  "mismatch_transitions": {
+    "N1->N2": 122,
+    "N1->N3": 51,
+    "N1->N4": 14,
+    "N1->N5": 2,
+    "N2->N1": 67,
+    "N2->N3": 364,
+    "N2->N4": 43,
+    "N2->N5": 1,
+    "N3->N1": 57,
+    "N3->N2": 548,
+    "N3->N4": 134,
+    "N3->N5": 27,
+    "N4->N1": 1,
+    "N4->N2": 10,
+    "N4->N3": 25,
+    "N4->N5": 76,
+    "N5->N2": 4,
+    "N5->N3": 1,
+    "N5->N4": 47
+  },
+  "naver_catalog_level_counts": null,
+  "method": "Search each unique surface in NAVER Japanese Dictionary; select a JLPT-tagged entry matching both written form and reading; compare NAVER's level with the app level. Ambiguous and unmatched entries are not auto-classified.",
+  "output": "data/pdf-vocab/naver_jlpt_level_mismatch_direct_check_2026-08-19.csv",
+  "mismatch_output": "data/pdf-vocab/naver_jlpt_level_mismatch_direct_check_2026-08-19_mismatches.csv",
+  "review_output": "data/pdf-vocab/naver_jlpt_level_mismatch_direct_check_2026-08-19_review.csv"
+}

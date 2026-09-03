@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-19T02:31:04.715Z",
+  "elapsed_sec": 0,
+  "word_source": "data/pdf-vocab/jlpt_naver_backfill_additions.csv",
+  "out": "data/pdf-vocab/naver_examples_naver_backfill_qa_work.csv",
+  "misses_file": "data/pdf-vocab/naver_examples_naver_backfill_misses_round3.json",
+  "total_words_selected": 389,
+  "output_existing_rows": 388,
+  "existing_rows": 388,
+  "seeded_rows": 0,
+  "target_rows": 1,
+  "processed": 1,
+  "collected": 1,
+  "misses": 0,
+  "miss_samples": []
+}

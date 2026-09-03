@@ -1,0 +1,1714 @@
+{
+  "generated_at": "2026-08-19T13:47:00.324273+00:00",
+  "pass": "priority-fix-2026-08-19",
+  "word_count": 6962,
+  "level_counts": {
+    "N5": 397,
+    "N4": 728,
+    "N3": 1464,
+    "N2": 1875,
+    "N1": 2498
+  },
+  "successors": {
+    "w_3cf8a59fa4a831ad": "w_b516e6af3b2c8f08",
+    "w_bd960bb319ab4a2a": "w_6ff1ea3a8327e6bd",
+    "w_878b871f0e14bc7c": "w_fc603d292698586c",
+    "w_cd8f0f97b64b50c1": "w_2ffd011aa9bc9035",
+    "w_69eda9773a03779e": "w_4c354cb8ef216dc4",
+    "w_5a0c146e1f62fe06": "w_847eb8c2c66cca90",
+    "w_a844546befebc416": "w_93d81f41564b0400",
+    "w_1632528f965aa8ca": "w_83d7e9a89b603bbb",
+    "w_d77f137891d73cca": "w_a2ca14c5418e955f",
+    "w_3f640b266f63ee0d": "w_b22a6ac9a6be784c",
+    "w_bfe33b63e03b0fd8": "w_8150d23de8ee7dd5",
+    "w_9823331a4460e715": "w_60f6e19fe71ab31c",
+    "w_09de41ea9efbccdb": "w_0e7b2b386c68b627",
+    "w_0182f61cfb3d14c2": "w_a85e91e780f1675c",
+    "w_7f8b1efcd206d4ac": "w_ab29dc806d2eef26",
+    "w_84353701d56138e4": "w_590ac7dc460a6dd7",
+    "w_bcdf6ba0c3132683": "w_1e7ffdddebe4c582",
+    "w_4dd46de7774b3d5b": "w_ab13f32de1071010",
+    "w_6e533b465b02e2aa": "w_37166f9c256c6542",
+    "w_316bbdf74fcc8447": "w_d627e3baa1fd6350",
+    "w_b5725ff47ab0fb15": "w_dfe07e16401ea765",
+    "w_69678bee044d584a": "w_587d525e8f77f2d2",
+    "w_0e0c5375da546bc6": "w_a16b95b44bbcf3e2",
+    "w_dea383b5805990d4": "w_f3e20b58b318fe06",
+    "w_5d840d71a8117da4": "w_e5cb855b3be119ec",
+    "w_98957c0209937275": "w_b5599a01177fd473",
+    "w_ce41f501d88787f7": "w_faa46b37d82cb05b",
+    "w_802a758e118ccb95": "w_d97131dc7962498d",
+    "w_2cb5b752ea9143b1": "w_5776e5bf61a8c089",
+    "w_727d286948e9b3eb": "w_f343caab14e0094d",
+    "w_5ffb2566a90f4567": "w_ba335b8ea06374ef",
+    "w_b98718b6acb95599": "w_980d66f98bbc895c",
+    "w_369fbf1ebe03897b": "w_4841355112710c1b",
+    "w_3ebfa99829fc4257": "w_9424ad8f5a008305",
+    "w_8b72c9b24335ad9b": "w_a0d434edcd9759ad",
+    "w_cf691fc505c3c55d": "w_694197d696105e21",
+    "w_938608c46fd00ac2": "w_672fe2093b0dc0ac",
+    "w_909e868e3f108baa": "w_6c5961195e358c1a",
+    "w_e421aae9647d50d9": "w_e3ac48305532880a",
+    "w_7d3d19122f39f85d": "w_46334adf72bc79e2",
+    "w_9ef6ae47fbeea384": "w_c78091c846e50438",
+    "w_bd727591cdd86a06": "w_84a0c4c5c15256e3",
+    "w_947ee10c7c753bf7": "w_038fa447a2ae4dc6",
+    "w_bafcd079b8e69d45": "w_5abb5170699e2df0",
+    "w_0ef1fde5b83dce55": "w_78ba5d7d6ac58408",
+    "w_35b37c5e42fc006d": "w_b577ee62ff687d65",
+    "w_621f8b3878cefe4d": "w_ac31b882227640d1",
+    "w_2171d900f3fc843c": "w_e42ff9a33ffea453",
+    "w_fff5cbed5362cf4a": "w_f52c956469dac353",
+    "w_a1a771e92d694b1e": "w_77fb8557b6af733f",
+    "w_f34b615f0ac07e07": "w_0bdbd4b7a3daa576",
+    "w_61aa0aa46f4f634a": "w_9cfce67d9643dfd9",
+    "w_b046193862632af9": "w_d5d36e19fcc48dfd",
+    "w_de9c93232af3bdba": "w_d791648b4df44475",
+    "w_fe073d5a5810c4e1": "w_22a55073734acb78",
+    "w_98d155aeefba6339": "w_95c20aa284db3d48",
+    "w_f170b63846a5ec48": "w_199fa6a64b832089",
+    "w_19b5d2b2dd1e8ed7": "w_d3a58aebb4ab933c",
+    "w_102014e53e4e6fb1": "w_066e002247100e63",
+    "w_569abb1450e0ce46": "w_1b8df6558c35bea4",
+    "w_b5b7c2170e22ae1a": "w_6bd3f9448ae0e3a2",
+    "w_1dca83e335d8d37c": "w_5ed01d7a88c40360",
+    "w_b8fbaded141b29eb": "w_8be0e84ce471c919",
+    "w_9069da5ba5d0cf3e": "w_5ad84e6efba38e04",
+    "w_e5e74884551c96f2": "w_09b2314aa968b37d",
+    "w_b0aa7ab8e4300e43": "w_336c7a453b67331c",
+    "w_059cf1ada7c04d02": "w_77a9e1ec6c651702",
+    "w_e5a9e98ae4eb0fd9": "w_378b3c15443f0b8d",
+    "w_395b901e45fc4d16": "w_9c55802ecbfd9abc",
+    "w_44a892d1b564fc20": "w_6b83167e0af43277",
+    "w_0084c15661be04e0": "w_8c51116b2df3d347",
+    "w_3cec12d0a3adcf69": "w_2bd9770e75820794",
+    "w_c8ffec9cad93ecf4": "w_5dbb6ffd4db86074",
+    "w_6ee8504b8ab97680": "w_c754546c7b68fe8e",
+    "w_c5334ff5f3430794": "w_72334ead34fc9c05",
+    "w_df44e7a299cf0dc4": "w_8320838d5b1afada",
+    "w_119e27f14484f811": "w_fb5cbbf9ac77e220",
+    "w_4ab83868ea322f8a": "w_01e82a3b4d12f965",
+    "w_d726939774ab6189": "w_03df4391d73554e1",
+    "w_1c687c8fbeb668eb": "w_81f5329294ad5f0f",
+    "w_80f8172b3e531738": "w_90ec4da1b4c26121",
+    "w_6d6bafe5d5efdeba": "w_eba671649a932b5a",
+    "w_e15c90e6e968062b": "w_6be80965290001db",
+    "w_59f80d4dc5e14879": "w_a7f61dd68b46c6ee",
+    "w_213731a026f67078": "w_26e3bc9cd7829f31",
+    "w_39666a9625efe874": "w_b7818753cbabeecc",
+    "w_b8f042daaae50694": "w_837b1cb6497a4abe",
+    "w_20076d265929cd9c": "w_7ddf08329a5a46e2",
+    "w_6428cb3d9b531afc": "w_468daccd2ae26a2c",
+    "w_ffe5d8ebd46452b1": "w_22182bc9f10e87a7",
+    "w_aa68a8b2526c2b57": "w_73adcb2265343028",
+    "w_62922e188796df96": "w_5f8d9c8b49934159",
+    "w_495258755882bfe4": "w_75205a17731b4a26",
+    "w_c05cfaa2cad27aec": "w_3bd2b2abe2a89189",
+    "w_f470be1926d64588": "w_9ae6757294f044b5",
+    "w_ae61ec6bead769c0": "w_12e16fe783211043",
+    "w_6f6e6c5f4b2569d6": "w_0c5742679b0cb098",
+    "w_993a165c62ba3a0c": "w_e7e2263575a828aa",
+    "w_dabfa46a4e071045": "w_0c8892e8786a0ea9",
+    "w_e0ea6104408e520b": "w_7ecad84d963bf598",
+    "w_abbb3338182c9a74": "w_2b3f9865d1fead1e",
+    "w_1666fd77162cc303": "w_1ef4f939d961be2f",
+    "w_53a7531f783a3064": "w_1bf1bea47f8def42",
+    "w_701a68ca74b0015f": "w_f33b1779542ae443",
+    "w_06e3cd11e3eb6359": "w_ec215b5de5951a23",
+    "w_7d401aa66a47fdb2": "w_e78ab477532d60af",
+    "w_15461a7a13870082": "w_58fd365ae7616e0c",
+    "w_0a296f21cc4bcccb": "w_a8962f2ceb682753",
+    "w_2e4bd2c194875bdf": "w_fd482acc7e9071f5",
+    "w_09e30de4c3a09644": "w_47316c016fe8cdab",
+    "w_ff6f3ce8eeae9213": "w_cc273d48add3d042",
+    "w_922352fdc37d1ea2": "w_107011573571e52d",
+    "w_c99b250de4d4b4d7": "w_21052c70db251a9c",
+    "w_292833139acbd808": "w_7f8ba58bb4b898e8"
+  },
+  "level_moves": {
+    "w_bfd7b53f174d103d": "N4",
+    "w_72dae8f988010901": "N3",
+    "w_e431b1a6abf799bf": "N3",
+    "w_eff8aedd9cddd1a9": "N5",
+    "w_1fb1432fdae5690a": "N2",
+    "w_08ce685bcb19f6e1": "N2",
+    "w_c62caa4afa7e342b": "N5",
+    "w_2051986d08da1c3e": "N2",
+    "w_5a886b7121ed4a02": "N2",
+    "w_9a0f257e7a6a025d": "N2",
+    "w_ee8feeec8a1af066": "N2",
+    "w_fe2638e2b65eff32": "N2",
+    "w_c34cf13bb75d6d66": "N2",
+    "w_221fdc111bb0a9d6": "N2",
+    "w_68b2b28244f5b063": "N2",
+    "w_0e85c73b6c150596": "N2",
+    "w_c764decd3f5b167e": "N2",
+    "w_016ef21c6de7dbf3": "N2",
+    "w_4c934f2120b1a7b8": "N2",
+    "w_538523d6296c7778": "N2",
+    "w_6c762964f34abbe1": "N5",
+    "w_31fee479fd2a573b": "N4",
+    "w_b685e7abbe1567a6": "N2",
+    "w_f7ccae9d8e37b9be": "N2",
+    "w_831c5e9a87f0c027": "N2",
+    "w_a88976287b450da4": "N2",
+    "w_db25c865abdbfb17": "N2",
+    "w_9462c592fc28b4a7": "N5",
+    "w_5774ff04f7f580b5": "N5",
+    "w_2042955fbd7ed6b5": "N3",
+    "w_826d107c46a2192e": "N3",
+    "w_9032a2333ecae65f": "N4",
+    "w_86fa3ff38f45c9f6": "N3",
+    "w_6831fdc03f7272dd": "N4",
+    "w_393a2f780ea3a234": "N4",
+    "w_efac32fc7e566446": "N4",
+    "w_863ee6ef1cf05126": "N1",
+    "w_c12c4efe43384aa2": "N3",
+    "w_b40f9c063be59826": "N3"
+  },
+  "dropped_ids": [
+    "w_0084c15661be04e0",
+    "w_059cf1ada7c04d02",
+    "w_0e0c5375da546bc6",
+    "w_0ef1fde5b83dce55",
+    "w_102014e53e4e6fb1",
+    "w_1632528f965aa8ca",
+    "w_19b5d2b2dd1e8ed7",
+    "w_1c687c8fbeb668eb",
+    "w_1dca83e335d8d37c",
+    "w_2171d900f3fc843c",
+    "w_2cb5b752ea9143b1",
+    "w_35b37c5e42fc006d",
+    "w_369fbf1ebe03897b",
+    "w_395b901e45fc4d16",
+    "w_3cec12d0a3adcf69",
+    "w_3ebfa99829fc4257",
+    "w_495258755882bfe4",
+    "w_4ab83868ea322f8a",
+    "w_4dd46de7774b3d5b",
+    "w_569abb1450e0ce46",
+    "w_5d840d71a8117da4",
+    "w_5ffb2566a90f4567",
+    "w_61aa0aa46f4f634a",
+    "w_621f8b3878cefe4d",
+    "w_69678bee044d584a",
+    "w_6d6bafe5d5efdeba",
+    "w_6ee8504b8ab97680",
+    "w_6f6e6c5f4b2569d6",
+    "w_7d3d19122f39f85d",
+    "w_802a758e118ccb95",
+    "w_80f8172b3e531738",
+    "w_84353701d56138e4",
+    "w_9069da5ba5d0cf3e",
+    "w_909e868e3f108baa",
+    "w_938608c46fd00ac2",
+    "w_9823331a4460e715",
+    "w_98957c0209937275",
+    "w_98d155aeefba6339",
+    "w_9ef6ae47fbeea384",
+    "w_a1a771e92d694b1e",
+    "w_a844546befebc416",
+    "w_b046193862632af9",
+    "w_b0aa7ab8e4300e43",
+    "w_b5725ff47ab0fb15",
+    "w_b5b7c2170e22ae1a",
+    "w_b98718b6acb95599",
+    "w_bcdf6ba0c3132683",
+    "w_bd727591cdd86a06",
+    "w_bfe33b63e03b0fd8",
+    "w_c05cfaa2cad27aec",
+    "w_c5334ff5f3430794",
+    "w_ce41f501d88787f7",
+    "w_cf691fc505c3c55d",
+    "w_d726939774ab6189",
+    "w_d77f137891d73cca",
+    "w_de9c93232af3bdba",
+    "w_df44e7a299cf0dc4",
+    "w_e15c90e6e968062b",
+    "w_e421aae9647d50d9",
+    "w_e5a9e98ae4eb0fd9",
+    "w_e5e74884551c96f2",
+    "w_f170b63846a5ec48",
+    "w_f34b615f0ac07e07",
+    "w_fe073d5a5810c4e1",
+    "w_fff5cbed5362cf4a"
+  ],
+  "addition_ids": [],
+  "self_replaced_example_ids": [
+    "w_06e7e51d003ac3e4",
+    "w_1fb1432fdae5690a",
+    "w_28a0a4b3ffaf3efe",
+    "w_3f7be39781ba3513",
+    "w_54b907b4edcebc12",
+    "w_581a28544054818a",
+    "w_5b4445d187ac74c5",
+    "w_728f59d1c6f9c5f4",
+    "w_8df0fff24f94cc63",
+    "w_91c6df1ecc084985",
+    "w_9c2d3700794d4e08",
+    "w_d1b5e8dd16233996",
+    "w_f12b7cd5ea51cf7a",
+    "w_f1fcc99d67415f95",
+    "w_f60f7b55eba0baba"
+  ],
+  "missing_addition_examples": [],
+  "changes": [
+    {
+      "kind": "meaning",
+      "id": "w_86fa3ff38f45c9f6",
+      "level": "N2",
+      "surface": "お先に",
+      "reading_kana": "おさきに",
+      "before": "전, 후 당신, 너",
+      "after": "먼저, 먼저 실례합니다"
+    },
+    {
+      "kind": "meaning",
+      "id": "w_47d515589fa58fd2",
+      "level": "N2",
+      "surface": "お待たせしました",
+      "reading_kana": "おまたせしました",
+      "before": "미안한 가지다, 있다 유지된 당신, 너 기다리다",
+      "after": "기다리게 해서 미안합니다"
+    },
+    {
+      "kind": "meaning",
+      "id": "w_5774ff04f7f580b5",
+      "level": "N2",
+      "surface": "お願いします",
+      "reading_kana": "おねがいします",
+      "before": "부디, 제발(직역 나 요청, 부탁)",
+      "after": "부탁합니다, 제발"
+    },
+    {
+      "kind": "example",
+      "id": "w_91c6df1ecc084985",
+      "level": "N1",
+      "surface": "医院",
+      "reading_kana": "いいん",
+      "example_jp": "駅前の医院で熱を診てもらった。"
+    },
+    {
+      "kind": "example",
+      "id": "w_28a0a4b3ffaf3efe",
+      "level": "N2",
+      "surface": "回す",
+      "reading_kana": "まわす",
+      "example_jp": "ハンドルを右に回す。"
+    },
+    {
+      "kind": "example",
+      "id": "w_5b4445d187ac74c5",
+      "level": "N5",
+      "surface": "二十歳",
+      "reading_kana": "はたち",
+      "example_jp": "来年で二十歳になる。"
+    },
+    {
+      "kind": "example",
+      "id": "w_1fb1432fdae5690a",
+      "level": "N4",
+      "surface": "点く",
+      "reading_kana": "つく",
+      "example_jp": "部屋の電気が点く。"
+    },
+    {
+      "kind": "example",
+      "id": "w_8df0fff24f94cc63",
+      "level": "N3",
+      "surface": "電車代",
+      "reading_kana": "でんしゃだい",
+      "example_jp": "電車代を払って改札を通った。"
+    },
+    {
+      "kind": "example",
+      "id": "w_06e7e51d003ac3e4",
+      "level": "N3",
+      "surface": "街",
+      "reading_kana": "まち",
+      "example_jp": "夜の街はまだにぎやかだ。"
+    },
+    {
+      "kind": "example",
+      "id": "w_9c2d3700794d4e08",
+      "level": "N4",
+      "surface": "昨夜",
+      "reading_kana": "ゆうべ",
+      "example_jp": "昨夜は早く寝た。"
+    },
+    {
+      "kind": "example",
+      "id": "w_f12b7cd5ea51cf7a",
+      "level": "N5",
+      "surface": "貼る",
+      "reading_kana": "はる",
+      "example_jp": "壁にポスターを貼る。"
+    },
+    {
+      "kind": "example",
+      "id": "w_728f59d1c6f9c5f4",
+      "level": "N5",
+      "surface": "履く",
+      "reading_kana": "はく",
+      "example_jp": "出かける前に靴を履く。"
+    },
+    {
+      "kind": "example",
+      "id": "w_d1b5e8dd16233996",
+      "level": "N2",
+      "surface": "誓う",
+      "reading_kana": "ちかう",
+      "example_jp": "未来を誓う。"
+    },
+    {
+      "kind": "example",
+      "id": "w_54b907b4edcebc12",
+      "level": "N2",
+      "surface": "逆さ",
+      "reading_kana": "さかさ",
+      "example_jp": "絵を逆さにする。"
+    },
+    {
+      "kind": "example",
+      "id": "w_3f7be39781ba3513",
+      "level": "N2",
+      "surface": "通ずる",
+      "reading_kana": "つうずる",
+      "example_jp": "この道は駅に通ずる。"
+    },
+    {
+      "kind": "example",
+      "id": "w_f1fcc99d67415f95",
+      "level": "N2",
+      "surface": "羨む",
+      "reading_kana": "うらやむ",
+      "example_jp": "他人の成功を羨む。"
+    },
+    {
+      "kind": "example",
+      "id": "w_f60f7b55eba0baba",
+      "level": "N1",
+      "surface": "見逃す",
+      "reading_kana": "みのがす",
+      "example_jp": "小さな変化を見逃す。"
+    },
+    {
+      "kind": "example",
+      "id": "w_581a28544054818a",
+      "level": "N1",
+      "surface": "摩る",
+      "reading_kana": "さする",
+      "example_jp": "猫の頭を摩る。"
+    },
+    {
+      "kind": "level",
+      "id": "w_bfd7b53f174d103d",
+      "level": "N4",
+      "surface": "再来年",
+      "reading_kana": "さらいねん",
+      "before": "N5",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_72dae8f988010901",
+      "level": "N3",
+      "surface": "周り",
+      "reading_kana": "まわり",
+      "before": "N4",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_e431b1a6abf799bf",
+      "level": "N3",
+      "surface": "お互い",
+      "reading_kana": "おたがい",
+      "before": "N4",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_eff8aedd9cddd1a9",
+      "level": "N5",
+      "surface": "閉める",
+      "reading_kana": "しめる",
+      "before": "N4",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_1fb1432fdae5690a",
+      "level": "N2",
+      "surface": "点く",
+      "reading_kana": "つく",
+      "before": "N4",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_08ce685bcb19f6e1",
+      "level": "N2",
+      "surface": "後",
+      "reading_kana": "ご",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_c62caa4afa7e342b",
+      "level": "N5",
+      "surface": "男の人",
+      "reading_kana": "おとこのひと",
+      "before": "N3",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_2051986d08da1c3e",
+      "level": "N2",
+      "surface": "地",
+      "reading_kana": "ち",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_5a886b7121ed4a02",
+      "level": "N2",
+      "surface": "差",
+      "reading_kana": "さ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_9a0f257e7a6a025d",
+      "level": "N2",
+      "surface": "弾",
+      "reading_kana": "たま",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_ee8feeec8a1af066",
+      "level": "N2",
+      "surface": "これら",
+      "reading_kana": "これら",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_fe2638e2b65eff32",
+      "level": "N2",
+      "surface": "図",
+      "reading_kana": "ず",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_c34cf13bb75d6d66",
+      "level": "N2",
+      "surface": "描く",
+      "reading_kana": "かく",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_221fdc111bb0a9d6",
+      "level": "N2",
+      "surface": "可",
+      "reading_kana": "か",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_68b2b28244f5b063",
+      "level": "N2",
+      "surface": "やや",
+      "reading_kana": "やや",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_0e85c73b6c150596",
+      "level": "N2",
+      "surface": "アイデア",
+      "reading_kana": "アイデア",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_c764decd3f5b167e",
+      "level": "N2",
+      "surface": "基",
+      "reading_kana": "もと",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_016ef21c6de7dbf3",
+      "level": "N2",
+      "surface": "素",
+      "reading_kana": "もと",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_4c934f2120b1a7b8",
+      "level": "N2",
+      "surface": "胃",
+      "reading_kana": "い",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_538523d6296c7778",
+      "level": "N2",
+      "surface": "務め",
+      "reading_kana": "つとめ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_6c762964f34abbe1",
+      "level": "N5",
+      "surface": "速い",
+      "reading_kana": "はやい",
+      "before": "N3",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_31fee479fd2a573b",
+      "level": "N4",
+      "surface": "お見舞い",
+      "reading_kana": "おみまい",
+      "before": "N3",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_b685e7abbe1567a6",
+      "level": "N2",
+      "surface": "昇る",
+      "reading_kana": "のぼる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_f7ccae9d8e37b9be",
+      "level": "N2",
+      "surface": "超す",
+      "reading_kana": "こす",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_831c5e9a87f0c027",
+      "level": "N2",
+      "surface": "下線",
+      "reading_kana": "かせん",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_a88976287b450da4",
+      "level": "N2",
+      "surface": "反る",
+      "reading_kana": "かえる",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_db25c865abdbfb17",
+      "level": "N2",
+      "surface": "酌む",
+      "reading_kana": "くむ",
+      "before": "N3",
+      "after": "N2"
+    },
+    {
+      "kind": "level",
+      "id": "w_9462c592fc28b4a7",
+      "level": "N5",
+      "surface": "女の人",
+      "reading_kana": "おんなのひと",
+      "before": "N2",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_5774ff04f7f580b5",
+      "level": "N5",
+      "surface": "お願いします",
+      "reading_kana": "おねがいします",
+      "before": "N2",
+      "after": "N5"
+    },
+    {
+      "kind": "level",
+      "id": "w_2042955fbd7ed6b5",
+      "level": "N3",
+      "surface": "話し中",
+      "reading_kana": "はなしちゅう",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_826d107c46a2192e",
+      "level": "N3",
+      "surface": "日用品",
+      "reading_kana": "にちようひん",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_9032a2333ecae65f",
+      "level": "N4",
+      "surface": "拝見する",
+      "reading_kana": "はいけんする",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_86fa3ff38f45c9f6",
+      "level": "N3",
+      "surface": "お先に",
+      "reading_kana": "おさきに",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_6831fdc03f7272dd",
+      "level": "N4",
+      "surface": "建つ",
+      "reading_kana": "たつ",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_393a2f780ea3a234",
+      "level": "N4",
+      "surface": "先々月",
+      "reading_kana": "せんせんげつ",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_efac32fc7e566446",
+      "level": "N4",
+      "surface": "先々週",
+      "reading_kana": "せんせんしゅう",
+      "before": "N2",
+      "after": "N4"
+    },
+    {
+      "kind": "level",
+      "id": "w_863ee6ef1cf05126",
+      "level": "N1",
+      "surface": "採る",
+      "reading_kana": "とる",
+      "before": "N2",
+      "after": "N1"
+    },
+    {
+      "kind": "level",
+      "id": "w_c12c4efe43384aa2",
+      "level": "N3",
+      "surface": "茶色い",
+      "reading_kana": "ちゃいろい",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "level",
+      "id": "w_b40f9c063be59826",
+      "level": "N3",
+      "surface": "レインコート",
+      "reading_kana": "レインコート",
+      "before": "N2",
+      "after": "N3"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_b516e6af3b2c8f08",
+      "level": "N3",
+      "surface": "まさか",
+      "reading_kana": "まさか",
+      "old_id": "w_3cf8a59fa4a831ad",
+      "new_id": "w_b516e6af3b2c8f08"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_6ff1ea3a8327e6bd",
+      "level": "N3",
+      "surface": "あくび",
+      "reading_kana": "あくび",
+      "old_id": "w_bd960bb319ab4a2a",
+      "new_id": "w_6ff1ea3a8327e6bd"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_fc603d292698586c",
+      "level": "N3",
+      "surface": "かむ",
+      "reading_kana": "かむ",
+      "old_id": "w_878b871f0e14bc7c",
+      "new_id": "w_fc603d292698586c"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_2ffd011aa9bc9035",
+      "level": "N3",
+      "surface": "どっち",
+      "reading_kana": "どっち",
+      "old_id": "w_cd8f0f97b64b50c1",
+      "new_id": "w_2ffd011aa9bc9035"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_4c354cb8ef216dc4",
+      "level": "N3",
+      "surface": "空き地",
+      "reading_kana": "あきち",
+      "old_id": "w_69eda9773a03779e",
+      "new_id": "w_4c354cb8ef216dc4"
+    },
+    {
+      "kind": "orthography",
+      "id": "w_847eb8c2c66cca90",
+      "level": "N3",
+      "surface": "あれこれ",
+      "reading_kana": "あれこれ",
+      "old_id": "w_5a0c146e1f62fe06",
+      "new_id": "w_847eb8c2c66cca90"
+    },
+    {
+      "kind": "merge-drop",
+      "id": "w_a844546befebc416",
+      "level": "N2",
+      "surface": "新ただ",
+      "reading_kana": "あらただ",
+      "successor": "w_93d81f41564b0400"
+    },
+    {
+      "kind": "merge-drop",
+      "id": "w_1632528f965aa8ca",
+      "level": "N3",
+      "surface": "負んぶ",
+      "reading_kana": "おんぶ",
+      "successor": "w_83d7e9a89b603bbb"
+    },
+    {
+      "kind": "merge-drop",
+      "id": "w_d77f137891d73cca",
+      "level": "N3",
+      "surface": "摑む",
+      "reading_kana": "つかむ",
+      "successor": "w_a2ca14c5418e955f"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_b22a6ac9a6be784c",
+      "level": "N5",
+      "surface": "大き",
+      "reading_kana": "おおき",
+      "old_id": "w_3f640b266f63ee0d",
+      "new_id": "w_b22a6ac9a6be784c"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_bfe33b63e03b0fd8",
+      "level": "N3",
+      "surface": "簡単だ",
+      "reading_kana": "かんたんだ",
+      "successor": "w_8150d23de8ee7dd5"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_9823331a4460e715",
+      "level": "N3",
+      "surface": "重要だ",
+      "reading_kana": "じゅうようだ",
+      "successor": "w_60f6e19fe71ab31c"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_0e7b2b386c68b627",
+      "level": "N3",
+      "surface": "一般的",
+      "reading_kana": "いっぱんてき",
+      "old_id": "w_09de41ea9efbccdb",
+      "new_id": "w_0e7b2b386c68b627"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_a85e91e780f1675c",
+      "level": "N3",
+      "surface": "主",
+      "reading_kana": "おも",
+      "old_id": "w_0182f61cfb3d14c2",
+      "new_id": "w_a85e91e780f1675c"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_ab29dc806d2eef26",
+      "level": "N3",
+      "surface": "代表的",
+      "reading_kana": "だいひょうてき",
+      "old_id": "w_7f8b1efcd206d4ac",
+      "new_id": "w_ab29dc806d2eef26"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_84353701d56138e4",
+      "level": "N3",
+      "surface": "正直だ",
+      "reading_kana": "しょうじきだ",
+      "successor": "w_590ac7dc460a6dd7"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_bcdf6ba0c3132683",
+      "level": "N3",
+      "surface": "不安だ",
+      "reading_kana": "ふあんだ",
+      "successor": "w_1e7ffdddebe4c582"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_4dd46de7774b3d5b",
+      "level": "N3",
+      "surface": "確実だ",
+      "reading_kana": "かくじつだ",
+      "successor": "w_ab13f32de1071010"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_37166f9c256c6542",
+      "level": "N3",
+      "surface": "感情的",
+      "reading_kana": "かんじょうてき",
+      "old_id": "w_6e533b465b02e2aa",
+      "new_id": "w_37166f9c256c6542"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_d627e3baa1fd6350",
+      "level": "N3",
+      "surface": "無事",
+      "reading_kana": "ぶじ",
+      "old_id": "w_316bbdf74fcc8447",
+      "new_id": "w_d627e3baa1fd6350"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_b5725ff47ab0fb15",
+      "level": "N3",
+      "surface": "正確だ",
+      "reading_kana": "せいかくだ",
+      "successor": "w_dfe07e16401ea765"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_69678bee044d584a",
+      "level": "N3",
+      "surface": "得意だ",
+      "reading_kana": "とくいだ",
+      "successor": "w_587d525e8f77f2d2"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_0e0c5375da546bc6",
+      "level": "N3",
+      "surface": "苦手だ",
+      "reading_kana": "にがてだ",
+      "successor": "w_a16b95b44bbcf3e2"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_f3e20b58b318fe06",
+      "level": "N3",
+      "surface": "具体的",
+      "reading_kana": "ぐたいてき",
+      "old_id": "w_dea383b5805990d4",
+      "new_id": "w_f3e20b58b318fe06"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_5d840d71a8117da4",
+      "level": "N3",
+      "surface": "単純だ",
+      "reading_kana": "たんじゅんだ",
+      "successor": "w_e5cb855b3be119ec"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_98957c0209937275",
+      "level": "N3",
+      "surface": "積極的だ",
+      "reading_kana": "せっきょくてきだ",
+      "successor": "w_b5599a01177fd473"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_ce41f501d88787f7",
+      "level": "N3",
+      "surface": "複雑だ",
+      "reading_kana": "ふくざつだ",
+      "successor": "w_faa46b37d82cb05b"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_802a758e118ccb95",
+      "level": "N3",
+      "surface": "立派だ",
+      "reading_kana": "りっぱだ",
+      "successor": "w_d97131dc7962498d"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_2cb5b752ea9143b1",
+      "level": "N3",
+      "surface": "主要だ",
+      "reading_kana": "しゅようだ",
+      "successor": "w_5776e5bf61a8c089"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_f343caab14e0094d",
+      "level": "N3",
+      "surface": "実用的",
+      "reading_kana": "じつようてき",
+      "old_id": "w_727d286948e9b3eb",
+      "new_id": "w_f343caab14e0094d"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_5ffb2566a90f4567",
+      "level": "N3",
+      "surface": "新鮮だ",
+      "reading_kana": "しんせんだ",
+      "successor": "w_ba335b8ea06374ef"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_b98718b6acb95599",
+      "level": "N3",
+      "surface": "派手だ",
+      "reading_kana": "はでだ",
+      "successor": "w_980d66f98bbc895c"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_369fbf1ebe03897b",
+      "level": "N3",
+      "surface": "盛んだ",
+      "reading_kana": "さかんだ",
+      "successor": "w_4841355112710c1b"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_3ebfa99829fc4257",
+      "level": "N3",
+      "surface": "退屈だ",
+      "reading_kana": "たいくつだ",
+      "successor": "w_9424ad8f5a008305"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_a0d434edcd9759ad",
+      "level": "N3",
+      "surface": "清潔",
+      "reading_kana": "せいけつ",
+      "old_id": "w_8b72c9b24335ad9b",
+      "new_id": "w_a0d434edcd9759ad"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_cf691fc505c3c55d",
+      "level": "N3",
+      "surface": "短気だ",
+      "reading_kana": "たんきだ",
+      "successor": "w_694197d696105e21"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_938608c46fd00ac2",
+      "level": "N2",
+      "surface": "確かだ",
+      "reading_kana": "たしかだ",
+      "successor": "w_672fe2093b0dc0ac"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_909e868e3f108baa",
+      "level": "N2",
+      "surface": "残念だ",
+      "reading_kana": "ざんねんだ",
+      "successor": "w_6c5961195e358c1a"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_e421aae9647d50d9",
+      "level": "N2",
+      "surface": "危険だ",
+      "reading_kana": "きけんだ",
+      "successor": "w_e3ac48305532880a"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_7d3d19122f39f85d",
+      "level": "N2",
+      "surface": "明らかだ",
+      "reading_kana": "あきらかだ",
+      "successor": "w_46334adf72bc79e2"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_9ef6ae47fbeea384",
+      "level": "N2",
+      "surface": "勝手だ",
+      "reading_kana": "かってだ",
+      "successor": "w_c78091c846e50438"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_bd727591cdd86a06",
+      "level": "N2",
+      "surface": "無駄だ",
+      "reading_kana": "むだだ",
+      "successor": "w_84a0c4c5c15256e3"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_038fa447a2ae4dc6",
+      "level": "N2",
+      "surface": "同様",
+      "reading_kana": "どうよう",
+      "old_id": "w_947ee10c7c753bf7",
+      "new_id": "w_038fa447a2ae4dc6"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_5abb5170699e2df0",
+      "level": "N2",
+      "surface": "不思議",
+      "reading_kana": "ふしぎ",
+      "old_id": "w_bafcd079b8e69d45",
+      "new_id": "w_5abb5170699e2df0"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_0ef1fde5b83dce55",
+      "level": "N2",
+      "surface": "面倒だ",
+      "reading_kana": "めんどうだ",
+      "successor": "w_78ba5d7d6ac58408"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_35b37c5e42fc006d",
+      "level": "N2",
+      "surface": "迷惑だ",
+      "reading_kana": "めいわくだ",
+      "successor": "w_b577ee62ff687d65"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_621f8b3878cefe4d",
+      "level": "N2",
+      "surface": "見事だ",
+      "reading_kana": "みごとだ",
+      "successor": "w_ac31b882227640d1"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_2171d900f3fc843c",
+      "level": "N2",
+      "surface": "平気だ",
+      "reading_kana": "へいきだ",
+      "successor": "w_e42ff9a33ffea453"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_fff5cbed5362cf4a",
+      "level": "N2",
+      "surface": "貴重だ",
+      "reading_kana": "きちょうだ",
+      "successor": "w_f52c956469dac353"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_a1a771e92d694b1e",
+      "level": "N2",
+      "surface": "余計だ",
+      "reading_kana": "よけいだ",
+      "successor": "w_77fb8557b6af733f"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_f34b615f0ac07e07",
+      "level": "N2",
+      "surface": "素直だ",
+      "reading_kana": "すなおだ",
+      "successor": "w_0bdbd4b7a3daa576"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_61aa0aa46f4f634a",
+      "level": "N2",
+      "surface": "多様だ",
+      "reading_kana": "たようだ",
+      "successor": "w_9cfce67d9643dfd9"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_b046193862632af9",
+      "level": "N2",
+      "surface": "冷静だ",
+      "reading_kana": "れいせいだ",
+      "successor": "w_d5d36e19fcc48dfd"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_de9c93232af3bdba",
+      "level": "N2",
+      "surface": "妙だ",
+      "reading_kana": "みょうだ",
+      "successor": "w_d791648b4df44475"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_fe073d5a5810c4e1",
+      "level": "N2",
+      "surface": "適切だ",
+      "reading_kana": "てきせつだ",
+      "successor": "w_22a55073734acb78"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_98d155aeefba6339",
+      "level": "N2",
+      "surface": "丁寧だ",
+      "reading_kana": "ていねいだ",
+      "successor": "w_95c20aa284db3d48"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_f170b63846a5ec48",
+      "level": "N2",
+      "surface": "幸いだ",
+      "reading_kana": "さいわいだ",
+      "successor": "w_199fa6a64b832089"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_19b5d2b2dd1e8ed7",
+      "level": "N2",
+      "surface": "深刻だ",
+      "reading_kana": "しんこくだ",
+      "successor": "w_d3a58aebb4ab933c"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_102014e53e4e6fb1",
+      "level": "N2",
+      "surface": "豊かだ",
+      "reading_kana": "ゆたかだ",
+      "successor": "w_066e002247100e63"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_569abb1450e0ce46",
+      "level": "N2",
+      "surface": "豊富だ",
+      "reading_kana": "ほうふだ",
+      "successor": "w_1b8df6558c35bea4"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_b5b7c2170e22ae1a",
+      "level": "N2",
+      "surface": "地味だ",
+      "reading_kana": "じみだ",
+      "successor": "w_6bd3f9448ae0e3a2"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_1dca83e335d8d37c",
+      "level": "N2",
+      "surface": "慎重だ",
+      "reading_kana": "しんちょうだ",
+      "successor": "w_5ed01d7a88c40360"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_8be0e84ce471c919",
+      "level": "N2",
+      "surface": "曖昧",
+      "reading_kana": "あいまい",
+      "old_id": "w_b8fbaded141b29eb",
+      "new_id": "w_8be0e84ce471c919"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_9069da5ba5d0cf3e",
+      "level": "N2",
+      "surface": "穏やかだ",
+      "reading_kana": "おだやかだ",
+      "successor": "w_5ad84e6efba38e04"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_e5e74884551c96f2",
+      "level": "N2",
+      "surface": "強烈だ",
+      "reading_kana": "きょうれつだ",
+      "successor": "w_09b2314aa968b37d"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_b0aa7ab8e4300e43",
+      "level": "N2",
+      "surface": "気楽だ",
+      "reading_kana": "きらくだ",
+      "successor": "w_336c7a453b67331c"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_059cf1ada7c04d02",
+      "level": "N2",
+      "surface": "不調だ",
+      "reading_kana": "ふちょうだ",
+      "successor": "w_77a9e1ec6c651702"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_e5a9e98ae4eb0fd9",
+      "level": "N2",
+      "surface": "安易だ",
+      "reading_kana": "あんいだ",
+      "successor": "w_378b3c15443f0b8d"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_395b901e45fc4d16",
+      "level": "N2",
+      "surface": "好調だ",
+      "reading_kana": "こうちょうだ",
+      "successor": "w_9c55802ecbfd9abc"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_6b83167e0af43277",
+      "level": "N2",
+      "surface": "多大",
+      "reading_kana": "ただい",
+      "old_id": "w_44a892d1b564fc20",
+      "new_id": "w_6b83167e0af43277"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_0084c15661be04e0",
+      "level": "N2",
+      "surface": "平凡だ",
+      "reading_kana": "へいぼんだ",
+      "successor": "w_8c51116b2df3d347"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_3cec12d0a3adcf69",
+      "level": "N2",
+      "surface": "頑丈だ",
+      "reading_kana": "がんじょうだ",
+      "successor": "w_2bd9770e75820794"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_5dbb6ffd4db86074",
+      "level": "N2",
+      "surface": "大げさ",
+      "reading_kana": "おおげさ",
+      "old_id": "w_c8ffec9cad93ecf4",
+      "new_id": "w_5dbb6ffd4db86074"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_6ee8504b8ab97680",
+      "level": "N2",
+      "surface": "率直だ",
+      "reading_kana": "そっちょくだ",
+      "successor": "w_c754546c7b68fe8e"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_c5334ff5f3430794",
+      "level": "N2",
+      "surface": "対等だ",
+      "reading_kana": "たいとうだ",
+      "successor": "w_72334ead34fc9c05"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_df44e7a299cf0dc4",
+      "level": "N2",
+      "surface": "簡潔だ",
+      "reading_kana": "かんけつだ",
+      "successor": "w_8320838d5b1afada"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_fb5cbbf9ac77e220",
+      "level": "N2",
+      "surface": "賑やか",
+      "reading_kana": "にぎやか",
+      "old_id": "w_119e27f14484f811",
+      "new_id": "w_fb5cbbf9ac77e220"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_4ab83868ea322f8a",
+      "level": "N2",
+      "surface": "簡略だ",
+      "reading_kana": "かんりゃくだ",
+      "successor": "w_01e82a3b4d12f965"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_d726939774ab6189",
+      "level": "N2",
+      "surface": "粗末だ",
+      "reading_kana": "そまつだ",
+      "successor": "w_03df4391d73554e1"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_1c687c8fbeb668eb",
+      "level": "N2",
+      "surface": "物騒だ",
+      "reading_kana": "ぶっそうだ",
+      "successor": "w_81f5329294ad5f0f"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_80f8172b3e531738",
+      "level": "N2",
+      "surface": "快晴だ",
+      "reading_kana": "かいせいだ",
+      "successor": "w_90ec4da1b4c26121"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_6d6bafe5d5efdeba",
+      "level": "N2",
+      "surface": "利口だ",
+      "reading_kana": "りこうだ",
+      "successor": "w_eba671649a932b5a"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_e15c90e6e968062b",
+      "level": "N2",
+      "surface": "大ざっぱだ",
+      "reading_kana": "おおざっぱだ",
+      "successor": "w_6be80965290001db"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_a7f61dd68b46c6ee",
+      "level": "N1",
+      "surface": "とん",
+      "reading_kana": "とん",
+      "old_id": "w_59f80d4dc5e14879",
+      "new_id": "w_a7f61dd68b46c6ee"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_26e3bc9cd7829f31",
+      "level": "N1",
+      "surface": "厳正",
+      "reading_kana": "げんせい",
+      "old_id": "w_213731a026f67078",
+      "new_id": "w_26e3bc9cd7829f31"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_b7818753cbabeecc",
+      "level": "N1",
+      "surface": "密か",
+      "reading_kana": "ひそか",
+      "old_id": "w_39666a9625efe874",
+      "new_id": "w_b7818753cbabeecc"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_837b1cb6497a4abe",
+      "level": "N1",
+      "surface": "繊細",
+      "reading_kana": "せんさい",
+      "old_id": "w_b8f042daaae50694",
+      "new_id": "w_837b1cb6497a4abe"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_7ddf08329a5a46e2",
+      "level": "N1",
+      "surface": "顕著",
+      "reading_kana": "けんちょ",
+      "old_id": "w_20076d265929cd9c",
+      "new_id": "w_7ddf08329a5a46e2"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_468daccd2ae26a2c",
+      "level": "N1",
+      "surface": "速やか",
+      "reading_kana": "すみやか",
+      "old_id": "w_6428cb3d9b531afc",
+      "new_id": "w_468daccd2ae26a2c"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_22182bc9f10e87a7",
+      "level": "N1",
+      "surface": "強大",
+      "reading_kana": "きょうだい",
+      "old_id": "w_ffe5d8ebd46452b1",
+      "new_id": "w_22182bc9f10e87a7"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_73adcb2265343028",
+      "level": "N1",
+      "surface": "画期的",
+      "reading_kana": "かっきてき",
+      "old_id": "w_aa68a8b2526c2b57",
+      "new_id": "w_73adcb2265343028"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_5f8d9c8b49934159",
+      "level": "N1",
+      "surface": "無謀",
+      "reading_kana": "むぼう",
+      "old_id": "w_62922e188796df96",
+      "new_id": "w_5f8d9c8b49934159"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_495258755882bfe4",
+      "level": "N1",
+      "surface": "切実な",
+      "reading_kana": "せつじつな",
+      "successor": "w_75205a17731b4a26"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_c05cfaa2cad27aec",
+      "level": "N1",
+      "surface": "窮屈な",
+      "reading_kana": "きゅうくつな",
+      "successor": "w_3bd2b2abe2a89189"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_9ae6757294f044b5",
+      "level": "N1",
+      "surface": "頑",
+      "reading_kana": "かたく",
+      "old_id": "w_f470be1926d64588",
+      "new_id": "w_9ae6757294f044b5"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_12e16fe783211043",
+      "level": "N1",
+      "surface": "堅実",
+      "reading_kana": "けんじつ",
+      "old_id": "w_ae61ec6bead769c0",
+      "new_id": "w_12e16fe783211043"
+    },
+    {
+      "kind": "na-drop",
+      "id": "w_6f6e6c5f4b2569d6",
+      "level": "N1",
+      "surface": "健やかな",
+      "reading_kana": "すこやかな",
+      "successor": "w_0c5742679b0cb098"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_e7e2263575a828aa",
+      "level": "N1",
+      "surface": "精巧",
+      "reading_kana": "せいこう",
+      "old_id": "w_993a165c62ba3a0c",
+      "new_id": "w_e7e2263575a828aa"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_0c8892e8786a0ea9",
+      "level": "N1",
+      "surface": "綿密",
+      "reading_kana": "めんみつ",
+      "old_id": "w_dabfa46a4e071045",
+      "new_id": "w_0c8892e8786a0ea9"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_7ecad84d963bf598",
+      "level": "N1",
+      "surface": "入念",
+      "reading_kana": "にゅうねん",
+      "old_id": "w_e0ea6104408e520b",
+      "new_id": "w_7ecad84d963bf598"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_2b3f9865d1fead1e",
+      "level": "N1",
+      "surface": "無残",
+      "reading_kana": "むざん",
+      "old_id": "w_abbb3338182c9a74",
+      "new_id": "w_2b3f9865d1fead1e"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_1ef4f939d961be2f",
+      "level": "N1",
+      "surface": "質素",
+      "reading_kana": "しっそ",
+      "old_id": "w_1666fd77162cc303",
+      "new_id": "w_1ef4f939d961be2f"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_1bf1bea47f8def42",
+      "level": "N1",
+      "surface": "煩雑",
+      "reading_kana": "はんざつ",
+      "old_id": "w_53a7531f783a3064",
+      "new_id": "w_1bf1bea47f8def42"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_f33b1779542ae443",
+      "level": "N1",
+      "surface": "疎か",
+      "reading_kana": "おろそか",
+      "old_id": "w_701a68ca74b0015f",
+      "new_id": "w_f33b1779542ae443"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_ec215b5de5951a23",
+      "level": "N1",
+      "surface": "不用意",
+      "reading_kana": "ふようい",
+      "old_id": "w_06e3cd11e3eb6359",
+      "new_id": "w_ec215b5de5951a23"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_e78ab477532d60af",
+      "level": "N1",
+      "surface": "緊密",
+      "reading_kana": "きんみつ",
+      "old_id": "w_7d401aa66a47fdb2",
+      "new_id": "w_e78ab477532d60af"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_58fd365ae7616e0c",
+      "level": "N1",
+      "surface": "冷淡",
+      "reading_kana": "れいたん",
+      "old_id": "w_15461a7a13870082",
+      "new_id": "w_58fd365ae7616e0c"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_a8962f2ceb682753",
+      "level": "N1",
+      "surface": "手薄",
+      "reading_kana": "てうす",
+      "old_id": "w_0a296f21cc4bcccb",
+      "new_id": "w_a8962f2ceb682753"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_fd482acc7e9071f5",
+      "level": "N1",
+      "surface": "画一的",
+      "reading_kana": "かくいつてき",
+      "old_id": "w_2e4bd2c194875bdf",
+      "new_id": "w_fd482acc7e9071f5"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_47316c016fe8cdab",
+      "level": "N1",
+      "surface": "閑静",
+      "reading_kana": "かんせい",
+      "old_id": "w_09e30de4c3a09644",
+      "new_id": "w_47316c016fe8cdab"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_cc273d48add3d042",
+      "level": "N1",
+      "surface": "丹念",
+      "reading_kana": "たんねん",
+      "old_id": "w_ff6f3ce8eeae9213",
+      "new_id": "w_cc273d48add3d042"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_107011573571e52d",
+      "level": "N1",
+      "surface": "克明",
+      "reading_kana": "こくめい",
+      "old_id": "w_922352fdc37d1ea2",
+      "new_id": "w_107011573571e52d"
+    },
+    {
+      "kind": "na-convert",
+      "id": "w_21052c70db251a9c",
+      "level": "N1",
+      "surface": "性急",
+      "reading_kana": "せいきゅう",
+      "old_id": "w_c99b250de4d4b4d7",
+      "new_id": "w_21052c70db251a9c"
+    }
+  ],
+  "deficits_before_backfill": {
+    "N5": -4,
+    "N4": -2,
+    "N3": 35,
+    "N2": 34,
+    "N1": 2
+  }
+}

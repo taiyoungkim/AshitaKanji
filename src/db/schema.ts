@@ -258,6 +258,15 @@ export const SCHEMA_V5_ADDITIONS: string[] = [
   `ALTER TABLE word ADD COLUMN superseded_by TEXT`,
 ];
 
+// v6 — 읽기 진도(최초 노출)와 숙련도를 분리하고 파생 세션의 출처를 보존한다.
+// 기존 known=1 기록은 이미 본 단어이므로 seen=1로 승격한다.
+export const SCHEMA_V6_ADDITIONS: string[] = [
+  `ALTER TABLE reading_progress ADD COLUMN seen INTEGER NOT NULL DEFAULT 0 CHECK (seen IN (0,1))`,
+  `UPDATE reading_progress SET seen = 1 WHERE known = 1`,
+  `ALTER TABLE session ADD COLUMN source_session_id INTEGER REFERENCES session(id)`,
+  `CREATE INDEX IF NOT EXISTS idx_session_source ON session(source_session_id)`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
@@ -276,8 +285,18 @@ export function migrationsTo(targetVersion: number): string[] {
       ...SCHEMA_V5_ADDITIONS,
     ];
   }
+  if (targetVersion === 6) {
+    return [
+      ...SCHEMA_V1,
+      ...SCHEMA_V2_ADDITIONS,
+      ...SCHEMA_V3_ADDITIONS,
+      ...SCHEMA_V4_ADDITIONS,
+      ...SCHEMA_V5_ADDITIONS,
+      ...SCHEMA_V6_ADDITIONS,
+    ];
+  }
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 5;
+export const CURRENT_SCHEMA_VERSION = 6;

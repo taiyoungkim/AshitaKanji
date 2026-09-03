@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-09-01T14:33:05.242822+00:00",
+  "promoted": true,
+  "policy": {
+    "level_source": "NAVER Japanese Dictionary displayed JLPT catalog/badge (app reference data; not an official JLPT vocabulary list)",
+    "identity": "Require exact surface+reading and confirmed part-of-speech/Korean-meaning alignment.",
+    "movement": "Only confirmed_mismatch rows move; ambiguous, missing-level, and multi-entry matches never move.",
+    "balancing": "No target-count balancing or backfill.",
+    "ids": "Level-only changes preserve every existing word id."
+  },
+  "input_sha256": {
+    "words": "d1b17dbeea6688998dad0b343bcb01a952924da570d25435862b6778fa0e6286",
+    "audit": "46410f9be1d7fb334c06adfa500a8d393905551239132d127cffc519df50324b"
+  },
+  "summary": {
+    "word_count": 7027,
+    "status_counts": {
+      "confirmed_mismatch": 3,
+      "exact_match": 5031,
+      "manual_review": 1228,
+      "naver_level_missing": 765
+    },
+    "confirmed_movements": 3,
+    "movement_transitions": {
+      "N2->N4": 1,
+      "N3->N2": 1,
+      "N4->N2": 1
+    },
+    "level_counts": {
+      "N5": 400,
+      "N4": 744,
+      "N2": 1907,
+      "N3": 1490,
+      "N1": 2486
+    },
+    "unique_ids": 7027,
+    "example_count": 7027
+  },
+  "special_transitions": {
+    "N1_to_N4_N5": [],
+    "N2_to_N4_N5": [
+      {
+        "id": "w_9a69e415985ac07b",
+        "surface": "柔らかい",
+        "reading_kana": "やわらかい",
+        "before": "N2",
+        "after": "N4",
+        "naver_entry_id": "fbe40bdf1eab46d9b53b27b185982c74",
+        "source_url": "https://ja.dict.naver.com/#/search?query=%E6%9F%94%E3%82%89%E3%81%8B%E3%81%84"
+      }
+    ],
+    "N4_N5_to_N1_N2": [
+      {
+        "id": "w_08fb3f57661da121",
+        "surface": "硬い",
+        "reading_kana": "かたい",
+        "before": "N4",
+        "after": "N2",
+        "naver_entry_id": "9d63d6c58a39488b9fd962ae4d0199c5",
+        "source_url": "https://ja.dict.naver.com/#/search?query=%E7%A1%AC%E3%81%84"
+      }
+    ]
+  },
+  "movements": [
+    {
+      "id": "w_9a69e415985ac07b",
+      "surface": "柔らかい",
+      "reading_kana": "やわらかい",
+      "before": "N2",
+      "after": "N4",
+      "naver_entry_id": "fbe40bdf1eab46d9b53b27b185982c74",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E6%9F%94%E3%82%89%E3%81%8B%E3%81%84"
+    },
+    {
+      "id": "w_d2920b329afac048",
+      "surface": "当然",
+      "reading_kana": "とうぜん",
+      "before": "N3",
+      "after": "N2",
+      "naver_entry_id": "b2c00f43e65a466a8afdf096b41d05b9",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E5%BD%93%E7%84%B6"
+    },
+    {
+      "id": "w_08fb3f57661da121",
+      "surface": "硬い",
+      "reading_kana": "かたい",
+      "before": "N4",
+      "after": "N2",
+      "naver_entry_id": "9d63d6c58a39488b9fd962ae4d0199c5",
+      "source_url": "https://ja.dict.naver.com/#/search?query=%E7%A1%AC%E3%81%84"
+    }
+  ]
+}

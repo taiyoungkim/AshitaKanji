@@ -78,17 +78,26 @@ export async function remapLegacyWordIds(db: RemapDb): Promise<RemapStats> {
       continue;
     }
     stats.remappedWords += 1;
-    // No PK on word_id — straight repoint.
-    await db.runAsync(`UPDATE review_log SET word_id = ? WHERE word_id = ?`, [newId, row.id]);
-    await db.runAsync(`UPDATE scan_result SET word_id = ? WHERE word_id = ?`, [newId, row.id]);
-    await remapUserCard(db, row.id, newId, stats);
-    await remapReadingProgress(db, row.id, newId);
+    await remountWordProgress(db, row.id, newId, stats);
   }
 
   return stats;
 }
 
-/** user_card.word_id is the PK. On collision (user studied both twins of a merged
+/** Move study progress from one word id to another. Shared by legacy and successor remaps. */
+export async function remountWordProgress(
+  db: RemapDb,
+  oldId: string,
+  newId: string,
+  stats: RemapStats,
+): Promise<void> {
+  await db.runAsync(`UPDATE review_log SET word_id = ? WHERE word_id = ?`, [newId, oldId]);
+  await db.runAsync(`UPDATE scan_result SET word_id = ? WHERE word_id = ?`, [newId, oldId]);
+  await remapUserCard(db, oldId, newId, stats);
+  await remapReadingProgress(db, oldId, newId);
+}
+
+/** user_card.word_id is the PK. On collision (user studied both twins of a merged)
  * word) keep the more-studied card (higher reps) and drop the other. */
 async function remapUserCard(
   db: RemapDb,
@@ -123,15 +132,19 @@ async function remapUserCard(
   }
 }
 
-/** reading_progress PK is (word_id, chapter). Merge per chapter, OR-ing `known`. */
+/** reading_progress PK is (word_id, chapter). Merge per chapter, OR-ing known/seen. */
 async function remapReadingProgress(db: RemapDb, oldId: string, newId: string): Promise<void> {
-  const oldRows = await db.getAllAsync<{ chapter: number; known: number }>(
-    `SELECT chapter, known FROM reading_progress WHERE word_id = ?`,
+  const columns = await db.getAllAsync<{ name: string }>(`PRAGMA table_info(reading_progress)`, []);
+  const hasSeen = columns.some((column) => column.name === 'seen');
+  const oldRows = await db.getAllAsync<{ chapter: number; known: number; seen: number }>(
+    `SELECT chapter, known, ${hasSeen ? 'seen' : 'known'} AS seen
+     FROM reading_progress WHERE word_id = ?`,
     [oldId],
   );
   for (const r of oldRows) {
-    const existing = await db.getFirstAsync<{ known: number }>(
-      `SELECT known FROM reading_progress WHERE word_id = ? AND chapter = ?`,
+    const existing = await db.getFirstAsync<{ known: number; seen: number }>(
+      `SELECT known, ${hasSeen ? 'seen' : 'known'} AS seen
+       FROM reading_progress WHERE word_id = ? AND chapter = ?`,
       [newId, r.chapter],
     );
     if (!existing) {
@@ -140,7 +153,14 @@ async function remapReadingProgress(db: RemapDb, oldId: string, newId: string): 
         [newId, oldId, r.chapter],
       );
     } else {
-      if (r.known === 1 && existing.known === 0) {
+      if (hasSeen && (r.known > existing.known || r.seen > existing.seen)) {
+        await db.runAsync(
+          `UPDATE reading_progress
+           SET known = MAX(known, ?), seen = MAX(seen, ?)
+           WHERE word_id = ? AND chapter = ?`,
+          [r.known, r.seen, newId, r.chapter],
+        );
+      } else if (!hasSeen && r.known === 1 && existing.known === 0) {
         await db.runAsync(
           `UPDATE reading_progress SET known = 1 WHERE word_id = ? AND chapter = ?`,
           [newId, r.chapter],

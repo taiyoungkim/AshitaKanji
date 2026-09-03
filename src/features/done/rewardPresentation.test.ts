@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { buildDoneRewardPresentation } from './rewardPresentation';
+import { buildDoneRewardPresentation, findRewardForSession } from './rewardPresentation';
+import { computeOnigiriProgress } from '~/features/onigiri/progress';
+import type { OnigiriIngredientReward } from '~/features/onigiri/progress';
+import { TEMP_ONIGIRI_CATALOG } from '~/features/onigiri/catalog';
 
 describe('buildDoneRewardPresentation', () => {
   it('shows an earned ingredient as the primary reward', () => {
@@ -45,6 +48,21 @@ describe('buildDoneRewardPresentation', () => {
 
     expect(result.overline).toBe('수집 완료');
     expect(result.title).toBe('전부 모았어요');
+  });
+
+  it('hides lastReward when the session id is missing', () => {
+    const reward: OnigiriIngredientReward = {
+      sessionId: 9,
+      item: TEMP_ONIGIRI_CATALOG[0],
+      ingredientIndex: 0,
+      ingredient: 'RICE',
+      crafted: false,
+      earnedAt: 1,
+    };
+    const progress = { ...computeOnigiriProgress([]), lastReward: reward };
+    expect(findRewardForSession(progress, null)).toBeNull();
+    expect(findRewardForSession(progress, 9)).toEqual(reward);
+    expect(findRewardForSession(progress, 8)).toBeNull();
   });
 
   it('shows a recoverable message when progress loading fails', () => {

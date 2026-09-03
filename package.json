@@ -1,6 +1,6 @@
 {
   "name": "ashitakanji",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "main": "expo-router/entry",
   "scripts": {
@@ -19,11 +19,19 @@
     "audio:verify": "node scripts/convert-audio-to-opus.mjs --verify-only",
     "audio:prepare": "npm run audio:opus && npm run audio:map && npm run audio:verify",
     "tts:audit:examples": "python3 scripts/audit-example-tts.py --extension ogg --codec opus --audio-map src/lib/audio/audioMap.gen.android.ts --report data/pdf-vocab/example_tts_validation_report.json",
+    "kanji:audit": "python3 scripts/audit-kanji-data.py",
+    "kanji:semantic-apply": "python3 scripts/apply-kanji-semantic-review.py",
+    "kanji:semantic-queue": "python3 scripts/build-kanji-semantic-review-queue.py",
+    "track-a:successors": "node scripts/gen-word-id-successors.mjs",
     "track-a:build": "npm run examples:build && node scripts/build-jlpt-db.mjs --trusted-final --qa data/pdf-vocab/jlpt_final_wordlist.csv --examples data/pdf-vocab/examples_final_qa_work.csv",
     "track-a:naver-examples": "node scripts/collect-naver-examples.mjs",
+    "vocab:naver-audit": "python3 scripts/audit-vocab-naver-full.py --search-cache .cache/naver-full-search-2026-08-20-7050.json --report data/pdf-vocab/naver_full_verification.json --issues data/pdf-vocab/naver_full_verification_flags.csv --failures data/pdf-vocab/naver_full_verification_failures.csv --queue data/pdf-vocab/naver_full_verification_queue.csv",
     "track-a:translate": "node scripts/build-jlpt-db.mjs --translate",
     "release-gate": "node scripts/release-gate.mjs",
     "ci-check": "npm run typecheck && npm run test && npm run lint",
+    "ui:capture": "node scripts/ui-capture.mjs",
+    "ui:diff": "node scripts/ui-diff.mjs",
+    "ui:approve": "node scripts/ui-approve.mjs",
     "release-check": "npm run ci-check && npm run release-gate"
   },
   "dependencies": {
@@ -71,6 +79,8 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.1",
     "eslint-config-expo": "~9.2.0",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
     "react-test-renderer": "19.0.0",
     "typescript": "~5.8.3",
     "vitest": "^2.1.0"

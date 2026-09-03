@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-19T02:29:51.952Z",
+  "elapsed_sec": 180,
+  "processed": 389,
+  "target_rows": 389,
+  "misses": 5,
+  "items": [
+    {
+      "word_id": "w_46a0e6b32c7e4deb",
+      "surface": "矢っ張り",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_8596f61d8a9a650f",
+      "surface": "旭",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_fc65a9c55c3db65e",
+      "surface": "あて先",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_6ae3445e2e3e3606",
+      "surface": "頬笑む",
+      "reason": "no usable translated example"
+    },
+    {
+      "word_id": "w_6a6e331edd9cf1e0",
+      "surface": "自由席",
+      "reason": "no usable translated example"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # 아시타칸지 - Onigiri Shop Redesign Plan
 
+> **구버전 문서:** 이 문서의 `/Users/tyoung/Downloads/index.html` 기준은 2026-08 최신 디자인 정본이 아니다. 현재 정본은 Onikan `fa259e7`의 `handoff/redesign-2026-08/final-screens/`, 해당 README, `DESIGN.md`, `COMPONENTS.md`이며 이 문서는 역사적 계획으로만 보존한다.
+
 > 작성일: 2026-06-01
 > 상태: Draft
 > 범위: 신규 디자인 목업 적용 계획

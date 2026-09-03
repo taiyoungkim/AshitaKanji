@@ -1,0 +1,75 @@
+{
+  "reviewed_at": "2026-08-18",
+  "scope": ["胃", "詩", "捩", "纏", "詰", "滅"],
+  "basis": {
+    "database": "assets/jlpt.db",
+    "qa_csv": "data/track-a/kanji_qa_work.csv",
+    "kanjidic2": ".cache/kanjidic2.xml.gz",
+    "secondary_reference": "漢字ペディア"
+  },
+  "decisions": [
+    {
+      "literal": "胃",
+      "action": "verify_and_normalize",
+      "old_meanings_ko": ["위(장기)"],
+      "new_meanings_ko": ["위", "위장"],
+      "reason": "일반적인 장기 의미를 간결하게 표준화",
+      "active_word_ids": ["w_4c934f2120b1a7b8"]
+    },
+    {
+      "literal": "詩",
+      "action": "verify",
+      "old_meanings_ko": ["시", "시가"],
+      "new_meanings_ko": ["시", "시가"],
+      "reason": "KANJIDIC2와 漢字ペディア 및 활성 단어 詩人에 일치",
+      "active_word_ids": ["w_b9599de28963836c"]
+    },
+    {
+      "literal": "捩",
+      "action": "expand_meaning",
+      "old_meanings_ko": ["비틀어지다", "꼬이다"],
+      "new_meanings_ko": ["비틀다", "꼬다", "비틀어지다"],
+      "reason": "자동사형 捩れる에서 파생된 뜻에 한자 자체의 타동사 의미를 복원",
+      "active_word_ids": ["w_4b6957098523bfbf"]
+    },
+    {
+      "literal": "纏",
+      "action": "confirm_removed",
+      "old_meanings_ko": ["정리하다"],
+      "new_meanings_ko": [],
+      "reason": "활성 어휘에서 纏める가 まとめる로 교정되어 더 이상 필요한 한자가 아님",
+      "active_word_ids": []
+    },
+    {
+      "literal": "詰",
+      "action": "replace_incomplete_meaning",
+      "old_meanings_ko": ["힐난하다", "따지다"],
+      "new_meanings_ko": ["채우다", "막히다", "추궁하다"],
+      "reason": "詰る 한 항목에 치우친 자동 파생을 고치고 주요 의미군을 복원",
+      "active_word_ids": [
+        "w_998d26b0adcefe8e",
+        "w_e557218ae2dc353f",
+        "w_4449a3e240899014",
+        "w_5ca2ac72fa6c8d99",
+        "w_55e59b27b382a2f6",
+        "w_25c295e6bfa0e5ae",
+        "w_ba2d55654486780d",
+        "w_5bb0b7b627f66dd7"
+      ]
+    },
+    {
+      "literal": "滅",
+      "action": "replace_incomplete_meaning",
+      "old_meanings_ko": ["파괴하다"],
+      "new_meanings_ko": ["멸망하다", "없애다", "사라지다"],
+      "reason": "滅ぼす 한 항목에 치우친 자동 파생을 고치고 멸망·소멸 의미군을 복원",
+      "active_word_ids": [
+        "w_f3bbda306fceda3b",
+        "w_014e25ff7ca1690d",
+        "w_7ea1acd07319c07b",
+        "w_5d75c1c8faeb07ae",
+        "w_6f522f37c07de4b3"
+      ]
+    }
+  ]
+}

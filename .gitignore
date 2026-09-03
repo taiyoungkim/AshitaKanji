@@ -103,3 +103,6 @@ data/track-a/*.csv.bak
 # bkit tool state (runtime/snapshots already ignored above)
 .bkit/audit/
 .bkit/state/
+
+# Agent scratch outputs (대용량 xlsx 덤프, 심볼릭 링크 node_modules)
+outputs/

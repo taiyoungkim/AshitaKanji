@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-08-19T02:30:33.092Z",
+  "elapsed_sec": 2,
+  "processed": 5,
+  "target_rows": 5,
+  "misses": 1,
+  "items": [
+    {
+      "word_id": "w_7daeea89e5a2200c",
+      "surface": "郵送料",
+      "reason": "no usable translated example"
+    }
+  ]
+}

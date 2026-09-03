@@ -6,10 +6,10 @@
 import { useEffect, useRef } from 'react';
 import { useNavigation, useRouter } from 'expo-router';
 import { ActivityIndicator, Alert, StyleSheet, Text, View } from 'react-native';
-import { initialWindowMetrics } from 'react-native-safe-area-context';
 import { layout, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { Overline } from '~/components/ui/Surface';
+import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
 import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
 import { useSessionStore } from '~/stores/SessionStore';
@@ -18,15 +18,14 @@ import { StudyActions } from './components/StudyActions';
 import { StudyCard } from './components/StudyCard';
 import { StudyHeader } from './components/StudyHeader';
 import { revealStudyCard } from './studyRevealAudio';
-import { subscribeToStudyRouteRemoval } from './studySessionLifecycle';
-
-// fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
-// 디바이스 실제 inset(상태바/노치·홈 인디케이터)을 직접 사용한다.
-const TOP_INSET = initialWindowMetrics?.insets.top ?? 24;
-const BOTTOM_INSET = initialWindowMetrics?.insets.bottom ?? 0;
+import {
+  resolveStudyMountAction,
+  reviewedCountFromSession,
+  shouldBlockStudyLeave,
+  subscribeToStudyRouteRemoval,
+} from './studySessionLifecycle';
 
 export default function StudyScreen(): React.ReactNode {
-  const engine = useSessionStore((s) => s.engine);
   const current = useSessionStore((s) => s.current);
   const card = useSessionStore((s) => s.card);
   const reveal = useSessionStore((s) => s.reveal);
@@ -42,15 +41,24 @@ export default function StudyScreen(): React.ReactNode {
   const navigation = useNavigation();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const screenInsets = useFullScreenInsets();
   const navigatedToDone = useRef(false);
 
   // 설정 복원(persist) 후 세션 시작 — stale 기본값으로 시작 방지.
   // 이미 진행 중이면 유지하고, 실제 라우트 이탈 시 미완 세션을 정리한다.
   useEffect(() => {
-    if (settingsHydrated && !engine) {
+    if (!settingsHydrated) return;
+    const action = resolveStudyMountAction(useSessionStore.getState());
+    if (action === 'open-done') {
+      if (!navigatedToDone.current) {
+        navigatedToDone.current = true;
+        router.replace('/done');
+      }
+      return;
+    }
+    if (action === 'start') {
       const config = settingsToSessionConfig(useSettingsStore.getState());
       void startSession(config);
-      // 전면광고 미리 로드 — 완료 시점(/done 전환)에 표시. 로드엔 수 초 필요.
       preloadInterstitial();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,7 +69,16 @@ export default function StudyScreen(): React.ReactNode {
   useEffect(() => {
     return subscribeToStudyRouteRemoval(
       (listener) => navigation.addListener('beforeRemove', listener),
-      useSessionStore.getState,
+      () => {
+        const session = useSessionStore.getState();
+        return {
+          engine: session.engine,
+          summary: session.summary,
+          phase: session.current?.phase ?? null,
+          reviewedCount: reviewedCountFromSession(session.current),
+          abandon: session.abandon,
+        };
+      },
     );
   }, [navigation]);
 
@@ -72,14 +89,26 @@ export default function StudyScreen(): React.ReactNode {
     if (finished && !summary && !navigatedToDone.current) {
       navigatedToDone.current = true;
       // 세션 기록 저장 먼저(광고 실패와 무관하게 보존) → 캡 통과 시 전면광고 → /done.
-      void endSession('completed').then(() =>
-        showInterstitialIfEligible(() => router.replace('/done')),
-      );
+      void endSession('completed')
+        .then(() => showInterstitialIfEligible(() => router.replace('/done')))
+        .catch((err: unknown) => {
+          console.warn('[study] complete failed:', err);
+          navigatedToDone.current = false;
+        });
     }
   }, [finished, summary, endSession, router]);
 
   // 진행 중 종료는 실수 방지를 위해 확인 다이얼로그. 완료/빈 상태면 바로 닫음.
   const handleClose = () => {
+    if (
+      shouldBlockStudyLeave({
+        summary,
+        phase: current?.phase ?? null,
+        reviewedCount: reviewedCountFromSession(current),
+      })
+    ) {
+      return;
+    }
     const inProgress = !!current && !!card && !summary && !dataEmpty;
     if (!inProgress) {
       router.back();
@@ -107,10 +136,18 @@ export default function StudyScreen(): React.ReactNode {
   };
 
   // 데이터 미탑재 — 빈 큐를 "오늘 끝"으로 오인하지 않게 명시 안내(P0).
+  const completing =
+    current?.phase === 'done' &&
+    !summary &&
+    reviewedCountFromSession(current) > 0;
   const notice = dataEmpty
     ? { overline: '데이터 없음', title: '학습 데이터 없음', body: '단어 DB가 아직 탑재되지 않았어요. (assets/jlpt.db 빌드 필요)' }
-    : summary
-      ? { overline: '오늘의 학습', title: '오늘 학습 완료', body: '내일 또 만나요.' }
+    : summary || completing
+      ? {
+          overline: '오늘의 학습',
+          title: '오늘 학습 완료',
+          body: summary ? '내일 또 만나요.' : '결과를 준비하고 있어요.',
+        }
       : !current
         ? null
         : !card
@@ -118,7 +155,7 @@ export default function StudyScreen(): React.ReactNode {
           : null;
 
   return (
-    <View style={[styles.root, { paddingTop: TOP_INSET, paddingBottom: BOTTOM_INSET }]}>
+    <View style={[styles.root, { paddingTop: screenInsets.top, paddingBottom: screenInsets.bottom }]}>
       {current && card && !summary ? (
         <>
           <StudyHeader state={current} onClose={handleClose} />

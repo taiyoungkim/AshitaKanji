@@ -1,0 +1,273 @@
+{
+  "generated_at": "2026-08-19T13:55:34.569640+00:00",
+  "source": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "new_vs_db": null,
+  "kind": "words",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6962,
+  "selected_rows": 42,
+  "jobs": 42,
+  "preexisting": 0,
+  "planned": 42,
+  "created": 42,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_0c8892e8786a0ea9",
+      "kind": "word",
+      "text": "めんみつ",
+      "file": "assets/audio/words/w_0c8892e8786a0ea9.mp3"
+    },
+    {
+      "id": "w_107011573571e52d",
+      "kind": "word",
+      "text": "こくめい",
+      "file": "assets/audio/words/w_107011573571e52d.mp3"
+    },
+    {
+      "id": "w_21052c70db251a9c",
+      "kind": "word",
+      "text": "せいきゅう",
+      "file": "assets/audio/words/w_21052c70db251a9c.mp3"
+    },
+    {
+      "id": "w_1ef4f939d961be2f",
+      "kind": "word",
+      "text": "しっそ",
+      "file": "assets/audio/words/w_1ef4f939d961be2f.mp3"
+    },
+    {
+      "id": "w_12e16fe783211043",
+      "kind": "word",
+      "text": "けんじつ",
+      "file": "assets/audio/words/w_12e16fe783211043.mp3"
+    },
+    {
+      "id": "w_1bf1bea47f8def42",
+      "kind": "word",
+      "text": "はんざつ",
+      "file": "assets/audio/words/w_1bf1bea47f8def42.mp3"
+    },
+    {
+      "id": "w_22182bc9f10e87a7",
+      "kind": "word",
+      "text": "きょうだい",
+      "file": "assets/audio/words/w_22182bc9f10e87a7.mp3"
+    },
+    {
+      "id": "w_2b3f9865d1fead1e",
+      "kind": "word",
+      "text": "むざん",
+      "file": "assets/audio/words/w_2b3f9865d1fead1e.mp3"
+    },
+    {
+      "id": "w_47316c016fe8cdab",
+      "kind": "word",
+      "text": "かんせい",
+      "file": "assets/audio/words/w_47316c016fe8cdab.mp3"
+    },
+    {
+      "id": "w_468daccd2ae26a2c",
+      "kind": "word",
+      "text": "すみやか",
+      "file": "assets/audio/words/w_468daccd2ae26a2c.mp3"
+    },
+    {
+      "id": "w_58fd365ae7616e0c",
+      "kind": "word",
+      "text": "れいたん",
+      "file": "assets/audio/words/w_58fd365ae7616e0c.mp3"
+    },
+    {
+      "id": "w_26e3bc9cd7829f31",
+      "kind": "word",
+      "text": "げんせい",
+      "file": "assets/audio/words/w_26e3bc9cd7829f31.mp3"
+    },
+    {
+      "id": "w_5f8d9c8b49934159",
+      "kind": "word",
+      "text": "むぼう",
+      "file": "assets/audio/words/w_5f8d9c8b49934159.mp3"
+    },
+    {
+      "id": "w_73adcb2265343028",
+      "kind": "word",
+      "text": "かっきてき",
+      "file": "assets/audio/words/w_73adcb2265343028.mp3"
+    },
+    {
+      "id": "w_837b1cb6497a4abe",
+      "kind": "word",
+      "text": "せんさい",
+      "file": "assets/audio/words/w_837b1cb6497a4abe.mp3"
+    },
+    {
+      "id": "w_7ecad84d963bf598",
+      "kind": "word",
+      "text": "にゅうねん",
+      "file": "assets/audio/words/w_7ecad84d963bf598.mp3"
+    },
+    {
+      "id": "w_7ddf08329a5a46e2",
+      "kind": "word",
+      "text": "けんちょ",
+      "file": "assets/audio/words/w_7ddf08329a5a46e2.mp3"
+    },
+    {
+      "id": "w_9ae6757294f044b5",
+      "kind": "word",
+      "text": "かたく",
+      "file": "assets/audio/words/w_9ae6757294f044b5.mp3"
+    },
+    {
+      "id": "w_a7f61dd68b46c6ee",
+      "kind": "word",
+      "text": "とん",
+      "file": "assets/audio/words/w_a7f61dd68b46c6ee.mp3"
+    },
+    {
+      "id": "w_a8962f2ceb682753",
+      "kind": "word",
+      "text": "てうす",
+      "file": "assets/audio/words/w_a8962f2ceb682753.mp3"
+    },
+    {
+      "id": "w_b7818753cbabeecc",
+      "kind": "word",
+      "text": "ひそか",
+      "file": "assets/audio/words/w_b7818753cbabeecc.mp3"
+    },
+    {
+      "id": "w_e78ab477532d60af",
+      "kind": "word",
+      "text": "きんみつ",
+      "file": "assets/audio/words/w_e78ab477532d60af.mp3"
+    },
+    {
+      "id": "w_cc273d48add3d042",
+      "kind": "word",
+      "text": "たんねん",
+      "file": "assets/audio/words/w_cc273d48add3d042.mp3"
+    },
+    {
+      "id": "w_e7e2263575a828aa",
+      "kind": "word",
+      "text": "せいこう",
+      "file": "assets/audio/words/w_e7e2263575a828aa.mp3"
+    },
+    {
+      "id": "w_f33b1779542ae443",
+      "kind": "word",
+      "text": "おろそか",
+      "file": "assets/audio/words/w_f33b1779542ae443.mp3"
+    },
+    {
+      "id": "w_038fa447a2ae4dc6",
+      "kind": "word",
+      "text": "どうよう",
+      "file": "assets/audio/words/w_038fa447a2ae4dc6.mp3"
+    },
+    {
+      "id": "w_fd482acc7e9071f5",
+      "kind": "word",
+      "text": "かくいつてき",
+      "file": "assets/audio/words/w_fd482acc7e9071f5.mp3"
+    },
+    {
+      "id": "w_ec215b5de5951a23",
+      "kind": "word",
+      "text": "ふようい",
+      "file": "assets/audio/words/w_ec215b5de5951a23.mp3"
+    },
+    {
+      "id": "w_5abb5170699e2df0",
+      "kind": "word",
+      "text": "ふしぎ",
+      "file": "assets/audio/words/w_5abb5170699e2df0.mp3"
+    },
+    {
+      "id": "w_5dbb6ffd4db86074",
+      "kind": "word",
+      "text": "おおげさ",
+      "file": "assets/audio/words/w_5dbb6ffd4db86074.mp3"
+    },
+    {
+      "id": "w_8be0e84ce471c919",
+      "kind": "word",
+      "text": "あいまい",
+      "file": "assets/audio/words/w_8be0e84ce471c919.mp3"
+    },
+    {
+      "id": "w_6b83167e0af43277",
+      "kind": "word",
+      "text": "ただい",
+      "file": "assets/audio/words/w_6b83167e0af43277.mp3"
+    },
+    {
+      "id": "w_fb5cbbf9ac77e220",
+      "kind": "word",
+      "text": "にぎやか",
+      "file": "assets/audio/words/w_fb5cbbf9ac77e220.mp3"
+    },
+    {
+      "id": "w_0e7b2b386c68b627",
+      "kind": "word",
+      "text": "いっぱんてき",
+      "file": "assets/audio/words/w_0e7b2b386c68b627.mp3"
+    },
+    {
+      "id": "w_37166f9c256c6542",
+      "kind": "word",
+      "text": "かんじょうてき",
+      "file": "assets/audio/words/w_37166f9c256c6542.mp3"
+    },
+    {
+      "id": "w_a0d434edcd9759ad",
+      "kind": "word",
+      "text": "せいけつ",
+      "file": "assets/audio/words/w_a0d434edcd9759ad.mp3"
+    },
+    {
+      "id": "w_a85e91e780f1675c",
+      "kind": "word",
+      "text": "おも",
+      "file": "assets/audio/words/w_a85e91e780f1675c.mp3"
+    },
+    {
+      "id": "w_d627e3baa1fd6350",
+      "kind": "word",
+      "text": "ぶじ",
+      "file": "assets/audio/words/w_d627e3baa1fd6350.mp3"
+    },
+    {
+      "id": "w_ab29dc806d2eef26",
+      "kind": "word",
+      "text": "だいひょうてき",
+      "file": "assets/audio/words/w_ab29dc806d2eef26.mp3"
+    },
+    {
+      "id": "w_f3e20b58b318fe06",
+      "kind": "word",
+      "text": "ぐたいてき",
+      "file": "assets/audio/words/w_f3e20b58b318fe06.mp3"
+    },
+    {
+      "id": "w_f343caab14e0094d",
+      "kind": "word",
+      "text": "じつようてき",
+      "file": "assets/audio/words/w_f343caab14e0094d.mp3"
+    },
+    {
+      "id": "w_b22a6ac9a6be784c",
+      "kind": "word",
+      "text": "おおき",
+      "file": "assets/audio/words/w_b22a6ac9a6be784c.mp3"
+    }
+  ],
+  "elapsed_seconds": 3.033,
+  "dry_run": false
+}

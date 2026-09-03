@@ -29,6 +29,8 @@ export interface SessionRecord {
   done_review: number;
   done_scan: number;
   again_count: number;
+  /** 오늘 복습처럼 다른 세션에서 파생된 경우 원본 세션 id. */
+  source_session_id?: number | null;
 }
 
 export interface SessionState {

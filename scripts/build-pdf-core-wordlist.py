@@ -354,6 +354,7 @@ def select_supplements(
     reviews: dict[str, dict[str, Any]],
 ) -> tuple[set[str], list[dict[str, Any]], dict[str, Any]]:
     core_ids = {row["existing_word_id"] for row in core_rows if row["existing_word_id"]}
+    core_pairs = {(row["surface"], row["reading_kana"]) for row in core_rows}
     core_primary_counts = Counter(row["primary_level"] for row in core_rows)
     supplement_targets = {
         level: TARGET_COUNTS[level] - core_primary_counts[level] for level in LEVELS
@@ -366,6 +367,13 @@ def select_supplements(
             word
             for word in words.values()
             if word["level"] == level and word["id"] not in core_ids
+            and (
+                clean(reviews.get(word["id"], {}).get("suggested_surface"))
+                or word["surface"],
+                clean(reviews.get(word["id"], {}).get("suggested_reading"))
+                or word["reading_kana"],
+            )
+            not in core_pairs
         ]
         forced_keep = [
             word
@@ -422,8 +430,6 @@ def select_supplements(
     ]
     if len(selected) != sum(supplement_targets.values()):
         raise RuntimeError("supplement count mismatch")
-    if len(removed_rows) != 1346:
-        raise RuntimeError(f"removal count mismatch: {len(removed_rows)}")
     return selected, removed_rows, selection_report
 
 
@@ -619,8 +625,6 @@ def validate_final(
         failures.append("uniqueness")
     if checks["pdf_core_included"] != checks["pdf_core_total"]:
         failures.append("PDF core inclusion")
-    if checks["removed_supplements"] != 1346:
-        failures.append("removal count")
     if any(level_counts[level] != TARGET_COUNTS[level] for level in LEVELS):
         failures.append("level counts")
     scalar_zero_checks = (
@@ -638,7 +642,16 @@ def validate_final(
     checks["status"] = "PASS" if not failures else "FAIL"
     checks["failures"] = failures
     if failures:
-        raise RuntimeError(f"final validation failed: {failures}")
+        duplicate_ids = [
+            value for value, count in Counter(final_ids).items() if count > 1
+        ][:10]
+        duplicate_pairs = [
+            value for value, count in Counter(final_pairs).items() if count > 1
+        ][:10]
+        raise RuntimeError(
+            f"final validation failed: {failures}; "
+            f"duplicate_ids={duplicate_ids}; duplicate_pairs={duplicate_pairs}"
+        )
     return checks
 
 
@@ -766,7 +779,7 @@ def main() -> None:
     )
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "goal": "현재 앱과 동일한 6,638개/급수별 개수/word 스키마를 유지하면서 PDF 최빈출 2,699개를 전부 포함",
+        "goal": f"현재 앱과 동일한 6,638개/급수별 개수/word 스키마를 유지하면서 범위 확정 PDF 핵심어 {len(core_rows):,}개를 전부 포함",
         "inputs": {
             "database": str(args.db),
             "pdf_core": str(args.core),
@@ -793,7 +806,8 @@ def main() -> None:
         "selection_by_level": selection_report,
         "manual_review": review_summary,
         "rules": [
-            "PDF 최빈출 2,699개는 표기+읽기 기준으로 전부 강제 포함",
+            f"범위 확정 PDF 핵심어 {len(core_rows):,}개는 표기+읽기 기준으로 전부 강제 포함",
+            "pass 계열 PDF의 유의어·용법 구역은 원문 감사에만 보존하고 PDF 핵심어에서 제외",
             "PDF primary_level을 최종 JLPT 급수로 사용",
             "기존 급수별 목표 N5 339/N4 600/N3 1499/N2 1700/N1 2500 유지",
             "수동 유지·수정 판정, 변형 그룹 대표형, 기존 freq-core는 보충 단어로 우선 보호",

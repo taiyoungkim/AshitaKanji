@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-09-01T23:03:23.464792+09:00",
+  "word_count": 7027,
+  "level_counts": {
+    "N5": 400,
+    "N4": 743,
+    "N3": 1491,
+    "N2": 1906,
+    "N1": 2487
+  },
+  "successors": {
+    "w_010ee73feb13c7cc": "w_1c28467b52572134"
+  },
+  "added": [
+    {
+      "id": "w_858471f4df92a8af",
+      "level": "N5",
+      "surface": "まだ",
+      "reading_kana": "まだ",
+      "meaning_ko": "아직"
+    }
+  ],
+  "rewritten": [
+    {
+      "old_id": "w_010ee73feb13c7cc",
+      "new_id": "w_1c28467b52572134",
+      "from": "未だ",
+      "to": "いまだ",
+      "level": "N1",
+      "meaning_ko": "아직 (예스러운 말)"
+    }
+  ],
+  "policy": "NAVER N5 未だ/まだ is the everyday word; write it まだ. NAVER N1 未だ/いまだ is literary (=まだ) and is shown as いまだ."
+}

@@ -20,7 +20,7 @@
   <nav><a href="../">← Home</a></nav>
 
   <h1>Support</h1>
-  <p class="meta">Last updated: 2026-05-29</p>
+  <p class="meta">Last updated: 2026-09-03</p>
 
   <p>Support for <strong>오니칸 (오니기리 칸지)</strong> is provided by the individual developer.</p>
 
@@ -38,26 +38,32 @@
   <h2>FAQ</h2>
 
   <h3>Does the app include all JLPT levels?</h3>
-  <p>This app is <strong>not</strong> a complete JLPT vocabulary set. The launch dataset is an <strong>editor-curated</strong> selection across N5-N1, with grammar and affix patterns excluded and replaced by vocabulary-style rows:</p>
+  <p>This app is <strong>not</strong> a complete JLPT vocabulary set. The launch dataset is an <strong>editor-curated</strong> selection across N5-N1:</p>
   <ul>
-    <li>N5: 300 active words</li>
-    <li>N4: 600 active words</li>
-    <li>N3: 1,100 active words</li>
-    <li>N2: 1,700 active words</li>
-    <li>N1: 2,500 active words</li>
+    <li>N5: 393 words</li>
+    <li>N4: 726 words</li>
+    <li>N3: 1,499 words</li>
+    <li>N2: 1,909 words</li>
+    <li>N1: 2,500 words</li>
   </ul>
-  <p>Total: <strong>6,200 active study words</strong> (not all JLPT vocabulary; JLPT N1 alone covers 10,000+ words).</p>
+  <p>Total: <strong>7,027 curated words</strong> (not all JLPT vocabulary; JLPT N1 alone covers 10,000+ words).</p>
 
   <h3>Where is my study data stored?</h3>
-  <p>In the MVP version, study data is stored only on your device. The MVP also ships with <strong>OTA updates disabled</strong>, so no version-check traffic is sent either.</p>
+  <p>Study progress stays on your device. The app does not upload your word history to a server we operate. A JSON backup is available from Settings if you want to copy it yourself.</p>
+  <p>The app may contact Expo's update service for version checks, and Google AdMob for ads. Those requests do not include your review grades or word list.</p>
 
   <h3>Does the app collect analytics?</h3>
-  <p>No. The MVP version does not collect analytics or send learning data to an external server.</p>
+  <p>We do not use a first-party analytics or crash-reporting SDK. Google AdMob may collect advertising and device signals as described in the <a href="../privacy/">Privacy Policy</a>.</p>
+
+  <h3>Does the app have ads?</h3>
+  <p>Yes. After you finish a regular study, weakness review, or reading session, a full-screen Google AdMob ad may appear. Ads are not shown while you are grading a card.</p>
+  <p>New users get a short grace period. After that, ads are capped (about one ad every two completed sessions, at most three per day, and at least ten minutes apart). If an ad fails to load, you still reach the completion screen.</p>
+  <p>On iOS you will see the system tracking prompt. Declining still lets you study; ads may continue as non-personalized ads.</p>
 
   <h3>Can I move my data to another device?</h3>
-  <p>There is no automatic sync in the MVP version, but <strong>manual backup is available</strong>:</p>
+  <p>There is no automatic sync, but <strong>manual backup is available</strong>:</p>
   <ul>
-    <li>Settings → Data → "Create backup file"</li>
+    <li>Settings → Data backup → "백업 내보내기 (JSON)"</li>
     <li>Exports a JSON file containing your learning state, statistics, and settings.</li>
     <li>Share to iCloud Drive / Google Drive / email.</li>
     <li>A future version will add the matching import flow on another device.</li>
@@ -65,9 +71,6 @@
 
   <h3>I found an incorrect meaning or reading. What should I do?</h3>
   <p>Please email the word, level, current meaning/reading, and the correction suggestion to the support email above.</p>
-
-  <h3>Does the app have ads?</h3>
-  <p>The MVP version has no ads.</p>
 
   <h3>Is this an official JLPT app?</h3>
   <p>No. This app is an independent study tool and is not affiliated with or endorsed by the JLPT organizers.</p>

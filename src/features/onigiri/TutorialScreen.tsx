@@ -8,12 +8,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'expo-router';
 import {
   Animated,
+  Easing,
   Image,
   Pressable,
   StyleSheet,
   Text,
   View,
   useWindowDimensions,
+  type ImageSourcePropType,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
@@ -26,31 +28,76 @@ import {
 } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 import { Button } from '~/components/ui/Button';
-import { Card, Overline, ProgressSegments, PlateTile } from '~/components/ui/Surface';
+import { ButtonFillProgress } from '~/components/ui/ButtonFillProgress';
+import { Card, Overline, PlateTile } from '~/components/ui/Surface';
+import { StudyCard, type PhoneticHint } from '~/features/study/components/StudyCard';
+import { StudyProgressHeader } from '~/features/study/components/StudyProgressHeader';
 import { Receipt } from '~/features/onigiri/components';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
+import { useTTS } from '~/hooks/useTTS';
+import { revealStudyCard } from '~/features/study/studyRevealAudio';
 import { catImages } from './catAssets';
 import { INGREDIENTS_PER_ONIGIRI, TEMP_ONIGIRI_CATALOG } from './catalog';
 import { ingredientImage, ingredientName } from './ingredientAssets';
-import { recipeImage } from './recipeAssets';
+import { resolveStudyEntry } from '~/features/study/resolveStudyEntry';
 import type { CatPose } from './types';
+import type { Word } from '~/types/Card';
+import { onboardingImages } from './onboardingAssets';
+import { OnboardingConfetti } from './components/OnboardingConfetti';
 
-// 데모 단어 — 튜토리얼 전용 고정 5개 (DB 의존 없음, 미기록).
+// 데모 단어 — 튜토리얼 전용 고정 10개 (DB 의존 없음, 미기록).
+// 온보딩 콘텐츠는 로컬 고정이라 예문·발음 힌트도 여기 함께 둔다.
+function demoWord(
+  surface: string,
+  reading: string,
+  meaning: string,
+  exampleJp: string,
+  exampleKo: string,
+  phonetic?: PhoneticHint,
+): Word & { phonetic?: PhoneticHint } {
+  return {
+    id: `tutorial-${surface}`,
+    level: 'N5',
+    surface,
+    reading_kana: reading,
+    meaning_ko: meaning,
+    card_type: 'A',
+    example_jp: exampleJp,
+    example_ko: exampleKo,
+    qa_status: 'verified',
+    deprecated: 0,
+    data_version: 0,
+    phonetic,
+  };
+}
+
 const DEMO_WORDS = [
-  { kanji: '秋', kana: 'あき', mean: '가을' },
-  { kanji: '山', kana: 'やま', mean: '산' },
-  { kanji: '雨', kana: 'あめ', mean: '비' },
-  { kanji: '駅', kana: 'えき', mean: '역' },
-  { kanji: '食塩', kana: 'しょくえん', mean: '식염' },
+  demoWord('秋', 'あき', '가을', '秋の空は高いです。', '가을 하늘은 높습니다.'),
+  demoWord('山', 'やま', '산', 'あの山に登ります。', '저 산에 오릅니다.'),
+  demoWord('雨', 'あめ', '비', '今日は雨が降ります。', '오늘은 비가 옵니다.'),
+  demoWord('駅', 'えき', '역', '駅の前で会いましょう。', '역 앞에서 만납시다.'),
+  demoWord('食塩', 'しょくえん', '식염', '食塩を少し入れます。', '식염을 조금 넣습니다.', {
+    left: 'しょくえん',
+    right: '식염',
+  }),
+  demoWord('空', 'そら', '하늘', '空が青いです。', '하늘이 파랗습니다.'),
+  demoWord('花', 'はな', '꽃', '庭に花が咲きました。', '정원에 꽃이 피었습니다.'),
+  demoWord('本', 'ほん', '책', '本を三冊買いました。', '책을 세 권 샀습니다.'),
+  demoWord('友達', 'ともだち', '친구', '友達と映画を見ます。', '친구와 영화를 봅니다.'),
+  demoWord('時間', 'じかん', '시간', '時間がありません。', '시간이 없습니다.', {
+    left: 'じかん',
+    right: '시간',
+  }),
 ] as const;
 
 const TUTORIAL_ONIGIRI = TEMP_ONIGIRI_CATALOG[0]!;
 const TUTORIAL_INGREDIENT = TUTORIAL_ONIGIRI.ingredients[0];
 const TUTORIAL_INGREDIENT_COUNT = 1;
+const REMAINING_INGREDIENT_NOTE = `완성까지 재료 ${INGREDIENTS_PER_ONIGIRI - TUTORIAL_INGREDIENT_COUNT}개가 남았어.`;
 
-type Step = 'setup' | 'study' | 'ingredient' | 'crafting' | 'receipt';
-const STEP_ORDER: readonly Step[] = ['setup', 'study', 'ingredient', 'crafting', 'receipt'];
+type Step = 'setup' | 'study' | 'ingredient' | 'receipt' | 'finish';
+const STEP_ORDER: readonly Step[] = ['setup', 'study', 'ingredient', 'receipt', 'finish'];
 
 // 모든 포즈를 동일 박스(폭 46% × 높이 24%) 안에 contain — 세로형(calm/show/present)은
 // 높이가 맞춰져 균일, 가로형(make)은 폭에 걸려 원래 비율로 떨어짐.
@@ -61,14 +108,16 @@ function TutorialCat({
   pose,
   screenWidth,
   screenHeight,
+  source,
 }: {
   pose: CatPose;
   screenWidth: number;
   screenHeight: number;
+  source?: ImageSourcePropType;
 }): React.ReactNode {
   return (
     <Image
-      source={catImages[pose]}
+      source={source ?? catImages[pose]}
       resizeMode="contain"
       style={{
         alignSelf: 'center',
@@ -81,20 +130,99 @@ function TutorialCat({
 
 function formatToday(ms: number): string {
   const d = new Date(ms);
-  const p = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}.${p(d.getMonth() + 1)}.${p(d.getDate())}`;
+  return `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
+}
+
+function TutorialReceipt({
+  dateLabel,
+  ingredientLabel,
+  againCount,
+  reducedMotion,
+  onConfirm,
+}: {
+  dateLabel: string;
+  ingredientLabel: string;
+  againCount: number;
+  reducedMotion: boolean | null;
+  onConfirm: () => void;
+}): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  const { height } = useWindowDimensions();
+  const print = useRef(new Animated.Value(reducedMotion ? 1 : 0)).current;
+
+  useEffect(() => {
+    print.stopAnimation();
+    if (reducedMotion !== false) {
+      print.setValue(1);
+      return;
+    }
+
+    print.setValue(0);
+    const animation = Animated.timing(print, {
+      toValue: 1,
+      delay: motion.receiptPrintDelayMs,
+      duration: motion.receiptPrintMs,
+      easing: Easing.bezier(0.5, 0, 0.25, 1),
+      useNativeDriver: true,
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [print, reducedMotion]);
+
+  return (
+    <View style={styles.receiptScene}>
+      <Text style={styles.receiptTitle}>영수증을 받으세요</Text>
+      <View style={styles.receiptClip}>
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateY: print.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [-Math.round(height * 0.62), 0],
+                }),
+              },
+            ],
+          }}
+        >
+          <Receipt
+            dateLabel={dateLabel}
+            rows={[
+              { label: '새로 배운 단어', value: DEMO_WORDS.length - againCount },
+              { label: '다시 배울 단어', value: againCount },
+              { label: '받은 재료', value: ingredientLabel, reward: true },
+            ]}
+            recipeName={TUTORIAL_ONIGIRI.name}
+            ingredientCount={TUTORIAL_INGREDIENT_COUNT}
+            ingredientTotal={INGREDIENTS_PER_ONIGIRI}
+            recipeNote={REMAINING_INGREDIENT_NOTE}
+            streakLabel="연습"
+          />
+        </Animated.View>
+      </View>
+      <Text style={styles.receiptCaption}>
+        연습 중이라 결과는 저장되지 않아요.{`\n`}실제 학습 후 보상과 기록이 남아요.
+      </Text>
+      <View style={styles.spacer} />
+      <Button label="확인했어" variant="secondary" onPress={onConfirm} />
+    </View>
+  );
 }
 
 export default function TutorialScreen(): React.ReactNode {
   const router = useRouter();
   const styles = useThemedStyles(makeStyles);
   const completeTutorial = useSettingsStore((s) => s.completeTutorial);
+  const selectedLevels = useSettingsStore((s) => s.selectedLevels);
+  const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const { width, height } = useWindowDimensions();
   const reducedMotion = useReducedMotion();
+  const tts = useTTS();
 
   const [step, setStep] = useState<Step>('setup');
   const [cardIndex, setCardIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const [againCount, setAgainCount] = useState(0);
 
   // 네이티브 설정을 읽는 동안 콘텐츠를 숨기지 않는다.
   const anim = useRef(new Animated.Value(1)).current;
@@ -116,10 +244,17 @@ export default function TutorialScreen(): React.ReactNode {
     return () => animation.stop();
   }, [step, cardIndex, anim, reducedMotion]);
 
-  const finish = useCallback(() => {
+  const finishLater = useCallback(() => {
     completeTutorial();
     router.replace('/home');
   }, [completeTutorial, router]);
+
+  const finishAndStudy = useCallback(() => {
+    completeTutorial();
+    void resolveStudyEntry(selectedLevels, dailyNewLimit)
+      .then((route) => router.replace(route))
+      .catch(() => router.replace('/home'));
+  }, [completeTutorial, dailyNewLimit, router, selectedLevels]);
 
   const goBack = useCallback(() => {
     if (step === 'study' && cardIndex > 0) {
@@ -134,12 +269,26 @@ export default function TutorialScreen(): React.ReactNode {
       return;
     }
     if (prev === 'study') setCardIndex(DEMO_WORDS.length - 1);
+    if (prev === 'setup') setAgainCount(0);
     setRevealed(false);
     setStep(prev);
   }, [step, cardIndex, router]);
 
-  const nextCard = useCallback(() => {
+  const revealCard = useCallback(() => {
+    const word = DEMO_WORDS[cardIndex] ?? DEMO_WORDS[0]!;
+    const settings = useSettingsStore.getState();
+    revealStudyCard({
+      alreadyRevealed: revealed,
+      ttsEnabled: settings.ttsEnabled,
+      autoPlayWordTts: settings.autoPlayWordTtsOnReveal,
+      onReveal: () => setRevealed(true),
+      onSpeakWord: () => tts.speakAudio('word', word.id, word.reading_kana),
+    });
+  }, [cardIndex, revealed, tts]);
+
+  const nextCard = useCallback((again: boolean) => {
     setRevealed(false);
+    if (again) setAgainCount((n) => n + 1);
     if (cardIndex < DEMO_WORDS.length - 1) setCardIndex((i) => i + 1);
     else setStep('ingredient');
   }, [cardIndex]);
@@ -152,56 +301,69 @@ export default function TutorialScreen(): React.ReactNode {
     case 'setup':
       body = (
         <>
-          <Overline>튜토리얼</Overline>
           <View style={styles.spacer} />
-          <TutorialCat pose="show" screenWidth={width} screenHeight={height} />
+          <TutorialCat
+            pose="show"
+            screenWidth={width}
+            screenHeight={height}
+            source={onboardingImages.guide}
+          />
           <View style={styles.centerBlock}>
-            <Text style={styles.title}>먼저 5개만.</Text>
+            <Text style={styles.title}>먼저 10개만.</Text>
             <Text style={styles.lead}>
-              짧게 공부하고, 재료를 얻는 흐름을{'\n'}먼저 연습해 봐요.
+              짧게 공부하고, 재료를 얻는{'\n'}흐름을 먼저 연습해보자.
             </Text>
           </View>
           <View style={styles.spacer} />
-          <Button label="시작" onPress={() => setStep('study')} />
+          <ButtonFillProgress label="계속" mode="guide" onPress={() => setStep('study')} />
         </>
       );
       break;
 
     case 'study': {
-      const w = DEMO_WORDS[cardIndex] ?? DEMO_WORDS[0];
+      const w = DEMO_WORDS[cardIndex] ?? DEMO_WORDS[0]!;
       body = (
         <>
-          <View style={styles.demoTrack}>
-            {DEMO_WORDS.map((_, i) => (
-              <View
-                key={i}
-                style={[styles.demoCell, i < cardIndex && styles.demoCellFilled]}
-              />
-            ))}
-          </View>
-          <Pressable
-            style={styles.demoCard}
-            onPress={() => setRevealed(true)}
-            accessibilityRole="button"
-            accessibilityLabel="탭해서 뜻 확인"
-          >
-            <Text style={styles.demoWord}>{w.kanji}</Text>
-            {revealed && (
-              <>
-                <Text style={styles.demoReading}>{w.kana}</Text>
-                <Text style={styles.demoMeaning}>{w.mean}</Text>
-              </>
+          <StudyProgressHeader
+            done={cardIndex}
+            total={DEMO_WORDS.length}
+            onClose={finishLater}
+            closeLabel="연습 종료"
+          />
+          <StudyCard
+            word={w}
+            revealed={revealed}
+            onReveal={revealCard}
+            onSpeak={tts.enabled ? () => tts.speakAudio('word', w.id, w.reading_kana) : undefined}
+            onSpeakExample={
+              tts.enabled && w.example_jp
+                ? () => tts.speakAudio('example', w.id, w.example_jp)
+                : undefined
+            }
+            phoneticHint={w.phonetic}
+          />
+          <View style={styles.studyFooter}>
+            {revealed ? (
+              <View style={styles.demoActions}>
+                <Button
+                  label="아직이에요"
+                  variant="outline"
+                  tall
+                  style={styles.demoBtn}
+                  onPress={() => nextCard(true)}
+                />
+                <Button
+                  label="외웠어요"
+                  variant="ink"
+                  tall
+                  style={styles.demoBtn}
+                  onPress={() => nextCard(false)}
+                />
+              </View>
+            ) : (
+              <Button label="뜻 보기" onPress={revealCard} />
             )}
-            {!revealed && <Text style={styles.demoHint}>탭해서 뜻 확인</Text>}
-          </Pressable>
-          {revealed ? (
-            <View style={styles.demoActions}>
-              <Button label="아직이에요" variant="outline" tall style={styles.demoBtn} onPress={nextCard} />
-              <Button label="외웠어요" variant="ink" tall style={styles.demoBtn} onPress={nextCard} />
-            </View>
-          ) : (
-            <Button label="뜻 보기" onPress={() => setRevealed(true)} />
-          )}
+          </View>
         </>
       );
       break;
@@ -210,9 +372,10 @@ export default function TutorialScreen(): React.ReactNode {
     case 'ingredient':
       body = (
         <>
-          <Overline>다 했어요</Overline>
-          <View style={styles.spacer} />
-          <TutorialCat pose="make" screenWidth={width} screenHeight={height} />
+          <View style={styles.centerBlock}>
+            <Text style={styles.title}>학습 완료!</Text>
+            <Text style={styles.lead}>학습 1회를 마치면 재료 1개를 받아요.</Text>
+          </View>
           <Card variant="elevated" style={styles.rewardCard}>
             <PlateTile
               size={72}
@@ -223,93 +386,84 @@ export default function TutorialScreen(): React.ReactNode {
             <View style={styles.rewardCopy}>
               <Overline>새 재료</Overline>
               <Text style={styles.rewardName}>{ingredientLabel}</Text>
-              <Text style={styles.lead}>학습 1회를 마치면 재료 1개를 받아요.</Text>
+              <Text style={styles.lead}>{TUTORIAL_ONIGIRI.description}</Text>
             </View>
           </Card>
-          <View style={styles.progressBlock}>
-            <Text style={styles.recipeName}>{TUTORIAL_ONIGIRI.name}</Text>
-            <ProgressSegments
-              total={INGREDIENTS_PER_ONIGIRI}
-              filled={TUTORIAL_INGREDIENT_COUNT}
-              height={8}
-              gap={8}
-              fill="ink"
-            />
-          </View>
           <View style={styles.spacer} />
-          <Button label="계속" onPress={() => setStep('crafting')} />
-        </>
-      );
-      break;
-
-    case 'crafting':
-      body = (
-        <>
-          <Overline>완성 규칙</Overline>
-          <View style={styles.spacer} />
-          <PlateTile
-            size={140}
-            cornerRadius={radius.card}
-            image={recipeImage(TUTORIAL_ONIGIRI.imageKey)}
-            imageSize={112}
-            style={styles.craftTile}
-          />
-          <View style={styles.centerBlock}>
-            <Text style={styles.title}>{TUTORIAL_ONIGIRI.name}</Text>
-            <View style={styles.craftProgress}>
-              <ProgressSegments
-                total={INGREDIENTS_PER_ONIGIRI}
-                filled={INGREDIENTS_PER_ONIGIRI}
-                height={8}
-                gap={8}
-                fill="ink"
-              />
+          <View style={styles.pendingCard}>
+            <PlateTile size={40} locked cornerRadius={radius.tileSm} />
+            <View style={styles.rewardCopy}>
+              <Text style={styles.recipeName}>{TUTORIAL_ONIGIRI.name} 주먹밥</Text>
+              <Text style={styles.lead}>{REMAINING_INGREDIENT_NOTE}</Text>
             </View>
-            <Text style={styles.lead}>
-              재료 {INGREDIENTS_PER_ONIGIRI}개가 모이면 완성돼요.{'\n'}완성한 메뉴는 도감에 쌓여요.
-            </Text>
           </View>
-          <View style={styles.spacer} />
-          <Button label="계속" onPress={() => setStep('receipt')} />
+          <ButtonFillProgress
+            label="계속"
+            mode="studyComplete"
+            onPress={() => setStep('receipt')}
+          />
         </>
       );
       break;
 
     case 'receipt':
       body = (
+        <TutorialReceipt
+          dateLabel={todayLabel}
+          ingredientLabel={ingredientLabel}
+          againCount={againCount}
+          reducedMotion={reducedMotion}
+          onConfirm={() => setStep('finish')}
+        />
+      );
+      break;
+
+    case 'finish':
+      body = (
         <>
           <View style={styles.spacer} />
-          <Receipt
-            dateLabel={todayLabel}
-            rows={[
-              { label: '새로 배운 단어', value: DEMO_WORDS.length },
-              { label: '아직이라고 표시한 단어', value: 0 },
-              { label: '받은 재료', value: ingredientLabel, reward: true },
-            ]}
-            recipeName={TUTORIAL_ONIGIRI.name}
-            ingredientCount={TUTORIAL_INGREDIENT_COUNT}
-            ingredientTotal={INGREDIENTS_PER_ONIGIRI}
-            footerNote="학습을 마치면 매번 영수증이 나와요."
-            streakLabel="연습"
+          <TutorialCat
+            pose="present"
+            screenWidth={width}
+            screenHeight={height}
+            source={onboardingImages.finish}
           />
-          <Text style={styles.receiptCaption}>
-            연습 결과는 저장되지 않아요.{'\n'}실제 학습을 마치면 보상과 기록이 남아요.
-          </Text>
+          <View style={styles.centerBlock}>
+            <Text style={styles.title}>그럼 이제 시작해볼까.</Text>
+            <Text style={styles.lead}>오늘의 학습을 시작해요.</Text>
+          </View>
           <View style={styles.spacer} />
-          <Button label="시작하기" onPress={finish} />
+          <Button label="오늘 학습 시작" onPress={finishAndStudy} />
+          <Pressable
+            onPress={finishLater}
+            style={styles.laterLink}
+            accessibilityRole="button"
+            accessibilityLabel="나중에"
+          >
+            <Text style={styles.laterLabel}>나중에</Text>
+          </Pressable>
         </>
       );
       break;
   }
 
   return (
-    <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
-      <View style={styles.topBar}>
+    <SafeAreaView
+      style={[styles.root, step === 'receipt' && styles.receiptRoot]}
+      edges={['top', 'bottom']}
+    >
+      {step === 'ingredient' ? <OnboardingConfetti runKey="tutorial-ingredient" /> : null}
+      <View
+        style={[
+          styles.topBar,
+          (step === 'receipt' || step === 'study') && styles.topBarHidden,
+        ]}
+      >
         <Pressable onPress={goBack} hitSlop={12} accessibilityRole="button" accessibilityLabel="뒤로">
           <Text style={styles.navText}>‹ 뒤로</Text>
         </Pressable>
         {step === 'setup' && (
-          <Pressable onPress={finish} hitSlop={12} accessibilityRole="button" accessibilityLabel="건너뛰기">
+          <Pressable onPress={finishLater} hitSlop={12} accessibilityRole="button" accessibilityLabel="나중에">
             <Text style={styles.navText}>건너뛰기</Text>
           </Pressable>
         )}
@@ -317,12 +471,15 @@ export default function TutorialScreen(): React.ReactNode {
       <Animated.View
         style={[
           styles.content,
-          {
-            opacity: anim,
-            transform: [
-              { translateY: anim.interpolate({ inputRange: [0, 1], outputRange: [8, 0] }) },
-            ],
-          },
+          step === 'study' && styles.studyContent,
+          step === 'receipt'
+            ? styles.receiptContent
+            : {
+                opacity: anim,
+                transform: [
+                  { translateY: anim.interpolate({ inputRange: [0, 1], outputRange: [8, 0] }) },
+                ],
+              },
         ]}
       >
         {body}
@@ -334,6 +491,7 @@ export default function TutorialScreen(): React.ReactNode {
 const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     root: { flex: 1, backgroundColor: c.softer },
+    receiptRoot: { backgroundColor: '#4A4A4D' },
     topBar: {
       height: layout.touchTarget,
       flexDirection: 'row',
@@ -342,34 +500,20 @@ const makeStyles = (c: ThemeColors) =>
       paddingHorizontal: layout.gutter,
     },
     navText: { ...typography.body, color: c.body },
+    topBarHidden: { display: 'none' },
     content: {
       flex: 1,
       paddingHorizontal: layout.gutter,
       paddingBottom: spacing.xxl,
     },
+    receiptContent: { paddingTop: spacing.xl },
     spacer: { flex: 1, minHeight: spacing.lg },
     centerBlock: { alignItems: 'center', marginTop: spacing.lg, gap: layout.gapTight },
     title: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
     lead: { ...typography.body, color: c.body, textAlign: 'center' },
 
-    demoTrack: { flexDirection: 'row', gap: spacing.xs, marginTop: spacing.sm },
-    demoCell: { flex: 1, height: 4, borderRadius: radius.pill, backgroundColor: c.pressed },
-    demoCellFilled: { backgroundColor: c.ink },
-    demoCard: {
-      flex: 1,
-      marginTop: spacing.lg,
-      marginBottom: layout.gutter,
-      backgroundColor: c.canvas,
-      borderRadius: radius.card,
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 10,
-      padding: 24,
-    },
-    demoWord: { ...typography.cardWord, color: c.ink, textAlign: 'center' },
-    demoReading: { ...typography.reading, color: c.body },
-    demoMeaning: { ...typography.meaning, color: c.ink, marginTop: spacing.sm },
-    demoHint: { ...typography.body, color: c.body, marginTop: spacing.lg },
+    studyContent: { paddingHorizontal: 0 },
+    studyFooter: { paddingHorizontal: layout.gutter, paddingTop: layout.gutter },
     demoActions: { flexDirection: 'row', gap: 10 },
     demoBtn: { flex: 1 },
 
@@ -381,16 +525,36 @@ const makeStyles = (c: ThemeColors) =>
     },
     rewardCopy: { flex: 1, gap: 6 },
     rewardName: { ...typography.meaning, color: c.ink },
-    progressBlock: { marginTop: layout.gapGroup, gap: layout.gapTight },
-    recipeName: { ...typography.listTitle, color: c.ink },
-
-    craftTile: { alignSelf: 'center' },
-    craftProgress: { alignSelf: 'stretch', paddingHorizontal: spacing.huge },
+    pendingCard: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.md,
+      backgroundColor: c.canvas,
+      borderRadius: radius.tileSm,
+      padding: spacing.lg,
+      marginBottom: layout.gutter,
+    },
+    recipeName: { ...typography.cardTitle, color: c.ink },
 
     receiptCaption: {
       ...typography.body,
-      color: c.body,
+      color: c.onInk,
       textAlign: 'center',
       marginTop: spacing.lg,
     },
+    receiptScene: { flex: 1 },
+    receiptTitle: {
+      ...typography.meaning,
+      color: c.onInk,
+      textAlign: 'center',
+      marginBottom: spacing.lg,
+    },
+    receiptClip: { overflow: 'hidden' },
+    laterLink: {
+      minHeight: 44,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: spacing.sm,
+    },
+    laterLabel: { ...typography.bodyStrong, color: c.body },
   });

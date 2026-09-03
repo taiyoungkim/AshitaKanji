@@ -1,7 +1,7 @@
 // Onikan 버튼.
 //
-// primary(오렌지)는 화면당 정확히 하나다. 두 번째가 생기면 그건 secondary 다.
-// 학습 평가처럼 동급 버튼이 나란히 서는 자리에는 오렌지를 쓰지 않고 outline↔ink 로 층을 만든다.
+// 주요 액션은 ink 채움이다. orange 는 활성 탭·단골 도장·상태 강조에만 쓴다.
+// 학습 평가처럼 동급 버튼이 나란히 서는 자리는 outline↔ink 로 층을 만든다.
 
 import { Pressable, StyleSheet, Text, type StyleProp, type ViewStyle } from 'react-native';
 import { border, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
@@ -10,6 +10,8 @@ import { useThemedStyles } from '~/design/theme';
 export type ButtonVariant =
   /** 화면의 단 하나뿐인 주요 액션. */
   | 'primary'
+  /** today-review/review-hub HTML `.cta` — 오렌지 채움. */
+  | 'brand'
   /** 흰 면 + ink 글자. */
   | 'secondary'
   /** soft 회색 필 — 카드 안 3차 액션. */
@@ -45,6 +47,7 @@ export function Button({
   const styles = useThemedStyles(makeStyles);
   const pressedStyle = {
     primary: styles.primaryPressed,
+    brand: styles.brandPressed,
     secondary: styles.secondaryPressed,
     subtle: styles.subtlePressed,
     outline: styles.outlinePressed,
@@ -97,12 +100,14 @@ const makeStyles = (c: ThemeColors) =>
     compact: { minHeight: 48, paddingHorizontal: 26, alignSelf: 'center' },
     disabled: { opacity: 0.4 },
 
-    primary: { backgroundColor: c.primary },
+    primary: { backgroundColor: c.ink },
+    brand: { backgroundColor: c.primary },
     secondary: { backgroundColor: c.canvas },
     subtle: { backgroundColor: c.soft, minHeight: layout.touchTarget },
-    outline: { backgroundColor: 'transparent', borderColor: c.pressed },
+    outline: { backgroundColor: c.canvas, borderColor: c.pressed },
     ink: { backgroundColor: c.ink },
-    primaryPressed: { backgroundColor: c.primaryPressed },
+    primaryPressed: { backgroundColor: c.inkPressed },
+    brandPressed: { backgroundColor: c.primaryPressed },
     secondaryPressed: { backgroundColor: c.soft },
     subtlePressed: { backgroundColor: c.pressed },
     outlinePressed: { backgroundColor: c.soft },
@@ -111,7 +116,8 @@ const makeStyles = (c: ThemeColors) =>
     label: { ...typography.cta, textAlign: 'center' },
     tallLabel: { fontSize: 17 },
     compactLabel: { fontSize: 16, lineHeight: 22 },
-    primaryLabel: { color: c.onPrimary },
+    primaryLabel: { color: c.onInk },
+    brandLabel: { color: c.onPrimary },
     secondaryLabel: { color: c.ink },
     subtleLabel: { color: c.ink, fontSize: 16 },
     outlineLabel: { color: c.ink },

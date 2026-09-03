@@ -7,6 +7,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FullWindowOverlay } from 'react-native-screens';
 import { cardShadow, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
@@ -19,11 +20,15 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 
 const VISIBLE_MS = 1500;
 
+// 토스트가 뜨는 높이 — edge-to-edge 에서는 제스처 바/내비 바 위로 더 올린다.
+const TOAST_BOTTOM = 80;
+
 function ToastOverlay({ message }: { message: string }): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const insets = useSafeAreaInsets();
   const body = (
-    <View pointerEvents="none" style={styles.root}>
+    <View pointerEvents="none" style={[styles.root, { bottom: TOAST_BOTTOM + insets.bottom }]}>
       {/* 화면 읽기 도구가 새 메시지를 읽도록 live region 으로 알린다. */}
       <View
         style={[styles.toast, cardShadow(colors)]}
@@ -80,7 +85,7 @@ const makeStyles = (c: ThemeColors) =>
       position: 'absolute',
       left: 0,
       right: 0,
-      bottom: 80,
+      bottom: TOAST_BOTTOM,
       alignItems: 'center',
       zIndex: 9999,
       elevation: 9999,

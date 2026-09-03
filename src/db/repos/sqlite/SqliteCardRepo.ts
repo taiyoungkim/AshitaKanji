@@ -22,10 +22,10 @@ export class SqliteCardRepo implements CardRepo {
     return row ? rowToWord(row) : null;
   }
 
-  async findThroughChapter(level: JlptLevel, chapter: number): Promise<Word[]> {
+  async findChapter(level: JlptLevel, chapter: number): Promise<Word[]> {
     const rows = await this.db.getAllAsync<WordRow>(
       `SELECT * FROM word
-       WHERE level = ? AND reading_chapter IS NOT NULL AND reading_chapter <= ?
+       WHERE level = ? AND reading_chapter = ?
          AND deprecated = 0 AND qa_status = 'verified'
        ORDER BY frequency DESC, id ASC`,
       [level, chapter],

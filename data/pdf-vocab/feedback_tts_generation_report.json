@@ -1,0 +1,999 @@
+{
+  "generated_at": "2026-08-20T04:32:16.153557+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": "/Users/tyoung/AshitaKanji/assets/jlpt.db",
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 7050,
+  "selected_rows": 91,
+  "jobs": 182,
+  "preexisting": 19,
+  "planned": 163,
+  "created": 163,
+  "skipped": 19,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_6fd423e6d1c6a4ae",
+      "kind": "word",
+      "text": "たね",
+      "file": "assets/audio/words/w_6fd423e6d1c6a4ae.mp3"
+    },
+    {
+      "id": "w_3843ee4af423301d",
+      "kind": "word",
+      "text": "ひとびと",
+      "file": "assets/audio/words/w_3843ee4af423301d.mp3"
+    },
+    {
+      "id": "w_927a3983b160576b",
+      "kind": "word",
+      "text": "はら",
+      "file": "assets/audio/words/w_927a3983b160576b.mp3"
+    },
+    {
+      "id": "w_4f74e9af3f4010e5",
+      "kind": "word",
+      "text": "やるき",
+      "file": "assets/audio/words/w_4f74e9af3f4010e5.mp3"
+    },
+    {
+      "id": "w_2ebcf0920b4f9808",
+      "kind": "word",
+      "text": "どく",
+      "file": "assets/audio/words/w_2ebcf0920b4f9808.mp3"
+    },
+    {
+      "id": "w_6a6e331edd9cf1e0",
+      "kind": "word",
+      "text": "じゆうせき",
+      "file": "assets/audio/words/w_6a6e331edd9cf1e0.mp3"
+    },
+    {
+      "id": "w_1934fc0b098bed0b",
+      "kind": "word",
+      "text": "はたけ",
+      "file": "assets/audio/words/w_1934fc0b098bed0b.mp3"
+    },
+    {
+      "id": "w_64d4b0caee1c09bd",
+      "kind": "word",
+      "text": "はしら",
+      "file": "assets/audio/words/w_64d4b0caee1c09bd.mp3"
+    },
+    {
+      "id": "w_c2af7770c84545bd",
+      "kind": "word",
+      "text": "とら",
+      "file": "assets/audio/words/w_c2af7770c84545bd.mp3"
+    },
+    {
+      "id": "w_e7268c08398f5c21",
+      "kind": "word",
+      "text": "にわとり",
+      "file": "assets/audio/words/w_e7268c08398f5c21.mp3"
+    },
+    {
+      "id": "w_4a137926b2287cfd",
+      "kind": "word",
+      "text": "はり",
+      "file": "assets/audio/words/w_4a137926b2287cfd.mp3"
+    },
+    {
+      "id": "w_06fbc4f4058c0110",
+      "kind": "word",
+      "text": "どろ",
+      "file": "assets/audio/words/w_06fbc4f4058c0110.mp3"
+    },
+    {
+      "id": "w_b6759dff8d53492a",
+      "kind": "word",
+      "text": "はし",
+      "file": "assets/audio/words/w_b6759dff8d53492a.mp3"
+    },
+    {
+      "id": "w_f25fa022cc5852d2",
+      "kind": "word",
+      "text": "ひも",
+      "file": "assets/audio/words/w_f25fa022cc5852d2.mp3"
+    },
+    {
+      "id": "w_113afe5c67c7d699",
+      "kind": "word",
+      "text": "ほこり",
+      "file": "assets/audio/words/w_113afe5c67c7d699.mp3"
+    },
+    {
+      "id": "w_e6a69e3b92f4266a",
+      "kind": "word",
+      "text": "いつのまにか",
+      "file": "assets/audio/words/w_e6a69e3b92f4266a.mp3"
+    },
+    {
+      "id": "w_e631b1b46ee503a7",
+      "kind": "word",
+      "text": "ふで",
+      "file": "assets/audio/words/w_e631b1b46ee503a7.mp3"
+    },
+    {
+      "id": "w_ec90d7994c511851",
+      "kind": "word",
+      "text": "ねずみ",
+      "file": "assets/audio/words/w_ec90d7994c511851.mp3"
+    },
+    {
+      "id": "w_97a4b4b110d91439",
+      "kind": "word",
+      "text": "あじみ",
+      "file": "assets/audio/words/w_97a4b4b110d91439.mp3"
+    },
+    {
+      "id": "w_6acebe28608188e7",
+      "kind": "word",
+      "text": "なだらか",
+      "file": "assets/audio/words/w_6acebe28608188e7.mp3"
+    },
+    {
+      "id": "w_d9200f1a3e734b15",
+      "kind": "word",
+      "text": "あてさき",
+      "file": "assets/audio/words/w_d9200f1a3e734b15.mp3"
+    },
+    {
+      "id": "w_9dc2325d8683044e",
+      "kind": "word",
+      "text": "ほほえむ",
+      "file": "assets/audio/words/w_9dc2325d8683044e.mp3"
+    },
+    {
+      "id": "w_ab6a046befd0d3fc",
+      "kind": "word",
+      "text": "がまんづよい",
+      "file": "assets/audio/words/w_ab6a046befd0d3fc.mp3"
+    },
+    {
+      "id": "w_f9ad8893fe4738c0",
+      "kind": "word",
+      "text": "しはつえき",
+      "file": "assets/audio/words/w_f9ad8893fe4738c0.mp3"
+    },
+    {
+      "id": "w_c64636298cdcedd1",
+      "kind": "word",
+      "text": "なんでも",
+      "file": "assets/audio/words/w_c64636298cdcedd1.mp3"
+    },
+    {
+      "id": "w_189963d9b879daaa",
+      "kind": "word",
+      "text": "にほん",
+      "file": "assets/audio/words/w_189963d9b879daaa.mp3"
+    },
+    {
+      "id": "w_32dbafd16a4e2c77",
+      "kind": "word",
+      "text": "チーム",
+      "file": "assets/audio/words/w_32dbafd16a4e2c77.mp3"
+    },
+    {
+      "id": "w_15a9c02e279288fa",
+      "kind": "word",
+      "text": "だいいち",
+      "file": "assets/audio/words/w_15a9c02e279288fa.mp3"
+    },
+    {
+      "id": "w_f39dee7d81642910",
+      "kind": "word",
+      "text": "えんだか",
+      "file": "assets/audio/words/w_f39dee7d81642910.mp3"
+    },
+    {
+      "id": "w_a409937488a8e0ca",
+      "kind": "word",
+      "text": "さいだい",
+      "file": "assets/audio/words/w_a409937488a8e0ca.mp3"
+    },
+    {
+      "id": "w_b58cfba6196a9d55",
+      "kind": "word",
+      "text": "はんざい",
+      "file": "assets/audio/words/w_b58cfba6196a9d55.mp3"
+    },
+    {
+      "id": "w_539fc5bf88b962e2",
+      "kind": "word",
+      "text": "とうひょう",
+      "file": "assets/audio/words/w_539fc5bf88b962e2.mp3"
+    },
+    {
+      "id": "w_3e2608d07255f10c",
+      "kind": "word",
+      "text": "でんし",
+      "file": "assets/audio/words/w_3e2608d07255f10c.mp3"
+    },
+    {
+      "id": "w_64be9a4f4460e1b5",
+      "kind": "word",
+      "text": "しちょうしゃ",
+      "file": "assets/audio/words/w_64be9a4f4460e1b5.mp3"
+    },
+    {
+      "id": "w_86896d02782ae305",
+      "kind": "word",
+      "text": "えんやす",
+      "file": "assets/audio/words/w_86896d02782ae305.mp3"
+    },
+    {
+      "id": "w_83b7127753e8a7aa",
+      "kind": "word",
+      "text": "ばくはつ",
+      "file": "assets/audio/words/w_83b7127753e8a7aa.mp3"
+    },
+    {
+      "id": "w_9165bb6ac0c4b889",
+      "kind": "word",
+      "text": "なっとく",
+      "file": "assets/audio/words/w_9165bb6ac0c4b889.mp3"
+    },
+    {
+      "id": "w_c3a1a3ac675f214e",
+      "kind": "word",
+      "text": "しゃいん",
+      "file": "assets/audio/words/w_c3a1a3ac675f214e.mp3"
+    },
+    {
+      "id": "w_54e3c0502c73d7e9",
+      "kind": "word",
+      "text": "ぶんや",
+      "file": "assets/audio/words/w_54e3c0502c73d7e9.mp3"
+    },
+    {
+      "id": "w_e8c38e653ce2eabb",
+      "kind": "word",
+      "text": "だんじょ",
+      "file": "assets/audio/words/w_e8c38e653ce2eabb.mp3"
+    },
+    {
+      "id": "w_8f8cb620e9cc2ad9",
+      "kind": "word",
+      "text": "おおがた",
+      "file": "assets/audio/words/w_8f8cb620e9cc2ad9.mp3"
+    },
+    {
+      "id": "w_fcfcfef3d180e141",
+      "kind": "word",
+      "text": "けっこんしき",
+      "file": "assets/audio/words/w_fcfcfef3d180e141.mp3"
+    },
+    {
+      "id": "w_d129be83027447d1",
+      "kind": "word",
+      "text": "ひっし",
+      "file": "assets/audio/words/w_d129be83027447d1.mp3"
+    },
+    {
+      "id": "w_c9ac923933659337",
+      "kind": "word",
+      "text": "いさん",
+      "file": "assets/audio/words/w_c9ac923933659337.mp3"
+    },
+    {
+      "id": "w_ef77069a51fbad84",
+      "kind": "word",
+      "text": "どうりょう",
+      "file": "assets/audio/words/w_ef77069a51fbad84.mp3"
+    },
+    {
+      "id": "w_7c5049b1b5f6d642",
+      "kind": "word",
+      "text": "じゅうでん",
+      "file": "assets/audio/words/w_7c5049b1b5f6d642.mp3"
+    },
+    {
+      "id": "w_41b2fd82135a94ad",
+      "kind": "word",
+      "text": "しちょう",
+      "file": "assets/audio/words/w_41b2fd82135a94ad.mp3"
+    },
+    {
+      "id": "w_e2cb3cddc979a9ac",
+      "kind": "word",
+      "text": "けんきゅうじょ",
+      "file": "assets/audio/words/w_e2cb3cddc979a9ac.mp3"
+    },
+    {
+      "id": "w_ba2e6fc1ecffb05a",
+      "kind": "word",
+      "text": "どうじ",
+      "file": "assets/audio/words/w_ba2e6fc1ecffb05a.mp3"
+    },
+    {
+      "id": "w_a1d8a73cc5506787",
+      "kind": "word",
+      "text": "どくとく",
+      "file": "assets/audio/words/w_a1d8a73cc5506787.mp3"
+    },
+    {
+      "id": "w_b46e2bcfa7d96251",
+      "kind": "word",
+      "text": "いざかや",
+      "file": "assets/audio/words/w_b46e2bcfa7d96251.mp3"
+    },
+    {
+      "id": "w_dbe6c7f2bdb34a15",
+      "kind": "word",
+      "text": "こがた",
+      "file": "assets/audio/words/w_dbe6c7f2bdb34a15.mp3"
+    },
+    {
+      "id": "w_4bfd82f1eb510072",
+      "kind": "word",
+      "text": "かっこく",
+      "file": "assets/audio/words/w_4bfd82f1eb510072.mp3"
+    },
+    {
+      "id": "w_06bb7a4aad5e15e2",
+      "kind": "word",
+      "text": "せんご",
+      "file": "assets/audio/words/w_06bb7a4aad5e15e2.mp3"
+    },
+    {
+      "id": "w_6543785f3fd2fb49",
+      "kind": "word",
+      "text": "げいのうじん",
+      "file": "assets/audio/words/w_6543785f3fd2fb49.mp3"
+    },
+    {
+      "id": "w_3b01ac207403f37d",
+      "kind": "word",
+      "text": "げんしりょく",
+      "file": "assets/audio/words/w_3b01ac207403f37d.mp3"
+    },
+    {
+      "id": "w_322a08f35b4fc8b2",
+      "kind": "word",
+      "text": "ごうりてき",
+      "file": "assets/audio/words/w_322a08f35b4fc8b2.mp3"
+    },
+    {
+      "id": "w_7cafc14ce18cf1a5",
+      "kind": "word",
+      "text": "てんちょう",
+      "file": "assets/audio/words/w_7cafc14ce18cf1a5.mp3"
+    },
+    {
+      "id": "w_79d375ad544ecc0d",
+      "kind": "word",
+      "text": "きょういん",
+      "file": "assets/audio/words/w_79d375ad544ecc0d.mp3"
+    },
+    {
+      "id": "w_f43d2cc32a5fa5be",
+      "kind": "word",
+      "text": "ぼうさい",
+      "file": "assets/audio/words/w_f43d2cc32a5fa5be.mp3"
+    },
+    {
+      "id": "w_069b6847fe6b8089",
+      "kind": "word",
+      "text": "しょうち",
+      "file": "assets/audio/words/w_069b6847fe6b8089.mp3"
+    },
+    {
+      "id": "w_e71ff358a5a5b2cf",
+      "kind": "word",
+      "text": "かいぬし",
+      "file": "assets/audio/words/w_e71ff358a5a5b2cf.mp3"
+    },
+    {
+      "id": "w_5032f9664a74398e",
+      "kind": "word",
+      "text": "がいけん",
+      "file": "assets/audio/words/w_5032f9664a74398e.mp3"
+    },
+    {
+      "id": "w_be14f0c48a9b8b41",
+      "kind": "word",
+      "text": "びょうどう",
+      "file": "assets/audio/words/w_be14f0c48a9b8b41.mp3"
+    },
+    {
+      "id": "w_646c0525514699e0",
+      "kind": "word",
+      "text": "たんにん",
+      "file": "assets/audio/words/w_646c0525514699e0.mp3"
+    },
+    {
+      "id": "w_d617575c4b5aa129",
+      "kind": "word",
+      "text": "しっぽ",
+      "file": "assets/audio/words/w_d617575c4b5aa129.mp3"
+    },
+    {
+      "id": "w_762d9de9ee125760",
+      "kind": "word",
+      "text": "のうぜい",
+      "file": "assets/audio/words/w_762d9de9ee125760.mp3"
+    },
+    {
+      "id": "w_5a31cdbb0a49beed",
+      "kind": "word",
+      "text": "あおぞら",
+      "file": "assets/audio/words/w_5a31cdbb0a49beed.mp3"
+    },
+    {
+      "id": "w_518f5d6a41328c85",
+      "kind": "word",
+      "text": "うみだす",
+      "file": "assets/audio/words/w_518f5d6a41328c85.mp3"
+    },
+    {
+      "id": "w_cfc4edffed67fa1b",
+      "kind": "word",
+      "text": "しょうみきげん",
+      "file": "assets/audio/words/w_cfc4edffed67fa1b.mp3"
+    },
+    {
+      "id": "w_dec55e956faf43b2",
+      "kind": "word",
+      "text": "こっき",
+      "file": "assets/audio/words/w_dec55e956faf43b2.mp3"
+    },
+    {
+      "id": "w_322183b8b0fa5b40",
+      "kind": "word",
+      "text": "かたくな",
+      "file": "assets/audio/words/w_322183b8b0fa5b40.mp3"
+    },
+    {
+      "id": "w_3e389172af03c7be",
+      "kind": "word",
+      "text": "こうきしん",
+      "file": "assets/audio/words/w_3e389172af03c7be.mp3"
+    },
+    {
+      "id": "w_927a3983b160576b",
+      "kind": "example",
+      "text": "腹が張る",
+      "file": "assets/audio/examples/w_927a3983b160576b.mp3"
+    },
+    {
+      "id": "w_3843ee4af423301d",
+      "kind": "example",
+      "text": "その映画は人々の涙を誘った",
+      "file": "assets/audio/examples/w_3843ee4af423301d.mp3"
+    },
+    {
+      "id": "w_4f74e9af3f4010e5",
+      "kind": "example",
+      "text": "てんでやる気が出ない",
+      "file": "assets/audio/examples/w_4f74e9af3f4010e5.mp3"
+    },
+    {
+      "id": "w_6fd423e6d1c6a4ae",
+      "kind": "example",
+      "text": "楽は苦の種苦は楽の種",
+      "file": "assets/audio/examples/w_6fd423e6d1c6a4ae.mp3"
+    },
+    {
+      "id": "w_6a6e331edd9cf1e0",
+      "kind": "example",
+      "text": "自由席に座った。",
+      "file": "assets/audio/examples/w_6a6e331edd9cf1e0.mp3"
+    },
+    {
+      "id": "w_2ebcf0920b4f9808",
+      "kind": "example",
+      "text": "毒をもって毒を制する",
+      "file": "assets/audio/examples/w_2ebcf0920b4f9808.mp3"
+    },
+    {
+      "id": "w_1934fc0b098bed0b",
+      "kind": "example",
+      "text": "丘の斜面に畑を作る.",
+      "file": "assets/audio/examples/w_1934fc0b098bed0b.mp3"
+    },
+    {
+      "id": "w_c2af7770c84545bd",
+      "kind": "example",
+      "text": "この山には虎がいるんだ.",
+      "file": "assets/audio/examples/w_c2af7770c84545bd.mp3"
+    },
+    {
+      "id": "w_e7268c08398f5c21",
+      "kind": "example",
+      "text": "鶏の餌にふすまをやる.",
+      "file": "assets/audio/examples/w_e7268c08398f5c21.mp3"
+    },
+    {
+      "id": "w_06fbc4f4058c0110",
+      "kind": "example",
+      "text": "靴の泥を拭い去る",
+      "file": "assets/audio/examples/w_06fbc4f4058c0110.mp3"
+    },
+    {
+      "id": "w_64d4b0caee1c09bd",
+      "kind": "example",
+      "text": "りりしい子供は国の柱である.",
+      "file": "assets/audio/examples/w_64d4b0caee1c09bd.mp3"
+    },
+    {
+      "id": "w_e631b1b46ee503a7",
+      "kind": "example",
+      "text": "筆を走らせる",
+      "file": "assets/audio/examples/w_e631b1b46ee503a7.mp3"
+    },
+    {
+      "id": "w_f25fa022cc5852d2",
+      "kind": "example",
+      "text": "紐の両端を接する",
+      "file": "assets/audio/examples/w_f25fa022cc5852d2.mp3"
+    },
+    {
+      "id": "w_4a137926b2287cfd",
+      "kind": "example",
+      "text": "時計の針を進める.",
+      "file": "assets/audio/examples/w_4a137926b2287cfd.mp3"
+    },
+    {
+      "id": "w_e6a69e3b92f4266a",
+      "kind": "example",
+      "text": "いつの間にか秋になっていた.",
+      "file": "assets/audio/examples/w_e6a69e3b92f4266a.mp3"
+    },
+    {
+      "id": "w_b6759dff8d53492a",
+      "kind": "example",
+      "text": "飯つぶが箸からぼろぼろと落ちる.",
+      "file": "assets/audio/examples/w_b6759dff8d53492a.mp3"
+    },
+    {
+      "id": "w_6de4c1af6340b81d",
+      "kind": "example",
+      "text": "鼻アレルギーの主な症状はくしゃみ、鼻水、鼻づまりである",
+      "file": "assets/audio/examples/w_6de4c1af6340b81d.mp3"
+    },
+    {
+      "id": "w_ec90d7994c511851",
+      "kind": "example",
+      "text": "唯の鼠ではない",
+      "file": "assets/audio/examples/w_ec90d7994c511851.mp3"
+    },
+    {
+      "id": "w_97a4b4b110d91439",
+      "kind": "example",
+      "text": "味見のためにつまみ食いする",
+      "file": "assets/audio/examples/w_97a4b4b110d91439.mp3"
+    },
+    {
+      "id": "w_d9200f1a3e734b15",
+      "kind": "example",
+      "text": "宛先リストを作成する",
+      "file": "assets/audio/examples/w_d9200f1a3e734b15.mp3"
+    },
+    {
+      "id": "w_113afe5c67c7d699",
+      "kind": "example",
+      "text": "今年１年の埃を払い、新年を清清しく迎える",
+      "file": "assets/audio/examples/w_113afe5c67c7d699.mp3"
+    },
+    {
+      "id": "w_9dc2325d8683044e",
+      "kind": "example",
+      "text": "勝利の女神が…に微笑む",
+      "file": "assets/audio/examples/w_9dc2325d8683044e.mp3"
+    },
+    {
+      "id": "w_6acebe28608188e7",
+      "kind": "example",
+      "text": "なだらかな丘陵を縫うカントリー・ロードに沿って，中世の姿を残す素朴な村村が点在する",
+      "file": "assets/audio/examples/w_6acebe28608188e7.mp3"
+    },
+    {
+      "id": "w_ab6a046befd0d3fc",
+      "kind": "example",
+      "text": "我慢強い待ち。",
+      "file": "assets/audio/examples/w_ab6a046befd0d3fc.mp3"
+    },
+    {
+      "id": "w_f9ad8893fe4738c0",
+      "kind": "example",
+      "text": "始発駅を発車する",
+      "file": "assets/audio/examples/w_f9ad8893fe4738c0.mp3"
+    },
+    {
+      "id": "w_c64636298cdcedd1",
+      "kind": "example",
+      "text": "何でも少しは心得ている",
+      "file": "assets/audio/examples/w_c64636298cdcedd1.mp3"
+    },
+    {
+      "id": "w_189963d9b879daaa",
+      "kind": "example",
+      "text": "日本で万博が行われた",
+      "file": "assets/audio/examples/w_189963d9b879daaa.mp3"
+    },
+    {
+      "id": "w_32dbafd16a4e2c77",
+      "kind": "example",
+      "text": "チームに入る",
+      "file": "assets/audio/examples/w_32dbafd16a4e2c77.mp3"
+    },
+    {
+      "id": "w_15a9c02e279288fa",
+      "kind": "example",
+      "text": "まず第一は何をやるか",
+      "file": "assets/audio/examples/w_15a9c02e279288fa.mp3"
+    },
+    {
+      "id": "w_f39dee7d81642910",
+      "kind": "example",
+      "text": "円高は当分続きそうだ",
+      "file": "assets/audio/examples/w_f39dee7d81642910.mp3"
+    },
+    {
+      "id": "w_a409937488a8e0ca",
+      "kind": "example",
+      "text": "彼を最大の敵と目した.",
+      "file": "assets/audio/examples/w_a409937488a8e0ca.mp3"
+    },
+    {
+      "id": "w_b58cfba6196a9d55",
+      "kind": "example",
+      "text": "犯罪の温床を一掃する",
+      "file": "assets/audio/examples/w_b58cfba6196a9d55.mp3"
+    },
+    {
+      "id": "w_539fc5bf88b962e2",
+      "kind": "example",
+      "text": "だれに投票するかまだ決めていない.",
+      "file": "assets/audio/examples/w_539fc5bf88b962e2.mp3"
+    },
+    {
+      "id": "w_64be9a4f4460e1b5",
+      "kind": "example",
+      "text": "特番が視聴者から好評を博し、レギュラー番組化された",
+      "file": "assets/audio/examples/w_64be9a4f4460e1b5.mp3"
+    },
+    {
+      "id": "w_83b7127753e8a7aa",
+      "kind": "example",
+      "text": "ガスの爆発で家が激しく揺れる.",
+      "file": "assets/audio/examples/w_83b7127753e8a7aa.mp3"
+    },
+    {
+      "id": "w_3e2608d07255f10c",
+      "kind": "example",
+      "text": "ミルクを電子レンジで暖めている",
+      "file": "assets/audio/examples/w_3e2608d07255f10c.mp3"
+    },
+    {
+      "id": "w_9165bb6ac0c4b889",
+      "kind": "example",
+      "text": "わさびの栽培は、とても難しいのでわさびが高価なのも納得がいきます。",
+      "file": "assets/audio/examples/w_9165bb6ac0c4b889.mp3"
+    },
+    {
+      "id": "w_c3a1a3ac675f214e",
+      "kind": "example",
+      "text": "A社では青田買い社員と正社員を同時に募集している.",
+      "file": "assets/audio/examples/w_c3a1a3ac675f214e.mp3"
+    },
+    {
+      "id": "w_86896d02782ae305",
+      "kind": "example",
+      "text": "円安の傾向に歯止めをかける",
+      "file": "assets/audio/examples/w_86896d02782ae305.mp3"
+    },
+    {
+      "id": "w_e8c38e653ce2eabb",
+      "kind": "example",
+      "text": "男女の唱和による歌",
+      "file": "assets/audio/examples/w_e8c38e653ce2eabb.mp3"
+    },
+    {
+      "id": "w_54e3c0502c73d7e9",
+      "kind": "example",
+      "text": "新しい分野の研究に道をつける.",
+      "file": "assets/audio/examples/w_54e3c0502c73d7e9.mp3"
+    },
+    {
+      "id": "w_8f8cb620e9cc2ad9",
+      "kind": "example",
+      "text": "大型クルーズ客船が入港する",
+      "file": "assets/audio/examples/w_8f8cb620e9cc2ad9.mp3"
+    },
+    {
+      "id": "w_ef77069a51fbad84",
+      "kind": "example",
+      "text": "同僚との親睦を深めた",
+      "file": "assets/audio/examples/w_ef77069a51fbad84.mp3"
+    },
+    {
+      "id": "w_fcfcfef3d180e141",
+      "kind": "example",
+      "text": "結婚式の日が目の前に迫っていた.",
+      "file": "assets/audio/examples/w_fcfcfef3d180e141.mp3"
+    },
+    {
+      "id": "w_c9ac923933659337",
+      "kind": "example",
+      "text": "遺産を巡って争いが起きる",
+      "file": "assets/audio/examples/w_c9ac923933659337.mp3"
+    },
+    {
+      "id": "w_7c5049b1b5f6d642",
+      "kind": "example",
+      "text": "PHV専用の充電スタンドを設置する",
+      "file": "assets/audio/examples/w_7c5049b1b5f6d642.mp3"
+    },
+    {
+      "id": "w_41b2fd82135a94ad",
+      "kind": "example",
+      "text": "市長に担ぎ上げる",
+      "file": "assets/audio/examples/w_41b2fd82135a94ad.mp3"
+    },
+    {
+      "id": "w_d129be83027447d1",
+      "kind": "example",
+      "text": "遅れを取り戻すために、必死に働いた",
+      "file": "assets/audio/examples/w_d129be83027447d1.mp3"
+    },
+    {
+      "id": "w_e2cb3cddc979a9ac",
+      "kind": "example",
+      "text": "工場に研究所を併設する.",
+      "file": "assets/audio/examples/w_e2cb3cddc979a9ac.mp3"
+    },
+    {
+      "id": "w_ba2e6fc1ecffb05a",
+      "kind": "example",
+      "text": "雷鳴と同時に停電した",
+      "file": "assets/audio/examples/w_ba2e6fc1ecffb05a.mp3"
+    },
+    {
+      "id": "w_06bb7a4aad5e15e2",
+      "kind": "example",
+      "text": "戦後，チトー政権はチェトニックを取り締まり，５７年には森の教会も破壊された",
+      "file": "assets/audio/examples/w_06bb7a4aad5e15e2.mp3"
+    },
+    {
+      "id": "w_6543785f3fd2fb49",
+      "kind": "example",
+      "text": "芸能人の醜聞が明るみに出る.",
+      "file": "assets/audio/examples/w_6543785f3fd2fb49.mp3"
+    },
+    {
+      "id": "w_b46e2bcfa7d96251",
+      "kind": "example",
+      "text": "チューハイは、居酒屋のメニューとして登場しました。",
+      "file": "assets/audio/examples/w_b46e2bcfa7d96251.mp3"
+    },
+    {
+      "id": "w_dbe6c7f2bdb34a15",
+      "kind": "example",
+      "text": "小型モニターカメラを取りつける.",
+      "file": "assets/audio/examples/w_dbe6c7f2bdb34a15.mp3"
+    },
+    {
+      "id": "w_a1d8a73cc5506787",
+      "kind": "example",
+      "text": "歩き方に独特の足癖がある",
+      "file": "assets/audio/examples/w_a1d8a73cc5506787.mp3"
+    },
+    {
+      "id": "w_4bfd82f1eb510072",
+      "kind": "example",
+      "text": "各国の首脳が一堂に会する.",
+      "file": "assets/audio/examples/w_4bfd82f1eb510072.mp3"
+    },
+    {
+      "id": "w_3b01ac207403f37d",
+      "kind": "example",
+      "text": "原子力という新しい動力源.",
+      "file": "assets/audio/examples/w_3b01ac207403f37d.mp3"
+    },
+    {
+      "id": "w_322a08f35b4fc8b2",
+      "kind": "example",
+      "text": "合理的な疑いを差し挟む余地がない",
+      "file": "assets/audio/examples/w_322a08f35b4fc8b2.mp3"
+    },
+    {
+      "id": "w_7cafc14ce18cf1a5",
+      "kind": "example",
+      "text": "ビアテイスターの資格を持つ店長",
+      "file": "assets/audio/examples/w_7cafc14ce18cf1a5.mp3"
+    },
+    {
+      "id": "w_79d375ad544ecc0d",
+      "kind": "example",
+      "text": "教員を養成する.",
+      "file": "assets/audio/examples/w_79d375ad544ecc0d.mp3"
+    },
+    {
+      "id": "w_f43d2cc32a5fa5be",
+      "kind": "example",
+      "text": "防災に手抜かりがある.",
+      "file": "assets/audio/examples/w_f43d2cc32a5fa5be.mp3"
+    },
+    {
+      "id": "w_7829ba606d939d4f",
+      "kind": "example",
+      "text": "壇の上で演説をする.",
+      "file": "assets/audio/examples/w_7829ba606d939d4f.mp3"
+    },
+    {
+      "id": "w_08923ac6c2b95253",
+      "kind": "example",
+      "text": "おぼれた子を救助した",
+      "file": "assets/audio/examples/w_08923ac6c2b95253.mp3"
+    },
+    {
+      "id": "w_9b03235c5b4d027e",
+      "kind": "example",
+      "text": "パワーブロガーが商品コメントの見返りに企業から金銭を受け取った場合もあった",
+      "file": "assets/audio/examples/w_9b03235c5b4d027e.mp3"
+    },
+    {
+      "id": "w_6db6dd90c68d20b7",
+      "kind": "example",
+      "text": "私たちは奇妙な世界に住んでいる。それはある意味ですでにバーチャライズされた世界である",
+      "file": "assets/audio/examples/w_6db6dd90c68d20b7.mp3"
+    },
+    {
+      "id": "w_234b99b141cfd9a7",
+      "kind": "example",
+      "text": "一家が食いつめる.",
+      "file": "assets/audio/examples/w_234b99b141cfd9a7.mp3"
+    },
+    {
+      "id": "w_069b6847fe6b8089",
+      "kind": "example",
+      "text": "彼はなかなか承知しない",
+      "file": "assets/audio/examples/w_069b6847fe6b8089.mp3"
+    },
+    {
+      "id": "w_dbef418eb517f5ee",
+      "kind": "example",
+      "text": "お昼に食べた物が戻る.",
+      "file": "assets/audio/examples/w_dbef418eb517f5ee.mp3"
+    },
+    {
+      "id": "w_78021f3ebd19aa5a",
+      "kind": "example",
+      "text": "父の厄介になっているのは苦痛だ.",
+      "file": "assets/audio/examples/w_78021f3ebd19aa5a.mp3"
+    },
+    {
+      "id": "w_e71ff358a5a5b2cf",
+      "kind": "example",
+      "text": "飼い主が参加する集団トレーニングに彼はゴールデン・レトリーバーを連れて来た",
+      "file": "assets/audio/examples/w_e71ff358a5a5b2cf.mp3"
+    },
+    {
+      "id": "w_5032f9664a74398e",
+      "kind": "example",
+      "text": "外見はよいが内容は貧弱だ.",
+      "file": "assets/audio/examples/w_5032f9664a74398e.mp3"
+    },
+    {
+      "id": "w_70249e2ee07af709",
+      "kind": "example",
+      "text": "タクシーの乗客が強盗に開き直る.",
+      "file": "assets/audio/examples/w_70249e2ee07af709.mp3"
+    },
+    {
+      "id": "w_a0ffef4281eed56e",
+      "kind": "example",
+      "text": "君の論述には誤りがある",
+      "file": "assets/audio/examples/w_a0ffef4281eed56e.mp3"
+    },
+    {
+      "id": "w_762d9de9ee125760",
+      "kind": "example",
+      "text": "納税は国民の務めである",
+      "file": "assets/audio/examples/w_762d9de9ee125760.mp3"
+    },
+    {
+      "id": "w_d617575c4b5aa129",
+      "kind": "example",
+      "text": "犬が尻尾を巻いて逃げた.",
+      "file": "assets/audio/examples/w_d617575c4b5aa129.mp3"
+    },
+    {
+      "id": "w_be14f0c48a9b8b41",
+      "kind": "example",
+      "text": "法の前には万人が平等である.",
+      "file": "assets/audio/examples/w_be14f0c48a9b8b41.mp3"
+    },
+    {
+      "id": "w_d495b3ee9377bc36",
+      "kind": "example",
+      "text": "急激な進歩をとげる",
+      "file": "assets/audio/examples/w_d495b3ee9377bc36.mp3"
+    },
+    {
+      "id": "w_e5e9bebce58793fe",
+      "kind": "example",
+      "text": "問題を当て推量で当てる.",
+      "file": "assets/audio/examples/w_e5e9bebce58793fe.mp3"
+    },
+    {
+      "id": "w_db4fca2913e14855",
+      "kind": "example",
+      "text": "理解のある先輩の配慮で,難関を克服することができた.",
+      "file": "assets/audio/examples/w_db4fca2913e14855.mp3"
+    },
+    {
+      "id": "w_646c0525514699e0",
+      "kind": "example",
+      "text": "担任の先生と面談する.",
+      "file": "assets/audio/examples/w_646c0525514699e0.mp3"
+    },
+    {
+      "id": "w_5a31cdbb0a49beed",
+      "kind": "example",
+      "text": "雲が散り失せて青空になる",
+      "file": "assets/audio/examples/w_5a31cdbb0a49beed.mp3"
+    },
+    {
+      "id": "w_c5eb0c79a85d68d5",
+      "kind": "example",
+      "text": "奨学金をもらえば授業料が免除される.",
+      "file": "assets/audio/examples/w_c5eb0c79a85d68d5.mp3"
+    },
+    {
+      "id": "w_dec55e956faf43b2",
+      "kind": "example",
+      "text": "国旗を門に掲げる.",
+      "file": "assets/audio/examples/w_dec55e956faf43b2.mp3"
+    },
+    {
+      "id": "w_144336dcd0d84690",
+      "kind": "example",
+      "text": "くだくだしい事は省略する",
+      "file": "assets/audio/examples/w_144336dcd0d84690.mp3"
+    },
+    {
+      "id": "w_3e389172af03c7be",
+      "kind": "example",
+      "text": "好奇心は優れて少年的なものである",
+      "file": "assets/audio/examples/w_3e389172af03c7be.mp3"
+    },
+    {
+      "id": "w_55e83c7e5a6bea6a",
+      "kind": "example",
+      "text": "英語が上達する",
+      "file": "assets/audio/examples/w_55e83c7e5a6bea6a.mp3"
+    },
+    {
+      "id": "w_9939e1efe60f95f6",
+      "kind": "example",
+      "text": "衣服を借り着して損料を払う.",
+      "file": "assets/audio/examples/w_9939e1efe60f95f6.mp3"
+    },
+    {
+      "id": "w_518f5d6a41328c85",
+      "kind": "example",
+      "text": "富者と貧者，勝者と敗者を生み出す社会の矛盾へのプロテストは，昔から映画の主要なテーマであった",
+      "file": "assets/audio/examples/w_518f5d6a41328c85.mp3"
+    },
+    {
+      "id": "w_322183b8b0fa5b40",
+      "kind": "example",
+      "text": "頑なに口をつぐむ。",
+      "file": "assets/audio/examples/w_322183b8b0fa5b40.mp3"
+    },
+    {
+      "id": "w_cfc4edffed67fa1b",
+      "kind": "example",
+      "text": "賞味期限が過ぎています。",
+      "file": "assets/audio/examples/w_cfc4edffed67fa1b.mp3"
+    }
+  ],
+  "elapsed_seconds": 14.621,
+  "dry_run": false
+}

@@ -41,21 +41,22 @@ describe('ReadingEngine.startChapter', () => {
     expect(s.queue.map((x) => x.id)).toEqual(['a', 'b', 'c']);
     expect(s.current?.id).toBe('a');
     expect(s.total).toBe(3);
+    expect(s.covered).toBe(0);
     expect(s.known).toBe(0);
     expect(s.phase).toBe('study');
   });
 
-  it('chapter N is cumulative (reading_chapter<=N), freq desc', async () => {
-    const s = await engine.startChapter('N5', 2); // a,b,c (ch1) + z (ch2)
-    expect(s.queue.map((x) => x.id)).toEqual(['z', 'a', 'b', 'c']);
-    expect(s.total).toBe(4);
+  it('chapter N contains only its independent word block', async () => {
+    const s = await engine.startChapter('N5', 2);
+    expect(s.queue.map((x) => x.id)).toEqual(['z']);
+    expect(s.total).toBe(1);
   });
 
   it('known in one chapter does not carry to another (per-회차)', async () => {
     await engine.startChapter('N5', 1);
     await engine.mark(true); // a known @ chapter 1
     const s2 = await engine.startChapter('N5', 2); // chapter 2 fresh
-    expect(s2.queue.map((x) => x.id)).toEqual(['z', 'a', 'b', 'c']);
+    expect(s2.queue.map((x) => x.id)).toEqual(['z']);
     expect(s2.known).toBe(0);
   });
 });
@@ -67,11 +68,13 @@ describe('mark (패스 기반)', () => {
     expect(s.current?.id).toBe('b');
     expect(s.passDone).toBe(1);
     expect(s.wrong).toBe(1);
+    expect(s.covered).toBe(1);
     expect(s.known).toBe(0);
     s = await engine.mark(true); // b 안다
     expect(s.current?.id).toBe('c');
     expect(s.known).toBe(1);
     expect(s.passDone).toBe(2);
+    expect(s.covered).toBe(2);
   });
 
   it('패스 끝 + 모름 남으면 passEnd', async () => {
@@ -102,6 +105,18 @@ describe('mark (패스 기반)', () => {
     expect(s.queue.map((x) => x.id).sort()).toEqual(['b', 'c']); // a 제외
     expect(s.passTotal).toBe(2);
     expect(s.phase).toBe('study');
+    expect(s.covered).toBe(3);
+  });
+
+  it('repeated exposure does not increase coverage twice', async () => {
+    await engine.startChapter('N5', 1);
+    await engine.mark(false);
+    await engine.mark(true);
+    await engine.mark(true);
+    const secondPass = await engine.reshuffle();
+    expect(secondPass.covered).toBe(3);
+    const afterRepeat = await engine.mark(false);
+    expect(afterRepeat.covered).toBe(3);
   });
 });
 
@@ -114,12 +129,23 @@ describe('resume', () => {
     const s = await engine2.startChapter('N5', 1);
     expect(s.queue.map((x) => x.id)).toEqual(['b', 'c']);
     expect(s.known).toBe(1);
+    expect(s.covered).toBe(1);
+  });
+
+  it('unknown exposure persists as coverage without becoming mastered', async () => {
+    await engine.startChapter('N5', 1);
+    await engine.mark(false);
+    const engine2 = new ReadingEngine(cards, progress);
+    const s = await engine2.startChapter('N5', 1);
+    expect(s.covered).toBe(1);
+    expect(s.known).toBe(0);
+    expect(s.queue.map((x) => x.id)).toContain('a');
   });
 
   it('fully-known chapter starts as done', async () => {
-    await progress.setKnown('a', 1, true);
-    await progress.setKnown('b', 1, true);
-    await progress.setKnown('c', 1, true);
+    await progress.recordExposure('a', 1, true);
+    await progress.recordExposure('b', 1, true);
+    await progress.recordExposure('c', 1, true);
     const s = await engine.startChapter('N5', 1);
     expect(s.phase).toBe('done');
     expect(s.known).toBe(3);

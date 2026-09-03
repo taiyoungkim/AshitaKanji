@@ -1,5 +1,7 @@
 # ONIGIRI SHOP 리디자인 — 액션 플랜
 
+> **구버전 문서:** `~/Downloads/index.html`을 기준으로 한 초기 액션 플랜이다. 현재 구현·시각 QA 정본은 Onikan `fa259e7`의 `handoff/redesign-2026-08/final-screens/`, 해당 README, `DESIGN.md`, `COMPONENTS.md`다.
+
 > 기준 시안: `~/Downloads/index.html` (정적 목업 6화면 + 상태 변형)
 > 토큰: `src/design/tokens.ts` (시안 `:root` 1:1 매핑 — 완료)
 > 작성: 2026-06-01

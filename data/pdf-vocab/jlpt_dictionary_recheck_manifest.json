@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-08-18T14:49:50.238065+00:00",
+  "pass": "jmdict-recheck",
+  "word_count": 6638,
+  "changed": [
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "level": "N5",
+      "reason": "rare-kanji-form",
+      "evidence": "JMdict 1577980 marks 居る as a rarely used kanji form (rK) for いる; an N5 card should carry the kana spelling.",
+      "before": {
+        "surface": "居る",
+        "reading_kana": "いる",
+        "furigana": "いる",
+        "meaning_ko": "있다",
+        "part_of_speech": "verb",
+        "example_jp": "自己のエレメントに居る",
+        "example_ko": "자기의 활동 영역내에 있다.",
+        "frequency": "4.680"
+      },
+      "after": {
+        "surface": "いる",
+        "reading_kana": "いる",
+        "furigana": "いる",
+        "meaning_ko": "있다",
+        "part_of_speech": "verb",
+        "example_jp": "教室には学生が三人いる。",
+        "example_ko": "교실에는 학생이 세 명 있다.",
+        "frequency": 6.66
+      }
+    },
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "level": "N2",
+      "reason": "okurigana-missing",
+      "evidence": "JMdict has 平ら/たいら (1506930) and 平らげる/たいらげる; 平 alone is never read たいら. The attached example (すしを三人前平げる, '먹어 치우다') belongs to 平らげる, not to '평평하다', which is already covered by w_4864cdd403be8cb0 (N3 平ら).",
+      "before": {
+        "surface": "平だ",
+        "reading_kana": "たいらだ",
+        "furigana": "たいらだ",
+        "meaning_ko": "평평하다",
+        "part_of_speech": "adjective",
+        "example_jp": "すしを三人前平げる",
+        "example_ko": "초밥을 3인분 먹어 치우다",
+        "frequency": "4.530"
+      },
+      "after": {
+        "surface": "平らげる",
+        "reading_kana": "たいらげる",
+        "furigana": "たいらげる",
+        "meaning_ko": "다 먹어 치우다, 평정하다",
+        "part_of_speech": "verb",
+        "example_jp": "彼は寿司を三人前平らげた。",
+        "example_ko": "그는 초밥을 3인분 다 먹어 치웠다.",
+        "frequency": 2.07
+      }
+    },
+    {
+      "id": "w_b5be233796f7dd76",
+      "level": "N2",
+      "reason": "rare-kanji-form",
+      "evidence": "JMdict 1440930 marks 纏める as a rarely used kanji form (rK); the standard modern spelling is まとめる.",
+      "before": {
+        "surface": "纏める",
+        "reading_kana": "まとめる",
+        "furigana": "まとめる",
+        "meaning_ko": "정리하다",
+        "part_of_speech": "verb",
+        "example_jp": "複数のPDFデータを一つに纏める",
+        "example_ko": "여러 개의 PDF 데이터를 하나로 정리하다",
+        "frequency": "2.520"
+      },
+      "after": {
+        "surface": "まとめる",
+        "reading_kana": "まとめる",
+        "furigana": "まとめる",
+        "meaning_ko": "정리하다",
+        "part_of_speech": "verb",
+        "example_jp": "複数の資料を一つにまとめる。",
+        "example_ko": "여러 자료를 하나로 정리하다.",
+        "frequency": 3.9
+      }
+    }
+  ],
+  "examples_moved_to_self": [
+    "w_76a0eb1e41436ab7",
+    "w_a9ecc3b353d6e247",
+    "w_b5be233796f7dd76"
+  ],
+  "audio_regeneration_required": {
+    "words": [
+      "w_76a0eb1e41436ab7",
+      "w_b5be233796f7dd76",
+      "w_a9ecc3b353d6e247"
+    ],
+    "examples": [
+      "w_76a0eb1e41436ab7",
+      "w_b5be233796f7dd76",
+      "w_a9ecc3b353d6e247"
+    ]
+  }
+}

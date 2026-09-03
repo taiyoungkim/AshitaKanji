@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-18T14:46:21.899891+00:00",
+  "source": "/Users/tyoung/AshitaKanji/data/pdf-vocab/jlpt_final_wordlist.csv",
+  "new_vs_db": null,
+  "kind": "both",
+  "voice": "ja-JP-NanamiNeural",
+  "rate": "+0%",
+  "source_rows": 6638,
+  "selected_rows": 3,
+  "jobs": 6,
+  "preexisting": 0,
+  "planned": 6,
+  "created": 6,
+  "skipped": 0,
+  "failed": 0,
+  "failures": [],
+  "created_items": [
+    {
+      "id": "w_b5be233796f7dd76",
+      "kind": "word",
+      "text": "まとめる",
+      "file": "assets/audio/words/w_b5be233796f7dd76.mp3"
+    },
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "kind": "word",
+      "text": "たいらげる",
+      "file": "assets/audio/words/w_76a0eb1e41436ab7.mp3"
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "kind": "word",
+      "text": "いる",
+      "file": "assets/audio/words/w_a9ecc3b353d6e247.mp3"
+    },
+    {
+      "id": "w_76a0eb1e41436ab7",
+      "kind": "example",
+      "text": "彼は寿司を三人前平らげた。",
+      "file": "assets/audio/examples/w_76a0eb1e41436ab7.mp3"
+    },
+    {
+      "id": "w_b5be233796f7dd76",
+      "kind": "example",
+      "text": "複数の資料を一つにまとめる。",
+      "file": "assets/audio/examples/w_b5be233796f7dd76.mp3"
+    },
+    {
+      "id": "w_a9ecc3b353d6e247",
+      "kind": "example",
+      "text": "教室には学生が三人いる。",
+      "file": "assets/audio/examples/w_a9ecc3b353d6e247.mp3"
+    }
+  ],
+  "elapsed_seconds": 0.915,
+  "dry_run": false
+}
