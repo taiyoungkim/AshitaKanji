@@ -19,7 +19,7 @@
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD"
     },
-    "runtimeVersion": "1.0.0",
+    "runtimeVersion": "1.0.0-sdk54",
     "assetBundlePatterns": [
       "**/*",
       "assets/jlpt.db"
@@ -39,7 +39,7 @@
     },
     "android": {
       "package": "com.taiyoungkim.ashitakanji",
-      "versionCode": 27,
+      "versionCode": 28,
       "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -60,13 +60,22 @@
         }
       ],
       "expo-asset",
-      "expo-audio",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
       [
         "expo-media-library",
         {
           "savePhotosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
           "photosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
-          "isAccessMediaLocationEnabled": false
+          "isAccessMediaLocationEnabled": false,
+          "granularPermissions": [
+            "photo"
+          ]
         }
       ],
       [

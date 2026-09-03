@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { Redirect } from 'expo-router';
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useTheme } from '~/design/theme';
 import { isVisualCaptureEnabled, isVisualFixtureId, type VisualFixtureId } from '~/visual/captureFixtures';

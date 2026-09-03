@@ -1,18 +1,1 @@
-{
-  "designCommit": "fa259e772c05efaa884b97cc822f89c0d6ad62a2",
-  "designRoot": "/Users/tyoung/dev/Onikan/handoff/redesign-2026-08/final-screens",
-  "viewport": { "width": 390, "height": 844 },
-  "ios": {
-    "device": "AshitaKanji UI iPhone",
-    "udid": "F4541959-4F19-4355-BC3F-1086E2924AA4",
-    "scale": 3
-  },
-  "android": { "avd": "Pixel_9_Pro_XL" },
-  "fixtures": [
-    "01-home-study-before", "02-study-front", "03-study-reveal", "04-study-word-detail",
-    "05-study-result", "06-onigiri-complete", "07-receipt", "08-home-review-done",
-    "09-home-no-review", "10-home-all-done", "11-review-hub", "12-review-hub-filter",
-    "13-menu-list", "14-menu-grid", "15-recipe-detail", "16-stats", "17-settings",
-    "18-settings-learning", "19-settings-pronun", "20-settings-backup"
-  ]
-}
+{"designCommit": "fa259e772c05efaa884b97cc822f89c0d6ad62a2", "designRoot": "/Users/tyoung/dev/Onikan/handoff/redesign-2026-08/final-screens", "viewport": {"width": 390, "height": 844}, "ios": {"device": "AshitaKanji UI iPhone", "udid": "F4541959-4F19-4355-BC3F-1086E2924AA4", "scale": 3}, "android": {"avd": "Pixel_9_Pro_XL"}, "fixtures": ["01-home-study-before", "02-study-front", "03-study-reveal", "04-study-word-detail", "05-study-result", "06-onigiri-complete", "07-receipt", "08-home-review-done", "09-home-no-review", "10-home-all-done", "11-review-hub", "12-review-hub-filter", "13-menu-list", "14-menu-grid", "15-recipe-detail", "16-stats", "17-settings", "18-settings-learning", "19-settings-pronun", "20-settings-backup", "21-home-review-pending"]}

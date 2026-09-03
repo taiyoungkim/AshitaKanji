@@ -4,7 +4,7 @@
 //
 // 순수 로직(buildExportPayload)은 exportPayload.ts 에 분리 (테스트). 여기선 파일 IO/공유.
 
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import type { DailyStatsRepo } from '~/db/repos/DailyStatsRepo';

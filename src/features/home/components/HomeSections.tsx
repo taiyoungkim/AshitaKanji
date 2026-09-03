@@ -71,172 +71,153 @@ export function HomeStudyHero({
   );
 }
 
+/**
+ * 학습을 마친 뒤의 홈 히어로. 시안은 복습 상태를 별도 카드가 아니라
+ * 이 카드 안 '학습 결과' 박스로 보여준다 — 카드를 쪼개지 않는다.
+ * 박스 자체가 오늘 배운 단어 화면으로 가는 유일한 진입점이다.
+ */
 export function HomeStudyCompleteHero({
+  phase,
   studyCount,
-  minutes,
-  streakDays,
+  reviewCount,
   mascot,
+  onReview,
   onBrowse,
 }: {
+  phase: Exclude<HomePhase, 'studyBefore'>;
   studyCount: number;
-  minutes: number;
-  streakDays: number;
+  reviewCount: number;
   mascot: ImageSourcePropType;
+  onReview: () => void;
   onBrowse: () => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const { colors } = useTheme();
   return (
-    <Card style={styles.completeHero}>
+    <Card variant="elevated" style={styles.completeHero}>
       <Image source={mascot} style={styles.heroMascot} resizeMode="contain" />
       <Overline style={styles.orange}>오늘 학습 완료</Overline>
       <Text style={styles.completeTitle}>오늘도 잘 먹었다.{'\n'}단어 {studyCount}개를 배웠어요.</Text>
-      <Text style={styles.meta}>{studyCount} 단어 · {minutes}분 · 단골 {streakDays}일</Text>
-      <Pressable onPress={onBrowse} hitSlop={8} accessibilityRole="button">
-        <Text style={styles.browseLink}>오늘 배운 단어 보기 ›</Text>
-      </Pressable>
-    </Card>
-  );
-}
 
-function ChapterProgress({
-  level,
-  chapter,
-  covered,
-  total,
-}: {
-  level: string;
-  chapter: number;
-  covered: number;
-  total: number;
-}): React.ReactNode {
-  const styles = useThemedStyles(makeStyles);
-  const percent = total > 0 ? Math.round((covered / total) * 100) : 0;
-  return (
-    <View>
-      <Text style={styles.sublabel}>{level} 회독</Text>
-      <View style={styles.strow}>
-        <Text style={styles.chapName}>{level}-{chapter}</Text>
-        <Text style={styles.chapProg}>{covered} / {total} 단어</Text>
-      </View>
-      <View style={styles.linearTrack}>
-        <View style={[styles.linearFill, { width: `${percent}%` }]} />
-      </View>
-      <Text style={styles.barCap}>{covered} / {total} 단어 · {percent}%</Text>
-    </View>
-  );
-}
-
-export function HomeNextCard({
-  phase,
-  reviewCount,
-  studyCount,
-  reading,
-  image,
-  onReview,
-  onHub,
-}: {
-  phase: Exclude<HomePhase, 'studyBefore'>;
-  reviewCount: number;
-  studyCount: number;
-  reading: { level: string; chapter: number; covered: number; total: number } | null;
-  image?: ImageSourcePropType;
-  onReview: () => void;
-  onHub: () => void;
-}): React.ReactNode {
-  const styles = useThemedStyles(makeStyles);
-  const { colors } = useTheme();
-  const chapter = reading ? (
-    <ChapterProgress
-      level={reading.level}
-      chapter={reading.chapter}
-      covered={reading.covered}
-      total={reading.total}
-    />
-  ) : null;
-
-  if (phase === 'allDone') {
-    return (
-      <Card style={styles.allDoneCard}>
-        {image ? <Image source={image} style={styles.doneOnigiri} resizeMode="contain" /> : null}
-        <Overline>오늘 공부 끝!</Overline>
-        <Text style={styles.allDoneTitle}>오늘 할 공부를{'\n'}모두 마쳤어요.</Text>
-        <View style={styles.summaryBox}>
-          <SummaryRow label="오늘 학습" value={`${studyCount}단어`} accent />
-          {reviewCount > 0 ? <SummaryRow label="오늘 복습" value={`${reviewCount}단어`} accent /> : null}
-          <SummaryRow label="오늘 회독" value="완료" accent />
-        </View>
-        <Pressable onPress={onHub} hitSlop={8} accessibilityRole="button">
-          <Text style={styles.browseLink}>회독 챕터 보기 ›</Text>
-        </Pressable>
-      </Card>
-    );
-  }
-
-  if (phase === 'reviewPending') {
-    return (
-      <Card style={styles.nextCard}>
-        <Overline style={styles.orange}>더 익혀볼까요?</Overline>
-        <Text style={styles.nextTitle}>오늘 복습</Text>
-        <Text style={styles.nextLead}>헷갈린 단어가 {reviewCount}개 있어요.</Text>
-        <Text style={styles.nextDesc}>방금 학습에서 아직 어려웠던 단어예요.</Text>
-        <Text style={styles.meta}>{reviewCount}단어 · 약 3분</Text>
-        <Button label="복습하기" variant="brand" onPress={onReview} style={styles.fullButton} />
-        {chapter ? (
-          <>
-            <View style={styles.divider} />
-            {chapter}
-            <Pressable onPress={onHub} hitSlop={8} accessibilityRole="button">
-              <Text style={styles.browseLink}>회독 이어가기 ›</Text>
-            </Pressable>
-          </>
-        ) : null}
-      </Card>
-    );
-  }
-
-  if (phase === 'reviewDone') {
-    return (
-      <Card style={styles.nextCard}>
-        <View style={styles.doneTag}>
-          <View style={styles.doneCheck}>
-            <IconCheck size={13} color={colors.ink} />
-          </View>
-          <Text style={styles.doneTagLabel}>오늘 복습 완료</Text>
-        </View>
-        <Text style={styles.nextDesc}>{reviewCount}개 단어를 다시 익혔어요.</Text>
-        {chapter ? (
-          <>
-            <View style={styles.divider} />
-            <Overline style={styles.orange}>이어서</Overline>
-            {chapter}
-            <Button label="회독 이어가기" variant="brand" onPress={onHub} style={styles.fullButton} />
-          </>
-        ) : null}
-      </Card>
-    );
-  }
-
-  return (
-    <Card style={styles.nextCard}>
-      <Overline style={styles.orange}>다음 학습</Overline>
-      <Text style={styles.nextDesc}>오늘 복습할 단어는 없어요. 잘하고 있어요!</Text>
-      {chapter ? (
+      {phase === 'reviewPending' ? (
         <>
-          <View style={styles.divider} />
-          {chapter}
-          <Button label="회독 이어가기" variant="brand" onPress={onHub} style={styles.fullButton} />
+          <Pressable
+            onPress={onBrowse}
+            style={({ pressed }) => [styles.resultBox, pressed && styles.pressed]}
+            accessibilityRole="button"
+            accessibilityLabel="오늘 배운 단어 보기"
+          >
+            <Text style={styles.resultLabel}>학습 결과</Text>
+            <Text style={styles.resultValue}>헷갈린 단어 {reviewCount}개</Text>
+          </Pressable>
+          <Button label="복습하기" variant="outline" onPress={onReview} style={styles.fullButton} />
         </>
+      ) : null}
+
+      {phase === 'reviewDone' ? (
+        <Pressable
+          onPress={onBrowse}
+          style={({ pressed }) => [styles.resultBox, styles.resultBoxDone, pressed && styles.pressed]}
+          accessibilityRole="button"
+          accessibilityLabel="오늘 배운 단어 보기"
+        >
+          <View style={styles.doneTag}>
+            <View style={styles.doneCheck}>
+              <IconCheck size={13} color={colors.ink} />
+            </View>
+            <Text style={styles.doneTagLabel}>오늘 복습 완료</Text>
+          </View>
+          <Text style={styles.resultDoneBody}>{reviewCount}개 단어를 다시 익혔어요.</Text>
+        </Pressable>
+      ) : null}
+
+      {phase === 'noReview' ? (
+        <Pressable
+          onPress={onBrowse}
+          style={({ pressed }) => [styles.resultBox, pressed && styles.pressed]}
+          accessibilityRole="button"
+          accessibilityLabel="오늘 배운 단어 보기"
+        >
+          <Text style={styles.resultLabel}>학습 결과</Text>
+          <Text style={styles.resultValue}>오늘 복습할 단어는 없어요.</Text>
+        </Pressable>
       ) : null}
     </Card>
   );
 }
 
-function SummaryRow({ label, value, accent }: { label: string; value: string; accent?: boolean }): React.ReactNode {
+/**
+ * '이어서 회독해요'. 시안에서 이 블록은 히어로 카드에 붙지 않는 독립 섹션이다 —
+ * 페이지 레벨 제목 + 전체보기 링크 + 자체 카드.
+ */
+export function ReadingContinueSection({
+  reading,
+  onHub,
+}: {
+  reading: { level: string; chapter: number; covered: number; total: number } | null;
+  onHub: () => void;
+}): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  if (!reading) return null;
+  const percent = reading.total > 0 ? Math.round((reading.covered / reading.total) * 100) : 0;
+  return (
+    <View style={styles.section}>
+      <View style={styles.sectionHead}>
+        <Text style={styles.sectionTitle}>이어서 회독해요</Text>
+        <Pressable onPress={onHub} hitSlop={8} accessibilityRole="button">
+          <Text style={styles.sectionMore}>전체보기 ›</Text>
+        </Pressable>
+      </View>
+      <Card style={styles.nextCard}>
+        <View style={styles.strow}>
+          <Text style={styles.chapName}>{reading.level} - {reading.chapter}</Text>
+          <View style={styles.pctBadge}>
+            <Text style={styles.pctBadgeLabel}>{percent}% 완료</Text>
+          </View>
+        </View>
+        <View style={styles.linearTrack}>
+          <View style={[styles.linearFill, { width: `${percent}%` }]} />
+        </View>
+        <Text style={styles.barCap}>{reading.covered} / {reading.total} 단어</Text>
+        <Button label="회독하기" variant="ink" onPress={onHub} style={styles.fullButton} />
+      </Card>
+    </View>
+  );
+}
+
+export function HomeAllDoneCard({
+  reviewCount,
+  studyCount,
+  image,
+  onHub,
+}: {
+  reviewCount: number;
+  studyCount: number;
+  image?: ImageSourcePropType;
+  onHub: () => void;
+}): React.ReactNode {
+  const styles = useThemedStyles(makeStyles);
+  return (
+    <Card style={styles.allDoneCard}>
+      {image ? <Image source={image} style={styles.doneOnigiri} resizeMode="contain" /> : null}
+      <Overline>오늘 공부 끝!</Overline>
+      <Text style={styles.allDoneTitle}>오늘 할 공부를 모두 마쳤어요.</Text>
+      <View style={styles.summaryBox}>
+        <SummaryRow label="오늘 학습" value={`${studyCount} 단어`} />
+        {reviewCount > 0 ? <SummaryRow label="복습" value={`${reviewCount} 단어`} /> : null}
+        <SummaryRow label="회독" value="완료" />
+      </View>
+      <Button label="회독하러 가기" variant="outline" onPress={onHub} style={styles.fullButton} />
+    </Card>
+  );
+}
+
+function SummaryRow({ label, value }: { label: string; value: string }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.summaryRow}>
       <Text style={styles.summaryLabel}>{label}</Text>
-      <Text style={[styles.summaryValue, accent && styles.summaryAccent]}>{value}</Text>
+      <Text style={styles.summaryValue}>{value}</Text>
     </View>
   );
 }
@@ -341,16 +322,31 @@ const makeStyles = (colors: ThemeColors) =>
     questionText: { ...typography.captionStrong, color: colors.mute },
     fullButton: { alignSelf: 'stretch', marginTop: spacing.md },
     orange: { color: colors.primary },
-    browseLink: { ...typography.bodyStrong, color: colors.body, marginTop: spacing.md },
+    resultBox: {
+      borderRadius: 16,
+      backgroundColor: colors.softer,
+      padding: spacing.lg,
+      gap: spacing.xs,
+      marginTop: spacing.lg,
+    },
+    resultBoxDone: { backgroundColor: colors.secondarySoft },
+    resultLabel: { ...typography.caption, color: colors.mute },
+    resultValue: { ...typography.bodyStrong, color: colors.ink },
+    resultDoneBody: { ...typography.caption, color: colors.body },
+    section: { gap: spacing.md },
+    sectionHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+    sectionTitle: { ...typography.listTitle, color: colors.ink },
+    sectionMore: { ...typography.caption, color: colors.body },
     nextCard: { borderRadius: radius.card, padding: 22, gap: spacing.sm },
-    nextTitle: { ...typography.listTitle, color: colors.ink, marginTop: spacing.xs },
-    nextLead: { ...typography.bodyStrong, color: colors.ink, marginTop: spacing.xs },
-    nextDesc: { ...typography.caption, color: colors.body, lineHeight: 22 },
-    divider: { height: 1, backgroundColor: colors.soft, marginVertical: spacing.md, marginHorizontal: -spacing.xl },
-    sublabel: { ...typography.captionStrong, color: colors.body },
-    strow: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.sm, marginTop: 6 },
-    chapName: { ...typography.bodyStrong, color: colors.ink },
-    chapProg: { ...typography.caption, color: colors.mute },
+    strow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+    chapName: { ...typography.listTitle, color: colors.ink },
+    pctBadge: {
+      borderRadius: radius.pill,
+      backgroundColor: colors.softer,
+      paddingHorizontal: 10,
+      paddingVertical: 4,
+    },
+    pctBadgeLabel: { ...typography.captionStrong, color: colors.body },
     linearTrack: { height: 8, borderRadius: radius.pill, backgroundColor: colors.pressed, overflow: 'hidden', marginTop: spacing.sm },
     linearFill: { height: '100%', borderRadius: radius.pill, backgroundColor: colors.ink },
     barCap: { ...typography.caption, color: colors.mute, marginTop: 7 },
@@ -376,9 +372,8 @@ const makeStyles = (colors: ThemeColors) =>
       marginVertical: spacing.md,
     },
     summaryRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-    summaryLabel: { ...typography.bodyStrong, color: colors.ink },
+    summaryLabel: { ...typography.caption, color: colors.body },
     summaryValue: { ...typography.bodyStrong, color: colors.ink },
-    summaryAccent: { color: colors.success },
     compactCard: {
       minHeight: 88,
       borderRadius: radius.card,

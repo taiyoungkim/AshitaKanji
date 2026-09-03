@@ -8,7 +8,6 @@ import { Button } from '~/components/ui/Button';
 import { Card, Overline } from '~/components/ui/Surface';
 import { StatusBadge } from '~/components/ui/StatusBadge';
 import { IconCheck, IconChevron } from '~/design/icons';
-import { onboardingImages } from '~/features/onigiri/onboardingAssets';
 import { recipeImage } from '~/features/onigiri/recipeAssets';
 import { HTML_FLOW_PAGE, cardShadow, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { MainTabBar } from '~/components/MainTabBar';
@@ -95,8 +94,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
 
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <Card variant="elevated" style={styles.summaryCard}>
-          <Image source={onboardingImages.home} style={styles.summaryMascot} resizeMode="contain" />
-          <Text style={styles.summaryLabel}>회독 기록</Text>
+          <Text style={styles.summaryLabel}>누적 기록</Text>
           <View style={styles.summaryTop}>
             <View style={styles.summaryCopy}>
               <Text style={styles.summaryValue}>
@@ -109,8 +107,8 @@ export default function ReadingChaptersScreen(): React.ReactNode {
           </View>
           <View style={styles.summaryDivider} />
           <View style={styles.summaryRow}>
-            <Text style={styles.summaryRowLabel}>익힌 단어</Text>
-            <Text style={styles.summaryRowValue}>{summary.covered} / {summary.total}</Text>
+            <Text style={styles.summaryRowLabel}>외운 단어</Text>
+            <Text style={styles.summaryRowValue}>{summary.covered} / {summary.total}개</Text>
           </View>
         </Card>
 
@@ -214,11 +212,6 @@ export default function ReadingChaptersScreen(): React.ReactNode {
                       <StatusBadge kind="inProgress" label="진행 중" />
                     )}
                   </Pressable>
-                  {unlocked ? (
-                    <Pressable onPress={() => openChapter(stat.chapter)} hitSlop={8}>
-                      <Text style={styles.startLink}>시작하기 ›</Text>
-                    </Pressable>
-                  ) : null}
                 </View>
               );
             })}
@@ -299,8 +292,7 @@ const makeStyles = (c: ThemeColors) =>
       gap: spacing.xl,
     },
 
-    summaryCard: { padding: spacing.lg, gap: spacing.md, position: 'relative' },
-    summaryMascot: { position: 'absolute', top: 16, right: 16, width: 56, height: 56 },
+    summaryCard: { padding: spacing.lg, gap: spacing.md },
     summaryTop: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
     summaryCopy: { flex: 1, gap: spacing.xs },
     summaryLabel: { ...typography.captionStrong, color: c.body, letterSpacing: 1 },
@@ -378,13 +370,6 @@ const makeStyles = (c: ThemeColors) =>
       justifyContent: 'center',
     },
     numberBadgeDone: { backgroundColor: c.secondary },
-    startLink: {
-      ...typography.captionStrong,
-      color: c.primary,
-      textAlign: 'right',
-      marginTop: -spacing.xs,
-      marginBottom: spacing.sm,
-    },
     numberBadgeLocked: { backgroundColor: c.softer },
     number: { ...typography.captionStrong, color: c.body },
     chapterCopy: { flex: 1, gap: 2 },

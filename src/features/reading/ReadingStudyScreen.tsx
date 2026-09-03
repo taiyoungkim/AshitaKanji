@@ -11,7 +11,8 @@ import { useTTS } from '~/hooks/useTTS';
 import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { StudyProgressHeader } from '~/features/study/components/StudyProgressHeader';
-import { RecallStage } from '~/features/study/components/RecallStage';
+import { StudyActionBar } from '~/features/study/components/StudyActionBar';
+import { StudyCard } from '~/features/study/components/StudyCard';
 import { revealStudyCard } from '~/features/study/studyRevealAudio';
 import type { JlptLevel } from '~/types/Card';
 import { ReadingEngine, type ReadingState } from './ReadingEngine';
@@ -160,14 +161,29 @@ export default function ReadingStudyScreen(): React.ReactNode {
         closeLabel="회독 종료"
         variant="inline"
       />
-      <RecallStage
-        surface={word.surface}
-        reading={word.reading_kana}
-        meaning={word.meaning_ko}
+      <StudyCard
+        word={word}
         revealed={revealed}
         onReveal={handleReveal}
-        onUnknown={() => void mark(false)}
-        onKnown={() => void mark(true)}
+        onSpeak={
+          tts.enabled
+            ? () => tts.speakAudio('word', word.id, word.reading_kana)
+            : undefined
+        }
+        onSpeakExample={
+          tts.enabled && word.example_jp
+            ? () => tts.speakAudio('example', word.id, word.example_jp)
+            : undefined
+        }
+        onOpenDetail={() => router.push(`/word/${word.id}`)}
+      />
+      <StudyActionBar
+        revealed={revealed}
+        onReveal={handleReveal}
+        negativeLabel="모름"
+        onNegative={() => void mark(false)}
+        positiveLabel="안다"
+        onPositive={() => void mark(true)}
         disabled={busy}
       />
     </View>

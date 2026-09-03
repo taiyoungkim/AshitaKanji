@@ -26,7 +26,8 @@
         }
       },
       "ios": {
-        "resourceClass": "medium"
+        "resourceClass": "medium",
+        "image": "sdk-54"
       }
     },
     "release-apk": {

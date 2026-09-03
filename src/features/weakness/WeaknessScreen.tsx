@@ -9,7 +9,7 @@ import { useTheme, useThemedStyles } from '~/design/theme';
 import { StudyActions } from '~/features/study/components/StudyActions';
 import { StudyCard } from '~/features/study/components/StudyCard';
 import { StudyProgressHeader } from '~/features/study/components/StudyProgressHeader';
-import { RecallStage } from '~/features/study/components/RecallStage';
+import { revealStudyCard } from '~/features/study/studyRevealAudio';
 import { Grade } from '~/types/Grade';
 import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
@@ -95,10 +95,23 @@ export default function WeaknessScreen(): React.ReactNode {
     };
   }, []);
 
+  // 공개 동작을 학습 화면과 동일하게 맞춘다 — 설정에 따라 단어 음성 자동 재생.
   const showReveal = useCallback(() => {
-    revealStartRef.current = Date.now();
-    setRevealed(true);
-  }, []);
+    const word = queue?.[index]?.word;
+    const settings = useSettingsStore.getState();
+    revealStudyCard({
+      alreadyRevealed: revealed,
+      ttsEnabled: settings.ttsEnabled,
+      autoPlayWordTts: settings.autoPlayWordTtsOnReveal,
+      onReveal: () => {
+        revealStartRef.current = Date.now();
+        setRevealed(true);
+      },
+      onSpeakWord: () => {
+        if (word) void tts.speakAudio('word', word.id, word.reading_kana);
+      },
+    });
+  }, [index, queue, revealed, tts]);
 
   const grade = useCallback(
     async (gradeValue: Grade) => {
@@ -219,43 +232,28 @@ export default function WeaknessScreen(): React.ReactNode {
         closeLabel={isTodayReview ? '오늘 복습 종료' : '약점 복습 종료'}
         variant={isTodayReview ? 'inline' : 'stacked'}
       />
-      {isTodayReview ? (
-        <RecallStage
-          surface={card.word.surface}
-          reading={card.word.reading_kana}
-          meaning={card.word.meaning_ko}
-          revealed={revealed}
-          onReveal={showReveal}
-          onUnknown={() => void grade(Grade.Again)}
-          onKnown={() => void grade(Grade.Good)}
-          disabled={busy}
-        />
-      ) : (
-        <>
-          <StudyCard
-            word={card.word}
-            revealed={revealed}
-            onReveal={showReveal}
-            onSpeak={
-              tts.enabled
-                ? () => tts.speakAudio('word', card.word.id, card.word.reading_kana)
-                : undefined
-            }
-            onSpeakExample={
-              tts.enabled && card.word.example_jp
-                ? () => tts.speakAudio('example', card.word.id, card.word.example_jp)
-                : undefined
-            }
-            onOpenDetail={() => router.push({ pathname: '/word/[id]', params: { id: card.word.id } })}
-          />
-          <StudyActions
-            revealed={revealed}
-            onReveal={showReveal}
-            onGrade={(gradeValue) => void grade(gradeValue)}
-            disabled={busy}
-          />
-        </>
-      )}
+      <StudyCard
+        word={card.word}
+        revealed={revealed}
+        onReveal={showReveal}
+        onSpeak={
+          tts.enabled
+            ? () => tts.speakAudio('word', card.word.id, card.word.reading_kana)
+            : undefined
+        }
+        onSpeakExample={
+          tts.enabled && card.word.example_jp
+            ? () => tts.speakAudio('example', card.word.id, card.word.example_jp)
+            : undefined
+        }
+        onOpenDetail={() => router.push({ pathname: '/word/[id]', params: { id: card.word.id } })}
+      />
+      <StudyActions
+        revealed={revealed}
+        onReveal={showReveal}
+        onGrade={(gradeValue) => void grade(gradeValue)}
+        disabled={busy}
+      />
     </View>
   );
 }

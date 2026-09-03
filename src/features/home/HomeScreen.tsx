@@ -23,10 +23,11 @@ import { StreakCard } from './components/StreakStamps';
 import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 import type { OnigiriIngredientList } from '~/features/onigiri/types';
 import {
-  HomeNextCard,
+  HomeAllDoneCard,
   HomeStudyCompleteHero,
   HomeStudyHero,
   MonthlyMenuCard,
+  ReadingContinueSection,
   RecentOnigiriCard,
 } from './components/HomeSections';
 
@@ -206,35 +207,33 @@ export default function HomeScreen(): React.ReactNode {
               />
             ) : (
               <HomeStudyCompleteHero
+                phase={phase}
                 studyCount={day?.studyCount ?? 0}
-                minutes={Math.max(1, Math.round((day?.durationSec ?? 0) / 60))}
-                streakDays={streakDays}
+                reviewCount={todayAgain}
                 mascot={onboardingImages.home}
+                onReview={openTodayReview}
                 onBrowse={openTodayWords}
               />
             )}
 
-            {phase !== 'studyBefore' ? (
-              <HomeNextCard
-                phase={phase}
+            {phase === 'allDone' ? (
+              <HomeAllDoneCard
                 reviewCount={todayAgain}
                 studyCount={day?.studyCount ?? 0}
-                reading={reading}
                 image={recipeImage(visualStudyBefore ? 'onigiri-001' : recentEntry.imageKey)}
-                onReview={openTodayReview}
                 onHub={openHub}
               />
+            ) : phase !== 'studyBefore' ? (
+              <ReadingContinueSection reading={reading} onHub={openHub} />
             ) : null}
 
             <StreakCard days={streakDays} />
 
-            {phase === 'studyBefore' ? (
-              <RecentOnigiriCard
-                name={visualStudyBefore ? '참치마요' : recentEntry.name}
-                image={recipeImage(recentEntry.imageKey)}
-                onPress={() => router.push({ pathname: '/onigiri/[id]', params: { id: recentEntry.id } })}
-              />
-            ) : null}
+            <RecentOnigiriCard
+              name={visualStudyBefore ? '참치마요' : recentEntry.name}
+              image={recipeImage(recentEntry.imageKey)}
+              onPress={() => router.push({ pathname: '/onigiri/[id]', params: { id: recentEntry.id } })}
+            />
 
             <MonthlyMenuCard
               month={new Date().getMonth() + 1}

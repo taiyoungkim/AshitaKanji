@@ -29,6 +29,7 @@ export const VISUAL_FIXTURE_IDS = [
   '18-settings-learning',
   '19-settings-pronun',
   '20-settings-backup',
+  '21-home-review-pending',
 ] as const;
 
 export type VisualFixtureId = (typeof VISUAL_FIXTURE_IDS)[number];
@@ -235,7 +236,8 @@ export async function prepareVisualFixture(fixture: VisualFixtureId): Promise<st
     fixture.startsWith('01-') ||
     fixture.startsWith('08-') ||
     fixture.startsWith('09-') ||
-    fixture.startsWith('10-')
+    fixture.startsWith('10-') ||
+    fixture.startsWith('21-')
   ) {
     useSettingsStore.setState({ dailyNewLimit: 20 });
   }
@@ -246,7 +248,13 @@ export async function prepareVisualFixture(fixture: VisualFixtureId): Promise<st
   if (fixture.startsWith('home-')) {
     // Kept for defensive compatibility with hand-written fixture ids.
     await seedHome(db, fixture);
-  } else if (fixture.startsWith('01-') || fixture.startsWith('08-') || fixture.startsWith('09-') || fixture.startsWith('10-')) {
+  } else if (
+    fixture.startsWith('01-') ||
+    fixture.startsWith('08-') ||
+    fixture.startsWith('09-') ||
+    fixture.startsWith('10-') ||
+    fixture.startsWith('21-')
+  ) {
     await seedHome(db, fixture);
   } else if (fixture === '02-study-front' || fixture === '03-study-reveal') {
     seedStudyStore(fixture === '03-study-reveal');
@@ -272,6 +280,7 @@ export async function prepareVisualFixture(fixture: VisualFixtureId): Promise<st
     case '08-home-review-done':
     case '09-home-no-review':
     case '10-home-all-done':
+    case '21-home-review-pending':
       return `/home?${query}`;
     case '02-study-front':
     case '03-study-reveal':
