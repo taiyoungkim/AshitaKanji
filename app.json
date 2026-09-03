@@ -2,7 +2,7 @@
   "expo": {
     "name": "오니칸",
     "slug": "ashitakanji",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "ashitakanji",
@@ -19,7 +19,7 @@
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD"
     },
-    "runtimeVersion": "0.1.0",
+    "runtimeVersion": "1.0.0",
     "assetBundlePatterns": [
       "**/*",
       "assets/jlpt.db"
@@ -32,9 +32,15 @@
         "ITSAppUsesNonExemptEncryption": false
       }
     },
+    "androidStatusBar": {
+      "translucent": true,
+      "barStyle": "dark-content",
+      "backgroundColor": "#F2F2F4"
+    },
     "android": {
       "package": "com.taiyoungkim.ashitakanji",
-      "versionCode": 24,
+      "versionCode": 27,
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
