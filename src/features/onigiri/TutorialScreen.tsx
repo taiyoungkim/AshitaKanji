@@ -46,9 +46,13 @@ import type { Word } from '~/types/Card';
 import { onboardingImages } from './onboardingAssets';
 import { OnboardingConfetti } from './components/OnboardingConfetti';
 
-// 데모 단어 — 튜토리얼 전용 고정 10개 (DB 의존 없음, 미기록).
+// 데모 단어 — 튜토리얼 전용 고정 10개 (DB 조회 없음, 미기록).
 // 온보딩 콘텐츠는 로컬 고정이라 예문·발음 힌트도 여기 함께 둔다.
+// id 는 실제 DB word id 를 그대로 박는다. 합성 id(`tutorial-秋`)를 쓰면 번들 오디오 맵이
+// 전부 미스라 온보딩 내내 시스템 TTS로 떨어진다 — 첫인상에서 음질이 가장 나쁜 구간이 된다.
+// 예문은 여기 직접 쓴 N5 문장이라 DB 예문 오디오와 다르다. 예문 재생은 TTS로 둘 것.
 function demoWord(
+  id: string,
   surface: string,
   reading: string,
   meaning: string,
@@ -57,7 +61,7 @@ function demoWord(
   phonetic?: PhoneticHint,
 ): Word & { phonetic?: PhoneticHint } {
   return {
-    id: `tutorial-${surface}`,
+    id,
     level: 'N5',
     surface,
     reading_kana: reading,
@@ -73,19 +77,19 @@ function demoWord(
 }
 
 const DEMO_WORDS = [
-  demoWord('秋', 'あき', '가을', '秋の空は高いです。', '가을 하늘은 높습니다.'),
-  demoWord('山', 'やま', '산', 'あの山に登ります。', '저 산에 오릅니다.'),
-  demoWord('雨', 'あめ', '비', '今日は雨が降ります。', '오늘은 비가 옵니다.'),
-  demoWord('駅', 'えき', '역', '駅の前で会いましょう。', '역 앞에서 만납시다.'),
-  demoWord('食塩', 'しょくえん', '식염', '食塩を少し入れます。', '식염을 조금 넣습니다.', {
+  demoWord('w_92cdd1203bd7bf3f', '秋', 'あき', '가을', '秋の空は高いです。', '가을 하늘은 높습니다.'),
+  demoWord('w_9200ebb3b9a05823', '山', 'やま', '산', 'あの山に登ります。', '저 산에 오릅니다.'),
+  demoWord('w_48fbd408a115f905', '雨', 'あめ', '비', '今日は雨が降ります。', '오늘은 비가 옵니다.'),
+  demoWord('w_1a590a2722d8602f', '駅', 'えき', '역', '駅の前で会いましょう。', '역 앞에서 만납시다.'),
+  demoWord('w_45ad1afbb9ff44ff', '食塩', 'しょくえん', '식염', '食塩を少し入れます。', '식염을 조금 넣습니다.', {
     left: 'しょくえん',
     right: '식염',
   }),
-  demoWord('空', 'そら', '하늘', '空が青いです。', '하늘이 파랗습니다.'),
-  demoWord('花', 'はな', '꽃', '庭に花が咲きました。', '정원에 꽃이 피었습니다.'),
-  demoWord('本', 'ほん', '책', '本を三冊買いました。', '책을 세 권 샀습니다.'),
-  demoWord('友達', 'ともだち', '친구', '友達と映画を見ます。', '친구와 영화를 봅니다.'),
-  demoWord('時間', 'じかん', '시간', '時間がありません。', '시간이 없습니다.', {
+  demoWord('w_f238004dca80f8bb', '空', 'そら', '하늘', '空が青いです。', '하늘이 파랗습니다.'),
+  demoWord('w_3c328157edaee908', '花', 'はな', '꽃', '庭に花が咲きました。', '정원에 꽃이 피었습니다.'),
+  demoWord('w_af5024e6326a3ea3', '本', 'ほん', '책', '本を三冊買いました。', '책을 세 권 샀습니다.'),
+  demoWord('w_053f7db9e9a81e55', '友達', 'ともだち', '친구', '友達と映画を見ます。', '친구와 영화를 봅니다.'),
+  demoWord('w_78a37817bd6740bc', '時間', 'じかん', '시간', '時間がありません。', '시간이 없습니다.', {
     left: 'じかん',
     right: '시간',
   }),
@@ -337,7 +341,7 @@ export default function TutorialScreen(): React.ReactNode {
             onSpeak={tts.enabled ? () => tts.speakAudio('word', w.id, w.reading_kana) : undefined}
             onSpeakExample={
               tts.enabled && w.example_jp
-                ? () => tts.speakAudio('example', w.id, w.example_jp)
+                ? () => tts.speak(w.example_jp)
                 : undefined
             }
             phoneticHint={w.phonetic}
