@@ -266,6 +266,37 @@ add('git repo (.git)', existsSync(resolve(ROOT, '.git')), existsSync(resolve(ROO
   }
 }
 
+// 2c) Placeholder 텍스트 — 스토어에 나가는 면(사이트·정책·앱·스토어 자산)에 미완성 문구가
+// 남아 있으면 심사 리스크. RELEASE_DECISIONS "Placeholder release blocker" 정의를 코드로 옮긴 것.
+// PLAN/RELEASE_DECISIONS 자신은 이 단어들을 정의상 포함하므로 스캔 대상에서 제외한다.
+{
+  const SCAN_PATHS = [
+    'site/',
+    'docs/release/PRIVACY_POLICY.md',
+    'docs/release/SUPPORT.md',
+    'app/',
+    'store-assets/',
+  ];
+  const PATTERN = 'TBD|TODO|FIXME|PLACEHOLDER|LOREM IPSUM|XXXX|example\\.com';
+  try {
+    // git grep: 종료코드 0=매치 있음(=실패), 1=매치 없음(=통과). -I 로 바이너리 제외.
+    const hits = execFileSync('git', ['grep', '-nIiE', PATTERN, '--', ...SCAN_PATHS], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    })
+      .trim()
+      .split('\n')
+      .filter(Boolean);
+    add('placeholder 텍스트 스캔', false, `${hits.length}건 — ${hits[0]}`);
+  } catch (err) {
+    if (err.status === 1) {
+      add('placeholder 텍스트 스캔', true, `0 hits (${SCAN_PATHS.length}개 경로)`);
+    } else {
+      add('placeholder 텍스트 스캔', false, `git grep 실패: ${err.message}`);
+    }
+  }
+}
+
 // 3) Privacy/Support/Home URL HTTP 200
 const URLS = [
   'https://taiyoungkim.github.io/AshitaKanji/',
