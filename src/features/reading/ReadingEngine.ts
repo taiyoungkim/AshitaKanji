@@ -3,9 +3,10 @@
 // 패스(pass) 기반:
 //   - 챕터 N = reading_chapter=N 독립 50단어 블록. 한 패스 = 미숙 단어를 한 바퀴.
 //   - 안다/모름 모두 최초 노출을 기록하고, 안다만 숙련(known)을 올린다.
-//   - 패스 끝(큐 소진): 미숙 남으면 'passEnd', 0이면 'done'.
-//     화면은 passEnd를 그리지 않고 바로 reshuffle 한다.
-//   - 첫 패스는 빈도순, 다시보기 패스는 셔플.
+//   - 패스 끝(큐 소진) = 회독 1회 완료 → 'done'. 모름 단어를 그 자리에서 다시 돌리지 않는다.
+//     모름은 다음 회독에서 (랜덤 순서로) 다시 나온다.
+//   - 순서는 항상 랜덤. 단, 아직 안 본 단어를 앞에 둔다 —
+//     중간에 나갔다 다시 들어와도 방금 모름 처리한 단어부터 반복되지 않고 이어진다.
 
 import type { JlptLevel, Word } from '~/types/Card';
 import type { CardRepo } from '~/db/repos/CardRepo';
@@ -29,7 +30,7 @@ export interface ReadingState {
   covered: number;
   /** 숙달(known 영속) 단어 수 — 챕터 완료 판정. */
   known: number;
-  phase: 'study' | 'passEnd' | 'done';
+  phase: 'study' | 'done';
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -52,17 +53,16 @@ export class ReadingEngine {
     private readonly progressRepo: ReadingProgressRepo,
   ) {}
 
-  /** 챕터(회차) 시작/재개. shuffled=false → 빈도순(첫 패스), true → 셔플(다시보기). */
-  async startChapter(
-    level: JlptLevel,
-    chapter: number,
-    shuffled = false,
-  ): Promise<ReadingState> {
+  /** 챕터(회차) 시작/재개. 미숙 단어를 랜덤 순서로, 안 본 단어 먼저 배치한다. */
+  async startChapter(level: JlptLevel, chapter: number): Promise<ReadingState> {
     const words = await this.cardRepo.findChapter(level, chapter);
     const progress = await this.progressRepo.getChapterProgress(level, chapter);
     const notKnown = words.filter((w) => !progress.get(w.id)?.known);
     this.seenWordIds = new Set(words.filter((w) => progress.get(w.id)?.seen).map((w) => w.id));
-    const queue = shuffled ? shuffle(notKnown) : notKnown;
+    const queue = [
+      ...shuffle(notKnown.filter((w) => !this.seenWordIds.has(w.id))),
+      ...shuffle(notKnown.filter((w) => this.seenWordIds.has(w.id))),
+    ];
     const total = words.length;
     this.state = {
       level,
@@ -78,13 +78,6 @@ export class ReadingEngine {
       phase: queue.length === 0 ? 'done' : 'study',
     };
     return this.snapshot();
-  }
-
-  /** 남은 미숙 단어를 섞어 새 패스 (틀린 것만 다시). */
-  async reshuffle(): Promise<ReadingState> {
-    const s = this.state;
-    if (!s) throw new Error('reading session not started');
-    return this.startChapter(s.level, s.chapter, true);
   }
 
   /** 현재 단어 판정. 둘 다 노출을 영속하고, 안다만 숙련도를 올린다. */
@@ -107,9 +100,7 @@ export class ReadingEngine {
     s.queue.shift();
     s.passDone += 1;
     s.current = s.queue[0] ?? null;
-    if (s.queue.length === 0) {
-      s.phase = s.total - s.known === 0 ? 'done' : 'passEnd';
-    }
+    if (s.queue.length === 0) s.phase = 'done';
     return this.snapshot();
   }
 

@@ -78,31 +78,13 @@ export default function ReadingStudyScreen(): React.ReactNode {
       const engine = engineRef.current;
       if (!engine || busy) return;
       setBusy(true);
-      let s = await engine.mark(known);
-      if (s.phase === 'passEnd') {
-        s = await engine.reshuffle();
-      }
+      const s = await engine.mark(known);
       setRevealed(false);
       setState(s);
       setBusy(false);
     },
     [busy],
   );
-
-  useEffect(() => {
-    if (state?.phase !== 'passEnd') return;
-    const engine = engineRef.current;
-    if (!engine) return;
-    let alive = true;
-    void engine.reshuffle().then((next) => {
-      if (!alive) return;
-      setRevealed(false);
-      setState(next);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [state?.phase]);
 
   // 학습 화면과 같은 공개 규칙 — 최초 공개에서만 상태를 바꾸고 설정에 따라 발음 1회 재생.
   const handleReveal = useCallback(() => {
