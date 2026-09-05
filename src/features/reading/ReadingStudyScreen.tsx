@@ -68,7 +68,9 @@ export default function ReadingStudyScreen(): React.ReactNode {
       .catch(() => undefined)
       .then(() =>
         showInterstitialIfEligible(() => {
-          router.replace(`/reading?completed=${chapter}` as Href);
+          // replace 는 허브 위에 허브를 한 겹 더 쌓아 뒤로가기가 다시 허브로 갔다.
+          // dismissTo 는 스택에 이미 있는 허브까지 되감고 파라미터만 갱신한다.
+          router.dismissTo(`/reading?completed=${chapter}` as Href);
         }),
       );
   }, [state?.phase, level, chapter, router]);
@@ -139,7 +141,7 @@ export default function ReadingStudyScreen(): React.ReactNode {
       <StudyProgressHeader
         done={state.passDone}
         total={state.passTotal}
-        onClose={() => router.replace('/reading' as Href)}
+        onClose={() => router.dismissTo('/reading' as Href)}
         closeLabel="회독 종료"
         variant="inline"
       />

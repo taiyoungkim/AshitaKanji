@@ -22,6 +22,7 @@ import { buildWeaknessService } from './buildWeaknessService';
 import type { TodayReviewService } from './TodayReviewService';
 import type { WeaknessService } from './WeaknessService';
 import { measureRevealLatency } from './revealTiming';
+import { resetToHome } from '~/lib/navigation';
 
 const WEAKNESS_LIMIT = 50;
 
@@ -176,7 +177,8 @@ export default function WeaknessScreen(): React.ReactNode {
   );
 
   const leave = () => {
-    if (isTodayReview) router.replace('/home');
+    // 오늘 복습은 홈에서 들어와 홈으로 끝난다 — replace 만 하면 홈이 두 겹 쌓였다.
+    if (isTodayReview) resetToHome(router);
     else router.back();
   };
 

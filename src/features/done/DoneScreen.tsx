@@ -61,6 +61,7 @@ import {
 import { buildDoneRewardPresentation, findRewardForSession } from './rewardPresentation';
 import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCapture';
 import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
+import { resetToHome } from '~/lib/navigation';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
 // 디바이스 실제 inset 을 직접 사용한다.
@@ -231,8 +232,7 @@ export default function DoneScreen(): React.ReactNode {
   const goHome = () => {
     resetSession();
     // 결과 화면은 스택에서 제거한다 — 뒤로가기·스와이프로 되돌아오지 않게.
-    if (router.canDismiss()) router.dismissAll();
-    router.replace('/home');
+    resetToHome(router);
   };
 
   const openReceipt = () => {

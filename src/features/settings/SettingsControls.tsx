@@ -107,7 +107,7 @@ const makeStyles = (colors: ThemeColors) =>
       marginLeft: -spacing.xs,
     },
     backIcon: { fontSize: 34, lineHeight: 36, color: colors.ink },
-    backLabel: { ...typography.body, color: colors.ink, marginLeft: -spacing.xs },
+    backLabel: { ...typography.body, color: colors.ink, marginLeft: spacing.xs },
     title: { ...typography.meaning, color: colors.ink, marginBottom: spacing.xxl },
     stepper: {
       minHeight: 80,

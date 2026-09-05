@@ -63,10 +63,10 @@ function isSameLocalDay(leftMs: number, rightMs: number): boolean {
 async function loadHomeData(
   levels: JlptLevel[],
   dailyNewLimit: number,
+  readingLevel: JlptLevel,
   savedChapter: number | undefined,
   nowMs = Date.now(),
 ): Promise<HomeData> {
-  const readingLevel = levels[0] ?? 'N5';
   const [countsResult, progressResult, readingResult, recordResult, sessionsResult] = await Promise.allSettled([
     loadTodayCounts(levels, dailyNewLimit, nowMs),
     buildOnigiriProgressService().then((svc) => svc.getSnapshot()),
@@ -108,7 +108,9 @@ export default function HomeScreen(): React.ReactNode {
   const setLevels = useSettingsStore((s) => s.setLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const hydrated = useSettingsStore((s) => s._hydrated);
-  const savedChapter = useSettingsStore((s) => s.readingChapters[s.selectedLevels[0] ?? 'N5']);
+  // 회독 관련 표시는 학습 레벨이 아니라 회독 화면에서 고른 레벨을 따른다.
+  const readingLevel = useSettingsStore((s) => s.readingLevel);
+  const savedChapter = useSettingsStore((s) => s.readingChapters[s.readingLevel]);
   const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
   const captureMode = isVisualCaptureEnabled() && uiFixture != null;
   const nowMs = captureMode ? VISUAL_NOW_MS : Date.now();
@@ -119,11 +121,11 @@ export default function HomeScreen(): React.ReactNode {
     useCallback(() => {
       if (!hydrated) return;
       let alive = true;
-      void loadHomeData(selectedLevels, dailyNewLimit, savedChapter, nowMs).then((next) => {
+      void loadHomeData(selectedLevels, dailyNewLimit, readingLevel, savedChapter, nowMs).then((next) => {
         if (alive) setData(next);
       });
       return () => { alive = false; };
-    }, [hydrated, selectedLevels, dailyNewLimit, savedChapter, nowMs]),
+    }, [hydrated, selectedLevels, dailyNewLimit, readingLevel, savedChapter, nowMs]),
   );
 
   const today = useMemo(() => formatKoreanDate(new Date(nowMs)), [nowMs]);
@@ -244,7 +246,7 @@ export default function HomeScreen(): React.ReactNode {
 
             <MonthlyMenuCard
               month={new Date().getMonth() + 1}
-              level={level}
+              level={readingLevel}
               total={readingTotal}
               progress={menuProgress}
               onPress={() => router.push('/collection' as Href)}

@@ -45,6 +45,7 @@ import type { CatPose } from './types';
 import type { Word } from '~/types/Card';
 import { onboardingImages } from './onboardingAssets';
 import { OnboardingConfetti } from './components/OnboardingConfetti';
+import { resetToHome } from '~/lib/navigation';
 
 // 데모 단어 — 튜토리얼 전용 고정 10개 (DB 조회 없음, 미기록).
 // 온보딩 콘텐츠는 로컬 고정이라 예문·발음 힌트도 여기 함께 둔다.
@@ -250,14 +251,19 @@ export default function TutorialScreen(): React.ReactNode {
 
   const finishLater = useCallback(() => {
     completeTutorial();
-    router.replace('/home');
+    // 인트로가 스택 아래 남아 있어 replace 만으로는 홈에서 뒤로가기가 인트로로 갔다.
+    resetToHome(router);
   }, [completeTutorial, router]);
 
   const finishAndStudy = useCallback(() => {
     completeTutorial();
     void resolveStudyEntry(selectedLevels, dailyNewLimit)
-      .then((route) => router.replace(route))
-      .catch(() => router.replace('/home'));
+      .then((route) => {
+        // 학습 화면의 뒤로가기가 인트로가 아니라 홈으로 가도록 홈을 깔고 올린다.
+        resetToHome(router);
+        router.push(route);
+      })
+      .catch(() => resetToHome(router));
   }, [completeTutorial, dailyNewLimit, router, selectedLevels]);
 
   const goBack = useCallback(() => {
