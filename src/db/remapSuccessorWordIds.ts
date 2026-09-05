@@ -10,7 +10,7 @@ import {
 } from './remapLegacyWordIds';
 import { WORD_ID_SUCCESSORS } from './wordIdSuccessors.gen';
 
-export const WORD_SUCCESSOR_REMAP_VERSION = '6';
+export const WORD_SUCCESSOR_REMAP_VERSION = '7';
 
 export async function remapSuccessorWordIds(
   db: RemapDb,

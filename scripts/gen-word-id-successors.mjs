@@ -31,6 +31,7 @@ const extraManifests = [
   'data/pdf-vocab/jlpt_naver_crosscheck_fix_manifest.json',
   'data/pdf-vocab/jlpt_mada_imada_split_manifest.json',
   'data/pdf-vocab/jlpt_shikatanai_n4_manifest.json',
+  'data/pdf-vocab/jlpt_orthography_variant_manifest.json',
 ];
 function setSuccessor(from, to) {
   if (!from || !to || from === to) return;

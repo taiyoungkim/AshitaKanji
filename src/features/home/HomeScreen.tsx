@@ -174,7 +174,6 @@ export default function HomeScreen(): React.ReactNode {
   // 홈 칩은 "새로 배울 레벨" 하나를 고르는 단일 선택이다. 기존 due는 전 레벨 유지한다.
   // 고른 레벨을 앞에 붙이는 방식은 동작하지 않는다 — 스토어가 배열을 항상 N5→N1 로
   // 정규화해서, 무엇을 골라도 selectedLevels[0] 이 가장 낮은 레벨로 되돌아간다.
-  // 여러 레벨을 함께 학습하려면 설정 > 학습 설정에서 고른다.
   const selectPrimaryLevel = (next: JlptLevel) => {
     setLevels([next]);
     setLevelPickerOpen(false);

@@ -57,7 +57,6 @@ interface SettingsState {
   setLevels: (levels: JlptLevel[]) => void;
   setReadingLevel: (level: JlptLevel) => void;
   setReadingChapter: (level: JlptLevel, chapter: number) => void;
-  toggleLevel: (level: JlptLevel) => void;
   setDailyNewLimit: (n: number) => void;
   setTtsEnabled: (on: boolean) => void;
   setTtsSpeed: (n: number) => void;
@@ -108,15 +107,6 @@ export const useSettingsStore = create<SettingsState>()(
       setReadingChapter(level, chapter) {
         if (!Number.isInteger(chapter) || chapter < 1) return;
         set({ readingChapters: { ...get().readingChapters, [level]: chapter } });
-      },
-
-      toggleLevel(level) {
-        const cur = get().selectedLevels;
-        const has = cur.includes(level);
-        const next = has ? cur.filter((l) => l !== level) : [...cur, level];
-        // 마지막 1개는 끌 수 없음 (최소 1 레벨).
-        if (next.length === 0) return;
-        set({ selectedLevels: normalizeLevels(next) });
       },
 
       setDailyNewLimit(n) {

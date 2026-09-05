@@ -1,0 +1,15 @@
+{
+  "note": "카나/한자 표기 변형 통합 — 접은 표제어의 학습 진도를 남긴 표제어로 옮긴다.",
+  "source_queue": "data/pdf-vocab/orthography_variant_review_queue.csv",
+  "successors": {
+    "w_a430acefffcd0bfe": "w_9f4bac962871acc8",
+    "w_69c992c9db76a823": "w_01f119facf6e9d97",
+    "w_8055df2a8ee6ed9e": "w_671b868a471a9e6f",
+    "w_232fd4c69bca3059": "w_40998838c1d8464a",
+    "w_5eba7c1114cfa1cd": "w_cd94ea8ce1292469",
+    "w_7da89b0ae3f818ac": "w_272e0931b59a9581",
+    "w_6bd4411a881b3eb1": "w_5dbb6ffd4db86074",
+    "w_1e3f18b11c856182": "w_b46a8559c80c637b",
+    "w_e1224f159d5c953d": "w_e3bd581a07151df2"
+  }
+}

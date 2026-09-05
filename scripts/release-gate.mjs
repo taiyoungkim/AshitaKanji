@@ -57,7 +57,9 @@ for (const rel of REQUIRED_ASSETS) {
         Number(execFileSync('sqlite3', [dbPath, `SELECT COUNT(*) FROM word WHERE ${where};`], {
           encoding: 'utf8',
         }).trim());
-      const targets = { N5: 400, N4: 744, N3: 1490, N2: 1907, N1: 2486 };
+      // 표기 변형(카나/한자) 통합으로 9개 표제어를 접었다 —
+      // data/pdf-vocab/orthography_variant_review_queue.csv, build-jlpt-db.mjs TARGET_COUNTS 와 함께 유지한다.
+      const targets = { N5: 398, N4: 742, N3: 1488, N2: 1906, N1: 2484 };
       const expectedActive = Object.values(targets).reduce((sum, count) => sum + count, 0);
       const actualLevels = Object.fromEntries(
         Object.keys(targets).map((level) => [level, count(`level='${level}' AND deprecated=0`)]),
@@ -125,10 +127,41 @@ for (const rel of REQUIRED_ASSETS) {
         `duplicate_groups=${duplicateGroups}, duplicate_extra_rows=${duplicateExtraRows}`,
       );
 
+      // 표기 변형(같은 낱말의 가나 표기 + 한자 표기)은 surface 가 달라 위 중복 검사에 걸리지
+      // 않는다. 같은 급수·같은 읽기의 가나/한자 쌍을 모두 뽑아, 리뷰 큐에서 남기기로 결정한
+      // 동음이의어 쌍인지 대조한다. 새 쌍이 들어오면 여기서 걸린다.
+      const variantPairs = execFileSync('sqlite3', [dbPath, `SELECT DISTINCT a.level || ' ' || a.reading_kana
+        FROM word a JOIN word b
+          ON a.level = b.level AND a.reading_kana = b.reading_kana AND a.id <> b.id
+        WHERE a.deprecated = 0 AND b.deprecated = 0
+          AND a.surface = a.reading_kana AND b.surface <> b.reading_kana;`], { encoding: 'utf8' })
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean);
+      const queuePath = resolve(ROOT, 'data/pdf-vocab/orthography_variant_review_queue.csv');
+      const allowedVariantPairs = new Set(
+        existsSync(queuePath)
+          ? readFileSync(queuePath, 'utf8')
+              .split('\n')
+              .slice(1)
+              .map((line) => line.split(','))
+              .filter((cells) => cells[2]?.trim() === 'keep')
+              .map((cells) => `${cells[0].trim()} ${cells[1].trim()}`)
+          : [],
+      );
+      const unreviewedVariants = variantPairs.filter((pair) => !allowedVariantPairs.has(pair));
+      add(
+        'jlpt.db 표기 변형 검토',
+        unreviewedVariants.length === 0,
+        unreviewedVariants.length === 0
+          ? `variant_pairs=${variantPairs.length}, 전부 검토됨`
+          : `리뷰 큐에 없는 가나/한자 쌍: ${unreviewedVariants.join(', ')}`,
+      );
+
       // Schema integrity — seed must ship at the app's current schema (so launch
       // migrations don't re-run ALTERs against existing columns) and word ids must
       // be the stable content-hash scheme (w_<hash>), not the legacy level-seq scheme.
-      const EXPECTED_SCHEMA_VERSION = '6'; // keep in sync with CURRENT_SCHEMA_VERSION (src/db/schema.ts)
+      const EXPECTED_SCHEMA_VERSION = '7'; // keep in sync with CURRENT_SCHEMA_VERSION (src/db/schema.ts)
       const scalar = (sql) => execFileSync('sqlite3', [dbPath, sql], { encoding: 'utf8' }).trim();
       const seedSchemaVersion = scalar(`SELECT value FROM app_meta WHERE key='schema_version';`);
       add(

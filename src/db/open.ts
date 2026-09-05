@@ -36,13 +36,16 @@ const SEED_DB_NAME = 'ashitakanji.seed.db';
 // '10' — pass_n1 유의어·용법 구역을 핵심 목록에서 제외하고 보충 단어를 재선별.
 // '11' — NAVER JLPT 급수로 1,594개를 이동하고 부족한 N3/N1 389개만 보충.
 // '12' — 최신 NAVER 대조로 확정된 급수 교정을 기존 설치에도 재하이드레이션.
-export const WORD_CURATION_VERSION = '12';
+// '13' — 카나/한자 표기 변형 9장을 통합해 접은 표제어를 기존 설치에서도 내린다.
+export const WORD_CURATION_VERSION = '13';
 // '5' — 정규화된 표제어의 한자와 word_kanji 링크 추가.
 // '10' — 한국어 뜻이 비어 있던 활성 한자 12개를 사전 교차검증 후 보완.
-const KANJI_CURATION_VERSION = '10';
+// '11' — 표기 변형 통합으로 없어진 표제어의 word_kanji 링크를 정리.
+const KANJI_CURATION_VERSION = '11';
 // '4' — 표기 중복 교체 단어까지 포함해 6,638개 예문을 다시 1:1 연결.
 // '7' — NAVER 급수 보충 389개를 포함해 7,027개 예문을 다시 1:1 연결.
-const EXAMPLE_CURATION_VERSION = '7';
+// '8' — 표기 변형 통합 후 7,018개 예문으로 다시 1:1 연결.
+const EXAMPLE_CURATION_VERSION = '8';
 const BUNDLED_DB_REQUIRE = (() => {
   try {
     // assets/jlpt.db is created by scripts/build-db.ts (Track A6)
