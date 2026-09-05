@@ -21,8 +21,8 @@
       "android": {
         "resourceClass": "medium",
         "env": {
-          "GRADLE_OPTS": "-Dorg.gradle.jvmargs=\"-XX:MaxMetaspaceSize=512m -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8\" -Dorg.gradle.parallel=false -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false",
-          "NODE_OPTIONS": "--max-old-space-size=3072"
+          "GRADLE_OPTS": "-Dorg.gradle.jvmargs=\"-XX:MaxMetaspaceSize=768m -Xmx4096m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8\" -Dorg.gradle.parallel=false -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false",
+          "NODE_OPTIONS": "--max-old-space-size=4096"
         }
       },
       "ios": {
