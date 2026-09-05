@@ -4,7 +4,7 @@
 //   2) 최근 7일 Again
 //   3) reveal_ms 평균 > 8초
 //   4) scan_result confused/unknown 인데 SRS 미편입
-// gradeCard: 약점 복습 채점 (기존 user_card 재스케줄, scan 출처는 init 후 promoted 마킹).
+// gradeCard: due 카드는 재스케줄, 미래 due 카드는 일정 보존, scan 출처는 SRS 편입.
 
 import type { CardWithProgress, JlptLevel } from '~/types/Card';
 import { Grade } from '~/types/Grade';
@@ -13,6 +13,8 @@ import type { ReviewLogRepo } from '~/db/repos/ReviewLogRepo';
 import type { ScanResultRepo } from '~/db/repos/ScanResultRepo';
 import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import type { FsrsScheduler } from '~/srs/FsrsScheduler';
+import { RepositoryReviewWriter, type ReviewWriter } from '~/db/repos/ReviewWriter';
+import { createSupplementalReviewLog } from './supplementalReview';
 
 export const WEAKNESS_RECENT_DAYS = 7;
 export const WEAKNESS_SLOW_REVEAL_MS = 8000;
@@ -26,6 +28,10 @@ export class WeaknessService {
     private readonly cardRepo: CardRepo,
     private readonly scheduler: FsrsScheduler,
     private readonly now: () => number = Date.now,
+    private readonly reviewWriter: ReviewWriter = new RepositoryReviewWriter(
+      userCardRepo,
+      reviewLogRepo,
+    ),
   ) {}
 
   /** 약점 큐 (우선순위: leech → 최근 Again → 느린 reveal → scan 미편입). */
@@ -87,19 +93,26 @@ export class WeaknessService {
     return out;
   }
 
-  /** 약점 복습 채점. scan 출처(신규)는 init 후 promoted 마킹해 재등장 방지. */
+  /** 약점 복습 채점. 미래 due는 보존하고, due/scan 신규만 FSRS에 반영한다. */
   async gradeCard(
     card: CardWithProgress,
     grade: Grade,
     revealMs: number | null,
   ): Promise<void> {
     const now = this.now();
-    const base = card.userCard ?? this.scheduler.initNew(card.word.id, now);
+    const existing = card.userCard;
+    if (existing && existing.due > now) {
+      await this.reviewLogRepo.insert(
+        createSupplementalReviewLog(existing, grade, now, revealMs, null),
+      );
+      return;
+    }
+
+    const base = existing ?? this.scheduler.initNew(card.word.id, now);
     const { next, log } = this.scheduler.review(base, grade, now);
     log.reveal_ms = revealMs;
-    await this.userCardRepo.upsert(next);
-    await this.reviewLogRepo.insert(log);
-    if (!card.userCard) {
+    await this.reviewWriter.save(next, log);
+    if (!existing) {
       await this.scanResultRepo.markPromoted([card.word.id]);
     }
   }

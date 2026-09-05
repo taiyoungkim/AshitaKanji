@@ -33,7 +33,7 @@ export const isHighIntensity = (dailyNewLimit: number): boolean =>
   dailyNewLimit > HIGH_INTENSITY_THRESHOLD;
 
 interface SettingsState {
-  selectedLevels: JlptLevel[]; // 학습 대상 레벨 (다중, 최소 1).
+  selectedLevels: JlptLevel[]; // 신규 학습 대상 레벨 (다중, 최소 1). 기존 due에는 미적용.
   dailyNewLimit: number; // 5-50.
   ttsEnabled: boolean;
   ttsSpeed: number; // 0.5-1.5.

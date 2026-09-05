@@ -6,6 +6,7 @@ import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
 import { SqliteReviewLogRepo } from '~/db/repos/sqlite/SqliteReviewLogRepo';
 import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
+import { SqliteReviewWriter } from '~/db/repos/sqlite/SqliteReviewWriter';
 import { FsrsScheduler } from '~/srs/FsrsScheduler';
 import { SessionEngine } from './SessionEngine';
 
@@ -18,5 +19,7 @@ export async function buildSessionEngine(): Promise<SessionEngine> {
     new SqliteReviewLogRepo(db),
     new SqliteSessionRepo(db),
     new FsrsScheduler(),
+    undefined,
+    new SqliteReviewWriter(db),
   );
 }

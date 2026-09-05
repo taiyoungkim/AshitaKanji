@@ -3,6 +3,7 @@ import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteReviewLogRepo } from '~/db/repos/sqlite/SqliteReviewLogRepo';
 import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
+import { SqliteReviewWriter } from '~/db/repos/sqlite/SqliteReviewWriter';
 import { FsrsScheduler } from '~/srs/FsrsScheduler';
 import { TodayReviewService } from './TodayReviewService';
 
@@ -14,5 +15,7 @@ export async function buildTodayReviewService(): Promise<TodayReviewService> {
     new SqliteCardRepo(db),
     new SqliteSessionRepo(db),
     new FsrsScheduler(),
+    Date.now,
+    new SqliteReviewWriter(db),
   );
 }

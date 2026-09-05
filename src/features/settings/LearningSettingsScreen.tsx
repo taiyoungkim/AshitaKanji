@@ -45,9 +45,9 @@ export default function LearningSettingsScreen(): React.ReactNode {
   return (
     <SettingsPage title="학습 설정">
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>학습 레벨</Text>
+        <Text style={styles.sectionTitle}>새 단어 레벨</Text>
         <Text style={styles.description}>
-          학습할 JLPT 레벨을 선택해주세요.{`\n`}최소 1개 이상 선택해야 합니다.
+          새로 배울 JLPT 레벨을 선택해주세요.{`\n`}이미 학습한 단어의 복습은 레벨을 바꿔도 계속 나옵니다.
         </Text>
         <View style={styles.levels}>
           {JLPT_LEVELS.map((level: JlptLevel) => {
@@ -74,7 +74,7 @@ export default function LearningSettingsScreen(): React.ReactNode {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>하루 새 단어</Text>
         <Text style={styles.description}>
-          하루에 새롭게 출제할 단어 수입니다.{`\n`}5~50개까지 설정할 수 있습니다.
+          하루에 새롭게 출제할 최대 단어 수입니다.{`\n`}복습이 많이 밀리면 새 단어는 자동으로 줄어듭니다.
         </Text>
         <SettingsStepper
           label="하루 새 단어"

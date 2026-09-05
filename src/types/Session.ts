@@ -7,10 +7,10 @@ export type SessionMode = 'review' | 'new' | 'scan' | 'weakness';
 
 export type SessionEndReason = 'completed' | 'abandoned' | 'app_killed';
 
-export type SessionPhase = 'main' | 'again' | 'done';
+export type SessionPhase = 'main' | 'done';
 
 export interface SessionConfig {
-  levels: JlptLevel[];           // 학습 선택 레벨 (다중)
+  levels: JlptLevel[];           // 신규 학습 선택 레벨 (기존 due는 전 레벨)
   dailyNewLimit: number;          // 5-50
   /** true if user has already seen "30+ is high intensity" warning */
   highIntensityAcknowledged: boolean;
@@ -36,13 +36,10 @@ export interface SessionRecord {
 export interface SessionState {
   sessionId: number;
   phase: SessionPhase;
-  mainQueue: CardWithProgress[];     // overdue + yesterday + new (Main round)
-  againQueue: CardWithProgress[];    // 레거시/실험용: 현재 기본 플로우에서는 즉시 재출제하지 않음
+  mainQueue: CardWithProgress[];     // due review + new (복습 우선)
   currentIndex: number;
   doneNew: number;
   doneReview: number;
-  /** wordId → count of Again submissions in this session (2 → defer to tomorrow) */
-  againSubmissions: Map<string, number>;
   startedAtMs: number;
 }
 

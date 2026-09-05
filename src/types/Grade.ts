@@ -1,5 +1,5 @@
 // Design Ref: §11 FSRS — 4-grade rating
-// Plan SC: Again 세션끝 미니라운드 + 2회 실패 시 내일로
+// Daily-only policy: Again은 같은 세션에 재출제하지 않고 FSRS due 일정으로 이월.
 //
 // Map to ts-fsrs Rating enum (which uses 1-4).
 

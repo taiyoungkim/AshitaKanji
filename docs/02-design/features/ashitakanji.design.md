@@ -14,7 +14,7 @@
 | **WHY** | 한자/가나/뜻 동시 노출 = 수동 읽기 + 망각. reveal 강제 + FSRS + 도파민 루프 = 매일 끝낼 수 있는 평생 단어장. 레벨업해도 같은 앱 |
 | **WHO** | 1차: 장기 학습자 (수년 N5→N1, 하루 15-30분). 2차: 시험 임박 헤비유저 (빠른 훑기/약점 복습) |
 | **RISK** | 1) 6,200 검수 부담 2) Tatoeba attribution 미준수 3) 카피 오해 4) Placeholder 회귀 5) 데이터 소실 6) GPT anchoring bias |
-| **SUCCESS** | 6,200 verified / 5종 카드 타입 / FSRS+Again 미니라운드+Done / 레벨별 진척 5+전체 1 / JSON export / 사용자 학습데이터 송신 0 / OTA off / URL HTTP 200 / Placeholder 0 |
+| **SUCCESS** | 6,200 verified / 5종 카드 타입 / 일일형 FSRS+Done / 레벨별 진척 5+전체 1 / JSON export / 사용자 학습데이터 송신 0 / OTA off / URL HTTP 200 / Placeholder 0 |
 | **SCOPE** | MVP: 레벨 선택/혼합 + reveal UX + FSRS 4단계 + 일일 12개 (5-50) + 빠른 훑기 50/100/200/300 + 약점 복습 + Done + 통계 + TTS + JSON export. V1.1: 알림/한자분해/노트. V1.2+: GPT/네이버/IAP |
 
 ### 결정 체인 (Plan → Design)
@@ -64,7 +64,7 @@ JLPT N5-N1 핵심 선별 6,200 단어를 reveal UX + FSRS 간격반복으로 매
                        ↕
 ┌──────────────────────────────────────────────────┐
 │  Service Layer (src/features/*/services/, src/srs/)│
-│  - SessionEngine (큐 우선순위, Main+미니 라운드)   │
+│  - SessionEngine (복습 우선, 일일 단일 큐)         │
 │  - FsrsScheduler (ts-fsrs wrapper)                │
 │  - ScanService (빠른 훑기 분류 → SRS 편입)        │
 │  - WeaknessService (약점 큐 산정)                 │
@@ -107,7 +107,7 @@ ashitakanji/
 ├─ src/
 │  ├─ features/
 │  │  ├─ study/
-│  │  │  ├─ SessionEngine.ts        # 큐 우선순위, Main+Again 미니라운드
+│  │  │  ├─ SessionEngine.ts        # 복습 우선, 일일 단일 큐
 │  │  │  ├─ StudyScreen.tsx
 │  │  │  └─ components/Card, RevealButton, GradeButtons, SessionProgress
 │  │  ├─ scan/
@@ -299,7 +299,7 @@ export class FsrsScheduler {
 ### 4.2 SessionEngine (`src/features/study/SessionEngine.ts`)
 ```typescript
 export interface SessionConfig {
-  levels: JlptLevel[];           // 학습 레벨 선택 (다중)
+  levels: JlptLevel[];           // 신규 학습 레벨 선택 (기존 due는 전 레벨)
   dailyNewLimit: number;          // 5-50
   highIntensityWarn: boolean;     // 30+ 선택 시 경고
 }
@@ -329,11 +329,6 @@ export class SessionEngine {
   async submitGrade(grade: Grade, revealMs: number): Promise<void>;
 
   /**
-   * Main round 끝 → Again 미니 라운드 진입
-   */
-  async startAgainRound(): Promise<void>;
-
-  /**
    * 세션 종료 (Done 화면 진입)
    */
   async end(reason: 'completed' | 'abandoned'): Promise<SessionSummary>;
@@ -341,13 +336,11 @@ export class SessionEngine {
 
 interface SessionState {
   sessionId: number;
-  mainQueue: Card[];      // overdue + yesterday + new
-  againQueue: Card[];     // Main round 끝나면 채워짐
-  phase: 'main' | 'again' | 'done';
+  mainQueue: Card[];      // due review + new (복습 우선)
+  phase: 'main' | 'done';
   currentIndex: number;
   doneNew: number;
   doneReview: number;
-  againSubmissions: Map<string, number>; // wordId → again 횟수 (2회면 내일로)
 }
 ```
 
@@ -394,6 +387,12 @@ export class WeaknessService {
    * - scan_result로 confused/unknown 표시했지만 SRS 미편입 카드
    */
   async getWeaknessQueue(levels: JlptLevel[], limit: number): Promise<Card[]>;
+
+  /**
+   * 미래 due 카드는 보강 로그만 남기고 기존 FSRS 일정을 보존한다.
+   * 이미 due인 카드와 scan 신규 카드만 정식 FSRS 재스케줄을 적용한다.
+   */
+  async gradeCard(card: Card, grade: Grade, revealMs: number): Promise<void>;
 }
 ```
 
@@ -537,7 +536,7 @@ function shouldHideReading(word: Word): boolean {
 ```typescript
 // src/stores/SettingsStore.ts
 interface SettingsState {
-  selectedLevels: JlptLevel[];     // 학습 레벨 (다중)
+  selectedLevels: JlptLevel[];     // 신규 학습 레벨 (다중, 기존 due에는 미적용)
   dailyNewLimit: number;            // 5-50
   ttsSpeed: number;                 // 0.5-2.0
   ttsEnabled: boolean;
@@ -613,7 +612,7 @@ interface SessionStoreState {
 | 대상 | 테스트 |
 |---|---|
 | FsrsScheduler | 4단계 등급 → 다음 due 계산, 누적 stability 증가 |
-| SessionEngine | 큐 우선순위, Again 미니 라운드, 2회 실패 시 내일로 |
+| SessionEngine | 복습 우선 일일 큐, Again은 다음 FSRS due로 이월 |
 | ScanService | 분류 → SRS 편입 추천 (모름 > 헷갈림 우선) |
 | WeaknessService | 약점 큐 산정 (Again 7일/leech/reveal_ms) |
 | StatsRollupService | Idempotent (여러 번 호출 = 동일 결과) |
@@ -627,7 +626,7 @@ interface SessionStoreState {
 ### 8.3 E2E (Detox 또는 Maestro, V1.1 검토)
 - MVP는 본인 실기기 수동 시나리오만:
   1. 신규 카드 5개 학습 → reveal → Good → Done 도달
-  2. Again 등급 → 미니 라운드 → 2회 실패 → 내일로 미뤄지는지
+  2. Again 등급 → 같은 세션에 재출제되지 않고 다음 FSRS due로 이월되는지
   3. 앱 강제 종료 → 재실행 → 학습 상태 유지
   4. 빠른 훑기 100개 분류 → SRS 30개 편입
   5. JSON export → 공유 시트 → 파일 검증
@@ -678,7 +677,7 @@ pnpm add -D typescript @types/react @types/node vitest @testing-library/react-na
 |---|---|---|---|
 | 1 | B1 | Expo 골격 (expo-router, sqlite open, schema migration v1, QueryClient) | 0.5일 |
 | 2 | B2 | 카드 타입 정책 (cardType util, Card 컴포넌트 분기) | 0.5일 |
-| 3 | B3 | FsrsScheduler + SessionEngine + Again 미니 라운드 + review_log | 1.5일 |
+| 3 | B3 | FsrsScheduler + SessionEngine + 일일 단일 큐 + review_log | 1.5일 |
 | 4 | B4 | ScanService + WeaknessService + scan_result | 1일 |
 | 5 | B5 | StudyScreen + RevealButton + GradeButtons + DoneScreen | 1일 |
 | 6 | B6 | StatsRollupService + StatsScreen + TTS | 0.5일 |
@@ -694,7 +693,7 @@ pnpm add -D typescript @types/react @types/node vitest @testing-library/react-na
 | **module-1-skeleton** | B1: Expo init, expo-router, sqlite open, schema, QueryClient, theme | - | 0.5일 |
 | **module-2-card-types** | B2: cardType util, Word/UserCard 타입, Card 컴포넌트 5종 분기 + 미니 스토리북 | module-1 | 0.5일 |
 | **module-3-fsrs** | B3: FsrsScheduler wrapper + 단위 테스트 (등급별 due 계산) | module-1 | 0.5일 |
-| **module-4-session** | B3: SessionEngine (큐 우선순위 + Main+Again 미니라운드 + 2회 실패 시 내일로) + review_log Repo | module-3 | 1일 |
+| **module-4-session** | B3: SessionEngine (복습 우선 일일 큐 + Again due 이월) + review_log Repo | module-3 | 1일 |
 | **module-5-scan** | B4: ScanService + scan_result Repo + 25개 청크 스트리밍 + SRS 편입 추천 | module-1, module-3 | 0.5일 |
 | **module-6-weakness** | B4: WeaknessService (Again 7일/leech/reveal_ms) | module-1, module-4 | 0.5일 |
 | **module-7-study-screen** | B5: StudyScreen + RevealButton + GradeButtons + SessionProgress | module-2, module-4 | 1일 |

@@ -45,19 +45,11 @@ export class SqliteCardRepo implements CardRepo {
   async findNewCandidates(
     levels: JlptLevel[],
     limit: number,
-    excludeWordIds: string[],
   ): Promise<Word[]> {
     if (levels.length === 0 || limit <= 0) return [];
-    // verified + 미deprecated + 레벨 + user_card 미보유(excludeWordIds + NOT EXISTS 둘 다 적용).
+    // user_card 미보유 여부는 DB의 NOT EXISTS 하나로 판정한다. 전체 기존 ID를
+    // NOT IN 바인딩하지 않아 카드 수가 늘어도 SQLite 변수 제한에 닿지 않는다.
     const levelPh = placeholders(levels.length);
-    const params: (string | number)[] = [...levels];
-
-    let excludeClause = '';
-    if (excludeWordIds.length > 0) {
-      excludeClause = `AND w.id NOT IN (${placeholders(excludeWordIds.length)})`;
-      params.push(...excludeWordIds);
-    }
-    params.push(limit);
 
     const rows = await this.db.getAllAsync<WordRow>(
       `SELECT w.* FROM word w
@@ -65,10 +57,9 @@ export class SqliteCardRepo implements CardRepo {
          AND w.deprecated = 0
          AND w.qa_status = 'verified'
          AND NOT EXISTS (SELECT 1 FROM user_card uc WHERE uc.word_id = w.id)
-         ${excludeClause}
        ORDER BY w.id
        LIMIT ?`,
-      params,
+      [...levels, limit],
     );
     return rows.map(rowToWord);
   }

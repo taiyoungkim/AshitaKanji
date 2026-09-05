@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function StudyHeader({ state, onClose }: Props): React.ReactNode {
-  const queue = state.phase === 'again' ? state.againQueue : state.mainQueue;
+  const queue = state.mainQueue;
   const total = Math.max(queue.length, 1);
   const done = Math.min(state.currentIndex, total);
 

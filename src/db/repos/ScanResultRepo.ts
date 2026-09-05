@@ -8,6 +8,8 @@ export interface ScanResultRepo {
   record(rec: ScanResultRecord): Promise<void>;
   /** 세션 내 분류 결과 (endScan 요약 소스). */
   findBySession(sessionId: number): Promise<ScanResultRecord[]>;
+  /** 전체 스캔 결과 (날짜별 통계 집계 원천). */
+  findAll(): Promise<ScanResultRecord[]>;
   /** confused/unknown 인데 promoted_to_srs=0 (약점 큐 소스). 최신 우선. */
   findUnpromotedWeak(): Promise<ScanResultRecord[]>;
   /** 주어진 word_id 들의 scan_result 를 promoted_to_srs=1 로 마킹. */

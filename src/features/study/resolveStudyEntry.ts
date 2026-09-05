@@ -8,11 +8,14 @@ import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
 import type { JlptLevel } from '~/types/Card';
 import { resolveStudyRoute, type StudyEntryRoute, type TodayCounts } from './studyEntryRoute';
+import { selectDailyNewCards } from './selectDailyNewCards';
+import { calculateDailyNewAllowance } from './dailyStudyPolicy';
+import { selectDueReviewCards } from './selectDueReviewCards';
 
 export { resolveStudyRoute } from './studyEntryRoute';
 export type { StudyEntryRoute, TodayCounts } from './studyEntryRoute';
 
-/** 선택 레벨의 오늘 복습·신규 후보 수. */
+/** 전 레벨의 기존 due + 선택 레벨의 신규 후보 수. */
 export async function loadTodayCounts(
   levels: JlptLevel[],
   dailyNewLimit: number,
@@ -24,13 +27,19 @@ export async function loadTodayCounts(
 
   const due = await ucRepo.findAllDue(nowMs);
   const dueWords = await cardRepo.findByIds(due.map((c) => c.word_id));
-  const levelSet = new Set(levels);
-  const dueCount = dueWords.filter((w) => w.deprecated === 0 && levelSet.has(w.level)).length;
+  const dueCount = selectDueReviewCards(due, dueWords).length;
 
-  const existing = await ucRepo.existingWordIds();
-  const newCands = await cardRepo.findNewCandidates(levels, dailyNewLimit, existing);
+  const newAllowance = calculateDailyNewAllowance(dailyNewLimit, dueCount);
+  const newSelection = await selectDailyNewCards(
+    cardRepo,
+    ucRepo,
+    levels,
+    newAllowance,
+    nowMs,
+  );
+  const newAvail = newSelection.pending.length + newSelection.fresh.length;
 
-  return { due: dueCount, newAvail: newCands.length };
+  return { due: dueCount, newAvail };
 }
 
 /** 조회부터 경로 판정까지. 기록 탭 CTA 처럼 카운트가 없는 화면이 쓴다. */

@@ -21,6 +21,7 @@ import { buildTodayReviewService } from './buildTodayReviewService';
 import { buildWeaknessService } from './buildWeaknessService';
 import type { TodayReviewService } from './TodayReviewService';
 import type { WeaknessService } from './WeaknessService';
+import { measureRevealLatency } from './revealTiming';
 
 const WEAKNESS_LIMIT = 50;
 
@@ -43,7 +44,8 @@ export default function WeaknessScreen(): React.ReactNode {
   const reviewSessionIdRef = useRef<number | null>(null);
   const completedRef = useRef(false);
   const reviewedCountRef = useRef(0);
-  const revealStartRef = useRef<number | null>(null);
+  const cardShownAtRef = useRef<number | null>(null);
+  const revealLatencyRef = useRef<number | null>(null);
   const [queue, setQueue] = useState<CardWithProgress[] | null>(null);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -95,6 +97,17 @@ export default function WeaknessScreen(): React.ReactNode {
     };
   }, []);
 
+  const currentWordId = queue?.[index]?.word.id ?? null;
+  useEffect(() => {
+    if (!currentWordId) {
+      cardShownAtRef.current = null;
+      revealLatencyRef.current = null;
+      return;
+    }
+    cardShownAtRef.current = Date.now();
+    revealLatencyRef.current = null;
+  }, [currentWordId]);
+
   // 공개 동작을 학습 화면과 동일하게 맞춘다 — 설정에 따라 단어 음성 자동 재생.
   const showReveal = useCallback(() => {
     const word = queue?.[index]?.word;
@@ -104,7 +117,7 @@ export default function WeaknessScreen(): React.ReactNode {
       ttsEnabled: settings.ttsEnabled,
       autoPlayWordTts: settings.autoPlayWordTtsOnReveal,
       onReveal: () => {
-        revealStartRef.current = Date.now();
+        revealLatencyRef.current = measureRevealLatency(cardShownAtRef.current, Date.now());
         setRevealed(true);
       },
       onSpeakWord: () => {
@@ -117,7 +130,7 @@ export default function WeaknessScreen(): React.ReactNode {
     async (gradeValue: Grade) => {
       const card = queue?.[index];
       if (!card || busy) return;
-      const revealMs = revealStartRef.current ? Date.now() - revealStartRef.current : null;
+      const revealMs = revealed ? revealLatencyRef.current : null;
       setBusy(true);
 
       if (isTodayReview) {
@@ -142,7 +155,8 @@ export default function WeaknessScreen(): React.ReactNode {
         await service.gradeCard(card, gradeValue, revealMs);
       }
 
-      revealStartRef.current = null;
+      cardShownAtRef.current = null;
+      revealLatencyRef.current = null;
       const nextCount = reviewedCount + 1;
       reviewedCountRef.current = nextCount;
       setReviewedCount(nextCount);
@@ -158,7 +172,7 @@ export default function WeaknessScreen(): React.ReactNode {
       setIndex((current) => current + 1);
       setBusy(false);
     },
-    [busy, index, isTodayReview, queue, reviewedCount],
+    [busy, index, isTodayReview, queue, revealed, reviewedCount],
   );
 
   const leave = () => {

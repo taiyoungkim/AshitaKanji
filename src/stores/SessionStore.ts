@@ -52,19 +52,22 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
     // 진행 중 세션은 유지. 완료 후 남은 engine/summary 는 다음 학습을 막지 않는다.
     if (leftover.engine && !leftover.summary) return;
     set({ busy: true });
-    const engine = await buildSessionEngine();
-    const state = await engine.start(config, Date.now());
-    set({
-      engine,
-      current: state,
-      card: engine.current(),
-      reveal: false,
-      cardShownMs: Date.now(),
-      lastRevealMs: null,
-      summary: null,
-      busy: false,
-      dataEmpty: getWordCount() === 0,
-    });
+    try {
+      const engine = await buildSessionEngine();
+      const state = await engine.start(config, Date.now());
+      set({
+        engine,
+        current: state,
+        card: engine.current(),
+        reveal: false,
+        cardShownMs: Date.now(),
+        lastRevealMs: null,
+        summary: null,
+        dataEmpty: getWordCount() === 0,
+      });
+    } finally {
+      set({ busy: false });
+    }
   },
 
   showReveal() {
@@ -77,23 +80,25 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
     const { engine, reveal, lastRevealMs, busy } = get();
     if (!engine || busy) return;
     set({ busy: true });
+    try {
+      const now = Date.now();
+      await engine.submitGrade(grade, reveal ? lastRevealMs : null, now);
 
-    const now = Date.now();
-    await engine.submitGrade(grade, reveal ? lastRevealMs : null, now);
+      // 오늘 큐 소진 → 완료. Again 카드는 갑자기 재출제하지 않고 FSRS due 일정으로 넘긴다.
+      if (engine.isRoundComplete()) {
+        engine.completeCurrentRound();
+      }
 
-    // 오늘 큐 소진 → 완료. Again 카드는 갑자기 재출제하지 않고 FSRS due 일정으로 넘긴다.
-    if (engine.isRoundComplete()) {
-      engine.completeCurrentRound();
+      set({
+        current: engine.snapshot(),
+        card: engine.current(),
+        reveal: false,
+        cardShownMs: Date.now(),
+        lastRevealMs: null,
+      });
+    } finally {
+      set({ busy: false });
     }
-
-    set({
-      current: engine.snapshot(),
-      card: engine.current(),
-      reveal: false,
-      cardShownMs: Date.now(),
-      lastRevealMs: null,
-      busy: false,
-    });
   },
 
   async endSession(reason = 'completed') {

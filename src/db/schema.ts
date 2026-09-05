@@ -267,6 +267,11 @@ export const SCHEMA_V6_ADDITIONS: string[] = [
   `CREATE INDEX IF NOT EXISTS idx_session_source ON session(source_session_id)`,
 ];
 
+// v7 — 보강 복습 로그와 FSRS 재스케줄 로그를 구분한다.
+export const SCHEMA_V7_ADDITIONS: string[] = [
+  `ALTER TABLE review_log ADD COLUMN scheduling_applied INTEGER NOT NULL DEFAULT 1 CHECK (scheduling_applied IN (0,1))`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
@@ -295,8 +300,19 @@ export function migrationsTo(targetVersion: number): string[] {
       ...SCHEMA_V6_ADDITIONS,
     ];
   }
+  if (targetVersion === 7) {
+    return [
+      ...SCHEMA_V1,
+      ...SCHEMA_V2_ADDITIONS,
+      ...SCHEMA_V3_ADDITIONS,
+      ...SCHEMA_V4_ADDITIONS,
+      ...SCHEMA_V5_ADDITIONS,
+      ...SCHEMA_V6_ADDITIONS,
+      ...SCHEMA_V7_ADDITIONS,
+    ];
+  }
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 6;
+export const CURRENT_SCHEMA_VERSION = 7;

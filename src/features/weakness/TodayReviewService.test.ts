@@ -21,11 +21,12 @@ function word(id: string, level: JlptLevel = 'N5'): Word {
   };
 }
 
-function userCard(id: string): UserCard {
+function userCard(id: string, patch: Partial<UserCard> = {}): UserCard {
   return {
     word_id: id, difficulty: 5, stability: 3, scheduled_days: 1, elapsed_days: 1,
     reps: 1, lapses: 0, last_review: NOW - 10_000, due: NOW, state: 'review',
     note: null, leech: 0,
+    ...patch,
   };
 }
 
@@ -52,7 +53,7 @@ async function build() {
   await logs.insert(log('other-session', Grade.Again, 99));
   const sessions = new InMemorySessionRepo();
   const service = new TodayReviewService(logs, users, cards, sessions, new FsrsScheduler(), () => NOW);
-  return { service, logs, sessions };
+  return { service, logs, sessions, users };
 }
 
 describe('TodayReviewService', () => {
@@ -73,6 +74,27 @@ describe('TodayReviewService', () => {
     const reviewSessionId = await service.startSession(10, queue.length);
     await service.gradeCard(queue[0]!, Grade.Good, 1200, reviewSessionId);
     expect((await logs.findBySession(reviewSessionId))[0]).toMatchObject({ word_id: 'again-1', reveal_ms: 1200 });
+  });
+
+  it('keeps the next-day schedule when reviewing Again cards immediately', async () => {
+    const { service, logs, users } = await build();
+    const before = userCard('again-1', {
+      due: NOW + 86_400_000,
+      scheduled_days: 1,
+      stability: 2.5,
+    });
+    await users.upsert(before);
+    const queue = await service.getQueue(10, ['N5']);
+    const reviewSessionId = await service.startSession(10, queue.length);
+
+    await service.gradeCard(queue[0]!, Grade.Good, 1200, reviewSessionId);
+
+    expect(await users.findById('again-1')).toEqual(before);
+    expect((await logs.findBySession(reviewSessionId))[0]).toMatchObject({
+      scheduling_applied: 0,
+      scheduled_days: 1,
+      stability_after: 2.5,
+    });
   });
 
   it('completes and abandons review sessions with their processed counts', async () => {

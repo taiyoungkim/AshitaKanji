@@ -15,6 +15,7 @@ import { migrateToV3 } from './migrations/v3';
 import { migrateToV4 } from './migrations/v4';
 import { migrateToV5 } from './migrations/v5';
 import { migrateToV6 } from './migrations/v6';
+import { migrateToV7 } from './migrations/v7';
 import { remapLegacyWordIds } from './remapLegacyWordIds';
 import {
   remapSuccessorWordIds,
@@ -569,6 +570,9 @@ async function runMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
   }
   if (current < 6) {
     await migrateToV6(db);
+  }
+  if (current < 7) {
+    await migrateToV7(db);
   }
 
   const after = await getSchemaVersion(db);

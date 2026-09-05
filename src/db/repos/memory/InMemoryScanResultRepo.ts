@@ -19,6 +19,12 @@ export class InMemoryScanResultRepo implements ScanResultRepo {
     return this.rows.filter((r) => r.session_id === sessionId);
   }
 
+  async findAll(): Promise<ScanResultRecord[]> {
+    return [...this.rows].sort(
+      (a, b) => a.scanned_at - b.scanned_at || (a.id ?? 0) - (b.id ?? 0),
+    );
+  }
+
   async findUnpromotedWeak(): Promise<ScanResultRecord[]> {
     return this.rows
       .filter(

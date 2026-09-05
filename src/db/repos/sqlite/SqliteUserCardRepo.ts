@@ -58,11 +58,14 @@ export class SqliteUserCardRepo implements UserCardRepo {
     return rows.map(rowToUserCard);
   }
 
-  async existingWordIds(): Promise<string[]> {
-    const rows = await this.db.getAllAsync<{ word_id: string }>(
-      `SELECT word_id FROM user_card`,
+  async findPendingNew(nowMs: number): Promise<UserCard[]> {
+    const rows = await this.db.getAllAsync<UserCardRow>(
+      `SELECT * FROM user_card
+       WHERE state = 'new' AND due <= ?
+       ORDER BY due ASC, word_id ASC`,
+      [nowMs],
     );
-    return rows.map((r) => r.word_id);
+    return rows.map(rowToUserCard);
   }
 
   async upsert(card: UserCard): Promise<void> {
@@ -118,7 +121,10 @@ export class SqliteUserCardRepo implements UserCardRepo {
     const row = await this.db.getFirstAsync<{ n: number }>(
       `SELECT COUNT(*) AS n
        FROM user_card uc JOIN word w ON w.id = uc.word_id
-       WHERE w.level = ? AND uc.stability >= ?`,
+       WHERE w.level = ?
+         AND w.qa_status = 'verified'
+         AND w.deprecated = 0
+         AND uc.stability >= ?`,
       [level, MATURE_STABILITY_DAYS],
     );
     return row?.n ?? 0;
@@ -128,7 +134,9 @@ export class SqliteUserCardRepo implements UserCardRepo {
     const row = await this.db.getFirstAsync<{ n: number }>(
       `SELECT COUNT(*) AS n
        FROM user_card uc JOIN word w ON w.id = uc.word_id
-       WHERE w.level = ?`,
+       WHERE w.level = ?
+         AND w.qa_status = 'verified'
+         AND w.deprecated = 0`,
       [level],
     );
     return row?.n ?? 0;

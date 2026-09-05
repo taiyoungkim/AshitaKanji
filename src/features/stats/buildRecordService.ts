@@ -4,6 +4,7 @@ import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteDailyStatsRepo } from '~/db/repos/sqlite/SqliteDailyStatsRepo';
 import { SqliteReviewLogRepo } from '~/db/repos/sqlite/SqliteReviewLogRepo';
+import { SqliteScanResultRepo } from '~/db/repos/sqlite/SqliteScanResultRepo';
 import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
 import { RecordService } from './RecordService';
@@ -20,6 +21,7 @@ export async function buildRecordService(): Promise<RecordService> {
     new SqliteDailyStatsRepo(db),
     new SqliteCardRepo(db),
     new SqliteUserCardRepo(db),
+    new SqliteScanResultRepo(db),
   );
   return new RecordService(sessions, reviewLogs, rollup);
 }

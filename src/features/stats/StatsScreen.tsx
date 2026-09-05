@@ -263,6 +263,18 @@ function RecordBody({
               icon={<IconStudy size={22} color={colors.body} />}
             />
           </View>
+          <View style={styles.tileRow}>
+            <StatTile
+              label="빠른 훑기"
+              value={totals.scans}
+              icon={<Text style={styles.kanaIcon}>速</Text>}
+            />
+            <StatTile
+              label="SRS 편입"
+              value={totals.scanPromoted}
+              icon={<Text style={styles.kanaIcon}>＋</Text>}
+            />
+          </View>
         </View>
       </StaggerCard>
 

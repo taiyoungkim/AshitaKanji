@@ -1,6 +1,6 @@
 // Design Ref: §8 Test Plan — WeaknessService.
 // 핵심: 약점 큐 = leech + 최근 7일 Again + reveal_ms 평균>8초 + scan 미편입.
-//       7일 지난 Again 제외, 빠른 reveal 제외. gradeCard 재스케줄/promoted 마킹.
+//       7일 지난 Again 제외, 빠른 reveal 제외. due만 재스케줄하고 미래 due는 보존.
 
 import { describe, expect, it } from 'vitest';
 import { InMemoryCardRepo } from '~/db/repos/memory/InMemoryCardRepo';
@@ -164,6 +164,37 @@ describe('WeaknessService', () => {
     expect(after?.reps).toBe(4); // 재스케줄됨
     const logs = await logRepo.findAll();
     expect(logs.some((l) => l.word_id === 'again' && l.reveal_ms === 3000)).toBe(true);
+  });
+
+  it('records supplemental practice without changing a future FSRS schedule', async () => {
+    const before = uc('future', {
+      due: NOW + 10 * DAY,
+      scheduled_days: 10,
+      stability: 12,
+      difficulty: 4.5,
+      reps: 5,
+      last_review: NOW - DAY,
+    });
+    const { svc, userCardRepo, logRepo } = await build({
+      words: [word('future')],
+      userCards: [before],
+      logs: [log({ word_id: 'future', reviewed_at: NOW - DAY, grade: Grade.Again })],
+    });
+    const q = await svc.getWeaknessQueue(['N5'], 50);
+
+    await svc.gradeCard(q[0]!, Grade.Good, 3000);
+
+    expect(await userCardRepo.findById('future')).toEqual(before);
+    expect((await logRepo.findAll()).at(-1)).toMatchObject({
+      word_id: 'future',
+      grade: Grade.Good,
+      state_before: 'review',
+      state_after: 'review',
+      scheduled_days: 10,
+      stability_after: 12,
+      difficulty_after: 4.5,
+      scheduling_applied: 0,
+    });
   });
 
   it('gradeCard on scan-only card marks scan promoted (no re-appear)', async () => {

@@ -62,6 +62,13 @@ export class SqliteScanResultRepo implements ScanResultRepo {
     return rows.map(rowToRec);
   }
 
+  async findAll(): Promise<ScanResultRecord[]> {
+    const rows = await this.db.getAllAsync<ScanResultRow>(
+      `SELECT * FROM scan_result ORDER BY scanned_at ASC, id ASC`,
+    );
+    return rows.map(rowToRec);
+  }
+
   async findUnpromotedWeak(): Promise<ScanResultRecord[]> {
     const rows = await this.db.getAllAsync<ScanResultRow>(
       `SELECT * FROM scan_result

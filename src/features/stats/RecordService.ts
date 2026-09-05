@@ -109,6 +109,8 @@ export class RecordService {
       totals: {
         learnedWords: overall.totalNew,
         reviews: overall.totalReview,
+        scans: overall.totalScan,
+        scanPromoted: overall.totalScanPromoted,
         again: overall.totalAgain,
         completedSessions: completed.length,
       } satisfies RecordTotals,

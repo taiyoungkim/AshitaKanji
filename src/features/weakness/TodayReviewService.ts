@@ -5,6 +5,8 @@ import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import type { FsrsScheduler } from '~/srs/FsrsScheduler';
 import type { CardWithProgress, JlptLevel } from '~/types/Card';
 import { Grade } from '~/types/Grade';
+import { RepositoryReviewWriter, type ReviewWriter } from '~/db/repos/ReviewWriter';
+import { createSupplementalReviewLog } from './supplementalReview';
 
 export class TodayReviewService {
   constructor(
@@ -14,6 +16,10 @@ export class TodayReviewService {
     private readonly sessions: SessionRepo,
     private readonly scheduler: FsrsScheduler,
     private readonly now: () => number = Date.now,
+    private readonly reviewWriter: ReviewWriter = new RepositoryReviewWriter(
+      userCards,
+      reviewLogs,
+    ),
   ) {}
 
   /** 정규 학습 세션에서 `아직이에요`(Again)로 표시한 단어만 원래 순서대로 반환한다. */
@@ -66,12 +72,19 @@ export class TodayReviewService {
     reviewSessionId: number,
   ): Promise<void> {
     const now = this.now();
-    const base = card.userCard ?? this.scheduler.initNew(card.word.id, now);
+    const existing = card.userCard;
+    if (existing && existing.due > now) {
+      await this.reviewLogs.insert(
+        createSupplementalReviewLog(existing, grade, now, revealMs, reviewSessionId),
+      );
+      return;
+    }
+
+    const base = existing ?? this.scheduler.initNew(card.word.id, now);
     const { next, log } = this.scheduler.review(base, grade, now);
     log.reveal_ms = revealMs;
     log.session_id = reviewSessionId;
-    await this.userCards.upsert(next);
-    await this.reviewLogs.insert(log);
+    await this.reviewWriter.save(next, log);
   }
 
   async completeSession(reviewSessionId: number, reviewedCount: number): Promise<void> {

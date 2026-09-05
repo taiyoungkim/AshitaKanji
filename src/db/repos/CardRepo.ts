@@ -10,7 +10,6 @@ export interface CardRepo {
   findNewCandidates(
     levels: JlptLevel[],
     limit: number,
-    excludeWordIds: string[],
   ): Promise<Word[]>;
   /** 레벨별 출제 가능 단어 수 (deprecated 제외, qa_status='verified'). 진행도 분모. */
   countByLevel(level: JlptLevel): Promise<number>;

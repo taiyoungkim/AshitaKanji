@@ -6,7 +6,7 @@ export interface DailyStats {
   date: string; // 로컬 YYYY-MM-DD
   new_count: number;
   review_count: number;
-  scan_count: number; // module-5 (미구현) — MVP 0.
+  scan_count: number; // 빠른 훑기에서 분류한 카드 수
   scan_promoted_count: number;
   again_count: number;
   good_easy_count: number;

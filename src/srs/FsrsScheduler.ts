@@ -23,7 +23,17 @@ function toFsrsGrade(grade: Grade): FsrsGrade {
 export class FsrsScheduler {
   private readonly fsrs: FSRS;
 
-  constructor(params: FSRSParameters = generatorParameters({ enable_fuzz: true })) {
+  constructor(
+    params: FSRSParameters = generatorParameters({
+      // Onikan is a once-a-day study flow. Short-term mode schedules a new
+      // Good card again in 10 minutes, but the app has no intraday learning
+      // queue, so that step used to spill into the next day as overdue work.
+      enable_short_term: false,
+      enable_fuzz: true,
+      request_retention: 0.9,
+      maximum_interval: 36_500,
+    }),
+  ) {
     this.fsrs = fsrs(params);
   }
 
@@ -61,6 +71,7 @@ export class FsrsScheduler {
       difficulty_after: next.difficulty,
       reveal_ms: null,
       session_id: null,
+      scheduling_applied: 1,
     };
     return { next, log };
   }

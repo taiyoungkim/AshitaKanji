@@ -5,11 +5,13 @@ import { describe, expect, it } from 'vitest';
 import { InMemoryCardRepo } from '~/db/repos/memory/InMemoryCardRepo';
 import { InMemoryDailyStatsRepo } from '~/db/repos/memory/InMemoryDailyStatsRepo';
 import { InMemoryReviewLogRepo } from '~/db/repos/memory/InMemoryReviewLogRepo';
+import { InMemoryScanResultRepo } from '~/db/repos/memory/InMemoryScanResultRepo';
 import { InMemorySessionRepo } from '~/db/repos/memory/InMemorySessionRepo';
 import { InMemoryUserCardRepo } from '~/db/repos/memory/InMemoryUserCardRepo';
 import type { JlptLevel, UserCard, Word } from '~/types/Card';
 import type { ReviewLogRecord } from '~/types/ReviewLog';
 import type { SessionRecord } from '~/types/Session';
+import type { ScanResultRecord } from '~/types/ScanResult';
 import { Grade } from '~/types/Grade';
 import { StatsRollupService, dayKey } from './StatsRollupService';
 
@@ -51,6 +53,7 @@ function session(partial: Partial<SessionRecord> & { started_at: number }): Sess
 async function buildService(opts?: {
   logs?: ReviewLogRecord[];
   sessions?: SessionRecord[];
+  scans?: ScanResultRecord[];
   userCards?: UserCard[];
   wordLevels?: Map<string, JlptLevel>;
   words?: Word[];
@@ -60,9 +63,18 @@ async function buildService(opts?: {
   const sessionRepo = new InMemorySessionRepo();
   for (const s of opts?.sessions ?? []) await sessionRepo.create(s);
   const dailyRepo = new InMemoryDailyStatsRepo();
+  const scanRepo = new InMemoryScanResultRepo();
+  for (const scan of opts?.scans ?? []) await scanRepo.record(scan);
   const cardRepo = new InMemoryCardRepo(opts?.words ?? []);
   const userCardRepo = new InMemoryUserCardRepo(opts?.userCards ?? [], opts?.wordLevels);
-  const svc = new StatsRollupService(logRepo, sessionRepo, dailyRepo, cardRepo, userCardRepo);
+  const svc = new StatsRollupService(
+    logRepo,
+    sessionRepo,
+    dailyRepo,
+    cardRepo,
+    userCardRepo,
+    scanRepo,
+  );
   return { svc, dailyRepo };
 }
 
@@ -100,6 +112,34 @@ describe('StatsRollupService.rollup', () => {
     expect(row!.again_count).toBe(1);
     expect(row!.good_easy_count).toBe(2);
     expect(row!.avg_reveal_ms).toBe(1000);
+  });
+
+  it('aggregates scans and SRS promotions from scan_result by local day', async () => {
+    const d20 = day(2026, 5, 20);
+    const d21 = day(2026, 5, 21);
+    const scans: ScanResultRecord[] = [
+      { word_id: 'a', scanned_at: d20, result: 'known', batch_size: 50, promoted_to_srs: 0, session_id: 1 },
+      { word_id: 'b', scanned_at: d20 + 1_000, result: 'unknown', batch_size: 50, promoted_to_srs: 1, session_id: 1 },
+      { word_id: 'c', scanned_at: d20 + 2_000, result: 'confused', batch_size: 50, promoted_to_srs: 1, session_id: 1 },
+      { word_id: 'd', scanned_at: d21, result: 'later', batch_size: 50, promoted_to_srs: 0, session_id: 2 },
+    ];
+    const { svc, dailyRepo } = await buildService({ scans });
+
+    await svc.rollup();
+    await svc.rollup();
+
+    expect(await dailyRepo.findByDate(dayKey(d20))).toMatchObject({
+      scan_count: 3,
+      scan_promoted_count: 2,
+    });
+    expect(await dailyRepo.findByDate(dayKey(d21))).toMatchObject({
+      scan_count: 1,
+      scan_promoted_count: 0,
+    });
+    expect(await svc.getOverall()).toMatchObject({
+      totalScan: 4,
+      totalScanPromoted: 2,
+    });
   });
 });
 

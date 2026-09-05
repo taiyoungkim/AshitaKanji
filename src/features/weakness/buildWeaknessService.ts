@@ -5,6 +5,7 @@ import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteReviewLogRepo } from '~/db/repos/sqlite/SqliteReviewLogRepo';
 import { SqliteScanResultRepo } from '~/db/repos/sqlite/SqliteScanResultRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
+import { SqliteReviewWriter } from '~/db/repos/sqlite/SqliteReviewWriter';
 import { FsrsScheduler } from '~/srs/FsrsScheduler';
 import { WeaknessService } from './WeaknessService';
 
@@ -17,5 +18,7 @@ export async function buildWeaknessService(): Promise<WeaknessService> {
     new SqliteScanResultRepo(db),
     new SqliteCardRepo(db),
     new FsrsScheduler(),
+    Date.now,
+    new SqliteReviewWriter(db),
   );
 }

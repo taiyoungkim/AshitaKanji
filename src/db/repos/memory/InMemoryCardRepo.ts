@@ -4,7 +4,11 @@ import type { JlptLevel, Word } from '~/types/Card';
 import type { CardRepo } from '../CardRepo';
 
 export class InMemoryCardRepo implements CardRepo {
-  constructor(private words: Word[] = []) {}
+  constructor(
+    private words: Word[] = [],
+    /** SQLite의 user_card NOT EXISTS 조건을 흉내 내는 테스트용 조회 함수. */
+    private readonly hasUserCard: (wordId: string) => boolean = () => false,
+  ) {}
 
   seed(words: Word[]): void {
     this.words = words;
@@ -22,9 +26,7 @@ export class InMemoryCardRepo implements CardRepo {
   async findNewCandidates(
     levels: JlptLevel[],
     limit: number,
-    excludeWordIds: string[],
   ): Promise<Word[]> {
-    const exclude = new Set(excludeWordIds);
     const lv = new Set(levels);
     return this.words
       .filter(
@@ -32,7 +34,7 @@ export class InMemoryCardRepo implements CardRepo {
           lv.has(w.level) &&
           w.deprecated === 0 &&
           w.qa_status === 'verified' &&
-          !exclude.has(w.id),
+          !this.hasUserCard(w.id),
       )
       .slice(0, limit);
   }

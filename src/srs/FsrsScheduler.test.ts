@@ -7,6 +7,7 @@ import { Grade } from '~/types/Grade';
 import { FsrsScheduler } from './FsrsScheduler';
 
 const NOW = Date.UTC(2026, 0, 1, 0, 0, 0); // 결정적 기준 시각
+const DAY = 86_400_000;
 const sched = new FsrsScheduler(generatorParameters({ enable_fuzz: false }));
 
 describe('initNew', () => {
@@ -22,6 +23,69 @@ describe('initNew', () => {
 });
 
 describe('review — 등급별 due 간격', () => {
+  it('matches the pinned FSRS-6 initial intervals with fuzz disabled', () => {
+    const fsrs6 = new FsrsScheduler(generatorParameters({
+      enable_fuzz: false,
+      enable_short_term: false,
+      request_retention: 0.9,
+      maximum_interval: 36_500,
+    }));
+    const intervals = [Grade.Again, Grade.Hard, Grade.Good, Grade.Easy].map(
+      (grade) => fsrs6.review(fsrs6.initNew(`grade-${grade}`, NOW), grade, NOW)
+        .next.scheduled_days,
+    );
+
+    expect(intervals).toEqual([1, 2, 3, 8]);
+  });
+
+  it('uses the pinned FSRS-6 Good sequence for daily reviews', () => {
+    const fsrs6 = new FsrsScheduler(generatorParameters({
+      enable_fuzz: false,
+      enable_short_term: false,
+    }));
+    let card = fsrs6.initNew('sequence', NOW);
+    const intervals: number[] = [];
+    let reviewedAt = NOW;
+    for (let index = 0; index < 3; index += 1) {
+      card = fsrs6.review(card, Grade.Good, reviewedAt).next;
+      intervals.push(card.scheduled_days);
+      reviewedAt = card.due;
+    }
+
+    expect(intervals).toEqual([3, 14, 57]);
+  });
+
+  it('uses long-term scheduling by default for the once-a-day study flow', () => {
+    const dailySched = new FsrsScheduler();
+    const again = dailySched.review(dailySched.initNew('again', NOW), Grade.Again, NOW).next;
+    const good = dailySched.review(dailySched.initNew('good', NOW), Grade.Good, NOW).next;
+
+    expect(again.state).toBe('review');
+    expect(again.due).toBeGreaterThanOrEqual(NOW + DAY);
+    expect(good.state).toBe('review');
+    expect(good.due).toBeGreaterThanOrEqual(NOW + 2 * DAY);
+  });
+
+  it('graduates a legacy short-term learning card on its next answer', () => {
+    const shortTerm = new FsrsScheduler(
+      generatorParameters({ enable_fuzz: false, enable_short_term: true }),
+    );
+    const legacyLearning = shortTerm.review(
+      shortTerm.initNew('legacy', NOW),
+      Grade.Good,
+      NOW,
+    ).next;
+
+    expect(legacyLearning.state).toBe('learning');
+
+    const migrated = new FsrsScheduler(
+      generatorParameters({ enable_fuzz: false, enable_short_term: false }),
+    ).review(legacyLearning, Grade.Good, legacyLearning.due).next;
+
+    expect(migrated.state).toBe('review');
+    expect(migrated.scheduled_days).toBeGreaterThanOrEqual(1);
+  });
+
   it('Easy due > Good due > Hard due (longer interval for higher grade)', () => {
     const base = sched.initNew('w', NOW);
     const again = sched.review(base, Grade.Again, NOW).next;

@@ -83,6 +83,8 @@ function makeService(sessions: SessionRecord[], logs: ReviewLogRecord[], counts:
         studyDays: 3,
         totalNew: 42,
         totalReview: 17,
+        totalScan: 120,
+        totalScanPromoted: 18,
         totalAgain: 5,
         totalGoodEasy: 40,
         totalTimeSec: 600,
@@ -162,6 +164,8 @@ describe('RecordService.load', () => {
     expect(snap.totals).toEqual({
       learnedWords: 42,
       reviews: 17,
+      scans: 120,
+      scanPromoted: 18,
       again: 5,
       completedSessions: 1,
     });
@@ -207,6 +211,8 @@ describe('RecordService.load', () => {
           studyDays: 0,
           totalNew: 0,
           totalReview: 0,
+          totalScan: 0,
+          totalScanPromoted: 0,
           totalAgain: 0,
           totalGoodEasy: 0,
           totalTimeSec: 0,

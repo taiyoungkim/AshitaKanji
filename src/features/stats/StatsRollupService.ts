@@ -11,6 +11,7 @@ import type { CardRepo } from '~/db/repos/CardRepo';
 import type { DailyStatsRepo } from '~/db/repos/DailyStatsRepo';
 import type { ReviewLogRepo } from '~/db/repos/ReviewLogRepo';
 import type { SessionRepo } from '~/db/repos/SessionRepo';
+import type { ScanResultRepo } from '~/db/repos/ScanResultRepo';
 import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import { Grade } from '~/types/Grade';
 
@@ -59,6 +60,8 @@ export interface OverallStats {
   studyDays: number; // 학습 기록이 있는 날 수
   totalNew: number;
   totalReview: number;
+  totalScan: number;
+  totalScanPromoted: number;
   totalAgain: number;
   totalGoodEasy: number;
   totalTimeSec: number;
@@ -73,12 +76,16 @@ export class StatsRollupService {
     private readonly dailyStatsRepo: DailyStatsRepo,
     private readonly cardRepo: CardRepo,
     private readonly userCardRepo: UserCardRepo,
+    private readonly scanResultRepo: ScanResultRepo,
   ) {}
 
   /** review_log + session 원천에서 daily_stats 전량 재집계 (idempotent). */
   async rollup(): Promise<void> {
-    const logs = await this.reviewLogRepo.findAll();
-    const sessions = await this.sessionRepo.findAll();
+    const [logs, sessions, scanResults] = await Promise.all([
+      this.reviewLogRepo.findAll(),
+      this.sessionRepo.findAll(),
+      this.scanResultRepo.findAll(),
+    ]);
 
     const buckets = new Map<string, ReturnType<typeof blank>>();
     const bucket = (date: string) => {
@@ -102,6 +109,12 @@ export class StatsRollupService {
         b._revealSum += l.reveal_ms;
         b._revealN += 1;
       }
+    }
+
+    for (const result of scanResults) {
+      const b = bucket(dayKey(result.scanned_at));
+      b.scan_count += 1;
+      if (result.promoted_to_srs === 1) b.scan_promoted_count += 1;
     }
 
     for (const s of sessions) {
@@ -158,6 +171,8 @@ export class StatsRollupService {
     const all = await this.dailyStatsRepo.findAll();
     let totalNew = 0;
     let totalReview = 0;
+    let totalScan = 0;
+    let totalScanPromoted = 0;
     let totalAgain = 0;
     let totalGoodEasy = 0;
     let totalTimeSec = 0;
@@ -167,6 +182,8 @@ export class StatsRollupService {
       if (active) studyDays += 1;
       totalNew += d.new_count;
       totalReview += d.review_count;
+      totalScan += d.scan_count;
+      totalScanPromoted += d.scan_promoted_count;
       totalAgain += d.again_count;
       totalGoodEasy += d.good_easy_count;
       totalTimeSec += d.total_time_sec;
@@ -176,6 +193,8 @@ export class StatsRollupService {
       studyDays,
       totalNew,
       totalReview,
+      totalScan,
+      totalScanPromoted,
       totalAgain,
       totalGoodEasy,
       totalTimeSec,

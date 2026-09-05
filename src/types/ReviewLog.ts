@@ -26,4 +26,6 @@ export interface ReviewLogRecord {
   difficulty_after: number;
   reveal_ms: number | null;    // null if user did not tap reveal (e.g., Again immediately)
   session_id: number | null;
+  /** 1: FSRS 상태를 갱신한 정식 복습, 0: 기존 일정을 보존한 보강 복습. */
+  scheduling_applied?: 0 | 1;
 }

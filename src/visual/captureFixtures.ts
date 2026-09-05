@@ -64,11 +64,9 @@ function seedStudyStore(revealed: boolean): void {
     sessionId: 9001,
     phase: 'main',
     mainQueue: Array.from({ length: 10 }, () => studyCard),
-    againQueue: [],
     currentIndex: 0,
     doneNew: 0,
     doneReview: 0,
-    againSubmissions: new Map(),
     startedAtMs: VISUAL_NOW_MS,
   };
   useSessionStore.setState({

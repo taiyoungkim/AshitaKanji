@@ -19,6 +19,7 @@ interface ReviewLogRow {
   difficulty_after: number;
   reveal_ms: number | null;
   session_id: number | null;
+  scheduling_applied: number;
 }
 
 function rowToLog(r: ReviewLogRow): ReviewLogRecord {
@@ -35,6 +36,7 @@ function rowToLog(r: ReviewLogRow): ReviewLogRecord {
     difficulty_after: r.difficulty_after,
     reveal_ms: r.reveal_ms,
     session_id: r.session_id,
+    scheduling_applied: r.scheduling_applied === 0 ? 0 : 1,
   };
 }
 
@@ -46,8 +48,8 @@ export class SqliteReviewLogRepo implements ReviewLogRepo {
       `INSERT INTO review_log
         (word_id, reviewed_at, grade, state_before, state_after,
          scheduled_days, elapsed_days, stability_after, difficulty_after,
-         reveal_ms, session_id)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         reveal_ms, session_id, scheduling_applied)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         log.word_id,
         log.reviewed_at,
@@ -60,6 +62,7 @@ export class SqliteReviewLogRepo implements ReviewLogRepo {
         log.difficulty_after,
         log.reveal_ms ?? null,
         log.session_id ?? null,
+        log.scheduling_applied ?? 1,
       ],
     );
     return res.lastInsertRowId;

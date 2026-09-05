@@ -7,8 +7,10 @@ import { InMemoryCardRepo } from '~/db/repos/memory/InMemoryCardRepo';
 import { InMemoryScanResultRepo } from '~/db/repos/memory/InMemoryScanResultRepo';
 import { InMemorySessionRepo } from '~/db/repos/memory/InMemorySessionRepo';
 import { InMemoryUserCardRepo } from '~/db/repos/memory/InMemoryUserCardRepo';
+import { InMemoryReviewLogRepo } from '~/db/repos/memory/InMemoryReviewLogRepo';
 import { FsrsScheduler } from '~/srs/FsrsScheduler';
 import type { CardType, JlptLevel, Word } from '~/types/Card';
+import { SessionEngine } from '~/features/study/SessionEngine';
 import { ScanService, SCAN_RECOMMEND_MAX } from './ScanService';
 
 function word(id: string, level: JlptLevel = 'N5'): Word {
@@ -39,9 +41,9 @@ function word(id: string, level: JlptLevel = 'N5'): Word {
 }
 
 function build(words: Word[], now = 1_700_000_000_000) {
-  const cardRepo = new InMemoryCardRepo(words);
-  const scanRepo = new InMemoryScanResultRepo();
   const userCardRepo = new InMemoryUserCardRepo();
+  const cardRepo = new InMemoryCardRepo(words, (wordId) => userCardRepo.has(wordId));
+  const scanRepo = new InMemoryScanResultRepo();
   const sessionRepo = new InMemorySessionRepo();
   const svc = new ScanService(
     cardRepo,
@@ -51,7 +53,7 @@ function build(words: Word[], now = 1_700_000_000_000) {
     new FsrsScheduler(),
     () => now,
   );
-  return { svc, scanRepo, userCardRepo, sessionRepo };
+  return { svc, cardRepo, scanRepo, userCardRepo, sessionRepo };
 }
 
 describe('ScanService', () => {
@@ -106,6 +108,32 @@ describe('ScanService', () => {
 
     const weak = await scanRepo.findUnpromotedWeak();
     expect(weak).toHaveLength(0); // 둘 다 promoted
+  });
+
+  it('puts promoted cards in the next study session within the daily new limit', async () => {
+    const words = [word('promoted-a'), word('promoted-b'), word('fresh')];
+    const { svc, cardRepo, userCardRepo, sessionRepo } = build(words);
+    await svc.startScan(['N5'], 50);
+    await svc.submitScanGrade('promoted-a', 'unknown');
+    await svc.submitScanGrade('promoted-b', 'confused');
+    await svc.endScan();
+    await svc.promoteToSrs(['promoted-a', 'promoted-b']);
+
+    const engine = new SessionEngine(
+      cardRepo,
+      userCardRepo,
+      new InMemoryReviewLogRepo(),
+      sessionRepo,
+      new FsrsScheduler(),
+      (items) => [...items],
+    );
+    const session = await engine.start(
+      { levels: ['N5'], dailyNewLimit: 1, highIntensityAcknowledged: false },
+      1_700_000_000_000,
+    );
+
+    expect(session.mainQueue.map((card) => card.word.id)).toEqual(['promoted-a']);
+    expect(session.mainQueue[0]?.userCard?.state).toBe('new');
   });
 
   it('records session as scan mode and closes it on endScan', async () => {

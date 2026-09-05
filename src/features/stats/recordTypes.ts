@@ -24,6 +24,8 @@ export interface WeekDayActivity {
 export interface RecordTotals {
   learnedWords: number;
   reviews: number;
+  scans: number;
+  scanPromoted: number;
   again: number;
   completedSessions: number;
 }

@@ -24,8 +24,15 @@ export class InMemoryUserCardRepo implements UserCardRepo {
       .sort((a, b) => a.due - b.due);
   }
 
-  async existingWordIds(): Promise<string[]> {
-    return [...this.map.keys()];
+  async findPendingNew(nowMs: number): Promise<UserCard[]> {
+    return [...this.map.values()]
+      .filter((c) => c.state === 'new' && c.due <= nowMs)
+      .sort((a, b) => a.due - b.due || a.word_id.localeCompare(b.word_id));
+  }
+
+  /** InMemoryCardRepo가 SQLite NOT EXISTS 계약을 흉내 내기 위한 테스트 헬퍼. */
+  has(wordId: string): boolean {
+    return this.map.has(wordId);
   }
 
   async upsert(card: UserCard): Promise<void> {

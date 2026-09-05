@@ -44,6 +44,9 @@ export function toFsrsCard(u: UserCard): FsrsCard {
     difficulty: u.difficulty,
     elapsed_days: u.elapsed_days,
     scheduled_days: u.scheduled_days,
+    // 일일형 정책(enable_short_term=false)은 단계 학습을 사용하지 않는다.
+    // v4 DB 카드에는 이 v5 필드가 없으므로 항상 0에서 안전하게 시작한다.
+    learning_steps: 0,
     reps: u.reps,
     lapses: u.lapses,
     state: STR_TO_STATE[u.state],

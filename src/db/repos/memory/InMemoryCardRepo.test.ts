@@ -20,26 +20,26 @@ function w(id: string, level: JlptLevel, over: Partial<Word> = {}): Word {
   };
 }
 
-const repo = () =>
+const repo = (existing: ReadonlySet<string> = new Set()) =>
   new InMemoryCardRepo([
     w('a', 'N5'),
     w('b', 'N5'),
     w('c', 'N5', { deprecated: 1 }),
     w('d', 'N5', { qa_status: 'needs_review' }),
     w('e', 'N4'),
-  ]);
+  ], (wordId) => existing.has(wordId));
 
 describe('InMemoryCardRepo.findNewCandidates', () => {
   it('excludes deprecated and non-verified rows', async () => {
-    const r = await repo().findNewCandidates(['N5'], 10, []);
+    const r = await repo().findNewCandidates(['N5'], 10);
     expect(r.map((x) => x.id).sort()).toEqual(['a', 'b']);
   });
-  it('honours level filter and excludeWordIds', async () => {
-    const r = await repo().findNewCandidates(['N5'], 10, ['a']);
+  it('honours level filter and excludes words with user_card rows', async () => {
+    const r = await repo(new Set(['a'])).findNewCandidates(['N5'], 10);
     expect(r.map((x) => x.id)).toEqual(['b']);
   });
   it('respects limit', async () => {
-    const r = await repo().findNewCandidates(['N5', 'N4'], 1, []);
+    const r = await repo().findNewCandidates(['N5', 'N4'], 1);
     expect(r).toHaveLength(1);
   });
 });
