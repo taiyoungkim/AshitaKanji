@@ -2,7 +2,7 @@
 
 import { describe, expect, it } from 'vitest';
 import type { JlptLevel, Word } from '~/types/Card';
-import { chapterStatus, isChapterComplete, pickCurrentChapter } from '~/types/Reading';
+import { chapterStatus, isChapterComplete, pickCurrentChapter, resolveCurrentChapter } from '~/types/Reading';
 import { InMemoryReadingProgressRepo } from './InMemoryReadingProgressRepo';
 
 function w(id: string, chapter: number, level: JlptLevel = 'N5'): Word {
@@ -96,5 +96,28 @@ describe('pickCurrentChapter', () => {
 
   it('챕터가 없으면 null 이다', () => {
     expect(pickCurrentChapter([])).toBeNull();
+  });
+});
+
+describe('resolveCurrentChapter', () => {
+  const stat = (chapter: number, known: number, total = 2) => ({
+    level: 'N5' as const,
+    chapter,
+    total,
+    covered: total,
+    known,
+  });
+
+  it('기억한 챕터가 미완료면 그 챕터를 이어서 연다', () => {
+    expect(resolveCurrentChapter([stat(1, 1), stat(2, 0), stat(3, 0)], 2)?.chapter).toBe(2);
+  });
+
+  it('기억한 챕터를 끝냈으면 첫 미완료 챕터로 넘어간다', () => {
+    expect(resolveCurrentChapter([stat(1, 2), stat(2, 1)], 1)?.chapter).toBe(2);
+  });
+
+  it('기억이 없거나 목록에 없는 챕터면 첫 미완료 챕터를 준다', () => {
+    expect(resolveCurrentChapter([stat(1, 2), stat(2, 1)], undefined)?.chapter).toBe(2);
+    expect(resolveCurrentChapter([stat(1, 2), stat(2, 1)], 9)?.chapter).toBe(2);
   });
 });

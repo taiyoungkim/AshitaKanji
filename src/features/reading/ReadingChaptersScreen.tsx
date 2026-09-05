@@ -11,10 +11,11 @@ import { IconCheck, IconChevron } from '~/design/icons';
 import { recipeImage } from '~/features/onigiri/recipeAssets';
 import { HTML_FLOW_PAGE, cardShadow, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { MainTabBar } from '~/components/MainTabBar';
+import { useSettingsStore } from '~/stores/SettingsStore';
 import { useTheme, useThemedStyles } from '~/design/theme';
 
 import type { JlptLevel } from '~/types/Card';
-import { chapterStatus, isChapterComplete, pickCurrentChapter, type ChapterStat } from '~/types/Reading';
+import { chapterStatus, isChapterComplete, resolveCurrentChapter, type ChapterStat } from '~/types/Reading';
 import { countReadingPasses, loadLevelChapterStats } from './buildReadingEngine';
 import { ArcGauge } from './components/ArcGauge';
 import { isVisualCaptureEnabled } from '~/visual/captureFixtures';
@@ -26,7 +27,12 @@ export default function ReadingChaptersScreen(): React.ReactNode {
   const { colors, name } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const router = useRouter();
-  const [level, setLevel] = useState<JlptLevel>('N5');
+  // 레벨은 영속 — 홈을 거쳐 재진입해도 마지막 회독 레벨을 이어간다.
+  const level = useSettingsStore((s) => s.readingLevel);
+  const setLevel = useSettingsStore((s) => s.setReadingLevel);
+  const savedChapter = useSettingsStore((s) => s.readingChapters[s.readingLevel]);
+  const setSavedChapter = useSettingsStore((s) => s.setReadingChapter);
+  const hydrated = useSettingsStore((s) => s._hydrated);
   const [stats, setStats] = useState<ChapterStat[] | null>(null);
   const [passes, setPasses] = useState(0);
   const params = useLocalSearchParams<{ completed?: string; uiFixture?: string }>();
@@ -37,6 +43,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
 
   useFocusEffect(
     useCallback(() => {
+      if (!hydrated) return;
       let alive = true;
       void loadLevelChapterStats(level).then((next) => {
         if (alive) setStats(next);
@@ -47,18 +54,20 @@ export default function ReadingChaptersScreen(): React.ReactNode {
         })
         .catch(() => undefined);
       return () => { alive = false; };
-    }, [level]),
+    }, [hydrated, level]),
   );
 
   const summary = useMemo(() => {
     const values = stats ?? [];
     const total = values.reduce((sum, item) => sum + item.total, 0);
     const covered = values.reduce((sum, item) => sum + item.covered, 0);
-    const current = pickCurrentChapter(values);
-    return { total, covered, current, progress: total > 0 ? covered / total : 0 };
-  }, [stats]);
+    const current = resolveCurrentChapter(values, savedChapter);
+    const allDone = values.length > 0 && values.every(isChapterComplete);
+    return { total, covered, current, allDone, progress: total > 0 ? covered / total : 0 };
+  }, [stats, savedChapter]);
 
   const openChapter = (chapter: number) => {
+    setSavedChapter(level, chapter);
     router.push(`/reading-study?level=${level}&chapter=${chapter}` as Href);
   };
 
@@ -112,7 +121,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
           </View>
         </Card>
 
-        {current && !isChapterComplete(current) ? (
+        {!summary.allDone && current ? (
           <View style={styles.section}>
             {Number.isInteger(justCompleted) && justCompleted > 0 ? (
               <View style={styles.banner}>
@@ -144,7 +153,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
               />
             </Card>
           </View>
-        ) : current && isChapterComplete(current) ? (
+        ) : summary.allDone ? (
           <View style={styles.section}>
             <Text style={styles.sectionOverline}>회독 완료</Text>
             <Card style={styles.levelDoneCard}>

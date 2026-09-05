@@ -34,6 +34,10 @@ export const isHighIntensity = (dailyNewLimit: number): boolean =>
 
 interface SettingsState {
   selectedLevels: JlptLevel[]; // 신규 학습 대상 레벨 (다중, 최소 1). 기존 due에는 미적용.
+  /** 회독 화면에서 마지막으로 본 레벨 — 재진입 시 복원한다. */
+  readingLevel: JlptLevel;
+  /** 레벨별로 마지막에 연 회독 챕터 — 재진입 시 그 챕터를 이어서 연다. */
+  readingChapters: Partial<Record<JlptLevel, number>>;
   dailyNewLimit: number; // 5-50.
   ttsEnabled: boolean;
   ttsSpeed: number; // 0.5-1.5.
@@ -51,6 +55,8 @@ interface SettingsState {
   _hydrated: boolean;
 
   setLevels: (levels: JlptLevel[]) => void;
+  setReadingLevel: (level: JlptLevel) => void;
+  setReadingChapter: (level: JlptLevel, chapter: number) => void;
   toggleLevel: (level: JlptLevel) => void;
   setDailyNewLimit: (n: number) => void;
   setTtsEnabled: (on: boolean) => void;
@@ -64,6 +70,8 @@ interface SettingsState {
 
 const DEFAULTS = {
   selectedLevels: ['N5'] as JlptLevel[],
+  readingLevel: 'N5' as JlptLevel,
+  readingChapters: {} as Partial<Record<JlptLevel, number>>,
   dailyNewLimit: 12,
   ttsEnabled: true,
   ttsSpeed: TTS_SPEED_DEFAULT,
@@ -91,6 +99,15 @@ export const useSettingsStore = create<SettingsState>()(
         // 최소 1개 레벨 보장 — 빈 선택이면 무시(직전 상태 유지).
         if (next.length === 0) return;
         set({ selectedLevels: next });
+      },
+
+      setReadingLevel(level) {
+        set({ readingLevel: level });
+      },
+
+      setReadingChapter(level, chapter) {
+        if (!Number.isInteger(chapter) || chapter < 1) return;
+        set({ readingChapters: { ...get().readingChapters, [level]: chapter } });
       },
 
       toggleLevel(level) {
@@ -144,6 +161,8 @@ export const useSettingsStore = create<SettingsState>()(
       // _hydrated/액션은 영속 제외 — 값 필드만 저장.
       partialize: (s) => ({
         selectedLevels: s.selectedLevels,
+        readingLevel: s.readingLevel,
+        readingChapters: s.readingChapters,
         dailyNewLimit: s.dailyNewLimit,
         ttsEnabled: s.ttsEnabled,
         ttsSpeed: s.ttsSpeed,
@@ -158,6 +177,10 @@ export const useSettingsStore = create<SettingsState>()(
         if (state) {
           state.selectedLevels = normalizeLevels(state.selectedLevels);
           if (state.selectedLevels.length === 0) state.selectedLevels = ['N5'];
+          if (!JLPT_LEVELS.includes(state.readingLevel)) state.readingLevel = 'N5';
+          if (typeof state.readingChapters !== 'object' || state.readingChapters === null) {
+            state.readingChapters = {};
+          }
           state.dailyNewLimit = clampDailyNew(state.dailyNewLimit);
           state.ttsSpeed = clampTtsSpeed(state.ttsSpeed);
           if (typeof state.autoPlayWordTtsOnReveal !== 'boolean') {

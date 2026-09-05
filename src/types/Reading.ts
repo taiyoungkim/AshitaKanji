@@ -28,6 +28,18 @@ export function pickCurrentChapter(stats: readonly ChapterStat[]): ChapterStat |
   return sorted.find((stat) => !isChapterComplete(stat)) ?? sorted.at(-1) ?? null;
 }
 
+/**
+ * 이어서 볼 챕터 — 마지막으로 연 챕터가 아직 미완료면 그것, 아니면 첫 미완료 챕터.
+ * 완료한 챕터를 기억에서 자동으로 흘려보내므로 챕터를 끝내면 다음 챕터로 넘어간다.
+ */
+export function resolveCurrentChapter(
+  stats: readonly ChapterStat[],
+  remembered: number | undefined,
+): ChapterStat | null {
+  const saved = stats.find((stat) => stat.chapter === remembered);
+  return saved && !isChapterComplete(saved) ? saved : pickCurrentChapter(stats);
+}
+
 export type ChapterStatus = 'locked' | 'inProgress' | 'completed';
 
 /**

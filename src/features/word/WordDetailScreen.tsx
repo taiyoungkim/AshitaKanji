@@ -428,7 +428,6 @@ function KanjiDetailSheet({
             />
           ) : null}
           {data?.stroke_count ? <DetailLine label="획수" value={`${data.stroke_count}획`} /> : null}
-          {data?.source ? <DetailLine label="출처" value={data.source} /> : null}
           {isTablet ? (
             <Pressable
               style={styles.sheetTraceBtn}

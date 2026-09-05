@@ -16,7 +16,7 @@ import type { RecordSnapshot } from '~/features/stats/recordTypes';
 import { loadTodayCounts, resolveStudyRoute, type TodayCounts } from '~/features/study/resolveStudyEntry';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { JLPT_LEVELS, type JlptLevel } from '~/types/Card';
-import { isChapterComplete, pickCurrentChapter } from '~/types/Reading';
+import { isChapterComplete, resolveCurrentChapter, type ChapterStat } from '~/types/Reading';
 import { estimateStudyMinutes, formatKoreanDate } from './homePresentation';
 import { buildHomeDayState, type HomeDayState } from './homeState';
 import { StreakCard } from './components/StreakStamps';
@@ -38,7 +38,7 @@ interface ReadingTarget {
   covered: number;
 }
 
-function toReadingTarget(level: JlptLevel, stat: ReturnType<typeof pickCurrentChapter>): ReadingTarget | null {
+function toReadingTarget(level: JlptLevel, stat: ChapterStat | null): ReadingTarget | null {
   return stat ? { level, chapter: stat.chapter, total: stat.total, covered: stat.covered } : null;
 }
 
@@ -60,7 +60,12 @@ function isSameLocalDay(leftMs: number, rightMs: number): boolean {
     left.getDate() === right.getDate();
 }
 
-async function loadHomeData(levels: JlptLevel[], dailyNewLimit: number, nowMs = Date.now()): Promise<HomeData> {
+async function loadHomeData(
+  levels: JlptLevel[],
+  dailyNewLimit: number,
+  savedChapter: number | undefined,
+  nowMs = Date.now(),
+): Promise<HomeData> {
   const readingLevel = levels[0] ?? 'N5';
   const [countsResult, progressResult, readingResult, recordResult, sessionsResult] = await Promise.allSettled([
     loadTodayCounts(levels, dailyNewLimit, nowMs),
@@ -86,7 +91,8 @@ async function loadHomeData(levels: JlptLevel[], dailyNewLimit: number, nowMs = 
   return {
     counts,
     progress: progressResult.status === 'fulfilled' ? progressResult.value : computeOnigiriProgress([]),
-    reading: toReadingTarget(readingLevel, pickCurrentChapter(readingStats)),
+    // 회독 허브와 같은 챕터를 가리켜야 한다 — 기억한 챕터를 같은 규칙으로 푼다.
+    reading: toReadingTarget(readingLevel, resolveCurrentChapter(readingStats, savedChapter)),
     readingCovered: readingStats.reduce((sum, stat) => sum + stat.covered, 0),
     readingTotal: readingStats.reduce((sum, stat) => sum + stat.total, 0),
     record: recordResult.status === 'fulfilled' ? recordResult.value : null,
@@ -102,6 +108,7 @@ export default function HomeScreen(): React.ReactNode {
   const setLevels = useSettingsStore((s) => s.setLevels);
   const dailyNewLimit = useSettingsStore((s) => s.dailyNewLimit);
   const hydrated = useSettingsStore((s) => s._hydrated);
+  const savedChapter = useSettingsStore((s) => s.readingChapters[s.selectedLevels[0] ?? 'N5']);
   const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
   const captureMode = isVisualCaptureEnabled() && uiFixture != null;
   const nowMs = captureMode ? VISUAL_NOW_MS : Date.now();
@@ -112,11 +119,11 @@ export default function HomeScreen(): React.ReactNode {
     useCallback(() => {
       if (!hydrated) return;
       let alive = true;
-      void loadHomeData(selectedLevels, dailyNewLimit, nowMs).then((next) => {
+      void loadHomeData(selectedLevels, dailyNewLimit, savedChapter, nowMs).then((next) => {
         if (alive) setData(next);
       });
       return () => { alive = false; };
-    }, [hydrated, selectedLevels, dailyNewLimit, nowMs]),
+    }, [hydrated, selectedLevels, dailyNewLimit, savedChapter, nowMs]),
   );
 
   const today = useMemo(() => formatKoreanDate(new Date(nowMs)), [nowMs]);
@@ -186,7 +193,7 @@ export default function HomeScreen(): React.ReactNode {
             accessibilityRole="button"
             accessibilityLabel={`새 단어 레벨 ${level}, 변경`}
           >
-            <Text style={styles.levelLabel}>신규 {level}</Text>
+            <Text style={styles.levelLabel}>{level}</Text>
             <Text style={styles.levelChevron}>▾</Text>
           </Pressable>
         </View>
