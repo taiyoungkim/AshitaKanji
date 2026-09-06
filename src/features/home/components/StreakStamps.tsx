@@ -148,6 +148,6 @@ const makeStyles = (c: ThemeColors) =>
     limeOff: { borderWidth: 2, borderColor: c.pressed, backgroundColor: 'transparent' },
     card: { backgroundColor: c.canvas, borderRadius: radius.card, padding: 22, gap: spacing.md },
     title: { ...typography.cardTitle, color: c.ink },
-    emptyArt: { width: 120, height: 120, alignSelf: 'center' },
+    emptyArt: { width: 120, height: 120, alignSelf: 'center', opacity: 0.7 },
     caption: { ...typography.caption, color: c.body },
   });
