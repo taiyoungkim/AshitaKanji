@@ -43,6 +43,8 @@ interface SettingsState {
   ttsSpeed: number; // 0.5-1.5.
   /** 학습 카드에서 뜻을 처음 공개할 때 단어 음성을 자동 재생한다. */
   autoPlayWordTtsOnReveal: boolean;
+  /** 뜻을 공개하기 전에도 카드에 읽는 법(가나)을 보여준다. 끄면 공개 후에만 보인다. */
+  showReadingBeforeReveal: boolean;
   /** 고강도(>30) 경고를 이미 확인했는지 — SessionConfig.highIntensityAcknowledged 로 전달. */
   highIntensityWarned: boolean;
   /** 첫 실행 튜토리얼(오니기리 가게 안내) 완료 여부 — 완료/스킵 시 true, 이후 미노출. */
@@ -61,6 +63,7 @@ interface SettingsState {
   setTtsEnabled: (on: boolean) => void;
   setTtsSpeed: (n: number) => void;
   setAutoPlayWordTtsOnReveal: (on: boolean) => void;
+  setShowReadingBeforeReveal: (on: boolean) => void;
   acknowledgeHighIntensity: () => void;
   completeTutorial: () => void;
   setCollectionView: (view: CollectionView) => void;
@@ -75,6 +78,7 @@ const DEFAULTS = {
   ttsEnabled: true,
   ttsSpeed: TTS_SPEED_DEFAULT,
   autoPlayWordTtsOnReveal: true,
+  showReadingBeforeReveal: true,
   highIntensityWarned: false,
   tutorialCompleted: false,
   collectionView: 'list' as CollectionView,
@@ -137,6 +141,10 @@ export const useSettingsStore = create<SettingsState>()(
         set({ tutorialCompleted: true });
       },
 
+      setShowReadingBeforeReveal(on) {
+        set({ showReadingBeforeReveal: on });
+      },
+
       setCollectionView(view) {
         set({ collectionView: view });
       },
@@ -157,6 +165,7 @@ export const useSettingsStore = create<SettingsState>()(
         ttsEnabled: s.ttsEnabled,
         ttsSpeed: s.ttsSpeed,
         autoPlayWordTtsOnReveal: s.autoPlayWordTtsOnReveal,
+        showReadingBeforeReveal: s.showReadingBeforeReveal,
         highIntensityWarned: s.highIntensityWarned,
         tutorialCompleted: s.tutorialCompleted,
         collectionView: s.collectionView,

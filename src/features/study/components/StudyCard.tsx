@@ -22,6 +22,7 @@ import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconSpeaker } from '~/design/icons';
 import { renderKanjiFace } from '~/lib/cardType';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
+import { useSettingsStore } from '~/stores/SettingsStore';
 import type { Word } from '~/types/Card';
 import { getCenteredPromptOffset } from '../studyCardMotion';
 
@@ -55,6 +56,8 @@ export function StudyCard({
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const reducedMotion = useReducedMotion();
+  // 카드가 쓰이는 화면이 4곳이라 prop 을 4번 꿰지 않고 여기서 직접 읽는다.
+  const showReadingBeforeReveal = useSettingsStore((state) => state.showReadingBeforeReveal);
   const [viewportHeight, setViewportHeight] = useState(0);
   const [promptHeight, setPromptHeight] = useState(0);
   const revealProgress = useRef(new Animated.Value(revealed ? 1 : 0)).current;
@@ -119,7 +122,7 @@ export function StudyCard({
         >
           <Text style={styles.word}>{renderKanjiFace(word)}</Text>
 
-          {!!word.reading_kana && (
+          {!!word.reading_kana && (revealed || showReadingBeforeReveal) && (
             <View style={styles.readingRow}>
               <Text style={styles.reading}>{word.reading_kana}</Text>
               {onSpeak && (
@@ -311,18 +314,20 @@ const makeStyles = (c: ThemeColors) =>
       borderRadius: radius.tile,
       paddingVertical: spacing.lg,
       paddingHorizontal: 18,
-      alignItems: 'center',
+      // 단어/뜻은 가운데, 예문 블록만 좌측 정렬 — 문장은 길어서 왼쪽 기준선이 읽기 쉽다.
+      alignItems: 'flex-start',
       gap: spacing.sm,
     },
     exampleLead: { flexDirection: 'row', alignItems: 'center', gap: 6 },
     exampleLeadLabel: { fontFamily: font.regular, fontSize: 12, lineHeight: 16, color: c.body },
-    exampleJp: { ...typography.example, color: c.ink, textAlign: 'center' },
+    exampleJp: { ...typography.example, color: c.ink, textAlign: 'left', alignSelf: 'stretch' },
     exampleKo: {
       fontFamily: font.regular,
       fontSize: 14,
       lineHeight: 20,
       color: c.body,
-      textAlign: 'center',
+      textAlign: 'left',
+      alignSelf: 'stretch',
     },
     detailBtn: {
       alignSelf: 'center',

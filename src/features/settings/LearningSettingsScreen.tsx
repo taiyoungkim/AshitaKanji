@@ -1,6 +1,6 @@
-import { Alert, StyleSheet, Text, View } from 'react-native';
-import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
-import { useThemedStyles } from '~/design/theme';
+import { Alert, StyleSheet, Switch, Text, View } from 'react-native';
+import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useTheme, useThemedStyles } from '~/design/theme';
 import {
   DAILY_NEW_MAX,
   DAILY_NEW_MIN,
@@ -12,6 +12,9 @@ import { SettingsPage, SettingsStepper } from './SettingsControls';
 
 export default function LearningSettingsScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const { colors } = useTheme();
+  const showReadingBeforeReveal = useSettingsStore((state) => state.showReadingBeforeReveal);
+  const setShowReadingBeforeReveal = useSettingsStore((state) => state.setShowReadingBeforeReveal);
   const dailyNewLimit = useSettingsStore((state) => state.dailyNewLimit);
   const highIntensityWarned = useSettingsStore((state) => state.highIntensityWarned);
   const setDailyNewLimit = useSettingsStore((state) => state.setDailyNewLimit);
@@ -58,6 +61,28 @@ export default function LearningSettingsScreen(): React.ReactNode {
           <Text style={styles.warning}>고강도 — 복습 누적이 빠르게 늘어요.</Text>
         ) : null}
       </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>카드 표시</Text>
+        <View style={styles.card}>
+          <View style={styles.optionRow}>
+            <View style={styles.copy}>
+              <Text style={styles.optionTitle}>뜻 보기 전 읽는 법</Text>
+              <Text style={styles.optionDescription}>
+                끄면 뜻을 확인하기 전까지 읽는 법이 가려져요.
+              </Text>
+            </View>
+            <Switch
+              value={showReadingBeforeReveal}
+              onValueChange={setShowReadingBeforeReveal}
+              trackColor={{ false: colors.pressed, true: colors.ink }}
+              thumbColor={showReadingBeforeReveal ? colors.onInk : colors.canvas}
+              ios_backgroundColor={colors.pressed}
+              accessibilityLabel="뜻 보기 전 읽는 법"
+            />
+          </View>
+        </View>
+      </View>
     </SettingsPage>
   );
 }
@@ -68,4 +93,20 @@ const makeStyles = (colors: ThemeColors) =>
     sectionTitle: { ...typography.listTitle, color: colors.ink, marginBottom: spacing.sm },
     description: { ...typography.body, color: colors.body, marginBottom: spacing.lg },
     warning: { ...typography.caption, fontFamily: font.medium, color: colors.warning, marginTop: spacing.sm },
+    card: {
+      borderRadius: radius.card,
+      paddingHorizontal: spacing.xl,
+      backgroundColor: colors.canvas,
+      ...cardShadow(colors),
+    },
+    optionRow: {
+      minHeight: 84,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: spacing.md,
+    },
+    copy: { flex: 1, gap: spacing.xs },
+    optionTitle: { ...typography.cardTitle, color: colors.ink },
+    optionDescription: { ...typography.body, color: colors.body },
   });
