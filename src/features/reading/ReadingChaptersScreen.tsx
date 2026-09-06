@@ -60,10 +60,12 @@ export default function ReadingChaptersScreen(): React.ReactNode {
   const summary = useMemo(() => {
     const values = stats ?? [];
     const total = values.reduce((sum, item) => sum + item.total, 0);
-    const covered = values.reduce((sum, item) => sum + item.covered, 0);
+    // 진도는 known 기준이다. 완료·해금 판정이 known(안다)이므로 covered(본 적 있음)를
+    // 보여주면 "50/50 인데 진행 중"처럼 화면이 스스로 모순된다.
+    const known = values.reduce((sum, item) => sum + item.known, 0);
     const current = resolveCurrentChapter(values, savedChapter);
     const allDone = values.length > 0 && values.every(isChapterComplete);
-    return { total, covered, current, allDone, progress: total > 0 ? covered / total : 0 };
+    return { total, known, current, allDone, progress: total > 0 ? known / total : 0 };
   }, [stats, savedChapter]);
 
   const openChapter = (chapter: number) => {
@@ -72,8 +74,14 @@ export default function ReadingChaptersScreen(): React.ReactNode {
   };
 
   const current = summary.current;
-  const currentRemaining = current ? Math.max(0, current.total - current.covered) : 0;
-  const currentPercent = current && current.total ? (current.covered / current.total) * 100 : 0;
+  const currentRemaining = current ? Math.max(0, current.total - current.known) : 0;
+  const currentPercent = current && current.total ? (current.known / current.total) * 100 : 0;
+  // 배너는 패스(1회독) 종료마다 뜬다. 챕터가 실제로 끝났는지는 known 으로 따로 본다.
+  const completedStat = stats?.find((stat) => stat.chapter === justCompleted) ?? null;
+  const completedChapterDone = completedStat ? isChapterComplete(completedStat) : false;
+  const completedRemaining = completedStat
+    ? Math.max(0, completedStat.total - completedStat.known)
+    : 0;
 
   return (
     <SafeAreaView style={[styles.root, name === 'light' && { backgroundColor: HTML_FLOW_PAGE }]} edges={['top']}>
@@ -117,7 +125,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
           <View style={styles.summaryDivider} />
           <View style={styles.summaryRow}>
             <Text style={styles.summaryRowLabel}>외운 단어</Text>
-            <Text style={styles.summaryRowValue}>{summary.covered} / {summary.total}개</Text>
+            <Text style={styles.summaryRowValue}>{summary.known} / {summary.total}개</Text>
           </View>
         </Card>
 
@@ -129,8 +137,14 @@ export default function ReadingChaptersScreen(): React.ReactNode {
                   <IconCheck size={14} color={colors.ink} />
                 </View>
                 <View style={styles.bannerCopy}>
-                  <Text style={styles.bannerTitle}>챕터 {justCompleted} 완료!</Text>
-                  <Text style={styles.bannerBody}>50개 단어를 모두 익혔어요. 다음 챕터가 열렸어요.</Text>
+                  <Text style={styles.bannerTitle}>
+                    {completedChapterDone ? `챕터 ${justCompleted} 완료!` : '회독 1회 완료!'}
+                  </Text>
+                  <Text style={styles.bannerBody}>
+                    {completedChapterDone
+                      ? '단어를 모두 익혔어요. 다음 챕터가 열렸어요.'
+                      : `아직 모르는 단어 ${completedRemaining}개가 남았어요. 한 번 더 돌면 챕터가 완료돼요.`}
+                  </Text>
                 </View>
               </View>
             ) : null}
@@ -139,7 +153,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
               <Text style={styles.currentTitle}>
                 챕터 {current.chapter}{current.covered === 0 ? ' · 새로 열림' : ''}
               </Text>
-              <Text style={styles.currentMeta}>{current.covered} / {current.total} 단어</Text>
+              <Text style={styles.currentMeta}>{current.known} / {current.total} 단어</Text>
               <View style={styles.linearTrack}>
                 <View style={[styles.linearFill, { width: `${currentPercent}%` }]} />
               </View>
@@ -162,7 +176,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
               ) : null}
               <Overline>{level} 회독 완료</Overline>
               <Text style={styles.levelDoneTitle}>모든 챕터를 마쳤어요.</Text>
-              <Text style={styles.levelDoneSub}>{summary.covered} / {summary.total} 단어 · 전체 진척도 100%</Text>
+              <Text style={styles.levelDoneSub}>{summary.known} / {summary.total} 단어 · 전체 진척도 100%</Text>
             </Card>
           </View>
         ) : null}
@@ -208,7 +222,7 @@ export default function ReadingChaptersScreen(): React.ReactNode {
                         챕터 {stat.chapter}
                       </Text>
                       <Text style={[styles.chapterMeta, locked && styles.lockedText]}>
-                        {stat.covered} / {stat.total} 단어
+                        {stat.known} / {stat.total} 단어
                       </Text>
                     </View>
                     {completed ? (
