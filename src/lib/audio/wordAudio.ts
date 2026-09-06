@@ -22,12 +22,21 @@ const playbackGate = new PlaybackGate();
 /** 플레이어는 재사용한다. 첫 호출에만 생성하고 이후엔 소스만 교체. */
 function preparePlayer(uri: string): AudioPlayer {
   if (_player) {
-    _player.pause();
+    // pause() 를 부르면 안 된다. expo-audio(iOS)의 pause 는 100ms 뒤 오디오 세션을
+    // setActive(false) 로 내린다. 그 판정은 timeControlStatus == .playing 인데
+    // replace() 직후 play() 는 아이템 로딩 동안 .waitingToPlayAtSpecifiedRate 라
+    // "재생 중 아님"으로 보여 세션이 내려가고, 막 시작된 재생이 페이드되며 끊긴다
+    // (긴 예문일수록 뚜렷). replace 는 네이티브에서 이미 pause 하므로 필요도 없다.
     _player.replace(uri);
     return _player;
   }
 
-  const player = createAudioPlayer(uri);
+  // keepAudioSessionActive: expo-audio(iOS)는 pause 와 재생 자연 종료 두 지점에서
+  // 100ms 뒤 오디오 세션을 setActive(false) 로 내린다. expo-speech 의
+  // AVSpeechSynthesizer 는 usesApplicationAudioSession 기본값 때문에 같은 세션을
+  // 공유하므로, 번들 오디오 뒤에 폴백 TTS 가 나가면 그 해제에 음성이 깎여 작아진다
+  // (튜토리얼 예문: 단어 번들 오디오 → 예문 expo-speech 순서에서 재현).
+  const player = createAudioPlayer(uri, { keepAudioSessionActive: true });
   player.addListener('playbackStatusUpdate', (status) => {
     if (status.didJustFinish) playbackGate.finish(_currentToken);
   });
