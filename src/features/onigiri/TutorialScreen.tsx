@@ -47,7 +47,7 @@ import { onboardingImages } from './onboardingAssets';
 import { OnboardingConfetti } from './components/OnboardingConfetti';
 import { resetToHome } from '~/lib/navigation';
 
-// 데모 단어 — 튜토리얼 전용 고정 10개 (DB 조회 없음, 미기록).
+// 데모 단어 — 튜토리얼 전용 고정 3개 (DB 조회 없음, 미기록).
 // 온보딩 콘텐츠는 로컬 고정이라 예문·발음 힌트도 여기 함께 둔다.
 // id 는 실제 DB word id 를 그대로 박는다. 합성 id(`tutorial-秋`)를 쓰면 번들 오디오 맵이
 // 전부 미스라 온보딩 내내 시스템 TTS로 떨어진다 — 첫인상에서 음질이 가장 나쁜 구간이 된다.
@@ -80,19 +80,10 @@ function demoWord(
 const DEMO_WORDS = [
   demoWord('w_92cdd1203bd7bf3f', '秋', 'あき', '가을', '秋の空は高いです。', '가을 하늘은 높습니다.'),
   demoWord('w_9200ebb3b9a05823', '山', 'やま', '산', 'あの山に登ります。', '저 산에 오릅니다.'),
-  demoWord('w_48fbd408a115f905', '雨', 'あめ', '비', '今日は雨が降ります。', '오늘은 비가 옵니다.'),
-  demoWord('w_1a590a2722d8602f', '駅', 'えき', '역', '駅の前で会いましょう。', '역 앞에서 만납시다.'),
+  // 발음 힌트 카드를 하나 남겨 튜토리얼에서 그 UI 를 한 번은 보여준다.
   demoWord('w_45ad1afbb9ff44ff', '食塩', 'しょくえん', '식염', '食塩を少し入れます。', '식염을 조금 넣습니다.', {
     left: 'しょくえん',
     right: '식염',
-  }),
-  demoWord('w_f238004dca80f8bb', '空', 'そら', '하늘', '空が青いです。', '하늘이 파랗습니다.'),
-  demoWord('w_3c328157edaee908', '花', 'はな', '꽃', '庭に花が咲きました。', '정원에 꽃이 피었습니다.'),
-  demoWord('w_af5024e6326a3ea3', '本', 'ほん', '책', '本を三冊買いました。', '책을 세 권 샀습니다.'),
-  demoWord('w_053f7db9e9a81e55', '友達', 'ともだち', '친구', '友達と映画を見ます。', '친구와 영화를 봅니다.'),
-  demoWord('w_78a37817bd6740bc', '時間', 'じかん', '시간', '時間がありません。', '시간이 없습니다.', {
-    left: 'じかん',
-    right: '시간',
   }),
 ] as const;
 
@@ -319,7 +310,7 @@ export default function TutorialScreen(): React.ReactNode {
             source={onboardingImages.guide}
           />
           <View style={styles.centerBlock}>
-            <Text style={styles.title}>먼저 10개만.</Text>
+            <Text style={styles.title}>먼저 3개만.</Text>
             <Text style={styles.lead}>
               짧게 공부하고, 재료를 얻는{'\n'}흐름을 먼저 연습해보자.
             </Text>
@@ -479,17 +470,21 @@ export default function TutorialScreen(): React.ReactNode {
         )}
       </View>
       <Animated.View
+        // 애니메이션 스타일을 스텝별로 빼면 안 된다. iOS(Fabric)에서 애니메이션 prop이
+        // 뷰에서 떨어질 때 RCTPropsAnimatedNode.restoreDefaultValues 가 no-op 이라
+        // 네이티브가 마지막에 적용한 값이 뷰에 그대로 남는다. detach 는 마이크로태스크로
+        // 밀리는데(scheduleAnimatedCleanupInMicrotask 기본 true) 그 전에 아래 effect 의
+        // anim.setValue(0) 이 먼저 돌아, receipt 스텝이 opacity 0 으로 영구 고정됐다.
         style={[
           styles.content,
           step === 'study' && styles.studyContent,
-          step === 'receipt'
-            ? styles.receiptContent
-            : {
-                opacity: anim,
-                transform: [
-                  { translateY: anim.interpolate({ inputRange: [0, 1], outputRange: [8, 0] }) },
-                ],
-              },
+          step === 'receipt' && styles.receiptContent,
+          {
+            opacity: anim,
+            transform: [
+              { translateY: anim.interpolate({ inputRange: [0, 1], outputRange: [8, 0] }) },
+            ],
+          },
         ]}
       >
         {body}
