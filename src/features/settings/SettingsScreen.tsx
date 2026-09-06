@@ -49,6 +49,15 @@ export default function SettingsScreen(): React.ReactNode {
           <SettingsRow label="앱 정보" onPress={() => router.push('/about')} />
         </View>
 
+        {/* ponytail: 기획 검증용 프로토타입 진입점. 스토어 빌드 전에 제거하거나 __DEV__ 로 감싼다. */}
+        <View style={styles.group}>
+          <SettingsRow
+            label="고양이 카드 (프로토타입)"
+            summary="검증용"
+            onPress={() => router.push('/_dev/cat-card')}
+          />
+        </View>
+
         <Text style={styles.version}>앱 버전 {version} · 최신버전</Text>
       </ScrollView>
     </SafeAreaView>
