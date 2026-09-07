@@ -39,7 +39,7 @@
     },
     "android": {
       "package": "com.taiyoungkim.ashitakanji",
-      "versionCode": 40,
+      "versionCode": 41,
       "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

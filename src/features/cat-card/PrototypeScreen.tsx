@@ -29,7 +29,7 @@ import { useThemedStyles } from '~/design/theme';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { CARD_ASPECT_RATIO, RARITY_LABEL, RARITY_WEIGHTS, SEASON_1, type CatCard } from './catalog';
 import { availableDraws, draw, spendStamps, STAMPS_PER_DRAW } from './gacha';
-import { CardThumb, DEFAULT_DEBUG, HoloCard, useTilt, type HoloDebug } from './components/HoloCard';
+import { CardThumb, HoloCard, useTilt } from './components/HoloCard';
 
 /** 프레임 카운터. R-03 검증용이라 프로토타입에만 둔다. */
 function useFps(active: boolean): number {
@@ -66,8 +66,6 @@ export default function CatCardPrototypeScreen(): React.ReactNode {
   const [lastWasDuplicate, setLastWasDuplicate] = useState(false);
   const [tiltEnabled, setTiltEnabled] = useState(true);
   const [fullscreen, setFullscreen] = useState<CatCard | null>(null);
-  const [debug, setDebug] = useState<HoloDebug>(DEFAULT_DEBUG);
-  const [imageError, setImageError] = useState<string | null>(null);
   const [showFps, setShowFps] = useState(true);
 
   const { tilt, recalibrate } = useTilt(tiltEnabled && (current !== null || fullscreen !== null));
@@ -118,14 +116,6 @@ export default function CatCardPrototypeScreen(): React.ReactNode {
       console.log('[cat-card] share failed', err);
     }
   }, [current]);
-
-  const cycleBlend = useCallback(() => {
-    const order: HoloDebug['blend'][] = ['normal', 'soft-light', 'overlay', 'color-dodge', 'screen'];
-    setDebug((d) => {
-      const next = order[(order.indexOf(d.blend) + 1) % order.length];
-      return next ? { ...d, blend: next } : d;
-    });
-  }, []);
 
   const flipStyle = useMemo(
     () => ({
@@ -181,13 +171,7 @@ export default function CatCardPrototypeScreen(): React.ReactNode {
                 accessibilityLabel={`${current.name} 크게 보기`}
               >
                 <View ref={cardRef} collapsable={false}>
-                  <HoloCard
-                    card={current}
-                    tilt={tilt}
-                    width={cardWidth}
-                    debug={debug}
-                    onImageError={setImageError}
-                  />
+                  <HoloCard card={current} tilt={tilt} width={cardWidth} />
                 </View>
               </Pressable>
             </Animated.View>
@@ -223,31 +207,6 @@ export default function CatCardPrototypeScreen(): React.ReactNode {
             <Btn label={showFps ? 'fps 숨기기' : 'fps 보기'} onPress={() => setShowFps((v) => !v)} />
           </View>
 
-          {/* 검정 카드 원인 좁히기. 위에서부터 하나씩 꺼 보면 어디서 검게 되는지 나온다. */}
-          <Text style={styles.panelTitle}>홀로 진단</Text>
-          <View style={styles.btnRow}>
-            <Btn
-              label={debug.holo ? '① 홀로 끄기' : '① 홀로 켜기'}
-              onPress={() => setDebug((d) => ({ ...d, holo: !d.holo }))}
-            />
-            <Btn label={`② 합성: ${debug.blend}`} onPress={cycleBlend} />
-          </View>
-          <View style={styles.btnRow}>
-            <Btn
-              label={debug.gradient ? '③ 그라디언트 → 단색' : '③ 단색 → 그라디언트'}
-              onPress={() => setDebug((d) => ({ ...d, gradient: !d.gradient }))}
-            />
-            <Btn
-              label={debug.blackBackdrop ? '④ 배경 검정 → 회색' : '④ 배경 회색 → 검정'}
-              onPress={() => setDebug((d) => ({ ...d, blackBackdrop: !d.blackBackdrop }))}
-            />
-          </View>
-          <Text style={styles.hint}>
-            ① 껐는데도 검정 → 이미지 문제 (④ 회색이 보이면 이미지가 안 그려진 것){'\n'}
-            ② normal 에서 정상 → mixBlendMode 문제{'\n'}
-            ③ 단색에서 정상 → 그라디언트 파싱 문제
-          </Text>
-          {imageError ? <Text style={styles.dup}>이미지 로드 실패: {imageError}</Text> : null}
           <Text style={styles.hint}>
             {showFps ? `${fps} fps · ` : ''}
             {Platform.OS} {Platform.Version} · 모션감소 {reducedMotion === true ? '켜짐' : '꺼짐'} · 기울기 x{tilt.x.toFixed(2)} y{tilt.y.toFixed(2)}
@@ -295,7 +254,7 @@ export default function CatCardPrototypeScreen(): React.ReactNode {
             <>
               {/* 배경 탭은 닫기다. 카드 탭은 삼켜서 실수로 닫히지 않게 한다. */}
               <Pressable onPress={recalibrate} accessibilityRole="button" accessibilityLabel="기울기 0점">
-                <HoloCard card={fullscreen} tilt={tilt} width={fullscreenWidth} debug={debug} />
+                <HoloCard card={fullscreen} tilt={tilt} width={fullscreenWidth} />
               </Pressable>
               <Text style={styles.fsName}>
                 {fullscreen.name} · {RARITY_LABEL[fullscreen.rarity]}
