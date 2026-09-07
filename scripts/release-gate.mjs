@@ -9,7 +9,7 @@
 //   SKIP_URL_CHECK=1 → URL 점검 건너뜀 (오프라인 로컬 개발용).
 // 하나라도 실패 시 exit 1 → release-check 전체 실패.
 
-import { existsSync, statSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, statSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 
@@ -350,6 +350,43 @@ if (process.env.SKIP_URL_CHECK === '1') {
       detail = `요청 실패: ${err instanceof Error ? err.message : String(err)}`;
     }
     add(`URL ${url}`, ok, detail);
+  }
+}
+
+// 4) expo-updates 임베디드 매니페스트 신선도
+// gradle 이 createReleaseUpdatesResources 를 UP-TO-DATE 로 판정하면 낡은 매니페스트가
+// 그대로 APK 에 실린다. 에셋은 drawable 로는 들어가므로 APK 를 뜯어봐도 정상으로 보이지만,
+// 실기기에서 expo-updates 가 에셋을 해석하지 못해 이미지가 통째로 안 그려진다.
+// (build 36~38 에서 실제로 발생. 매니페스트가 3일 전 것이었다.)
+// 로컬 release 빌드 산출물이 있을 때만 본다 — 빌드 전 CI 에서는 건너뛴다.
+{
+  const manifestPath = resolve(
+    ROOT,
+    'android/app/build/generated/assets/createReleaseUpdatesResources/app.manifest',
+  );
+  if (!existsSync(manifestPath)) {
+    add('updates manifest 신선도', true, 'SKIPPED (release 빌드 산출물 없음)');
+  } else {
+    let ok = false;
+    let detail = '';
+    try {
+      const commitTime = JSON.parse(readFileSync(manifestPath, 'utf8')).commitTime;
+      // assets/ 안에서 가장 최근에 바뀐 파일보다 매니페스트가 새것이어야 한다.
+      const assetsDir = resolve(ROOT, 'assets');
+      const newest = readdirSync(assetsDir, { recursive: true, withFileTypes: true })
+        .filter((e) => e.isFile())
+        .map((e) => resolve(e.parentPath ?? e.path, e.name))
+        .filter((f) => statSync(f).mtimeMs > commitTime);
+      ok = newest.length === 0;
+      detail = ok
+        ? `매니페스트 ${new Date(commitTime).toISOString()} — assets/ 전부 반영됨`
+        : `매니페스트가 낡음 (${new Date(commitTime).toISOString()}). 미반영 ${newest.length}건: ` +
+          `${newest.slice(0, 3).map((f) => f.replace(ROOT + '/', '')).join(', ')}` +
+          ' → android/app/build/generated/assets/createReleaseUpdatesResources 를 지우고 다시 빌드';
+    } catch (err) {
+      detail = `확인 실패: ${err instanceof Error ? err.message : String(err)}`;
+    }
+    add('updates manifest 신선도', ok, detail);
   }
 }
 
