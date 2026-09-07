@@ -88,20 +88,45 @@ const RAINBOW =
 const SPARKLE =
   'linear-gradient(65deg, transparent 30%, rgba(255,255,255,0.9) 46%, transparent 62%)';
 
+/** 프로토타입 진단용 스위치. 검정 카드 원인을 한 빌드 안에서 좁히기 위한 것이다. */
+export interface HoloDebug {
+  /** 홀로 레이어를 아예 붙이지 않는다. 끄고도 검정이면 이미지 쪽 문제다. */
+  holo: boolean;
+  /** 합성 모드를 강제한다. 'normal' 이면 blend 없이 단순 알파 합성. */
+  blend: 'normal' | 'soft-light' | 'overlay' | 'color-dodge' | 'screen';
+  /** 그라디언트 대신 단색 반투명을 쓴다. 단색에서 정상이면 그라디언트 파싱 문제다. */
+  gradient: boolean;
+  /** 프레임 배경을 검정 대신 회색으로. 회색이 보이면 이미지가 안 그려진 것이다. */
+  blackBackdrop: boolean;
+}
+
+export const DEFAULT_DEBUG: HoloDebug = {
+  holo: true,
+  blend: 'normal',
+  gradient: true,
+  blackBackdrop: false,
+};
+
 export function HoloCard({
   card,
   tilt,
   width,
+  debug = DEFAULT_DEBUG,
+  onImageError,
 }: {
   card: CatCard;
   tilt: Tilt;
   width: number;
+  debug?: HoloDebug;
+  onImageError?: (message: string) => void;
 }): React.ReactNode {
   const reducedMotion = useReducedMotion();
   const holo = HOLO[card.rarity];
   // 모션 감소가 켜지면 무늬를 고정하고 움직임을 죽인다. Plan Ref: NFR-02
   const still = reducedMotion === true;
   const t = still ? NEUTRAL : tilt;
+  // 'normal' 은 blend 를 아예 걸지 않는다. undefined 로 두면 격리 레이어도 안 만든다.
+  const blend = debug.blend === 'normal' ? undefined : debug.blend;
 
   const styles = useMemo(
     () => makeStyles(width, width / CARD_ASPECT_RATIO),
@@ -112,6 +137,7 @@ export function HoloCard({
     <View
       style={[
         styles.frame,
+        { backgroundColor: debug.blackBackdrop ? '#000' : '#6E6E73' },
         {
           shadowColor: holo.glow,
           shadowOpacity: still ? 0.5 : 0.5 + Math.abs(t.x) * 0.4,
@@ -125,33 +151,49 @@ export function HoloCard({
         },
       ]}
     >
-      <Image source={cardImage(card.imageKey)} style={styles.image} resizeMode="cover" />
-
-      <View
-        pointerEvents="none"
-        style={[
-          styles.layer,
-          {
-            opacity: holo.opacity,
-            mixBlendMode: holo.blend,
-            experimental_backgroundImage: RAINBOW,
-            transform: [{ translateX: t.x * holo.travel }, { translateY: t.y * holo.travel * 0.5 }],
-          },
-        ]}
+      <Image
+        source={cardImage(card.imageKey)}
+        style={styles.image}
+        resizeMode="cover"
+        onError={(e) => onImageError?.(String(e.nativeEvent?.error ?? 'unknown'))}
       />
 
-      <View
-        pointerEvents="none"
-        style={[
-          styles.layer,
-          {
-            opacity: holo.opacity * 0.7,
-            mixBlendMode: 'color-dodge',
-            experimental_backgroundImage: SPARKLE,
-            transform: [{ translateX: -t.x * holo.travel * 1.6 }],
-          },
-        ]}
-      />
+      {debug.holo ? (
+        <>
+          <View
+            pointerEvents="none"
+            style={[
+              styles.layer,
+              {
+                opacity: holo.opacity,
+                mixBlendMode: blend,
+                ...(debug.gradient
+                  ? { experimental_backgroundImage: RAINBOW }
+                  : { backgroundColor: 'rgba(255,120,180,0.6)' }),
+                transform: [
+                  { translateX: t.x * holo.travel },
+                  { translateY: t.y * holo.travel * 0.5 },
+                ],
+              },
+            ]}
+          />
+
+          <View
+            pointerEvents="none"
+            style={[
+              styles.layer,
+              {
+                opacity: holo.opacity * 0.7,
+                mixBlendMode: blend,
+                ...(debug.gradient
+                  ? { experimental_backgroundImage: SPARKLE }
+                  : { backgroundColor: 'rgba(255,255,255,0.5)' }),
+                transform: [{ translateX: -t.x * holo.travel * 1.6 }],
+              },
+            ]}
+          />
+        </>
+      ) : null}
     </View>
   );
 }
@@ -193,7 +235,6 @@ const makeStyles = (width: number, height: number) =>
       height,
       borderRadius: radius.card,
       overflow: 'hidden',
-      backgroundColor: '#000',
       shadowOffset: { width: 0, height: 8 },
       shadowRadius: 22,
       elevation: 10,
