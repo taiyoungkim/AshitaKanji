@@ -6,7 +6,7 @@ import {
   TTS_SPEED_MIN,
   useSettingsStore,
 } from '~/stores/SettingsStore';
-import { SettingsPage, SettingsStepper } from './SettingsControls';
+import { SettingsPage, SettingsStepper, settingsSwitchStyle } from './SettingsControls';
 
 const SPEED_STEP = 0.1;
 
@@ -29,6 +29,7 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
             <Text style={styles.optionDescription}>일본어 단어의 발음을 재생합니다.</Text>
           </View>
           <Switch
+            style={settingsSwitchStyle}
             value={ttsEnabled}
             onValueChange={setTtsEnabled}
             trackColor={{ false: colors.pressed, true: colors.ink }}
@@ -44,6 +45,7 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
             <Text style={styles.optionDescription}>뜻을 확인하면 단어의 발음을 자동으로 재생합니다.</Text>
           </View>
           <Switch
+            style={settingsSwitchStyle}
             value={autoPlay}
             onValueChange={setAutoPlay}
             disabled={!ttsEnabled}

@@ -1,8 +1,13 @@
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
+
+// React Native pins the iOS switch with a built-in `alignSelf: 'flex-start'`,
+// so it hangs at the top of a row instead of centering. Passing this style
+// overrides that default and lets the row's own alignment apply on both platforms.
+export const settingsSwitchStyle: ViewStyle = { alignSelf: 'center' };
 
 export function SettingsPage({
   title,

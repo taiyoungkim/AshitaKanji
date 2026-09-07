@@ -8,7 +8,7 @@ import {
   isHighIntensity,
   useSettingsStore,
 } from '~/stores/SettingsStore';
-import { SettingsPage, SettingsStepper } from './SettingsControls';
+import { SettingsPage, SettingsStepper, settingsSwitchStyle } from './SettingsControls';
 
 export default function LearningSettingsScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -73,6 +73,7 @@ export default function LearningSettingsScreen(): React.ReactNode {
               </Text>
             </View>
             <Switch
+              style={settingsSwitchStyle}
               value={showReadingBeforeReveal}
               onValueChange={setShowReadingBeforeReveal}
               trackColor={{ false: colors.pressed, true: colors.ink }}
