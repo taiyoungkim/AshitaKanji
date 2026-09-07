@@ -18,7 +18,9 @@ export interface CatCard {
   shareable: boolean;
 }
 
-export const CARD_ASPECT_RATIO = 1062 / 1481;
+// 원본 카드 아트에는 무지개 테두리가 인쇄돼 있었다. 우리 홀로 오버레이와 겹쳐서
+// 어느 쪽이 동작하는지 구분이 안 되므로 사방 50px 을 잘라냈다. (1062x1481 -> 962x1381)
+export const CARD_ASPECT_RATIO = 962 / 1381;
 
 export const SEASON_1: readonly CatCard[] = [
   { id: 'cat-001', season: 1, name: '광주리 고양이', description: '광주리에 담긴 고양이. 처다보면 싫어한다.', rarity: 'N', breed: 'Calico', imageKey: 'cat-001', shareable: true },
