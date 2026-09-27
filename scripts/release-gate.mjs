@@ -16,6 +16,17 @@ import { resolve } from 'node:path';
 const ROOT = process.cwd();
 const results = [];
 const add = (name, ok, detail) => results.push({ name, ok, detail });
+const RELEASE_PLATFORM = process.env.RELEASE_PLATFORM ?? 'all';
+const ANDROID_SUBMIT_MODE = process.env.ANDROID_SUBMIT_MODE ?? 'eas';
+
+if (!['all', 'android', 'ios'].includes(RELEASE_PLATFORM)) {
+  console.error(`RELEASE_PLATFORM 값이 잘못됐습니다: ${RELEASE_PLATFORM}`);
+  process.exit(1);
+}
+if (!['eas', 'manual'].includes(ANDROID_SUBMIT_MODE)) {
+  console.error(`ANDROID_SUBMIT_MODE 값이 잘못됐습니다: ${ANDROID_SUBMIT_MODE}`);
+  process.exit(1);
+}
 
 // 1) 필수 바이너리 자산 (app.json 참조 — 없으면 EAS 빌드/실행 불가)
 const REQUIRED_ASSETS = [
@@ -281,36 +292,41 @@ add('git repo (.git)', existsSync(resolve(ROOT, '.git')), existsSync(resolve(ROO
   } else {
     try {
       const eas = JSON.parse(readFileSync(easPath, 'utf8'));
-      const ios = eas?.submit?.production?.ios ?? {};
-      // 채워져야 할 iOS 제출 필드 (android 는 secrets 키파일로 별도 검증).
-      const required = ['appleId', 'ascAppId', 'appleTeamId'];
-      const bad = required.filter((k) => {
-        const v = ios[k];
-        return !v || String(v).trim() === '' || /^TBD$/i.test(String(v).trim());
-      });
-      add(
-        'eas.json submit.ios 값',
-        bad.length === 0,
-        bad.length === 0 ? 'OK' : `미설정/TBD: ${bad.join(', ')}`,
-      );
+      if (RELEASE_PLATFORM === 'all' || RELEASE_PLATFORM === 'ios') {
+        const ios = eas?.submit?.production?.ios ?? {};
+        const required = ['appleId', 'ascAppId', 'appleTeamId'];
+        const bad = required.filter((key) => {
+          const value = ios[key];
+          return !value || String(value).trim() === '' || /^TBD$/i.test(String(value).trim());
+        });
+        add(
+          'eas.json submit.ios 값',
+          bad.length === 0,
+          bad.length === 0 ? 'OK' : `미설정/TBD: ${bad.join(', ')}`,
+        );
+      }
 
-      const android = eas?.submit?.production?.android ?? {};
-      const serviceAccountRel = String(android.serviceAccountKeyPath ?? '').trim();
-      const serviceAccountPath = serviceAccountRel ? resolve(ROOT, serviceAccountRel) : '';
-      const serviceAccountExists =
-        serviceAccountPath !== '' &&
-        existsSync(serviceAccountPath) &&
-        statSync(serviceAccountPath).isFile() &&
-        statSync(serviceAccountPath).size > 0;
-      add(
-        'eas.json submit.android 서비스 계정',
-        serviceAccountExists,
-        serviceAccountExists
-          ? `${serviceAccountRel} (${statSync(serviceAccountPath).size}B)`
-          : serviceAccountRel
-            ? `없음/빈 파일: ${serviceAccountRel}`
-            : 'serviceAccountKeyPath 미설정',
-      );
+      if (RELEASE_PLATFORM === 'all' || RELEASE_PLATFORM === 'android') {
+        const android = eas?.submit?.production?.android ?? {};
+        const serviceAccountRel = String(android.serviceAccountKeyPath ?? '').trim();
+        const serviceAccountPath = serviceAccountRel ? resolve(ROOT, serviceAccountRel) : '';
+        const serviceAccountExists =
+          serviceAccountPath !== '' &&
+          existsSync(serviceAccountPath) &&
+          statSync(serviceAccountPath).isFile() &&
+          statSync(serviceAccountPath).size > 0;
+        add(
+          'eas.json submit.android 서비스 계정',
+          ANDROID_SUBMIT_MODE === 'manual' || serviceAccountExists,
+          ANDROID_SUBMIT_MODE === 'manual'
+            ? '첫 릴리스 수동 업로드 — 서비스 계정 키 불필요'
+            : serviceAccountExists
+              ? `${serviceAccountRel} (${statSync(serviceAccountPath).size}B)`
+              : serviceAccountRel
+                ? `없음/빈 파일: ${serviceAccountRel}`
+                : 'serviceAccountKeyPath 미설정',
+        );
+      }
     } catch (err) {
       add('eas.json submit', false, `파싱 실패: ${err instanceof Error ? err.message : String(err)}`);
     }

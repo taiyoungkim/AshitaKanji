@@ -28,11 +28,13 @@
     "vocab:naver-audit": "python3 scripts/audit-vocab-naver-full.py --search-cache .cache/naver-full-search-2026-08-20-7050.json --report data/pdf-vocab/naver_full_verification.json --issues data/pdf-vocab/naver_full_verification_flags.csv --failures data/pdf-vocab/naver_full_verification_failures.csv --queue data/pdf-vocab/naver_full_verification_queue.csv",
     "track-a:translate": "node scripts/build-jlpt-db.mjs --translate",
     "release-gate": "node scripts/release-gate.mjs",
+    "release-gate:android": "RELEASE_PLATFORM=android ANDROID_SUBMIT_MODE=manual node scripts/release-gate.mjs",
     "ci-check": "npm run typecheck && npm run test && npm run lint",
     "ui:capture": "node scripts/ui-capture.mjs",
     "ui:diff": "node scripts/ui-diff.mjs",
     "ui:approve": "node scripts/ui-approve.mjs",
-    "release-check": "npm run ci-check && npm run release-gate"
+    "release-check": "npm run ci-check && npm run release-gate",
+    "release-check:android": "npm run ci-check && npm run release-gate:android"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",

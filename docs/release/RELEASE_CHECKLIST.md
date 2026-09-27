@@ -4,7 +4,7 @@ Last updated: 2026-09-27
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
 Current version: **1.0.0**
 
-스토어: Apple App Store + Google Play. 개발자 등록 = 개인(Individual).
+스토어: **Google Play only** for 1.0.0. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`. Apple App Store는 후속 릴리스로 연기.
 
 ---
 
@@ -23,7 +23,8 @@ Current version: **1.0.0**
 | 명령 | 결과 |
 |---|---|
 | `npm run ci-check` | ✅ typecheck · lint · 테스트 270개 통과 |
-| `npm run release-gate` | ❌ 2건 — iOS `ascAppId`/`appleTeamId` 미설정, Google Play 서비스 계정 키 없음. 나머지 30개 항목 통과 |
+| `npm run release-gate` | 양쪽 스토어용 종합 게이트 — iOS 제출 정보와 EAS Submit용 Google 서비스 계정 키가 없으면 실패 |
+| `npm run release-check:android` | ✅ Android 첫 수동 제출용 게이트 전체 통과 |
 
 고양이 카드 보상 프로토타입은 1.0.0 출시 범위에서 제외했다. 아래 P0 계정 정보와 실기기 검증을 마치면 최종 스토어 빌드를 진행한다.
 
@@ -34,11 +35,9 @@ Current version: **1.0.0**
 - [x] **GitHub Pages 배포** — 2026-08-18 `gh-pages` 게시. `/` `/privacy/` `/support/` HTTP 200. AdMob·ATT 공개 포함.
 - [x] **버전 bump** — `app.json` / `package.json` `1.0.0`, `runtimeVersion` `1.0.0`. (native build number는 EAS `autoIncrement`/`remote`가 처리)
 - [ ] **Android 최종 APK 콜드 스타트 게이트** — 초기화된 에뮬레이터 또는 실기기에 새로 설치한 뒤 시작 화면→홈→첫 학습 카드→TTS까지 확인. `expo_runtime_version` 리소스와 필요한 APK 자산도 대조. 상세 절차는 [`ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md`](./ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md) 참고.
-- [ ] **Apple 자산 채우기** — `eas.json` submit.production.ios `ascAppId: "TBD"`, `appleTeamId: "TBD"` → 실값.
-  - App Store Connect에서 앱 레코드 생성 후 ascAppId 확보, Apple Developer 멤버십(연 $99) 필요
-- [ ] **Google Play 서비스 계정 키** — `eas.json`가 `./secrets/play-service-account.json` 참조하나 **`secrets/` 폴더 없음**.
-  - Play Console에서 service account 생성·키 다운로드 → `secrets/`에 배치 (git ignore 확인)
-  - Play 개발자 등록 ($25 1회)
+- [x] **Google Play 개발자 등록** — 개인 계정, `datin0214@gmail.com`.
+- [ ] **production AAB 생성** — EAS production build로 Play 업로드 키를 적용. 로컬 Gradle release는 debug keystore라 제출본으로 사용 금지.
+- [ ] **첫 AAB 수동 업로드** — Play Console에서 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
 - [x] **스토어 그래픽 자산** — `store-assets/`에 시뮬레이터 실화면 리사이즈본 있음 (iOS 6.7/6.5/5.5/iPad, Android phone, feature 1024×500, icon 512). 제출 전 한 번 눈으로 확인.
 - [ ] **prod 빌드 실광고 1회 확인** — `__DEV__=false` 빌드에서 실 Unit 로드되는지. ⚠️ 본인 클릭 금지 (계정 정지)
 

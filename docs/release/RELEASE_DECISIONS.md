@@ -23,6 +23,8 @@ Last updated: 2026-09-27
 | **OTA policy (launch)** | **Enabled in `app.json`** (`updates.enabled=true`, check on load). Version-metadata only. Disclose in Privacy Policy. |
 | **Hotfix channel** | Store rebuild for native/P0. JS hotfix may use Expo Updates after a matching runtime. |
 | **Cat card reward (1.0.0)** | **Excluded** — the prototype branch is not merged into `main`; no route, settings entry, dependency, or card asset ships in the release candidate. |
+| **Store target (1.0.0)** | **Google Play only**, using the personal Play developer account owned by `datin0214@gmail.com`. iOS submission is deferred. |
+| **First Android submission** | Upload the production AAB manually in Play Console. A Google service-account key is optional until EAS Submit automation is adopted. |
 | **OTA reconsideration** | Keep disclosure in Privacy / Data Safety in sync if the update URL or payload changes. |
 | **Example attribution** | Tatoeba and owner-cleared NAVER examples show per-card/source attribution on reveal/detail screens |
 | **AI content framing** | "Released content is human-reviewed data" (no "disclosure avoidance" wording) |
