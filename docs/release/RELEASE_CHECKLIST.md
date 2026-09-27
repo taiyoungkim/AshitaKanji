@@ -37,7 +37,8 @@ Current version: **1.0.0**
 - [ ] **Android 최종 APK 콜드 스타트 게이트** — 초기화된 에뮬레이터 또는 실기기에 새로 설치한 뒤 시작 화면→홈→첫 학습 카드→TTS까지 확인. `expo_runtime_version` 리소스와 필요한 APK 자산도 대조. 상세 절차는 [`ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md`](./ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md) 참고.
 - [x] **Google Play 개발자 등록** — 개인 계정, `datin0214@gmail.com`.
 - [ ] **production AAB 생성** — EAS production build로 Play 업로드 키를 적용. 로컬 Gradle release는 debug keystore라 제출본으로 사용 금지.
-  - 2026-09-27 첫 시도(build 34)는 Metro eager bundle 99.9%에서 메모리 부족(code 137). Android builder를 `large`, Node heap을 8GB로 올리고 미사용 MP3 242MB를 EAS 업로드에서 제외해 재시도.
+  - 2026-09-27 첫 시도(build 34)는 Metro eager bundle 99.9%에서 메모리 부족(code 137).
+  - 유료 `large` builder 대신 무료 `medium`의 Metro worker를 1개로 제한하고 Node heap을 8GB로 올림. Android가 쓰지 않는 MP3 242MB도 EAS 업로드에서 명시적으로 제외해 재시도.
 - [ ] **첫 AAB 수동 업로드** — Play Console에서 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
 - [x] **스토어 그래픽 자산** — `store-assets/`에 시뮬레이터 실화면 리사이즈본 있음 (iOS 6.7/6.5/5.5/iPad, Android phone, feature 1024×500, icon 512). 제출 전 한 번 눈으로 확인.
 - [ ] **prod 빌드 실광고 1회 확인** — `__DEV__=false` 빌드에서 실 Unit 로드되는지. ⚠️ 본인 클릭 금지 (계정 정지)

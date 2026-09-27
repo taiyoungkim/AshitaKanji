@@ -113,3 +113,7 @@ data/track-a/*.csv.bak
 !assets/audio/examples/*.ogg
 !src/lib/audio/audioMap.gen.ts
 !src/lib/audio/audioMap.gen.android.ts
+
+# Android production uses the platform-specific Ogg map. Keep MP3 sources out
+# of the EAS archive even after the audio directories are re-included above.
+/assets/audio/**/*.mp3
