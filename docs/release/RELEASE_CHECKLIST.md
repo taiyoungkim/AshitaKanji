@@ -16,7 +16,7 @@ Current version: **1.0.0**
 | **P1** | 심사 통과·광고 게재에 필수 | reject 또는 광고 노출 안 됨 |
 | **P2** | 출시 직후/품질 | 출시는 되나 리스크 |
 
-현재 상태 한 줄: **앱·데이터·Privacy URL 준비됨. 남은 블로커는 스토어 계정·prod 빌드 검증.**
+현재 상태 한 줄: **서명된 Google Play production AAB(build 38)까지 준비됨. 남은 작업은 Play Console 수동 업로드·콘솔 설문·실기기 검증.**
 
 ### 자동 게이트 결과 (2026-09-27)
 
@@ -36,9 +36,12 @@ Current version: **1.0.0**
 - [x] **버전 bump** — `app.json` / `package.json` `1.0.0`, `runtimeVersion` `1.0.0`. (native build number는 EAS `autoIncrement`/`remote`가 처리)
 - [ ] **Android 최종 APK 콜드 스타트 게이트** — 초기화된 에뮬레이터 또는 실기기에 새로 설치한 뒤 시작 화면→홈→첫 학습 카드→TTS까지 확인. `expo_runtime_version` 리소스와 필요한 APK 자산도 대조. 상세 절차는 [`ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md`](./ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md) 참고.
 - [x] **Google Play 개발자 등록** — 개인 계정, `datin0214@gmail.com`.
-- [ ] **production AAB 생성** — EAS production build로 Play 업로드 키를 적용. 로컬 Gradle release는 debug keystore라 제출본으로 사용 금지.
+- [x] **production AAB 생성** — EAS production profile을 로컬 실행해 원격 Play 업로드 키를 주입한 서명본 생성. 일반 로컬 Gradle release(debug keystore)는 제출본으로 사용 금지.
   - 2026-09-27 첫 시도(build 34)는 Metro eager bundle 99.9%에서 메모리 부족(code 137).
-  - 유료 `large` builder 대신 무료 `medium`의 Metro worker를 1개로 제한하고 Node heap을 8GB로 올림. Android가 쓰지 않는 MP3 242MB도 EAS 업로드에서 명시적으로 제외해 재시도.
+  - 무료 `medium` 원격 빌드는 Metro 통과 후 `createReleaseUpdatesResources`에서 다시 메모리 부족(code 137). 같은 production profile과 원격 keystore로 공식 EAS local build를 실행해 우회.
+  - 제출 파일: `releases/Onikan-google-play-v1.0.0-build38.aab` (versionName `1.0.0`, versionCode `38`, 190 MB).
+  - SHA-256: `113fb81e572820300f880e23bb2b15f0948b836dc98e4b5158b39f6054a989da`.
+  - 검증: Gradle 1,034 tasks 성공, `jarsigner` 검증 성공, ZIP 무결성 성공, MP3 0개·OGG 14,054개 포함.
 - [ ] **첫 AAB 수동 업로드** — Play Console에서 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
 - [x] **스토어 그래픽 자산** — `store-assets/`에 시뮬레이터 실화면 리사이즈본 있음 (iOS 6.7/6.5/5.5/iPad, Android phone, feature 1024×500, icon 512). 제출 전 한 번 눈으로 확인.
 - [ ] **prod 빌드 실광고 1회 확인** — `__DEV__=false` 빌드에서 실 Unit 로드되는지. ⚠️ 본인 클릭 금지 (계정 정지)
@@ -86,10 +89,10 @@ Age rating surveys: mark **ads / advertising present**. Do not mark as child-dir
 
 ## 추천 실행 순서
 
-1. 개발자 계정 등록 (Apple $99/yr, Google $25) — 리드타임 김, 먼저
-2. GitHub Pages 배포 → URL 200 검증 (P0, 빠름)
-3. 스토어 앱 레코드 생성 → ascAppId/teamId·service account 키 확보
-4. store-assets 스크린샷·그래픽 제작
-5. version 1.0.0 bump → prod 빌드 → 실광고 1회 확인
-6. Privacy 라벨/Data Safety/등급 설문 작성
-7. 내부 트랙 업로드 → AdMob 앱 연결 → 프로덕션 제출
+1. Play Console에서 앱 레코드 생성 (`오니칸`, 기본 언어 한국어, 앱/무료)
+2. `build38.aab`를 내부 테스트 트랙에 수동 업로드
+3. Play Data Safety·광고 포함·콘텐츠 등급·대상 연령·앱 액세스 설문 작성
+4. 스토어 설명·아이콘·feature graphic·Android 스크린샷·지원 URL/이메일 등록
+5. 내부 테스트 설치 → 콜드 스타트·첫 학습·TTS·실광고 1회 확인 (본인 광고 클릭 금지)
+6. AdMob에서 Play 스토어 리스팅 연결
+7. 개인 계정의 적용 대상 테스트 요건을 Play Console에서 확인하고 충족한 뒤 프로덕션 제출
