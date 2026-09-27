@@ -1,6 +1,6 @@
 # Release Decisions
 
-Last updated: 2026-09-03
+Last updated: 2026-09-27
 
 ## Confirmed
 
@@ -22,6 +22,7 @@ Last updated: 2026-09-03
 | **Ads (launch)** | **On** — Google AdMob interstitial after a completed regular study, weakness review, or reading session. All flows share one frequency cap: 3-day/5-session grace, 1 ad per 2 sessions, 10 min gap, daily 3. Ads are not shown during card grading. ATT on iOS; decline → non-personalized ads. Learning data is not sent to AdMob. |
 | **OTA policy (launch)** | **Enabled in `app.json`** (`updates.enabled=true`, check on load). Version-metadata only. Disclose in Privacy Policy. |
 | **Hotfix channel** | Store rebuild for native/P0. JS hotfix may use Expo Updates after a matching runtime. |
+| **Cat card reward (1.0.0)** | **Excluded** — the prototype branch is not merged into `main`; no route, settings entry, dependency, or card asset ships in the release candidate. |
 | **OTA reconsideration** | Keep disclosure in Privacy / Data Safety in sync if the update URL or payload changes. |
 | **Example attribution** | Tatoeba and owner-cleared NAVER examples show per-card/source attribution on reveal/detail screens |
 | **AI content framing** | "Released content is human-reviewed data" (no "disclosure avoidance" wording) |

@@ -1,6 +1,6 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-09-01
+Last updated: 2026-09-27
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
 Current version: **1.0.0**
 
@@ -18,14 +18,14 @@ Current version: **1.0.0**
 
 현재 상태 한 줄: **앱·데이터·Privacy URL 준비됨. 남은 블로커는 스토어 계정·prod 빌드 검증.**
 
-### 자동 게이트 결과 (2026-09-01)
+### 자동 게이트 결과 (2026-09-27)
 
 | 명령 | 결과 |
 |---|---|
-| `npm run ci-check` | ✅ typecheck · lint · 테스트 229개 통과 |
-| `npm run release-gate` | ❌ 1건 — `eas.json submit.ios` `ascAppId`/`appleTeamId` 가 `TBD`. 나머지 28개 항목(에셋·jlpt.db 무결성·예문 권한·사이트 URL 3종) 통과 |
+| `npm run ci-check` | ✅ typecheck · lint · 테스트 270개 통과 |
+| `npm run release-gate` | ❌ 2건 — iOS `ascAppId`/`appleTeamId` 미설정, Google Play 서비스 계정 키 없음. 나머지 30개 항목 통과 |
 
-`release-gate`의 유일한 실패는 아래 P0 "Apple 자산 채우기"와 같은 항목이다. 값을 채우면 게이트가 전부 통과한다.
+고양이 카드 보상 프로토타입은 1.0.0 출시 범위에서 제외했다. 아래 P0 계정 정보와 실기기 검증을 마치면 최종 스토어 빌드를 진행한다.
 
 ---
 
