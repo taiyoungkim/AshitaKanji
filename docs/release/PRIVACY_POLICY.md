@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2026-09-03
+Last updated: 2026-09-29
 
 This Privacy Policy applies to **오니칸 (오니기리 칸지)**.
 
@@ -52,6 +52,10 @@ On iOS 14.5 and later, the app requests tracking permission before initializing 
 - Don't Allow: the app continues to work. Ads may still appear, but they are requested as non-personalized ads.
 
 You can change this later in iOS Settings → Privacy & Security → Tracking.
+
+## Photo Library
+
+After a study session you can save a study receipt image to your photo library. Only then does the app ask for add-only photo permission (iOS) or photo permission (Android). The app writes that one image and does not read, browse, or upload your existing photos. If you decline, saving is skipped and the app keeps working. Sharing the image uses the system share sheet and goes only where you choose.
 
 ## Other Network Activity
 

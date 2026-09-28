@@ -43,8 +43,8 @@
     "production": {
       "ios": {
         "appleId": "datin0214@gmail.com",
-        "ascAppId": "TBD",
-        "appleTeamId": "TBD"
+        "ascAppId": "6817012548",
+        "appleTeamId": "TQ862J7LUN"
       },
       "android": {
         "serviceAccountKeyPath": "./secrets/play-service-account.json",
