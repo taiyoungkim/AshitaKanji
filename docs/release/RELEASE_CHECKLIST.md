@@ -1,6 +1,6 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-09-27
+Last updated: 2026-09-28
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
 Current version: **1.0.0**
 
@@ -16,7 +16,7 @@ Current version: **1.0.0**
 | **P1** | 심사 통과·광고 게재에 필수 | reject 또는 광고 노출 안 됨 |
 | **P2** | 출시 직후/품질 | 출시는 되나 리스크 |
 
-현재 상태 한 줄: **서명된 Google Play production AAB(build 38)까지 준비됨. 남은 작업은 Play Console 수동 업로드·콘솔 설문·실기기 검증.**
+현재 상태 한 줄: **새 앱 아이콘을 포함한 서명된 Google Play production AAB(build 40)까지 준비됨. 남은 작업은 Play Console 초안의 build 38 교체·콘솔 설문·실기기 검증.**
 
 ### 자동 게이트 결과 (2026-09-27)
 
@@ -39,11 +39,11 @@ Current version: **1.0.0**
 - [x] **production AAB 생성** — EAS production profile을 로컬 실행해 원격 Play 업로드 키를 주입한 서명본 생성. 일반 로컬 Gradle release(debug keystore)는 제출본으로 사용 금지.
   - 2026-09-27 첫 시도(build 34)는 Metro eager bundle 99.9%에서 메모리 부족(code 137).
   - 무료 `medium` 원격 빌드는 Metro 통과 후 `createReleaseUpdatesResources`에서 다시 메모리 부족(code 137). 같은 production profile과 원격 keystore로 공식 EAS local build를 실행해 우회.
-  - 제출 파일: `releases/Onikan-google-play-v1.0.0-build38.aab` (versionName `1.0.0`, versionCode `38`, 190 MB).
-  - SHA-256: `113fb81e572820300f880e23bb2b15f0948b836dc98e4b5158b39f6054a989da`.
+  - 제출 파일: `releases/Onikan-google-play-v1.0.0-build40.aab` (versionName `1.0.0`, versionCode `40`, 190 MB). build 38은 Play 내부 테스트의 미출시 초안에만 업로드되어 있어 교체 대상.
+  - SHA-256: `a5edd6abafe210739e7a703a3e179b00f98605ec0399f1e7a66112ea5ddbc89b`.
   - 검증: Gradle 1,034 tasks 성공, `jarsigner` 검증 성공, ZIP 무결성 성공, MP3 0개·OGG 14,054개 포함.
-- [ ] **첫 AAB 수동 업로드** — Play Console에서 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
-- [x] **스토어 그래픽 자산** — `store-assets/`에 시뮬레이터 실화면 리사이즈본 있음 (iOS 6.7/6.5/5.5/iPad, Android phone, feature 1024×500, icon 512). 제출 전 한 번 눈으로 확인.
+- [ ] **최종 AAB 수동 업로드** — build 38 초안을 제거하고 build 40을 Play Console 내부 테스트 트랙에 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
+- [x] **스토어 그래픽 자산** — 2026-09-28 새 오니기리 아이콘으로 앱/Play 아이콘을 통일하고, Android 9:16 스크린샷 7장(1539×2736)과 feature graphic(1024×500)을 갱신·육안 확인.
 - [ ] **prod 빌드 실광고 1회 확인** — `__DEV__=false` 빌드에서 실 Unit 로드되는지. ⚠️ 본인 클릭 금지 (계정 정지)
 
 ## P1 — 심사 통과·광고 게재 필수
@@ -90,7 +90,7 @@ Age rating surveys: mark **ads / advertising present**. Do not mark as child-dir
 ## 추천 실행 순서
 
 1. Play Console에서 앱 레코드 생성 (`오니칸`, 기본 언어 한국어, 앱/무료)
-2. `build38.aab`를 내부 테스트 트랙에 수동 업로드
+2. 내부 테스트 초안의 build 38을 제거하고 `build40.aab`를 수동 업로드
 3. Play Data Safety·광고 포함·콘텐츠 등급·대상 연령·앱 액세스 설문 작성
 4. 스토어 설명·아이콘·feature graphic·Android 스크린샷·지원 URL/이메일 등록
 5. 내부 테스트 설치 → 콜드 스타트·첫 학습·TTS·실광고 1회 확인 (본인 광고 클릭 금지)
