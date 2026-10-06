@@ -17,12 +17,18 @@ DEFAULT_AUDIO_DIR = os.path.join(ROOT, "assets", "audio", "examples")
 DEFAULT_AUDIO_MAP = os.path.join(ROOT, "src", "lib", "audio", "audioMap.gen.android.ts")
 DEFAULT_REPORT = os.path.join(ROOT, "data", "pdf-vocab", "example_tts_validation_report.json")
 ID_RE = re.compile(r"^w_[0-9a-f]{16}$")
+SI_SDR_RE = re.compile(r"SI-SDR ch0: ([-+.0-9a-z]+) dB")
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--db", default=DEFAULT_DB)
     parser.add_argument("--audio-dir", default=DEFAULT_AUDIO_DIR)
+    parser.add_argument(
+        "--source-audio-dir",
+        default=DEFAULT_AUDIO_DIR,
+        help="Directory containing the source MP3 files used to create the Ogg assets",
+    )
     parser.add_argument("--audio-map", default=DEFAULT_AUDIO_MAP)
     parser.add_argument("--extension", choices=("mp3", "ogg"), default="ogg")
     parser.add_argument("--codec", choices=("mp3", "opus"), default="opus")
@@ -100,6 +106,45 @@ def probe(path, expected_codec):
     }
 
 
+def compare_source(source_path, encoded_path):
+    """Verify that the source MP3 and bundled Ogg contain the same spoken audio."""
+    completed = subprocess.run(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-nostats",
+            "-i",
+            source_path,
+            "-i",
+            encoded_path,
+            "-filter_complex",
+            "[0:a][1:a]asisdr",
+            "-f",
+            "null",
+            "-",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    match = SI_SDR_RE.search(completed.stderr)
+    if completed.returncode != 0 or not match:
+        return {
+            "ok": False,
+            "error": completed.stderr.strip()[-1000:] or f"exit {completed.returncode}",
+        }
+    try:
+        similarity_db = float(match.group(1))
+    except ValueError:
+        return {"ok": False, "error": f"invalid SI-SDR value: {match.group(1)}"}
+    return {
+        "ok": similarity_db >= 0,
+        "similarity_db": similarity_db,
+        "error": None if similarity_db >= 0 else "source MP3 and bundled Ogg contain different audio",
+    }
+
+
 def main():
     args = parse_args()
     if args.workers < 1:
@@ -134,6 +179,7 @@ def main():
             invalid.append({"id": word_id, "check": "audio_map", "error": "missing mapping"})
 
     probe_results = {}
+    source_comparisons = {}
     probe_ids = sorted(expected_ids & physical_ids)
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
         future_by_id = {
@@ -155,6 +201,41 @@ def main():
                 invalid.append({"id": word_id, "check": "ffprobe", "error": result["error"]})
             if index % 500 == 0 or index == len(probe_ids):
                 print(f"ffprobe {index}/{len(probe_ids)} invalid={len(invalid)}", flush=True)
+
+    source_ids = {
+        word_id
+        for word_id in expected_ids
+        if os.path.exists(os.path.join(args.source_audio_dir, f"{word_id}.mp3"))
+    }
+    comparable_ids = sorted(expected_ids & physical_ids & source_ids)
+    missing_source_ids = sorted(expected_ids - source_ids)
+    for word_id in missing_source_ids:
+        invalid.append({"id": word_id, "check": "source_audio", "error": "missing source MP3"})
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
+        future_by_id = {
+            executor.submit(
+                compare_source,
+                os.path.join(args.source_audio_dir, f"{word_id}.mp3"),
+                os.path.join(args.audio_dir, f"{word_id}{suffix}"),
+            ): word_id
+            for word_id in comparable_ids
+        }
+        for index, future in enumerate(concurrent.futures.as_completed(future_by_id), start=1):
+            word_id = future_by_id[future]
+            try:
+                result = future.result()
+            except Exception as exc:  # noqa: BLE001
+                result = {"ok": False, "error": str(exc)}
+            source_comparisons[word_id] = result
+            if not result["ok"]:
+                invalid.append({"id": word_id, "check": "audio_content", "error": result["error"]})
+            if index % 500 == 0 or index == len(comparable_ids):
+                mismatches = sum(not item["ok"] for item in source_comparisons.values())
+                print(
+                    f"audio-compare {index}/{len(comparable_ids)} mismatches={mismatches}",
+                    flush=True,
+                )
 
     generation = None
     generation_mismatches = []
@@ -191,8 +272,8 @@ def main():
         source_counts[key] = source_counts.get(key, 0) + 1
 
     passed = (
-        len(expected) == 7026
-        and len(probe_results) == len(expected)
+        len(probe_results) == len(expected)
+        and len(source_comparisons) == len(expected)
         and not invalid
         and not part_files
         and not generation_mismatches
@@ -212,6 +293,19 @@ def main():
         "active_audio_map_entries": len(expected_ids & map_ids),
         "audio_map_entries": len(map_ids),
         "ffprobe_valid": sum(bool(result.get("ok")) for result in probe_results.values()),
+        "source_audio_files": len(comparable_ids),
+        "source_audio_matches": sum(
+            bool(result.get("ok")) for result in source_comparisons.values()
+        ),
+        "source_audio_mismatches": [
+            {
+                "id": word_id,
+                "similarity_db": result.get("similarity_db"),
+                "error": result.get("error"),
+            }
+            for word_id, result in sorted(source_comparisons.items())
+            if not result.get("ok")
+        ],
         "codec_counts": codecs,
         "duration_seconds": {
             "min": round(min(durations), 3) if durations else None,
@@ -238,6 +332,7 @@ def main():
         "orphan_audio_ids": sorted(physical_ids - expected_ids),
         "orphan_map_count": len(map_ids - expected_ids),
         "missing_files": sorted(expected_ids - physical_ids),
+        "missing_source_files": missing_source_ids,
         "missing_map_entries": sorted(expected_ids - map_ids),
     }
 
@@ -252,6 +347,8 @@ def main():
         "active_audio_files",
         "active_audio_map_entries",
         "ffprobe_valid",
+        "source_audio_matches",
+        "source_audio_mismatches",
         "codec_counts",
         "part_files",
         "orphan_audio_count",

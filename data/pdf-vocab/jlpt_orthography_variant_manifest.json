@@ -3,13 +3,20 @@
   "source_queue": "data/pdf-vocab/orthography_variant_review_queue.csv",
   "successors": {
     "w_a430acefffcd0bfe": "w_9f4bac962871acc8",
-    "w_69c992c9db76a823": "w_01f119facf6e9d97",
+    "w_69c992c9db76a823": "w_9f4bac962871acc8",
     "w_8055df2a8ee6ed9e": "w_671b868a471a9e6f",
     "w_232fd4c69bca3059": "w_40998838c1d8464a",
     "w_5eba7c1114cfa1cd": "w_cd94ea8ce1292469",
     "w_7da89b0ae3f818ac": "w_272e0931b59a9581",
     "w_6bd4411a881b3eb1": "w_5dbb6ffd4db86074",
     "w_1e3f18b11c856182": "w_b46a8559c80c637b",
-    "w_e1224f159d5c953d": "w_e3bd581a07151df2"
+    "w_e1224f159d5c953d": "w_e3bd581a07151df2",
+    "w_01f119facf6e9d97": "w_9f4bac962871acc8",
+    "w_713aaa51e13cbeed": "w_9f4bac962871acc8",
+    "w_188378c15d9c641d": "w_9f4bac962871acc8",
+    "w_97db66ffd893f4b5": "w_9ea346dbfdc4c768",
+    "w_9d1276b961227354": "w_16afef6fcc1d2e6d",
+    "w_3ec592997b865dca": "w_bf03a7c1b0d7b64c",
+    "w_97e7d7c923d83b1c": "w_0e85c73b6c150596"
   }
 }

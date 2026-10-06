@@ -1,0 +1,426 @@
+﻿id,surface,reading_kana,meaning_ko,frequency,naver_status,naver_level,source,review_reason
+w_27a3e7cf4b5f70f5,だったら,だったら,"그렇다면, ~라면",5.950,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8fceccfb0b0413c3,何なり,なんなり,무엇이든,5.700,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ea7788211d151183,超,ちょう,"초~, 초월",5.410,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f0f4ba316c41c57e,限定,げんてい,"한계, 제한",5.170,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_62ca309fa490e070,おいて,おいて,"~에 있어서, ~에서",5.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1739219b9edbbe14,まとめ,まとめ,"정리, 종합",5.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dd3bd874418fc855,主,しゅ,"주인, 임자; 주(主)",5.080,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4e62d76c327ed8cd,ファン,ファン,"팬, 선풍기",5.070,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_320315fd9d2fb637,企画,きかく,"계획, 프로젝트",5.030,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_67a4d891463851c1,無意味,むいみ,무의미함,5.030,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2e4639b9ed99174c,お使い,おつかい,심부름,5.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_93fd865020b1c1c6,作,さく,작품,4.950,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e31e728f291ab123,不明,ふめい,"불명, 분명하지 않음",4.940,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_39fa4ef8e4e3ce8c,通常,つうじょう,"통상, 보통",4.920,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8cd59a37580c63ca,セックス,セックス,"성별, 성",4.910,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_990e018f811afeb0,寄り掛かる,よりかかる,"기대다, 의지하다",4.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_84a0c4c5c15256e3,無駄,むだ,"헛됨, 낭비",4.880,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3ee09f596d4c7b39,郡,ぐん,군(행정구역),4.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_11fe0e66acd093cc,及び,および,"및, 그리고",4.820,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c766896a204faa81,体付き,からだつき,"몸매, 체격",4.760,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_44789e3583d7ac80,マーク,マーク,"마크, 표시",4.750,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_894a68158d207560,嫌々,いやいや,"마지못해, 싫어하며",4.750,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ce14fb103a34164a,行い,おこない,"행실, 행동",4.730,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2466f73e99a3755f,バー,バー,바; 막대,4.720,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_14bbda47125227ce,連中,れんちゅう,"패거리, 무리",4.700,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_abbb0d75fda64d06,もしくは,もしくは,"또는, 그렇지 않으면",4.690,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_ed8aae9d747d05eb,ベスト,ベスト,"최고, 가장 좋은",4.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f697536ea7782442,慣れ,なれ,"익숙함, 버릇",4.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e55eba201d97a458,気軽,きがる,"부담 없음, 선뜻함",4.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_345ca182c883fb30,進化,しんか,"진행, 진보",4.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6a8b9fc35622cafd,かつて,かつて,"한 번, 전",4.660,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_ad0baca85d14c03b,実,じつ,"열매, 실제, 결실",4.650,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9d6dc8ee8bdac291,細胞,さいぼう,세포,4.650,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8ac4bdc55f734e09,受け入れ,うけいれ,"수령, 수신, 수락, 수용",4.630,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d83dcb838b42ae21,ショー,ショー,보여주다,4.610,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e3fe85feaff71b45,スト,スト,"파업, 스트라이크(약어)",4.590,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b6d2da01ed4eaeb2,現地,げんち,"실제의 장소, 지역의",4.580,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_eb411740fdd65b19,カット,カット,"컷, 자름",4.570,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f9e4e26cd67e15c8,垢,あか,"때, 오물",4.560,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d4d82b85d2c0b91a,拒否,きょひ,거절,4.560,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_02a2c34d787b06bb,ニュー,ニュー,새로운,4.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c14a80974b96c924,公,おおやけ,"공(公), 공적임",4.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_359545c599729c7a,災害,さいがい,"재난, 불운",4.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a634c297cfa679d5,流し,ながし,"싱크대, 개수대",4.540,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9da2e123dfafec2a,驚き,おどろき,놀라움,4.540,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_35c25e176d8f0a74,審査,しんさ,"검사, 점검, 시험",4.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_382569a75d62f02d,トラブル,トラブル,"문제, 곤란(때때로 사용된 로서 동사)",4.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_058dd20d817eb3da,効率,こうりつ,효율,4.510,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_99849b153132ee40,実家,じっか,"본가, 부모님 집",4.480,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5b8ddfb46d714f92,依存,いぞん,의존,4.430,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d10439ce737d3db9,大幅,おおはば,"대폭, 큰 폭",4.400,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c15b62b2bcf35a83,不良,ふりょう,불량,4.380,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f4e7b697d7baf427,従業員,じゅうぎょういん,종업원,4.360,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9e8acb6258c3a894,乙,おつ,"을, 둘째",4.350,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_fe869f63d9660ff6,届,とどけ,신고(서),4.350,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9e69d4aff30c5d9e,どうにか,どうにか,어떻게든,4.330,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e46e25b8f8c8a88c,にも関わらず,にもかかわらず,~에도 불구하고,4.320,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b87f291dcfcaefd7,仕掛け,しかけ,"장치, 장치된 것",4.300,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_10685e8325afcf42,個別,こべつ,개별,4.290,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a83a8727b29133b5,保守,ほしゅ,보수적인,4.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c774f9b47e10c2ec,究極,きゅうきょく,궁극,4.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_60f0df77a7c73dbf,無効,むこう,무효,4.270,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ece3fbaf654b9a73,何より,なにより,무엇보다,4.260,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e87b81cd80809eea,でかい,でかい,거대한,4.250,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_fa131223d290a13b,切り替え,きりかえ,"전환, 교체",4.250,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8dec04ac32a62cd8,株式,かぶしき,"주식, 재고",4.250,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_fa56a66e87411a7f,志,こころざし,"뜻, 의지",4.230,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bd50cfaac12b766b,言い訳,いいわけ,"변명, 해명",4.230,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_05c1883b474f2434,共和,きょうわ,공화,4.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7c46a6f6431772cc,到達,とうたつ,도착,4.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_89e88050a60546d8,単独,たんどく,단독,4.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5bba410a9f58c9b9,所得,しょとく,수입,4.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6264fe80f7f3616d,親父,おやじ,"아버지, 아저씨",4.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e99a3d245db86373,最中,さなか,"~의 한가운데, 한가운데",4.210,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e4296f4107742e4b,頻繁,ひんぱん,빈번함,4.210,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_737884237fe81fd0,決断,けつだん,"결정, 결심",4.200,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_25dc46a0c87b3106,自主,じしゅ,자율,4.200,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_79707d3c49949938,まして,まして,"하물며, 더구나",4.180,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_cf95e539e7da05db,国連,こくれん,"유엔, 국제연합",4.180,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8ca9f1dd07be21d5,麻,あさ,"삼, 마",4.180,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_74f7e87454f7a2e7,勘弁,かんべん,"용서, 봐줌",4.170,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;headword-audit-backfill,N1 supplement without exact NAVER N1 confirmation
+w_331f176fbc68df97,ブル,ブル,황소,4.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3157aa07368dd300,甲,こう,갑(첫째); 껍데기,4.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_0c26cac896c6bac7,補給,ほきゅう,공급,4.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e3643823050e5d97,未熟,みじゅく,미숙,4.150,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_59f80d4dc5e14879,とんだ,とんだ,"엄청난, 뜻밖의, 당치도 않은",4.140,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_416fe10aba191688,パチンコ,パチンコ,파칭코,4.140,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d45464af66ced061,札,ふだ,"표, 패, 부적",4.140,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_862d6a9a85c61cfc,さっぱりする,さっぱりする,"상쾌해지다, 산뜻해지다",4.130,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e8d685bc3b564ddd,侍,さむらい,사무라이,4.130,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_019d3a6a26abbe92,逃亡,とうぼう,탈출,4.130,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d03f95e5561a135e,ミュージック,ミュージック,음악,4.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_438b4e3738285666,改良,かいりょう,"개선, 개혁",4.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2119dd3cac2a55fa,救い,すくい,구원; 도움,4.110,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_40bbce70edec5cdb,手軽,てがる,"쉬운, 단순한",4.090,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_80fbcf016fe63b12,上陸,じょうりく,"땅, 토지",4.080,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9575469881a845d9,堂々,どうどう,"훌륭한, 웅장한",4.080,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ec9e607fc8bac604,欲深い,よくふかい,"욕심 많다, 탐욕스럽다",4.060,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_edaaa51fc020be6e,仕上げ,しあげ,"마무리, 완성",4.050,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c1d96f9e53c5c773,肝心,かんじん,"중요함, 핵심임",4.050,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e8b4e8eb9ffea033,しかしながら,しかしながら,"아무리 ~해도, 그러나, 그럼에도 불구하고",4.040,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dd8642cc4b9791a8,内蔵,ないぞう,"내장(內藏), 내장형",4.040,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1cf739ec3b28e24d,津波,つなみ,"쓰나미, 지진해일",4.030,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_cf3403f54f35fc2a,身近,みぢか,가까움; 친근함,4.030,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_d1b4e9d1855d96a8,塊,かたまり,덩어리,4.020,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6a188b6ea4873c0b,フォーム,フォーム,"거품, 형태",4.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bec94d47e76f2246,同等,どうとう,동등함,4.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_57f97ee9e78b95de,嘘つき,うそつき,거짓말쟁이,4.010,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_cf8ca12b18f7c25c,分裂,ぶんれつ,분열,4.000,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_986228d6da6d8d7b,気障,きざ,"거슬림, 아니꼬움",4.000,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ef464edeb0e0b963,一括,いっかつ,모두 함께,3.990,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2a768ef5dc0abdb7,タンパク質,たんぱくしつ,단백질,3.980,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4db97d49645a7a4a,何だか,なんだか,"왠지, 어쩐지",3.980,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_844d5a2ccd0a4dad,逃走,とうそう,탈출,3.980,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ca5803c204ca5c67,不審,ふしん,"수상한, 의심하다",3.970,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4938026596d27e3b,庶民,しょみん,"흔한, 공통의 사람들",3.970,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_42155d89616e9893,なんだかんだ,なんだかんだ,"이러쿵저러쿵, 이것저것",3.960,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_07b3929512d229c4,来場,らいじょう,"(행사장에) 옴, 참석",3.960,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_24f8546b661f5549,愚か,おろか,어리석은,3.950,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d174ba214e5b7441,指令,しれい,"명령하다, 주문하다, 지시, 설명",3.940,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_aca6c6f278456770,無茶,むちゃ,"무리한, 불합리한",3.940,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e3179dcdcdadcc4d,残酷,ざんこく,"잔혹함, 잔인함",3.930,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b273e474ca178895,上回る,うわまわる,"넘다, 초과하다",3.920,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7235caa24ef89705,筒,つつ,"통, 대롱",3.920,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_53f5a11a43999634,取り扱い,とりあつかい,"취급, 다룸",3.910,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_cb0e8479fc8ba086,除外,じょがい,예외,3.910,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1be5ccd3605af1b6,うんざり,うんざり,"지긋지긋함, 질림",3.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a691689e7604b569,きっちり,きっちり,"정확히, 단단히",3.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4275cf566052b54f,ヤング,ヤング,"젊은, 어린",3.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_012a3956391c7abf,揃い,そろい,"갖춰짐, 한 벌",3.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3621bac29aa78e5c,迅速,じんそく,신속함,3.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f437d8b4eaba350b,志向,しこう,"의도, 목표",3.890,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d893936600008bb3,ユニフォーム,ユニフォーム,유니폼,3.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_364206e8ac9cd095,小売,こうり,소매,3.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_edd9dbd57627094a,無用,むよう,"쓸데없음, 필요 없음",3.880,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_898c2a45aa7e52a6,外来,がいらい,외래,3.870,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_daea8f15b2ecf7cd,落ち着き,おちつき,"침착함, 차분함",3.870,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_fb4934c89048adc0,著名,ちょめい,"저명함, 유명함",3.870,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b079d83f72c9dfe8,返済,へんさい,"변제, 상환",3.870,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_df40eb9087b51ff0,世論,よろん,여론,3.850,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5d563043a5a585a6,未知,みち,미지(의),3.850,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4b67eea89d41e4b8,沿岸,えんがん,해안,3.850,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6b58ee0417f901a8,不当,ふとう,부당함,3.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_910f292bbab2b9a8,勘,かん,"감, 직감",3.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a0aa509058c2107f,壮大,そうだい,"웅장함, 장대함",3.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c5477b139f36b1c2,誠に,まことに,"참으로, 정말로(매우 공손), 절대적으로, 확실히",3.840,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_43d087b1c0eedde3,貧乏,びんぼう,"가난, 빈곤",3.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dc5c65175e51fda2,出生,しゅっせい,출생,3.830,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dc26375ace00a7ae,のどか,のどか,"차분한, 조용한",3.820,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2f80515abdd9d298,インターフォン,インターフォン,인터폰,3.810,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_709425fc55e51f1b,ユニーク,ユニーク,"독특함, 유니크함",3.810,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9a33906589fa3218,合間,あいま,간격,3.810,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a611c1b0cbf6a205,終始,しゅうし,"시종, 처음부터 끝까지",3.810,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9da5d3e318f2c437,股,もも,"사타구니, 허벅지 안쪽",3.810,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5be62d71deeeebf2,造り,つくり,건축물·제품의 만듦새; 구조,3.800,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_77a9e1ec6c651702,不調,ふちょう,"부진, 컨디션 난조",3.780,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_73b7994c2eb747bd,云々,うんぬん,"운운, 등등",3.780,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_cb2bca15a098de65,即座に,そくざに,"즉석에서, 즉시",3.780,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_452bc6078da69d6b,苦,く,"고생, 괴로움",3.780,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_01189f1cea47322f,諸君,しょくん,"여러분, 제군",3.780,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_0783dd396f0d364e,サンキュー,サンキュー,고맙습니다,3.770,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_150dcbd2b6dcb160,ロープウェイ,ロープウェイ,로프웨이,3.770,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_efec26d68c59a114,連日,れんじつ,"모든, 매 날, 하루",3.760,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6273ce23fa23feb8,倍率,ばいりつ,배율; 경쟁률,3.740,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_317804e3c0be31ce,折,おり,"때, 기회",3.740,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ad224f3567422630,新婚,しんこん,신혼,3.740,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_08697f0dbbcca846,未定,みてい,미정,3.740,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b6d1d9cff527ba72,しょっちゅう,しょっちゅう,"항상, 끊임없이",3.730,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_369e521cbb40d997,固有,こゆう,고유,3.730,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a81cb16799433bef,既婚,きこん,기혼,3.730,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1c7becc3389625c1,猛烈,もうれつ,맹렬함,3.730,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6ed74d9ae056d361,補足,ほそく,"보충, 보완",3.730,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2bd9770e75820794,頑丈,がんじょう,"튼튼함, 견고함",3.710,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7e5efe5cd8b22071,共存,きょうぞん,공존,3.700,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8d691c6743afec92,嗜好,しこう,"맛, 호감, 취향",3.700,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_24ee4c054105c72b,横綱,よこづな,"요코즈나, 스모 최고 등급",3.700,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_49bd1b1bf3c234c4,並びに,ならびに,"및, 그리고",3.690,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d1effe589d89584b,交互,こうご,"교호, 번갈아",3.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_09e23b6f9018545a,早急,さっきゅう,긴급한,3.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1ef4822a952c095f,早急,そうきゅう,긴급한,3.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a63a119a03ed4e7f,普遍,ふへん,보편,3.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2c3f3b5d1f0e15fa,巧み,たくみ,"교묘함, 솜씨 좋음",3.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e51e2c633a8c0010,役職,やくしょく,직책,3.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d6fcc4d9c768c61a,ありのまま,ありのまま,있는 그대로,3.660,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_b397fc5e0430c55b,繋ぐ,つなぐ,"잇다, 연결하다",3.660,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3697bd90de43ad31,近郊,きんこう,교외,3.660,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_08efa531bbf9c3e6,心得,こころえ,"지식, 정보",3.650,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_955f496f0673fc78,粋,すい,"정수; 세련됨, 멋",3.650,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_cee06effcee6dc7e,長編,ちょうへん,"긴(소설 필름, 영화)",3.650,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dbc9be61b1093e8f,収まる,おさまる,"수습되다, 들어맞다",3.640,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_04c77a5abf4b153b,緩やか,ゆるやか,"완만하다, 느슨하다",3.640,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3a2cd77463547262,頑固,がんこ,"완고함, 고집",3.640,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4b6c5f6b362085b4,胴,どう,"몸통, 동체",3.630,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_21e49ca5c92a8c5b,自在,じざい,자유자재,3.630,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8e7a4e8b18d76953,ポット,ポット,"냄비, 화분",3.620,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_72334ead34fc9c05,対等,たいとう,대등,3.610,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_70d82b1cc2aa178a,成り立つ,なりたつ,"성립하다, 이루어지다",3.610,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a7ae5b11d7ef3475,コマーシャル,コマーシャル,"광고, 상업 방송",3.600,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a4f5956737afa7f1,タイムリー,タイムリー,"적시, 시기적절",3.600,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_86f0fc18128fe1bc,健在,けんざい,"건재, 건강함",3.600,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4f7610296f86f1f2,密接,みっせつ,밀접함,3.600,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7d949c15be3cc09b,真っ二つ,まっぷたつ,둘로 딱 갈라짐,3.600,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_67f33868920eb72f,単一,たんいつ,단일,3.590,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b471a6d865228b50,遭難,そうなん,"재난, 사고",3.580,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9092ea68f72469c1,多忙,たぼう,바쁜,3.570,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_82006a0380f398bc,農地,のうち,"농업의 땅, 토지",3.570,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7853c7bb0dec1579,始発,しはつ,첫차,3.560,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9e6355e686a5d64f,ジャンボ,ジャンボ,점보,3.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_64fc8e4d71c126f1,小柄,こがら,몸집이 작음,3.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bca9ba5568af3559,畜生,ちくしょう,짐승; 제기랄,3.550,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_742cd942953ffea7,叶える,かなえる,(소원을) 이루어 주다,3.540,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_758edf41a91c026a,平常,へいじょう,"평상, 평소",3.540,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dea6f8d689f5815b,ちょくちょく,ちょくちょく,"종종, 자주",3.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d4d33e519f3c27f5,且つ,かつ,"또한, 동시에",3.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_193714d1969df2b6,出社,しゅっしゃ,"출근, 회사에 나옴",3.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c5f898f357666203,滑らか,なめらか,매끄러움,3.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_146652d464bf10c9,過労,かろう,"긴장, 부담",3.530,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d8a0ad165c123102,ことごとく,ことごとく,완전히,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3b772f7542f495bf,インターナショナル,インターナショナル,국제적인,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_87847c4cb7198c80,インフレ,インフレ,인플레이션(약어),3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a231f59f86279dcb,乗り込む,のりこむ,"타다, 들어가다",3.520,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6dd99133579e92a8,未婚,みこん,미혼,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7ea1acd07319c07b,滅ぼす,ほろぼす,파괴하다,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7f42cd1407c111d4,無邪気,むじゃき,천진난만함,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_aa48ce494d700458,落ち込む,おちこむ,"(기분이) 가라앉다, 침울해지다",3.520,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_36f154723e771234,見合い,みあい,맞선,3.520,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7544daa0e9ec639c,骨董品,こっとうひん,골동품,3.520,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5f7842ca702cfe0f,有望,ゆうぼう,유망,3.510,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d248a770c78a788e,勝る,まさる,"뛰어나다, 능가하다",3.500,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ad972bb9cdd76f87,見積もり,みつもり,견적,3.500,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_ab78cac2ab65c97c,塵取り,ちりとり,쓰레받기,3.490,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8d440df94f874e3d,新入生,しんにゅうせい,신입생,3.490,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_afa1bc1548512e99,無口,むくち,과묵함,3.490,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_78fe9f7628a7a2fb,臆病,おくびょう,"겁쟁이, 겁이 많음",3.490,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ef28884111a886f1,仕上がり,しあがり,"완성, 마무리",3.480,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_08bfa9f95f00d44d,公然,こうぜん,공공연히,3.480,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1cf06df0896303c4,夕暮れ,ゆうぐれ,"해질녘, 황혼",3.470,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5e43e0cb458f8a0d,船舶,せんぱく,배,3.470,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 supplement without exact NAVER N1 confirmation
+w_2c61bc52b20456a8,お世辞,おせじ,"아첨, 입에 발린 말",3.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f6a5dec8e420f557,世辞,せじ,"아첨, 빈말",3.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_da75dc366007d543,待ち遠しい,まちどおしい,몹시 기다려지다,3.460,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e662da8e9deb3398,所定,しょてい,"소정의, 정해진",3.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_75205a17731b4a26,切実,せつじつ,절실함,3.450,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_69e2159df1fe1017,組み合わせる,くみあわせる,"조합하다, 짜 맞추다",3.440,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_45c755b6dfb20d9b,休める,やすめる,"쉬게 하다, 휴식하다",3.430,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3275bf86431f78a7,受け止める,うけとめる,"받아내다, 받아들이다",3.430,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_65741a2d9cd1b73b,構える,かまえる,(자세를) 취하다; (집·가게를) 차리다,3.430,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f7b7f5d841f3ee1c,ストロー,ストロー,짚,3.420,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3982a512355b27f5,一心,いっしん,"일심, 한마음",3.420,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_59d2a347099020fb,口頭,こうとう,"구두, 말로 함",3.420,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_46a99159861c215e,年長,ねんちょう,"연장, 나이가 많음",3.420,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d44e9dee9505bfdc,責務,せきむ,의무,3.420,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_57e5725548ac0fbc,生まれつき,うまれつき,"타고남, 천성",3.410,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_92d9523033611e3a,くっきり,くっきり,"뚜렷하게, 명확히",3.400,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6e0a10172950a4d4,不振,ふしん,침체,3.400,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6849f7ccff68603a,逃げ出す,にげだす,"도망치다, 탈출 부터",3.400,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5e7dc6e83da2cf4d,すれ違い,すれちがい,스쳐 지나감; 엇갈림,3.390,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9921e55a23770d4a,情け,なさけ,"동정, 공감",3.390,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5306465650e71486,手頃,てごろ,"적당한, 편리한",3.390,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e4f0523661954e9b,納入,のうにゅう,"지불, 공급",3.390,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4686de6e7b7bbd40,衣類,いるい,옷,3.390,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_fd3cdf3e57d25a81,裏返し,うらがえし,"뒤집음, 반대",3.390,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2b26724b2b319010,お供,おとも,"수행, 동행",3.380,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_fc4b1b2a9b67e073,取り付ける,とりつける,설치하다; (합의를) 받아내다,3.380,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_74f4b03d86a9823b,無礼,ぶれい,무례한,3.380,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b25eb50be6ea3deb,一気,いっき,단숨에,3.370,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_63970429b89c7bf0,傍ら,かたわら,"곁, 한편",3.370,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1a17fb3ec82e2dfe,受け継ぐ,うけつぐ,"이어받다, 계승하다",3.370,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_08d10dee086ef695,粥,かゆ,죽,3.370,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b9c641f6b95aab47,さっと,さっと,갑자기,3.360,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d6a47632d886cffc,取り替え,とりかえ,"교체, 교환",3.360,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_ffaf9aa1ba0a06fa,梅干し,うめぼし,우메보시(매실 장아찌),3.360,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9eff2ff9e0ed4972,身の回り,みのまわり,"신변, 소지품",3.360,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bcce1a49a9bd524d,軽率,けいそつ,경솔함,3.360,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1f9d72dd90f2c78b,鈍感,どんかん,둔감,3.360,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4a507c2b9903c25a,取り締まり,とりしまり,"단속, 감독",3.350,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bec47400cd9df368,明瞭,めいりょう,"명료함, 분명함",3.350,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_39df16b92ce5c529,生身,なまみ,"산 몸, 생신(生身)",3.350,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_36d95d84c3b6f948,短大,たんだい,"단기대학, 전문대",3.350,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_df60e1135524e494,おだてる,おだてる,아첨하다,3.340,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ccc6fca5d20f754a,固める,かためる,"굳어지다, 얼다, 얼리다",3.340,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b4ee8499a1eb6ef3,ミセス,ミセス,"~씨, 선생",3.330,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f10d56d8651e9bba,丸々,まるまる,완전히,3.330,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c05a879fd3e3ce99,売り出し,うりだし,"판매 개시, 특매",3.330,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8be696a8d9b00b88,夜更かし,よふかし,밤늦게까지 깨어 있음,3.330,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_da1e3d3738f4241e,使用人,しようにん,"직원, 하인, 공무원",3.320,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ae4e376d4b46a091,取り巻く,とりまく,"둘러싸다, 에워싸다",3.320,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5059c36f92c76981,差し出す,さしだす,"내밀다, 제출하다",3.320,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1e6bf25c700ea4c1,追い出す,おいだす,쫓아내다,3.320,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a8a244619250a753,桟橋,さんばし,"부두, 선착장",3.310,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_83460d4f1892199d,貧弱,ひんじゃく,빈약함,3.310,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_957c15a482f8f1d6,軽快,けいかい,경쾌함,3.310,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_329523c22c66774b,いびき,いびき,코골이,3.290,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_677edbc10074357c,建前,たてまえ,"명분, 원칙",3.290,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b55ea7d669adae14,傾ける,かたむける,"기울다, 구부리다",3.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a53cb0b0b149d943,優美,ゆうび,우아함,3.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_20d9cf004faafa35,産休,さんきゅう,출산 휴가,3.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_972809631c546eec,衣料,いりょう,의류,3.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_edb035ccb5afe706,譲歩,じょうほ,타협,3.280,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ed2a4c274e00e2cf,まとまり,まとまり,"정리됨, 통일성, 짜임새",3.270,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ad7b7731718d0f45,夕焼け,ゆうやけ,저녁노을,3.270,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c432f234118ad2d5,好ましい,このましい,좋은,3.270,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d959e50fd73c68bc,寄贈,きぞう,"기부, 발표, 제시",3.270,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_da17dad9ad94d35c,根気,こんき,"인내, 에너지",3.270,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_bc0f323b1130aac3,インテリ,インテリ,"지식인(약어), 지식인층",3.260,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_aa81044e5f00e4d2,染まる,そまる,물들다,3.260,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5ab85d7ac7d33bf8,格別,かくべつ,"각별함, 특별함",3.240,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1c1342a535c8057b,押さえる,おさえる,"누르다, 붙잡다, 확보하다",3.230,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_0008d0b93f394410,粉々,こなごな,산산조각,3.230,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_59e50bf36e18a412,交わす,かわす,교환하다,3.220,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f37295bbc32b7c75,円満,えんまん,원만함,3.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_9ab1e43c1a5da994,受け身,うけみ,"수동적인, 수동적인 목소리",3.220,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_24a90701ee32e2fb,大方,おおかた,"대체로, 대부분",3.210,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d598d3286558b75c,抜け出す,ぬけだす,"빠져나오다, 몰래 나가다",3.210,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3e90b62deae13711,産後,さんご,산후,3.210,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_382846b85737478b,ネガ,ネガ,"네거티브, 음화",3.190,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f469985af279b23f,お手上げ,おてあげ,"속수무책, 포기",3.180,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_371f1a41edd2c949,何気ない,なにげない,"아무렇지 않은, 무심한",3.180,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_87e4eb8400560adc,怯える,おびえる,"겁먹다, 두려워하다; 겁을 내다",3.180,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_303e927f2052e96a,がっちり,がっちり,"단단히, 다부지게",3.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b2a3b09ad2a0ada9,レントゲン,レントゲン,엑스레이,3.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b28063107a5a4485,拝借,はいしゃく,"빌림, 빌리다",3.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ef69d226c0ff5071,ダンプ,ダンプ,덤프 트럭,3.150,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4fcd672fe0131c49,不吉,ふきつ,불길함,3.150,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6ed0282468b646e4,飲み込む,のみこむ,"삼키다, 이해하다",3.150,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7259ebed7e8b12f2,未開,みかい,미개,3.140,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_863ee6ef1cf05126,採る,とる,채택하다; (열매를) 따다,3.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a50bbcc9a7941af3,農耕,のうこう,"농업, 경작",3.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8a1f28478addb8a9,雪崩,なだれ,눈사태,3.120,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_904cfeab89219814,しなやか,しなやか,"유연함, 나긋나긋함",3.100,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_78478b3ede1095de,荷造り,にづくり,"짐 꾸리기, 포장",3.100,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_409923fce9a73aa0,論じる,ろんじる,논하다,3.100,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2f551203846ddcc2,デモンストレーション,デモンストレーション,"시위, 데모, 시연",3.080,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f63eeaa8c539fb4b,心掛け,こころがけ,"준비, 의도, 목표",3.080,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4ee4c1f82fd80d23,立ち寄る,たちよる,들르다,3.080,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a8598bbe62279f0d,箇条書き,かじょうがき,"항목별 작성, 개조식",3.080,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_52a2392ec6f56422,気兼ね,きがね,"사양, 거리낌",3.070,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ce94554fe76bd18c,甘える,あまえる,"응석부리다, 의지하다",3.070,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2cf691cf183ad9c9,シック,シック,"세련됨, 시크함",3.060,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3129de0be21afd27,埋め込む,うめこむ,"묻어 넣다, 삽입하다",3.050,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_117206f59982bdc8,耳鼻科,じびか,이비인후과,3.050,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a5a10027ead73ad9,焚き火,たきび,모닥불,3.040,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2510258ff83a03f2,見渡す,みわたす,"바라보다, 둘러보다",3.030,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ee13be5cc30d87aa,受け付ける,うけつける,"접수하다, 받아들이다",3.020,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d91ab097e9b1fc5f,面目,めんもく,"체면, 면목",3.020,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6011aa3363e8f65e,卑しい,いやしい,저속한,3.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_4ef2af90123264d7,手数,てかず,"수고, 폐",3.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_409e38e96ec7712e,連なる,つらなる,"늘어서다, 이어지다",3.010,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c96c011ca817b487,売り出す,うりだす,"팔기 시작하다, 내놓다",3.000,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_daaafc2c103ac13d,押し寄せる,おしよせる,밀려오다,3.000,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_24f78b7b84fbad86,細やか,こまやか,"섬세함, 자상함",2.960,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_443c071edfd389f9,拝啓,はいけい,삼가 아룁니다,2.950,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6f6291c512a7bd9c,前途,ぜんと,"앞날, 장래",2.940,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_419b24bb86a146ef,大柄,おおがら,큰 체격; 큰 무늬,2.940,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e231cd88a2b8f92c,生ぬるい,なまぬるい,"미지근하다, 어중간하다",2.920,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ef7c2b36a078abcb,取っ手,とって,손잡이,2.910,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8e8e619883455076,橋渡し,はしわたし,"중개, 가교",2.900,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_853cd2683b5ec7b5,押し込む,おしこむ,밀어 넣다,2.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e4e05a9889537531,面する,めんする,"마주하다, 접하다",2.870,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ae5ee65174d10084,高尚,こうしょう,고상함,2.850,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_ed86d3d08d22d18b,梢,こずえ,나무 꼭대기,2.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_b02fafe1984dfd35,途絶える,とだえる,"멈추다, 그치다, 오다 끝",2.840,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b588b68dea2f8c0e,乗っ取る,のっとる,"탈취하다, 점거하다",2.830,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_be035463f7a68af0,つかの間,つかのま,"잠깐, 순간",2.820,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7fe34f3d3b9ceed6,寝かせる,ねかせる,"눕히다, 재우다, 숙성시키다",2.810,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_d7cc90918debafeb,とかく,とかく,"이래저래, 아무튼",2.800,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a36fccc77c3aab60,オートマチック,オートマチック,자동의,2.800,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3875cd9260023e61,折り返す,おりかえす,"접어 되돌리다, 되접다",2.800,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_0968a3e2189db9bd,振り出し,ふりだし,"출발점, 처음",2.800,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8dc15742d3e128af,炬燵,こたつ,코타츠,2.800,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_350719a3291176e4,団扇,うちわ,"팬, 선풍기",2.790,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_76ee119df1959c53,打ち消し,うちけし,"부정, 취소",2.790,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_78527b9c49a89cb7,身振り,みぶり,몸짓,2.780,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_31f4692464cdb99c,投げ出す,なげだす,"내던지다, 포기하다",2.770,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_2cda741d566b6ed7,温和,おんわ,"온화함, 온순함",2.750,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_70d444f0b75ce53c,受け持つ,うけもつ,"맡다, 담당하다",2.740,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_70835bbbaf6be418,陰気,いんき,"음침함, 침울함",2.740,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_68438d9afaf144c8,籠もる,こもる,"틀어박히다, 가득 차다",2.730,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7b77229d7578e77d,そっぽ,そっぽ,"외면, 딴 쪽",2.720,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_44df893bc2c36040,踏まえる,ふまえる,"근거로 하다, 바탕으로 삼다",2.720,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_efa6b163ce61f14d,治まる,おさまる,"진정되다, 평온해지다",2.710,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6e71f536abfacdec,親しむ,したしむ,"친숙해지다, 가까이하다",2.690,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_3e244d7a11df3ed3,器械,きかい,특정 기능을 하는 기구·장치,2.680,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1f60e45cab79ba62,演ずる,えんずる,"연기하다, (역을) 맡다",2.660,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_801a4ef078453053,無闇に,むやみに,"함부로, 마구",2.660,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a172145e6a7a76d8,うたた寝,うたたね,졸고 있음,2.640,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_17f0f7e5b8a97bb2,縮まる,ちぢまる,"줄어들다, 수축되다",2.640,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_e1947d121eacb34e,俄,にわか,"갑작스러운, 뜻밖의",2.620,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_704c7a2065904636,凝る,こる,굳어지다,2.580,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b70614b8f8eeabd9,乃至,ないし,"내지, 또는",2.560,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_98ff2ee683f77e8d,差し引き,さしひき,"차감, 공제; 잔액",2.510,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_8788e2b0c8701669,ばい菌,ばいきん,"세균, 병균",2.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_141bffd3783912a5,備わる,そなわる,갖추어지다,2.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_7227e9235d383269,押し切る,おしきる,"강행하다, 밀어붙이다",2.460,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a8116b6aadf7fe18,真ん前,まんまえ,바로 앞,2.460,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_57c108f507b24abb,納まる,おさまる,"수습되다, 납입되다",2.450,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_85e027b82c699ab9,差し掛かる,さしかかる,"다다르다, 접어들다",2.420,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5dcb43ede1c974c9,擦れる,すれる,"문지르다, 쓸리다",2.380,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_52944f5e09c396f2,放り出す,ほうりだす,"내던지다, 포기하다",2.380,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_f1e8d7483ee776ca,貴い,とうとい,"귀중한, 고귀한",2.360,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_6be80965290001db,大ざっぱ,おおざっぱ,"대략적인, 엉성한",2.350,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_30ea5e91ec5794d6,西日,にしび,"석양빛, 서향 볕",2.340,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_95dcaf9c2e9062b9,取り立てる,とりたてる,(빚을) 받아내다; 발탁하다,2.330,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_ed3b692c35933354,恐れ入る,おそれいる,"송구하다, 황송하다",2.320,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_44db7429578a8638,ティッシュペーパー,ティッシュペーパー,티슈 페이퍼,2.290,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a5ce3b77487ce09f,手筈,てはず,"절차, 채비",2.290,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_67e9a28d0777853f,戸締まり,とじまり,문단속,2.220,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_af0b21362a37916f,震わせる,ふるわせる,"떨게 하다, 떨리게 하다",2.220,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_c062f1fced55c802,賜る,たまわる,"허가하다, 주다",2.210,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_76936c9c142f0a2c,焦げ茶,こげちゃ,짙은 갈색,2.190,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_d58a497c2cb77558,凝らす,こらす,"집중하다, 정성을 들이다",2.160,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_451bf26dd3bcf2e0,とぼける,とぼける,"시치미 떼다, 모르는 척하다",2.110,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_dadb6a6af0c8c1e7,げっそり,げっそり,"홀쭉해짐, 기운이 빠짐",2.080,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_661ff696389aa9c8,差し支える,さしつかえる,"지장을 주다, 방해되다",2.080,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_72b3908f46cdf2c4,稲光,いなびかり,번갯불,2.040,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 supplement without exact NAVER N1 confirmation
+w_afb78f5d4ab6ca30,煌々,こうこう,"환한, 밝은",1.940,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_b8c80d155447f46a,真ん丸い,まんまるい,둥글디둥글다,1.930,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_26c9a265e9fbed9e,自ずから,おのずから,"저절로, 자연히",1.880,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_58e7dc3697f3b7ef,へりくだる,へりくだる,겸손하게 굴다,1.790,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_a6b82112020af822,ふんだん,ふんだん,"풍부함, 넉넉함",1.670,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1d13264e7f8e8113,湿気る,しける,"습기를 머금다, 축축해지다",1.440,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_12dfafb0839591a3,遅らす,おくらす,"늦추다, 지연시키다",1.290,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_1bbdac2276d06c29,受持ち,うけもち,담당,0.000,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_aea6e104360336b5,植わる,うわる,심어져 있다,0.000,manual_review,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation
+w_5e5058232b1bd8cc,照り返す,てりかえす,"반사하다, 되비치다",0.000,naver_level_missing,,kaggle:robinpourtaud/jlpt-words-by-level,N1 supplement without exact NAVER N1 confirmation

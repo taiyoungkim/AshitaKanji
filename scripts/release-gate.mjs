@@ -34,6 +34,7 @@ const REQUIRED_ASSETS = [
   'assets/icon.png',
   'assets/splash.png',
   'assets/adaptive-icon.png',
+  'assets/adaptive-icon-safe.png',
 ];
 for (const rel of REQUIRED_ASSETS) {
   const p = resolve(ROOT, rel);
@@ -70,7 +71,7 @@ for (const rel of REQUIRED_ASSETS) {
         }).trim());
       // 표기 변형(카나/한자) 통합으로 9개 표제어를 접었다 —
       // data/pdf-vocab/orthography_variant_review_queue.csv, build-jlpt-db.mjs TARGET_COUNTS 와 함께 유지한다.
-      const targets = { N5: 398, N4: 742, N3: 1488, N2: 1906, N1: 2484 };
+      const targets = { N5: 401, N4: 745, N3: 1560, N2: 1886, N1: 2419 };
       const expectedActive = Object.values(targets).reduce((sum, count) => sum + count, 0);
       const actualLevels = Object.fromEntries(
         Object.keys(targets).map((level) => [level, count(`level='${level}' AND deprecated=0`)]),

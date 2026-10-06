@@ -111,9 +111,8 @@ data/track-a/*.csv.bak
 !assets/audio/words/*.ogg
 !assets/audio/examples/
 !assets/audio/examples/*.ogg
+# iOS map (audioMap.gen.ts) requires the MP3s; Android map requires the Oggs.
+!assets/audio/words/*.mp3
+!assets/audio/examples/*.mp3
 !src/lib/audio/audioMap.gen.ts
 !src/lib/audio/audioMap.gen.android.ts
-
-# Android production uses the platform-specific Ogg map. Keep MP3 sources out
-# of the EAS archive even after the audio directories are re-included above.
-/assets/audio/**/*.mp3

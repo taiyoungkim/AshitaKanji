@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-10-05T21:35:17.425620+00:00",
+  "merges": [
+    {
+      "survivor": "w_16afef6fcc1d2e6d",
+      "retired": "w_9d1276b961227354",
+      "surface": "高校",
+      "level": "N4",
+      "alt_forms": [
+        "高等学校"
+      ],
+      "disambig": "高校는 高等学校의 일반적인 줄임말."
+    },
+    {
+      "survivor": "w_bf03a7c1b0d7b64c",
+      "retired": "w_3ec592997b865dca",
+      "surface": "やはり",
+      "level": "N4",
+      "alt_forms": [
+        "やっぱり"
+      ],
+      "disambig": "やっぱり는 やはり의 구어적 표현."
+    },
+    {
+      "survivor": "w_0e85c73b6c150596",
+      "retired": "w_97e7d7c923d83b1c",
+      "surface": "アイデア",
+      "level": "N4",
+      "alt_forms": [
+        "アイディア"
+      ],
+      "disambig": "アイディア도 같은 외래어의 표기 변형."
+    }
+  ],
+  "active_before": 7014,
+  "active_after": 7011
+}

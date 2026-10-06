@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-10-05T21:35:17.109438+00:00",
+  "survivor": "w_9f4bac962871acc8",
+  "retired": {
+    "w_01f119facf6e9d97": "伯父さん",
+    "w_713aaa51e13cbeed": "叔父",
+    "w_188378c15d9c641d": "伯父"
+  },
+  "successors": {
+    "w_01f119facf6e9d97": "w_9f4bac962871acc8",
+    "w_713aaa51e13cbeed": "w_9f4bac962871acc8",
+    "w_188378c15d9c641d": "w_9f4bac962871acc8"
+  },
+  "active_before": 7018,
+  "active_after": 7015
+}

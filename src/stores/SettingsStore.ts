@@ -185,6 +185,9 @@ export const useSettingsStore = create<SettingsState>()(
           if (typeof state.autoPlayWordTtsOnReveal !== 'boolean') {
             state.autoPlayWordTtsOnReveal = true;
           }
+          if (typeof state.showReadingBeforeReveal !== 'boolean') {
+            state.showReadingBeforeReveal = true;
+          }
           if (!['system', 'light', 'dark'].includes(state.themePreference)) {
             state.themePreference = 'system';
           }

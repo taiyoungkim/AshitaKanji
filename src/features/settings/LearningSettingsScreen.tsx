@@ -67,18 +67,19 @@ export default function LearningSettingsScreen(): React.ReactNode {
         <View style={styles.card}>
           <View style={styles.optionRow}>
             <View style={styles.copy}>
-              <Text style={styles.optionTitle}>뜻 보기 전 읽는 법</Text>
+              <Text style={styles.optionTitle}>뜻 보기 전 후리가나</Text>
               <Text style={styles.optionDescription}>
-                끄면 뜻을 확인하기 전까지 읽는 법이 가려져요.
+                끄면 공부와 회독 카드 모두 뜻을 확인할 때까지 읽는 법이 가려져요.
               </Text>
             </View>
             <Switch
+              style={styles.toggle}
               value={showReadingBeforeReveal}
               onValueChange={setShowReadingBeforeReveal}
               trackColor={{ false: colors.pressed, true: colors.ink }}
               thumbColor={showReadingBeforeReveal ? colors.onInk : colors.canvas}
               ios_backgroundColor={colors.pressed}
-              accessibilityLabel="뜻 보기 전 읽는 법"
+              accessibilityLabel="뜻 보기 전 후리가나"
             />
           </View>
         </View>
@@ -107,6 +108,7 @@ const makeStyles = (colors: ThemeColors) =>
       gap: spacing.md,
     },
     copy: { flex: 1, gap: spacing.xs },
+    toggle: { alignSelf: 'center', flexShrink: 0 },
     optionTitle: { ...typography.cardTitle, color: colors.ink },
     optionDescription: { ...typography.body, color: colors.body },
   });

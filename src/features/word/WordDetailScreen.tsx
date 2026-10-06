@@ -27,7 +27,6 @@ import type { KanjiForWord } from '~/types/Kanji';
 import type { WordExample } from '~/types/WordExample';
 import { CARD_TYPE_LABEL_KO, posLabelKo, renderKanjiFace } from '~/lib/cardType';
 import { buildNaverJaDictSearchUrl } from '~/lib/kanji';
-import { useIsTablet } from '~/lib/device';
 import { useBottomInset, useSheetTopInset } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
 import { useToast } from '~/components/Toast';
@@ -391,7 +390,6 @@ function KanjiDetailSheet({
   onOpenDictionary: (query: string) => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
-  const isTablet = useIsTablet();
   if (!item) return null;
   const data = item.kanji;
 
@@ -428,16 +426,14 @@ function KanjiDetailSheet({
             />
           ) : null}
           {data?.stroke_count ? <DetailLine label="획수" value={`${data.stroke_count}획`} /> : null}
-          {isTablet ? (
-            <Pressable
-              style={styles.sheetTraceBtn}
-              onPress={openTrace}
-              accessibilityRole="button"
-              accessibilityLabel={`${item.literal} 따라쓰기`}
-            >
-              <Text style={styles.sheetTraceText}>✎ 따라쓰기</Text>
-            </Pressable>
-          ) : null}
+          <Pressable
+            style={styles.sheetTraceBtn}
+            onPress={openTrace}
+            accessibilityRole="button"
+            accessibilityLabel={`${item.literal} 따라쓰기`}
+          >
+            <Text style={styles.sheetTraceText}>✎ 따라쓰기</Text>
+          </Pressable>
           <View style={styles.sheetActions}>
             <Pressable
               style={styles.sheetDictBtn}

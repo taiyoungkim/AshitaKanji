@@ -1,10 +1,10 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-09-28
+Last updated: 2026-10-07
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
-Current version: **1.0.0**
+Current version: **1.0.1**
 
-스토어: **Google Play only** for 1.0.0. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`. Apple App Store는 후속 릴리스로 연기.
+스토어: **Google Play + Apple App Store** for 1.0.1. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
 
 ---
 

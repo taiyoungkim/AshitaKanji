@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-05T21:35:17.264302+00:00",
+  "survivor": "w_9ea346dbfdc4c768",
+  "retired": "w_97db66ffd893f4b5",
+  "successor": {
+    "w_97db66ffd893f4b5": "w_9ea346dbfdc4c768"
+  },
+  "alt_form_cleanup_ids": [
+    "w_08fb3f57661da121",
+    "w_5efd9e3cbc6cf086",
+    "w_7400af29ea55cfe6"
+  ],
+  "active_before": 7015,
+  "active_after": 7014
+}

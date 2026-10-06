@@ -29,6 +29,7 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
             <Text style={styles.optionDescription}>일본어 단어의 발음을 재생합니다.</Text>
           </View>
           <Switch
+            style={styles.toggle}
             value={ttsEnabled}
             onValueChange={setTtsEnabled}
             trackColor={{ false: colors.pressed, true: colors.ink }}
@@ -44,6 +45,7 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
             <Text style={styles.optionDescription}>뜻을 확인하면 단어의 발음을 자동으로 재생합니다.</Text>
           </View>
           <Switch
+            style={styles.toggle}
             value={autoPlay}
             onValueChange={setAutoPlay}
             disabled={!ttsEnabled}
@@ -86,6 +88,7 @@ const makeStyles = (colors: ThemeColors) =>
       gap: spacing.md,
     },
     copy: { flex: 1, gap: spacing.xs },
+    toggle: { alignSelf: 'center', flexShrink: 0 },
     optionTitle: { ...typography.cardTitle, color: colors.ink },
     optionDescription: { ...typography.body, color: colors.body },
     divider: { height: StyleSheet.hairlineWidth, backgroundColor: colors.pressed },

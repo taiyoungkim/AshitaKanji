@@ -1,5 +1,5 @@
-// 한자 따라쓰기 화면 (테블릿 전용). 진입: 단어 상세 → 한자 시트 → "따라쓰기".
-// 상단 세그먼트 토글로 [따라쓰기 | 연습] 전환. 테블릿이 아니면 안내만.
+// 한자 따라쓰기 화면. 진입: 단어 상세 → 한자 시트 → "따라쓰기".
+// 상단 세그먼트 토글로 [따라쓰기 | 연습] 전환. 휴대폰과 태블릿을 모두 지원한다.
 // 데이터 변경 없음(읽기 전용 학습 보조).
 
 import { useState } from 'react';
@@ -8,7 +8,6 @@ import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } fr
 import { font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 import { useBottomInset } from '~/hooks/useScreenInsets';
-import { useIsTablet } from '~/lib/device';
 import { KanjiTraceCanvas } from './KanjiTraceCanvas';
 import { PracticePad } from './PracticePad';
 
@@ -25,7 +24,6 @@ export default function KanjiTraceScreen(): React.ReactNode {
     gloss?: string;
     mode?: string;
   }>();
-  const isTablet = useIsTablet();
   const bottomInset = useBottomInset();
   const { width, height } = useWindowDimensions();
   const [mode, setMode] = useState<Mode>(modeParam === 'practice' ? 'practice' : 'trace');
@@ -33,18 +31,6 @@ export default function KanjiTraceScreen(): React.ReactNode {
   const [scrollEnabled, setScrollEnabled] = useState(true);
   const lockScroll = () => setScrollEnabled(false);
   const unlockScroll = () => setScrollEnabled(true);
-
-  if (!isTablet) {
-    return (
-      <View style={styles.center}>
-        <Text style={styles.tabletIcon}>✎</Text>
-        <Text style={styles.tabletTitle}>테블릿 전용 기능</Text>
-        <Text style={styles.tabletBody}>
-          한자 따라쓰기는 펜으로 쓰기 편한 테블릿에서만 사용할 수 있어요.
-        </Text>
-      </View>
-    );
-  }
 
   const char = literal ?? '';
   const traceSize = clamp(Math.min(width, height) - spacing.xl * 4, 280, 600);
@@ -126,9 +112,4 @@ const makeStyles = (c: ThemeColors) =>
   segBtnActive: { backgroundColor: c.canvas },
   segText: { ...typography.body, color: c.body, fontFamily: font.medium },
   segTextActive: { color: c.ink, fontFamily: font.semibold },
-
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.xxl, gap: spacing.sm, backgroundColor: c.softer },
-  tabletIcon: { fontSize: 48, color: c.mute },
-  tabletTitle: { ...typography.resultTitle, color: c.ink },
-  tabletBody: { ...typography.body, color: c.body, textAlign: 'center', maxWidth: 320 },
 });
