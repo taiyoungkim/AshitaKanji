@@ -2,7 +2,7 @@
   "expo": {
     "name": "오니칸",
     "slug": "ashitakanji",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "ashitakanji",
@@ -19,7 +19,7 @@
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD"
     },
-    "runtimeVersion": "1.0.1-sdk54",
+    "runtimeVersion": "1.0.2-sdk54",
     "assetBundlePatterns": [
       "**/*",
       "assets/jlpt.db"

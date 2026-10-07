@@ -2,9 +2,9 @@
 
 Last updated: 2026-10-07
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
-Current version: **1.0.1**
+Current version: **iOS 1.0.2 / Android 1.0.1**
 
-스토어: **Google Play + Apple App Store** for 1.0.1. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
+스토어: **Google Play 1.0.1 + Apple App Store 1.0.2**. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
 
 ---
 
