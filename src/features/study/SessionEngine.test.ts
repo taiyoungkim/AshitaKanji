@@ -49,6 +49,37 @@ beforeEach(() => {
 const cfg = { levels: ['N5'] as JlptLevel[], dailyNewLimit: 3, highIntensityAcknowledged: false };
 
 describe('start — queue build', () => {
+  it('shuffles the combined review and new-card queue', async () => {
+    cardRepo.seed([word('due-1'), word('due-2'), word('new-1'), word('new-2')]);
+    await userCardRepo.upsert({
+      ...fsrs.initNew('due-1', NOW - 5 * DAY),
+      state: 'review',
+      due: NOW - 2 * DAY,
+    });
+    await userCardRepo.upsert({
+      ...fsrs.initNew('due-2', NOW - 5 * DAY),
+      state: 'review',
+      due: NOW - DAY,
+    });
+    const reverseShuffle = new SessionEngine(
+      cardRepo,
+      userCardRepo,
+      logRepo,
+      sessionRepo,
+      fsrs,
+      (items) => [...items].reverse(),
+    );
+
+    const session = await reverseShuffle.start({ ...cfg, dailyNewLimit: 2 }, NOW);
+
+    expect(session.mainQueue.map((card) => card.word.id)).toEqual([
+      'new-2',
+      'new-1',
+      'due-2',
+      'due-1',
+    ]);
+  });
+
   it('keeps four days of Good-only daily study from accumulating into 48 reviews', async () => {
     cardRepo.seed(Array.from({ length: 48 }, (_, i) => word(`w${i}`)));
     const dailyCounts: number[] = [];

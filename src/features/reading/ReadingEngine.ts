@@ -11,6 +11,7 @@
 import type { JlptLevel, Word } from '~/types/Card';
 import type { CardRepo } from '~/db/repos/CardRepo';
 import type { ReadingProgressRepo } from '~/db/repos/ReadingProgressRepo';
+import { shuffle } from '~/lib/shuffle';
 
 export interface ReadingState {
   level: JlptLevel;
@@ -33,17 +34,6 @@ export interface ReadingState {
   phase: 'study' | 'done';
 }
 
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const tmp = a[i]!;
-    a[i] = a[j]!;
-    a[j] = tmp;
-  }
-  return a;
-}
-
 export class ReadingEngine {
   private state: ReadingState | null = null;
   private seenWordIds = new Set<string>();
@@ -51,6 +41,8 @@ export class ReadingEngine {
   constructor(
     private readonly cardRepo: CardRepo,
     private readonly progressRepo: ReadingProgressRepo,
+    /** 패스마다 새 순서를 만든다. 테스트에서는 결정적 셔플을 주입할 수 있다. */
+    private readonly shuffleQueue: <T>(items: readonly T[]) => T[] = shuffle,
   ) {}
 
   /** 챕터(회차) 시작/재개. 미숙 단어를 랜덤 순서로, 안 본 단어 먼저 배치한다. */
@@ -60,8 +52,8 @@ export class ReadingEngine {
     const notKnown = words.filter((w) => !progress.get(w.id)?.known);
     this.seenWordIds = new Set(words.filter((w) => progress.get(w.id)?.seen).map((w) => w.id));
     const queue = [
-      ...shuffle(notKnown.filter((w) => !this.seenWordIds.has(w.id))),
-      ...shuffle(notKnown.filter((w) => this.seenWordIds.has(w.id))),
+      ...this.shuffleQueue(notKnown.filter((w) => !this.seenWordIds.has(w.id))),
+      ...this.shuffleQueue(notKnown.filter((w) => this.seenWordIds.has(w.id))),
     ];
     const total = words.length;
     this.state = {

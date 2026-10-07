@@ -89,9 +89,9 @@ export class SessionEngine {
 
     this.againCount = 0;
     this.goodEasyCount = 0;
-    // FSRS due를 가장 오래 밀린 순서로 먼저 처리한다. 신규만 섞어 표제어 순서
-    // 암기를 막고, 중도 종료해도 신규보다 복습이 남는 상황을 최소화한다.
-    const mainQueue = [...reviewQueue, ...this.shuffleQueue(newQueue)];
+    // 복습+신규 전체를 한 번 섞어 고정된 due/표제어 순서로 다음 카드를
+    // 예측하지 못하게 한다. 카드 선정과 FSRS 일정 자체는 바꾸지 않는다.
+    const mainQueue = this.shuffleQueue([...reviewQueue, ...newQueue]);
     this.state = {
       sessionId,
       // 빈 큐(복습·신규 모두 0)면 곧장 done — UI가 무한 대기/빈 화면에 갇히지 않게.
