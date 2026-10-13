@@ -15,7 +15,7 @@ import { selectDueReviewCards } from './selectDueReviewCards';
 export { resolveStudyRoute } from './studyEntryRoute';
 export type { StudyEntryRoute, TodayCounts } from './studyEntryRoute';
 
-/** 전 레벨의 기존 due + 선택 레벨의 신규 후보 수. */
+/** 선택 레벨의 기존 due + 신규 후보 수. */
 export async function loadTodayCounts(
   levels: JlptLevel[],
   dailyNewLimit: number,
@@ -27,7 +27,7 @@ export async function loadTodayCounts(
 
   const due = await ucRepo.findAllDue(nowMs);
   const dueWords = await cardRepo.findByIds(due.map((c) => c.word_id));
-  const dueCount = selectDueReviewCards(due, dueWords).length;
+  const dueCount = selectDueReviewCards(due, dueWords, levels).length;
 
   const newAllowance = calculateDailyNewAllowance(dailyNewLimit, dueCount);
   const newSelection = await selectDailyNewCards(

@@ -153,7 +153,7 @@ describe('start — queue build', () => {
     }
   });
 
-  it('orders all active overdue reviews before new cards from selected levels', async () => {
+  it('queues overdue reviews and new cards only from selected levels', async () => {
     cardRepo.seed([
       word('due1'),
       word('due2'),
@@ -174,9 +174,9 @@ describe('start — queue build', () => {
     const ids = s.mainQueue.map((c) => c.word.id);
     // overdue 먼저 (due 오름차순: due1(-2d) < due2(-1d)), 이어 신규
     expect(ids.slice(0, 2)).toEqual(['due1', 'due2']);
-    expect(ids).toContain('due-n4'); // 해제한 레벨이어도 기존 due는 유지
+    expect(ids).not.toContain('due-n4');
     expect(ids).toContain('new1');
-    expect(ids).not.toContain('new-n4'); // 레벨 선택은 신규에만 적용
+    expect(ids).not.toContain('new-n4');
     expect(s.phase).toBe('main');
   });
 

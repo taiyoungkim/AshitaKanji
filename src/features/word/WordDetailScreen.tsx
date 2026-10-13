@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useColors, useThemedStyles } from '~/design/theme';
-import { IconClose, IconSpeaker } from '~/design/icons';
+import { IconClose, IconPencil, IconSpeaker } from '~/design/icons';
 import { getDatabase } from '~/db/open';
 import { SqliteCardRepo } from '~/db/repos/sqlite/SqliteCardRepo';
 import { SqliteKanjiRepo } from '~/db/repos/sqlite/SqliteKanjiRepo';
@@ -390,6 +390,7 @@ function KanjiDetailSheet({
   onOpenDictionary: (query: string) => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const c = useColors();
   if (!item) return null;
   const data = item.kanji;
 
@@ -432,7 +433,8 @@ function KanjiDetailSheet({
             accessibilityRole="button"
             accessibilityLabel={`${item.literal} 따라쓰기`}
           >
-            <Text style={styles.sheetTraceText}>✎ 따라쓰기</Text>
+            <IconPencil size={20} color={c.ink} />
+            <Text style={styles.sheetTraceText}>따라쓰기</Text>
           </Pressable>
           <View style={styles.sheetActions}>
             <Pressable
@@ -441,7 +443,7 @@ function KanjiDetailSheet({
               accessibilityLabel="네이버에서 한자 보기"
               accessibilityRole="link"
             >
-              <Text style={styles.sheetDictText}>사전 ↗</Text>
+              <Text style={styles.sheetDictText}>사전</Text>
             </Pressable>
             <Pressable style={styles.sheetCloseBtn} onPress={onClose} accessibilityRole="button">
               <Text style={styles.sheetCloseText}>닫기</Text>
@@ -616,29 +618,40 @@ const makeStyles = (c: ThemeColors) =>
   detailValue: { ...typography.body, color: c.ink, lineHeight: 23 },
   sheetTraceBtn: {
     marginTop: spacing.sm,
+    marginHorizontal: -spacing.xs,
+    height: 58,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 10,
     borderWidth: 1,
     borderColor: c.pressed,
     borderRadius: radius.pill,
-    paddingVertical: 12,
     alignItems: 'center',
   },
-  sheetTraceText: { ...typography.body, color: c.ink, fontFamily: font.medium },
-  sheetActions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.xs },
+  sheetTraceText: { fontSize: 16, lineHeight: 20, color: c.ink, fontFamily: font.medium },
+  sheetActions: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginTop: spacing.xs,
+    marginHorizontal: -spacing.xs,
+  },
   sheetDictBtn: {
     flex: 1,
+    height: 54,
     backgroundColor: c.ink,
     borderRadius: radius.pill,
-    paddingVertical: 11,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  sheetDictText: { ...typography.caption, color: c.onInk, fontFamily: font.medium },
+  sheetDictText: { fontSize: 16, lineHeight: 20, color: c.onInk, fontFamily: font.medium },
   sheetCloseBtn: {
-    paddingHorizontal: 18,
-    paddingVertical: 11,
+    width: 92,
+    height: 54,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: c.pressed,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  sheetCloseText: { ...typography.caption, color: c.ink, fontFamily: font.medium },
+  sheetCloseText: { fontSize: 16, lineHeight: 20, color: c.ink, fontFamily: font.medium },
 });

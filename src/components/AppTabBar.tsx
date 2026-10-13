@@ -1,11 +1,10 @@
 // Design Ref: Onikan handoff — 하단 탭바 (공통).
-// 면·배지·밑줄 없이 틴트만으로 활성 상태를 표시한다. 활성 색이 body 가 아니라
-// tab-active 인 이유는 12px 라벨이 AA(4.5:1)를 넘어야 하기 때문 (핸드오프 참조).
+// Figma `537:22633`의 gnb-bottom-navigation 기준:
+// 26px 아이콘 + 12px 라벨, 활성 = primary, 비활성 = body.
 
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { font, layout, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { font, spacing, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconHistory, IconMenu, IconSettings, IconToday } from '~/design/icons';
 
@@ -19,17 +18,16 @@ const ICONS: Record<string, TabIcon> = {
 };
 
 export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps): React.ReactNode {
-  const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
 
   return (
-    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 26) }]}>
+    <View style={styles.bar}>
       {state.routes.map((route, index) => {
         const options = descriptors[route.key]?.options;
         const label = typeof options?.title === 'string' ? options.title : route.name;
         const focused = state.index === index;
-        const tint = focused ? colors.primary : colors.mute;
+        const tint = focused ? colors.primary : colors.body;
         const renderIcon = ICONS[route.name];
 
         const onPress = () => {
@@ -56,11 +54,10 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
             accessibilityRole="button"
             accessibilityState={focused ? { selected: true } : {}}
             accessibilityLabel={label}
+            hitSlop={8}
           >
             {renderIcon?.({ color: tint, knobFill: colors.canvas })}
-            <Text style={[styles.label, { color: tint }, focused && styles.labelActive]}>
-              {label}
-            </Text>
+            <Text style={[styles.label, { color: tint }]}>{label}</Text>
           </Pressable>
         );
       })}
@@ -72,19 +69,24 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     bar: {
       flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
       backgroundColor: c.canvas,
       borderTopWidth: 1,
-      borderTopColor: c.soft,
-      paddingTop: 8,
-      paddingHorizontal: spacing.sm,
+      borderTopColor: c.pressed,
+      paddingTop: 16,
+      paddingHorizontal: spacing.xl,
+      paddingBottom: 24,
     },
     tab: {
-      flex: 1,
+      width: 72,
+      height: 54,
       alignItems: 'center',
-      justifyContent: 'center',
-      gap: 5,
-      minHeight: layout.tabBarItemHeight,
+      gap: 8,
     },
-    label: { ...typography.tab },
-    labelActive: { fontFamily: font.semibold },
+    label: {
+      fontFamily: font.regular,
+      fontSize: 14,
+      lineHeight: 18,
+    },
   });

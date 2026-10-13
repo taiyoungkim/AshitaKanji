@@ -218,7 +218,7 @@ function seedSettings(view: CollectionView): void {
     dailyNewLimit: 12,
     ttsEnabled: true,
     ttsSpeed: 0.9,
-    autoPlayWordTtsOnReveal: true,
+    autoPlayWordTtsOnReveal: false,
     collectionView: view,
     themePreference: 'light',
     tutorialCompleted: true,

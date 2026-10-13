@@ -31,7 +31,7 @@ const word = (id: string, level: Word['level'], patch: Partial<Word> = {}): Word
 });
 
 describe('selectDueReviewCards', () => {
-  it('keeps due cards from every level while excluding inactive words', () => {
+  it('keeps only due cards from selected levels while excluding inactive words', () => {
     const selected = selectDueReviewCards(
       [userCard('n5'), userCard('n1'), userCard('draft'), userCard('deprecated')],
       [
@@ -40,8 +40,19 @@ describe('selectDueReviewCards', () => {
         word('draft', 'N3', { qa_status: 'needs_review' }),
         word('deprecated', 'N4', { deprecated: 1 }),
       ],
+      ['N1'],
     );
 
-    expect(selected.map((card) => card.word.id)).toEqual(['n5', 'n1']);
+    expect(selected.map((card) => card.word.id)).toEqual(['n1']);
+  });
+
+  it('supports multiple selected levels without changing due order', () => {
+    const selected = selectDueReviewCards(
+      [userCard('n4'), userCard('n5'), userCard('n1')],
+      [word('n4', 'N4'), word('n5', 'N5'), word('n1', 'N1')],
+      ['N5', 'N4'],
+    );
+
+    expect(selected.map((card) => card.word.id)).toEqual(['n4', 'n5']);
   });
 });

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useFocusEffect, useLocalSearchParams, useRouter, type Href } from 'expo-router';
 import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { HTML_FLOW_PAGE, cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { cardShadow, font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { getDatabase } from '~/db/open';
 import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
@@ -30,6 +30,8 @@ import {
   ReadingContinueSection,
   RecentOnigiriCard,
 } from './components/HomeSections';
+
+const HOME_PAGE_BACKGROUND = '#F5F5F5';
 
 interface ReadingTarget {
   level: JlptLevel;
@@ -132,12 +134,11 @@ export default function HomeScreen(): React.ReactNode {
   const level = selectedLevels[0] ?? 'N5';
   const progress = data?.progress ?? computeOnigiriProgress([]);
   const current = progress.current;
-  // The handoff's study-before fixture intentionally shows the first recipe
-  // (2/5) even though the production catalog currently uses four ingredients.
-  // Keep this visual-only projection local to capture mode; production stays data-driven.
+  // Keep this visual-only first-recipe projection local to capture mode;
+  // production remains data-driven.
   const visualStudyBefore = isVisualCaptureEnabled() && uiFixture === '01-home-study-before';
   const visualCurrent = visualStudyBefore
-    ? { ...current, item: { ...current.item, name: '참치마요', ingredients: ['RICE', 'TUNA', 'MAYO', 'NORI'] as OnigiriIngredientList }, ingredientCount: 2 }
+    ? { ...current, item: { ...current.item, name: '참치마요', ingredients: ['RICE', 'TUNA', 'MAYO', 'NORI'] as OnigiriIngredientList }, ingredientCount: 0 }
     : current;
   const reading = data?.reading ?? null;
   const day = data?.day ?? null;
@@ -171,7 +172,7 @@ export default function HomeScreen(): React.ReactNode {
     if (!day?.studySessionId) return;
     router.push(`/today-words?sessionId=${day.studySessionId}` as Href);
   };
-  // 홈 칩은 "새로 배울 레벨" 하나를 고르는 단일 선택이다. 기존 due는 전 레벨 유지한다.
+  // 홈 칩은 학습할 레벨 하나를 고르는 단일 선택이다.
   // 고른 레벨을 앞에 붙이는 방식은 동작하지 않는다 — 스토어가 배열을 항상 N5→N1 로
   // 정규화해서, 무엇을 골라도 selectedLevels[0] 이 가장 낮은 레벨로 되돌아간다.
   const selectPrimaryLevel = (next: JlptLevel) => {
@@ -180,7 +181,10 @@ export default function HomeScreen(): React.ReactNode {
   };
 
   return (
-    <SafeAreaView style={[styles.root, name === 'light' && { backgroundColor: HTML_FLOW_PAGE }]} edges={['top']}>
+    <SafeAreaView
+      style={[styles.root, name === 'light' && { backgroundColor: HOME_PAGE_BACKGROUND }]}
+      edges={['top']}
+    >
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <View>

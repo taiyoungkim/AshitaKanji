@@ -4,7 +4,11 @@ import { Card, Overline, PlateTile } from '~/components/ui/Surface';
 import { IconCheck } from '~/design/icons';
 import { HTML_FLOW_PAGE, font, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
-import { ingredientImage, ingredientName } from '~/features/onigiri/ingredientAssets';
+import {
+  ingredientEmptyImage,
+  ingredientImage,
+  ingredientName,
+} from '~/features/onigiri/ingredientAssets';
 import type { OnigiriCatalogItem } from '~/features/onigiri/types';
 import type { HomePhase } from '../homeState';
 
@@ -30,11 +34,12 @@ export function HomeStudyHero({
   onPress: () => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
+  const { name } = useTheme();
   return (
     <Card variant="elevated" style={styles.studyHero}>
       <View style={styles.greetingRow}>
         <View style={styles.greetingCopy}>
-          <Text style={styles.greeting}>왔네.{`\n`}오늘은 {recipe.name}야.</Text>
+          <Text style={styles.greeting}>오늘의 한 단어,{`\n`}천천히 눌러 담아보자.</Text>
           <Text style={styles.meta}>오늘 단어 {plannedCount}개 · 약 {minutes}분</Text>
         </View>
         <Image source={mascot} style={styles.mascot} resizeMode="contain" />
@@ -47,14 +52,21 @@ export function HomeStudyHero({
         {recipe.ingredients.map((key, index) => {
           const acquired = index < ingredientCount;
           return (
-            <View key={`${recipe.id}-${key}`} style={styles.ingredientChip}>
+            <View
+              key={`${recipe.id}-${key}`}
+              style={[styles.ingredientChip, name === 'light' && styles.ingredientChipLight]}
+            >
               <Text style={[styles.ingredientName, !acquired && styles.lockedText]} numberOfLines={1}>
                 {ingredientLabel(key)}
               </Text>
               {acquired && ingredientImage(key) ? (
                 <Image source={ingredientImage(key)} style={styles.ingredientArt} resizeMode="contain" />
               ) : (
-                <View style={styles.question}><Text style={styles.questionText}>?</Text></View>
+                <Image
+                  source={ingredientEmptyImage}
+                  style={styles.ingredientEmptyIcon}
+                  resizeMode="contain"
+                />
               )}
             </View>
           );
@@ -291,7 +303,7 @@ const makeStyles = (colors: ThemeColors) =>
       maxWidth: '74%',
       marginTop: 10,
     },
-    mascot: { width: 74, height: 74 },
+    mascot: { width: 100, height: 100 },
     heroMascot: { position: 'absolute', top: 20, right: 18, width: 74, height: 74 },
     meta: { ...typography.caption, color: colors.mute, marginTop: spacing.sm },
     dashedDivider: { borderTopWidth: 1, borderStyle: 'dashed', borderColor: colors.pressed },
@@ -308,18 +320,11 @@ const makeStyles = (colors: ThemeColors) =>
       justifyContent: 'center',
       gap: spacing.xs,
     },
+    ingredientChipLight: { backgroundColor: '#F2F4F6' },
     ingredientName: { ...typography.bodyStrong, color: colors.ink, maxWidth: 58 },
     lockedText: { color: colors.body },
     ingredientArt: { width: 22, height: 22 },
-    question: {
-      width: 20,
-      height: 20,
-      borderRadius: radius.pill,
-      backgroundColor: colors.canvas,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    questionText: { ...typography.captionStrong, color: colors.mute },
+    ingredientEmptyIcon: { width: 24, height: 24 },
     fullButton: { alignSelf: 'stretch', marginTop: spacing.md },
     orange: { color: colors.primary },
     resultBox: {

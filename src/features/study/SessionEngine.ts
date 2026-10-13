@@ -49,7 +49,7 @@ export class SessionEngine {
     // 1) 복습 대상 (due <= now)
     const dueCards = await this.userCardRepo.findAllDue(now);
     const dueWords = await this.cardRepo.findByIds(dueCards.map((c) => c.word_id));
-    const reviewQueue = selectDueReviewCards(dueCards, dueWords);
+    const reviewQueue = selectDueReviewCards(dueCards, dueWords, config.levels);
 
     // 2) 신규 후보. 복습 backlog가 커지면 신규를 점진 감축한다.
     // Scan에서 미리 편입된 state=new 카드를 먼저 소진하고 남은 한도만 채운다.

@@ -1,15 +1,12 @@
-// 연습 — 가이드 칸(흐린 글자 + 米 격자) 하나 + 그 아래 격자 없는 큰 빈 연습장.
-// 연습장에 자유롭게 여러 번 반복해 쓴다. 펜 두께는 가이드 칸 기준으로 통일.
-// 되돌리기=가이드/연습장 통틀어 마지막 획, 지우기=전체 초기화.
+// 연습 — 흐린 글자 없이 쓰는 격자 없는 빈 연습장.
+// 따라쓰기는 이전 탭에서 끝났으므로 이 화면에 가이드 칸을 중복 노출하지 않는다.
 
-import { useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { font, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { spacing, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 import { TraceCell, TraceToolbar } from './TraceCell';
 import type { Pt } from './strokePath';
-
-type Surface = 'guide' | 'pad';
 
 export function PracticePad({
   literal,
@@ -25,55 +22,14 @@ export function PracticePad({
   onDrawEnd?: () => void;
 }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
-  const guideSize = Math.min(Math.floor(width * 0.42), 220);
-  const padHeight = Math.max(360, Math.min(Math.floor(height * 0.95), 900));
-  const pen = Math.max(3, guideSize * 0.03);
+  const padHeight = Math.max(360, Math.min(width, Math.floor(height * 0.72)));
+  const pen = Math.max(4, width * 0.013);
 
-  const [guide, setGuide] = useState<Pt[][]>([]);
   const [pad, setPad] = useState<Pt[][]>([]);
-  // 되돌리기용: 획을 그린 표면 스택.
-  const historyRef = useRef<Surface[]>([]);
-
-  const commitGuide = (s: Pt[]) => {
-    historyRef.current.push('guide');
-    setGuide((prev) => [...prev, s]);
-  };
-  const commitPad = (s: Pt[]) => {
-    historyRef.current.push('pad');
-    setPad((prev) => [...prev, s]);
-  };
-  const undo = () => {
-    const last = historyRef.current.pop();
-    if (!last) return;
-    if (last === 'guide') setGuide((prev) => prev.slice(0, -1));
-    else setPad((prev) => prev.slice(0, -1));
-  };
-  const clear = () => {
-    historyRef.current = [];
-    setGuide([]);
-    setPad([]);
-  };
-
-  const isEmpty = guide.length === 0 && pad.length === 0;
+  const isEmpty = pad.length === 0;
 
   return (
     <View style={styles.wrap}>
-      <View style={styles.guideRow}>
-        <TraceCell
-          literal={literal}
-          width={guideSize}
-          height={guideSize}
-          showGlyph
-          showGrid
-          pen={pen}
-          strokes={guide}
-          onCommitStroke={commitGuide}
-          onDrawStart={onDrawStart}
-          onDrawEnd={onDrawEnd}
-        />
-        <Text style={styles.guideLabel}>가이드</Text>
-      </View>
-
       <TraceCell
         literal={literal}
         width={width}
@@ -82,12 +38,16 @@ export function PracticePad({
         showGrid={false}
         pen={pen}
         strokes={pad}
-        onCommitStroke={commitPad}
+        onCommitStroke={(stroke) => setPad((previous) => [...previous, stroke])}
         onDrawStart={onDrawStart}
         onDrawEnd={onDrawEnd}
       />
 
-      <TraceToolbar onUndo={undo} onClear={clear} disabled={isEmpty} />
+      <TraceToolbar
+        onUndo={() => setPad((previous) => previous.slice(0, -1))}
+        onClear={() => setPad([])}
+        disabled={isEmpty}
+      />
     </View>
   );
 }
@@ -95,6 +55,4 @@ export function PracticePad({
 const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
   wrap: { alignItems: 'center', gap: spacing.xl },
-  guideRow: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.lg },
-  guideLabel: { ...typography.caption, color: c.body, fontFamily: font.medium },
 });

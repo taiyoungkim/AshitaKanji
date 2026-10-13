@@ -1,7 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter, type Href } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { font, layout, typography, type ThemeColors } from '~/design/tokens';
+import { font, spacing, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconHistory, IconMenu, IconSettings, IconToday } from '~/design/icons';
 
@@ -16,15 +15,14 @@ const TABS: { key: MainTabKey; label: string; href: Href }[] = [
 
 export function MainTabBar({ active }: { active: MainTabKey }): React.ReactNode {
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
 
   return (
-    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 6) }]}>
+    <View style={styles.bar}>
       {TABS.map((tab) => {
         const focused = tab.key === active;
-        const tint = focused ? colors.primary : colors.mute;
+        const tint = focused ? colors.primary : colors.body;
         return (
           <Pressable
             key={tab.key}
@@ -36,12 +34,13 @@ export function MainTabBar({ active }: { active: MainTabKey }): React.ReactNode 
             accessibilityRole="button"
             accessibilityState={{ selected: focused }}
             accessibilityLabel={tab.label}
+            hitSlop={8}
           >
             {tab.key === 'home' ? <IconToday color={tint} /> : null}
             {tab.key === 'collection' ? <IconMenu color={tint} /> : null}
             {tab.key === 'stats' ? <IconHistory color={tint} /> : null}
             {tab.key === 'settings' ? <IconSettings color={tint} knobFill={colors.canvas} /> : null}
-            <Text style={[styles.label, { color: tint }, focused && styles.labelActive]}>{tab.label}</Text>
+            <Text style={[styles.label, { color: tint }]}>{tab.label}</Text>
           </Pressable>
         );
       })}
@@ -53,18 +52,24 @@ const makeStyles = (c: ThemeColors) =>
   StyleSheet.create({
     bar: {
       flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
       backgroundColor: c.canvas,
       borderTopWidth: 1,
-      borderTopColor: c.soft,
-      paddingTop: 8,
+      borderTopColor: c.pressed,
+      paddingTop: 16,
+      paddingHorizontal: spacing.xl,
+      paddingBottom: 24,
     },
     tab: {
-      flex: 1,
+      width: 72,
+      height: 54,
       alignItems: 'center',
-      justifyContent: 'center',
-      gap: 4,
-      minHeight: layout.tabBarItemHeight,
+      gap: 8,
     },
-    label: { ...typography.tab, fontWeight: undefined, fontFamily: font.medium, fontSize: 11, lineHeight: 16 },
-    labelActive: { fontFamily: font.medium },
+    label: {
+      fontFamily: font.regular,
+      fontSize: 14,
+      lineHeight: 18,
+    },
   });

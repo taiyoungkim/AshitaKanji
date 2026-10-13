@@ -38,7 +38,7 @@ export default function KanjiTraceScreen(): React.ReactNode {
   const hint =
     mode === 'trace'
       ? '펜이나 손가락으로 흐린 글자를 따라 써 보세요'
-      : '가이드 칸을 따라 쓴 뒤, 아래 빈 연습장에 자유롭게 반복해 보세요';
+      : '빈 연습장에 자유롭게 작성해보세요.';
 
   return (
     <ScrollView
