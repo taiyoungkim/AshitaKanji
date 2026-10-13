@@ -1,8 +1,8 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-10-07
+Last updated: 2026-10-14
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
-Current version: **iOS 1.0.2 / Android 1.0.1**
+Current version: **iOS 1.0.2 / Android 1.0.1** (1.0.3 양쪽 빌드 완료, 심사 제출 대기)
 
 스토어: **Google Play 1.0.1 + Apple App Store 1.0.2**. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
 
@@ -16,7 +16,17 @@ Current version: **iOS 1.0.2 / Android 1.0.1**
 | **P1** | 심사 통과·광고 게재에 필수 | reject 또는 광고 노출 안 됨 |
 | **P2** | 출시 직후/품질 | 출시는 되나 리스크 |
 
-현재 상태 한 줄: **새 앱 아이콘을 포함한 서명된 Google Play production AAB(build 40)까지 준비됨. 남은 작업은 Play Console 초안의 build 38 교체·콘솔 설문·실기기 검증.**
+현재 상태 한 줄: **1.0.3(커밋 `e8e5315`) iOS build 12 ASC 업로드 완료, Android versionCode 53 AAB 준비. 남은 작업은 양 스토어 프로덕션 심사 제출.**
+
+### 1.0.3 릴리스 (2026-10-14)
+
+- 범위: 복습 due를 선택 레벨로 제한, 하단 탭바·홈·설정·필순·단어 상세 디자인 갱신, 정답 공개 시 단어 TTS 자동재생 기본 off. iOS 1.0.2가 출시돼 양 플랫폼 1.0.3으로 통일(`runtimeVersion` `1.0.3-sdk54`).
+- 게이트: `npm run ci-check` ✅ (테스트 279개), `release-gate:android` ✅ (1.0.2 기준).
+- [x] **iOS** — EAS 원격 build 12 (`ce826a4d`) → `eas submit` ASC 업로드 완료. [ ] ASC 1.0.3 버전 생성·빌드 연결·심사 제출.
+- [x] **Android AAB** — 원격 `medium` 빌드는 다시 EAGER_BUNDLE에서 `Killed`(메모리 부족) → `--local`로 우회. `releases/Onikan-google-play-v1.0.3-build53.aab` (versionName `1.0.3`, versionCode `53`, 199 MB, `jarsigner` 검증 ✅).
+  - SHA-256: `b7e44f4cfe1c37850ea02760c86cac98afbe7c9b705a3eb27414205777df7664`.
+  - versionCode 50~52는 실패·중단된 빌드가 소모.
+- [ ] **Android 프로덕션 트랙 업로드·심사 제출** — 서비스 계정 키 없음 → Play Console 수동.
 
 ### 자동 게이트 결과 (2026-09-27)
 
