@@ -1,4 +1,4 @@
-# 아시타칸지 - Post-MVP 상세 학습 강화 Plan
+# 오니칸 - Post-MVP 상세 학습 강화 Plan
 
 > 작성일: 2026-05-30
 > 상태: Draft

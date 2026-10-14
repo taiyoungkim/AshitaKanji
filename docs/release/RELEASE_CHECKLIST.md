@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-14
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
-Current version: **iOS 1.0.2 / Android 1.0.1** (1.0.3 양쪽 빌드 완료, 심사 제출 대기)
+1.0.3 상태: **iOS App Store 심사 대기 중 / Android 내부 테스터에게 제공 중·비공개 테스트 검토 중**
 
 스토어: **Google Play 1.0.1 + Apple App Store 1.0.2**. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
 
@@ -16,17 +16,19 @@ Current version: **iOS 1.0.2 / Android 1.0.1** (1.0.3 양쪽 빌드 완료, 심�
 | **P1** | 심사 통과·광고 게재에 필수 | reject 또는 광고 노출 안 됨 |
 | **P2** | 출시 직후/품질 | 출시는 되나 리스크 |
 
-현재 상태 한 줄: **1.0.3(커밋 `e8e5315`) iOS build 12 ASC 업로드 완료, Android versionCode 53 AAB 준비. 남은 작업은 양 스토어 프로덕션 심사 제출.**
+현재 상태 한 줄: **1.0.3(커밋 `e8e5315`) iOS build 12 App Store 심사 대기 중, Android versionCode 53 내부 테스트 제공 중·비공개 테스트 Alpha 검토 요청 완료. 남은 작업은 iOS 심사 승인 후 수동 출시와 Android 프로덕션 접근 권한 신청·심사 제출.**
 
 ### 1.0.3 릴리스 (2026-10-14)
 
 - 범위: 복습 due를 선택 레벨로 제한, 하단 탭바·홈·설정·필순·단어 상세 디자인 갱신, 정답 공개 시 단어 TTS 자동재생 기본 off. iOS 1.0.2가 출시돼 양 플랫폼 1.0.3으로 통일(`runtimeVersion` `1.0.3-sdk54`).
 - 게이트: `npm run ci-check` ✅ (테스트 279개), `release-gate:android` ✅ (1.0.2 기준).
-- [x] **iOS** — EAS 원격 build 12 (`ce826a4d`) → `eas submit` ASC 업로드 완료. [ ] ASC 1.0.3 버전 생성·빌드 연결·심사 제출.
+- [x] **iOS App Store 심사 제출** — EAS 원격 build 12 (`ce826a4d`) → `eas submit` ASC 업로드 완료. 2026-10-14 ASC에 1.0.3 버전을 만들고 build 12를 연결하여 심사 제출. 제출 ID `2410cc32-d508-4829-8d05-4ad2bf6a4361`; 상태 '심사 대기 중'. 승인 후 수동 출시로 설정됨.
 - [x] **Android AAB** — 원격 `medium` 빌드는 다시 EAGER_BUNDLE에서 `Killed`(메모리 부족) → `--local`로 우회. `releases/Onikan-google-play-v1.0.3-build53.aab` (versionName `1.0.3`, versionCode `53`, 199 MB, `jarsigner` 검증 ✅).
   - SHA-256: `b7e44f4cfe1c37850ea02760c86cac98afbe7c9b705a3eb27414205777df7664`.
   - versionCode 50~52는 실패·중단된 빌드가 소모.
-- [ ] **Android 프로덕션 트랙 업로드·심사 제출** — 서비스 계정 키 없음 → Play Console 수동.
+- [x] **Android 비공개 테스트 Alpha 업로드·검토 요청** — 2026-10-14 Play Console에서 build 53과 한국어 출시 노트를 제출. 게시 개요에 '검토 중인 변경사항' 표시. 자동 빠른 검사 후 Google 검토로 전송됨. 가독화 파일 없음 경고 1건(차단 오류 없음).
+- [x] **Android 내부 테스트 출시** — 2026-10-14 Play Console 라이브러리의 동일한 build 53을 내부 테스트에 추가하고 한국어 출시 노트와 함께 출시. 트랙에 '최신 출시 버전: 53 (1.0.3)', '내부 테스터에게 제공됨' 표시.
+- [ ] **Android 프로덕션 트랙 업로드·심사 제출** — Play Console에서 프로덕션 접근 권한 미부여. 2026-10-14 기준 테스터 12명 연속 참여 13일째이며 14일 조건 충족 후 접근 권한 신청 가능. 승인 뒤 비공개 테스트 build 53을 프로덕션으로 승급.
 - 출시 노트 (양 스토어 공통, ko-KR):
   ```
   · 복습 카드가 선택한 JLPT 레벨에서만 나오도록 개선했어요.

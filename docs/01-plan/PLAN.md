@@ -47,8 +47,8 @@
 | 항목 | 내용 |
 |---|---|
 | **Product Name (internal)** | ashitakanji (jlpt-vocab-app) |
-| **Store Product Name** | **"아시타칸지 (明日漢字)"** |
-| **부제 (안)** | 매일 한 자, JLPT N5-N1 단어를 평생 함께 |
+| **Store Product Name** | **"오니칸"** (브랜드명). 스토어 검색 3필드는 features/ashitakanji.plan.md §명명 규칙 참조 |
+| **부제** | N5부터 N1까지 매일 복습하는 어휘 공부 |
 | **MVP Scope 한 줄** | JLPT 전 레벨 6,200 검수 단어 + FSRS 회독 + 빠른 훑기 + 약점 복습 |
 | **레벨별 단어 수** | N5: 300 / N4: 600 / N3: 1,100 / N2: 1,700 / N1: 2,500 / **합계 6,200** |
 | **Platform** | React Native + Expo (iOS/Android) |
@@ -58,7 +58,8 @@
 | **MVP 추정** | **데이터 9-11일 + 구현 6일 + 출시 준비 2일 = 약 14-18일** (풀타임 검수 + 병행 기준, 스토어 심사 제외) |
 | **데이터 검수 정책** | GPT 초안 + 100% 사람 검수 (도구 사용, 콘텐츠는 사람 책임) |
 
-> ⚠️ **명명 원칙**: "아시타칸지(明日漢字)" 단일 브랜드. 모든 스토어/스크린샷/마케팅 통일.
+> ⚠️ **명명 원칙**: "오니칸" 단일 브랜드. 모든 스토어/스크린샷/마케팅 통일.
+> 내부 식별자(레포 `AshitaKanji`, slug `ashitakanji`, 패키지 `com.taiyoungkim.ashitakanji`)는 바꾸지 않는다.
 > 부제는 "JLPT N5-N1 단어장" 명시. 합격 보장/공식 등 과장 표현 금지.
 
 ### Value Delivered (4-perspective)
@@ -976,7 +977,7 @@ SRS 편입 규칙:
 - [ ] **Support URL** = https://taiyoungkim.github.io/AshitaKanji/support/ → `curl -I` HTTP 200 (현재 404, Pages 활성 필요)
 - [ ] 이용약관 URL (선택, 무료 앱은 권장)
 - [ ] 개발자 연락처 이메일 = `datin0214@gmail.com` → mailto 동작 확인
-- [ ] 각 페이지에 앱 이름 "아시타칸지", 라이선스 정보, 데이터 수집 정책, 연락처 명시
+- [ ] 각 페이지에 앱 이름 "오니칸", 라이선스 정보, 데이터 수집 정책, 연락처 명시
 
 ### C-Deploy. GitHub Pages 배포 절차 (404 해결)
 1. **로컬 배포 스크립트 실행**:
@@ -1028,8 +1029,8 @@ SRS 편입 규칙:
 ### 명명 규칙 (전 채널 통일)
 | 채널 | 표기 |
 |---|---|
-| 스토어 제목 | **"아시타칸지 (明日漢字)"** |
-| 부제/짧은 설명 | "JLPT N5-N1 **핵심 선별 6,200 단어**, 매일 한 자 평생 함께" |
+| 스토어 제목 | **`오니칸: 일본어 단어장 JLPT 한자 암기`** (23/30) |
+| 서브타이틀 | **`N5부터 N1까지 매일 복습하는 어휘 공부`** (23/30) |
 | 아이콘 텍스트 | 한자 "明" 또는 "明日" |
 | 첫 스크린샷 카피 | "**JLPT N5-N1 핵심 선별 6,200 단어** — 편집자 큐레이션 + 사람 검수" |
 | 영어 부제 (선택) | "Ashita Kanji — JLPT N5-N1 Curated 6,200 Vocabulary" |
@@ -1373,7 +1374,7 @@ jlpt-app/
 - [ ] **Placeholder 회귀 게이트**: 스캔 대상 = `site/ docs/release/PRIVACY_POLICY.md docs/release/SUPPORT.md app/ store-assets/` (PLAN/RELEASE_DECISIONS 제외 — 자기참조). 0건 통과 시 빌드 허용
 - [ ] Privacy Policy + Support URL 실제 라이브 (`curl -I` HTTP 200)
 - [ ] App Privacy / Data Safety 답변 = "데이터 수집 X"
-- [ ] 스토어 명명 = **"아시타칸지 (明日漢字)"** (전 채널 통일)
+- [ ] 스토어 명명 = **"오니칸"** (전 채널 통일)
 - [ ] 스토어 카피에 "**핵심 선별 6,200개**", "**편집자 큐레이션**" 반복 (전체 어휘 오해 방지)
 - [ ] Known Limitations 10개 항목 = 스토어 설명/FAQ에 포함
 - [ ] TestFlight / Play Internal 내부 테스트 1회 이상 완료
@@ -1397,7 +1398,7 @@ jlpt-app/
 
 ### 결정 완료 (v0.7)
 - ✅ MVP scope = **JLPT N5-N1 전 레벨 6,200개 verified** (N5 300/N4 600/N3 1100/N2 1700/N1 2500) — **편집자 큐레이션** (빈도 컬럼 없음)
-- ✅ 스토어 명 = **"아시타칸지 (明日漢字)"**, 부제 = "JLPT N5-N1 **핵심 선별 6,200 단어**, 매일 한 자 평생 함께"
+- ✅ 스토어 명 = ~~"아시타칸지 (明日漢字)"~~ → **"오니칸"**, 부제 = "JLPT N5-N1 **핵심 선별 6,200 단어**, 매일 한 자 평생 함께"
 - ✅ JSON export = **MVP** (v0.7 당김, 장기 학습 데이터 안전망)
 - ✅ MVP OTA = **off** (`expo.updates.enabled=false`) → 전체 통신 0건
 - ✅ Tatoeba attribution = sentence_id + author + license 컬럼 5개. 단어 상세에는 해당 author만 작게, About > Example Sources에 총괄 + 전체 목록
@@ -1428,7 +1429,7 @@ jlpt-app/
 
 ### 출시 전 결정 마감 필수
 - [x] ~~데이터셋 최종 확정~~ ✅ Kaggle CC BY 4.0
-- [x] ~~앱 이름 최종~~ ✅ 아시타칸지 (明日漢字)
+- [x] ~~앱 이름 최종~~ ✅ 오니칸 (旧 아시타칸지(明日漢字))
 - [x] ~~`LICENSE-data-kaggle-jlpt.txt`~~ ✅ 작성 완료 (v0.5.2)
 - [x] ~~Kaggle 원본 N1 포함 여부 확인~~ ✅ 포함 확인 (v0.6.1)
 - [x] **support 이메일 주소**: ✅ **datin0214@gmail.com**
