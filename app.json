@@ -149,7 +149,16 @@
           ]
         }
       ],
-      "./plugins/withFoldableConfigChanges"
+      "./plugins/withFoldableConfigChanges",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableMinifyInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
