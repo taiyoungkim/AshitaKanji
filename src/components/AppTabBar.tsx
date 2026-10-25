@@ -7,6 +7,11 @@ import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { font, spacing, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconHistory, IconMenu, IconSettings, IconToday } from '~/design/icons';
+import { useBottomInset } from '~/hooks/useScreenInsets';
+
+// 디자인 하단 여백. 안드로이드 edge-to-edge 3버튼 내비(≈48dp)처럼 시스템 inset 이
+// 더 크면 inset 을 따라가야 탭이 내비 바에 깔리지 않는다.
+const BAR_BOTTOM_PADDING = 24;
 
 type TabIcon = (props: { color: string; knobFill: string }) => React.ReactNode;
 
@@ -20,9 +25,10 @@ const ICONS: Record<string, TabIcon> = {
 export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps): React.ReactNode {
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const bottomInset = useBottomInset();
 
   return (
-    <View style={styles.bar}>
+    <View style={[styles.bar, { paddingBottom: Math.max(BAR_BOTTOM_PADDING, bottomInset) }]}>
       {state.routes.map((route, index) => {
         const options = descriptors[route.key]?.options;
         const label = typeof options?.title === 'string' ? options.title : route.name;
@@ -76,7 +82,6 @@ const makeStyles = (c: ThemeColors) =>
       borderTopColor: c.pressed,
       paddingTop: 16,
       paddingHorizontal: spacing.xl,
-      paddingBottom: 24,
     },
     tab: {
       width: 72,
