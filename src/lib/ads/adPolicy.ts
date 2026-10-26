@@ -3,7 +3,7 @@
 //
 // 캡 규칙:
 // - 신규 유저 유예: 첫 실행 후 3일 미만 && 완료 세션 5회 이하 → 미노출
-// - 세션 간격: 완료 세션 2회당 최대 1회
+// - 세션 간격: 완료 세션 2회당 최대 1회 (단 그날 첫 광고는 면제 → 하루 1세션 유저도 매일 1회)
 // - 시간 간격: 직전 노출 후 10분 경과
 // - 일일 상한: 3회
 
@@ -54,12 +54,12 @@ export function isEligible(state: AdState, now: number): boolean {
     now - state.firstSeenAt < GRACE_PERIOD_MS && state.completedSessions <= GRACE_SESSIONS;
   if (inGracePeriod) return false;
 
-  if (state.sessionsSinceAd < SESSIONS_PER_AD) return false;
-
-  if (state.lastShownAt > 0 && now - state.lastShownAt < MIN_INTERVAL_MS) return false;
-
   const todayCount = state.shownDay === dayOf(now) ? state.shownTodayCount : 0;
   if (todayCount >= DAILY_CAP) return false;
+
+  if (todayCount > 0 && state.sessionsSinceAd < SESSIONS_PER_AD) return false;
+
+  if (state.lastShownAt > 0 && now - state.lastShownAt < MIN_INTERVAL_MS) return false;
 
   return true;
 }
@@ -83,4 +83,16 @@ export function recordAdShown(state: AdState, now: number): AdState {
     shownTodayCount: state.shownDay === today ? state.shownTodayCount + 1 : 1,
     sessionsSinceAd: 0,
   };
+}
+
+/** 광고 제거 상품 (비소모성). 두 스토어 콘솔에 같은 ID로 등록. */
+export const REMOVE_ADS_PRODUCT_ID = 'remove_ads';
+
+/** 스토어가 돌려준 구매 목록에 광고 제거 구매(결제 완료)가 있는가. */
+export function ownsRemoveAds(
+  purchases: readonly { productId: string; purchaseState: string }[],
+): boolean {
+  return purchases.some(
+    (p) => p.productId === REMOVE_ADS_PRODUCT_ID && p.purchaseState === 'purchased',
+  );
 }

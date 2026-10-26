@@ -1,5 +1,5 @@
 // 광고 빈도 정책 단위 테스트.
-// SC: 신규 유예(3일&&5세션), 세션 2회당 1회, 10분 간격, 일일 3회 상한.
+// SC: 신규 유예(3일&&5세션), 세션 2회당 1회(그날 첫 광고 면제), 10분 간격, 일일 3회 상한.
 
 import { describe, expect, it } from 'vitest';
 import {
@@ -10,6 +10,7 @@ import {
   SESSIONS_PER_AD,
   dayOf,
   initialAdState,
+  ownsRemoveAds,
   isEligible,
   recordAdShown,
   recordSessionCompleted,
@@ -58,6 +59,24 @@ describe('세션 간격 캡', () => {
     expect(isEligible(s, later)).toBe(false);
     s = recordSessionCompleted(s);
     expect(isEligible(s, later)).toBe(true);
+  });
+});
+
+describe('하루 1회 보장', () => {
+  it('그날 첫 광고는 세션 간격 캡 면제 — 하루 1세션 유저도 매일 노출', () => {
+    let s = recordAdShown(eligibleState(), AFTER_GRACE);
+    s = recordSessionCompleted(s);
+    const nextDay = AFTER_GRACE + 24 * 60 * 60 * 1000;
+    expect(isEligible(s, nextDay)).toBe(true);
+  });
+});
+
+describe('광고 제거 구매', () => {
+  it('결제 완료된 remove_ads만 인정 (pending·다른 상품 제외)', () => {
+    expect(ownsRemoveAds([])).toBe(false);
+    expect(ownsRemoveAds([{ productId: 'remove_ads', purchaseState: 'pending' }])).toBe(false);
+    expect(ownsRemoveAds([{ productId: 'other', purchaseState: 'purchased' }])).toBe(false);
+    expect(ownsRemoveAds([{ productId: 'remove_ads', purchaseState: 'purchased' }])).toBe(true);
   });
 });
 

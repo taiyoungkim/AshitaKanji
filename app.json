@@ -151,6 +151,14 @@
       ],
       "./plugins/withFoldableConfigChanges",
       [
+        "expo-iap",
+        {
+          "android": {
+            "store": "play"
+          }
+        }
+      ],
+      [
         "expo-build-properties",
         {
           "android": {

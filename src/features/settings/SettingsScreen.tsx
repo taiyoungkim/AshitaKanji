@@ -29,6 +29,7 @@ export default function SettingsScreen(): React.ReactNode {
     const result = await purchaseRemoveAds();
     setBusy(false);
     if (result === 'purchased') toast.show('광고가 제거되었어요. 감사합니다!');
+    else if (result === 'pending') toast.show('결제가 완료되면 광고가 제거돼요.');
     else if (result === 'unavailable') toast.show('지금은 구매할 수 없어요. 잠시 후 다시 시도해 주세요.');
     else if (result === 'failed') toast.show('구매를 완료하지 못했어요.');
   };
