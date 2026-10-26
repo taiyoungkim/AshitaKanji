@@ -15,6 +15,7 @@ import {
   recordAdShown,
   recordSessionCompleted,
 } from './adPolicy';
+import { isAdFree, isAdFreeNow } from './entitlement';
 
 const STORAGE_KEY = 'ashitakanji.ads';
 
@@ -68,6 +69,8 @@ export async function initAds(): Promise<void> {
   if (initialized) return;
   const gma = getGma();
   if (!gma) return;
+  // 광고 제거 구매자 — SDK 초기화·ATT 요청 모두 생략.
+  if (await isAdFree()) return;
   try {
     if (Platform.OS === 'ios') {
       // ATT는 광고 SDK 초기화 전에 — 동의 결과가 광고 요청 성격(맞춤/비맞춤)을 결정.
@@ -91,7 +94,7 @@ let adLoaded = false;
 export function preloadInterstitial(): void {
   const gma = getGma();
   const unitId = AD_UNIT_IDS[Platform.OS];
-  if (!gma || !unitId || adLoaded) return;
+  if (!gma || !unitId || adLoaded || isAdFreeNow()) return;
   try {
     const id = __DEV__ ? gma.TestIds.INTERSTITIAL : unitId;
     const ad = gma.InterstitialAd.createForAdRequest(id);
@@ -116,6 +119,11 @@ export function preloadInterstitial(): void {
  * 아니면 즉시 onDone. onDone은 정확히 1회 호출 보장.
  */
 export async function showInterstitialIfEligible(onDone: () => void): Promise<void> {
+  await isAdFree();
+  if (isAdFreeNow()) {
+    onDone();
+    return;
+  }
   const now = Date.now();
   let state = recordSessionCompleted(await loadState(now));
   const gma = getGma();
