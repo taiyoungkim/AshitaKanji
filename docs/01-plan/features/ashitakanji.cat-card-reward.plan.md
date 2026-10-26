@@ -1,8 +1,8 @@
 # cat-card-reward Planning Document
 
 > 작성일: 2026-09-07 (v0.2 — 시즌1 10종으로 축소)
-> 상태: Draft — Design 대기
-> 다음 단계: `/pdca design cat-card-reward`
+> 상태: Design 완료 (`docs/02-design/features/ashitakanji.cat-card-reward.design.md`)
+> 다음 단계: `/pdca do cat-card-reward --scope M1`
 >
 > v0.1: 도장 사이클 10일(누적), 도감 24종 + 등급 확률 뽑기, 개별 고양이 이름,
 >      서버 없음(로컬 SQLite + 번들 사진 + TheCatAPI 보너스),
