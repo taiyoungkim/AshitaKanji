@@ -1,5 +1,5 @@
 import { StyleSheet, Switch, Text, View } from 'react-native';
-import { cardShadow, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
+import { font, radius, spacing, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import {
   TTS_SPEED_MAX,
@@ -21,21 +21,24 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
   const setAutoPlay = useSettingsStore((state) => state.setAutoPlayWordTtsOnReveal);
 
   return (
-    <SettingsPage title="발음 설정">
+    <SettingsPage title="발음 설정" dismissIcon="close">
       <View style={styles.card}>
         <View style={styles.optionRow}>
           <View style={styles.copy}>
             <Text style={styles.optionTitle}>발음 듣기</Text>
             <Text style={styles.optionDescription}>일본어 단어의 발음을 재생합니다.</Text>
           </View>
-          <Switch
-            value={ttsEnabled}
-            onValueChange={setTtsEnabled}
-            trackColor={{ false: colors.pressed, true: colors.ink }}
-            thumbColor={ttsEnabled ? colors.onInk : colors.canvas}
-            ios_backgroundColor={colors.pressed}
-            accessibilityLabel="발음 듣기"
-          />
+          <View style={styles.toggleFrame}>
+            <Switch
+              style={styles.toggle}
+              value={ttsEnabled}
+              onValueChange={setTtsEnabled}
+              trackColor={{ false: colors.pressed, true: colors.ink }}
+              thumbColor={ttsEnabled ? colors.onInk : colors.canvas}
+              ios_backgroundColor={colors.pressed}
+              accessibilityLabel="발음 듣기"
+            />
+          </View>
         </View>
         <View style={styles.divider} />
         <View style={styles.optionRow}>
@@ -43,15 +46,18 @@ export default function PronunciationSettingsScreen(): React.ReactNode {
             <Text style={styles.optionTitle}>뜻 확인 시 자동 재생</Text>
             <Text style={styles.optionDescription}>뜻을 확인하면 단어의 발음을 자동으로 재생합니다.</Text>
           </View>
-          <Switch
-            value={autoPlay}
-            onValueChange={setAutoPlay}
-            disabled={!ttsEnabled}
-            trackColor={{ false: colors.pressed, true: colors.ink }}
-            thumbColor={autoPlay && ttsEnabled ? colors.onInk : colors.canvas}
-            ios_backgroundColor={colors.pressed}
-            accessibilityLabel="뜻 확인 시 자동 재생"
-          />
+          <View style={styles.toggleFrame}>
+            <Switch
+              style={styles.toggle}
+              value={autoPlay}
+              onValueChange={setAutoPlay}
+              disabled={!ttsEnabled}
+              trackColor={{ false: colors.pressed, true: colors.ink }}
+              thumbColor={autoPlay && ttsEnabled ? colors.onInk : colors.canvas}
+              ios_backgroundColor={colors.pressed}
+              accessibilityLabel="뜻 확인 시 자동 재생"
+            />
+          </View>
         </View>
       </View>
 
@@ -76,19 +82,42 @@ const makeStyles = (colors: ThemeColors) =>
       borderRadius: radius.card,
       paddingHorizontal: spacing.xl,
       backgroundColor: colors.canvas,
-      ...cardShadow(colors),
     },
     optionRow: {
-      minHeight: 84,
+      height: 88,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: spacing.md,
     },
     copy: { flex: 1, gap: spacing.xs },
-    optionTitle: { ...typography.cardTitle, color: colors.ink },
-    optionDescription: { ...typography.body, color: colors.body },
-    divider: { height: StyleSheet.hairlineWidth, backgroundColor: colors.pressed },
-    speedSection: { marginTop: layout.gapGroup },
-    sectionTitle: { ...typography.listTitle, color: colors.ink, marginBottom: spacing.lg },
+    toggleFrame: {
+      width: 39,
+      height: 24,
+      flexShrink: 0,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    toggle: { transform: [{ scaleX: 39 / 51 }, { scaleY: 24 / 31 }] },
+    optionTitle: {
+      fontFamily: font.medium,
+      fontSize: 18,
+      lineHeight: 26,
+      color: colors.ink,
+    },
+    optionDescription: {
+      fontFamily: font.medium,
+      fontSize: 13,
+      lineHeight: 18,
+      color: colors.body,
+    },
+    divider: { height: 1, backgroundColor: colors.pressed },
+    speedSection: { marginTop: 30 },
+    sectionTitle: {
+      fontFamily: font.regular,
+      fontSize: 16,
+      lineHeight: 24,
+      color: colors.ink,
+      marginBottom: spacing.lg,
+    },
   });

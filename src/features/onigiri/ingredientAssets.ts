@@ -8,6 +8,8 @@ export interface IngredientMeta {
   image: ImageSourcePropType;
 }
 
+export const ingredientEmptyImage: ImageSourcePropType = require('../../../assets/onigiri/ingredient-empty.png');
+
 export const INGREDIENTS: Record<string, IngredientMeta> = {
   RICE: { name: '쌀', image: require('../../../assets/onigiri/ingredients/rice.png') },
   RICE_GRAIN: {

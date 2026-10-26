@@ -24,6 +24,7 @@ import { renderKanjiFace } from '~/lib/cardType';
 import { useReducedMotion } from '~/hooks/useReducedMotion';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import type { Word } from '~/types/Card';
+import { shouldShowReading } from '../readingVisibility';
 import { getCenteredPromptOffset } from '../studyCardMotion';
 
 const REVEALED_PROMPT_TOP = spacing.huge * 3;
@@ -122,7 +123,7 @@ export function StudyCard({
         >
           <Text style={styles.word}>{renderKanjiFace(word)}</Text>
 
-          {!!word.reading_kana && (revealed || showReadingBeforeReveal) && (
+          {!!word.reading_kana && shouldShowReading(revealed, showReadingBeforeReveal) && (
             <View style={styles.readingRow}>
               <Text style={styles.reading}>{word.reading_kana}</Text>
               {onSpeak && (

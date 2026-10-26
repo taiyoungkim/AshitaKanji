@@ -2,7 +2,7 @@
   "expo": {
     "name": "오니칸",
     "slug": "ashitakanji",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "ashitakanji",
@@ -19,13 +19,13 @@
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD"
     },
-    "runtimeVersion": "1.0.0-sdk54",
+    "runtimeVersion": "1.0.3-sdk54",
     "assetBundlePatterns": [
       "**/*",
       "assets/jlpt.db"
     ],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.taiyoungkim.ashitakanji",
       "infoPlist": {
         "CFBundleDisplayName": "오니칸",
@@ -39,13 +39,20 @@
     },
     "android": {
       "package": "com.taiyoungkim.ashitakanji",
-      "versionCode": 42,
       "edgeToEdgeEnabled": true,
+      "icon": "./assets/adaptive-icon-safe.png",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/adaptive-icon-safe.png",
+        "backgroundColor": "#F67237"
       },
-      "permissions": []
+      "permissions": [],
+      "blockedPermissions": [
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.READ_MEDIA_AUDIO",
+        "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -73,9 +80,7 @@
           "savePhotosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
           "photosPermission": "학습 영수증을 사진 앨범에 저장할 때 사용합니다.",
           "isAccessMediaLocationEnabled": false,
-          "granularPermissions": [
-            "photo"
-          ]
+          "granularPermissions": []
         }
       ],
       [

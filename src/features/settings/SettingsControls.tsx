@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { font, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
@@ -7,26 +7,37 @@ import { useThemedStyles } from '~/design/theme';
 export function SettingsPage({
   title,
   children,
+  dismissIcon = 'back',
 }: {
   title: string;
   children: React.ReactNode;
+  dismissIcon?: 'back' | 'close';
 }): React.ReactNode {
   const router = useRouter();
   const styles = useThemedStyles(makeStyles);
   return (
     <SafeAreaView style={styles.root} edges={['top', 'bottom']}>
-      <Pressable
-        onPress={() => router.back()}
-        style={styles.back}
-        hitSlop={8}
-        accessibilityRole="button"
-        accessibilityLabel="뒤로"
+      <View style={styles.header}>
+        <Pressable
+          onPress={() => router.back()}
+          style={({ pressed }) => [styles.dismiss, pressed && styles.dismissPressed]}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel={dismissIcon === 'close' ? '닫기' : '뒤로'}
+        >
+          <Text style={dismissIcon === 'close' ? styles.closeIcon : styles.backIcon}>
+            {dismissIcon === 'close' ? '×' : '‹'}
+          </Text>
+        </Pressable>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.backIcon}>‹</Text>
-        <Text style={styles.backLabel}>뒤로</Text>
-      </Pressable>
-      <Text style={styles.title}>{title}</Text>
-      {children}
+        {children}
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -98,17 +109,32 @@ function StepperButton({
 
 const makeStyles = (colors: ThemeColors) =>
   StyleSheet.create({
-    root: { flex: 1, backgroundColor: colors.softer, paddingHorizontal: layout.gutter },
-    back: {
-      minHeight: layout.touchTarget,
-      alignSelf: 'flex-start',
-      flexDirection: 'row',
+    root: { flex: 1, backgroundColor: colors.softer },
+    header: {
+      minHeight: 56,
+      paddingHorizontal: layout.gutter,
       alignItems: 'center',
-      marginLeft: -spacing.xs,
+      justifyContent: 'center',
     },
-    backIcon: { fontSize: 34, lineHeight: 36, color: colors.ink },
-    backLabel: { ...typography.body, color: colors.ink, marginLeft: spacing.xs },
-    title: { ...typography.meaning, color: colors.ink, marginBottom: spacing.xxl },
+    dismiss: {
+      position: 'absolute',
+      left: layout.gutter,
+      width: layout.touchTarget,
+      height: layout.touchTarget,
+      borderRadius: radius.pill,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    dismissPressed: { backgroundColor: colors.soft },
+    backIcon: { fontSize: 34, lineHeight: 36, color: colors.ink, marginTop: -2 },
+    closeIcon: { fontFamily: font.regular, fontSize: 30, lineHeight: 32, color: colors.ink },
+    title: { ...typography.cardTitle, color: colors.ink, textAlign: 'center' },
+    scroll: { flex: 1 },
+    content: {
+      paddingHorizontal: layout.gutter,
+      paddingTop: spacing.md,
+      paddingBottom: spacing.huge,
+    },
     stepper: {
       minHeight: 80,
       borderRadius: radius.card,

@@ -1,4 +1,4 @@
-# 아시타칸지 (明日漢字) - Design
+# 오니칸 - Design
 
 > 작성일: 2026-05-29 (v1.0)
 > 기반: Plan v0.7.4 (`docs/01-plan/features/ashitakanji.plan.md`)

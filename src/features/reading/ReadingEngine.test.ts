@@ -37,6 +37,14 @@ beforeEach(() => {
 });
 
 describe('ReadingEngine.startChapter', () => {
+  it('applies a fresh shuffle to the words shown in a pass', async () => {
+    const reverseEngine = new ReadingEngine(cards, progress, (items) => [...items].reverse());
+
+    const s = await reverseEngine.startChapter('N5', 1);
+
+    expect(s.queue.map((x) => x.id)).toEqual(['c', 'b', 'a']);
+  });
+
   it('loads the chapter block (order randomized)', async () => {
     const s = await engine.startChapter('N5', 1);
     expect(s.queue.map((x) => x.id).sort()).toEqual(['a', 'b', 'c']);

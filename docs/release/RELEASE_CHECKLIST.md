@@ -1,10 +1,10 @@
 # Release Checklist — 오니칸 (AshitaKanji)
 
-Last updated: 2026-09-01
+Last updated: 2026-10-14
 App: 오니칸 / slug `ashitakanji` / bundleId `com.taiyoungkim.ashitakanji` (iOS+Android 동일)
-Current version: **1.0.0**
+1.0.3 상태: **iOS App Store 심사 대기 중 / Android 내부 테스터에게 제공 중·비공개 테스트 검토 중**
 
-스토어: Apple App Store + Google Play. 개발자 등록 = 개인(Individual).
+스토어: **Google Play 1.0.1 + Apple App Store 1.0.2**. 개발자 등록 = 개인(Individual), owner `datin0214@gmail.com`.
 
 ---
 
@@ -16,16 +16,35 @@ Current version: **1.0.0**
 | **P1** | 심사 통과·광고 게재에 필수 | reject 또는 광고 노출 안 됨 |
 | **P2** | 출시 직후/품질 | 출시는 되나 리스크 |
 
-현재 상태 한 줄: **앱·데이터·Privacy URL 준비됨. 남은 블로커는 스토어 계정·prod 빌드 검증.**
+현재 상태 한 줄: **1.0.3(커밋 `e8e5315`) iOS build 12 App Store 심사 대기 중, Android versionCode 53 내부 테스트 제공 중·비공개 테스트 Alpha 검토 요청 완료. 남은 작업은 iOS 심사 승인 후 수동 출시와 Android 프로덕션 접근 권한 신청·심사 제출.**
 
-### 자동 게이트 결과 (2026-09-01)
+### 1.0.3 릴리스 (2026-10-14)
+
+- 범위: 복습 due를 선택 레벨로 제한, 하단 탭바·홈·설정·필순·단어 상세 디자인 갱신, 정답 공개 시 단어 TTS 자동재생 기본 off. iOS 1.0.2가 출시돼 양 플랫폼 1.0.3으로 통일(`runtimeVersion` `1.0.3-sdk54`).
+- 게이트: `npm run ci-check` ✅ (테스트 279개), `release-gate:android` ✅ (1.0.2 기준).
+- [x] **iOS App Store 심사 제출** — EAS 원격 build 12 (`ce826a4d`) → `eas submit` ASC 업로드 완료. 2026-10-14 ASC에 1.0.3 버전을 만들고 build 12를 연결하여 심사 제출. 제출 ID `2410cc32-d508-4829-8d05-4ad2bf6a4361`; 상태 '심사 대기 중'. 승인 후 수동 출시로 설정됨.
+- [x] **Android AAB** — 원격 `medium` 빌드는 다시 EAGER_BUNDLE에서 `Killed`(메모리 부족) → `--local`로 우회. `releases/Onikan-google-play-v1.0.3-build53.aab` (versionName `1.0.3`, versionCode `53`, 199 MB, `jarsigner` 검증 ✅).
+  - SHA-256: `b7e44f4cfe1c37850ea02760c86cac98afbe7c9b705a3eb27414205777df7664`.
+  - versionCode 50~52는 실패·중단된 빌드가 소모.
+- [x] **Android 비공개 테스트 Alpha 업로드·검토 요청** — 2026-10-14 Play Console에서 build 53과 한국어 출시 노트를 제출. 게시 개요에 '검토 중인 변경사항' 표시. 자동 빠른 검사 후 Google 검토로 전송됨. 가독화 파일 없음 경고 1건(차단 오류 없음).
+- [x] **Android 내부 테스트 출시** — 2026-10-14 Play Console 라이브러리의 동일한 build 53을 내부 테스트에 추가하고 한국어 출시 노트와 함께 출시. 트랙에 '최신 출시 버전: 53 (1.0.3)', '내부 테스터에게 제공됨' 표시.
+- [ ] **Android 프로덕션 트랙 업로드·심사 제출** — Play Console에서 프로덕션 접근 권한 미부여. 2026-10-14 기준 테스터 12명 연속 참여 13일째이며 14일 조건 충족 후 접근 권한 신청 가능. 승인 뒤 비공개 테스트 build 53을 프로덕션으로 승급.
+- 출시 노트 (양 스토어 공통, ko-KR):
+  ```
+  · 복습 카드가 선택한 JLPT 레벨에서만 나오도록 개선했어요.
+  · 하단 메뉴와 홈·설정·필순 연습·단어 상세 화면 디자인을 새로 다듬었어요.
+  · 뜻 확인 시 발음 자동 재생을 기본으로 껐어요. 설정의 발음 메뉴에서 다시 켤 수 있어요.
+  ```
+
+### 자동 게이트 결과 (2026-09-27)
 
 | 명령 | 결과 |
 |---|---|
-| `npm run ci-check` | ✅ typecheck · lint · 테스트 229개 통과 |
-| `npm run release-gate` | ❌ 1건 — `eas.json submit.ios` `ascAppId`/`appleTeamId` 가 `TBD`. 나머지 28개 항목(에셋·jlpt.db 무결성·예문 권한·사이트 URL 3종) 통과 |
+| `npm run ci-check` | ✅ typecheck · lint · 테스트 270개 통과 |
+| `npm run release-gate` | 양쪽 스토어용 종합 게이트 — iOS 제출 정보와 EAS Submit용 Google 서비스 계정 키가 없으면 실패 |
+| `npm run release-check:android` | ✅ Android 첫 수동 제출용 게이트 전체 통과 |
 
-`release-gate`의 유일한 실패는 아래 P0 "Apple 자산 채우기"와 같은 항목이다. 값을 채우면 게이트가 전부 통과한다.
+고양이 카드 보상 프로토타입은 1.0.0 출시 범위에서 제외했다. 아래 P0 계정 정보와 실기기 검증을 마치면 최종 스토어 빌드를 진행한다.
 
 ---
 
@@ -34,12 +53,15 @@ Current version: **1.0.0**
 - [x] **GitHub Pages 배포** — 2026-08-18 `gh-pages` 게시. `/` `/privacy/` `/support/` HTTP 200. AdMob·ATT 공개 포함.
 - [x] **버전 bump** — `app.json` / `package.json` `1.0.0`, `runtimeVersion` `1.0.0`. (native build number는 EAS `autoIncrement`/`remote`가 처리)
 - [ ] **Android 최종 APK 콜드 스타트 게이트** — 초기화된 에뮬레이터 또는 실기기에 새로 설치한 뒤 시작 화면→홈→첫 학습 카드→TTS까지 확인. `expo_runtime_version` 리소스와 필요한 APK 자산도 대조. 상세 절차는 [`ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md`](./ANDROID_BUILD17_STARTUP_CRASH_POSTMORTEM.md) 참고.
-- [ ] **Apple 자산 채우기** — `eas.json` submit.production.ios `ascAppId: "TBD"`, `appleTeamId: "TBD"` → 실값.
-  - App Store Connect에서 앱 레코드 생성 후 ascAppId 확보, Apple Developer 멤버십(연 $99) 필요
-- [ ] **Google Play 서비스 계정 키** — `eas.json`가 `./secrets/play-service-account.json` 참조하나 **`secrets/` 폴더 없음**.
-  - Play Console에서 service account 생성·키 다운로드 → `secrets/`에 배치 (git ignore 확인)
-  - Play 개발자 등록 ($25 1회)
-- [x] **스토어 그래픽 자산** — `store-assets/`에 시뮬레이터 실화면 리사이즈본 있음 (iOS 6.7/6.5/5.5/iPad, Android phone, feature 1024×500, icon 512). 제출 전 한 번 눈으로 확인.
+- [x] **Google Play 개발자 등록** — 개인 계정, `datin0214@gmail.com`.
+- [x] **production AAB 생성** — EAS production profile을 로컬 실행해 원격 Play 업로드 키를 주입한 서명본 생성. 일반 로컬 Gradle release(debug keystore)는 제출본으로 사용 금지.
+  - 2026-09-27 첫 시도(build 34)는 Metro eager bundle 99.9%에서 메모리 부족(code 137).
+  - 무료 `medium` 원격 빌드는 Metro 통과 후 `createReleaseUpdatesResources`에서 다시 메모리 부족(code 137). 같은 production profile과 원격 keystore로 공식 EAS local build를 실행해 우회.
+  - 제출 파일: `releases/Onikan-google-play-v1.0.0-build40.aab` (versionName `1.0.0`, versionCode `40`, 190 MB). build 38은 Play 내부 테스트의 미출시 초안에만 업로드되어 있어 교체 대상.
+  - SHA-256: `a5edd6abafe210739e7a703a3e179b00f98605ec0399f1e7a66112ea5ddbc89b`.
+  - 검증: Gradle 1,034 tasks 성공, `jarsigner` 검증 성공, ZIP 무결성 성공, MP3 0개·OGG 14,054개 포함.
+- [ ] **최종 AAB 수동 업로드** — build 38 초안을 제거하고 build 40을 Play Console 내부 테스트 트랙에 직접 업로드. `./secrets/play-service-account.json`은 EAS Submit 자동화 도입 전까지 선택 사항.
+- [x] **스토어 그래픽 자산** — 2026-09-28 새 오니기리 아이콘으로 앱/Play 아이콘을 통일하고, Android 9:16 스크린샷 7장(1539×2736)과 feature graphic(1024×500)을 갱신·육안 확인.
 - [ ] **prod 빌드 실광고 1회 확인** — `__DEV__=false` 빌드에서 실 Unit 로드되는지. ⚠️ 본인 클릭 금지 (계정 정지)
 
 ## P1 — 심사 통과·광고 게재 필수
@@ -85,10 +107,10 @@ Age rating surveys: mark **ads / advertising present**. Do not mark as child-dir
 
 ## 추천 실행 순서
 
-1. 개발자 계정 등록 (Apple $99/yr, Google $25) — 리드타임 김, 먼저
-2. GitHub Pages 배포 → URL 200 검증 (P0, 빠름)
-3. 스토어 앱 레코드 생성 → ascAppId/teamId·service account 키 확보
-4. store-assets 스크린샷·그래픽 제작
-5. version 1.0.0 bump → prod 빌드 → 실광고 1회 확인
-6. Privacy 라벨/Data Safety/등급 설문 작성
-7. 내부 트랙 업로드 → AdMob 앱 연결 → 프로덕션 제출
+1. Play Console에서 앱 레코드 생성 (`오니칸`, 기본 언어 한국어, 앱/무료)
+2. 내부 테스트 초안의 build 38을 제거하고 `build40.aab`를 수동 업로드
+3. Play Data Safety·광고 포함·콘텐츠 등급·대상 연령·앱 액세스 설문 작성
+4. 스토어 설명·아이콘·feature graphic·Android 스크린샷·지원 URL/이메일 등록
+5. 내부 테스트 설치 → 콜드 스타트·첫 학습·TTS·실광고 1회 확인 (본인 광고 클릭 금지)
+6. AdMob에서 Play 스토어 리스팅 연결
+7. 개인 계정의 적용 대상 테스트 요건을 Play Console에서 확인하고 충족한 뒤 프로덕션 제출

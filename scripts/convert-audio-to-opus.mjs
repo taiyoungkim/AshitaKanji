@@ -103,7 +103,11 @@ function run(command, args) {
 }
 
 async function convert(job) {
-  if (!force && existsSync(job.target) && statSync(job.target).size > 0) return 'skipped';
+  if (!force && existsSync(job.target)) {
+    const sourceStat = statSync(job.source);
+    const targetStat = statSync(job.target);
+    if (targetStat.size > 0 && targetStat.mtimeMs >= sourceStat.mtimeMs) return 'skipped';
+  }
   const temporary = `${job.target}.part`;
   if (existsSync(temporary)) unlinkSync(temporary);
   try {

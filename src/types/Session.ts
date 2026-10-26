@@ -10,7 +10,7 @@ export type SessionEndReason = 'completed' | 'abandoned' | 'app_killed';
 export type SessionPhase = 'main' | 'done';
 
 export interface SessionConfig {
-  levels: JlptLevel[];           // 신규 학습 선택 레벨 (기존 due는 전 레벨)
+  levels: JlptLevel[];           // 학습 선택 레벨 (신규와 기존 due 모두 적용)
   dailyNewLimit: number;          // 5-50
   /** true if user has already seen "30+ is high intensity" warning */
   highIntensityAcknowledged: boolean;

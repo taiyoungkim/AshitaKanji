@@ -1,0 +1,616 @@
+{
+  "generated_at": "2026-10-03T05:40:55.516758+00:00",
+  "before_level_counts": {
+    "N5": 398,
+    "N4": 742,
+    "N3": 1488,
+    "N2": 1906,
+    "N1": 2484
+  },
+  "after_level_counts": {
+    "N5": 399,
+    "N4": 742,
+    "N3": 1502,
+    "N2": 1956,
+    "N1": 2419
+  },
+  "pdf_restorations": 65,
+  "manual_corrections": 1,
+  "n1_supplement_review_queue": 425,
+  "changes": [
+    {
+      "id": "w_5e7ef9138e00c433",
+      "surface": "発生",
+      "reading_kana": "はっせい",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3;pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_047f09e5f690de59",
+      "surface": "地元",
+      "reading_kana": "じもと",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n2;mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_961062a857304d8b",
+      "surface": "減少",
+      "reading_kana": "げんしょう",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3;pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_4174e39a940acafd",
+      "surface": "収集",
+      "reading_kana": "しゅうしゅう",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_d19dd4254588db34",
+      "surface": "創造",
+      "reading_kana": "そうぞう",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_2e8d4f6d5083dc96",
+      "surface": "汚れ",
+      "reading_kana": "よごれ",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_6642cbf9235eb71d",
+      "surface": "受け入れる",
+      "reading_kana": "うけいれる",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_82a8a19743899089",
+      "surface": "内緒",
+      "reading_kana": "ないしょ",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3;pass_n3;pdf:pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_1473b754f2591b60",
+      "surface": "抑える",
+      "reading_kana": "おさえる",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n2;mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_dd71d876b5defe3a",
+      "surface": "間隔",
+      "reading_kana": "かんかく",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_fa227e48ff825a7e",
+      "surface": "申し込み",
+      "reading_kana": "もうしこみ",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_798fdbcd46387384",
+      "surface": "沸騰",
+      "reading_kana": "ふっとう",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3;pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_576ccbc5751f2876",
+      "surface": "駆ける",
+      "reading_kana": "かける",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:mkt_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_ddc4c211ea049dc1",
+      "surface": "ふらふら",
+      "reading_kana": "ふらふら",
+      "before_level": "N1",
+      "after_level": "N3",
+      "evidence": "pdf:pass_n3",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_fcad766eecf8a252",
+      "surface": "詳細",
+      "reading_kana": "しょうさい",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_e6aa877ce355f72b",
+      "surface": "購入",
+      "reading_kana": "こうにゅう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_262bab2f3dc47299",
+      "surface": "採用",
+      "reading_kana": "さいよう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_29dc4b778c6e2c6e",
+      "surface": "破壊",
+      "reading_kana": "はかい",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_8f19ba38df4b053a",
+      "surface": "設置",
+      "reading_kana": "せっち",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_fbd95950b1b3f213",
+      "surface": "見た目",
+      "reading_kana": "みため",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_7bd0d93b4d0662e0",
+      "surface": "好評",
+      "reading_kana": "こうひょう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_ad96d75cf4c84a8d",
+      "surface": "配慮",
+      "reading_kana": "はいりょ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_ecd5f878a2b12ffd",
+      "surface": "規格",
+      "reading_kana": "きかく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_89fc48e334ad51b6",
+      "surface": "本質",
+      "reading_kana": "ほんしつ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_c93e865c92b464d4",
+      "surface": "訪れる",
+      "reading_kana": "おとずれる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_b7f37f0b0a8a7c3a",
+      "surface": "循環",
+      "reading_kana": "じゅんかん",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_80d1fde9c12ec7bb",
+      "surface": "活発",
+      "reading_kana": "かっぱつ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_b27a951943ddbdef",
+      "surface": "勧誘",
+      "reading_kana": "かんゆう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_730e1fe919e7f52c",
+      "surface": "果たす",
+      "reading_kana": "はたす",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_c2668e4001e32c8e",
+      "surface": "保つ",
+      "reading_kana": "たもつ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_2b32e38f42248fa6",
+      "surface": "半額",
+      "reading_kana": "はんがく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_5cd6e180767c9102",
+      "surface": "満たす",
+      "reading_kana": "みたす",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_6f0e79e8119b8a9b",
+      "surface": "利点",
+      "reading_kana": "りてん",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_37a5f1d1a6f9e9e5",
+      "surface": "模型",
+      "reading_kana": "もけい",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_48c87304a313d294",
+      "surface": "制約",
+      "reading_kana": "せいやく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_a4466cfa3021997b",
+      "surface": "盛り上がる",
+      "reading_kana": "もりあがる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_cfa6bcd8424c9c0b",
+      "surface": "不可欠",
+      "reading_kana": "ふかけつ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_fe5aa65deefa4fd4",
+      "surface": "振り返る",
+      "reading_kana": "ふりかえる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_25a37975ebba9151",
+      "surface": "専念",
+      "reading_kana": "せんねん",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_7f02be914094514a",
+      "surface": "情けない",
+      "reading_kana": "なさけない",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_65973e3dcc47994c",
+      "surface": "耐える",
+      "reading_kana": "たえる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_e54504d1c270728e",
+      "surface": "犯す",
+      "reading_kana": "おかす",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_bedd038e5370599e",
+      "surface": "取り除く",
+      "reading_kana": "とりのぞく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_18904ffc4733404c",
+      "surface": "取り扱う",
+      "reading_kana": "とりあつかう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_b2723461f6cf6b0c",
+      "surface": "模範",
+      "reading_kana": "もはん",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_bd9dfc9a6227a650",
+      "surface": "乏しい",
+      "reading_kana": "とぼしい",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_e0b6dbb66ee1c2f4",
+      "surface": "生かす",
+      "reading_kana": "いかす",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_e289ba18dc7964f5",
+      "surface": "試みる",
+      "reading_kana": "こころみる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_9ee9fedb296f1359",
+      "surface": "鍛える",
+      "reading_kana": "きたえる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_cf908647a551a051",
+      "surface": "物足りない",
+      "reading_kana": "ものたりない",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_d773d232abeabf52",
+      "surface": "整える",
+      "reading_kana": "ととのえる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_1540edca1bf83ecb",
+      "surface": "競う",
+      "reading_kana": "きそう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_68ee24050b7e44cf",
+      "surface": "追い込む",
+      "reading_kana": "おいこむ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_d5a86ece23e0f3b9",
+      "surface": "嘆く",
+      "reading_kana": "なげく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_4f0f06803a5dbcc5",
+      "surface": "見分ける",
+      "reading_kana": "みわける",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_0e77500820c5c9b9",
+      "surface": "染める",
+      "reading_kana": "そめる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_92ab6aa6e6c13b18",
+      "surface": "漏れる",
+      "reading_kana": "もれる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_d541f62a162d668a",
+      "surface": "欠く",
+      "reading_kana": "かく",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_a54a0943a6ec5d8f",
+      "surface": "名高い",
+      "reading_kana": "なだかい",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_b928cdb03bdf7afb",
+      "surface": "添える",
+      "reading_kana": "そえる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_f948982919ee8a7a",
+      "surface": "打ち明ける",
+      "reading_kana": "うちあける",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_b6b1ec7b196b2373",
+      "surface": "庇う",
+      "reading_kana": "かばう",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_749c0a779d203409",
+      "surface": "転じる",
+      "reading_kana": "てんじる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_c088e0d26a51102e",
+      "surface": "緩む",
+      "reading_kana": "ゆるむ",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_9375044e7571e8e4",
+      "surface": "呼び止める",
+      "reading_kana": "よびとめる",
+      "before_level": "N1",
+      "after_level": "N2",
+      "evidence": "pdf:mkt_n2",
+      "policy": "direct PDF level restored over NAVER rebalance"
+    },
+    {
+      "id": "w_c41c1b47224d5c11",
+      "surface": "ありがとう",
+      "reading_kana": "ありがとう",
+      "before_level": "N2",
+      "after_level": "N5",
+      "evidence": "basic learner expression; N4 PDF sentence evidence; app-curated placement",
+      "policy": "manual learner-facing level correction"
+    }
+  ]
+}

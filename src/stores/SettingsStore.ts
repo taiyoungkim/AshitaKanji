@@ -33,7 +33,7 @@ export const isHighIntensity = (dailyNewLimit: number): boolean =>
   dailyNewLimit > HIGH_INTENSITY_THRESHOLD;
 
 interface SettingsState {
-  selectedLevels: JlptLevel[]; // 신규 학습 대상 레벨 (다중, 최소 1). 기존 due에는 미적용.
+  selectedLevels: JlptLevel[]; // 학습 대상 레벨 (다중, 최소 1). 신규와 due 모두 적용.
   /** 회독 화면에서 마지막으로 본 레벨 — 재진입 시 복원한다. */
   readingLevel: JlptLevel;
   /** 레벨별로 마지막에 연 회독 챕터 — 재진입 시 그 챕터를 이어서 연다. */
@@ -77,7 +77,7 @@ const DEFAULTS = {
   dailyNewLimit: 12,
   ttsEnabled: true,
   ttsSpeed: TTS_SPEED_DEFAULT,
-  autoPlayWordTtsOnReveal: true,
+  autoPlayWordTtsOnReveal: false,
   showReadingBeforeReveal: true,
   highIntensityWarned: false,
   tutorialCompleted: false,
@@ -183,7 +183,10 @@ export const useSettingsStore = create<SettingsState>()(
           state.dailyNewLimit = clampDailyNew(state.dailyNewLimit);
           state.ttsSpeed = clampTtsSpeed(state.ttsSpeed);
           if (typeof state.autoPlayWordTtsOnReveal !== 'boolean') {
-            state.autoPlayWordTtsOnReveal = true;
+            state.autoPlayWordTtsOnReveal = false;
+          }
+          if (typeof state.showReadingBeforeReveal !== 'boolean') {
+            state.showReadingBeforeReveal = true;
           }
           if (!['system', 'light', 'dark'].includes(state.themePreference)) {
             state.themePreference = 'system';

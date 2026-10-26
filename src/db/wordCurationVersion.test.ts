@@ -13,16 +13,16 @@ function versionFrom(source: string): string {
 }
 
 describe('word seed curation upgrade', () => {
-  it('keeps the runtime and bundled seed at curation version 13', () => {
-    expect(versionFrom(OPEN_SOURCE)).toBe('13');
-    expect(versionFrom(BUILD_SOURCE)).toBe('13');
+  it('keeps the runtime and bundled seed at curation version 19', () => {
+    expect(versionFrom(OPEN_SOURCE)).toBe('19');
+    expect(versionFrom(BUILD_SOURCE)).toBe('19');
   });
 
-  it('rehydrates an existing version 12 database from the latest seed', () => {
-    expect(requiresWordSeedHydration('12', versionFrom(OPEN_SOURCE))).toBe(true);
+  it('rehydrates an existing version 18 database from the latest seed', () => {
+    expect(requiresWordSeedHydration('18', versionFrom(OPEN_SOURCE))).toBe(true);
   });
 
   it('does not redundantly rehydrate an already-current database', () => {
-    expect(requiresWordSeedHydration('13', versionFrom(OPEN_SOURCE))).toBe(false);
+    expect(requiresWordSeedHydration('19', versionFrom(OPEN_SOURCE))).toBe(false);
   });
 });

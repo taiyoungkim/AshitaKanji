@@ -1,6 +1,6 @@
 // Onikan 라인 아이콘 — handoff 프로토타입의 SVG를 그대로 이식.
 //
-// 네 탭 아이콘은 26px 박스 안에서 아트워크 크기(약 20px)와 스트로크 굵기를 광학적으로
+// 네 탭 아이콘은 28px 박스 안에서 아트워크 크기와 스트로크 굵기를 광학적으로
 // 맞춰 놓았다. 그 정렬이 viewBox 값에 들어 있으므로 viewBox 를 바꾸면 정렬이 깨진다.
 
 import Svg, { Circle, Path } from 'react-native-svg';
@@ -11,7 +11,7 @@ interface IconProps {
 }
 
 /** 오늘 — 오니기리. */
-export function IconToday({ size = 26, color }: IconProps): React.ReactNode {
+export function IconToday({ size = 28, color }: IconProps): React.ReactNode {
   return (
     <Svg width={size} height={size} viewBox="1.5 1.5 29 29" fill="none">
       <Path
@@ -32,23 +32,33 @@ export function IconToday({ size = 26, color }: IconProps): React.ReactNode {
   );
 }
 
-/** 메뉴 — 책. */
-export function IconMenu({ size = 26, color }: IconProps): React.ReactNode {
+/** 메뉴 — 스프링 노트 안의 고양이. Figma `537:22642` 원본 벡터. */
+export function IconMenu({ size = 28, color }: IconProps): React.ReactNode {
   return (
-    <Svg width={size} height={size} viewBox="-0.2 -0.2 15.4 15.4" fill="none">
+    <Svg width={size} height={size} viewBox="0 0 28 28" fill="none">
       <Path
-        d="M4.5 1.25V14.25M7 5.25H11M1.5 1.25H11.5C12.6046 1.25 13.5 2.14543 13.5 3.25V12.25C13.5 13.3546 12.6046 14.25 11.5 14.25H1.5V1.25Z"
+        d="M4.49121 3.30217C4.49121 2.6457 5.02339 2.11353 5.67986 2.11353H22.3209C22.9774 2.11353 23.5096 2.6457 23.5096 3.30217V24.6978C23.5096 25.3543 22.9774 25.8865 22.3209 25.8865H5.67986C5.02339 25.8865 4.49121 25.3543 4.49121 24.6978V3.30217Z"
         stroke={color}
-        strokeWidth={1.16}
+        strokeWidth={2}
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M1.93359 7.60718H4.49072M1.93359 14H4.49072M1.93359 20.3928H4.49072"
+        stroke={color}
+        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+      <Path
+        d="M17.6982 8.43918C17.9179 8.41752 18.135 8.53104 18.3281 8.68332C18.4208 8.75645 18.4792 8.84239 18.5215 8.89523C18.6772 9.08982 18.8047 9.34974 18.917 9.65598C18.9956 9.87048 19.05 10.1635 19.0986 10.4792C19.1362 10.7236 19.163 10.9947 19.1816 11.2214C19.7601 11.9251 20.1025 12.8716 20.1025 14.1228C20.1024 17.7653 16.1694 18.2344 14 18.2351C11.8306 18.2357 7.89794 18.1011 7.89746 14.1228C7.89737 12.9393 8.2524 12.0088 8.84961 11.2986C8.85959 11.0709 8.87682 10.798 8.90527 10.5515C8.94199 10.2335 8.98614 9.93811 9.05664 9.72043C9.15731 9.40966 9.27387 9.14491 9.42188 8.94406C9.46233 8.88918 9.51779 8.80117 9.60742 8.72434C9.79426 8.56424 10.0055 8.44072 10.2256 8.45285L10.2695 8.45773L10.4092 8.47922C10.4628 8.48973 10.5232 8.50501 10.5879 8.52805C10.7032 8.5691 10.945 8.68098 11.2188 8.84836H11.2197C11.2963 8.89521 11.4693 9.00215 11.7549 9.25266C11.9113 9.38989 12.0385 9.50254 12.1309 9.58371C12.7276 9.47184 13.3575 9.41867 14 9.41867C14.6618 9.41867 15.3103 9.46431 15.9229 9.56809C16 9.49446 16.0943 9.40606 16.2021 9.30344C16.4781 9.04075 16.647 8.92575 16.7217 8.8757C16.9888 8.69667 17.2264 8.57494 17.3398 8.52902C17.467 8.47754 17.5777 8.45903 17.6543 8.44504L17.6982 8.43918Z"
+        fill={color}
       />
     </Svg>
   );
 }
 
 /** 기록 — 시계. */
-export function IconHistory({ size = 26, color }: IconProps): React.ReactNode {
+export function IconHistory({ size = 28, color }: IconProps): React.ReactNode {
   return (
     <Svg width={size} height={size} viewBox="3.5 3.5 25 25" fill="none">
       <Path
@@ -70,7 +80,7 @@ export function IconHistory({ size = 26, color }: IconProps): React.ReactNode {
 
 /** 설정 — 슬라이더. 노브를 배경색으로 채우지 않으면 선이 원을 관통한다. */
 export function IconSettings({
-  size = 26,
+  size = 28,
   color,
   knobFill,
 }: IconProps & { knobFill: string }): React.ReactNode {
@@ -132,6 +142,15 @@ export function IconSpeaker({ size = 20, color }: IconProps): React.ReactNode {
         strokeWidth={1.8}
         strokeLinecap="round"
       />
+    </Svg>
+  );
+}
+
+/** 한자 따라쓰기 — 대각선 스타일러스. */
+export function IconPencil({ size = 20, color }: IconProps): React.ReactNode {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <Path d="M5.5 14.5 14.5 5.5" stroke={color} strokeWidth={2.4} strokeLinecap="round" />
     </Svg>
   );
 }

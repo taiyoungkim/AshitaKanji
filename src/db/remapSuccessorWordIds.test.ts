@@ -70,7 +70,7 @@ const SUCCESSORS = {
 };
 
 describe('WORD_ID_SUCCESSORS policy', () => {
-  it('contains only identity_changed spelling fixes from the core manifest', () => {
+  it('contains the identity_changed spelling fixes from the core manifest', () => {
     const manifest = JSON.parse(
       readFileSync(resolve('data/pdf-vocab/jlpt_final_replacement_manifest.json'), 'utf8'),
     ) as {
@@ -87,6 +87,25 @@ describe('WORD_ID_SUCCESSORS policy', () => {
     );
     expect(WORD_ID_SUCCESSORS).toMatchObject(expected);
     expect(Object.keys(expected)).toHaveLength(47);
+  });
+
+  it('routes every retired おじ card directly to the surviving card', () => {
+    const survivor = 'w_9f4bac962871acc8';
+    expect(WORD_ID_SUCCESSORS['w_01f119facf6e9d97']).toBe(survivor);
+    expect(WORD_ID_SUCCESSORS['w_713aaa51e13cbeed']).toBe(survivor);
+    expect(WORD_ID_SUCCESSORS['w_188378c15d9c641d']).toBe(survivor);
+    expect(WORD_ID_SUCCESSORS['w_69c992c9db76a823']).toBe(survivor);
+    expect(WORD_ID_SUCCESSORS['w_a430acefffcd0bfe']).toBe(survivor);
+  });
+
+  it('routes the retired 伯母 card to the combined おば card', () => {
+    expect(WORD_ID_SUCCESSORS['w_97db66ffd893f4b5']).toBe('w_9ea346dbfdc4c768');
+  });
+
+  it('routes the remaining duplicate cards to their common variants', () => {
+    expect(WORD_ID_SUCCESSORS['w_9d1276b961227354']).toBe('w_16afef6fcc1d2e6d');
+    expect(WORD_ID_SUCCESSORS['w_3ec592997b865dca']).toBe('w_bf03a7c1b0d7b64c');
+    expect(WORD_ID_SUCCESSORS['w_97e7d7c923d83b1c']).toBe('w_0e85c73b6c150596');
   });
 });
 

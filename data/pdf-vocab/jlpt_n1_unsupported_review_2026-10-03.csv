@@ -1,0 +1,113 @@
+﻿id,surface,reading_kana,meaning_ko,frequency,source,review_reason
+w_8fceccfb0b0413c3,何なり,なんなり,무엇이든,5.700,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_990e018f811afeb0,寄り掛かる,よりかかる,"기대다, 의지하다",4.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_3ee09f596d4c7b39,郡,ぐん,군(행정구역),4.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_c766896a204faa81,体付き,からだつき,"몸매, 체격",4.760,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_894a68158d207560,嫌々,いやいや,"마지못해, 싫어하며",4.750,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ce14fb103a34164a,行い,おこない,"행실, 행동",4.730,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_9d6dc8ee8bdac291,細胞,さいぼう,세포,4.650,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_8ac4bdc55f734e09,受け入れ,うけいれ,"수령, 수신, 수락, 수용",4.630,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_058dd20d817eb3da,効率,こうりつ,효율,4.510,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_fe869f63d9660ff6,届,とどけ,신고(서),4.350,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_e46e25b8f8c8a88c,にも関わらず,にもかかわらず,~에도 불구하고,4.320,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_b87f291dcfcaefd7,仕掛け,しかけ,"장치, 장치된 것",4.300,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_fa131223d290a13b,切り替え,きりかえ,"전환, 교체",4.250,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_bd50cfaac12b766b,言い訳,いいわけ,"변명, 해명",4.230,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_862d6a9a85c61cfc,さっぱりする,さっぱりする,"상쾌해지다, 산뜻해지다",4.130,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_9575469881a845d9,堂々,どうどう,"훌륭한, 웅장한",4.080,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_edaaa51fc020be6e,仕上げ,しあげ,"마무리, 완성",4.050,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_d1b4e9d1855d96a8,塊,かたまり,덩어리,4.020,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_57f97ee9e78b95de,嘘つき,うそつき,거짓말쟁이,4.010,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_cf8ca12b18f7c25c,分裂,ぶんれつ,분열,4.000,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 Kaggle supplement without NAVER level evidence
+w_2a768ef5dc0abdb7,タンパク質,たんぱくしつ,단백질,3.980,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_53f5a11a43999634,取り扱い,とりあつかい,"취급, 다룸",3.910,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_d893936600008bb3,ユニフォーム,ユニフォーム,유니폼,3.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_364206e8ac9cd095,小売,こうり,소매,3.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_daea8f15b2ecf7cd,落ち着き,おちつき,"침착함, 차분함",3.870,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_c5477b139f36b1c2,誠に,まことに,"참으로, 정말로(매우 공손), 절대적으로, 확실히",3.840,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_2f80515abdd9d298,インターフォン,インターフォン,인터폰,3.810,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_5be62d71deeeebf2,造り,つくり,건축물·제품의 만듦새; 구조,3.800,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_73b7994c2eb747bd,云々,うんぬん,"운운, 등등",3.780,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_150dcbd2b6dcb160,ロープウェイ,ロープウェイ,로프웨이,3.770,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_6273ce23fa23feb8,倍率,ばいりつ,배율; 경쟁률,3.740,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_b397fc5e0430c55b,繋ぐ,つなぐ,"잇다, 연결하다",3.660,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_dbc9be61b1093e8f,収まる,おさまる,"수습되다, 들어맞다",3.640,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_70d82b1cc2aa178a,成り立つ,なりたつ,"성립하다, 이루어지다",3.610,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_a231f59f86279dcb,乗り込む,のりこむ,"타다, 들어가다",3.520,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_aa48ce494d700458,落ち込む,おちこむ,"(기분이) 가라앉다, 침울해지다",3.520,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_36f154723e771234,見合い,みあい,맞선,3.520,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ad972bb9cdd76f87,見積もり,みつもり,견적,3.500,kaggle:robinpourtaud/jlpt-words-by-level;phrase-review-backfill,N1 Kaggle supplement without NAVER level evidence
+w_ab78cac2ab65c97c,塵取り,ちりとり,쓰레받기,3.490,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_8d440df94f874e3d,新入生,しんにゅうせい,신입생,3.490,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ef28884111a886f1,仕上がり,しあがり,"완성, 마무리",3.480,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_1cf06df0896303c4,夕暮れ,ゆうぐれ,"해질녘, 황혼",3.470,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_da75dc366007d543,待ち遠しい,まちどおしい,몹시 기다려지다,3.460,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_69e2159df1fe1017,組み合わせる,くみあわせる,"조합하다, 짜 맞추다",3.440,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_3275bf86431f78a7,受け止める,うけとめる,"받아내다, 받아들이다",3.430,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_57e5725548ac0fbc,生まれつき,うまれつき,"타고남, 천성",3.410,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_6849f7ccff68603a,逃げ出す,にげだす,"도망치다, 탈출 부터",3.400,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_5e7dc6e83da2cf4d,すれ違い,すれちがい,스쳐 지나감; 엇갈림,3.390,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_fd3cdf3e57d25a81,裏返し,うらがえし,"뒤집음, 반대",3.390,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_fc4b1b2a9b67e073,取り付ける,とりつける,설치하다; (합의를) 받아내다,3.380,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 Kaggle supplement without NAVER level evidence
+w_1a17fb3ec82e2dfe,受け継ぐ,うけつぐ,"이어받다, 계승하다",3.370,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_08d10dee086ef695,粥,かゆ,죽,3.370,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_d6a47632d886cffc,取り替え,とりかえ,"교체, 교환",3.360,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 Kaggle supplement without NAVER level evidence
+w_ffaf9aa1ba0a06fa,梅干し,うめぼし,우메보시(매실 장아찌),3.360,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_bcce1a49a9bd524d,軽率,けいそつ,경솔함,3.360,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_4a507c2b9903c25a,取り締まり,とりしまり,"단속, 감독",3.350,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_f10d56d8651e9bba,丸々,まるまる,완전히,3.330,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_c05a879fd3e3ce99,売り出し,うりだし,"판매 개시, 특매",3.330,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_8be696a8d9b00b88,夜更かし,よふかし,밤늦게까지 깨어 있음,3.330,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ae4e376d4b46a091,取り巻く,とりまく,"둘러싸다, 에워싸다",3.320,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_5059c36f92c76981,差し出す,さしだす,"내밀다, 제출하다",3.320,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_1e6bf25c700ea4c1,追い出す,おいだす,쫓아내다,3.320,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_677edbc10074357c,建前,たてまえ,"명분, 원칙",3.290,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ad7b7731718d0f45,夕焼け,ゆうやけ,저녁노을,3.270,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_aa81044e5f00e4d2,染まる,そまる,물들다,3.260,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_1c1342a535c8057b,押さえる,おさえる,"누르다, 붙잡다, 확보하다",3.230,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_0008d0b93f394410,粉々,こなごな,산산조각,3.230,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_59e50bf36e18a412,交わす,かわす,교환하다,3.220,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_9ab1e43c1a5da994,受け身,うけみ,"수동적인, 수동적인 목소리",3.220,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_371f1a41edd2c949,何気ない,なにげない,"아무렇지 않은, 무심한",3.180,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ef69d226c0ff5071,ダンプ,ダンプ,덤프 트럭,3.150,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_6ed0282468b646e4,飲み込む,のみこむ,"삼키다, 이해하다",3.150,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_78478b3ede1095de,荷造り,にづくり,"짐 꾸리기, 포장",3.100,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_4ee4c1f82fd80d23,立ち寄る,たちよる,들르다,3.080,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_a8598bbe62279f0d,箇条書き,かじょうがき,"항목별 작성, 개조식",3.080,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_52a2392ec6f56422,気兼ね,きがね,"사양, 거리낌",3.070,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_3129de0be21afd27,埋め込む,うめこむ,"묻어 넣다, 삽입하다",3.050,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 Kaggle supplement without NAVER level evidence
+w_117206f59982bdc8,耳鼻科,じびか,이비인후과,3.050,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_a5a10027ead73ad9,焚き火,たきび,모닥불,3.040,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ee13be5cc30d87aa,受け付ける,うけつける,"접수하다, 받아들이다",3.020,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_c96c011ca817b487,売り出す,うりだす,"팔기 시작하다, 내놓다",3.000,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_daaafc2c103ac13d,押し寄せる,おしよせる,밀려오다,3.000,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_e231cd88a2b8f92c,生ぬるい,なまぬるい,"미지근하다, 어중간하다",2.920,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_ef7c2b36a078abcb,取っ手,とって,손잡이,2.910,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_853cd2683b5ec7b5,押し込む,おしこむ,밀어 넣다,2.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_be035463f7a68af0,つかの間,つかのま,"잠깐, 순간",2.820,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_3875cd9260023e61,折り返す,おりかえす,"접어 되돌리다, 되접다",2.800,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_0968a3e2189db9bd,振り出し,ふりだし,"출발점, 처음",2.800,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_76ee119df1959c53,打ち消し,うちけし,"부정, 취소",2.790,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_78527b9c49a89cb7,身振り,みぶり,몸짓,2.780,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_31f4692464cdb99c,投げ出す,なげだす,"내던지다, 포기하다",2.770,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_70d444f0b75ce53c,受け持つ,うけもつ,"맡다, 담당하다",2.740,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_68438d9afaf144c8,籠もる,こもる,"틀어박히다, 가득 차다",2.730,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_44df893bc2c36040,踏まえる,ふまえる,"근거로 하다, 바탕으로 삼다",2.720,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_efa6b163ce61f14d,治まる,おさまる,"진정되다, 평온해지다",2.710,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_801a4ef078453053,無闇に,むやみに,"함부로, 마구",2.660,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_98ff2ee683f77e8d,差し引き,さしひき,"차감, 공제; 잔액",2.510,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_7227e9235d383269,押し切る,おしきる,"강행하다, 밀어붙이다",2.460,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_57c108f507b24abb,納まる,おさまる,"수습되다, 납입되다",2.450,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_85e027b82c699ab9,差し掛かる,さしかかる,"다다르다, 접어들다",2.420,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_6be80965290001db,大ざっぱ,おおざっぱ,"대략적인, 엉성한",2.350,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_95dcaf9c2e9062b9,取り立てる,とりたてる,(빚을) 받아내다; 발탁하다,2.330,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 Kaggle supplement without NAVER level evidence
+w_44db7429578a8638,ティッシュペーパー,ティッシュペーパー,티슈 페이퍼,2.290,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_67e9a28d0777853f,戸締まり,とじまり,문단속,2.220,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_c062f1fced55c802,賜る,たまわる,"허가하다, 주다",2.210,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_76936c9c142f0a2c,焦げ茶,こげちゃ,짙은 갈색,2.190,kaggle:robinpourtaud/jlpt-words-by-level;orthography-backfill,N1 Kaggle supplement without NAVER level evidence
+w_661ff696389aa9c8,差し支える,さしつかえる,"지장을 주다, 방해되다",2.080,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_afb78f5d4ab6ca30,煌々,こうこう,"환한, 밝은",1.940,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_26c9a265e9fbed9e,自ずから,おのずから,"저절로, 자연히",1.880,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_12dfafb0839591a3,遅らす,おくらす,"늦추다, 지연시키다",1.290,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_1bbdac2276d06c29,受持ち,うけもち,담당,0.000,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence
+w_5e5058232b1bd8cc,照り返す,てりかえす,"반사하다, 되비치다",0.000,kaggle:robinpourtaud/jlpt-words-by-level,N1 Kaggle supplement without NAVER level evidence

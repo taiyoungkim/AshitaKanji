@@ -1,7 +1,6 @@
-// Repoint study progress only when the same word's spelling was corrected.
-// WORD_ID_SUCCESSORS is the identity_changed subset of the frequency-core
-// corrections (やむをえない → やむを得ない). Kana→kanji, wrong-reading,
-// inflection, and phrase→lemma maps stay out — those are different study cards.
+// Repoint study progress when a retired card has an explicit surviving card.
+// Most mappings are spelling corrections; a small number are reviewed card
+// consolidations such as the おじ / おじさん family.
 
 import {
   remountWordProgress,
@@ -10,7 +9,7 @@ import {
 } from './remapLegacyWordIds';
 import { WORD_ID_SUCCESSORS } from './wordIdSuccessors.gen';
 
-export const WORD_SUCCESSOR_REMAP_VERSION = '7';
+export const WORD_SUCCESSOR_REMAP_VERSION = '10';
 
 export async function remapSuccessorWordIds(
   db: RemapDb,

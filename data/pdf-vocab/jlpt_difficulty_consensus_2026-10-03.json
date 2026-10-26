@@ -1,0 +1,970 @@
+{
+  "generated_at": "2026-10-03T07:25:39.425328+00:00",
+  "policy": "two-source consensus, easier moves only",
+  "before_level_counts": {
+    "N5": 399,
+    "N4": 742,
+    "N3": 1502,
+    "N2": 1956,
+    "N1": 2419
+  },
+  "after_level_counts": {
+    "N5": 402,
+    "N4": 747,
+    "N3": 1562,
+    "N2": 1888,
+    "N1": 2419
+  },
+  "corrections": 79,
+  "unsupported_n1_review_queue": 112,
+  "changes": [
+    {
+      "id": "w_30e056cdd59a9a19",
+      "surface": "外国",
+      "reading_kana": "がいこく",
+      "before_level": "N4",
+      "after_level": "N5",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_44191f7e02bdbca4",
+      "surface": "掛ける",
+      "reading_kana": "かける",
+      "before_level": "N4",
+      "after_level": "N5",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_825bad35884b199b",
+      "surface": "直ぐに",
+      "reading_kana": "すぐに",
+      "before_level": "N4",
+      "after_level": "N5",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_884fb9d7d1dd7e29",
+      "surface": "研究",
+      "reading_kana": "けんきゅう",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_c1320ed4f7e412d5",
+      "surface": "機会",
+      "reading_kana": "きかい",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_340c87e39330e2f2",
+      "surface": "翻訳",
+      "reading_kana": "ほんやく",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_8a2c9ff3016d5fdb",
+      "surface": "競争",
+      "reading_kana": "きょうそう",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_06c3d7fabba14770",
+      "surface": "お土産",
+      "reading_kana": "おみやげ",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_7ae36e87130d5564",
+      "surface": "熱心",
+      "reading_kana": "ねっしん",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_1f00487cc5220d0a",
+      "surface": "親切",
+      "reading_kana": "しんせつ",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_7a4013968ca9088b",
+      "surface": "暖房",
+      "reading_kana": "だんぼう",
+      "before_level": "N3",
+      "after_level": "N4",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_4aedefd2578db74a",
+      "surface": "数",
+      "reading_kana": "かず",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_4761cf0171ef6fcb",
+      "surface": "存在",
+      "reading_kana": "そんざい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_7087b27273d496b5",
+      "surface": "絶対",
+      "reading_kana": "ぜったい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_cefba8d96d3392c2",
+      "surface": "全て",
+      "reading_kana": "すべて",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d9e809ebe3cd1324",
+      "surface": "影響",
+      "reading_kana": "えいきょう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_f4b701a6d6be089d",
+      "surface": "基本",
+      "reading_kana": "きほん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_2ded2da7677ec792",
+      "surface": "過去",
+      "reading_kana": "かこ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_df11c8d6fbeda9c4",
+      "surface": "最終",
+      "reading_kana": "さいしゅう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_8dca1d133a082183",
+      "surface": "主に",
+      "reading_kana": "おもに",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_39d289e48105128b",
+      "surface": "移動",
+      "reading_kana": "いどう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_1dc129f7a1d2cf75",
+      "surface": "意識",
+      "reading_kana": "いしき",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_0394d6d5dc4a4946",
+      "surface": "交換",
+      "reading_kana": "こうかん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_1fcf9f9b492a04f0",
+      "surface": "位置",
+      "reading_kana": "いち",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5a886b7121ed4a02",
+      "surface": "差",
+      "reading_kana": "さ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_3c507e90c1eba787",
+      "surface": "制限",
+      "reading_kana": "せいげん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_97fd38bc63ce46e6",
+      "surface": "方向",
+      "reading_kana": "ほうこう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d2920b329afac048",
+      "surface": "当然",
+      "reading_kana": "とうぜん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_1e7ffdddebe4c582",
+      "surface": "不安",
+      "reading_kana": "ふあん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_ed780300268e3ffa",
+      "surface": "穴",
+      "reading_kana": "あな",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_c4f487d93a8a5f0e",
+      "surface": "他人",
+      "reading_kana": "たにん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_0fd519f30d7ed2e9",
+      "surface": "我慢",
+      "reading_kana": "がまん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_bb593fe8f64edd85",
+      "surface": "集中",
+      "reading_kana": "しゅうちゅう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5b75b72b00bbd908",
+      "surface": "比較",
+      "reading_kana": "ひかく",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5167ba006eeee157",
+      "surface": "訓練",
+      "reading_kana": "くんれん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_93dce6f4e2f378fe",
+      "surface": "否定",
+      "reading_kana": "ひてい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_e39036bb3cd57b8d",
+      "surface": "命令",
+      "reading_kana": "めいれい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_ccae99849468c640",
+      "surface": "戦う",
+      "reading_kana": "たたかう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_0f1059ba8aef86ac",
+      "surface": "数字",
+      "reading_kana": "すうじ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_e7be2fda7a0f6f5c",
+      "surface": "緊張",
+      "reading_kana": "きんちょう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_8260701b3bb8776f",
+      "surface": "当たる",
+      "reading_kana": "あたる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_c3feece6a3a9549c",
+      "surface": "合計",
+      "reading_kana": "ごうけい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_98a55855d6591a6a",
+      "surface": "左右",
+      "reading_kana": "さゆう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_7e2ac95308acb1ab",
+      "surface": "予測",
+      "reading_kana": "よそく",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_436286d59eff0278",
+      "surface": "香り",
+      "reading_kana": "かおり",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_f9b24979cc8d4767",
+      "surface": "息",
+      "reading_kana": "いき",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_8521e96fcc7c94e3",
+      "surface": "皮",
+      "reading_kana": "かわ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d4b3dd90a3c30d44",
+      "surface": "観察",
+      "reading_kana": "かんさつ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_61a02683f8ec2596",
+      "surface": "屋根",
+      "reading_kana": "やね",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_8d6bf3b328f7ed9d",
+      "surface": "呼吸",
+      "reading_kana": "こきゅう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_22d673fdc51556a2",
+      "surface": "滞在",
+      "reading_kana": "たいざい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_7f712c88f379ba3e",
+      "surface": "経由",
+      "reading_kana": "けいゆ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5776e5bf61a8c089",
+      "surface": "主要",
+      "reading_kana": "しゅよう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_fc525b21ed5fd442",
+      "surface": "資源",
+      "reading_kana": "しげん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_1e6961ce3411cb4b",
+      "surface": "農業",
+      "reading_kana": "のうぎょう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_98ab7b2cbcdd104e",
+      "surface": "防ぐ",
+      "reading_kana": "ふせぐ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5a88c9228acf3e6c",
+      "surface": "信じる",
+      "reading_kana": "しんじる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_52a651979b9ad308",
+      "surface": "意志",
+      "reading_kana": "いし",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_ee805f9ed373cd7f",
+      "surface": "会計",
+      "reading_kana": "かいけい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_f729135a5520c2fe",
+      "surface": "講演",
+      "reading_kana": "こうえん",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5493970b4c093627",
+      "surface": "観客",
+      "reading_kana": "かんきゃく",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_b1a157bd60c9f520",
+      "surface": "頭痛",
+      "reading_kana": "ずつう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_c917cac20c144255",
+      "surface": "粉",
+      "reading_kana": "こな",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_04b3664c7a654719",
+      "surface": "支給",
+      "reading_kana": "しきゅう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_f9cbb66f95c14ac7",
+      "surface": "経つ",
+      "reading_kana": "たつ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d15e0f07b88902ba",
+      "surface": "組む",
+      "reading_kana": "くむ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_833594898192c2a8",
+      "surface": "奪う",
+      "reading_kana": "うばう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d2f22c5acd908d61",
+      "surface": "渋滞",
+      "reading_kana": "じゅうたい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5701ed73ffb1244a",
+      "surface": "疑う",
+      "reading_kana": "うたがう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_b9dfaa030a7cffff",
+      "surface": "仮定",
+      "reading_kana": "かてい",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_beba51ed42057271",
+      "surface": "頼る",
+      "reading_kana": "たよる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_209a4f5d036442e7",
+      "surface": "嫌う",
+      "reading_kana": "きらう",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_4e6c3f8f212f86bd",
+      "surface": "支出",
+      "reading_kana": "ししゅつ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_d1d646c78ad7e44b",
+      "surface": "作物",
+      "reading_kana": "さくもつ",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_ba27b1e74ae069dd",
+      "surface": "合図",
+      "reading_kana": "あいず",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_bb59d051bed3ec91",
+      "surface": "替える",
+      "reading_kana": "かえる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_ca75d89cd5674c1a",
+      "surface": "黙る",
+      "reading_kana": "だまる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_922cf062f49b5d26",
+      "surface": "離す",
+      "reading_kana": "はなす",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    },
+    {
+      "id": "w_5f26706bc397cbd9",
+      "surface": "凍る",
+      "reading_kana": "こおる",
+      "before_level": "N2",
+      "after_level": "N3",
+      "supporters": [
+        "kaggle_seed",
+        "pdf_primary"
+      ],
+      "policy": "at least two references agree on an easier level"
+    }
+  ]
+}

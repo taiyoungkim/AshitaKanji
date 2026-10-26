@@ -16,6 +16,17 @@ import { resolve } from 'node:path';
 const ROOT = process.cwd();
 const results = [];
 const add = (name, ok, detail) => results.push({ name, ok, detail });
+const RELEASE_PLATFORM = process.env.RELEASE_PLATFORM ?? 'all';
+const ANDROID_SUBMIT_MODE = process.env.ANDROID_SUBMIT_MODE ?? 'eas';
+
+if (!['all', 'android', 'ios'].includes(RELEASE_PLATFORM)) {
+  console.error(`RELEASE_PLATFORM 값이 잘못됐습니다: ${RELEASE_PLATFORM}`);
+  process.exit(1);
+}
+if (!['eas', 'manual'].includes(ANDROID_SUBMIT_MODE)) {
+  console.error(`ANDROID_SUBMIT_MODE 값이 잘못됐습니다: ${ANDROID_SUBMIT_MODE}`);
+  process.exit(1);
+}
 
 // 1) 필수 바이너리 자산 (app.json 참조 — 없으면 EAS 빌드/실행 불가)
 const REQUIRED_ASSETS = [
@@ -23,6 +34,7 @@ const REQUIRED_ASSETS = [
   'assets/icon.png',
   'assets/splash.png',
   'assets/adaptive-icon.png',
+  'assets/adaptive-icon-safe.png',
 ];
 for (const rel of REQUIRED_ASSETS) {
   const p = resolve(ROOT, rel);
@@ -59,7 +71,7 @@ for (const rel of REQUIRED_ASSETS) {
         }).trim());
       // 표기 변형(카나/한자) 통합으로 9개 표제어를 접었다 —
       // data/pdf-vocab/orthography_variant_review_queue.csv, build-jlpt-db.mjs TARGET_COUNTS 와 함께 유지한다.
-      const targets = { N5: 398, N4: 742, N3: 1488, N2: 1906, N1: 2484 };
+      const targets = { N5: 401, N4: 745, N3: 1560, N2: 1886, N1: 2419 };
       const expectedActive = Object.values(targets).reduce((sum, count) => sum + count, 0);
       const actualLevels = Object.fromEntries(
         Object.keys(targets).map((level) => [level, count(`level='${level}' AND deprecated=0`)]),
@@ -281,18 +293,41 @@ add('git repo (.git)', existsSync(resolve(ROOT, '.git')), existsSync(resolve(ROO
   } else {
     try {
       const eas = JSON.parse(readFileSync(easPath, 'utf8'));
-      const ios = eas?.submit?.production?.ios ?? {};
-      // 채워져야 할 iOS 제출 필드 (android 는 secrets 키파일로 별도 검증).
-      const required = ['appleId', 'ascAppId', 'appleTeamId'];
-      const bad = required.filter((k) => {
-        const v = ios[k];
-        return !v || String(v).trim() === '' || /^TBD$/i.test(String(v).trim());
-      });
-      add(
-        'eas.json submit.ios 값',
-        bad.length === 0,
-        bad.length === 0 ? 'OK' : `미설정/TBD: ${bad.join(', ')}`,
-      );
+      if (RELEASE_PLATFORM === 'all' || RELEASE_PLATFORM === 'ios') {
+        const ios = eas?.submit?.production?.ios ?? {};
+        const required = ['appleId', 'ascAppId', 'appleTeamId'];
+        const bad = required.filter((key) => {
+          const value = ios[key];
+          return !value || String(value).trim() === '' || /^TBD$/i.test(String(value).trim());
+        });
+        add(
+          'eas.json submit.ios 값',
+          bad.length === 0,
+          bad.length === 0 ? 'OK' : `미설정/TBD: ${bad.join(', ')}`,
+        );
+      }
+
+      if (RELEASE_PLATFORM === 'all' || RELEASE_PLATFORM === 'android') {
+        const android = eas?.submit?.production?.android ?? {};
+        const serviceAccountRel = String(android.serviceAccountKeyPath ?? '').trim();
+        const serviceAccountPath = serviceAccountRel ? resolve(ROOT, serviceAccountRel) : '';
+        const serviceAccountExists =
+          serviceAccountPath !== '' &&
+          existsSync(serviceAccountPath) &&
+          statSync(serviceAccountPath).isFile() &&
+          statSync(serviceAccountPath).size > 0;
+        add(
+          'eas.json submit.android 서비스 계정',
+          ANDROID_SUBMIT_MODE === 'manual' || serviceAccountExists,
+          ANDROID_SUBMIT_MODE === 'manual'
+            ? '첫 릴리스 수동 업로드 — 서비스 계정 키 불필요'
+            : serviceAccountExists
+              ? `${serviceAccountRel} (${statSync(serviceAccountPath).size}B)`
+              : serviceAccountRel
+                ? `없음/빈 파일: ${serviceAccountRel}`
+                : 'serviceAccountKeyPath 미설정',
+        );
+      }
     } catch (err) {
       add('eas.json submit', false, `파싱 실패: ${err instanceof Error ? err.message : String(err)}`);
     }
@@ -356,8 +391,7 @@ if (process.env.SKIP_URL_CHECK === '1') {
 // 4) expo-updates 임베디드 매니페스트 신선도
 // gradle 이 createReleaseUpdatesResources 를 UP-TO-DATE 로 판정하면 낡은 매니페스트가
 // 그대로 APK 에 실린다. 에셋은 drawable 로는 들어가므로 APK 를 뜯어봐도 정상으로 보이지만,
-// 실기기에서 expo-updates 가 에셋을 해석하지 못해 이미지가 통째로 안 그려진다.
-// (build 36~38 에서 실제로 발생. 매니페스트가 3일 전 것이었다.)
+// 실기기에서 expo-updates 가 에셋을 해석하지 못해 이미지가 통째로 안 그려질 수 있다.
 // 로컬 release 빌드 산출물이 있을 때만 본다 — 빌드 전 CI 에서는 건너뛴다.
 {
   const manifestPath = resolve(
@@ -371,17 +405,21 @@ if (process.env.SKIP_URL_CHECK === '1') {
     let detail = '';
     try {
       const commitTime = JSON.parse(readFileSync(manifestPath, 'utf8')).commitTime;
-      // assets/ 안에서 가장 최근에 바뀐 파일보다 매니페스트가 새것이어야 한다.
       const assetsDir = resolve(ROOT, 'assets');
-      const newest = readdirSync(assetsDir, { recursive: true, withFileTypes: true })
-        .filter((e) => e.isFile())
-        .map((e) => resolve(e.parentPath ?? e.path, e.name))
-        .filter((f) => statSync(f).mtimeMs > commitTime);
+      // 파일뿐 아니라 디렉터리 mtime도 본다. 브랜치 전환 등으로 에셋이 삭제되면
+      // 남아 있는 파일은 오래됐더라도 상위 디렉터리 mtime이 바뀌므로 stale manifest를 잡는다.
+      const newest = [
+        assetsDir,
+        ...readdirSync(assetsDir, { recursive: true, withFileTypes: true }).map((entry) =>
+          resolve(entry.parentPath ?? entry.path, entry.name),
+        ),
+      ]
+        .filter((file) => statSync(file).mtimeMs > commitTime);
       ok = newest.length === 0;
       detail = ok
         ? `매니페스트 ${new Date(commitTime).toISOString()} — assets/ 전부 반영됨`
         : `매니페스트가 낡음 (${new Date(commitTime).toISOString()}). 미반영 ${newest.length}건: ` +
-          `${newest.slice(0, 3).map((f) => f.replace(ROOT + '/', '')).join(', ')}` +
+          `${newest.slice(0, 3).map((file) => file.replace(ROOT + '/', '')).join(', ')}` +
           ' → android/app/build/generated/assets/createReleaseUpdatesResources 를 지우고 다시 빌드';
     } catch (err) {
       detail = `확인 실패: ${err instanceof Error ? err.message : String(err)}`;

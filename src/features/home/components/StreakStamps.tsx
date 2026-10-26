@@ -93,37 +93,18 @@ export function StreakStamps({ days, total = 10, animate = false }: Props): Reac
   );
 }
 
-function LimeWeekStamps({ days }: { days: number }): React.ReactNode {
-  const styles = useThemedStyles(makeStyles);
-  const earned = Math.min(Math.max(days, 0), 7);
-  return (
-    <View
-      style={styles.limeRow}
-      accessibilityRole="progressbar"
-      accessibilityValue={{ min: 0, max: 7, now: earned }}
-      accessibilityLabel={`단골 도장 ${earned}개`}
-    >
-      {Array.from({ length: 7 }, (_, index) => (
-        <View key={index} style={[styles.limeStamp, index < earned ? styles.limeOn : styles.limeOff]} />
-      ))}
-    </View>
-  );
-}
-
 export function StreakCard({ days }: { days: number }): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
   return (
     <View style={styles.card}>
       <Text style={styles.title}>단골 {days}일차</Text>
       {days > 0 ? (
-        <LimeWeekStamps days={days} />
+        <StreakStamps days={days} />
       ) : (
-        <Image
-          source={onboardingImages.regularEmpty}
-          style={styles.emptyArt}
-          resizeMode="contain"
-          accessibilityLabel="아직 단골이 아니에요"
-        />
+        <View style={styles.emptyArtFrame} accessibilityLabel="아직 단골이 아니에요">
+          <Image source={onboardingImages.regularEmpty} style={styles.emptyArt} resizeMode="contain" />
+          <Text style={styles.emptyMutter}>음..</Text>
+        </View>
       )}
       <Text style={styles.caption}>
         {days > 0 ? '단골 혜택 · 다음 학습 재료 2배' : '학습을 시작하면 단골 혜택을 받아요'}
@@ -142,12 +123,18 @@ const makeStyles = (c: ThemeColors) =>
       overflow: 'visible',
     },
     stampCell: { width: 56, height: 56, overflow: 'visible' },
-    limeRow: { flexDirection: 'row', gap: 8, marginTop: 4, overflow: 'visible' },
-    limeStamp: { width: 34, height: 34, borderRadius: 17 },
-    limeOn: { backgroundColor: c.secondary },
-    limeOff: { borderWidth: 2, borderColor: c.pressed, backgroundColor: 'transparent' },
     card: { backgroundColor: c.canvas, borderRadius: radius.card, padding: 22, gap: spacing.md },
     title: { ...typography.cardTitle, color: c.ink },
-    emptyArt: { width: 120, height: 120, alignSelf: 'center', opacity: 0.7 },
+    emptyArtFrame: { width: 120, height: 120, alignSelf: 'center' },
+    emptyArt: { position: 'absolute', left: 3, top: 12, width: 109, height: 97, opacity: 0.7 },
+    emptyMutter: {
+      position: 'absolute',
+      top: 12,
+      right: 0,
+      color: c.mute,
+      fontSize: 10,
+      lineHeight: 12,
+      fontWeight: '600',
+    },
     caption: { ...typography.caption, color: c.body },
   });
