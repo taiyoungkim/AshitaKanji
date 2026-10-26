@@ -272,6 +272,22 @@ export const SCHEMA_V7_ADDITIONS: string[] = [
   `ALTER TABLE review_log ADD COLUMN scheduling_applied INTEGER NOT NULL DEFAULT 1 CHECK (scheduling_applied IN (0,1))`,
 ];
 
+// v8 — 고양이 카드 뽑기 기록. Design Ref: cat-card-reward §1 D3
+// append-only. 보유·만난 횟수·소비 도장은 전부 이 테이블에서 파생한다.
+// cat_card_epoch = 도장 적립 시작일(로컬 YYYY-MM-DD). 업데이트 설치일부터 세고
+// 과거 학습일은 소급하지 않는다 (Design §1 D2). OR IGNORE 라 한 번 쓰면 바뀌지 않는다.
+// CREATE ... IF NOT EXISTS 뿐이라 seed(jlpt.db)가 v7 로 남아 있어도 첫 실행에서 안전하게 올라간다.
+export const SCHEMA_V8_ADDITIONS: string[] = [
+  `CREATE TABLE IF NOT EXISTS cat_card_draw (
+    id        INTEGER PRIMARY KEY AUTOINCREMENT,
+    card_id   TEXT    NOT NULL,
+    drawn_at  INTEGER NOT NULL,
+    duplicate INTEGER NOT NULL CHECK (duplicate IN (0,1))
+  )`,
+  `CREATE INDEX IF NOT EXISTS idx_cat_card_draw_card ON cat_card_draw(card_id)`,
+  `INSERT OR IGNORE INTO app_meta (key, value) VALUES ('cat_card_epoch', date('now', 'localtime'))`,
+];
+
 /** Returns SQL statements for the given target schema version. */
 export function migrationsTo(targetVersion: number): string[] {
   if (targetVersion < 1) return [];
@@ -311,8 +327,11 @@ export function migrationsTo(targetVersion: number): string[] {
       ...SCHEMA_V7_ADDITIONS,
     ];
   }
+  if (targetVersion === 8) {
+    return [...migrationsTo(7), ...SCHEMA_V8_ADDITIONS];
+  }
   // Future migrations append here.
   throw new Error(`Unknown schema version: ${targetVersion}`);
 }
 
-export const CURRENT_SCHEMA_VERSION = 7;
+export const CURRENT_SCHEMA_VERSION = 8;

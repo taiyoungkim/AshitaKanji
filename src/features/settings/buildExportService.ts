@@ -2,6 +2,7 @@
 
 import { getDatabase } from '~/db/open';
 import { SqliteAppMetaRepo } from '~/db/repos/sqlite/SqliteAppMetaRepo';
+import { SqliteCatCardDrawRepo } from '~/db/repos/sqlite/SqliteCatCardDrawRepo';
 import { SqliteDailyStatsRepo } from '~/db/repos/sqlite/SqliteDailyStatsRepo';
 import { SqliteReviewLogRepo } from '~/db/repos/sqlite/SqliteReviewLogRepo';
 import { SqliteUserCardRepo } from '~/db/repos/sqlite/SqliteUserCardRepo';
@@ -15,5 +16,6 @@ export async function buildExportService(): Promise<ExportService> {
     new SqliteDailyStatsRepo(db),
     new SqliteAppMetaRepo(db),
     new SqliteReviewLogRepo(db),
+    new SqliteCatCardDrawRepo(db),
   );
 }

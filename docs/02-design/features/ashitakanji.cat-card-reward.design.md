@@ -1,9 +1,9 @@
 # cat-card-reward Design Document
 
-> 작성일: 2026-10-26 (v0.1)
+> 작성일: 2026-10-26 (v0.2 — M1 구현 반영)
 > 기반: Plan v0.3 (`docs/01-plan/features/ashitakanji.cat-card-reward.plan.md`)
 > 브랜치: `feature/cat-card-reward` (main 역머지 완료, `f023c5e`)
-> 다음 단계: `/pdca do cat-card-reward --scope M1`
+> 다음 단계: `/pdca do cat-card-reward --scope M2` (M1 완료)
 
 ---
 
@@ -51,7 +51,7 @@ availableStamps = earnedStamps − spentStamps
 기존 사용자 학습일을 전부 소급하면 200일 학습자는 즉시 20뽑기 → 시즌1이 첫날 끝난다.
 Plan의 "100일 완주" 루프가 성립하지 않는다.
 
-- `app_meta.cat_card_epoch` = 기능 첫 로드 시점의 **오늘 dayKey**. 한 번 쓰면 바꾸지 않는다
+- `app_meta.cat_card_epoch` = v8 마이그레이션이 도는 날(업데이트 후 첫 실행일)의 로컬 날짜. 한 번 쓰면 바꾸지 않는다
 - epoch 당일 학습분부터 적립 (출시일에 공부한 날도 1도장)
 - 신규 사용자는 epoch = 첫 실행일이라 차이 없음
 
@@ -159,26 +159,29 @@ app/cat-card/index.tsx [id].tsx draw.tsx
 // src/db/repos/CatCardDrawRepo.ts
 export interface CatCardDrawRepo {
   findAll(): Promise<CatCardDraw[]>;           // drawn_at ASC
-  count(): Promise<number>;
-  /** available 재확인 + insert 를 한 트랜잭션에서. 도장 부족이면 null. */
-  insertIfAffordable(
-    row: Omit<CatCardDraw, 'id'>,
-    canAfford: (drawCount: number) => boolean,
-  ): Promise<number | null>;
+  /** 기존 기록 조회 → decide → insert 를 한 exclusive 트랜잭션에서. decide 가 null 이면 안 씀. */
+  insertWithin(
+    decide: (existing: readonly CatCardDraw[]) => Omit<CatCardDraw, 'id'> | null,
+  ): Promise<CatCardDraw | null>;
 }
 
 // src/features/cat-card/CatCardService.ts
 export interface StampState {
   earned: number;
   available: number;   // earned − draws × 10
-  canDraw: boolean;
+  draws: number;       // 지금 가능한 뽑기 횟수 (Q2: 쌓이면 ×N 표시)
   /** 다음 카드까지 남은 도장 (0이면 뽑기 가능) */
   untilNext: number;
 }
+export interface DrawOutcome { drawId: number; card: CatCard; duplicate: boolean; }
 export interface CollectionEntry { card: CatCard; count: number; firstDrawnAt: number | null; }
 ```
 
-`epoch`은 `AppMetaRepo`에서 읽고 없으면 그 자리에서 기록한다(`ensureEpoch(nowMs)`).
+`decide` 하나로 도장 확인과 보유 카드 계산(미보유 우선)을 같은 스냅샷에서 한다.
+
+`epoch`은 v8 마이그레이션이 `INSERT OR IGNORE ... date('now','localtime')`로 기록한다.
+= 업데이트 설치 후 첫 실행일. 기록 탭을 안 열어도 그날부터 적립된다.
+seed가 v8 이상으로 나와 마이그레이션을 건너뛴 경우에만 서비스가 오늘로 기록한다.
 
 ### 데이터 흐름 (뽑기)
 
@@ -197,7 +200,7 @@ DrawScreen(drawId) → repo.findAll() 에서 해당 행 → CardReveal
 |---|---|
 | `stamps.test.ts` | 같은 날 여러 세션 = 1도장 · 미완료 세션 제외 · epoch 이전 제외 · 연속 끊겨도 누적 유지 · 자정 경계(dayKey) |
 | `CatCardService.test.ts` (InMemory repo) | 9도장 → null · 10도장 → 1뽑기 후 available 0 · 25도장 → 2뽑기, 5 이월 · 10뽑기 후 전종 보유 · 11번째 duplicate=1 · epoch 최초 기록 후 불변 |
-| `SqliteCatCardDrawRepo.test.ts` | 기존 `SqliteCardRepo.test.ts`의 `node:sqlite` 하네스로 도장 10개일 때 insertIfAffordable 연속 2회 → 두 번째 null. (동시성 자체는 단일 연결 하네스로 재현 불가 → 버튼 pending 비활성 + exclusive 트랜잭션으로 막고 실기기 연타 QA) |
+| `SqliteCatCardDrawRepo.test.ts` | 기존 `SqliteCardRepo.test.ts`의 `node:sqlite` 하네스로 insertWithin 연속 2회 → 두 번째는 첫 insert 를 보고 null. (동시성 자체는 단일 연결 하네스로 재현 불가 → 버튼 pending 비활성 + exclusive 트랜잭션으로 막고 실기기 연타 QA) |
 | `schema.test.ts` | v8 포함 확인, v7 DB에 migrateToV8 후 기존 행 보존 |
 | `gacha.test.ts` | 기존 유지 (2,000회 시뮬레이션) |
 
@@ -235,3 +238,4 @@ DrawScreen(drawId) → repo.findAll() 에서 해당 행 → CardReveal
 | 버전 | 날짜 | 변경 |
 |---|---|---|
 | v0.1 | 2026-10-26 | 최초 작성. 도장 파생(D1), epoch(D2), 단일 테이블(D3), TheCatAPI 연기(D7) |
+| v0.2 | 2026-10-26 | M1 구현 반영 — repo `insertWithin(decide)`, epoch 은 v8 마이그레이션에서 기록, StampState.draws |

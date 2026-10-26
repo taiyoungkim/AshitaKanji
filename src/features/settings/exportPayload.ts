@@ -5,6 +5,7 @@
 //             (자동 송신 0건). 이 페이로드는 로컬 파일로만 직렬화됨.
 
 import type { UserCard } from '~/types/Card';
+import type { CatCardDraw } from '~/types/CatCardDraw';
 import type { DailyStats } from '~/types/DailyStats';
 import type { ReviewLogRecord } from '~/types/ReviewLog';
 
@@ -20,6 +21,7 @@ export interface ExportPayload {
   dailyStats: DailyStats[];
   appMeta: Record<string, string | null>;
   reviewLog?: ReviewLogRecord[]; // 선택 (큰 경우 제외)
+  catCardDraws?: CatCardDraw[]; // 고양이 카드 뽑기 기록 (선택 필드라 schemaVersion 유지)
 }
 
 export interface ExportParts {
@@ -27,6 +29,7 @@ export interface ExportParts {
   dailyStats: DailyStats[];
   appMeta: Record<string, string | null>;
   reviewLog: ReviewLogRecord[];
+  catCardDraws?: CatCardDraw[];
 }
 
 /** 순수: repo 결과 → 직렬화 가능한 페이로드. */
@@ -45,6 +48,7 @@ export function buildExportPayload(
     appMeta: parts.appMeta,
   };
   if (includeReviewLog) payload.reviewLog = parts.reviewLog;
+  if (parts.catCardDraws) payload.catCardDraws = parts.catCardDraws;
   return payload;
 }
 

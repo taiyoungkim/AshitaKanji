@@ -173,7 +173,9 @@ for (const rel of REQUIRED_ASSETS) {
       // Schema integrity — seed must ship at the app's current schema (so launch
       // migrations don't re-run ALTERs against existing columns) and word ids must
       // be the stable content-hash scheme (w_<hash>), not the legacy level-seq scheme.
-      const EXPECTED_SCHEMA_VERSION = '7'; // keep in sync with CURRENT_SCHEMA_VERSION (src/db/schema.ts)
+      // v8(cat_card_draw)은 CREATE IF NOT EXISTS 뿐이라 seed 가 v7 이어도 첫 실행 마이그레이션이 올린다.
+      // seed 를 v8 로 올리려면 build-jlpt-db.mjs 가 cat_card_draw 도 만들어야 한다 — 안 그러면 마이그레이션이 건너뛰어 테이블이 없다.
+      const EXPECTED_SCHEMA_VERSION = '7';
       const scalar = (sql) => execFileSync('sqlite3', [dbPath, sql], { encoding: 'utf8' }).trim();
       const seedSchemaVersion = scalar(`SELECT value FROM app_meta WHERE key='schema_version';`);
       add(

@@ -10,6 +10,7 @@ import type { UserCardRepo } from '~/db/repos/UserCardRepo';
 import type { DailyStatsRepo } from '~/db/repos/DailyStatsRepo';
 import type { AppMetaRepo } from '~/db/repos/AppMetaRepo';
 import type { ReviewLogRepo } from '~/db/repos/ReviewLogRepo';
+import type { CatCardDrawRepo } from '~/db/repos/CatCardDrawRepo';
 import {
   backupFilename,
   buildExportPayload,
@@ -23,18 +24,20 @@ export class ExportService {
     private readonly dailyStatsRepo: DailyStatsRepo,
     private readonly appMetaRepo: AppMetaRepo,
     private readonly reviewLogRepo: ReviewLogRepo,
+    private readonly catCardDrawRepo: CatCardDrawRepo,
     private readonly now: () => number = Date.now,
   ) {}
 
   async buildPayload(includeReviewLog: boolean): Promise<ExportPayload> {
-    const [userCards, dailyStats, appMeta, reviewLog] = await Promise.all([
+    const [userCards, dailyStats, appMeta, reviewLog, catCardDraws] = await Promise.all([
       this.userCardRepo.findAll(),
       this.dailyStatsRepo.findAll(),
       this.appMetaRepo.getAll(),
       includeReviewLog ? this.reviewLogRepo.findAll() : Promise.resolve([]),
+      this.catCardDrawRepo.findAll(),
     ]);
     return buildExportPayload(
-      { userCards, dailyStats, appMeta, reviewLog },
+      { userCards, dailyStats, appMeta, reviewLog, catCardDraws },
       includeReviewLog,
       this.now(),
     );
