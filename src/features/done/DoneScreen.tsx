@@ -63,6 +63,7 @@ import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCa
 import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 import { resetToHome } from '~/lib/navigation';
 import { RemoveAdsUpsell } from '~/components/RemoveAdsUpsell';
+import { maybeAskReview } from '~/lib/storeReview';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
 // 디바이스 실제 inset 을 직접 사용한다.
@@ -234,6 +235,8 @@ export default function DoneScreen(): React.ReactNode {
     resetSession();
     // 결과 화면은 스택에서 제거한다 — 뒤로가기·스와이프로 되돌아오지 않게.
     resetToHome(router);
+    // 오니기리를 완성한 날에만 별점을 부탁한다 — 영수증까지 다 본 뒤라 흐름을 끊지 않는다.
+    if (reward?.crafted) void maybeAskReview();
   };
 
   const openReceipt = () => {
