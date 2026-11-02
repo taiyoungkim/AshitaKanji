@@ -12,6 +12,9 @@ import { Overline } from '~/components/ui/Surface';
 import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
 import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
+import { isReviewDue } from '~/lib/storeReview';
+import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
+import { findRewardForSession } from '~/features/done/rewardPresentation';
 import { useSessionStore } from '~/stores/SessionStore';
 import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStore';
 import { StudyActions } from './components/StudyActions';
@@ -89,8 +92,12 @@ export default function StudyScreen(): React.ReactNode {
     if (finished && !summary && !navigatedToDone.current) {
       navigatedToDone.current = true;
       // 세션 기록 저장 먼저(광고 실패와 무관하게 보존) → 캡 통과 시 전면광고 → /done.
+      // 단 오니기리를 완성했고 별점 요청 차례면 광고 없이 /done — 완료 화면이 별점을 요청한다.
       void endSession('completed')
-        .then(() => showInterstitialIfEligible(() => router.replace('/done')))
+        .then(async () => {
+          if (await isCraftedReviewMoment()) router.replace('/done');
+          else await showInterstitialIfEligible(() => router.replace('/done'));
+        })
         .catch((err: unknown) => {
           console.warn('[study] complete failed:', err);
           navigatedToDone.current = false;
@@ -211,3 +218,12 @@ const makeStyles = (c: ThemeColors) =>
     noticeTitle: { ...typography.resultTitle, color: c.ink, textAlign: 'center' },
     noticeBody: { ...typography.body, color: c.body, textAlign: 'center' },
   });
+
+/** 방금 끝난 세션이 오니기리를 완성했고 별점 요청 차례인가. 확인 실패 시 false (평소대로 광고). */
+async function isCraftedReviewMoment(): Promise<boolean> {
+  const sessionId = useSessionStore.getState().summary?.sessionId ?? null;
+  const snapshot = await buildOnigiriProgressService()
+    .then((svc) => svc.getSnapshot())
+    .catch(() => null);
+  return !!findRewardForSession(snapshot, sessionId)?.crafted && (await isReviewDue());
+}
