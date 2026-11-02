@@ -3,6 +3,10 @@ import { useRouter, type Href } from 'expo-router';
 import { font, spacing, type ThemeColors } from '~/design/tokens';
 import { useTheme, useThemedStyles } from '~/design/theme';
 import { IconHistory, IconMenu, IconSettings, IconToday } from '~/design/icons';
+import { useBottomInset } from '~/hooks/useScreenInsets';
+
+// AppTabBar 와 같은 규칙 — 시스템 내비 inset 이 더 크면 그만큼 올린다.
+const BAR_BOTTOM_PADDING = 24;
 
 export type MainTabKey = 'home' | 'collection' | 'stats' | 'settings';
 
@@ -17,9 +21,10 @@ export function MainTabBar({ active }: { active: MainTabKey }): React.ReactNode 
   const router = useRouter();
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
+  const bottomInset = useBottomInset();
 
   return (
-    <View style={styles.bar}>
+    <View style={[styles.bar, { paddingBottom: Math.max(BAR_BOTTOM_PADDING, bottomInset) }]}>
       {TABS.map((tab) => {
         const focused = tab.key === active;
         const tint = focused ? colors.primary : colors.body;
@@ -59,7 +64,6 @@ const makeStyles = (c: ThemeColors) =>
       borderTopColor: c.pressed,
       paddingTop: 16,
       paddingHorizontal: spacing.xl,
-      paddingBottom: 24,
     },
     tab: {
       width: 72,

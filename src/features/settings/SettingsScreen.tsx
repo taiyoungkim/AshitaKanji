@@ -2,11 +2,15 @@
 
 import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { cardShadow, layout, radius, spacing, typography, type ThemeColors } from '~/design/tokens';
 import { useThemedStyles } from '~/design/theme';
 import { useSettingsStore } from '~/stores/SettingsStore';
+import { useToast } from '~/components/Toast';
+import { restorePurchases, useAdFreeStore } from '~/lib/ads/entitlement';
+import { useRemoveAdsPurchase } from './useRemoveAdsPurchase';
 
 export default function SettingsScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -16,6 +20,20 @@ export default function SettingsScreen(): React.ReactNode {
   const ttsEnabled = useSettingsStore((state) => state.ttsEnabled);
   const ttsSpeed = useSettingsStore((state) => state.ttsSpeed);
   const version = Constants.expoConfig?.version ?? '—';
+  const adFree = useAdFreeStore((state) => state.adFree);
+  const toast = useToast();
+  const [busy, setBusy] = useState(false);
+  const { purchase, busy: purchasing } = useRemoveAdsPurchase();
+
+  const onRestore = async () => {
+    if (busy || purchasing) return;
+    setBusy(true);
+    const result = await restorePurchases();
+    setBusy(false);
+    if (result === true) toast.show('구매 내역을 복원했어요.');
+    else if (result === 'unavailable') toast.show('지금은 복원할 수 없어요. 잠시 후 다시 시도해 주세요.');
+    else toast.show('복원할 구매 내역이 없어요.');
+  };
 
   const learningSummary = `${selectedLevels.join(' · ')} · 하루 ${dailyNewLimit}개`;
   const pronunciationSummary = `${ttsEnabled ? '켜짐' : '꺼짐'} · ${ttsSpeed.toFixed(1)}x`;
@@ -37,6 +55,16 @@ export default function SettingsScreen(): React.ReactNode {
             summary={pronunciationSummary}
             onPress={() => router.push('/settings-pronunciation')}
           />
+        </View>
+
+        <View style={styles.group}>
+          <SettingsRow
+            label="광고 제거"
+            summary={adFree ? '구매 완료' : undefined}
+            onPress={purchase}
+          />
+          <View style={styles.divider} />
+          <SettingsRow label="구매 복원" onPress={() => void onRestore()} />
         </View>
 
         <View style={styles.group}>

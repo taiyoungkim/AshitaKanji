@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2026-09-29
+Last updated: 2026-10-26
 
 This Privacy Policy applies to **오니칸 (오니기리 칸지)**.
 
@@ -11,6 +11,7 @@ This Privacy Policy applies to **오니칸 (오니기리 칸지)**.
 - Study progress, review logs, settings, and local statistics stay on your device. We do not operate a learning-data server.
 - After a regular study, weakness review, or reading session ends, the app may show a full-screen advertisement served by **Google AdMob**.
 - On iOS, the app asks for App Tracking Transparency (ATT) permission so AdMob can serve personalized ads if you allow tracking. If you decline, the app still works and ads can still appear as non-personalized ads.
+- You can buy a one-time "Remove Ads" purchase. Payment is handled entirely by the App Store or Google Play; we do not receive your payment details.
 - We do not use a first-party analytics or crash-reporting SDK.
 - The app may check for Expo Updates (version metadata) when it launches.
 
@@ -23,6 +24,7 @@ The app stores the following data locally on your device:
 - Study session statistics
 - App settings, including whether a tutorial was completed
 - Ad frequency-cap state (so we do not show ads too often)
+- Whether you bought Remove Ads (so ads stay off while offline)
 
 This learning data is stored in the app's local SQLite database and local storage. We do not upload it to a server we operate. You can export a JSON backup from Settings; that file leaves the device only if you choose to share or save it.
 
@@ -38,13 +40,23 @@ Ads are loaded and shown by **Google AdMob** (`react-native-google-mobile-ads`).
 
 오니칸 does not send your word list, meanings, review grades, or FSRS schedule to AdMob.
 
-Ad frequency inside the app is limited: new users get a short grace period, ads appear at most once every two completed sessions, at most three times per day, and not more often than once every ten minutes. If an ad fails to load, study completion is not blocked.
+Ad frequency inside the app is limited: new users get a short grace period, after that the first completed session of a day can show an ad, later ads appear at most once every two completed sessions, at most three times per day, and not more often than once every ten minutes. If an ad fails to load, study completion is not blocked.
 
 Google's own policies apply to data AdMob collects. See [Google Privacy Policy](https://policies.google.com/privacy) and [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites).
 
+## In-App Purchase (Remove Ads)
+
+Remove Ads is a one-time, non-consumable purchase. When you buy or restore it:
+
+- The purchase is processed by **Apple App Store** or **Google Play** under their terms and privacy policies. We never see your card or account details.
+- The app asks the store which purchases your store account owns, and stores a local on/off flag. We do not run a purchase server, and no third-party purchase service is used.
+- With Remove Ads, the app does not initialize AdMob or show the iOS tracking prompt.
+
+You can restore the purchase on a new device from Settings → 구매 복원. Refunds are handled by Apple or Google; a refunded purchase turns ads back on the next time the app checks.
+
 ## App Tracking Transparency (iOS)
 
-On iOS 14.5 and later, the app requests tracking permission before initializing the ads SDK. The system prompt uses this purpose:
+On iOS 14.5 and later, the app requests tracking permission before initializing the ads SDK (skipped if you bought Remove Ads). The system prompt uses this purpose:
 
 > 맞춤 광고 제공을 위해 추적 권한을 사용합니다.
 
