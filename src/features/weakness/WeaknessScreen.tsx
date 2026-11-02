@@ -14,6 +14,7 @@ import { Grade } from '~/types/Grade';
 import { useFullScreenInsets } from '~/hooks/useScreenInsets';
 import { useTTS } from '~/hooks/useTTS';
 import { preloadInterstitial, showInterstitialIfEligible } from '~/lib/ads/interstitialManager';
+import { RemoveAdsUpsell } from '~/components/RemoveAdsUpsell';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import type { CardWithProgress } from '~/types/Card';
 
@@ -225,6 +226,7 @@ export default function WeaknessScreen(): React.ReactNode {
             <Text style={styles.tally}>
               오늘 복습 <Text style={styles.tallyAccent}>{reviewedCount} / {reviewedCount}</Text> 완료
             </Text>
+            <RemoveAdsUpsell />
             <Button label="오늘로 돌아가기" variant="brand" onPress={leave} style={styles.doneButton} />
           </>
         ) : (
@@ -232,6 +234,7 @@ export default function WeaknessScreen(): React.ReactNode {
             <Overline>약점 복습</Overline>
             <Text style={styles.title}>약점 복습 완료</Text>
             <Text style={styles.dim}>{reviewedCount}개 다시 봤어요.</Text>
+            <RemoveAdsUpsell />
             <Button label="돌아가기" onPress={leave} style={styles.doneButton} />
           </>
         )}

@@ -19,6 +19,7 @@ import { chapterStatus, isChapterComplete, resolveCurrentChapter, type ChapterSt
 import { countReadingPasses, loadLevelChapterStats } from './buildReadingEngine';
 import { ArcGauge } from './components/ArcGauge';
 import { isVisualCaptureEnabled } from '~/visual/captureFixtures';
+import { RemoveAdsUpsell } from '~/components/RemoveAdsUpsell';
 
 // 필터 시트는 N1이 위 — 최종 화면 12 순서.
 const LEVELS: JlptLevel[] = ['N1', 'N2', 'N3', 'N4', 'N5'];
@@ -147,6 +148,10 @@ export default function ReadingChaptersScreen(): React.ReactNode {
                   </Text>
                 </View>
               </View>
+            ) : null}
+            {/* 회독 완료로 돌아올 때마다 다시 마운트해 업셀 플래그를 소비한다. */}
+            {Number.isInteger(justCompleted) && justCompleted > 0 ? (
+              <RemoveAdsUpsell key={params.completed} style={styles.upsell} />
             ) : null}
             <Text style={styles.sectionOverline}>현재 회독</Text>
             <Card variant="elevated" style={styles.currentCard}>
@@ -328,6 +333,8 @@ const makeStyles = (c: ThemeColors) =>
     summaryRowValue: { ...typography.captionStrong, color: c.ink },
 
     section: { gap: spacing.md },
+    // section gap 이 간격을 맡는다.
+    upsell: { alignSelf: 'flex-start', marginTop: 0 },
     sectionOverline: {
       ...typography.captionStrong,
       color: c.mute,
