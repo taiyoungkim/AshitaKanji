@@ -85,6 +85,11 @@ export function recordAdShown(state: AdState, now: number): AdState {
   };
 }
 
+/** 이번 광고가 그날 첫 광고인가 — 광고 제거 업셀은 하루 1회 이 때만. (recordAdShown 전 상태로 호출) */
+export function isFirstAdToday(state: AdState, now: number): boolean {
+  return state.shownDay !== dayOf(now);
+}
+
 /** 광고 제거 상품 (비소모성). 두 스토어 콘솔에 같은 ID로 등록. */
 export const REMOVE_ADS_PRODUCT_ID = 'remove_ads';
 

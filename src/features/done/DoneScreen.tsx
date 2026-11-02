@@ -62,6 +62,9 @@ import { buildDoneRewardPresentation, findRewardForSession } from './rewardPrese
 import { captureReceipt, saveReceiptImage, shareReceiptImage } from './receiptCapture';
 import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 import { resetToHome } from '~/lib/navigation';
+import { takeUpsell } from '~/lib/ads/interstitialManager';
+import { useAdFreeStore } from '~/lib/ads/entitlement';
+import { useRemoveAdsPurchase } from '~/features/settings/useRemoveAdsPurchase';
 
 // fullScreenModal 안에서는 useSafeAreaInsets()가 0을 주는 경우가 있어,
 // 디바이스 실제 inset 을 직접 사용한다.
@@ -99,6 +102,10 @@ export default function DoneScreen(): React.ReactNode {
   const [receiptOpen, setReceiptOpen] = useState(captureMode && uiFixture === '07-receipt');
   const [craftedOpen, setCraftedOpen] = useState(captureMode && uiFixture === '06-onigiri-complete');
   const receiptRef = useRef<View>(null);
+  // 방금 그날 첫 광고를 본 경우에만 광고 제거를 한 줄로 제안한다.
+  const [upsell] = useState(() => !captureMode && takeUpsell());
+  const adFree = useAdFreeStore((s) => s.adFree);
+  const { purchase, busy: purchasing } = useRemoveAdsPurchase();
 
   // 접근성 설정 확인 전에도 결과가 보이도록 최종 상태에서 시작한다.
   const art = useRef(new Animated.Value(1)).current;
@@ -404,6 +411,17 @@ export default function DoneScreen(): React.ReactNode {
             <Animated.Text style={[styles.memorized, { opacity: noteIn }]}>
               {memorizedNote}
             </Animated.Text>
+
+            {upsell && !adFree && (
+              <Pressable
+                onPress={purchase}
+                disabled={purchasing}
+                style={({ pressed }) => [styles.upsell, pressed && styles.upsellPressed]}
+                accessibilityRole="button"
+              >
+                <Text style={styles.upsellLabel}>광고 없이 공부하기 · 한 번 결제 ›</Text>
+              </Pressable>
+            )}
           </>
             )}
           </>
@@ -672,6 +690,13 @@ const makeStyles = (c: ThemeColors) =>
     summaryValue: { ...typography.cardTitle, color: c.ink, fontVariant: ['tabular-nums'] },
 
     memorized: { ...typography.body, color: c.body, marginTop: spacing.lg },
+    upsell: {
+      alignSelf: 'flex-start',
+      marginTop: spacing.lg,
+      paddingVertical: spacing.sm,
+    },
+    upsellPressed: { opacity: 0.6 },
+    upsellLabel: { ...typography.body, color: c.mute, textDecorationLine: 'underline' },
 
     crafted: { flex: 1, alignItems: 'center', gap: spacing.lg },
     craftedOverline: { color: c.primary },

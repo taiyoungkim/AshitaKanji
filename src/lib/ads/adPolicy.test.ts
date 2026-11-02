@@ -10,6 +10,7 @@ import {
   SESSIONS_PER_AD,
   dayOf,
   initialAdState,
+  isFirstAdToday,
   ownsRemoveAds,
   isEligible,
   recordAdShown,
@@ -68,6 +69,15 @@ describe('하루 1회 보장', () => {
     s = recordSessionCompleted(s);
     const nextDay = AFTER_GRACE + 24 * 60 * 60 * 1000;
     expect(isEligible(s, nextDay)).toBe(true);
+  });
+});
+
+describe('광고 제거 업셀', () => {
+  it('그날 첫 광고에서만 true — 같은 날 두 번째부턴 false, 다음날 다시 true', () => {
+    expect(isFirstAdToday(eligibleState(), AFTER_GRACE)).toBe(true);
+    const s = recordAdShown(eligibleState(), AFTER_GRACE);
+    expect(isFirstAdToday(s, AFTER_GRACE + MIN_INTERVAL_MS + 1)).toBe(false);
+    expect(isFirstAdToday(s, AFTER_GRACE + 24 * 60 * 60 * 1000)).toBe(true);
   });
 });
 

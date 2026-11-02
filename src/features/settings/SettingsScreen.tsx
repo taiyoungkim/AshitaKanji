@@ -9,7 +9,8 @@ import { cardShadow, layout, radius, spacing, typography, type ThemeColors } fro
 import { useThemedStyles } from '~/design/theme';
 import { useSettingsStore } from '~/stores/SettingsStore';
 import { useToast } from '~/components/Toast';
-import { purchaseRemoveAds, restorePurchases, useAdFreeStore } from '~/lib/ads/entitlement';
+import { restorePurchases, useAdFreeStore } from '~/lib/ads/entitlement';
+import { useRemoveAdsPurchase } from './useRemoveAdsPurchase';
 
 export default function SettingsScreen(): React.ReactNode {
   const styles = useThemedStyles(makeStyles);
@@ -22,20 +23,10 @@ export default function SettingsScreen(): React.ReactNode {
   const adFree = useAdFreeStore((state) => state.adFree);
   const toast = useToast();
   const [busy, setBusy] = useState(false);
-
-  const onPurchase = async () => {
-    if (busy || adFree) return;
-    setBusy(true);
-    const result = await purchaseRemoveAds();
-    setBusy(false);
-    if (result === 'purchased') toast.show('광고가 제거되었어요. 감사합니다!');
-    else if (result === 'pending') toast.show('결제가 완료되면 광고가 제거돼요.');
-    else if (result === 'unavailable') toast.show('지금은 구매할 수 없어요. 잠시 후 다시 시도해 주세요.');
-    else if (result === 'failed') toast.show('구매를 완료하지 못했어요.');
-  };
+  const { purchase, busy: purchasing } = useRemoveAdsPurchase();
 
   const onRestore = async () => {
-    if (busy) return;
+    if (busy || purchasing) return;
     setBusy(true);
     const result = await restorePurchases();
     setBusy(false);
@@ -70,7 +61,7 @@ export default function SettingsScreen(): React.ReactNode {
           <SettingsRow
             label="광고 제거"
             summary={adFree ? '구매 완료' : undefined}
-            onPress={() => void onPurchase()}
+            onPress={purchase}
           />
           <View style={styles.divider} />
           <SettingsRow label="구매 복원" onPress={() => void onRestore()} />
