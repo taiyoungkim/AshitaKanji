@@ -141,4 +141,8 @@ describe('subscribeToStudyRouteRemoval', () => {
 
     expect(abandon).not.toHaveBeenCalled();
   });
+
+  it.each(['interim', 'recall'])('%s 단계에서는 이탈을 막지 않는다(1차 결과는 이미 저장됨)', (phase) => {
+    expect(shouldBlockStudyLeave({ summary: null, phase, reviewedCount: 3 })).toBe(false);
+  });
 });

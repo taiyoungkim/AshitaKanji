@@ -9,6 +9,7 @@ import {
 import {
   OnigiriProgressService,
   computeOnigiriProgress,
+  findIngredientRewardForSession,
 } from './progress';
 
 const DAY = 86_400_000;
@@ -127,5 +128,32 @@ describe('OnigiriProgressService', () => {
 
     expect(snapshot.totalIngredientsEarned).toBe(2);
     expect(snapshot.current.nextIngredient).toBe('TUNA');
+  });
+});
+
+describe('findIngredientRewardForSession', () => {
+  it('returns the ingredient that a specific session earned, not just the latest one', () => {
+    const sessions = [
+      ...completedStudySessions(5),
+      session({ id: 99, mode: 'weakness', started_at: START + 10 * DAY, ended_at: START + 10 * DAY + 1 }),
+    ];
+    const reward = findIngredientRewardForSession(sessions, 5);
+    const item = TEMP_ONIGIRI_CATALOG[1]!;
+    expect(reward?.item.id).toBe(item.id);
+    expect(reward?.ingredientIndex).toBe(5 - 1 - INGREDIENTS_PER_ONIGIRI);
+    expect(reward?.ingredient).toBe(item.ingredients[0]);
+    expect(computeOnigiriProgress(sessions).lastReward?.sessionId).toBe(99);
+  });
+
+  it('returns null for missing, abandoned or empty sessions', () => {
+    const sessions = [
+      session({ id: 1 }),
+      session({ id: 2, ended_reason: 'abandoned' }),
+      session({ id: 3, done_new: 0, done_review: 0 }),
+    ];
+    expect(findIngredientRewardForSession(sessions, null)).toBeNull();
+    expect(findIngredientRewardForSession(sessions, 2)).toBeNull();
+    expect(findIngredientRewardForSession(sessions, 3)).toBeNull();
+    expect(findIngredientRewardForSession(sessions, 404)).toBeNull();
   });
 });

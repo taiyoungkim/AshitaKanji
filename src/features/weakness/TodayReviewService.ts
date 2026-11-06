@@ -22,7 +22,7 @@ export class TodayReviewService {
     ),
   ) {}
 
-  /** 정규 학습 세션에서 `아직이에요`(Again)로 표시한 단어만 원래 순서대로 반환한다. */
+  /** 정규 학습 세션에서 `다시 볼래요`(Again)로 표시한 단어만 원래 순서대로 반환한다. */
   async getQueue(studySessionId: number, levels: readonly JlptLevel[]): Promise<CardWithProgress[]> {
     if (!Number.isInteger(studySessionId) || studySessionId <= 0 || levels.length === 0) return [];
     const logs = await this.reviewLogs.findBySession(studySessionId);

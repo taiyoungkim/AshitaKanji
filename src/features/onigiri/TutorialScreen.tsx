@@ -347,14 +347,14 @@ export default function TutorialScreen(): React.ReactNode {
             {revealed ? (
               <View style={styles.demoActions}>
                 <Button
-                  label="아직이에요"
+                  label="다시 볼래요"
                   variant="outline"
                   tall
                   style={styles.demoBtn}
                   onPress={() => nextCard(true)}
                 />
                 <Button
-                  label="외웠어요"
+                  label="한 번 익혔어요"
                   variant="ink"
                   tall
                   style={styles.demoBtn}

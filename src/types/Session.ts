@@ -7,7 +7,13 @@ export type SessionMode = 'review' | 'new' | 'scan' | 'weakness';
 
 export type SessionEndReason = 'completed' | 'abandoned' | 'app_killed';
 
-export type SessionPhase = 'main' | 'done';
+/**
+ * main    = 1차 학습(전체 단어 한 번씩, FSRS 기록)
+ * interim = 1차 결과 화면(중간 결과 — 최종 완료가 아님)
+ * recall  = 2차 기억 확인(FSRS·review_log 미기록, 세션 메모리만)
+ * done    = 최종 완료
+ */
+export type SessionPhase = 'main' | 'interim' | 'recall' | 'done';
 
 export interface SessionConfig {
   levels: JlptLevel[];           // 학습 선택 레벨 (신규와 기존 due 모두 적용)
@@ -41,6 +47,14 @@ export interface SessionState {
   doneNew: number;
   doneReview: number;
   startedAtMs: number;
+  /** 1차에서 '다시 볼래요'(Again) / '한 번 익혔어요'(Good) 선택 수. */
+  firstPassAgain: number;
+  firstPassLearned: number;
+  /** 2차 기억 확인 큐 — 1차 종료 시 한 번만 계산해 고정한다. */
+  recallQueue: CardWithProgress[];
+  recallIndex: number;
+  recallRemembered: number;
+  recallConfused: number;
 }
 
 export interface SessionSummary {

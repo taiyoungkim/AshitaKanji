@@ -68,6 +68,12 @@ function seedStudyStore(revealed: boolean): void {
     doneNew: 0,
     doneReview: 0,
     startedAtMs: VISUAL_NOW_MS,
+    firstPassAgain: 0,
+    firstPassLearned: 0,
+    recallQueue: [],
+    recallIndex: 0,
+    recallRemembered: 0,
+    recallConfused: 0,
   };
   useSessionStore.setState({
     engine: {} as never,

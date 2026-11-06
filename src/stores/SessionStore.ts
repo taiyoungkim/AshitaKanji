@@ -19,7 +19,8 @@ import { getWordCount } from '~/db/open';
 interface SessionStoreState {
   engine: SessionEngine | null;
   current: SessionState | null;     // Engine snapshot (phase/queues/counters)
-  card: CardWithProgress | null;    // 현재 카드
+  card: CardWithProgress | null;    // 현재 카드 (1차 학습)
+  recallCard: CardWithProgress | null; // 현재 카드 (2차 기억 확인)
   reveal: boolean;                  // 현재 카드 reveal 여부
   cardShownMs: number;              // 현재 카드 노출 시각 (reveal_ms 계산용)
   lastRevealMs: number | null;      // 직전 reveal 까지 걸린 ms (없으면 null)
@@ -30,6 +31,10 @@ interface SessionStoreState {
   startSession: (config: SessionConfig) => Promise<void>;
   showReveal: () => void;
   submitGrade: (grade: Grade) => Promise<void>;
+  /** 중간 결과 → 2차 기억 확인 시작. */
+  startRecall: () => void;
+  /** 2차 기억 확인 결과 (기억났어요=true / 헷갈렸어요=false). FSRS 미기록. */
+  submitRecall: (remembered: boolean) => void;
   endSession: (reason?: 'completed' | 'abandoned') => Promise<SessionSummary>;
   /** 화면 이탈 등 비정상 종료: 미완 세션을 abandoned 로 기록 후 정리. */
   abandon: () => Promise<void>;
@@ -40,6 +45,7 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
   engine: null,
   current: null,
   card: null,
+  recallCard: null,
   reveal: false,
   cardShownMs: 0,
   lastRevealMs: null,
@@ -59,6 +65,7 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
         engine,
         current: state,
         card: engine.current(),
+        recallCard: null,
         reveal: false,
         cardShownMs: Date.now(),
         lastRevealMs: null,
@@ -84,14 +91,25 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
       const now = Date.now();
       await engine.submitGrade(grade, reveal ? lastRevealMs : null, now);
 
-      // 오늘 큐 소진 → 완료. Again 카드는 갑자기 재출제하지 않고 FSRS due 일정으로 넘긴다.
+      // 1차 큐 소진 → 중간 결과. Again 카드의 FSRS due 일정은 그대로 둔다.
+      // 1차 소진이 기존 "오늘 완료" 기준이므로 세션을 여기서 completed 로 저장한다 —
+      // 2차 기억 확인 도중 앱이 종료돼도 학습 기록·재료·도장이 유실되지 않는다.
+      // 저장 실패 시 최종 완료 단계(StudyScreen → endSession)에서 다시 시도한다.
       if (engine.isRoundComplete()) {
         engine.completeCurrentRound();
+        if (engine.snapshot().phase !== 'done') {
+          try {
+            await engine.end('completed', Date.now());
+          } catch (err) {
+            console.warn('[session] first-pass completion save failed:', err);
+          }
+        }
       }
 
       set({
         current: engine.snapshot(),
         card: engine.current(),
+        recallCard: engine.currentRecall(),
         reveal: false,
         cardShownMs: Date.now(),
         lastRevealMs: null,
@@ -101,12 +119,38 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
     }
   },
 
+  startRecall() {
+    const { engine } = get();
+    if (!engine) return;
+    engine.startRecall();
+    set({
+      current: engine.snapshot(),
+      recallCard: engine.currentRecall(),
+      reveal: false,
+      cardShownMs: Date.now(),
+      lastRevealMs: null,
+    });
+  },
+
+  submitRecall(remembered) {
+    const { engine, busy } = get();
+    if (!engine || busy || !engine.currentRecall()) return;
+    engine.submitRecall(remembered);
+    set({
+      current: engine.snapshot(),
+      recallCard: engine.currentRecall(),
+      reveal: false,
+      cardShownMs: Date.now(),
+      lastRevealMs: null,
+    });
+  },
+
   async endSession(reason = 'completed') {
     const { engine, summary } = get();
     if (summary) return summary;
     if (!engine) throw new Error('no active session');
     const next = await engine.end(reason, Date.now());
-    set({ summary: next, card: null, current: engine.snapshot() });
+    set({ summary: next, card: null, recallCard: null, current: engine.snapshot() });
     return next;
   },
 
@@ -130,6 +174,7 @@ export const useSessionStore = create<SessionStoreState>((set, get) => ({
       engine: null,
       current: null,
       card: null,
+      recallCard: null,
       reveal: false,
       cardShownMs: 0,
       lastRevealMs: null,

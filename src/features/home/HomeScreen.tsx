@@ -9,7 +9,13 @@ import { SqliteSessionRepo } from '~/db/repos/sqlite/SqliteSessionRepo';
 import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProgressService';
 import { recipeImage } from '~/features/onigiri/recipeAssets';
 import { onboardingImages } from '~/features/onigiri/onboardingAssets';
-import { computeOnigiriProgress, type OnigiriProgressSnapshot } from '~/features/onigiri/progress';
+import {
+  computeOnigiriProgress,
+  findIngredientRewardForSession,
+  type OnigiriIngredientReward,
+  type OnigiriProgressSnapshot,
+} from '~/features/onigiri/progress';
+import { INGREDIENTS_PER_ONIGIRI } from '~/features/onigiri/catalog';
 import { loadLevelChapterStats } from '~/features/reading/buildReadingEngine';
 import { buildRecordService } from '~/features/stats/buildRecordService';
 import type { RecordSnapshot } from '~/features/stats/recordTypes';
@@ -23,11 +29,11 @@ import { StreakCard } from './components/StreakStamps';
 import { isVisualCaptureEnabled, VISUAL_NOW_MS } from '~/visual/captureFixtures';
 import type { OnigiriIngredientList } from '~/features/onigiri/types';
 import {
+  HomeActionCard,
   HomeAllDoneCard,
   HomeStudyCompleteHero,
   HomeStudyHero,
   MonthlyMenuCard,
-  ReadingContinueSection,
   RecentOnigiriCard,
 } from './components/HomeSections';
 
@@ -38,10 +44,22 @@ interface ReadingTarget {
   chapter: number;
   total: number;
   covered: number;
+  /** 회독 허브와 같은 진도 기준(known). */
+  known: number;
+  complete: boolean;
 }
 
 function toReadingTarget(level: JlptLevel, stat: ChapterStat | null): ReadingTarget | null {
-  return stat ? { level, chapter: stat.chapter, total: stat.total, covered: stat.covered } : null;
+  return stat
+    ? {
+        level,
+        chapter: stat.chapter,
+        total: stat.total,
+        covered: stat.covered,
+        known: stat.known,
+        complete: isChapterComplete(stat),
+      }
+    : null;
 }
 
 interface HomeData {
@@ -52,6 +70,8 @@ interface HomeData {
   readingTotal: number;
   record: RecordSnapshot | null;
   day: HomeDayState;
+  /** 오늘 학습 세션으로 받은 재료 (없으면 null). */
+  todayReward: OnigiriIngredientReward | null;
 }
 
 function isSameLocalDay(leftMs: number, rightMs: number): boolean {
@@ -99,6 +119,7 @@ async function loadHomeData(
     readingTotal: readingStats.reduce((sum, stat) => sum + stat.total, 0),
     record: recordResult.status === 'fulfilled' ? recordResult.value : null,
     day,
+    todayReward: findIngredientRewardForSession(sessions, day.studySessionId),
   };
 }
 
@@ -113,6 +134,7 @@ export default function HomeScreen(): React.ReactNode {
   // 회독 관련 표시는 학습 레벨이 아니라 회독 화면에서 고른 레벨을 따른다.
   const readingLevel = useSettingsStore((s) => s.readingLevel);
   const savedChapter = useSettingsStore((s) => s.readingChapters[s.readingLevel]);
+  const setReadingChapter = useSettingsStore((s) => s.setReadingChapter);
   const { uiFixture } = useLocalSearchParams<{ uiFixture?: string }>();
   const captureMode = isVisualCaptureEnabled() && uiFixture != null;
   const nowMs = captureMode ? VISUAL_NOW_MS : Date.now();
@@ -172,6 +194,16 @@ export default function HomeScreen(): React.ReactNode {
     if (!day?.studySessionId) return;
     router.push(`/today-words?sessionId=${day.studySessionId}` as Href);
   };
+  // 회독 허브의 '이어서 회독하기'와 같은 동작 — 챕터를 기억하고 회독 학습 화면으로 바로 간다.
+  const continueReading = () => {
+    if (!reading || reading.complete) return;
+    setReadingChapter(reading.level, reading.chapter);
+    router.push(`/reading-study?level=${reading.level}&chapter=${reading.chapter}` as Href);
+  };
+  const studyCount = day?.studyCount ?? 0;
+  const showTodayWords = !!day?.studySessionId && studyCount > 0;
+  const showReadingContinue = !!reading && !reading.complete && reading.total > 0;
+  const todayReward = data?.todayReward ?? null;
   // 홈 칩은 학습할 레벨 하나를 고르는 단일 선택이다.
   // 고른 레벨을 앞에 붙이는 방식은 동작하지 않는다 — 스토어가 배열을 항상 N5→N1 로
   // 정규화해서, 무엇을 골라도 selectedLevels[0] 이 가장 낮은 레벨로 되돌아간다.
@@ -220,23 +252,45 @@ export default function HomeScreen(): React.ReactNode {
             ) : (
               <HomeStudyCompleteHero
                 phase={phase}
-                studyCount={day?.studyCount ?? 0}
+                studyCount={studyCount}
                 reviewCount={todayAgain}
+                reward={
+                  todayReward
+                    ? {
+                        ingredient: todayReward.ingredient,
+                        recipeName: todayReward.item.name,
+                        ingredientCount: todayReward.ingredientIndex + 1,
+                        ingredientTotal: INGREDIENTS_PER_ONIGIRI,
+                      }
+                    : null
+                }
                 mascot={onboardingImages.home}
                 onReview={openTodayReview}
-                onBrowse={openTodayWords}
               />
             )}
+
+            {phase !== 'studyBefore' && showTodayWords ? (
+              <HomeActionCard
+                title="오늘 배운 단어"
+                description={`${studyCount}개 단어 다시 확인하기`}
+                onPress={openTodayWords}
+              />
+            ) : null}
 
             {phase === 'allDone' ? (
               <HomeAllDoneCard
                 reviewCount={todayAgain}
-                studyCount={day?.studyCount ?? 0}
+                studyCount={studyCount}
                 image={recipeImage(visualStudyBefore ? 'onigiri-001' : recentEntry.imageKey)}
                 onHub={openHub}
               />
-            ) : phase !== 'studyBefore' ? (
-              <ReadingContinueSection reading={reading} onHub={openHub} />
+            ) : phase !== 'studyBefore' && showReadingContinue && reading ? (
+              <HomeActionCard
+                title="이어서 회독해요"
+                description={`${reading.level} 챕터 ${reading.chapter} · ${reading.known}/${reading.total} 단어`}
+                progress={reading.known / reading.total}
+                onPress={continueReading}
+              />
             ) : null}
 
             <StreakCard days={streakDays} />

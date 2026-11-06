@@ -163,6 +163,35 @@ function buildLastReward(
   };
 }
 
+/**
+ * 특정 세션이 받은 재료. 홈 '오늘 학습 완료' 카드가 오늘 획득한 재료를 보여줄 때 쓴다.
+ * 지급 규칙은 computeOnigiriProgress 와 같다(completed + 학습 1개 이상 세션 = 재료 1개).
+ * 카탈로그를 넘친 세션이나 재료를 받지 않은 세션은 null.
+ */
+export function findIngredientRewardForSession(
+  sessions: readonly SessionRecord[],
+  sessionId: number | null,
+  catalog: readonly OnigiriCatalogItem[] = TEMP_ONIGIRI_CATALOG,
+): OnigiriIngredientReward | null {
+  if (sessionId === null) return null;
+  const ingredientSessions = buildIngredientSessions(sessions);
+  const rewardIndex = ingredientSessions.findIndex((session) => session.id === sessionId);
+  if (rewardIndex < 0 || rewardIndex >= catalog.length * INGREDIENTS_PER_ONIGIRI) return null;
+  const item = catalog[Math.floor(rewardIndex / INGREDIENTS_PER_ONIGIRI)];
+  const ingredientIndex = rewardIndex % INGREDIENTS_PER_ONIGIRI;
+  const ingredient = item?.ingredients[ingredientIndex];
+  const session = ingredientSessions[rewardIndex];
+  if (!item || !ingredient || !session) return null;
+  return {
+    sessionId,
+    item,
+    ingredientIndex,
+    ingredient,
+    crafted: ingredientIndex === INGREDIENTS_PER_ONIGIRI - 1,
+    earnedAt: session.earnedAt,
+  };
+}
+
 export class OnigiriProgressService {
   constructor(
     private readonly sessionRepo: SessionRepo,

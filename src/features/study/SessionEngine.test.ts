@@ -338,18 +338,141 @@ describe('Again — daily-only scheduling', () => {
   });
 });
 
-describe('completeCurrentRound — no surprise review loop', () => {
-  it('marks the session done after the planned queue is exhausted, even with Again cards', async () => {
+describe('completeCurrentRound — first pass → interim (no FSRS re-grade)', () => {
+  it('moves to interim after the planned queue is exhausted and keeps the Again FSRS schedule', async () => {
     cardRepo.seed([word('a')]);
     await engine.start({ ...cfg, dailyNewLimit: 1 }, NOW);
     await engine.submitGrade(Grade.Again, 500, NOW);
+    const dueAfterFirstPass = (await userCardRepo.findById('a'))?.due;
 
     expect(engine.isRoundComplete()).toBe(true);
     engine.completeCurrentRound();
 
     const snap = engine.snapshot();
-    expect(snap.phase).toBe('done');
+    expect(snap.phase).toBe('interim');
     expect(engine.current()).toBeNull();
+    expect((await userCardRepo.findById('a'))?.due).toBe(dueAfterFirstPass);
+  });
+});
+
+describe('two-step learning — recall queue', () => {
+  async function firstPass(grades: Grade[]): Promise<void> {
+    cardRepo.seed(grades.map((_, i) => word(`w${i}`)));
+    await engine.start({ ...cfg, dailyNewLimit: grades.length }, NOW);
+    for (const grade of grades) await engine.submitGrade(grade, 500, NOW);
+    engine.completeCurrentRound();
+  }
+
+  const ids = () => engine.snapshot().recallQueue.map((c) => c.word.id);
+
+  it('all "한 번 익혔어요": samples at most 5 learned words', async () => {
+    await firstPass(Array.from({ length: 8 }, () => Grade.Good));
+    const snap = engine.snapshot();
+    expect(snap.firstPassLearned).toBe(8);
+    expect(snap.firstPassAgain).toBe(0);
+    expect(ids()).toEqual(['w0', 'w1', 'w2', 'w3', 'w4']);
+  });
+
+  it('all "다시 볼래요": every word goes to recall', async () => {
+    await firstPass(Array.from({ length: 7 }, () => Grade.Again));
+    expect(engine.snapshot().firstPassAgain).toBe(7);
+    expect(ids()).toEqual(['w0', 'w1', 'w2', 'w3', 'w4', 'w5', 'w6']);
+  });
+
+  it('mixed: all Again words + up to 5 learned words, no duplicates', async () => {
+    const grades = [
+      Grade.Again, Grade.Good, Grade.Good, Grade.Again, Grade.Good,
+      Grade.Good, Grade.Good, Grade.Good, Grade.Good,
+    ];
+    await firstPass(grades);
+    const queue = ids();
+    expect(queue.slice(0, 2)).toEqual(['w0', 'w3']);
+    expect(queue).toHaveLength(7);
+    expect(new Set(queue).size).toBe(queue.length);
+  });
+
+  it('keeps the recall order fixed for the whole recall phase', async () => {
+    const shuffled = new SessionEngine(cardRepo, userCardRepo, logRepo, sessionRepo, fsrs);
+    cardRepo.seed(Array.from({ length: 9 }, (_, i) => word(`s${i}`)));
+    await shuffled.start({ ...cfg, dailyNewLimit: 9 }, NOW);
+    for (let i = 0; i < 9; i += 1) await shuffled.submitGrade(i % 3 === 0 ? Grade.Again : Grade.Good, 1, NOW);
+    shuffled.completeCurrentRound();
+    const fixed = shuffled.snapshot().recallQueue.map((c) => c.word.id);
+    shuffled.startRecall();
+    const seen: string[] = [];
+    while (shuffled.currentRecall()) {
+      seen.push(shuffled.currentRecall()!.word.id);
+      expect(shuffled.snapshot().recallQueue.map((c) => c.word.id)).toEqual(fixed);
+      shuffled.submitRecall(seen.length % 2 === 0);
+    }
+    expect(seen).toEqual(fixed);
+    expect(shuffled.snapshot().phase).toBe('done');
+  });
+
+  it('recall answers never write review_log or change user_card', async () => {
+    await firstPass([Grade.Again, Grade.Good]);
+    const logsBefore = (await logRepo.findBySession(engine.snapshot().sessionId)).length;
+    const cardsBefore = JSON.stringify([
+      await userCardRepo.findById('w0'),
+      await userCardRepo.findById('w1'),
+    ]);
+
+    engine.startRecall();
+    expect(engine.snapshot().phase).toBe('recall');
+    engine.submitRecall(false);
+    engine.submitRecall(true);
+
+    const snap = engine.snapshot();
+    expect(snap.phase).toBe('done');
+    expect(snap.recallConfused).toBe(1);
+    expect(snap.recallRemembered).toBe(1);
+    expect(snap.doneNew).toBe(2); // 1차 카운트만 — 2차는 학습 수에 더하지 않는다.
+    expect((await logRepo.findBySession(snap.sessionId)).length).toBe(logsBefore);
+    expect(JSON.stringify([
+      await userCardRepo.findById('w0'),
+      await userCardRepo.findById('w1'),
+    ])).toBe(cardsBefore);
+  });
+
+  it('rejects grading in recall and recall answers in main', async () => {
+    cardRepo.seed([word('a')]);
+    await engine.start({ ...cfg, dailyNewLimit: 1 }, NOW);
+    expect(() => engine.submitRecall(true)).toThrow();
+    await engine.submitGrade(Grade.Good, 1, NOW);
+    engine.completeCurrentRound();
+    engine.startRecall();
+    await expect(engine.submitGrade(Grade.Good, 1, NOW)).rejects.toThrow();
+  });
+});
+
+describe('end — saved once (reward/stamp duplication guard)', () => {
+  it('saving completed at interim keeps the phase, and later end calls do not rewrite the record', async () => {
+    cardRepo.seed([word('a'), word('b')]);
+    await engine.start({ ...cfg, dailyNewLimit: 2 }, NOW);
+    await engine.submitGrade(Grade.Again, 1, NOW);
+    await engine.submitGrade(Grade.Good, 1, NOW);
+    engine.completeCurrentRound();
+
+    const first = await engine.end('completed', NOW + 30_000);
+    expect(engine.snapshot().phase).toBe('interim');
+    expect(engine.isEnded()).toBe(true);
+
+    // 2차 도중 이탈(abandon) 또는 최종 완료 재호출 — 같은 요약, 레코드 불변.
+    const again = await engine.end('abandoned', NOW + 90_000);
+    expect(again).toBe(first);
+    const rec = await sessionRepo.findById(first.sessionId);
+    expect(rec?.ended_reason).toBe('completed');
+    expect(rec?.ended_at).toBe(NOW + 30_000);
+    expect(rec?.done_new).toBe(2);
+  });
+
+  it('abandoning during the first pass still closes the session as before', async () => {
+    cardRepo.seed([word('a'), word('b')]);
+    await engine.start({ ...cfg, dailyNewLimit: 2 }, NOW);
+    await engine.submitGrade(Grade.Good, 1, NOW);
+    const summary = await engine.end('abandoned', NOW + 1000);
+    expect(engine.snapshot().phase).toBe('done');
+    expect((await sessionRepo.findById(summary.sessionId))?.ended_reason).toBe('abandoned');
   });
 });
 

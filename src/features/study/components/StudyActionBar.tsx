@@ -12,10 +12,10 @@ interface Props {
   revealed: boolean;
   onReveal: () => void;
   revealLabel?: string;
-  /** 약한 쪽(outline) — "아직이에요" / "모름". */
+  /** 약한 쪽(outline) — "다시 볼래요" / "헷갈렸어요" / "모름". */
   negativeLabel: string;
   onNegative: () => void;
-  /** 강한 쪽(ink) — "외웠어요" / "안다". */
+  /** 강한 쪽(ink) — "한 번 익혔어요" / "기억났어요" / "안다". */
   positiveLabel: string;
   onPositive: () => void;
   disabled?: boolean;

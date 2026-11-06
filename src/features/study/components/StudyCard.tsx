@@ -43,6 +43,11 @@ interface Props {
   onSpeakExample?: () => void;
   onOpenDetail?: () => void;
   phoneticHint?: PhoneticHint;
+  /**
+   * recall = 2차 기억 확인. 공개 전에는 단어만(읽기 설정 무시),
+   * 공개 후에는 읽는 법과 뜻만 보여준다(예문·상세 링크 없음).
+   */
+  variant?: 'study' | 'recall';
 }
 
 export function StudyCard({
@@ -53,12 +58,15 @@ export function StudyCard({
   onSpeakExample,
   onOpenDetail,
   phoneticHint,
+  variant = 'study',
 }: Props): React.ReactNode {
+  const recall = variant === 'recall';
   const { colors } = useTheme();
   const styles = useThemedStyles(makeStyles);
   const reducedMotion = useReducedMotion();
   // 카드가 쓰이는 화면이 4곳이라 prop 을 4번 꿰지 않고 여기서 직접 읽는다.
-  const showReadingBeforeReveal = useSettingsStore((state) => state.showReadingBeforeReveal);
+  const readingSetting = useSettingsStore((state) => state.showReadingBeforeReveal);
+  const showReadingBeforeReveal = recall ? false : readingSetting;
   const [viewportHeight, setViewportHeight] = useState(0);
   const [promptHeight, setPromptHeight] = useState(0);
   const revealProgress = useRef(new Animated.Value(revealed ? 1 : 0)).current;
@@ -179,7 +187,7 @@ export function StudyCard({
               </View>
             )}
 
-            {word.example_jp && (
+            {!recall && word.example_jp && (
               <Pressable
                 style={styles.example}
                 onPress={onSpeakExample}
@@ -196,7 +204,7 @@ export function StudyCard({
               </Pressable>
             )}
 
-            {onOpenDetail && (
+            {!recall && onOpenDetail && (
               <Pressable
                 onPress={onOpenDetail}
                 style={styles.detailBtn}

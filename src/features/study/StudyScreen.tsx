@@ -2,6 +2,9 @@
 // Plan SC: "오늘 완료" = 오늘 큐를 모두 비움 → Done.
 //
 // 리콜(회상) → 공개 → 2단계 자가평가. 닫기·진행바·남은 개수는 상단 헤더가 담당한다.
+//
+// 2단계 학습: 1차(다시 볼래요/한 번 익혔어요) → 중간 결과 → 2차 기억 확인(헷갈렸어요/기억났어요)
+// → 최종 완료(/done). 1차 종료 시 세션은 이미 completed 로 저장되어 있다(SessionStore).
 
 import { useEffect, useRef } from 'react';
 import { useNavigation, useRouter } from 'expo-router';
@@ -17,9 +20,12 @@ import { buildOnigiriProgressService } from '~/features/onigiri/buildOnigiriProg
 import { findRewardForSession } from '~/features/done/rewardPresentation';
 import { useSessionStore } from '~/stores/SessionStore';
 import { settingsToSessionConfig, useSettingsStore } from '~/stores/SettingsStore';
+import { FirstPassResult } from './components/FirstPassResult';
+import { StudyActionBar } from './components/StudyActionBar';
 import { StudyActions } from './components/StudyActions';
 import { StudyCard } from './components/StudyCard';
 import { StudyHeader } from './components/StudyHeader';
+import { StudyProgressHeader } from './components/StudyProgressHeader';
 import { revealStudyCard } from './studyRevealAudio';
 import {
   resolveStudyMountAction,
@@ -31,12 +37,15 @@ import {
 export default function StudyScreen(): React.ReactNode {
   const current = useSessionStore((s) => s.current);
   const card = useSessionStore((s) => s.card);
+  const recallCard = useSessionStore((s) => s.recallCard);
   const reveal = useSessionStore((s) => s.reveal);
   const busy = useSessionStore((s) => s.busy);
   const summary = useSessionStore((s) => s.summary);
   const dataEmpty = useSessionStore((s) => s.dataEmpty);
   const startSession = useSessionStore((s) => s.startSession);
   const submitGrade = useSessionStore((s) => s.submitGrade);
+  const startRecall = useSessionStore((s) => s.startRecall);
+  const submitRecall = useSessionStore((s) => s.submitRecall);
   const endSession = useSessionStore((s) => s.endSession);
   const settingsHydrated = useSettingsStore((s) => s._hydrated);
   const tts = useTTS();
@@ -129,7 +138,7 @@ export default function StudyScreen(): React.ReactNode {
 
   const handleReveal = () => {
     const session = useSessionStore.getState();
-    const word = session.card?.word;
+    const word = (session.card ?? session.recallCard)?.word;
     if (!word) return;
 
     const settings = useSettingsStore.getState();
@@ -161,9 +170,49 @@ export default function StudyScreen(): React.ReactNode {
           ? { overline: '오늘의 학습', title: '학습할 카드가 없어요', body: '설정에서 레벨이나 하루 분량을 조정해 보세요.' }
           : null;
 
+  const phase = current?.phase ?? null;
+
   return (
     <View style={[styles.root, { paddingTop: screenInsets.top, paddingBottom: screenInsets.bottom }]}>
-      {current && card && !summary ? (
+      {current && phase === 'interim' && !summary ? (
+        <FirstPassResult
+          learnedCount={current.firstPassLearned}
+          againCount={current.firstPassAgain}
+          onContinue={startRecall}
+          onClose={() => router.back()}
+          disabled={busy}
+        />
+      ) : current && phase === 'recall' && recallCard && !summary ? (
+        <>
+          <StudyProgressHeader
+            done={current.recallIndex}
+            total={current.recallQueue.length}
+            onClose={() => router.back()}
+            closeLabel="기억 확인 나가기"
+          />
+          <StudyCard
+            word={recallCard.word}
+            variant="recall"
+            revealed={reveal}
+            onReveal={handleReveal}
+            onSpeak={
+              tts.enabled
+                ? () => tts.speakAudio('word', recallCard.word.id, recallCard.word.reading_kana)
+                : undefined
+            }
+          />
+          <StudyActionBar
+            revealed={reveal}
+            onReveal={handleReveal}
+            revealLabel="뜻 확인하기"
+            negativeLabel="헷갈렸어요"
+            onNegative={() => submitRecall(false)}
+            positiveLabel="기억났어요"
+            onPositive={() => submitRecall(true)}
+            disabled={busy}
+          />
+        </>
+      ) : current && card && !summary ? (
         <>
           <StudyHeader state={current} onClose={handleClose} />
           <StudyCard
