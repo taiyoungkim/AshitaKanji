@@ -50,6 +50,13 @@
         "serviceAccountKeyPath": "./secrets/play-service-account.json",
         "track": "internal"
       }
+    },
+    "store": {
+      "extends": "production",
+      "android": {
+        "track": "production",
+        "releaseStatus": "completed"
+      }
     }
   }
 }
