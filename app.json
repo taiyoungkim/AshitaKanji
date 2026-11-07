@@ -150,6 +150,7 @@
         }
       ],
       "./plugins/withFoldableConfigChanges",
+      "./plugins/withR8Optimization",
       [
         "expo-iap",
         {
